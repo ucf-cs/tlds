@@ -1,0 +1,85 @@
+\documentclass[10pt,journal,letter,compsoc]{IEEEtran}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[english]{babel}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{color}
+\usepackage{enumitem}
+\let\proof\relax
+\let\endproof\relax 
+\usepackage{amsthm}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\let\subcaption\relax
+\usepackage[font=small]{subcaption}
+\usepackage{graphicx}
+\usepackage[hidelinks,bookmarks=false,pdfpagelabels]{hyperref}
+\usepackage[nocompress]{cite}
+
+% definition environment
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{invariant}{Invariant}
+
+% typewriter font family that support hyphenation
+%\newcommand\textvtt[1]{{\normalfont\fontfamily{cmvtt}\selectfont #1}}
+\hyphenation{MD-List} 
+\hyphenation{skip-list}
+
+\algtext*{EndWhile}
+\algtext*{EndFor}
+\algtext*{EndIf}
+\algtext*{EndFunction}
+\newcommand\NIL{\text{NIL}}
+\newcommand\TRUE{\text{\textbf{true}}}
+\newcommand\FALSE{\text{\textbf{false}}}
+\newcommand\BREAK{\text{\textbf{break}}}
+\newcommand\CONTINUE{\text{\textbf{continue}}}
+\newcommand\AND{\;\text{\textbf{and}}\;}
+\newcommand\OR{\;\text{\textbf{or}}\;}
+\algrenewcommand\algorithmicindent{1em}
+
+\algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
+\algtext*{EndStruct}
+\algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
+\algtext*{EndClass}
+\algblockdefx[MacroBlock]{Define}{EndDefine} [2]{\textbf{define} #1(#2)} [0]{}
+\algtext*{EndDefine}
+\algblockdefx[InlineBlock]{Inline}{EndInline} [2]{\textbf{inline function} \textsc{#1}(#2)} [0]{}
+\algtext*{EndInline}
+
+\begin{document}
+
+\title{Lock-free Transactions for Node-based Concurrent Sets}
+
+\author{Deli~Zhang and~Damian~Dechev%
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem The authors are with the Department of Electrical Engineering and Computer Science, University of Central Florida, Orlando, FL, 32826. \protect\\
+E-mail: de-li.zhang@knights.ucf.edu and dechev@eecs.ucf.edu}}
+
+\IEEEtitleabstractindextext{
+\begin{abstract}
+    asd
+\end{abstract}
+
+%\category{D.1.3}{Concurrent Programming}{Algorithms}
+%\terms{Algorithms, Performance}
+\begin{IEEEkeywords}
+    Concurrent Data Structure, Transactional Memory, Lock-free 
+\end{IEEEkeywords}
+}
+\maketitle
+
+\section{Introduction}
+
+\section{Related Work}
+\label{sec:related}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\bibliographystyle{abbrv}
+\bibliography{citation}
+
+\end{document}
