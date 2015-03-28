@@ -73,10 +73,36 @@ E-mail: de-li.zhang@knights.ucf.edu and dechev@eecs.ucf.edu}}
 \maketitle
 
 \section{Introduction}
+Operation in lock-free data structures are not composable
+
+transactional set are important for in-memory databases
+
+Generic solution exist for constructing transactional objects, but its either blocking or present large overhead
+
+We present a method to design lock-free transactional objects based-on linked nodes.
+We leverage the special knowledge of this type of data structures to apply optimistic synchronization techniques that improves performance. 
+
 
 \section{Related Work}
 \label{sec:related}
 
+General constructions
+STM with large overhead, can be lock-free (RSTM), 
+
+HTM small overhead, not suitable for high contention, or large transactions
+
+OTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
+
+Custom constructions
+PTB, white box, still use semantic read/write set. Need to reverse operation upon failure
+
+Our approach, do not track read/write set, highly concurrent, Optimistic lock-free
+
+Concurrency control
+    Two-phase locking
+    MRLock
+
+lowering the overhead of non-blocking transactional memory
 \section{Conclusion}
 \label{sec:conclusion}
 \bibliographystyle{abbrv}
