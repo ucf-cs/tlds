@@ -8,14 +8,14 @@ class TransList
 public:
     enum OpStatus
     {
-        INPROGRESS,
+        INPROGRESS = 0,
         SUCCEED,
         FAIL
     };
 
     enum OpType
     {
-        FIND,
+        FIND = 0,
         INSERT,
         DELETE
     };
@@ -23,7 +23,7 @@ public:
     struct Operator
     {
         uint8_t type;
-        uint32_t val;
+        uint32_t key;
     };
 
     struct Desc
@@ -62,6 +62,8 @@ private:
     void HelpAdopt(Node* node);
     bool IsKeyExist(Node* node, uint32_t key);
     void LocatePred(Node*& pred, Node*& curr, uint32_t key);
+
+    void Print();
 
 private:
     Node* m_head;

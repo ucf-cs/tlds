@@ -19,7 +19,7 @@
 #include "setadaptor.h"
 
 template<typename T>
-void WorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, ThreadBarrier& barrier,  T& set)
+void WorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, ThreadBarrier& barrier,  T& set)
 {
     //set affinity for each thread
     cpu_set_t cpu = {{0}};
@@ -28,33 +28,33 @@ void WorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t ke
 
     double startTime = Time::GetWallTime();
 
-    boost::mt19937 randomGen;
+    boost::mt19937 randomGenKey;
     boost::mt19937 randomGenOp;
-    randomGen.seed(startTime + threadId);
+    randomGenKey.seed(startTime + threadId);
     randomGenOp.seed(startTime + threadId + 1000);
-    boost::uniform_int<uint32_t> randomDist(1, keyRange);
+    boost::uniform_int<uint32_t> randomDistKey(1, keyRange);
     boost::uniform_int<uint32_t> randomDistOp(1, 100);
     
     barrier.Wait();
     
+    SetOpArray ops(tranSize);
+
     for(unsigned int i = 0; i < testSize; ++i)
     {
-        uint32_t op = randomDistOp(randomGenOp);
-        if(op <= insertion)
+        for(uint32_t t = 0; t < tranSize; ++t)
         {
+            uint32_t op_dist = randomDistOp(randomGenOp);
+            ops[t].type = op_dist <= insertion ? INSERT : op_dist <= insertion + deletion ? DELETE : FIND;
+            ops[t].key  = randomDistKey(randomGenKey);
         }
-        else if(op <= insertion + deletion)
-        {
-        }
-        else
-        {
-        }
+
+        set.ExecuteOps(ops);
     }
 }
 
 
 template<typename T>
-void Tester(uint32_t numThread, uint32_t testSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion,  SetAdaptor<T>& set)
+void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion,  SetAdaptor<T>& set)
 {
     std::vector<std::thread> thread(numThread);
     ThreadBarrier barrier(numThread + 1);
@@ -72,7 +72,7 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t keyRange, uint32_t i
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 
     {
-        thread[i] = std::thread(WorkThread<SetAdaptor<T> >, numThread, i + 1, testSize, keyRange, insertion, deletion, std::ref(barrier), std::ref(set));
+        thread[i] = std::thread(WorkThread<SetAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, std::ref(barrier), std::ref(set));
     }
 
     barrier.Wait();
@@ -91,18 +91,20 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t keyRange, uint32_t i
 int main(int argc, const char *argv[])
 {
     uint32_t setType = 0;
-    uint32_t numThread = 4;
-    uint32_t testSize = 100000;
-    uint32_t keyRange = 100000;
+    uint32_t numThread = 1;
+    uint32_t testSize = 100;
+    uint32_t tranSize = 1;
+    uint32_t keyRange = 100;
     uint32_t insertion = 50;
     uint32_t deletion = 50;
 
     if(argc > 1) setType = atoi(argv[1]);
     if(argc > 2) numThread = atoi(argv[2]);
     if(argc > 3) testSize = atoi(argv[3]);
-    if(argc > 4) keyRange = atoi(argv[4]);
-    if(argc > 5) insertion = atoi(argv[5]);
-    if(argc > 6) deletion = atoi(argv[6]);
+    if(argc > 4) tranSize = atoi(argv[4]);
+    if(argc > 5) keyRange = atoi(argv[5]);
+    if(argc > 6) insertion = atoi(argv[6]);
+    if(argc > 7) deletion = atoi(argv[7]);
 
     assert(setType < 7);
 
@@ -110,12 +112,12 @@ int main(int argc, const char *argv[])
     {   "TransList", 
     };
 
-    printf("Start testing %s with %d threads %d iterations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
+    printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
 
     switch(setType)
     {
     case 0:
-        { SetAdaptor<TransList> set; Tester(numThread, testSize, keyRange, insertion, deletion, set); }
+        { SetAdaptor<TransList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     default:
         break;

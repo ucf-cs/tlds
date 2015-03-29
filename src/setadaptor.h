@@ -4,14 +4,20 @@
 #include <array>
 #include "translist/translist.h"
 
-enum SetOp
+enum SetOpType
 {
+    FIND = 0,
     INSERT,
-    DELETE,
-    FIND
+    DELETE
 };
 
-typedef std::array<SetOp, 4> OpArray;
+struct SetOperator
+{
+    uint8_t type;
+    uint32_t key;
+};
+
+typedef std::vector<SetOperator> SetOpArray;
 
 template<typename T>
 class SetAdaptor
@@ -25,12 +31,17 @@ public:
     SetAdaptor()
     {}
 
-    bool ExecuteOp(const OpArray& ops)
+    bool ExecuteOps(const SetOpArray& ops)
     {
+        TransList::Desc* desc = m_list.AllocateDesc(ops.size());
+
         for(uint32_t i = 0; i < ops.size(); ++i)
         {
+            desc->ops[i].type = ops[i].type; 
+            desc->ops[i].key = ops[i].key; 
         }
-        return false;
+
+        return m_list.ExecuteOps(desc);
     }
 
 private:
