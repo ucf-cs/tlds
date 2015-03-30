@@ -23,7 +23,7 @@ TransList::TransList()
 
 TransList::~TransList()
 {
-    ASSERT_CODE(Print(););
+    //ASSERT_CODE(Print(););
 
     Node* curr = m_head;
     while(curr != NULL)
@@ -68,7 +68,7 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
         }
         else
         {
-            ret = Find(op.key);
+            ret = Find(op.key, desc);
         }
 
         opid++;
@@ -89,9 +89,16 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
 inline void TransList::HelpAdopt(Node* node)
 {
     Node* curr = node->adopt;
-    if(curr == NULL)
+
+    //we skip adoption if the node itself has been logically deleted
+    if(curr == NULL || IS_ADPINV(curr))
     {
         return;
+    }
+
+    if(curr->adopt == NULL)
+    {
+        __sync_bool_compare_and_swap(&curr->adopt, NULL, SET_ADPINV(node));
     }
 
     Node* next = CLR_ADPINV(__sync_fetch_and_or(&curr->next, 0x1));
@@ -101,7 +108,7 @@ inline void TransList::HelpAdopt(Node* node)
         __sync_bool_compare_and_swap(&node->next, NULL, next);
     }
 
-    node->adopt = NULL;
+    __sync_bool_compare_and_swap(&node->adopt, curr, NULL);
 }
 
 
@@ -118,13 +125,13 @@ inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
 
         if(curr)
         {
-            new_node->next = curr;
-
-            if(IsKeyExist(curr, key))
+            if(IsKeyExist(curr, key, desc))
             {
                 delete new_node;
                 return curr->desc == desc;
             }
+
+            new_node->next = curr;
 
             //Key does not logically exisit, but physically 
             //a node containing the key exisit due to previous failed transactions
@@ -151,22 +158,19 @@ inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
 
         if(IS_ADPINV(pred_next))
         {
+            curr = CLR_ADPINV(pred->adopt);
             pred = NULL;
-            curr = CLR_ADPINV(pred_next);
-            //TODO: we are duplexing next field for backtracking
-            //Need modify HelpAdopt to support this
         }
         else
         {
-            pred = NULL;
             curr = pred;
+            pred = NULL;
         }
     }
 }
 
 inline bool TransList::Delete(uint32_t key, Desc* desc, uint8_t opid)
 {
-
     Node* new_node = new Node(key, NULL, desc, opid, NULL);
     Node* pred = NULL;
     Node* curr = m_head;
@@ -175,7 +179,7 @@ inline bool TransList::Delete(uint32_t key, Desc* desc, uint8_t opid)
     {
         LocatePred(pred, curr, key);
 
-        if(curr == NULL || !IsKeyExist(curr, key))
+        if(curr == NULL || !IsKeyExist(curr, key, desc))
         {
             delete new_node;
             return curr == NULL || (curr->key == key && curr->desc == desc);
@@ -199,42 +203,47 @@ inline bool TransList::Delete(uint32_t key, Desc* desc, uint8_t opid)
 
         if(IS_ADPINV(pred_next))
         {
+            curr = CLR_ADPINV(pred->adopt); 
             pred = NULL;
-            curr = CLR_ADPINV(pred_next); 
-            //TODO: we are duplexing next field for backtracking
-            //Need modify HelpAdopt to support this
         }
         else
         {
-            pred = NULL;
             curr = pred;
+            pred = NULL;
         }
     }
 }
 
 
-inline bool TransList::Find(uint32_t key)
+inline bool TransList::Find(uint32_t key, Desc* desc)
 {
     Node* pred = NULL;
     Node* curr = m_head;
 
     LocatePred(pred, curr, key);
 
-    return curr != NULL && IsKeyExist(curr, key);
+    return curr != NULL && IsKeyExist(curr, key, desc);
 }
 
 
-inline bool TransList::IsKeyExist(Node* node, uint32_t key)
+inline bool TransList::IsKeyExist(Node* node, uint32_t key, Desc* desc)
 {
     if(node->key == key)
     {
         if(node->desc->status == INPROGRESS)
         {
-            HelpOps(node->desc, node->opid + 1);
+            if(node->desc == desc)
+            {
+                return node->desc->ops[node->opid].type == INSERT;
+            }
+            else
+            {
+                HelpOps(node->desc, node->opid + 1);
+            }
         }
 
         return  (node->desc->status == SUCCEED && node->desc->ops[node->opid].type == INSERT) ||
-                (node->desc->status == FAIL && node->desc->ops[node->opid].type == DELETE);
+            (node->desc->status == FAIL && node->desc->ops[node->opid].type == DELETE);
     }
     else
     {
@@ -249,8 +258,10 @@ inline void TransList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
     {
         pred = curr;
         HelpAdopt(curr);
-        curr = curr->next;
+        curr = CLR_ADPINV(curr->next);
     }
+
+    ASSERT(pred, "pred must be valid");
 }
 
 inline void TransList::Print()
@@ -259,7 +270,7 @@ inline void TransList::Print()
 
     while(curr)
     {
-        printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(curr, curr->key)? "active":"inactive");
+        printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(curr, curr->key, NULL)? "active":"inactive");
         curr = curr->next;
     }
 }

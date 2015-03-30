@@ -56,11 +56,11 @@ public:
 private:
     bool Insert(uint32_t key, Desc* desc, uint8_t opid);
     bool Delete(uint32_t key, Desc* desc, uint8_t opid);
-    bool Find(uint32_t key);
+    bool Find(uint32_t key, Desc* desc);
 
     bool HelpOps(Desc* desc, uint8_t opid);
     void HelpAdopt(Node* node);
-    bool IsKeyExist(Node* node, uint32_t key);
+    bool IsKeyExist(Node* node, uint32_t key, Desc* desc);
     void LocatePred(Node*& pred, Node*& curr, uint32_t key);
 
     void Print();
