@@ -7,7 +7,7 @@ bin_PROGRAMS = trans
 trans_SOURCES = main.cc \
 			   common/timehelper.cc\
 			   common/assert.cc\
-			   translist/translist.cc
+			   set/translist/translist.cc
 
 
 trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11\

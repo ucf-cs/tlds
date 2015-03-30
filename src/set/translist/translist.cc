@@ -7,8 +7,15 @@
 
 #include <cstdlib>
 #include <cstdio>
-#include "translist/translist.h"
+#include "set/translist/translist.h"
 #include "common/assert.h"
+
+ASSERT_CODE(
+uint32_t g_count = 0;
+uint32_t g_count_ins = 0;
+uint32_t g_count_del = 0;
+uint32_t g_count_fnd = 0;
+)
 
 
 #define SET_ADPINV(_p)    ((Node *)(((uintptr_t)(_p)) | 1))
@@ -23,7 +30,11 @@ TransList::TransList()
 
 TransList::~TransList()
 {
-    //ASSERT_CODE(Print(););
+    ASSERT_CODE
+    (
+        printf("Total node count %u, Inserts %u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_del, g_count_fnd);
+        Print();
+    );
 
     Node* curr = m_head;
     while(curr != NULL)
@@ -46,7 +57,33 @@ TransList::Desc* TransList::AllocateDesc(uint8_t size)
 
 bool TransList::ExecuteOps(Desc* desc)
 {
-    return HelpOps(desc, 0);
+    bool ret = HelpOps(desc, 0);
+
+    ASSERT_CODE
+    (
+        if(ret)
+        {
+            for(uint32_t i = 0; i < desc->size; ++i)
+            {
+                if(desc->ops[i].type == INSERT)
+                {
+                    __sync_fetch_and_add(&g_count, 1);
+                    __sync_fetch_and_add(&g_count_ins, 1);
+                }
+                else if(desc->ops[i].type == DELETE)
+                {
+                    __sync_fetch_and_sub(&g_count, 1);
+                    __sync_fetch_and_add(&g_count_del, 1);
+                }
+                else
+                {
+                    __sync_fetch_and_add(&g_count_fnd, 1);
+                }
+            }
+        }
+    );
+
+    return ret;
 }
 
 
@@ -114,7 +151,6 @@ inline void TransList::HelpAdopt(Node* node)
 
 inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
 {
-
     Node* new_node = new Node(key, NULL, desc, opid, NULL);
     Node* pred = NULL;
     Node* curr = m_head;
@@ -179,10 +215,15 @@ inline bool TransList::Delete(uint32_t key, Desc* desc, uint8_t opid)
     {
         LocatePred(pred, curr, key);
 
-        if(curr == NULL || !IsKeyExist(curr, key, desc))
+        if(curr == NULL)
+        {
+            return false;
+        }
+
+        if(!IsKeyExist(curr, key, desc))
         {
             delete new_node;
-            return curr == NULL || (curr->key == key && curr->desc == desc);
+            return curr->key == key && curr->desc == desc;
         }
 
         new_node->adopt = curr;
@@ -232,8 +273,13 @@ inline bool TransList::IsKeyExist(Node* node, uint32_t key, Desc* desc)
     {
         if(node->desc->status == INPROGRESS)
         {
+            //We need to skip helping the transation if we are looking at a node from the same transaction
+            //Basically, the node added by previous operations in the same transaction is visible to subsequent operaitons 
+            //even if the transaction is INPROGRESS
             if(node->desc == desc)
             {
+                //Without this condition check, we may run into infinite loop
+                //if we have insert the same key twice within the same transaction
                 return node->desc->ops[node->opid].type == INSERT;
             }
             else
