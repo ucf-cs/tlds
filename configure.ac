@@ -60,7 +60,6 @@ AC_CHECK_LIB([gsl], [gsl_blas_dgemm], , [AC_MSG_FAILURE([
     GSL is required, stoping...
     ------------------------------------------])])
 
-
 # Checks for header files.
 
 # Checks for typedefs, structures, and compiler characteristics.

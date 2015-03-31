@@ -33,7 +33,7 @@ TransList::~TransList()
     ASSERT_CODE
     (
         printf("Total node count %u, Inserts %u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_del, g_count_fnd);
-        Print();
+        //Print();
     );
 
     Node* curr = m_head;

@@ -35,6 +35,8 @@ void WorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tr
     boost::uniform_int<uint32_t> randomDistKey(1, keyRange);
     boost::uniform_int<uint32_t> randomDistOp(1, 100);
     
+    set.Init();
+
     barrier.Wait();
     
     SetOpArray ops(tranSize);
@@ -50,6 +52,8 @@ void WorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tr
 
         set.ExecuteOps(ops);
     }
+
+    set.Uninit();
 }
 
 
@@ -63,6 +67,8 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
     boost::mt19937 randomGen;
     randomGen.seed(startTime - 10);
     boost::uniform_int<uint32_t> randomDist(1, keyRange);
+
+    set.Init();
 
     for(unsigned int i = 0; i < testSize; ++i)
     {
@@ -86,6 +92,8 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
             thread[i].join();
         }
     }
+
+    set.Uninit();
 }
 
 int main(int argc, const char *argv[])
@@ -110,6 +118,7 @@ int main(int argc, const char *argv[])
 
     const char* setName[] = 
     {   "TransList", 
+        "RSTMList"
     };
 
     printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
@@ -119,6 +128,10 @@ int main(int argc, const char *argv[])
     case 0:
         { SetAdaptor<TransList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
+    case 1:
+        { SetAdaptor<RSTMList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+
     default:
         break;
     }
