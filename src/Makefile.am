@@ -1,5 +1,5 @@
-rstm_srcdir = /home/deli/dev/parallel/rstm-dev
-rstm_builddir = /home/deli/dev/parallel/rstm-build
+rstm_srcdir = $(top_srcdir)/src/rstm/rstm-dev
+rstm_builddir = $(top_builddir)/src/rstm/rstm-compile
 
 SUBDIRS =
 
