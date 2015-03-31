@@ -4,10 +4,10 @@ EXTRA_DIST =
 
 bin_PROGRAMS = trans
 
-trans_SOURCES = main.cc \
+trans_SOURCES = bench/main.cc \
 			   common/timehelper.cc\
 			   common/assert.cc\
-			   set/translist/translist.cc
+			   translink/list/translist.cc
 
 
 trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11\
