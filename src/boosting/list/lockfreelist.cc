@@ -2,13 +2,6 @@
 #include <limits.h>
 #include "boosting/list/lockfreelist.h"
 
-/*
- * The five following functions handle the low-order mark bit that indicates
- * whether a node is logically deleted (1) or not (0).
- *  - is_marked_ref returns whether it is marked, 
- *  - (un)set_marked changes the mark,
- *  - get_(un)marked_ref sets the mark before returning the node.
- */
 inline bool is_marked_ref(LockfreeList::Node* i) 
 {
   return (bool) ((intptr_t)i & 0x1L);
@@ -42,9 +35,14 @@ LockfreeList::Node* LockfreeList::LocatePred(uint32_t key, Node** left)
     do {
         // Step 1: Traverse the list and find left (<val) and right (>=val).
         i = m_head;
-        do {
-            if (is_marked_ref(i->next)) continue; // Skip marked nodes.
-            if (i->key >= key) {
+        do 
+        {
+            if (is_marked_ref(i->next)) 
+            {
+                continue; // Skip marked nodes.
+            }
+            if (i->key >= key) 
+            {
                 right = i;
                 break;
             }
@@ -52,24 +50,31 @@ LockfreeList::Node* LockfreeList::LocatePred(uint32_t key, Node** left)
         } while ((i = get_unmarked_ref(i->next)));
 
         // Step 2: If there are marked nodes between left and right try to "remove" them.
-        if ((*left)->next != right) {
-
+        if ((*left)->next != right) 
+        {
             // Step 2.1: If an insertions was made in the meantime between left and right, repeat search.
             i = get_unmarked_ref((*left)->next);
-            do {
+            do 
+            {
                 // If there is at least one unmarked, search again.
-                if (!is_marked_ref(i->next)) goto repeat_search;
+                if (!is_marked_ref(i->next)) 
+                {
+                    goto repeat_search;
+                }
             } while ((i = get_unmarked_ref(i->next)) != right);
             // No insertions were made at this point!
 
             // Step 2.2: Try to "remove" the marked nodes between left and right.
             if (!__sync_bool_compare_and_swap(&((*left)->next), get_unmarked_ref((*left)->next), right))
+            {
                 goto repeat_search; // Search again if somone changed left->next.
+            }
         }
 
         // At this point, left->next == right. Safe to return!
         return right;
-    } while (1);
+
+    } while (true);
 }
 
 // Returns 1 if found, 0 otherwise.
@@ -118,7 +123,8 @@ int LockfreeList::Size()
 {
     int size = 0; // without head + tail.
     Node* i = m_head->next;
-    while (i != m_tail) {
+    while (i != m_tail) 
+    {
         size += 1;
         i = get_unmarked_ref(i->next);
     }
@@ -138,7 +144,7 @@ bool LockfreeList::Insert(uint32_t key)
         right = LocatePred(key, &left);
         if (right->key == key) 
         {
-            return 0; // already exists.
+            return false; // already exists.
         }
 
         // n does not exist! Initialize it and insert it.
@@ -169,7 +175,7 @@ bool LockfreeList::Insert(uint32_t key)
             return true;
         }
         // If CAS fails, someone messed up. Retry!
-    } while (1);
+    } while (true);
 }
 
 // Removes the node with value val from the list and returns 1,
@@ -180,7 +186,8 @@ bool LockfreeList::Delete(uint32_t key)
     Node* left;
     Node* right;
     
-    do {
+    do 
+    {
         // Search for left and right nodes.
         right = LocatePred(key, &left);
         if (right->key != key) 
@@ -198,5 +205,5 @@ bool LockfreeList::Delete(uint32_t key)
         }
 
     // If CAS fails, something changed. Retry!
-    } while (1);
+    } while (true);
 }
