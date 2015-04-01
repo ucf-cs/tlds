@@ -10,7 +10,10 @@ bin_PROGRAMS = trans
 trans_SOURCES = bench/main.cc \
 			   common/timehelper.cc\
 			   common/assert.cc\
-			   translink/list/translist.cc
+			   translink/list/translist.cc\
+			   boosting/list/boostinglist.cc\
+			   boosting/list/lockfreelist.cc\
+			   boosting/lockkey.cc
 
 trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11\
 				-I$(top_builddir)/src -I$(top_srcdir)/src\

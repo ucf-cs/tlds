@@ -1,9 +1,9 @@
 #ifndef SETADAPTOR_H
 #define SETADAPTOR_H
 
-#include <array>
 #include "translink/list/translist.h"
 #include "rstm/list/rstmlist.hpp"
+#include "boosting/list/boostinglist.h"
 
 enum SetOpType
 {
@@ -113,5 +113,66 @@ private:
     RSTMList m_list;
 };
 
+template<>
+class SetAdaptor<BoostingList>
+{
+public:
+    SetAdaptor()
+    {
+    }
+    
+    ~SetAdaptor()
+    {
+    }
+
+    void Init()
+    {
+        m_list.Init();
+    }
+
+    void Uninit()
+    {
+        m_list.Uninit();
+    }
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        bool ret = false;
+
+        for(uint32_t i = 0; i < ops.size(); ++i)
+        {
+            uint32_t key = ops[i].key;
+
+            if(ops[i].type == FIND)
+            {
+                ret = m_list.Find(key);
+            }
+            else if(ops[i].type == INSERT)
+            {
+                ret = m_list.Insert(key);
+            }
+            else
+            {
+                ret = m_list.Delete(key);
+            }
+
+            if(ret == false)
+            {
+                m_list.OnAbort();
+                break;
+            }
+        }
+
+        if(ret == true)
+        {
+            m_list.OnCommit();
+        }
+
+        return ret;
+    }
+
+private:
+    BoostingList m_list;
+};
 
 #endif /* end of include guard: SETADAPTOR_H */
