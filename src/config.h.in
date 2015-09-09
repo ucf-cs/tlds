@@ -3,9 +3,6 @@
 /* 'Enable custom assert macros' */
 #undef ENABLE_ASSERT
 
-/* 'Enable custom static assert macros' */
-#undef ENABLE_STATIC_ASSERT
-
 /* define if the Boost library is available */
 #undef HAVE_BOOST
 

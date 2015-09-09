@@ -29,94 +29,40 @@ class BoostingList
     typedef std::vector<Operation> LogType;
 
 public:
-    void Init()
-    {
-        m_log = new LogType;
-        m_lock.Init();
-    }
+   ~BoostingList(); 
 
-    void Uninit()
-    {
-        delete m_log;
-        m_lock.Uninit();
-    }
+    void Init();
+    
+    void Uninit();
+    
+    bool Insert(uint32_t key);
 
-    bool Insert(uint32_t key)
-    {
-        bool ret = m_lock.Lock(key);
+    bool Delete(uint32_t key);
+    
+    bool Find(uint32_t key);
+    
+    void OnAbort();
 
-        if(ret)
-        {
-            ret = m_list.Insert(key);
-            if(ret)
-            {
-                m_log->push_back(Operation(DELETE, key));
-            }
-        }
+    void OnCommit();
 
-        return ret;
-    }
-
-    bool Delete(uint32_t key)
-    {
-        bool ret = m_lock.Lock(key);
-
-        if(ret)
-        {
-            ret = m_list.Delete(key);
-            if(ret)
-            {
-                m_log->push_back(Operation(INSERT, key));
-            }
-        }
-
-        return ret;
-    }
-
-    bool Find(uint32_t key)
-    {
-        return m_lock.Lock(key) && m_list.Find(key);
-    }
-
-    void OnAbort()
-    {
-        //TODO: revert logged ops
-        for(int i = m_log->size() - 1; i >= 0; --i)
-        {
-            bool ret = true;
-
-            const Operation& op = m_log->at(i);
-
-            if(op.type == FIND)
-            {
-                ASSERT(false, "Revert operation should be Find");
-            }
-            else if(op.type == INSERT)
-            {
-                ret = m_list.Insert(op.key);
-            }
-            else
-            {
-                ret = m_list.Delete(op.key);
-            }
-            
-            ASSERT(ret, "Revert operations have to succeed");
-        }
-
-        m_log->clear();
-        m_lock.Unlock();
-    }
-
-    void OnCommit()
-    {
-        m_log->clear();
-        m_lock.Unlock();
-    }
-
+    void Print();
+    
 private:
     LockfreeList m_list;
     LockKey m_lock;
     static __thread LogType* m_log;
+
+    ASSERT_CODE
+    (
+        uint32_t g_count = 0;
+        uint32_t g_count_ins = 0;
+        uint32_t g_count_del = 0;
+        uint32_t g_count_fnd = 0;
+        uint32_t g_count_commit = 0;
+        uint32_t g_count_abort = 0;
+        uint32_t g_count_abort_ins = 0;
+        uint32_t g_count_abort_del = 0;
+    )
 };
 
 #endif /* end of include guard: BOOSTINGLIST_H */

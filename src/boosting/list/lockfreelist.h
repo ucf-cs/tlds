@@ -26,6 +26,8 @@ public:
 
     int Size();
 
+    void Print();
+
 private:
     Node* LocatePred(uint32_t key, Node** left_node);
 

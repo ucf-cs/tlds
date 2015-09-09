@@ -63,17 +63,17 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
     std::vector<std::thread> thread(numThread);
     ThreadBarrier barrier(numThread + 1);
 
-    double startTime = Time::GetWallTime();
-    boost::mt19937 randomGen;
-    randomGen.seed(startTime - 10);
-    boost::uniform_int<uint32_t> randomDist(1, keyRange);
+    //double startTime = Time::GetWallTime();
+    //boost::mt19937 randomGen;
+    //randomGen.seed(startTime - 10);
+    //boost::uniform_int<uint32_t> randomDist(1, keyRange);
 
-    set.Init();
+    //set.Init();
 
-    for(unsigned int i = 0; i < testSize; ++i)
-    {
+    //for(unsigned int i = 0; i < testSize; ++i)
+    //{
         //set.Insert(randomDist(randomGen));
-    }
+    //}
 
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 
@@ -93,7 +93,7 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
         }
     }
 
-    set.Uninit();
+    //set.Uninit();
 }
 
 int main(int argc, const char *argv[])
@@ -127,7 +127,7 @@ int main(int argc, const char *argv[])
     switch(setType)
     {
     case 0:
-        { SetAdaptor<TransList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        { SetAdaptor<TransList> set(testSize, numThread, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 1:
         { SetAdaptor<RSTMList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }

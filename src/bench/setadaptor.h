@@ -4,6 +4,7 @@
 #include "translink/list/translist.h"
 #include "rstm/list/rstmlist.hpp"
 #include "boosting/list/boostinglist.h"
+#include "common/allocator.h"
 
 enum SetOpType
 {
@@ -29,14 +30,26 @@ template<>
 class SetAdaptor<TransList>
 {
 public:
-    SetAdaptor(){}
+    SetAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
+        : m_descAllocator(cap * threadCount * TransList::Desc::SizeOf(transSize), threadCount, TransList::Desc::SizeOf(transSize))
+        , m_nodeAllocator(cap * threadCount *  sizeof(TransList::Node) * transSize, threadCount, sizeof(TransList::Node))
+        , m_list(&m_nodeAllocator, &m_descAllocator)
+    { }
 
-    void Init(){}
+    void Init()
+    {
+        m_descAllocator.Init();
+        m_nodeAllocator.Init();
+    }
+
     void Uninit(){}
 
     bool ExecuteOps(const SetOpArray& ops)
     {
-        TransList::Desc* desc = m_list.AllocateDesc(ops.size());
+        //TransList::Desc* desc = m_list.AllocateDesc(ops.size());
+        TransList::Desc* desc = m_descAllocator.Alloc();
+        desc->size = ops.size();
+        desc->status = TransList::INPROGRESS;
 
         for(uint32_t i = 0; i < ops.size(); ++i)
         {
@@ -48,6 +61,8 @@ public:
     }
 
 private:
+    Allocator<TransList::Desc> m_descAllocator;
+    Allocator<TransList::Node> m_nodeAllocator;
     TransList m_list;
 };
 

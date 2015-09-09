@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <limits.h>
+#include <cstdio>
 #include "boosting/list/lockfreelist.h"
 
 inline bool is_marked_ref(LockfreeList::Node* i) 
@@ -113,7 +114,7 @@ LockfreeList::~LockfreeList()
         i += 1;
     }
 
-    free(mem);
+    //free(mem);
     free(m_head);
     free(m_tail);  
 }
@@ -206,4 +207,15 @@ bool LockfreeList::Delete(uint32_t key)
 
     // If CAS fails, something changed. Retry!
     } while (true);
+}
+
+void LockfreeList::Print()
+{
+    Node* curr = m_head->next;
+
+    while(curr)
+    {
+        printf("Node [%p] Key [%u]\n", curr, curr->key);
+        curr = curr->next;
+    }
 }

@@ -7,15 +7,8 @@
 
 #include <cstdlib>
 #include <cstdio>
+#include <new>
 #include "translink/list/translist.h"
-#include "common/assert.h"
-
-ASSERT_CODE(
-uint32_t g_count = 0;
-uint32_t g_count_ins = 0;
-uint32_t g_count_del = 0;
-uint32_t g_count_fnd = 0;
-)
 
 
 #define SET_ADPINV(_p)    ((Node *)(((uintptr_t)(_p)) | 1))
@@ -23,10 +16,11 @@ uint32_t g_count_fnd = 0;
 #define IS_ADPINV(_p)     (((uintptr_t)(_p)) & 1)
 
 
-TransList::TransList()
+TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator)
     : m_head(new Node)
-{
-}
+    , m_nodeAllocator(nodeAllocator)
+    , m_descAllocator(descAllocator)
+{}
 
 TransList::~TransList()
 {
@@ -36,24 +30,24 @@ TransList::~TransList()
         //Print();
     );
 
-    Node* curr = m_head;
-    while(curr != NULL)
-    {
-        free(curr);
-        curr = curr->next;
-    }
+    //Node* curr = m_head;
+    //while(curr != NULL)
+    //{
+        //free(curr);
+        //curr = curr->next;
+    //}
 }
 
 
 TransList::Desc* TransList::AllocateDesc(uint8_t size)
 {
-    Desc* desc = (Desc*)malloc(sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size);
+    //Desc* desc = (Desc*)malloc(sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size);
+    Desc* desc = m_descAllocator->Alloc();
     desc->size = size;
     desc->status = INPROGRESS;
     
     return desc;
 }
-
 
 bool TransList::ExecuteOps(Desc* desc)
 {
@@ -91,7 +85,7 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
 {
     bool ret = true;
 
-    while(ret && opid < desc->size)
+    while(desc->status == INPROGRESS && ret && opid < desc->size)
     {
         const Operator& op = desc->ops[opid];
 
@@ -111,15 +105,18 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
         opid++;
     }
 
-    if(ret == true)
+    if(desc->status == INPROGRESS)
     {
-        __sync_bool_compare_and_swap(&desc->status, INPROGRESS, SUCCEED);
-        return true;
-    }
-    else
-    {
-        __sync_bool_compare_and_swap(&desc->status, INPROGRESS, FAIL);
-        return false;
+        if(ret == true)
+        {
+            __sync_bool_compare_and_swap(&desc->status, INPROGRESS, SUCCEED);
+            return true;
+        }
+        else
+        {
+            __sync_bool_compare_and_swap(&desc->status, INPROGRESS, FAIL);
+            return false;
+        }
     }
 }
 
@@ -151,7 +148,7 @@ inline void TransList::HelpAdopt(Node* node)
 
 inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
 {
-    Node* new_node = new Node(key, NULL, desc, opid, NULL);
+    Node* new_node = NULL;
     Node* pred = NULL;
     Node* curr = m_head;
 
@@ -163,10 +160,13 @@ inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
         {
             if(IsKeyExist(curr, key, desc))
             {
-                delete new_node;
                 return curr->desc == desc;
             }
 
+            if(new_node == NULL)
+            {
+                new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, desc, opid, NULL);
+            }
             new_node->next = curr;
 
             //Key does not logically exisit, but physically 
@@ -177,6 +177,10 @@ inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
                 new_node->next = NULL;
                 HelpAdopt(curr);
             }
+        }
+        else if(new_node == NULL)
+        {
+            new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, desc, opid, NULL);
         }
 
         Node* pred_next = pred->next;

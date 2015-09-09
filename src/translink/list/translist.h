@@ -2,6 +2,8 @@
 #define TRANSLIST_H
 
 #include <cstdint>
+#include "common/assert.h"
+#include "common/allocator.h"
 
 class TransList
 {
@@ -28,6 +30,11 @@ public:
 
     struct Desc
     {
+        static size_t SizeOf(uint8_t size)
+        {
+            return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
+        }
+
         uint8_t status;
         uint8_t size;
         Operator ops[];
@@ -47,10 +54,11 @@ public:
         Node* adopt;
     };
 
-    TransList();
+    TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator);
     ~TransList();
 
     bool ExecuteOps(Desc* desc);
+
     Desc* AllocateDesc(uint8_t size);
 
 private:
@@ -67,6 +75,17 @@ private:
 
 private:
     Node* m_head;
+
+    Allocator<Node>* m_nodeAllocator;
+    Allocator<Desc>* m_descAllocator;
+
+    ASSERT_CODE
+    (
+        uint32_t g_count = 0;
+        uint32_t g_count_ins = 0;
+        uint32_t g_count_del = 0;
+        uint32_t g_count_fnd = 0;
+    )
 };
 
 #endif /* end of include guard: TRANSLIST_H */    
