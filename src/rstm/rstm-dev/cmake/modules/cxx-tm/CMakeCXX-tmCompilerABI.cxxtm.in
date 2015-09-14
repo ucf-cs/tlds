@@ -1,0 +1,30 @@
+/**
+ *  Copyright (C) 2011
+ *  University of Rochester Department of Computer Science
+ *    and
+ *  Lehigh University Department of Computer Science and Engineering
+ *
+ * License: Modified BSD
+ *          Please see the file LICENSE.RSTM for licensing information
+ */
+
+#ifndef __cplusplus
+# error "A C compiler has been selected for C++ TM."
+#endif
+
+/*--------------------------------------------------------------------------*/
+
+#include "${CMAKE_ROOT}/Modules/CMakeCompilerABI.h"
+
+/*--------------------------------------------------------------------------*/
+
+int main(int argc, char* argv[])
+{
+  int require = 0;
+  require += info_sizeof_dptr[argc];
+#if defined(ABI_ID)
+  require += info_abi[argc];
+#endif
+  (void)argv;
+  return require;
+}
