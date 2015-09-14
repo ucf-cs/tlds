@@ -26,7 +26,7 @@ TransList::~TransList()
 {
     ASSERT_CODE
     (
-        printf("Total node count %u, Inserts %u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_del, g_count_fnd);
+        printf("Total node count %u, Inserts (total/new) %u/%u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_ins_new, g_count_del, g_count_fnd);
         //Print();
     );
 
@@ -62,12 +62,10 @@ bool TransList::ExecuteOps(Desc* desc)
                 if(desc->ops[i].type == INSERT)
                 {
                     __sync_fetch_and_add(&g_count, 1);
-                    __sync_fetch_and_add(&g_count_ins, 1);
                 }
                 else if(desc->ops[i].type == DELETE)
                 {
                     __sync_fetch_and_sub(&g_count, 1);
-                    __sync_fetch_and_add(&g_count_del, 1);
                 }
                 else
                 {
@@ -191,6 +189,16 @@ inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
 
             if(pred_next == curr)
             {
+                ASSERT_CODE
+                (
+                    __sync_fetch_and_add(&g_count_ins, 1);
+
+                    if(new_node->adopt == NULL)
+                    {
+                        __sync_fetch_and_add(&g_count_ins_new, 1);
+                    }
+                );
+
                 HelpAdopt(new_node);
                 return true;
             }

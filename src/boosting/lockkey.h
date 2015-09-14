@@ -52,7 +52,7 @@ public:
         std::pair<LockSet::iterator, bool> ret = m_lockSet->insert(lock);
         if(ret.second)
         {
-            if(lock->try_lock_for(std::chrono::milliseconds(100)))
+            if(lock->try_lock_for(std::chrono::milliseconds(1000)))
             {
                 return true;
             }

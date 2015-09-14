@@ -83,6 +83,7 @@ private:
     (
         uint32_t g_count = 0;
         uint32_t g_count_ins = 0;
+        uint32_t g_count_ins_new = 0;
         uint32_t g_count_del = 0;
         uint32_t g_count_fnd = 0;
     )
