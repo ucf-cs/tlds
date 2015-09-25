@@ -74,7 +74,7 @@
     In this work, we present a novel technique for implementing high-performance lock-free transactional linked data structures.
     In our approach, transactions insert logically inactive nodes, which are invisible to operations outside the scope of the transaction, into the data structure.
     Through a shared transaction descriptor, it atomically activates all nodes within a transaction upon committing.
-    Comparing to generic approaches, such as software transactional memory (STM) and transactional boosting, our approach leverage the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and operation roll back.
+    Comparing to generic approaches, such as software transactional memory (STM) and transactional boosting, our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and operation roll back.
 \end{abstract}
 
 %\category{D.1.3}{Concurrent Programming}{Algorithms}
@@ -146,15 +146,15 @@ Moreover, since it relies on locks for transactional level synchronization, the 
 %thread 1 tries to execute \texttt{Insert(1)} and \texttt{Insert(4)} in a transaction while thread 2 tries to execute \texttt{Remove(9)} and \texttt{Insert(4)} transactionally.
  
 In this paper, we present an implementation technique to enable support of lock-free transactions for linked data structures using only single word \texttt{ComapreAndSwap} synchronization primitive.
-By linked data structure we mean those that comprise a set of of data nodes organized by references. 
+By a linked data structure we mean one that comprises a set of of data nodes organized by references. 
 Each node has one inbound reference and can have one (e.g., linked list), two (e.g., binary tree), or more (e.g., B-tree and multi-dimensional linked list) out bound references.
 Consider the three basic write operations one can perform on a node: insertion, deletion, and update.
 In existing data structure implementations, these operations act directly on different fields of a physical node, and the results are rendered immediately in the state of the abstract data type (ADT).
 This proves to be a problem for transaction isolation, which requires the effect of an operation to be invisible to operations outside the transaction scope before the transaction commits.
-In our transactional data structure implementation, we design an indirect procedure to update/delete nodes by inserting new nodes that replace exiting nodes in the data structure.
+In our transactional data structure implementations, we design an indirect procedure to update or delete nodes by inserting new nodes that replace exiting nodes in the data structure.
 We also associate a logical status with each node by embedding \emph{transaction descriptors} in them.
 A descriptor is shared among all the nodes within the same transaction, and it stores the operation context as well as a flag indicating whether the transaction has committed.
-The logical status depends on the type of operation and the status of the transaction.
+A node's logical status is determined by the type of operation and the status of the transaction.
 For example, a physical node with a descriptor indicating transaction failure and the fact that its been inserted by a deletion operation actually implies the logical existence of the node.
 As a result, the state of the ADT is determined by the interpreting the logical status of all nodes.
 Our approach has the following algorithmic characteristics that aim to provide the same level concurrency as the state-of-the-art lock-free data structures.
