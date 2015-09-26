@@ -178,9 +178,15 @@ We conclude the paper in Section~\ref{sec:conclusion}.
 
 \section{Related Work}
 \label{sec:related}
-\_
+golan2015automatic/golan2013/bronson2010transactional
+Transactional execution of code 
 
-%General constructions
+\subsection{Software Transactional Memory}
+Initially proposed as a set of hardware extension by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
+
+However, as many researchers later realize, applying its synchronization model based on detecting read/write conflicts to lock-free data structures causes false conflict~\cite{} and excessive aborts under heavy contention~\cite{christina2015resource}.
+Thus, considerable amount of work and ingenuity has gone into designing lock-free data structures using low-level synchronization primitives such as \texttt{CompareAndSwap}, which empowers researchers to devise algorithm-specific fine-grained concurrency control schemes.
+Thus, considerable amount of work and ingenuity has gone into designing lock-free data structures using low-level synchronization primitives such as \texttt{CompareAndSwap}, which gives programmer fine-grained control over 
 %STM with large overhead, can be lock-free (RSTM), 
 
 %STM is not a silver bullet [atity, ]
@@ -191,6 +197,7 @@ We conclude the paper in Section~\ref{sec:conclusion}.
 
 %HTM small overhead, not suitable for high contention, or large transactions
 
+\subsection{Transactional Boosting}
 %OTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
 
 %Custom constructions
