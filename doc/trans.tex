@@ -178,26 +178,38 @@ We conclude the paper in Section~\ref{sec:conclusion}.
 
 \section{Related Work}
 \label{sec:related}
-golan2015automatic/golan2013/bronson2010transactional
-Transactional execution of code 
+%1: lock-free data structures with thread-level synchronization techniques
+%2: transaction synchronization
+A transactional execution of data structure operations can be seen as a restricted form of \emph{software transactions}~\cite{harris2010transactional}.
+The scope of the data and the are well defined according to the semantics of the data structure.
+This opens up opportunity for enabling data structure specific optimizations. 
+To the best of our knowledge, there is no non-blocking data structure that provides native support for transactions.
+The users of concurrent data structures have to devise their own concurrency control scheme. 
+Straightforward generic construction can be implemented by executing all shared memory accesses in \emph{atomic sections}, which can employ either optimistic (e.g., STM) or pessimistic (e.g., lock inference) concurrency control.
+More sophisticated approaches~\cite{} exploit semantic conflict detection for transaction level synchronization to reduce benign conflicts.
+In our work, we marry the benefit of fine-grained thread level synchronization with semantic conflict detection to implement transactional linked data structures without additional transaction synchronization. 
 
-\subsection{Software Transactional Memory}
+\subsection{Transactional Memory}
 Initially proposed as a set of hardware extension by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
+Even with Intel's recent release of commercial support of best-effort hardware transaction memory (HTM) in their Haswell processors, 
+However, due to current HTM's cache-coherency based conflict detection mechanism, transactions are subject to spurious failures during page faults and context switches~\cite{}.
+This along with excessive aborts under moderate contention~\cite{christina2015resource} make HTM less desirable for implementing transactions in non-blocking data structures.
+Thus, considerable amount of work and ingenuity has instead gone into designing lock-free data structures using low-level synchronization primitives such as \texttt{CompareAndSwap}, which empowers researchers to devise algorithm-specific fine-grained concurrency control schemes.
 
-However, as many researchers later realize, applying its synchronization model based on detecting read/write conflicts to lock-free data structures causes false conflict~\cite{} and excessive aborts under heavy contention~\cite{christina2015resource}.
-Thus, considerable amount of work and ingenuity has gone into designing lock-free data structures using low-level synchronization primitives such as \texttt{CompareAndSwap}, which empowers researchers to devise algorithm-specific fine-grained concurrency control schemes.
-Thus, considerable amount of work and ingenuity has gone into designing lock-free data structures using low-level synchronization primitives such as \texttt{CompareAndSwap}, which gives programmer fine-grained control over 
-%STM with large overhead, can be lock-free (RSTM), 
-
-%STM is not a silver bullet [atity, ]
-
-%relaxed STMs considering semantic conflicts, better performance (gramoli2010many)
-
+The first software implementation of transactional memory was proposed by Shavit and Touitou~\cite{shavit1997software}, which only supports a static set of data items.
+Over the years, improvements have been achieved in terms of functionality~\cite{herlihy2003software}, consistency properties~\cite{guerraoui2008correctness}, progress guarantees~\cite{marathe2006lowering}, and performance~\cite{saha2006mcrt,dice2006transactional}. 
+Despite heavy research investment, there is an increasing realization that the read/write conflicts inherently provide insufficient support for concurrency when shared objects are subject to contention~\cite{koskinen2010coarse}.
+Meanwhile as design choices have been exhaustedly explored~\cite{marathe2004qualitative,marathe2004design}, other limitations faced by STM in terms of usability~\cite{Rossbach2010transactional}, performance~\cite{cascaval2008software}, and expressiveness~\cite{guerraoui2008obstruction} also began to surface.
+It has been suggested that STM may not deliver the promised efficiency and simplicity for every scenario, and multitude of approaches should be explored catering to different needs~\cite{attiya2010inherent}.
 %Unlike STM-based data structures, our approach eliminate the need to abort transactions.
 
-%HTM small overhead, not suitable for high contention, or large transactions
+\subsection{Lock Inference}
 
-\subsection{Transactional Boosting}
+Kempf2014combining combines lock inference and stm.
+
+\subsection{Semantic Conflict Detection}
+%relaxed STMs considering semantic conflicts, better performance (gramoli2010many)
+
 %OTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
 
 %Custom constructions
@@ -215,7 +227,7 @@ Thus, considerable amount of work and ingenuity has gone into designing lock-fre
 
 \section{Algorithm}
 \label{sec:algorithm}
-\_
+Lock-free algorithms for linked data structures has been extensively studied because the distribute memory layout spread contention and provide good scalability under high levels of contention.
 
 \subsection{Lock-free Node Replacement}
 \label{sec:noderepl}
