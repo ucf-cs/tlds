@@ -204,25 +204,31 @@ It has been suggested that STM may not deliver the promised efficiency and simpl
 %Unlike STM-based data structures, our approach eliminate the need to abort transactions.
 
 \subsection{Lock Inference}
-
-Kempf2014combining combines lock inference and stm.
+The above mentioned STM implementations are typically \emph{optimistic}, which means they execute under the assumption that interferences are unlikely to occur.
+They also maintain expensive undo-logs to allow rollback in case a transaction do experience interference.
+In light of this shortcoming, pessimistic alternatives based on lock inference has been proposed~\cite{mccloskey2006autolocker}.
+These algorithms synthesize enough locks through static analysis to prevent data races in atomic sections.
+The choice of locking granularity will have an impact on the trade-off between concurrency and overhead.
+Some approaches require programmers' annotation~\cite{golan2013concurrent} to specify the granularity, others automatically infer locks at a fixed granularity~\cite{emmi2007lock} or even multiple granularity~\cite{cherem2008inferring}.
+Nevertheless, most work associate locks with memory locations, which may lead to reduced parallelism due to false conflict as seen in STM. 
+Applying these approaches to real-world programs also faces scalability changes in the presence of large libraries ~\cite{gudka2012lock} because of the high cyclomatic complexity~\footnote{A measure of the number of linearly independent execution paths~\cite{mccabe1976complexity}.} involved in the static analysis process.
+Moreover, the use of locks degrade any non-blocking progress guarantee one might expected from using a non-blocking library.
+%Kempf2014combining combines lock inference and stm.
 
 \subsection{Semantic Conflict Detection}
-%relaxed STMs considering semantic conflicts, better performance (gramoli2010many)
-
-%OTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
-
-%Custom constructions
-%PTB, white box, still use semantic read/write set. Need to reverse operation upon failure
-
+Considering the imprecise nature of data-base conflict detection, semantic-based approaches has been proposed to identify conflicts at high-level (e.g., two commutative operations would not raise conflict even though they may access and modify the same data) which enables greater parallelism.
+Because semantically independent transactions may have structural conflicts, some other concurrency control mechanism must be used to protect accesses to the underlying data structure.
+This results in a two-layer concurrency control.
+Transactional boosting proposed by Herlihy~\cite{} was the first dedicated treatment on building highly concurrent transactional data structures using a semantic layer of abstract locks. 
+Transactional boosting is pessimistic in that it acquires abreast locks eagerly before the method call, but it still requires operation rollback because not all locks are acquires at once.
+%PTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
+Koskinen et al.~\cite{koskinen2010coarse} later generalize this work and introduce a formal framework called coarse-grained transactions.
+Hassan et al.~\cite{hassan2014developing} proposed an optimistic version of boosting, which employs an white box design and provide some performance benefits.
+Other STM variants, such open nested transactions~\cite{ni2007open} supports more relaxed transaction model that leverage some semantic knowledge based on programmer's input.
+The relaxation of STM systems and its implication on composability has been studied by Gramoli et al.~\cite{gramoli2013composing}.
+The work by Golan-Gueta et al.~\cite{golan2015automatic} apply commutativity specification obtained from programmers input to inferring locks for abstract data types.
+Their work also require the underlying data structure to be linearizable.
 %Our approach, do not track read/write set, highly concurrent, Optimistic lock-free
-
-%Concurrency control
-    %Two-phase locking
-    %MRLock
-
-%lowering the overhead of non-blocking transactional memory
-
 %we leverage the semantic knowledge of the data structure implementation, 
 
 \section{Algorithm}
