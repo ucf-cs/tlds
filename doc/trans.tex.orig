@@ -42,11 +42,6 @@
 \newcommand\CONTINUE{\text{\textbf{continue}}}
 \newcommand\AND{\;\text{\textbf{and}}\;}
 \newcommand\OR{\;\text{\textbf{or}}\;}
-\newcommand\INSERT{\text{\textbf{Insert}}}
-\newcommand\DELETE{\text{\textbf{Delete}}}
-\newcommand\SUCCEED{\text{\textbf{Succeeded}}}
-\newcommand\FAIL{\text{\textbf{Failed}}}
-\newcommand\INPROGRESS{\text{\textbf{InProgress}}}
 \algrenewcommand\algorithmicindent{1em}
 
 \algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
@@ -59,8 +54,6 @@
 \algtext*{EndDefine}
 \algblockdefx[InlineBlock]{Inline}{EndInline} [2]{\textbf{inline function} \textsc{#1}(#2)} [0]{}
 \algtext*{EndInline}
-\algblockdefx[SwitchBlock]{Switch}{EndSwitch} [1]{\textbf{switch} (#1)} [0]{}
-\algtext*{EndSwitch}
 
 \begin{document}
 
@@ -190,24 +183,24 @@ We conclude the paper in Section~\ref{sec:conclusion}.
 %1: lock-free data structures with thread-level synchronization techniques
 %2: transaction synchronization
 A transactional execution of data structure operations can be seen as a restricted form of \emph{software transactions}~\cite{harris2010transactional}.
-%The scope of the data and the are well defined according to the semantics of the data structure.
-%This opens up opportunity for enabling data structure specific optimizations. 
-%The users of concurrent data structures have to devise their own concurrency control scheme. 
-Straightforward generic constructions can be implemented by executing all the shared memory accesses in \emph{atomic sections}, which can employ either optimistic (e.g., STM) or pessimistic (e.g., lock inference) concurrency control.
-More sophisticated approaches~\cite{bronson2010transactional,herlihy2008transactional,golan2015automatic} exploit semantic conflict detection for transaction level synchronization to reduce benign conflicts.
-In our work, we marry the benefit of fine-grained thread level synchronization with semantic conflict detection to implement transactional linked data structures without the overhead of atomic section synchronizations.
+The scope of the data and the are well defined according to the semantics of the data structure.
+This opens up opportunity for enabling data structure specific optimizations. 
+The users of concurrent data structures have to devise their own concurrency control scheme. 
+Straightforward generic construction can be implemented by executing all shared memory accesses in \emph{atomic sections}, which can employ either optimistic (e.g., STM) or pessimistic (e.g., lock inference) concurrency control.
+More sophisticated approaches~\cite{} exploit semantic conflict detection for transaction level synchronization to reduce benign conflicts.
+In our work, we marry the benefit of fine-grained thread level synchronization with semantic conflict detection to implement transactional linked data structures without additional transaction synchronization. 
 
 \subsection{Transactional Memory}
-Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
-%Even with Intel's recent release of commercial support of best-effort hardware transaction memory (HTM) in their Haswell processors, 
-However, due to current HTM's cache-coherency based conflict detection mechanism, transactions are subject to spurious failures during page faults and context switches~\cite{dice2009early}.
+Initially proposed as a set of hardware extension by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
+Even with Intel's recent release of commercial support of best-effort hardware transaction memory (HTM) in their Haswell processors, 
+However, due to current HTM's cache-coherency based conflict detection mechanism, transactions are subject to spurious failures during page faults and context switches~\cite{}.
 This along with excessive aborts under moderate contention~\cite{christina2015resource} make HTM less desirable for implementing transactions in non-blocking data structures.
 Thus, considerable amount of work and ingenuity has instead gone into designing lock-free data structures using low-level synchronization primitives such as \texttt{CompareAndSwap}, which empowers researchers to devise algorithm-specific fine-grained concurrency control schemes.
 
 The first software implementation of transactional memory was proposed by Shavit and Touitou~\cite{shavit1997software}, which only supports a static set of data items.
 Over the years, improvements have been achieved in terms of functionality~\cite{herlihy2003software}, consistency properties~\cite{guerraoui2008correctness}, progress guarantees~\cite{marathe2006lowering}, and performance~\cite{saha2006mcrt,dice2006transactional}. 
 Despite heavy research investment, there is an increasing realization that the read/write conflicts inherently provide insufficient support for concurrency when shared objects are subject to contention~\cite{koskinen2010coarse}.
-Meanwhile as design choices have been exhaustedly explored~\cite{marathe2004qualitative,marathe2004design}, other limitations faced by STM with regard to usability~\cite{Rossbach2010transactional}, performance~\cite{cascaval2008software}, and expressiveness~\cite{guerraoui2008obstruction} also began to surface.
+Meanwhile as design choices have been exhaustedly explored~\cite{marathe2004qualitative,marathe2004design}, other limitations faced by STM in terms of usability~\cite{Rossbach2010transactional}, performance~\cite{cascaval2008software}, and expressiveness~\cite{guerraoui2008obstruction} also began to surface.
 It has been suggested that STM may not deliver the promised efficiency and simplicity for every scenario, and multitude of approaches should be explored catering to different needs~\cite{attiya2010inherent}.
 %Unlike STM-based data structures, our approach eliminate the need to abort transactions.
 
@@ -217,49 +210,49 @@ They also maintain expensive undo-logs to allow rollback in case a transaction d
 In light of this shortcoming, pessimistic alternatives based on lock inference has been proposed~\cite{mccloskey2006autolocker}.
 These algorithms synthesize enough locks through static analysis to prevent data races in atomic sections.
 The choice of locking granularity will have an impact on the trade-off between concurrency and overhead.
-Some approaches require programmers' annotation~\cite{golan2013concurrent} to specify the granularity, others automatically infer locks at a fixed granularity~\cite{emmi2007lock} or even multiple granularities~\cite{cherem2008inferring}.
+Some approaches require programmers' annotation~\cite{golan2013concurrent} to specify the granularity, others automatically infer locks at a fixed granularity~\cite{emmi2007lock} or even multiple granularity~\cite{cherem2008inferring}.
 Nevertheless, most work associate locks with memory locations, which may lead to reduced parallelism due to false conflict as seen in STM. 
 Applying these approaches to real-world programs also faces scalability changes in the presence of large libraries ~\cite{gudka2012lock} because of the high cyclomatic complexity~\footnote{A measure of the number of linearly independent execution paths~\cite{mccabe1976complexity}.} involved in the static analysis process.
-Moreover, the use of locks degrades any non-blocking progress guarantee one might expected from using a non-blocking library.
+Moreover, the use of locks degrade any non-blocking progress guarantee one might expected from using a non-blocking library.
 %Kempf2014combining combines lock inference and stm.
 
 \subsection{Semantic Conflict Detection}
 Considering the imprecise nature of data-base conflict detection, semantic-based approaches has been proposed to identify conflicts at high-level (e.g., two commutative operations would not raise conflict even though they may access and modify the same data) which enables greater parallelism.
 Because semantically independent transactions may have structural conflicts, some other concurrency control mechanism must be used to protect accesses to the underlying data structure.
 This results in a two-layer concurrency control.
-Transactional boosting proposed by Herlihy~\cite{herlihy2008transactional} was the first dedicated treatment on building highly concurrent transactional data structures using a semantic layer of abstract locks. 
-Transactional boosting is pessimistic in that it acquires locks eagerly before the method calls, but it still requires operation rollback because not all locks are acquires at once.
+Transactional boosting proposed by Herlihy~\cite{} was the first dedicated treatment on building highly concurrent transactional data structures using a semantic layer of abstract locks. 
+Transactional boosting is pessimistic in that it acquires abreast locks eagerly before the method call, but it still requires operation rollback because not all locks are acquires at once.
 %PTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
 Koskinen et al.~\cite{koskinen2010coarse} later generalize this work and introduce a formal framework called coarse-grained transactions.
 Hassan et al.~\cite{hassan2014developing} proposed an optimistic version of boosting, which employs an white box design and provide some performance benefits.
-Other STM variants, such open nested transactions~\cite{ni2007open} supports a more relaxed transaction model that leverages some semantic knowledge based on programmer's input.
+Other STM variants, such open nested transactions~\cite{ni2007open} supports more relaxed transaction model that leverage some semantic knowledge based on programmer's input.
 The relaxation of STM systems and its implication on composability has been studied by Gramoli et al.~\cite{gramoli2013composing}.
 The work by Golan-Gueta et al.~\cite{golan2015automatic} apply commutativity specification obtained from programmers input to inferring locks for abstract data types.
-All these approaches require the underlying data structure to be linearizable.
+Their work also require the underlying data structure to be linearizable.
 %Our approach, do not track read/write set, highly concurrent, Optimistic lock-free
 %we leverage the semantic knowledge of the data structure implementation, 
 
 \section{Algorithm}
 \label{sec:algorithm}
-Non-blocking algorithms for linked data structures have been extensively studied because their distribute memory layout provides access parallelism and good scalability under high levels of contention~\cite{linden2013skiplist,zhang2015lockfree,michael2002high}.
+Non-blocking algorithms for linked data structures has been extensively studied because the distribute memory layout spreads contention and provides good scalability under high levels of contention~\cite{linden2013skiplist,zhang2015lockfree,michael2002high}.
 To the best of our knowledge, there is no non-blocking linked data structure that provides native support for transactions.
-To ensure atomicity in non-blocking transaction execution without an additional layer of synchronization, a write operation needs to either ``hide'' its effect until the transaction commits or revert its modifications upon transaction failure.
-We follow the former strategy because the latter requires extra coordinations between operations in different transaction in order to achieve isolation.
-To effectively ``hide'' the newly inserted nodes before transaction completes, we embed a transaction-status-dependent logical flag in them. 
-This is similar to the \emph{logical deletion} technique, which is used in~\cite{harris2001pragmatic} to ensure list integrity and in~\cite{linden2013skiplist,zhang2015lockfree} to speedup the deletion process.
+To ensure atomicity in non-blocking transaction execution without additional layer of synchronization, a write operation needs to either ``hide'' its effect until transaction commit or revert its modification upon transaction failure.
+We realize our approach following the former strategy because the latter requires additional synchronization between operations in different transaction in order to achieve isolation.
+To effectively ``hide'' newly inserted nodes before transaction completes, we embed a transaction-status-dependent logical flag in them. 
+This shares the same spirit of the \emph{logical deletion} technique, which is used in ~\cite{harris2001pragmatic} to ensure list integrity and in ~\cite{linden2013skiplist,zhang2015lockfree} to speedup the deletion process.
 Logical deletion encodes a binary logical status in a node's bit-marked next pointer, whereas our approach embeds a multi-value transaction status in the descriptor object shared among nodes.
 The key challenge remains to design a deletion and update process that allow logically invisible modification.
-We achieve this goal by having them insert physical nodes that are logically inactive instead of modify the data structure directly.
-In this section we explain the basic data structures as well as two core procedures that are shared among different kinds of linked data structures.
+We have them insert physical nodes that are logically inactive instead of modify the data structure directly.
+%Node is the natural unit for conflict detection; e.g., insert 3 modifies node 2, but update 3 modifies node 3
+%The caveat is that the read operations need to check a node's status to ensure it is in a consistent status or even help the write operation to finish the remaining steps.
 
-\subsection{Data Structure}
 We define the generic node structure used in the rest of the paper in Algorithm~\ref{alg:nodestructure}. 
-A node contains a key-value pair, and an array of child pointers $child[N]$, where $N$ depends on the concrete data type (e.g., 1 for linked lists, 2 for binary trees, etc.)
+A node contains a key-value pair, and an array child pointers $child[N]$, where $N$ depends on the concrete data type (e.g., 1 for linked lists, 2 for binary trees, etc.)
 It also stores a reference to the shared transaction descriptor object $desc$ and an index $opid$ that provide reference to the operation pertaining to this node (i.e., $desc.ops[opid]$ is the operation that inserted this physical node).
-Finally, it has a reference $repl$ to the node it replaces (if it replaces anything).
-The descriptor object~\cite{herlihy2012art} \textsc{Desc} is a data structure used in lock-free programming to announce steps that cannot be done by a single atomic instruction.
-The functionalities of a transactional descriptor are two folds: 1) it stores all the necessary context for any thread to finish a pending transaction; and 2) it provides the transaction status shared among all nodes participated in the same transaction.
-Each operation structure keeps a key-value pair for the operation and an enumeration of operation type, the value of which depends on the concrete data types.
+Finally, it has a reference $adopt$ to the node it replaces (if it replaces anything).
+The descriptor object~\cite{herlihy2012art} \textsc{Desc} is a data structure that stores all the necessary context for any thread to finish a pending transaction.
+Each operation contains the 
+In this section we explain the two core procedures that are shared among different kinds of linked data structures.
 
 \begin{algorithm}[h]
     \caption{Node Structures}
@@ -284,7 +277,7 @@ Each operation structure keeps a key-value pair for the operation and an enumera
             \Struct{Node}
             \State \textbf{int} $key,opid$
             \State \textbf{void*} $val$
-            \State \textbf{Node*} $child[N],repl$
+            \State \textbf{Node*} $child[N],adopt$
             \State \textbf{Desc*} $desc$
             \EndStruct
             \end{algorithmic}
@@ -292,28 +285,10 @@ Each operation structure keeps a key-value pair for the operation and an enumera
     \vspace{-0.15in}
 \end{algorithm}
 
-\begin{algorithm}[h]
-    \caption{Pointer Marking}
-    \label{alg:pointermarking}
-    \begin{algorithmic}[1]
-        \State \textbf{const int} $F_{adp} \gets \texttt{0x1}$
-        \Define{SetMark}{$p,\;m$} $(p\;|\;m)$
-        \EndDefine
-        \Define{ClearMark}{$p,\;m$} $(p\;\&\;\sim m)$
-        \EndDefine
-        \Define{IsMarked}{$p,\;m$} $(p\;\&\;m)$
-        \EndDefine
-    \end{algorithmic}
-\end{algorithm}
-
-We employ the pointer marking technique described by Harris~\cite{harris2001pragmatic} to mark adopted child nodes as well as logically deleted nodes. 
-The macros for pointer marking are defined in Algorithm~\ref{alg:pointermarking}.
-The $F_{adp}$ flag is co-located with the $child$ pointers.
-
 \subsection{Lock-free Node Replacement}
 \label{sec:noderepl}
-All write operations in our approach try to insert new physical nodes.
-If no physical node with the same key exists, lock-free insertion can be done by simply swing the next pointer of the predecessor node~\cite{zhang2015lockfree,harris2001pragmatic}, but more often, nodes are inserted to replace an existing physical node in order to change its logical status.
+All write operations in our approach try to insert nodes.
+If no physical node with the same key exists, lock-free insertion can be done by simply swing the next pointer of the predecessor node~\cite{harris2001pragmatic,fraser2007concurrent,zhang2015lockfree}, but more often, nodes are inserted to replace an existing physical node in order to change its logical status.
 For example, to delete the exiting node 4 from a linked list as shown in Figure~\ref{fig:nodedeletion} we insert a new node marked for logical deletion in place of the original node.
 \begin{figure}[h]
     \centering
@@ -321,163 +296,48 @@ For example, to delete the exiting node 4 from a linked list as shown in Figure~
     \caption{Node Deletion}
     \label{fig:nodedeletion}
 \end{figure}
+This requires the child nodes of node being replaced to be transfer to the new node in a lock-free manner.
+Algorithm~\ref{alg:nodereplace} lists the procedure.
 
-\begin{algorithm}[h]
-    \caption{Node Replace}
-    \label{alg:replace}
+\begin{algorithm}[t]
+    \caption{Child Adoption}
+    \label{alg:adoption}
     \begin{algorithmic}[1]
-        \Function{Replace}{$\textbf{Node*}\;pred,\;\textbf{Node*}\;repl\;\textbf{Node*}\;n$}
-        \State $n.adopt \gets repl$
-        \If {$\text{\textsc{CAS}}(\&pred.child[i],\;repl,\;n)$} \label{l:link}
-        \State \Call{AdoptChild}{$n$} \label{l:adoptself}
-        \State \Return \TRUE
-        \Else
-        \State \Return \FALSE
-        \EndIf
-        \EndFunction
-        \Statex
-        \Function{AdoptChild}{$\textbf{Node*}\;n$}
-        %\If {$n = \NIL$}
-        %\State \Return
-        %\EndIf
-        \State \textbf{Node*} $repl \gets node.repl$
-        \If {$repl=\NIL$}
+        \Function{FinishInserting}{$\textbf{Node*}\:n,\;\textbf{int}\:dp,\;\textbf{int}\;dc$}
+        \If {$n = \NIL$}
         \State \Return
         \EndIf
-        \State \textbf{Node*} $child$ 
-        \For {$i \in [0, N)$} \label{l:adoptionfor}
-        \State $child \gets \textsc{FetchAndOr}(\&repl.child[i],\;F_{adp})$ \label{l:setadp} 
+        \State \textbf{AdoptDesc*} $ad \gets n.adesc$
+        \If {$ad=\NIL \OR dc < ad.dp \OR dp > ad.dc$}
+        \State \Return
+        \EndIf
+        \State \textbf{Node*} $child,\;curr \gets ad.curr$ 
+        \State \textbf{int} $dp \gets ad.dp,\;dc \gets ad.dc$
+        \For {$i \in [dp, dc)$} \label{l:adoptionfor}
+        \State $child \gets \textsc{FetchAndOr}(\&curr.child[i],\;F_{adp})$ \label{l:setadp} 
         \State $child \gets \textsc{ClearMark}(child,\;F_{adp})$
         \State $\text{\textsc{CAS}}(\&n.child[i],\;\NIL,\;child)$ \label{l:adopt}
         \EndFor
-        \State $n.repl \gets \NIL$
+        \State $n.adesc \gets \NIL$
         \EndFunction
-        \end{algorithmic}
+    \end{algorithmic}
 \end{algorithm}
 
-This requires the child nodes of node being replaced to be transfered to the new node in a lock-free manner.
-The \textsc{Replace} function inserts a new node $n$ to replace the $i$th child $repl$ of its predecessor $pred$.
-We link $pred.child[i]$ to the new node on line~\algref{alg:replace}{l:link}, and proceed to adopt child nodes from $repl$ in the helper function \textsc{AdoptChild}.
-Before a child pointer can be copied, we must safeguard it so that it cannot be changed by concurrent insertions while the copy is in progress.
-This is done by setting the $F_{adp}$ flag in the child pointers (line~\algref{alg:replace}{l:setadp}).
-Once the flag is set either by this thread or by other threads, the function proceeds to copy the pointer to $n$ (line~\algref{alg:replace}{l:adopt}). 
-Finally, the descriptor field in $n$ is cleared to designate the operation's completion.
 
-\subsection{Transaction Execution}
-\label{sec:txnexec}
-%The caveat is that the read operations need to check a node's status to ensure it is in a consistent status or even help the write operation to finish the remaining steps.
-In our approach, we treat nodes as the natural units for conflict detection.
-%; e.g., insert 3 modifies node 2, but update 3 modifies node 3
-Write operations inserting nodes with different keys are allowed to execute concurrently.
-Should conflicts among write operations occur, threads help finish the delayed transaction starting from the node in conflict.
-The \textsc{ExecuteOps} function in Algorithm~\ref{alg:transaction} execute operations starting from $opid$ in the transaction descriptor $desc$.
-The thread initiating the transaction will start from $opid=0$, while other thread might concurrently invoke this method to help unfinished operations with $opid\in[1,desc.size)$.
-The method consists of a while loop (line~\algref{alg:transaction}{l:txnwhile}) that executes each operation in order.
-The next operation will only be executed if the previous operation completes successfully.
-Otherwise, it indicates some unsatisfied precondition and the transaction aborts. 
-The concrete \textsc{ExecuteOp} function varies slightly among different data types.
-We explain them in details in Section~\ref{sec:application}.
-Once all operations completes successfully we atomically update the transaction status with a succeeded flag (line~\algref{alg:transaction}{l:txnsuccess}).
 
-\begin{algorithm}[h]
-    \caption{Transaction Execution}
-    \label{alg:transaction}
-    \begin{algorithmic}[1]
-        \Function{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-        \State $ret \gets \TRUE$
-        \While {$desc.flag = InProgress$ $\AND ret \AND$ $opid < desc.size$} \label{l:txnwhile}
-        \State $\textbf{Operation*} op \gets \&desc.ops[opid]$
-        \State $ret \gets \Call{ExecuteOp}{op}$
-        \State $opid \gets opid + 1$
-        \EndWhile
-        \If {$ret = \TRUE$}
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Succeeded)$ \label{l:txnsuccess}
-        \Else
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Failed)$        
-        \EndIf
-        \EndFunction
-        \end{algorithmic}
-\end{algorithm}
+
+\subsection{Transaction Descriptor}
+\label{sec:txndesc}
+Descriptor is a widely used object in lock-free programming.
+The functionality of a transactional descriptor are two folds: 1) provides transaction context which allows operations to help finish previous delayed operations; and 2) provides the transaction status shared among all nodes participated in the same transaction.
+%Should conflicts among write operations occur, operations help finish the transaction starting from the node in conflict.
 
 \section{Application Examples}
 \label{sec:application}
-Following our approach, majority of the work of implementing transactional data structures lies in converting their write operations using the lock-free node replacement technique. 
-Read operations only need minimal modification to recognize the logical status of a node.
+\_
 
 \subsection{Linked List}
-We now demonstrate the implementation of a transactional ordered linked list.
-The \texttt{Find} operation listed in in Algorithm~\ref{alg:listfind} determines if a node with specific key exists.
-It shares the same node traversal algorithm \texttt{LocatePred} with the \texttt{Insert} and \texttt{Delete} operations.
-\texttt{LocatePred}\footnote{For clarity of presentation, we use the notion of \textbf{inline} functions, which have implicit access to caller's local variables without explicit argument passing.} locates a node's immediate parent node $pred$ and child node $curr$. 
-Similar to the sequential algorithm, The comparison of the key values is used as the termination condition (line~\algref{alg:listfind}{l:listpredcheck}).
-Once the node traversal completes and a node physically exists, we need to further judge its logical status.
-
-\begin{algorithm}[h]
-    \caption{Linked List Find}
-    \label{alg:listfind}
-    \begin{algorithmic}[1]
-        \Function{Find}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc$}
-        \State $\textbf{Node*}\;pred \gets \NIL,\;curr \gets head$
-        \State \Call{LocatePred}{ }
-        \State \Return \Call{PhysicalExisit}{$curr$} \AND \Call{LogicalExisit}{$curr$}
-        \EndFunction
-        \Statex
-        \Inline{LocatePred}{ }
-        \While {$curr \neq \NIL \AND curr.key < key$} \label{l:listpredcheck}
-        \State $pred \gets curr$
-        \State \Call{AdoptChild}{$curr$} \label{l:listpredhelp}
-        \State $curr \gets \textsc{ClearMark}(curr.child[0], F_{adp})$ \label{l:listpredchild}
-        \EndWhile
-        \EndInline
-        \Statex
-        \Inline{LogicalExisit}{$\textbf{Node*} node$}
-        \State \Return $node \neq \NIL \AND node.key = key$
-        \EndInline
-        \Statex
-        \Inline{LogicalExisit}{$\textbf{Node*} node$}
-        \If{$node.desc.status = \INPROGRESS$}
-        \If{$node.desc = desc$}
-        \State \Return $node.desc.ops[node.opid].type = \INSERT$
-        \Else
-        \State \Call{ExecuteOps}{$node.desc,\;node.opid+1$}
-        \EndIf
-        \EndIf
-        \State \Return $(node.desc.status = \SUCCEED \AND node.desc.ops[node.opid].type = \INSERT) \OR (node.desc.status = \FAIL \AND node.desc.ops[node.opid].type = \DELETE)$
-        \EndInline
-    \end{algorithmic}
-\end{algorithm}
-
-Algorithm~\ref{alg:listinsert} lists the \texttt{Insert} function.
-
-\begin{algorithm}[t]
-    \caption{Linked List Insert}
-    \label{alg:listinsert}
-    \begin{algorithmic}[1]
-        \Function{Insert}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int} opid$}
-        \State $\textbf{Node*}\; node \gets \text{\textbf{new Node}}$
-        \State $node.key \gets key,\;node.val \gets val$
-        \State $node.desc \gets desc,\;node.opid \gets opid$
-        %\State $node.child[0] \gets \NIL$
-        \State $\textbf{Node*}\; pred \gets \NIL,\;curr \gets head$\label{l:insfromhead}
-        \While{\TRUE}
-        \State \Call{LocatePred}{ } \label{l:locpre1}
-        \If{$curr\neq\NIL$}
-        \If{\Call{IsKeyExist}{$curr$}}
-        \State \Return $curr.desc = desc$
-        \EndIf
-        \If{$curr.key \neq key$}
-        \State \Call{Replace}{$pred,\;curr,\;node$}
-        \Else
-        \State $node.child[0] \gets curr$
-        \EndIf
-        \EndIf
-        \EndWhile
-        \EndFunction
-    \end{algorithmic}
-\end{algorithm}
-
-
-
+\_
 
 \subsection{Binary Search Tree}
 \_
