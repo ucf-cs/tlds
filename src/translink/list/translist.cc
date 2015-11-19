@@ -132,6 +132,7 @@ inline void TransList::HelpAdopt(Node* node)
     {
         __sync_bool_compare_and_swap(&curr->adopt, NULL, SET_ADPINV(node));
     }
+    //TODO: ASSERT curr->adopt must equal to SET_ADPINV(node)
 
     Node* next = CLR_ADPINV(__sync_fetch_and_or(&curr->next, 0x1));
 
