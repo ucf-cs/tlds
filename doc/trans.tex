@@ -99,6 +99,8 @@
 
 \section{Introduction}
 \label{sec:intro}
+%TODO: define "state of ADT"/"abstract state of the shared object" 
+%TODO: either define "layer of indirection" or avoid using it as a term and replace it with something else
 With the growing prevalence of multi-core systems numerous highly concurrent non-blocking data structures have emerged~\cite{linden2013skiplist,ellen2010non,braginsky2012lock,zhang2015lockfree,michael2002high}.
 Researchers and advanced users have been using libraries like LibCDS~\footnote{http://libcds.sourceforge.net/}, Tervel~\footnote{http://ucf-cs.github.io/Tervel/} and Intel's TBB~\footnote{https://www.threadingbuildingblocks.org/}, which are packed with efficient concurrent implementations of fundamental data structures.
 High level programming languages such as C\#, JAVA and Scala also introduce concurrent libraries, which allow users who are unaware of the pitfalls of concurrent programming to safely take advantage of the performance benefits of increased concurrency.
@@ -160,15 +162,18 @@ Moreover, in case of non-blocking algorithms, the progress guarantee of the boos
 %In the boosted linked list shown in Figure~\ref{fig:boosting}, the abstract lock is pertaining to each key.  
 %thread 1 tries to execute \texttt{Insert(1)} and \texttt{Insert(4)} in a transaction while thread 2 tries to execute \texttt{Remove(9)} and \texttt{Insert(4)} transactionally.
  
-In this paper we present a methodology to implement high-performance lock-free transactional linked data structures without rollbacks by relying only on the single-word \texttt{ComapreAndSwap} synchronization primitive.
+In this paper we present a methodology for implementing high-performance lock-free transactional linked data structures without rollback by relying only on the single-word \texttt{ComapreAndSwap} synchronization primitive.
 By a linked data structure we mean one that comprises a set of data nodes organized by references. 
 Each node has one inbound reference and can have one (e.g., linked list), two (e.g., binary tree), or more (e.g., B-tree and multi-dimensional linked list) outbound references.
-Consider the three basic write operations one can perform on a node: insertion, deletion, and update.
+Consider the three basic write operations one can perform on a node: insert, delete, and update.
+%TODO: think whether the operations indeed act directly, how about those using descriptors?
 In existing lock-free implementations, these operations act directly on different fields of a node, and the effects are rendered immediately in the state of the abstract data type (ADT).
-We address the two key challenges of supporting transactional operations without rollbacks: 1) transaction isolation requires that the effects of an operation is invisible to operations outside the transaction scope before the transaction successfully commits; and 2) delete and update operations require indirection such that their effect can be muted in case of transaction failure.
+We address the two key challenges of supporting transactional operations without rollback: 1) transaction isolation requires that the effects of an operation are invisible to operations outside the transaction's scope before the transaction successfully commits; and 2) delete and update operations require indirection such that their effects can be muted in case of transaction failure.
 
+%TODO: Break this sentence in two: 1st sentence focus on the use of "logical status"; and 2nd sentence: how we implement it
+% In 1st sentence, include a "bridge" from the previous paragraph, such as: "To overcome these challenges ..."
 At its core, our approach associates a logical status with each node by embedding a reference to a \emph{transaction descriptor} in every node.
-A \emph{transaction descriptor} is shared among all the nodes within the same transaction, and it stores the operation context as well as a flag indicating the status of the transaction (e.g., in-progress, succeeded or failed).
+A \emph{transaction descriptor} is shared among all nodes within the same transaction, and it stores the operations' context as well as a flag indicating the status of the transaction (e.g., in-progress, succeeded or failed).
 A node's logical status denotes how other concurrent operations interpret the node's content.
 %and it is determined by the type of operation and the status of the transaction.
 Based on the status of the transaction, we categorize nodes into logically active ones and inactive ones.
@@ -178,15 +183,17 @@ As a result, the state of the ADT is determined by the logically active nodes on
 For example, if a transaction inserted a new node but failed afterwards due to semantic conflicts, the newly inserted node will have a descriptor indicating the transaction failure.
 All subsequent operations will proceed as if the node does not exists.
 
-The use of logical status can postponed the effect of insert operations until the transactions commit.
-However, regular delete and update operations cannot exploit this benefit because they don't insert nodes. 
+The use of logical status can postpone the effect of an insert operation until the transaction commits.
+Delete and update operations in existing data structures cannot exploit this benefit because they do not insert nodes. 
+In order to postpone the effect of delete and update operations, we need a layer of indirection, which will enable us to engineer all three write operations in a uniform manner.
 We thus design a lock-free node replacement algorithm that allows update or delete operations to insert new nodes that replace exiting nodes in the data structure.
-This provides a layer of indirection which enables us to engineer all three write operations in a uniform manner, and postpone the effect of delete and update operations.
-For example, if a transaction needs to delete an existing node, it replaces the old node with a new node which has the same key as the target node. 
+For example, if a transaction needs to delete an existing node, it replaces the old node with a new node, which has the same key as the target node. 
 The newly inserted node has a descriptor pertaining to the transaction that executes the delete operation.
 If this transaction succeeds, the logical status of the newly inserted node will be interpreted as deleted. 
-Otherwise, it implies a failed deletion hence the logical existence of the node.
+Otherwise, this implies a failed deletion hence the logical existence of the node.
 
+%TODO: Expand the section on contributions; more assertive language; focus on contributions
+%TODO: make sure that you spell it out directly that this is the first lock-free transactional technique that does not use rollback
 Our approach has the following algorithmic characteristics:
 \begin{itemize}
     \item Lock-free thread-level synchronization provides comparable level of parallelism as the state-of-the-art concurrent data structures;
@@ -195,18 +202,21 @@ Our approach has the following algorithmic characteristics:
     \item Rolling back executed operations in failed transactions is not necessary as the nodes will remain logically inactive;
 \end{itemize}
 
+%TODO: Say that we applied our methodology to implement a linked-list and binary search tree
 In our experimental evaluation, we compare transactional linked list and binary search trees built on RSTM~\cite{marathe2006lowering}, transactional boosting~\cite{herlihy2008transactional}, and our approach on a 64-core NUMA and a 12-core SMP system for transactions with up to 64 operations.
 RSTM is the best available object-based non-blocking STM implementation, which provides significant performance advantage over traditional lock-based and data-based STM implementations.
 The result shows that on both systems our algorithms achieve more than $500\%$ speedup over RSTM based approaches.
 Moreover, on both systems our algorithms outperform transactional boosting approaches by an average of $30\%$ for transactions with more than 4 operations.
+%TODO: make a note for a future extended version: compare against basic lock-free linked-list and lock-free binary search tree
 
 The rest of the paper is organized as follows. 
 In Section~\ref{sec:related}, we review existing approaches on constructing transactional data structures.
 In Section~\ref{sec:algorithm}, we explain our algorithms in details.
 We present the transactional linked list in Section~\ref{sec:application}.
 We reason about the correctness and progress properties of our algorithms in Section~\ref{sec:correctness}.
-The performance evaluation and result analysis is given in Section~\ref{sec:experiment}.
+The performance evaluation is presented in Section~\ref{sec:experiment}.
 We conclude the paper in Section~\ref{sec:conclusion}.
+%TODO: in conclusion talk about "the limitation" of supporting linked data structures and the possibility to expand the methodology to others with contiguous memory
 
 \section{Related Work}
 \label{sec:related}
@@ -442,14 +452,14 @@ Once all operations complete successfully we atomically update the transaction s
 
 \section{Application Examples}
 \label{sec:application}
-Following our approach, the key process to implement a transactional linked data structure based on the sequential algorithm involves 1) identifying the conditions that determine if a node is active; and 2) applying the aforementioned lock-free node replacement technique to convert the write operations.
-The goal of the first step is to construct a sub-routine which helps operations correctly recognize the logical status of a node.
+In this section we demonstrate the application of our methodology for implementing transactional linked data structures based on their sequential counterparts. This requires two steps: 1) identifying the conditions that determine if a node is active, and 2) applying the aforementioned lock-free node replacement technique to convert the write operations. The goal of the first step is to construct a sub-routine which helps operations correctly recognize the logical status of a node.
 The second step generates uniform write operations that share the same basic node insertion procedure and differ only in the trigger condition for insertion.
 
 %TODO: move node activeness to previous section
 \subsection{Linked List}
 \label{sec:applist}
 We now demonstrate the implementation of a transactional ordered linked list.
+%TODO: maybe add 2 sentences as a "teaser" and summary of what was most challenging/interesting about the transformation of the linked-list
 Algorithm~\ref{alg:listfind} lists the \texttt{Find} operation as well as four sub-routines that are shared among \texttt{Insert} and \texttt{Delete} operations.
 \texttt{Find} determines if a node with a specific key exists.
 The node traversal algorithm \texttt{LocatePred}\footnote{We use the notion of reference arguments marked by \textbf{ref}, which surfaces the modification of arguments done by the callee function in the caller function.} locates a node's immediate parent node $pred$ and child node $curr$. 
@@ -569,10 +579,10 @@ This condition check allows us to identify node inserted by other threads that e
 This is important as all helping threads will try to set the transaction phase flag at the end of the execution; conflicts attempts on setting the transaction phase flag is possible if multiple execution of the same operation do not reach consensus on the result code.
 On line~\algref{alg:listinsert}{l:listinsertreplace}, \texttt{Replace} is called to place the new node in the list.
 If a node with same key exist but is inactive (line~\algref{alg:listinsert}{l:listinsertexist}), the existing node $curr$ will be replaced by the new node.
-Should the CAS operation in \texttt{Replace} fails due to contention, we reset the traverse variable $pred$ and $curr$ and start the loop over again.
+Should the CAS operation in \texttt{Replace} fail due to contention, we reset the traverse variable $pred$ and $curr$ and start the loop over again.
 The traverse restart point depends on whether $pred$ node has been replaced by some other nodes, which can be inferred from the marked child pointer (line~\algref{alg:listinsert}{l:listinsertpred}).
 When $pred$'s child node is marked, $pred$ is no longer reachable from the head.
-We restart traverse from the node that replaces $pred$, whose reference was stored in the $pred$'s $repl$ field during the child adoption process (line~\algref{alg:replace}{l:adoptsetrepl}).
+We restart the traversal from the node that replaces $pred$, whose reference was stored in the $pred$'s $repl$ field during the child adoption process (line~\algref{alg:replace}{l:adoptsetrepl}).
 Otherwise, we simply start from $pred$.
 
 The \texttt{Delete} operation listed in Algorithm~\ref{alg:listdelete} shares the same structure as the \texttt{Insert} operation.
