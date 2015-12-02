@@ -96,6 +96,7 @@
 %TODO: define linearizable
 %TODO: define CAS
 %TODO: define existing node and active node
+%TODO: define status of transaction live/committed/aborted transactions
 
 \section{Introduction}
 \label{sec:intro}
@@ -425,7 +426,7 @@ Finally, the descriptor field in $n$ is cleared to designate the operation's com
         \If {$ret = \TRUE$}
         \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Succeeded)$ \label{l:txnsuccess}
         \Else
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Failed)$        
+        \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Failed)$ \label{l:txnfail}
         \EndIf
         \EndFunction
         \end{algorithmic}
@@ -490,7 +491,7 @@ It ensures that the child pointer in $curr$ is up to date when read on line~\alg
         \EndFunction
         \Statex
         \Function{IsExist}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
-        \State \Return $n \neq \NIL \AND n.key = key$
+        \State \Return $n \neq \NIL \AND n.key = key$ \label{l:listfindexist}
         \EndFunction
         \Statex
         \Function{IsActive}{$\textbf{Node*}\;n,\; \textbf{Desc*}\; desc$}
@@ -501,7 +502,9 @@ It ensures that the child pointer in $curr$ is up to date when read on line~\alg
         \State \Call{ExecuteOps}{$n.desc,\;n.opid+1$} \label{l:listactivehelp}
         \EndIf
         \EndIf
-        \State \Return $(n.desc.ops[n.opid].type = \INSERT \hfill\break \AND n.desc.status = \SUCCEED) \hfill\break \OR (n.desc.ops[n.opid].type = \DELETE \hfill\break \AND n.desc.status = \FAIL)$ \label{l:listactivecond}
+        \State $\textbf{Status}\; status \gets n.desc.status$ \label{l:listfindreadstatus}
+        \State $\textbf{int}\; type \gets n.desc.ops[n.opid].type$
+        \State \Return $(type = \INSERT \AND status = \SUCCEED) \hfill\break \OR (type = \DELETE \AND status = \FAIL)$ \label{l:listactivecond}
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
@@ -530,7 +533,7 @@ For all other in progress transactions, we invoke the helper method (line~\algre
         \EndIf
         \State $\textbf{bool}\; replace \gets \Call{IsExist}{curr,\;key}$ \label{l:listinsertexist}
         \If {\Call{Replace}{$pred,\;curr,\;n,\;replace,\;0,\;0$}} \label{l:listinsertreplace}
-        \State \Return \TRUE
+        \State \Return \TRUE \label{l:listinsertreturn}
         \Else
         \State $curr \gets \textsc{IsMakred}(pred.child[0]) \;?\; \hfill \break  \textsc{ClearMark}(pred.repl) : pred$ \label{l:listinsertpred}
         \State $pred \gets \NIL$ 
@@ -590,7 +593,93 @@ The difference is that it inserts the new node when the list contains the target
 
 \section{Correctness}
 \label{sec:correctness}
-\_
+Using the above linked list as an example, we briefly reason about the safety and progress properties of the transactional data structures constructed using our methodology. 
+We start by showing the \texttt{Find}, \texttt{Insert}, and \texttt{Delete} operations are \emph{linearizable}~\cite{herlihy2012art}.
+Since a linearizable operation appears to take effect instantaneously at some point between its method invocation and method return, it can be treated as an atomic operation in the context of transaction execution.
+We then sketch a proof that the transactional executions of these atomic operations satisfy \emph{opacity}~\cite{guerraoui2008correctness}.
+Finally, we show that our algorithm provides lock-free progress. 
+
+\subsection{Linearizability}
+Let us consider the case where the maximum number of operations in a transaction is limited to one.
+The transactional linked list introduced in Section~\ref{sec:applist} degenerates to a concurrent linked list.
+We show that it is a linearizable linked list implementation that complies with the \emph{set} semantics by identifying \emph{linearization points} for each operation.
+%The concurrent operation can be viewed as it occurred atomically at its linearization point in the execution history.
+We denote the set of keys that are contained by all nodes in the linked list as $U$, and the set of keys that are contained by the inactive nodes as $V$.
+The abstract state of the set is then $S \equiv U \setminus V$.
+Additionally, we use the notion of decision points and state-read points to facilitate our reasoning. 
+The decision point of an operation is define as the atomic statement that finitely decides the result of an operation, i.e. independent of the result of any subsequent instruction after that point.
+A state-read point is define as the atomic statement where the state of the dictionary, which determines the outcome of the decision point, is read.
+
+\begin{theorem}
+    A $\textsc{Find}(k)$ operation takes effect atomically at one statement.
+\end{theorem}
+\begin{proof}
+    A find operation returns true if $k \in S$, or false otherwise.  
+    The decision point for the first case is on line~\algref{alg:listfind}{l:listactivecond} when the list already contains an active node with the same key.
+    The decision points for the latter case is on line~\algref{alg:listfind}{l:listfindexist} when it cannot find the node with the target key, and on line~\algref{alg:listfind}{l:listactivecond} when the target node is logically inactive (i.e., already deleted).
+    The state-read point and hence the linearization point for both cases is on line~\algref{alg:listfind}{l:listpredchild}, where $curr$ is read.
+\end{proof}
+
+\begin{theorem}
+    An $\textsc{Insert}(k)$ operation takes effect atomically at one statement.
+\end{theorem}
+\begin{proof}
+    An \textsc{Insert} operation returns true on line~\algref{alg:listinsert}{l:listinsertreturn}; it must have succeeded in either a) adding a new node or b) replacing an existing inactive node.
+    The decision point for both cases to take effect is when the CAS operation on line~\algref{alg:replace}{l:link} succeeds.
+    The remaining atomic primitives in the child adoption process will be executed at least once (line~\algref{alg:replace}{l:adoptself}) and successfully complete through the use of helping mechanism (line~\algref{alg:listfind}{l:listpredhelp}).
+    The abstract state of the set is correctly changed because $U'=U\cup \{ k \}$ (for case a), and $V'=V \setminus \{ k \}$ (for case b).
+    The linearization point for a $\textsc{Insert}(k)$ operation to fail is the same if the \textsc{Find} operation succeeds.
+\end{proof}
+
+\begin{theorem}
+    A $\textsc{Delete}(k)$ operation takes effect atomically at one statement.
+\end{theorem}
+\begin{proof}
+    If $k \in S$, a successful $\textsc{Delete}(k)$ operation changes the abstract state as follows: $V' = V \cup \{k\} \implies S' = S \setminus \{ k\}$
+    The decision point as well the linearization point for it to take effect is when the CAS operation on line~\algref{alg:replace}{l:link} succeeds.
+    The linearization point for a $\textsc{Delete}(k)$ operation to fail is the same if the \textsc{Find} operation fails.
+\end{proof}
+
+\subsection{Opacity}
+Our algorithm satisfies opacity~\cite{guerraoui2008correctness}, which is a stronger STM correctness condition than traditional serializability~\cite{papadimitriou1979serializability}.
+Intuitively, opacity requires that 1) all operations performed by every committed transaction appear as if they happened at some single, indivisible point during the transaction lifetime, 2) no operation performed by any aborted transaction is visible to other transactions and 3) every transaction (including live transactions) always observes a consistent state of the shared object.
+For brevity, we informally reason about how our algorithm meets these requirements.
+
+\begin{lemma} \label{lmm:inactive}
+    Nodes inserted by operations in a transaction stay inactive until the transaction commits.
+\end{lemma}
+\begin{proof}
+    Nodes are active iff the transaction status flag is set to \emph{Succeeded}, which is done using CAS on line~\algref{alg:transaction}{l:txnsuccess}.
+\end{proof}
+
+\begin{lemma} \label{lmm:inactive1}
+    Nodes inserted by operations in a aborted transaction stay inactive.
+\end{lemma}
+\begin{proof}
+    The \emph{Failed} transactions status flag is set using CAS on line~\algref{alg:transaction}{l:txnfail}.
+\end{proof}
+
+\begin{lemma}
+    Pairwise concurrent transactions have a conflict if and only if they contain operations that access the same key.
+\end{lemma}
+\begin{proof}
+    Since all operations are linearizable, 
+\end{proof}
+
+\begin{lemma}
+    All transactions including live transactions observe a consistent abstract state of the data structure.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+    The transactional execution of the linked list operations is opaque.
+\end{theorem}
+\begin{proof}
+Follow Lemma~\ref{lmm:inactive}, opacity requirement 1 is met. 
+Follow Lemma~\ref{lmm:inactive1}, opacity requirement 2 is met. 
+Follow Lemma~\ref{}, opacity requirement 3 is met. 
+\end{proof}
 
 \section{Experimental Results}
 \label{sec:experiment}

@@ -310,7 +310,6 @@ inline bool TransList::IsKeyExist(Node* node, uint32_t key, Desc* desc)
     }
 }
 
-
 inline void TransList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
 {
     while(curr != NULL && curr->key < key)
