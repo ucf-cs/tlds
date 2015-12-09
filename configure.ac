@@ -13,7 +13,7 @@ AC_SUBST([WARN_FLAGS], ['-Wall'])
 #CXXFLAGS='-g -O3 -pg'
 #CXXFLAGS='-g -O0'
 CXXFLAGS='-O3 -DNDEBUG'
-AC_DEFINE(ENABLE_ASSERT, , 'Enable custom assert macros')
+#AC_DEFINE(ENABLE_ASSERT, , 'Enable custom assert macros')
 #AC_DEFINE(ENABLE_STATIC_ASSERT, , 'Enable custom static assert macros')
 
 LT_INIT
