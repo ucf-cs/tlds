@@ -2,6 +2,7 @@
 #define TRANSLIST_H
 
 #include <cstdint>
+#include <vector>
 #include "common/assert.h"
 #include "common/allocator.h"
 
@@ -35,7 +36,7 @@ public:
             return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
         }
 
-        uint8_t status;
+        volatile uint8_t status;
         uint8_t size;
         Operator ops[];
     };
@@ -62,6 +63,8 @@ public:
 
     };
 
+    typedef std::vector<Desc*> HelpStack;
+
     TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator);
     ~TransList();
 
@@ -71,11 +74,10 @@ public:
 
 private:
     bool Insert(uint32_t key, Desc* desc, uint8_t opid);
-    bool Delete(uint32_t key, Desc* desc, uint8_t opid);
+    Node* Delete(uint32_t key, Desc* desc, uint8_t opid);
     bool Find(uint32_t key, Desc* desc);
 
     bool HelpOps(Desc* desc, uint8_t opid);
-    void HelpAdopt(Node* node);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
     bool IsNodeExist(Node* node, uint32_t key);
     bool IsNodeActive(NodeDesc* nodeDesc, Desc* desc);
