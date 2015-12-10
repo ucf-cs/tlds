@@ -58,9 +58,8 @@ public:
 
         uint32_t key;
         Node* next;
-
+        
         NodeDesc* nodeDesc;
-
     };
 
     struct HelpStack
@@ -124,6 +123,7 @@ private:
     void Print();
 
 private:
+    Node* m_tail;
     Node* m_head;
 
     Allocator<Node>* m_nodeAllocator;
@@ -138,10 +138,10 @@ private:
         uint32_t g_count_del = 0;
         uint32_t g_count_del_new = 0;
         uint32_t g_count_fnd = 0;
-        uint32_t g_count_commit = 0;
-        uint32_t g_count_abort = 0;
-        uint32_t g_count_txn = 0;
     )
+
+    uint32_t g_count_commit = 0;
+    uint32_t g_count_abort = 0;
 };
 
 #endif /* end of include guard: TRANSLIST_H */    

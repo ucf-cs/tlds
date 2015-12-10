@@ -4,9 +4,11 @@ __thread BoostingList::LogType* BoostingList::m_log;
 
 BoostingList::~BoostingList()
 {
+    printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+
     ASSERT_CODE
     (
-         printf("Total node count %u, Inserts %u, Deletions %u, Finds %u\nTotal commit %u, abort %u (insert %u, delete %u)\n", g_count, g_count_ins, g_count_del, g_count_fnd, g_count_commit, g_count_abort, g_count_abort_ins, g_count_abort_del);
+         printf("Total node count %u, Inserts %u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_del, g_count_fnd);
          //Print();
     );
 }
@@ -63,6 +65,8 @@ bool BoostingList::Find(uint32_t key)
 
 void BoostingList::OnAbort()
 {
+    __sync_fetch_and_add(&g_count_abort, 1);
+
     for(int i = m_log->size() - 1; i >= 0; --i)
     {
         bool ret = true;
@@ -85,51 +89,13 @@ void BoostingList::OnAbort()
         ASSERT(ret, "Revert operations have to succeed");
     }
 
-    ASSERT_CODE
-    (
-        for(uint32_t i = 0; i < m_log->size(); ++i)
-         {
-            const Operation& op = m_log->at(i);
-
-            if(op.type == DELETE)
-            {
-                __sync_fetch_and_add(&g_count_abort_ins, 1);
-            }
-            else if(op.type == INSERT)
-            {
-                __sync_fetch_and_add(&g_count_abort_del, 1);
-            }
-         }
-
-        __sync_fetch_and_add(&g_count_abort, 1);
-    )
-
     m_log->clear();
     m_lock.Unlock();
 }
 
 void BoostingList::OnCommit()
 {
-    ASSERT_CODE
-    (
-         for(uint32_t i = 0; i < m_log->size(); ++i)
-         {
-            const Operation& op = m_log->at(i);
-
-            if(op.type == DELETE)
-            {
-                __sync_fetch_and_add(&g_count, 1);
-                __sync_fetch_and_add(&g_count_ins, 1);
-            }
-            else if(op.type == INSERT)
-            {
-                __sync_fetch_and_sub(&g_count, 1);
-                __sync_fetch_and_add(&g_count_del, 1);
-            }
-         }
-
-         __sync_fetch_and_add(&g_count_commit, 1);
-    );
+    __sync_fetch_and_add(&g_count_commit, 1);
 
     m_log->clear();
     m_lock.Unlock();

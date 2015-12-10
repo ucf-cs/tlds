@@ -137,31 +137,31 @@ class SetAdaptor<BoostingList>
 public:
     SetAdaptor()
     {
-        TM_SYS_INIT();
+        //TM_SYS_INIT();
     }
     
     ~SetAdaptor()
     {
-        TM_SYS_SHUTDOWN();
+        //TM_SYS_SHUTDOWN();
     }
 
     void Init()
     {
         m_list.Init();
-        TM_THREAD_INIT();
+        //TM_THREAD_INIT();
     }
 
     void Uninit()
     {
         m_list.Uninit();
-        TM_THREAD_SHUTDOWN();
+        //TM_THREAD_SHUTDOWN();
     }
 
     bool ExecuteOps(const SetOpArray& ops)
     {
         bool ret = false;
 
-        TM_BEGIN(atomic)
+        //TM_BEGIN(atomic)
         {
             for(uint32_t i = 0; i < ops.size(); ++i)
             {
@@ -192,7 +192,7 @@ public:
                 m_list.OnCommit();
             }
         }
-        TM_END;
+        //TM_END;
 
         return ret;
     }
