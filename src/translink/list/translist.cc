@@ -16,6 +16,7 @@
 #define CLR_MARKD(_p)    ((NodeDesc *)(((uintptr_t)(_p)) & ~1))
 #define IS_MARKED(_p)     (((uintptr_t)(_p)) & 1)
 
+__thread TransList::HelpStack helpStack;
 
 TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator)
     : m_head(new Node)
@@ -29,7 +30,8 @@ TransList::~TransList()
     ASSERT_CODE
     (
         printf("Total node count %u, Inserts (total/new) %u/%u, Deletes (total/new) %u/%u, Finds %u\n", g_count, g_count_ins, g_count_ins_new, g_count_del , g_count_del_new, g_count_fnd);
-        Print();
+        printf("Total txn %u, commit %u, abort %u\n", g_count_txn, g_count_commit, g_count_abort);
+        //Print();
     );
 
     //Node* curr = m_head;
@@ -53,10 +55,14 @@ TransList::Desc* TransList::AllocateDesc(uint8_t size)
 
 bool TransList::ExecuteOps(Desc* desc)
 {
+    helpStack.Init();
+
     bool ret = HelpOps(desc, 0);
 
     ASSERT_CODE
     (
+        __sync_fetch_and_add(&g_count_txn, 1);
+
         if(ret)
         {
             for(uint32_t i = 0; i < desc->size; ++i)
@@ -86,6 +92,18 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
     bool ret = true;
     std::vector<Node*> deletedNodes;
 
+    //Cyclic dependcy check
+    if(helpStack.Contain(desc))
+    {
+        if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
+        {
+            ASSERT_CODE(__sync_fetch_and_add(&g_count_abort, 1););
+        }
+        return false;
+    }
+
+    helpStack.Push(desc);
+
     while(desc->status == LIVE && ret && opid < desc->size)
     {
         const Operator& op = desc->ops[opid];
@@ -107,6 +125,8 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
 
         opid++;
     }
+
+    helpStack.Pop();
 
     //if(desc->status == LIVE)
     //{
@@ -131,12 +151,17 @@ inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
                     }
                 }
             }
+
+            ASSERT_CODE(__sync_fetch_and_add(&g_count_commit, 1););
         }
         return true;
     }
     else
     {
-        __sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED);
+        if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
+        {
+            ASSERT_CODE(__sync_fetch_and_add(&g_count_abort, 1););
+        }
         return false;
     }
     //}
@@ -194,6 +219,11 @@ inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
                 curr = m_head;
                 pred = NULL;
                 continue;
+            }
+
+            if(!FinishPendingTxn(oldCurrDesc, desc))
+            {
+                return false;
             }
 
             if(!IsSameOperation(oldCurrDesc, nodeDesc) && !IsKeyExist(oldCurrDesc, desc))
@@ -285,6 +315,11 @@ inline TransList::Node* TransList::Delete(uint32_t key, Desc* desc, uint8_t opid
                 continue;
             }
 
+            if(!FinishPendingTxn(oldCurrDesc, desc))
+            {
+                return NULL;
+            }
+
             if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
             {
                 NodeDesc* currDesc = curr->nodeDesc;
@@ -340,19 +375,24 @@ inline bool TransList::IsNodeExist(Node* node, uint32_t key)
     return node != NULL && node->key == key;
 }
 
-inline bool TransList::IsNodeActive(NodeDesc* nodeDesc, Desc* desc)
+inline bool TransList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
 {
     // The node accessed by the operations in same transaction is always active 
     if(nodeDesc->desc == desc)
     {
         return true;
     }
-    
+
     if(nodeDesc->desc->status == LIVE)
     {
         HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
     }
 
+    return true;
+}
+
+inline bool TransList::IsNodeActive(NodeDesc* nodeDesc, Desc* desc)
+{
     return nodeDesc->desc->status == COMMITTED;
 }
 

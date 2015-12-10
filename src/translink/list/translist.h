@@ -63,7 +63,43 @@ public:
 
     };
 
-    typedef std::vector<Desc*> HelpStack;
+    struct HelpStack
+    {
+        void Init()
+        {
+            index = 0;
+        }
+
+        void Push(Desc* desc)
+        {
+            ASSERT(index < 255, "index out of range");
+
+            helps[index++] = desc;
+        }
+
+        void Pop()
+        {
+            ASSERT(index > 0, "nothing to pop");
+
+            index--;
+        }
+
+        bool Contain(Desc* desc)
+        {
+            for(uint8_t i = 0; i < index; i++)
+            {
+                if(helps[i] == desc)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        Desc* helps[256];
+        uint8_t index;
+    };
 
     TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator);
     ~TransList();
@@ -79,6 +115,7 @@ private:
 
     bool HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
+    bool FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
     bool IsNodeExist(Node* node, uint32_t key);
     bool IsNodeActive(NodeDesc* nodeDesc, Desc* desc);
     bool IsKeyExist(NodeDesc* nodeDesc, Desc* desc);
@@ -101,6 +138,9 @@ private:
         uint32_t g_count_del = 0;
         uint32_t g_count_del_new = 0;
         uint32_t g_count_fnd = 0;
+        uint32_t g_count_commit = 0;
+        uint32_t g_count_abort = 0;
+        uint32_t g_count_txn = 0;
     )
 };
 
