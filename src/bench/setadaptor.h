@@ -82,10 +82,10 @@ class SetAdaptor<trans_skip>
 {
 public:
     SetAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
-        : m_descAllocator(cap * threadCount * TransList::Desc::SizeOf(transSize), threadCount, TransList::Desc::SizeOf(transSize))
-        , m_nodeDescAllocator(cap * threadCount *  sizeof(TransList::NodeDesc) * transSize, threadCount, sizeof(TransList::NodeDesc))
-        , m_skiplist(transskip_alloc(&m_descAllocator, &m_nodeDescAllocator))
+        : m_descAllocator(cap * threadCount * Desc::SizeOf(transSize), threadCount, Desc::SizeOf(transSize))
+        , m_nodeDescAllocator(cap * threadCount *  sizeof(NodeDesc) * transSize, threadCount, sizeof(NodeDesc))
     { 
+        m_skiplist = transskip_alloc(&m_descAllocator, &m_nodeDescAllocator);
         init_transskip_subsystem(); 
     }
 

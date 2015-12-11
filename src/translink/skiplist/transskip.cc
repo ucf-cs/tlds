@@ -32,6 +32,9 @@ extern "C"
 }
 #include "transskip.h"
 
+#define CLR_MARKD(_p)    ((NodeDesc *)(((uintptr_t)(_p)) & ~1))
+#define IS_MARKED(_p)     (((uintptr_t)(_p)) & 1)
+
 enum OpStatus
 {
     LIVE = 0,
@@ -54,6 +57,43 @@ static uint32_t g_count_abort = 0;
 /*
  * PRIVATE FUNCTIONS
  */
+
+static bool help_ops(trans_skip* l, Desc* desc, uint8_t opid);
+
+static inline bool FinishPendingTxn(trans_skip* l, NodeDesc* nodeDesc, Desc* desc)
+{
+    // The node accessed by the operations in same transaction is always active 
+    if(nodeDesc->desc == desc)
+    {
+        return true;
+    }
+
+    if(nodeDesc->desc->status == LIVE)
+    {
+        help_ops(l, nodeDesc->desc, nodeDesc->opid + 1);
+    }
+
+    return true;
+}
+
+static inline bool IsNodeActive(NodeDesc* nodeDesc)
+{
+    return nodeDesc->desc->status == COMMITTED;
+}
+
+static inline bool IsKeyExist(NodeDesc* nodeDesc, Desc* desc)
+{
+    bool isNodeActive = IsNodeActive(nodeDesc);
+    uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
+
+    return  (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
+}
+
+static inline bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
+{
+    return nodeDesc1->desc == nodeDesc2->desc && nodeDesc1->opid == nodeDesc2->opid;
+}
+
 
 /*
  * Random level generator. Drop-off rate is 0.5 per level.
@@ -279,9 +319,13 @@ trans_skip *transskip_alloc(Allocator<Desc>* _descAllocator, Allocator<NodeDesc>
 }
 
 
-setval_t transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
+bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
 {
-    setval_t  ov, new_ov;
+    bool ret = false;
+    NodeDesc* nodeDesc = l->nodeDescAllocator->Alloc();
+    nodeDesc->desc = desc;
+    nodeDesc->opid = opid;
+
     ptst_t    *ptst;
     node_t* preds[NUM_LEVELS], *succs[NUM_LEVELS];
     node_t* pred, *succ, *new_node = NULL, *new_next, *old_next;
@@ -294,26 +338,56 @@ setval_t transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
     succ = weak_search_predecessors(l, k, preds, succs);
     
  retry:
-    ov = NULL;
 
     if ( succ->k == k )
     {
-        /* Already a @k node in the list: update its mapping. */
-        new_ov = succ->v;
-        //do {
-        if ( (ov = new_ov) == NULL )
+        NodeDesc* oldCurrDesc = succ->nodeDesc;
+
+        if(IS_MARKED(oldCurrDesc))
         {
-            /* Finish deleting the node, then retry. */
             READ_FIELD(level, succ->level);
             mark_deleted(succ, level & LEVEL_MASK);
             succ = strong_search_predecessors(l, k, preds, succs);
             goto retry;
         }
-        //}
-        //while ( overwrite && ((new_ov = CASPO(&succ->v, ov, v)) != ov) );
 
-        if ( new_node != NULL ) free_node(ptst, new_node);
-        goto out;
+        if(!FinishPendingTxn(l, oldCurrDesc, desc))
+        {
+            if ( new_node != NULL ) free_node(ptst, new_node);
+            ret = false;
+            goto out;
+        }
+
+        if(!IsSameOperation(oldCurrDesc, nodeDesc) && !IsKeyExist(oldCurrDesc, desc))
+        {
+            NodeDesc* currDesc = succ->nodeDesc;
+
+            if(desc->status != LIVE)
+            {
+                if ( new_node != NULL ) free_node(ptst, new_node);
+                ret = false;
+                goto out;
+            }
+
+            //if(currDesc == oldCurrDesc)
+            {
+                //Update desc 
+                currDesc = __sync_val_compare_and_swap(&succ->nodeDesc, oldCurrDesc, nodeDesc);
+
+                if(currDesc == oldCurrDesc)
+                {
+                    if ( new_node != NULL ) free_node(ptst, new_node);
+                    ret = true;
+                    goto out;
+                }
+            }
+        }
+        else
+        {
+            if ( new_node != NULL ) free_node(ptst, new_node);
+            ret = false;
+            goto out;
+        }
     }
 
 #ifdef WEAK_MEM_ORDER
@@ -331,6 +405,7 @@ setval_t transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
         new_node    = alloc_node(ptst);
         new_node->k = k;
         new_node->v = (void*)0xf0f0f0f0;
+        new_node->nodeDesc = nodeDesc;
     }
     level = new_node->level;
 
@@ -342,6 +417,13 @@ setval_t transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
 
     /* We've committed when we've inserted at level 1. */
     WMB_NEAR_CAS(); /* make sure node fully initialised before inserting */
+
+    if(desc->status != LIVE)
+    {
+        ret = false;
+        goto out;
+    }
+
     old_next = CASPO(&preds[0]->next[0], succ, new_node);
     if ( old_next != succ )
     {
@@ -394,9 +476,12 @@ setval_t transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
         MB(); /* make sure we see all marks in @new. */
         do_full_delete(ptst, l, new_node, level - 1);
     }
+
+    ret = true;
+
  out:
     fr_critical_exit(ptst);
-    return(ov);
+    return ret;
 }
 
 
@@ -494,7 +579,7 @@ void destroy_transskip_subsystem(void)
 }
 
 
-static bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
+static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
 {
     bool ret = true;
 
@@ -550,7 +635,7 @@ void transskip_print(trans_skip* l)
 
     while(curr != l->tail)
     {
-        printf("Node [%p] Key [%u] Status [%s]\n", curr, INTERNAL_TO_CALLER_KEY(curr->k), true? "Exist":"Inexist");
+        printf("Node [%p] Key [%u] Status [%s]\n", curr, INTERNAL_TO_CALLER_KEY(curr->k), IsKeyExist(CLR_MARKD(curr->nodeDesc), NULL)? "Exist":"Inexist");
         curr = (node_t*)get_unmarked_ref(curr->next[0]); 
     }
 }

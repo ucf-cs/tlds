@@ -107,11 +107,11 @@ struct node_t
 
 struct trans_skip
 {
-    node_t* tail;
-    node_t head;
-
     Allocator<Desc>* descAllocator;
     Allocator<NodeDesc>* nodeDescAllocator;
+
+    node_t* tail;
+    node_t head;
 };
 
 
@@ -137,28 +137,5 @@ bool execute_ops(trans_skip* l, Desc* desc);
 trans_skip *transskip_alloc(Allocator<Desc>* _descAllocator, Allocator<NodeDesc>* _nodeDescAllocator);
 
 void  transskip_free(trans_skip* l);
-
-/*
- * Add mapping (@k -> @v) into set @s. Return previous mapped value if
- * one existed, or NULL if no previous mapping for @k existed.
- * 
- * If @overwrite is FALSE, then if a mapping already exists it is not
- * modified, and the existing value is returned unchanged. It is possible
- * to see if the value was changed by observing if the return value is NULL.
- */
-setval_t trasnskip_insert(trans_skip *s, setkey_t k);
-
-/*
- * Remove mapping for key @k from set @s. Return value associated with
- * removed mapping, or NULL is there was no mapping to delete.
- */
-setval_t transskip_remove(trans_skip *s, setkey_t k);
-
-/*
- * Look up mapping for key @k in set @s. Return value if found, else NULL.
- */
-setval_t transskip_lookup(trans_skip *s, setkey_t k);
-
-
 
 #endif /* __SET_H__ */
