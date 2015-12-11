@@ -27,7 +27,7 @@
 #include <assert.h>
 #include "common/fraser/portable_defns.h"
 #include "common/fraser/ptst.h"
-#include "transskip.h"
+#include "transskipimpl.h"
 
 
 /*
