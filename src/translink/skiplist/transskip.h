@@ -2,6 +2,10 @@
 #define __SET_H__
 
 
+#include <cstdint>
+#include "common/assert.h"
+#include "common/allocator.h"
+
 typedef unsigned long setkey_t;
 typedef void         *setval_t;
 
@@ -27,6 +31,7 @@ typedef void         *setval_t;
  * key values 0 and 1, without knowing these have special meanings.
  */
 #define CALLER_TO_INTERNAL_KEY(_k) ((_k) + 2)
+#define INTERNAL_TO_CALLER_KEY(_k) ((_k) - 2)
 
 
 /*
@@ -50,12 +55,65 @@ do {                                                            \
 
 #endif
 
-
-#else
+#endif /* __SET_IMPLEMENTATION__ */
 
 /*************************************
  * PUBLIC DEFINITIONS
  */
+
+/*************************************
+ * Transaction Definitions
+ */
+
+struct Operator
+{
+    uint8_t type;
+    uint32_t key;
+};
+
+struct Desc
+{
+    static size_t SizeOf(uint8_t size)
+    {
+        return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
+    }
+
+    volatile uint8_t status;
+    uint8_t size;
+    Operator ops[];
+};
+
+struct NodeDesc
+{
+    NodeDesc(Desc* _desc, uint8_t _opid)
+        : desc(_desc), opid(_opid){}
+
+    Desc* desc;
+    uint8_t opid;
+};
+
+struct node_t
+{
+    int        level;
+#define LEVEL_MASK     0x0ff
+#define READY_FOR_FREE 0x100
+    setkey_t  k;
+    setval_t  v;
+
+    NodeDesc* nodeDesc;
+
+    node_t* next[1];
+};
+
+struct trans_skip
+{
+    node_t* tail;
+    node_t head;
+
+    Allocator<Desc>* descAllocator;
+    Allocator<NodeDesc>* nodeDescAllocator;
+};
+
 
 /*
  * Key range accepted by set functions.
@@ -66,15 +124,19 @@ do {                                                            \
 #define KEY_MIN  ( 0U)
 #define KEY_MAX  ((~0U) - 3)
 
-typedef void fr_set_t; /* opaque */
 
-void fr_init_set_subsystem(void);
-void fr_destroy_set_subsystem(void);
+void init_transskip_subsystem(void);
+void destroy_transskip_subsystem(void);
+
+
+bool execute_ops(trans_skip* l, Desc* desc);
 
 /*
  * Allocate an empty set.
  */
-fr_set_t *set_alloc(void);
+trans_skip *transskip_alloc(Allocator<Desc>* _descAllocator, Allocator<NodeDesc>* _nodeDescAllocator);
+
+void  transskip_free(trans_skip* l);
 
 /*
  * Add mapping (@k -> @v) into set @s. Return previous mapped value if
@@ -84,20 +146,19 @@ fr_set_t *set_alloc(void);
  * modified, and the existing value is returned unchanged. It is possible
  * to see if the value was changed by observing if the return value is NULL.
  */
-setval_t set_update(fr_set_t *s, setkey_t k, setval_t v, int overwrite);
+setval_t trasnskip_insert(trans_skip *s, setkey_t k);
 
 /*
  * Remove mapping for key @k from set @s. Return value associated with
  * removed mapping, or NULL is there was no mapping to delete.
  */
-setval_t set_remove(fr_set_t *s, setkey_t k);
+setval_t transskip_remove(trans_skip *s, setkey_t k);
 
 /*
  * Look up mapping for key @k in set @s. Return value if found, else NULL.
  */
-setval_t set_lookup(fr_set_t *s, setkey_t k);
+setval_t transskip_lookup(trans_skip *s, setkey_t k);
 
-#endif /* __SET_IMPLEMENTATION__ */
 
 
 #endif /* __SET_H__ */

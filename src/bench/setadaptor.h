@@ -2,6 +2,7 @@
 #define SETADAPTOR_H
 
 #include "translink/list/translist.h"
+#include "translink/skiplist/transskip.h"
 #include "rstm/list/rstmlist.hpp"
 #include "boosting/list/boostinglist.h"
 #include "common/allocator.h"
@@ -17,6 +18,13 @@ struct SetOperator
 {
     uint8_t type;
     uint32_t key;
+};
+
+enum SetOpStatus
+{
+    LIVE = 0,
+    COMMITTED,
+    ABORTED
 };
 
 typedef std::vector<SetOperator> SetOpArray;
@@ -68,6 +76,57 @@ private:
     Allocator<TransList::NodeDesc> m_nodeDescAllocator;
     TransList m_list;
 };
+
+template<>
+class SetAdaptor<trans_skip>
+{
+public:
+    SetAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
+        : m_descAllocator(cap * threadCount * TransList::Desc::SizeOf(transSize), threadCount, TransList::Desc::SizeOf(transSize))
+        , m_nodeDescAllocator(cap * threadCount *  sizeof(TransList::NodeDesc) * transSize, threadCount, sizeof(TransList::NodeDesc))
+        , m_skiplist(transskip_alloc(&m_descAllocator, &m_nodeDescAllocator))
+    { 
+        init_transskip_subsystem(); 
+    }
+
+    ~SetAdaptor()
+    {
+        transskip_free(m_skiplist);
+    }
+
+    void Init()
+    {
+        m_descAllocator.Init();
+        m_nodeDescAllocator.Init();
+    }
+
+    void Uninit()
+    {
+        destroy_transskip_subsystem(); 
+    }
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        //TransList::Desc* desc = m_list.AllocateDesc(ops.size());
+        Desc* desc = m_descAllocator.Alloc();
+        desc->size = ops.size();
+        desc->status = LIVE;
+
+        for(uint32_t i = 0; i < ops.size(); ++i)
+        {
+            desc->ops[i].type = ops[i].type; 
+            desc->ops[i].key = ops[i].key; 
+        }
+
+        return execute_ops(m_skiplist, desc);
+    }
+
+private:
+    Allocator<Desc> m_descAllocator;
+    Allocator<NodeDesc> m_nodeDescAllocator;
+    trans_skip* m_skiplist;
+};
+
 
 template<>
 class SetAdaptor<RSTMList>
