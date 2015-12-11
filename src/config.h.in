@@ -1,5 +1,8 @@
 /* src/config.h.in.  Generated from configure.ac by autoheader.  */
 
+/* 'Enable custom assert macros' */
+#undef ENABLE_ASSERT
+
 /* define if the Boost library is available */
 #undef HAVE_BOOST
 
