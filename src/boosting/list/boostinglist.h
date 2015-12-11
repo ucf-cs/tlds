@@ -58,11 +58,10 @@ private:
         uint32_t g_count_ins = 0;
         uint32_t g_count_del = 0;
         uint32_t g_count_fnd = 0;
-        uint32_t g_count_commit = 0;
-        uint32_t g_count_abort = 0;
-        uint32_t g_count_abort_ins = 0;
-        uint32_t g_count_abort_del = 0;
     )
+
+    uint32_t g_count_commit = 0;
+    uint32_t g_count_abort = 0;
 };
 
 #endif /* end of include guard: BOOSTINGLIST_H */
