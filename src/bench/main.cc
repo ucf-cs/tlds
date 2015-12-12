@@ -126,7 +126,8 @@ int main(int argc, const char *argv[])
         "RSTMList",
         "BoostingList",
         "TransSkip",
-        "BoostingSkip"
+        "BoostingSkip",
+        "OSTMSkip"
     };
 
     printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
@@ -147,6 +148,9 @@ int main(int argc, const char *argv[])
         break;
     case 4:
         { SetAdaptor<BoostingSkip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 5:
+        { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     default:
         break;

@@ -7,6 +7,7 @@
 #include "boosting/list/boostinglist.h"
 #include "boosting/skiplist/boostingskip.h"
 #include "common/allocator.h"
+#include "ostm/skiplist/stmskip.h"
 
 enum SetOpType
 {
@@ -190,6 +191,40 @@ public:
 private:
     RSTMList m_list;
 };
+
+
+template<>
+class SetAdaptor<stm_skip>
+{
+public:
+    SetAdaptor()
+    {
+        init_stmskip_subsystem();
+        m_list = stmskip_alloc();
+    }
+    
+    ~SetAdaptor()
+    {
+        destory_stmskip_subsystem();
+    }
+
+    void Init()
+    { }
+
+    void Uninit()
+    { }
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        bool ret = stmskip_execute_ops(m_list, (set_op*)ops.data(), ops.size());
+
+        return ret;
+    }
+
+private:
+    stm_skip* m_list;
+};
+
 
 template<>
 class SetAdaptor<BoostingList>
