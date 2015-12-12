@@ -128,7 +128,7 @@ static inline bool IsKeyExist(NodeDesc* nodeDesc, Desc* desc)
     bool isNodeActive = IsNodeActive(nodeDesc);
     uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
 
-    return  (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
+    return (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
 }
 
 static inline bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
@@ -697,7 +697,7 @@ node_t* transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
 
 setval_t transskip_delete_org(trans_skip *l, setkey_t k)
 {
-    setval_t  v = NULL, new_v;
+    setval_t  v = NULL;
     ptst_t    *ptst;
     node_t* preds[NUM_LEVELS], *x;
     int        level, i;
@@ -752,8 +752,84 @@ setval_t transskip_delete_org(trans_skip *l, setkey_t k)
     return(v);
 }
 
+bool transskip_find(trans_skip* l, setkey_t k, Desc* desc, uint8_t opid)
+{
+    NodeDesc* nodeDesc = l->nodeDescAllocator->Alloc();
+    nodeDesc->desc = desc;
+    nodeDesc->opid = opid;
 
-setval_t transskip_find(trans_skip *l, setkey_t k)
+    bool ret;
+    ptst_t *ptst;
+    node_t *x;
+    int level;
+
+    k = CALLER_TO_INTERNAL_KEY(k);
+
+    ptst = fr_critical_enter();
+
+    x = weak_search_predecessors(l, k, NULL, NULL);
+
+retry:
+    if ( x->k == k )
+    {
+        NodeDesc* oldCurrDesc = x->nodeDesc;
+
+        if(IS_MARKED(oldCurrDesc))
+        {
+            READ_FIELD(level, x->level);
+            mark_deleted(x, level & LEVEL_MASK);
+            x = strong_search_predecessors(l, k, NULL, NULL);
+            goto retry;
+        }
+
+        if(!FinishPendingTxn(l, oldCurrDesc, desc))
+        {
+            ret = false;
+            goto out;
+        }
+
+        if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
+        {
+            NodeDesc* currDesc = x->nodeDesc;
+
+            if(desc->status != LIVE)
+            {
+                ret = false;
+                goto out;
+            }
+
+            //if(currDesc == oldCurrDesc)
+            {
+                //Update desc 
+                currDesc = __sync_val_compare_and_swap(&x->nodeDesc, oldCurrDesc, nodeDesc);
+
+                if(currDesc == oldCurrDesc)
+                {
+                    ret = true;
+                    goto out;
+                }
+            }
+
+            goto retry;
+        }
+        else
+        {
+            ret = false;
+            goto out;
+        }
+    }
+    else
+    {
+        ret = false;
+        goto out;
+    }
+
+out:
+    fr_critical_exit(ptst);
+    return ret;
+}
+
+setval_t transskip_find_original(trans_skip *l, setkey_t k)
 {
     setval_t  v = NULL;
     ptst_t    *ptst;
@@ -821,7 +897,7 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
         }
         else
         {
-            ret = true;
+            ret = transskip_find(l, op.key, desc, opid);
         }
 
         opid++;
