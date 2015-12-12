@@ -108,9 +108,9 @@ public:
     Desc* AllocateDesc(uint8_t size);
 
 private:
-    bool Insert(uint32_t key, Desc* desc, uint8_t opid);
-    Node* Delete(uint32_t key, Desc* desc, uint8_t opid);
-    bool Find(uint32_t key, Desc* desc);
+    bool Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
+    bool Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
+    bool Find(uint32_t key, Desc* desc, uint8_t opid);
 
     bool HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
