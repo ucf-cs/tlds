@@ -1,5 +1,5 @@
-#ifndef __SET_H__
-#define __SET_H__
+#ifndef __LOCKFREESKIP_H__
+#define __LOCKFREESKIP_H__
 
 
 typedef unsigned long setkey_t;
@@ -66,15 +66,15 @@ do {                                                            \
 #define KEY_MIN  ( 0U)
 #define KEY_MAX  ((~0U) - 3)
 
-typedef void fr_set_t; /* opaque */
+typedef void boost_skip; /* opaque */
 
-void fr_init_set_subsystem(void);
-void fr_destroy_set_subsystem(void);
+void init_boostskip_subsystem(void);
+void destroy_boostskip_subsystem(void);
 
 /*
  * Allocate an empty set.
  */
-fr_set_t *set_alloc(void);
+boost_skip *boostskip_alloc(void);
 
 /*
  * Add mapping (@k -> @v) into set @s. Return previous mapped value if
@@ -84,18 +84,20 @@ fr_set_t *set_alloc(void);
  * modified, and the existing value is returned unchanged. It is possible
  * to see if the value was changed by observing if the return value is NULL.
  */
-setval_t set_update(fr_set_t *s, setkey_t k, setval_t v, int overwrite);
+setval_t set_update(boost_skip *s, setkey_t k, setval_t v, int overwrite);
 
 /*
  * Remove mapping for key @k from set @s. Return value associated with
  * removed mapping, or NULL is there was no mapping to delete.
  */
-setval_t set_remove(fr_set_t *s, setkey_t k);
+setval_t set_remove(boost_skip *s, setkey_t k);
 
 /*
  * Look up mapping for key @k in set @s. Return value if found, else NULL.
  */
-setval_t set_lookup(fr_set_t *s, setkey_t k);
+setval_t set_lookup(boost_skip *s, setkey_t k);
+
+void boostskip_print(boost_skip* s);
 
 #endif /* __SET_IMPLEMENTATION__ */
 

@@ -35,7 +35,7 @@
  */
 
 typedef struct node_st node_t;
-typedef struct fr_set_st fr_set_t;
+typedef struct fr_set_st boost_skip;
 typedef VOLATILE node_t *sh_node_pt;
 
 struct node_st
@@ -106,7 +106,7 @@ static void free_node(ptst_t *ptst, sh_node_pt n)
  *  MAIN RETURN VALUE: same as @na[0].
  */
 static sh_node_pt strong_search_predecessors(
-    fr_set_t *l, setkey_t k, sh_node_pt *pa, sh_node_pt *na)
+    boost_skip *l, setkey_t k, sh_node_pt *pa, sh_node_pt *na)
 {
     sh_node_pt x, x_next, old_x_next, y, y_next;
     setkey_t  y_k;
@@ -158,7 +158,7 @@ static sh_node_pt strong_search_predecessors(
 
 /* This function does not remove marked nodes. Use it optimistically. */
 static sh_node_pt weak_search_predecessors(
-    fr_set_t *l, setkey_t k, sh_node_pt *pa, sh_node_pt *na)
+    boost_skip *l, setkey_t k, sh_node_pt *pa, sh_node_pt *na)
 {
     sh_node_pt x, x_next;
     setkey_t  x_next_k;
@@ -216,7 +216,7 @@ static int check_for_full_delete(sh_node_pt x)
 }
 
 
-static void do_full_delete(ptst_t *ptst, fr_set_t *l, sh_node_pt x, int level)
+static void do_full_delete(ptst_t *ptst, boost_skip *l, sh_node_pt x, int level)
 {
     int k = x->k;
 #ifdef WEAK_MEM_ORDER
@@ -252,9 +252,9 @@ static void do_full_delete(ptst_t *ptst, fr_set_t *l, sh_node_pt x, int level)
  * PUBLIC FUNCTIONS
  */
 
-fr_set_t *set_alloc(void)
+boost_skip *boostskip_alloc(void)
 {
-    fr_set_t *l;
+    boost_skip *l;
     node_t *n;
     int i;
 
@@ -283,7 +283,7 @@ fr_set_t *set_alloc(void)
 }
 
 
-setval_t set_update(fr_set_t *l, setkey_t k, setval_t v, int overwrite)
+setval_t set_update(boost_skip *l, setkey_t k, setval_t v, int overwrite)
 {
     setval_t  ov, new_ov;
     ptst_t    *ptst;
@@ -404,7 +404,7 @@ setval_t set_update(fr_set_t *l, setkey_t k, setval_t v, int overwrite)
 }
 
 
-setval_t set_remove(fr_set_t *l, setkey_t k)
+setval_t set_remove(boost_skip *l, setkey_t k)
 {
     setval_t  v = NULL, new_v;
     ptst_t    *ptst;
@@ -462,7 +462,7 @@ setval_t set_remove(fr_set_t *l, setkey_t k)
 }
 
 
-setval_t set_lookup(fr_set_t *l, setkey_t k)
+setval_t set_lookup(boost_skip *l, setkey_t k)
 {
     setval_t  v = NULL;
     ptst_t    *ptst;
@@ -479,7 +479,7 @@ setval_t set_lookup(fr_set_t *l, setkey_t k)
     return(v);
 }
 
-void fr_init_set_subsystem(void)
+void init_boostskip_subsystem(void)
 {
     int i;
 
@@ -492,7 +492,18 @@ void fr_init_set_subsystem(void)
     }
 }
 
-void fr_destroy_set_subsystem(void)
+void destroy_boostskip_subsystem(void)
 {
     fr_destroy_gc_subsystem();
+}
+
+void boostskip_print(boost_skip* l)
+{
+    node_t* curr = l->head.next[0];
+
+    while(curr != l->tail)
+    {
+        printf("Node [%p] Key [%u]\n", curr, curr->k - 2);
+        curr = (node_t*)get_unmarked_ref(curr->next[0]); 
+    }
 }

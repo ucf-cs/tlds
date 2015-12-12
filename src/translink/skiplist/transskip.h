@@ -1,5 +1,5 @@
-#ifndef __SET_H__
-#define __SET_H__
+#ifndef __TRANSSKIP_H__
+#define __TRANSSKIP_H__
 
 
 #include <cstdint>

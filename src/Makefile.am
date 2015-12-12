@@ -15,6 +15,7 @@ trans_SOURCES = bench/main.cc \
 				translink/skiplist/transskip.cc\
 				boosting/list/boostinglist.cc\
 				boosting/list/lockfreelist.cc\
+				boosting/skiplist/boostingskip.cc\
 				boosting/lockkey.cc
 
 trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11\

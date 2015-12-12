@@ -5,6 +5,7 @@
 #include "translink/skiplist/transskip.h"
 #include "rstm/list/rstmlist.hpp"
 #include "boosting/list/boostinglist.h"
+#include "boosting/skiplist/boostingskip.h"
 #include "common/allocator.h"
 
 enum SetOpType
@@ -259,5 +260,76 @@ public:
 private:
     BoostingList m_list;
 };
+
+template<>
+class SetAdaptor<BoostingSkip>
+{
+public:
+    SetAdaptor()
+    {
+        //TM_SYS_INIT();
+    }
+    
+    ~SetAdaptor()
+    {
+        //TM_SYS_SHUTDOWN();
+    }
+
+    void Init()
+    {
+        m_list.Init();
+        //TM_THREAD_INIT();
+    }
+
+    void Uninit()
+    {
+        m_list.Uninit();
+        //TM_THREAD_SHUTDOWN();
+    }
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        bool ret = false;
+
+        //TM_BEGIN(atomic)
+        {
+            for(uint32_t i = 0; i < ops.size(); ++i)
+            {
+                uint32_t key = ops[i].key;
+
+                if(ops[i].type == FIND)
+                {
+                    ret = m_list.Find(key);
+                }
+                else if(ops[i].type == INSERT)
+                {
+                    ret = m_list.Insert(key);
+                }
+                else
+                {
+                    ret = m_list.Delete(key);
+                }
+
+                if(ret == false)
+                {
+                    m_list.OnAbort();
+                    break;
+                }
+            }
+
+            if(ret == true)
+            {
+                m_list.OnCommit();
+            }
+        }
+        //TM_END;
+
+        return ret;
+    }
+
+private:
+    BoostingSkip m_list;
+};
+
 
 #endif /* end of include guard: SETADAPTOR_H */
