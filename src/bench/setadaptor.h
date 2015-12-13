@@ -142,6 +142,8 @@ public:
     ~SetAdaptor()
     {
         TM_SYS_SHUTDOWN();
+
+        printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
     }
 
     void Init()
@@ -156,40 +158,56 @@ public:
 
     bool ExecuteOps(const SetOpArray& ops)
     {
-        bool ret = false;
+        bool ret = true;
 
         TM_BEGIN(atomic)
         {
-            ret = false;
-            for(uint32_t i = 0; i < ops.size(); ++i)
+            if(ret == true)
             {
-                uint32_t val = ops[i].key;
-                if(ops[i].type == FIND)
+                for(uint32_t i = 0; i < ops.size(); ++i)
                 {
-                    ret = m_list.lookup(val TM_PARAM);
-                }
-                else if(ops[i].type == INSERT)
-                {
-                    ret = m_list.insert(val TM_PARAM);
-                }
-                else
-                {
-                    ret = m_list.remove(val TM_PARAM);
-                }
+                    uint32_t val = ops[i].key;
+                    if(ops[i].type == FIND)
+                    {
+                        ret = m_list.lookup(val TM_PARAM);
+                    }
+                    else if(ops[i].type == INSERT)
+                    {
+                        ret = m_list.insert(val TM_PARAM);
+                    }
+                    else
+                    {
+                        ret = m_list.remove(val TM_PARAM);
+                    }
 
-                if(ret == false)
-                {
-                    break;
+                    if(ret == false)
+                    {
+                        //stm::restart();
+                        tx->tmabort(tx);
+                        break;
+                    }
                 }
             }
         } 
         TM_END;
+
+        if(ret)
+        {
+            __sync_fetch_and_add(&g_count_commit, 1);
+        }
+        else
+        {
+            __sync_fetch_and_add(&g_count_abort, 1);
+        }
 
         return ret;
     }
 
 private:
     RSTMList m_list;
+
+    uint32_t g_count_commit = 0;
+    uint32_t g_count_abort = 0;
 };
 
 
@@ -232,62 +250,54 @@ class SetAdaptor<BoostingList>
 public:
     SetAdaptor()
     {
-        //TM_SYS_INIT();
     }
     
     ~SetAdaptor()
     {
-        //TM_SYS_SHUTDOWN();
     }
 
     void Init()
     {
         m_list.Init();
-        //TM_THREAD_INIT();
     }
 
     void Uninit()
     {
         m_list.Uninit();
-        //TM_THREAD_SHUTDOWN();
     }
 
     bool ExecuteOps(const SetOpArray& ops)
     {
         bool ret = false;
 
-        //TM_BEGIN(atomic)
+        for(uint32_t i = 0; i < ops.size(); ++i)
         {
-            for(uint32_t i = 0; i < ops.size(); ++i)
+            uint32_t key = ops[i].key;
+
+            if(ops[i].type == FIND)
             {
-                uint32_t key = ops[i].key;
-
-                if(ops[i].type == FIND)
-                {
-                    ret = m_list.Find(key);
-                }
-                else if(ops[i].type == INSERT)
-                {
-                    ret = m_list.Insert(key);
-                }
-                else
-                {
-                    ret = m_list.Delete(key);
-                }
-
-                if(ret == false)
-                {
-                    m_list.OnAbort();
-                    break;
-                }
+                ret = m_list.Find(key);
+            }
+            else if(ops[i].type == INSERT)
+            {
+                ret = m_list.Insert(key);
+            }
+            else
+            {
+                ret = m_list.Delete(key);
             }
 
-            if(ret == true)
+            if(ret == false)
             {
-                m_list.OnCommit();
+                m_list.OnAbort();
+                break;
             }
         }
-        //TM_END;
+
+        if(ret == true)
+        {
+            m_list.OnCommit();
+        }
 
         return ret;
     }
@@ -300,70 +310,58 @@ template<>
 class SetAdaptor<BoostingSkip>
 {
 public:
-    SetAdaptor()
-    {
-        //TM_SYS_INIT();
-    }
-    
-    ~SetAdaptor()
-    {
-        //TM_SYS_SHUTDOWN();
-    }
+    SetAdaptor() { }
+
+    ~SetAdaptor() { }
 
     void Init()
     {
         m_list.Init();
-        //TM_THREAD_INIT();
     }
 
     void Uninit()
     {
         m_list.Uninit();
-        //TM_THREAD_SHUTDOWN();
     }
 
     bool ExecuteOps(const SetOpArray& ops)
     {
         bool ret = false;
 
-        //TM_BEGIN(atomic)
+        for(uint32_t i = 0; i < ops.size(); ++i)
         {
-            for(uint32_t i = 0; i < ops.size(); ++i)
+            uint32_t key = ops[i].key;
+
+            if(ops[i].type == FIND)
             {
-                uint32_t key = ops[i].key;
-
-                if(ops[i].type == FIND)
-                {
-                    ret = m_list.Find(key);
-                }
-                else if(ops[i].type == INSERT)
-                {
-                    ret = m_list.Insert(key);
-                }
-                else
-                {
-                    ret = m_list.Delete(key);
-                }
-
-                if(ret == false)
-                {
-                    m_list.OnAbort();
-                    break;
-                }
+                ret = m_list.Find(key);
+            }
+            else if(ops[i].type == INSERT)
+            {
+                ret = m_list.Insert(key);
+            }
+            else
+            {
+                ret = m_list.Delete(key);
             }
 
-            if(ret == true)
+            if(ret == false)
             {
-                m_list.OnCommit();
+                m_list.OnAbort();
+                break;
             }
         }
-        //TM_END;
+
+        if(ret == true)
+        {
+            m_list.OnCommit();
+        }
 
         return ret;
     }
 
 private:
-    BoostingSkip m_list;
+BoostingSkip m_list;
 };
 
 
