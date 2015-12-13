@@ -24,14 +24,13 @@ def main():
                4: "BSTSKIP",
                5: "STMSKIP"}
 
-    iteration = 100000
-    key_range = 10000
-    txn_size = 4
+    iteration = 1000000
+    key_range = 100000
     insertion = 33
     deletion = 33
     average = 1
-    #for pq_type in [0, 1, 2, 3, 4, 5, 6]:
-    for pq_type in [1]:
+    #for pq_type in [0, 1, 2, 3, 4, 5]:
+    for pq_type in [3, 4, 5]:
         wall_time_perpq = []
         for thread in [1, 2, 4, 8, 16, 32, 64, 128]:
         #for thread in [1]:

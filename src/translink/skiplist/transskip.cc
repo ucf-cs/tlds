@@ -361,8 +361,9 @@ trans_skip *transskip_alloc(Allocator<Desc>* _descAllocator, Allocator<NodeDesc>
 }
 
 
-bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
+bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_t*& n)
 {
+    n = NULL;
     bool ret = false;
     NodeDesc* nodeDesc = l->nodeDescAllocator->Alloc();
     nodeDesc->desc = desc;
@@ -419,6 +420,7 @@ bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
                 if(currDesc == oldCurrDesc)
                 {
                     if ( new_node != NULL ) free_node(ptst, new_node);
+                    n = succ;
                     ret = true;
                     goto out;
                 }
@@ -521,6 +523,7 @@ bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
         do_full_delete(ptst, l, new_node, level - 1);
     }
 
+    n = new_node;
     ret = true;
 
  out:
@@ -528,23 +531,20 @@ bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
     return ret;
 }
 
-node_t* transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
+bool transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_t*& n)
 {
-    node_t* ret = NULL;
-    NodeDesc* nodeDesc = l->nodeDescAllocator->Alloc();
-    nodeDesc->desc = desc;
-    nodeDesc->opid = opid;
+    n = NULL;
+    bool ret = false;
+    NodeDesc* nodeDesc = NULL;
 
     ptst_t    *ptst;
-    node_t* preds[NUM_LEVELS], *succs[NUM_LEVELS];
-    node_t* pred, *succ, *new_node = NULL, *new_next, *old_next;
-    int        i, level;
+    node_t    *succ;
 
     k = CALLER_TO_INTERNAL_KEY(k);
 
     ptst = fr_critical_enter();
 
-    succ = weak_search_predecessors(l, k, preds, succs);
+    succ = weak_search_predecessors(l, k, NULL, NULL);
     
  retry:
 
@@ -554,17 +554,25 @@ node_t* transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
 
         if(IS_MARKED(oldCurrDesc))
         {
-            READ_FIELD(level, succ->level);
-            mark_deleted(succ, level & LEVEL_MASK);
-            succ = strong_search_predecessors(l, k, preds, succs);
-            goto retry;
+            ret = false;
+            goto out;
+            //READ_FIELD(level, succ->level);
+            //mark_deleted(succ, level & LEVEL_MASK);
+            //succ = strong_search_predecessors(l, k, preds, succs);
+            //goto retry;
         }
 
         if(!FinishPendingTxn(l, oldCurrDesc, desc))
         {
-            if ( new_node != NULL ) free_node(ptst, new_node);
-            ret = NULL;
+            ret = false;
             goto out;
+        }
+
+        if(nodeDesc == NULL)
+        {
+            nodeDesc = l->nodeDescAllocator->Alloc();
+            nodeDesc->desc = desc;
+            nodeDesc->opid = opid;
         }
 
         if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
@@ -573,8 +581,7 @@ node_t* transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
 
             if(desc->status != LIVE)
             {
-                if ( new_node != NULL ) free_node(ptst, new_node);
-                ret = NULL;
+                ret = false;
                 goto out;
             }
 
@@ -585,8 +592,8 @@ node_t* transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
 
                 if(currDesc == oldCurrDesc)
                 {
-                    if ( new_node != NULL ) free_node(ptst, new_node);
-                    ret = succ;
+                    n = succ;
+                    ret = true;
                     goto out;
                 }
             }
@@ -595,102 +602,17 @@ node_t* transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid)
         }
         else
         {
-            if ( new_node != NULL ) free_node(ptst, new_node);
-            ret = NULL;
+            ret = false;
             goto out;
         }
     }
-
-#ifdef WEAK_MEM_ORDER
-    /* Free node from previous attempt, if this is a retry. */
-    if ( new_node != NULL ) 
-    { 
-        free_node(ptst, new_node);
-        new_node = NULL;
-    }
-#endif
-
-    /* Not in the list, so initialise a new node for insertion. */
-    if ( new_node == NULL )
+    else
     {
-        new_node    = alloc_node(ptst);
-        new_node->k = k;
-        new_node->v = (void*)0xf0f0f0f0;
-        new_node->nodeDesc = nodeDesc;
-    }
-    level = new_node->level;
-
-    /* If successors don't change, this saves us some CAS operations. */
-    for ( i = 0; i < level; i++ )
-    {
-        new_node->next[i] = succs[i];
-    }
-
-    /* We've committed when we've inserted at level 1. */
-    WMB_NEAR_CAS(); /* make sure node fully initialised before inserting */
-
-    if(desc->status != LIVE)
-    {
-        ret = NULL;
+        ret = false;
         goto out;
     }
 
-    old_next = CASPO(&preds[0]->next[0], succ, new_node);
-    if ( old_next != succ )
-    {
-        succ = strong_search_predecessors(l, k, preds, succs);
-        goto retry;
-    }
-
-    /* Insert at each of the other levels in turn. */
-    i = 1;
-    while ( i < level )
-    {
-        pred = preds[i];
-        succ = succs[i];
-
-        /* Someone *can* delete @new under our feet! */
-        new_next = new_node->next[i];
-        if ( is_marked_ref(new_next) ) goto success;
-
-        /* Ensure forward pointer of new node is up to date. */
-        if ( new_next != succ )
-        {
-            old_next = CASPO(&new_node->next[i], new_next, succ);
-            if ( is_marked_ref(old_next) ) goto success;
-            assert(old_next == new_next);
-        }
-
-        /* Ensure we have unique key values at every level. */
-        if ( succ->k == k ) goto new_world_view;
-        assert((pred->k < k) && (succ->k > k));
-
-        /* Replumb predecessor's forward pointer. */
-        old_next = CASPO(&pred->next[i], succ, new_node);
-        if ( old_next != succ )
-        {
-        new_world_view:
-            RMB(); /* get up-to-date view of the world. */
-            (void)strong_search_predecessors(l, k, preds, succs);
-            continue;
-        }
-
-        /* Succeeded at this level. */
-        i++;
-    }
-
- success:
-    /* Ensure node is visible at all levels before punting deletion. */
-    WEAK_DEP_ORDER_WMB();
-    if ( check_for_full_delete(new_node) ) 
-    {
-        MB(); /* make sure we see all marks in @new. */
-        do_full_delete(ptst, l, new_node, level - 1);
-    }
-
-    ret = new_node;
-
- out:
+out:
     fr_critical_exit(ptst);
     return ret;
 }
@@ -754,14 +676,11 @@ setval_t transskip_delete_org(trans_skip *l, setkey_t k)
 
 bool transskip_find(trans_skip* l, setkey_t k, Desc* desc, uint8_t opid)
 {
-    NodeDesc* nodeDesc = l->nodeDescAllocator->Alloc();
-    nodeDesc->desc = desc;
-    nodeDesc->opid = opid;
+    NodeDesc* nodeDesc = NULL;
 
     bool ret;
     ptst_t *ptst;
     node_t *x;
-    int level;
 
     k = CALLER_TO_INTERNAL_KEY(k);
 
@@ -776,16 +695,25 @@ retry:
 
         if(IS_MARKED(oldCurrDesc))
         {
-            READ_FIELD(level, x->level);
-            mark_deleted(x, level & LEVEL_MASK);
-            x = strong_search_predecessors(l, k, NULL, NULL);
-            goto retry;
+            ret = false;
+            goto out;
+            //READ_FIELD(level, x->level);
+            //mark_deleted(x, level & LEVEL_MASK);
+            //x = strong_search_predecessors(l, k, NULL, NULL);
+            //goto retry;
         }
 
         if(!FinishPendingTxn(l, oldCurrDesc, desc))
         {
             ret = false;
             goto out;
+        }
+
+        if(nodeDesc == NULL)
+        {
+            nodeDesc = l->nodeDescAllocator->Alloc();
+            nodeDesc->desc = desc;
+            nodeDesc->opid = opid;
         }
 
         if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
@@ -868,6 +796,7 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
 {
     bool ret = true;
     std::vector<node_t*> deletedNodes;
+    std::vector<node_t*> insertedNodes;
 
     //Cyclic dependcy check
     if(helpStack.Contain(desc))
@@ -887,13 +816,15 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
 
         if(op.type == INSERT)
         {
-            ret = transskip_insert(l, op.key, desc, opid);
+            node_t* n;
+            ret = transskip_insert(l, op.key, desc, opid, n);
+            //insertedNodes.push_back(n);
         }
         else if(op.type == DELETE)
         {
-            node_t* n = transskip_delete(l, op.key, desc, opid);
-            ret = n != NULL;
-            deletedNodes.push_back(n);
+            node_t* n;
+            ret = transskip_delete(l, op.key, desc, opid, n);
+            //deletedNodes.push_back(n);
         }
         else
         {
@@ -932,6 +863,21 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
         if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
         {
             __sync_fetch_and_add(&g_count_abort, 1);
+            
+            // Mark nodes for physical deletion
+            for(uint32_t i = 0; i < insertedNodes.size(); ++i)
+            {
+                node_t* x = insertedNodes[i];
+                if(x == NULL) { continue; }
+
+                NodeDesc* nodeDesc = x->nodeDesc;
+                if(nodeDesc->desc != desc) { continue; }
+
+                if(__sync_bool_compare_and_swap(&x->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
+                {
+                    transskip_delete_org(l, x->k);
+                }
+            }
         }
     }
 
