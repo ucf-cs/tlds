@@ -6,6 +6,7 @@ import re
 
 
 re_time = re.compile(r"CPU Time: (.*?)s Wall Time: (.*?)s")
+re_txn = re.compile(r"Total commit (.*?), abort (.*?)$")
 
 
 def main():
@@ -16,51 +17,49 @@ def main():
     (options, args) = parser.parse_args(sys.argv[1:])
     input_program = args[0]
 
-    pq_dict = {0: "MDLIST",
-               1: "CTRBST",
-               2: "FRLIST",
-               3: "RTLIST",
-               4: "BRNBST",
-               5: "ELNBST",
-               6: "HLLIST"}
+    pq_dict = {0: "TXNLIST",
+               1: "STMLIST",
+               2: "BSTLIST",
+               3: "TXNSKIP",
+               4: "BSTSKIP",
+               5: "STMSKIP"}
 
-    iteration = 1000000
-    key_range = 1000000000
-    insertion = 9
-    deletion = 1
-    average = 3
-    cpu_time_all = []
-    wall_time_all = []
-    for pq_type in [0, 1, 2, 3, 4, 5, 6]:
-    #for pq_type in [5, 6]:
-        cpu_time_perpq = []
+    iteration = 100000
+    key_range = 10000
+    txn_size = 4
+    insertion = 33
+    deletion = 33
+    average = 1
+    #for pq_type in [0, 1, 2, 3, 4, 5, 6]:
+    for pq_type in [1]:
         wall_time_perpq = []
         for thread in [1, 2, 4, 8, 16, 32, 64, 128]:
         #for thread in [1]:
-            cpu_time_perthread = []
             wall_time_perthread = []
-            cpu_time = 0.0
-            wall_time = 0.0
-            for i in xrange(0, average):
-                pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5}".format(pq_type, thread, iteration, key_range, insertion, deletion))
-                for line in pipe:
-                    match = re_time.match(line)
-                    if match:
-                        cpu_time = cpu_time + float(match.group(1)) / average
-                        wall_time = wall_time + float(match.group(2)) / average
-                        print pq_dict[pq_type] + " Thread {0} Iteration {1}".format(thread, i + 1) + " Wall Time: {0}".format(match.group(2))
-            cpu_time_perthread.append(str(cpu_time))
-            wall_time_perthread.append(str(wall_time))
-            cpu_time_perpq.append(cpu_time_perthread)
+            for txn_size in [1, 2, 4, 8, 16]:
+                cpu_time = 0.0
+                wall_time = 0.0
+                commit = 0
+                abort = 0
+                for i in xrange(0, average):
+                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion))
+                    for line in pipe:
+                        match = re_time.match(line)
+                        if match:
+                            time_match = match
+                            cpu_time = cpu_time + float(match.group(1)) / average
+                            wall_time = wall_time + float(match.group(2)) / average
+                        match = re_txn.match(line)
+                        if match:
+                            txn_match = match
+                            commit = commit + int(match.group(1)) / average
+                            abort = abort + int(match.group(2)) / average
+                    if time_match and txn_match:
+                        print pq_dict[pq_type] + " Thread {0} Iteration {1}".format(thread, i + 1) + " Txn {0} Wall Time: {1}".format(txn_size, time_match.group(2)) + " Commit: {0}, Abort {1}".format(txn_match.group(1), txn_match.group(2))
+                wall_time_perthread.append(str(wall_time))
+                wall_time_perthread.append(str(commit))
             wall_time_perpq.append(wall_time_perthread)
-            #cpu_time_all.append(cpu_time_perthread)
-            #wall_time_all.append(wall_time_perthread)
-        #f = open('cputime_' + pq_dict[pq_type] + '_insertion_' + str(portion), 'wb')
-        #for t in cpu_time_perpq:
-            #f.write(', '.join(t))
-            #f.write(',\n')
-        #f.close()
-        f = open('walltime_' + pq_dict[pq_type] + '_key_' + str(key_range) + '_ins_' + str(insertion) + '_del_'+ str(deletion), 'wb')
+        f = open('walltime_' + pq_dict[pq_type] + '_key_' + str(key_range) + '_iter_' + str(iteration) + '_ins_' + str(insertion) + '_del_'+ str(deletion), 'wb')
         thread = 1
         for t in wall_time_perpq:
             f.write(str(thread) + ', ')
@@ -68,27 +67,6 @@ def main():
             f.write(',\n')
             thread = thread * 2
         f.close()
-    #f = open('cputime_all_thread_scale', 'wb')
-    #for t in cpu_time_all:
-        #f.write(', '.join(t))
-        #f.write(',\n')
-    #f.close()
-    #f = open('cputime_all_contention_scale', 'wb')
-    #for c in zip(*cpu_time_all):
-        #f.write(', '.join(c))
-        #f.write(',\n')
-    #f.close()
-    #f = open('walltime_all_thread_scale', 'wb')
-    #for t in wall_time_all:
-        #f.write(', '.join(t))
-        #f.write(',\n')
-    #f.close()
-    #f = open('walltime_all_contention_scale', 'wb')
-    #for c in zip(*wall_time_all):
-        #f.write(', '.join(c))
-        #f.write(',\n')
-    #f.close()
-
 
 if __name__ == '__main__':
     main()
