@@ -70,14 +70,14 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
 
     set.Init();
 
-    SetOpArray ops(1);
+    //SetOpArray ops(1);
 
-    for(unsigned int i = 0; i < testSize; ++i)
-    {
-        ops[0].type = INSERT;
-        ops[0].key  = randomDist(randomGen);
-        set.ExecuteOps(ops);
-    }
+    //for(unsigned int i = 0; i < testSize; ++i)
+    //{
+        //ops[0].type = INSERT;
+        //ops[0].key  = randomDist(randomGen);
+        //set.ExecuteOps(ops);
+    //}
 
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 
@@ -119,11 +119,15 @@ int main(int argc, const char *argv[])
     if(argc > 7) deletion = atoi(argv[7]);
 
     assert(setType < 7);
+    assert(keyRange < 0xffffffff);
 
     const char* setName[] = 
     {   "TransList", 
         "RSTMList",
-        "BoostingList"
+        "BoostingList",
+        "TransSkip",
+        "BoostingSkip",
+        "OSTMSkip"
     };
 
     printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
@@ -139,8 +143,15 @@ int main(int argc, const char *argv[])
     case 2:
         { SetAdaptor<BoostingList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
-
-
+    case 3:
+        { SetAdaptor<trans_skip> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 4:
+        { SetAdaptor<BoostingSkip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 5:
+        { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
     default:
         break;
     }

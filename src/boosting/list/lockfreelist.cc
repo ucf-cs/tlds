@@ -30,51 +30,56 @@ inline LockfreeList::Node* get_marked_ref(LockfreeList::Node* w)
 LockfreeList::Node* LockfreeList::LocatePred(uint32_t key, Node** left)
 {
     Node* right;
-    Node* i;
+    Node* left_next;
 
     repeat_search:
     do {
         // Step 1: Traverse the list and find left (<val) and right (>=val).
-        i = m_head;
+        Node* i = m_head;
+        Node* i_next = i->next;
+
         do 
         {
-            if (is_marked_ref(i->next)) 
+            if (!is_marked_ref(i_next)) 
             {
-                continue; // Skip marked nodes.
+                (*left) = i;
+                left_next = i_next;
             }
-            if (i->key >= key) 
+
+            i = get_unmarked_ref(i_next);
+
+            if(i == m_tail)
             {
-                right = i;
                 break;
             }
-            (*left) = i;
-        } while ((i = get_unmarked_ref(i->next)));
 
-        // Step 2: If there are marked nodes between left and right try to "remove" them.
-        if ((*left)->next != right) 
+            i_next = i->next;
+
+        } while (is_marked_ref(i_next) || i->key < key);
+
+        right = i;
+
+        // Step 2: check nodes are adjacent
+        if (left_next == right)
         {
-            // Step 2.1: If an insertions was made in the meantime between left and right, repeat search.
-            i = get_unmarked_ref((*left)->next);
-            do 
+            if((right != m_tail) && is_marked_ref(right->next))
             {
-                // If there is at least one unmarked, search again.
-                if (!is_marked_ref(i->next)) 
-                {
-                    goto repeat_search;
-                }
-            } while ((i = get_unmarked_ref(i->next)) != right);
-            // No insertions were made at this point!
-
-            // Step 2.2: Try to "remove" the marked nodes between left and right.
-            if (!__sync_bool_compare_and_swap(&((*left)->next), get_unmarked_ref((*left)->next), right))
+                goto repeat_search;
+            }
+            else
             {
-                goto repeat_search; // Search again if somone changed left->next.
+                return right;
             }
         }
 
-        // At this point, left->next == right. Safe to return!
-        return right;
-
+        // Step 3: If there are marked nodes between left and right try to "remove" them.
+        if(__sync_bool_compare_and_swap(&(*left)->next, left_next, right))
+        {
+            if(right != m_tail && is_marked_ref(right->next))
+                goto repeat_search;
+            else
+                return right;
+        }
     } while (true);
 }
 

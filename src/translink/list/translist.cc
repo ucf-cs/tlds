@@ -11,23 +11,29 @@
 #include "translink/list/translist.h"
 
 
-#define SET_ADPINV(_p)    ((Node *)(((uintptr_t)(_p)) | 1))
-#define CLR_ADPINV(_p)    ((Node *)(((uintptr_t)(_p)) & ~1))
-#define IS_ADPINV(_p)     (((uintptr_t)(_p)) & 1)
+#define SET_MARK(_p)    ((Node *)(((uintptr_t)(_p)) | 1))
+#define CLR_MARK(_p)    ((Node *)(((uintptr_t)(_p)) & ~1))
+#define CLR_MARKD(_p)    ((NodeDesc *)(((uintptr_t)(_p)) & ~1))
+#define IS_MARKED(_p)     (((uintptr_t)(_p)) & 1)
 
+__thread TransList::HelpStack helpStack;
 
-TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator)
-    : m_head(new Node)
+TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator)
+    : m_tail(new Node(0xffffffff, NULL, NULL))
+    , m_head(new Node(0, m_tail, NULL))
     , m_nodeAllocator(nodeAllocator)
     , m_descAllocator(descAllocator)
+    , m_nodeDescAllocator(nodeDescAllocator)
 {}
 
 TransList::~TransList()
 {
+    printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+    //Print();
+
     ASSERT_CODE
     (
-        printf("Total node count %u, Inserts (total/new) %u/%u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_ins_new, g_count_del, g_count_fnd);
-        //Print();
+        printf("Total node count %u, Inserts (total/new) %u/%u, Deletes (total/new) %u/%u, Finds %u\n", g_count, g_count_ins, g_count_ins_new, g_count_del , g_count_del_new, g_count_fnd);
     );
 
     //Node* curr = m_head;
@@ -41,16 +47,17 @@ TransList::~TransList()
 
 TransList::Desc* TransList::AllocateDesc(uint8_t size)
 {
-    //Desc* desc = (Desc*)malloc(sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size);
     Desc* desc = m_descAllocator->Alloc();
     desc->size = size;
-    desc->status = INPROGRESS;
+    desc->status = LIVE;
     
     return desc;
 }
 
 bool TransList::ExecuteOps(Desc* desc)
 {
+    helpStack.Init();
+
     bool ret = HelpOps(desc, 0);
 
     ASSERT_CODE
@@ -82,241 +89,416 @@ bool TransList::ExecuteOps(Desc* desc)
 inline bool TransList::HelpOps(Desc* desc, uint8_t opid)
 {
     bool ret = true;
+    std::vector<Node*> deletedNodes;
+    std::vector<Node*> predNodes;
+    std::vector<Node*> insertedNodes;
+    std::vector<Node*> insPredNodes;
 
-    while(desc->status == INPROGRESS && ret && opid < desc->size)
+    //Cyclic dependcy check
+    if(helpStack.Contain(desc))
+    {
+        if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
+        {
+            __sync_fetch_and_add(&g_count_abort, 1);
+        }
+        return false;
+    }
+
+    helpStack.Push(desc);
+
+    while(desc->status == LIVE && ret && opid < desc->size)
     {
         const Operator& op = desc->ops[opid];
 
         if(op.type == INSERT)
         {
-            ret = Insert(op.key, desc, opid);
+            Node* inserted;
+            Node* pred;
+            ret = Insert(op.key, desc, opid, inserted, pred);
+
+            insertedNodes.push_back(inserted);
+            insPredNodes.push_back(pred);
         }
         else if(op.type == DELETE)
         {
-            ret = Delete(op.key, desc, opid);
+            Node* deleted;
+            Node* pred;
+            ret = Delete(op.key, desc, opid, deleted, pred);            
+
+            deletedNodes.push_back(deleted);
+            predNodes.push_back(pred);
         }
         else
         {
-            ret = Find(op.key, desc);
+            ret = Find(op.key, desc, opid);
         }
 
         opid++;
     }
 
-    if(desc->status == INPROGRESS)
+    helpStack.Pop();
+
+    //if(desc->status == LIVE)
+    //{
+    if(ret == true)
     {
-        if(ret == true)
+        if(__sync_bool_compare_and_swap(&desc->status, LIVE, COMMITTED))
         {
-            __sync_bool_compare_and_swap(&desc->status, INPROGRESS, SUCCEED);
-            return true;
-        }
-        else
-        {
-            __sync_bool_compare_and_swap(&desc->status, INPROGRESS, FAIL);
-            return false;
-        }
-    }
-}
-
-inline void TransList::HelpAdopt(Node* node)
-{
-    Node* curr = node->adopt;
-
-    //we skip adoption if the node itself has been logically deleted
-    if(curr == NULL || IS_ADPINV(curr))
-    {
-        return;
-    }
-
-    if(curr->adopt == NULL)
-    {
-        __sync_bool_compare_and_swap(&curr->adopt, NULL, SET_ADPINV(node));
-    }
-    //TODO: ASSERT curr->adopt must equal to SET_ADPINV(node)
-
-    Node* next = CLR_ADPINV(__sync_fetch_and_or(&curr->next, 0x1));
-
-    if(node->next == NULL)
-    {
-        __sync_bool_compare_and_swap(&node->next, NULL, next);
-    }
-
-    __sync_bool_compare_and_swap(&node->adopt, curr, NULL);
-}
-
-
-inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid)
-{
-    Node* new_node = NULL;
-    Node* pred = NULL;
-    Node* curr = m_head;
-
-    while(true)
-    {
-        LocatePred(pred, curr, key);
-
-        if(curr)
-        {
-            if(IsKeyExist(curr, key, desc))
+            // Mark nodes for physical deletion
+            for(uint32_t i = 0; i < deletedNodes.size(); ++i)
             {
-                return curr->desc == desc;
-            }
+                Node* deleted = deletedNodes[i];
+                if(deleted != NULL)
+                {
+                    NodeDesc* nodeDesc = deleted->nodeDesc;
 
-            if(new_node == NULL)
-            {
-                new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, desc, opid, NULL);
-            }
-            new_node->next = curr;
-
-            //Key does not logically exisit, but physically 
-            //a node containing the key exisit due to previous failed transactions
-            if(curr->key == key)
-            {
-                new_node->adopt = curr;
-                new_node->next = NULL;
-                HelpAdopt(curr);
-            }
-        }
-        else if(new_node == NULL)
-        {
-            new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, desc, opid, NULL);
-        }
-
-        Node* pred_next = pred->next;
-
-        if(pred_next == curr)
-        {
-            pred_next = __sync_val_compare_and_swap(&pred->next, curr, new_node);
-
-            if(pred_next == curr)
-            {
-                ASSERT_CODE
-                (
-                    __sync_fetch_and_add(&g_count_ins, 1);
-
-                    if(new_node->adopt == NULL)
+                    if(nodeDesc->desc == desc)
                     {
-                        __sync_fetch_and_add(&g_count_ins_new, 1);
+                        if(__sync_bool_compare_and_swap(&deleted->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
+                        {
+                            Node* pred = predNodes[i];
+                            Node* succ = CLR_MARK(__sync_fetch_and_or(&deleted->next, 0x1));
+                            __sync_bool_compare_and_swap(&pred->next, deleted, succ);
+                        }
                     }
-                );
-
-                HelpAdopt(new_node);
-                return true;
+                }
             }
+
+            __sync_fetch_and_add(&g_count_commit, 1);
         }
-
-        if(IS_ADPINV(pred_next))
-        {
-            curr = CLR_ADPINV(pred->adopt);
-            pred = NULL;
-        }
-        else
-        {
-            curr = pred;
-            pred = NULL;
-        }
-    }
-}
-
-inline bool TransList::Delete(uint32_t key, Desc* desc, uint8_t opid)
-{
-    Node* new_node = new Node(key, NULL, desc, opid, NULL);
-    Node* pred = NULL;
-    Node* curr = m_head;
-
-    while(true)
-    {
-        LocatePred(pred, curr, key);
-
-        if(curr == NULL)
-        {
-            return false;
-        }
-
-        if(!IsKeyExist(curr, key, desc))
-        {
-            delete new_node;
-            return curr->key == key && curr->desc == desc;
-        }
-
-        new_node->adopt = curr;
-        HelpAdopt(curr);
-
-        Node* pred_next = pred->next;
-
-        if(pred_next == curr)
-        {
-            pred_next = __sync_val_compare_and_swap(&pred->next, curr, new_node);
-
-            if(pred_next == curr)
-            {
-                HelpAdopt(new_node);
-                return true;
-            }
-        }
-
-        if(IS_ADPINV(pred_next))
-        {
-            curr = CLR_ADPINV(pred->adopt); 
-            pred = NULL;
-        }
-        else
-        {
-            curr = pred;
-            pred = NULL;
-        }
-    }
-}
-
-
-inline bool TransList::Find(uint32_t key, Desc* desc)
-{
-    Node* pred = NULL;
-    Node* curr = m_head;
-
-    LocatePred(pred, curr, key);
-
-    return curr != NULL && IsKeyExist(curr, key, desc);
-}
-
-
-inline bool TransList::IsKeyExist(Node* node, uint32_t key, Desc* desc)
-{
-    if(node->key == key)
-    {
-        if(node->desc->status == INPROGRESS)
-        {
-            //We need to skip helping the transation if we are looking at a node from the same transaction
-            //Basically, the node added by previous operations in the same transaction is visible to subsequent operaitons 
-            //even if the transaction is INPROGRESS
-            if(node->desc == desc)
-            {
-                //Without this condition check, we may run into infinite loop
-                //if we have insert the same key twice within the same transaction
-                return node->desc->ops[node->opid].type == INSERT;
-            }
-            else
-            {
-                HelpOps(node->desc, node->opid + 1);
-            }
-        }
-
-        return  (node->desc->status == SUCCEED && node->desc->ops[node->opid].type == INSERT) ||
-            (node->desc->status == FAIL && node->desc->ops[node->opid].type == DELETE);
+        return true;
     }
     else
     {
+        if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
+        {
+            // Mark nodes for physical deletion
+            for(uint32_t i = 0; i < insertedNodes.size(); ++i)
+            {
+                Node* inserted = insertedNodes[i];
+                if(inserted != NULL)
+                {
+                    NodeDesc* nodeDesc = inserted->nodeDesc;
+
+                    if(nodeDesc->desc == desc)
+                    {
+                        if(__sync_bool_compare_and_swap(&inserted->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
+                        {
+                            Node* pred = insPredNodes[i];
+                            Node* succ = CLR_MARK(__sync_fetch_and_or(&inserted->next, 0x1));
+                            __sync_bool_compare_and_swap(&pred->next, inserted, succ);
+                        }
+                    }
+                }
+            }
+
+            __sync_fetch_and_add(&g_count_abort, 1);
+        }
         return false;
     }
+    //}
+}
+
+inline bool TransList::Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred)
+{
+    inserted = NULL;
+    NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+    Node* new_node = NULL;
+    Node* curr = m_head;
+
+    while(true)
+    {
+        LocatePred(pred, curr, key);
+
+        if(!IsNodeExist(curr, key))
+        {
+            //Node* pred_next = pred->next;
+
+            if(desc->status != LIVE)
+            {
+                return false;
+            }
+
+            //if(pred_next == curr)
+            //{
+                if(new_node == NULL)
+                {
+                    new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, nodeDesc);
+                }
+                new_node->next = curr;
+
+                Node* pred_next = __sync_val_compare_and_swap(&pred->next, curr, new_node);
+
+                if(pred_next == curr)
+                {
+                    ASSERT_CODE
+                        (
+                         __sync_fetch_and_add(&g_count_ins, 1);
+                         __sync_fetch_and_add(&g_count_ins_new, 1);
+                        );
+
+                    inserted = new_node;
+                    return true;
+                }
+            //}
+
+            // Restart
+            curr = IS_MARKED(pred_next) ? m_head : pred;
+        }
+        else 
+        {
+            NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+            if(IS_MARKED(oldCurrDesc))
+            {
+                if(!IS_MARKED(curr->next))
+                {
+                    __sync_fetch_and_or(&curr->next, 0x1);
+                }
+                curr = m_head;
+                continue;
+            }
+
+            if(!FinishPendingTxn(oldCurrDesc, desc))
+            {
+                return false;
+            }
+
+            if(!IsSameOperation(oldCurrDesc, nodeDesc) && !IsKeyExist(oldCurrDesc, desc))
+            {
+                NodeDesc* currDesc = curr->nodeDesc;
+
+                if(desc->status != LIVE)
+                {
+                    return false;
+                }
+
+                //if(currDesc == oldCurrDesc)
+                {
+                    //Update desc 
+                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
+
+                    if(currDesc == oldCurrDesc)
+                    {
+                        ASSERT_CODE
+                            (
+                             __sync_fetch_and_add(&g_count_ins, 1);
+                            );
+
+                        inserted = curr;
+                        return true; 
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+
+inline bool TransList::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
+{
+    deleted = NULL;
+    NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+    Node* new_node = NULL;
+    Node* curr = m_head;
+
+    while(true)
+    {
+        LocatePred(pred, curr, key);
+
+        if(IsNodeExist(curr, key))
+        {
+            NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+            if(IS_MARKED(oldCurrDesc))
+            {
+                return false;
+                //Help removed deleted nodes
+                //if(!IS_MARKED(curr->next))
+                //{
+                    //__sync_fetch_and_or(&curr->next, 0x1);
+                //}
+                //curr = m_head;
+                //continue;
+            }
+
+            if(!FinishPendingTxn(oldCurrDesc, desc))
+            {
+                return false;
+            }
+
+            if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
+            {
+                NodeDesc* currDesc = curr->nodeDesc;
+
+                if(desc->status != LIVE)
+                {
+                    return false;
+                }
+
+                //if(currDesc == oldCurrDesc)
+                {
+                    //Update desc 
+                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
+
+                    if(currDesc == oldCurrDesc)
+                    {
+                        ASSERT_CODE
+                            (
+                             __sync_fetch_and_add(&g_count_del, 1);
+                            );
+
+                        deleted = curr;
+                        return true; 
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }  
+        }
+        else 
+        {
+            return false;      
+        }
+    }
+}
+
+
+inline bool TransList::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
+{
+    return nodeDesc1->desc == nodeDesc2->desc && nodeDesc1->opid == nodeDesc2->opid;
+}
+
+
+inline bool TransList::Find(uint32_t key, Desc* desc, uint8_t opid)
+{
+    NodeDesc* nodeDesc = NULL;
+    Node* pred;
+    Node* curr = m_head;
+
+    while(true)
+    {
+        LocatePred(pred, curr, key);
+
+        if(IsNodeExist(curr, key))
+        {
+            NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+            if(IS_MARKED(oldCurrDesc))
+            {
+                if(!IS_MARKED(curr->next))
+                {
+                    __sync_fetch_and_or(&curr->next, 0x1);
+                }
+                curr = m_head;
+                continue;
+            }
+
+            if(!FinishPendingTxn(oldCurrDesc, desc))
+            {
+                return false;
+            }
+
+            if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+
+            if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
+            {
+                NodeDesc* currDesc = curr->nodeDesc;
+
+                if(desc->status != LIVE)
+                {
+                    return false;
+                }
+
+                //if(currDesc == oldCurrDesc)
+                {
+                    //Update desc 
+                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
+
+                    if(currDesc == oldCurrDesc)
+                    {
+                        return true; 
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    return false;
+}
+
+inline bool TransList::IsNodeExist(Node* node, uint32_t key)
+{
+    return node != NULL && node->key == key;
+}
+
+inline bool TransList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
+{
+    // The node accessed by the operations in same transaction is always active 
+    if(nodeDesc->desc == desc)
+    {
+        return true;
+    }
+
+    if(nodeDesc->desc->status == LIVE)
+    {
+        HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
+    }
+
+    return true;
+}
+
+inline bool TransList::IsNodeActive(NodeDesc* nodeDesc, Desc* desc)
+{
+    return nodeDesc->desc->status == COMMITTED;
+}
+
+inline bool TransList::IsKeyExist(NodeDesc* nodeDesc, Desc* desc)
+{
+    bool isNodeActive = IsNodeActive(nodeDesc, desc);
+    uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
+
+    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
 }
 
 inline void TransList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
 {
-    while(curr != NULL && curr->key < key)
+    Node* pred_next;
+
+    while(curr->key < key)
     {
         pred = curr;
-        HelpAdopt(curr);
-        curr = CLR_ADPINV(curr->next);
+        pred_next = CLR_MARK(pred->next);
+        curr = pred_next;
+
+        while(IS_MARKED(curr->next))
+        {
+            curr = CLR_MARK(curr->next);
+        }
+
+        if(curr != pred_next)
+        {
+            //Failed to remove deleted nodes, start over from pred
+            if(!__sync_bool_compare_and_swap(&pred->next, pred_next, curr))
+            {
+                curr = m_head;
+            }
+
+            //__sync_bool_compare_and_swap(&pred->next, pred_next, curr);
+        }
     }
 
     ASSERT(pred, "pred must be valid");
@@ -326,9 +508,9 @@ inline void TransList::Print()
 {
     Node* curr = m_head->next;
 
-    while(curr)
+    while(curr != m_tail)
     {
-        printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(curr, curr->key, NULL)? "active":"inactive");
-        curr = curr->next;
+        printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(CLR_MARKD(curr->nodeDesc), NULL)? "Exist":"Inexist");
+        curr = CLR_MARK(curr->next);
     }
 }

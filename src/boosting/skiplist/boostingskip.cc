@@ -1,8 +1,14 @@
-#include "boosting/list/boostinglist.h"
+#include "boosting/skiplist/boostingskip.h"
 
-__thread BoostingList::LogType* BoostingList::m_log;
+__thread BoostingSkip::LogType* BoostingSkip::m_log;
 
-BoostingList::~BoostingList()
+BoostingSkip::BoostingSkip()
+{
+    m_list = boostskip_alloc();
+    init_boostskip_subsystem();
+}
+
+BoostingSkip::~BoostingSkip()
 {
     printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
 
@@ -11,28 +17,31 @@ BoostingList::~BoostingList()
          printf("Total node count %u, Inserts %u, Deletions %u, Finds %u\n", g_count, g_count_ins, g_count_del, g_count_fnd);
          //Print();
     );
+
+    destroy_boostskip_subsystem();
 }
 
-void BoostingList::Init()
+void BoostingSkip::Init()
 {
     m_log = new LogType;
     m_lock.Init();
 }
 
 
-void BoostingList::Uninit()
+void BoostingSkip::Uninit()
 {
     delete m_log;
     m_lock.Uninit();
 }
 
-bool BoostingList::Insert(uint32_t key)
+bool BoostingSkip::Insert(uint32_t key)
 {
     bool ret = m_lock.Lock(key);
 
     if(ret)
     {
-        ret = m_list.Insert(key);
+        setval_t v = set_update(m_list, key, (void*)0xf0f0f0f0, false);
+        ret = v == NULL;
         if(ret)
         {
             m_log->push_back(Operation(DELETE, key));
@@ -42,13 +51,14 @@ bool BoostingList::Insert(uint32_t key)
     return ret;
 }
 
-bool BoostingList::Delete(uint32_t key)
+bool BoostingSkip::Delete(uint32_t key)
 {
     bool ret = m_lock.Lock(key);
 
     if(ret)
     {
-        ret = m_list.Delete(key);
+        setval_t v = set_remove(m_list, key);
+        ret = v != NULL;
         if(ret)
         {
             m_log->push_back(Operation(INSERT, key));
@@ -58,12 +68,20 @@ bool BoostingList::Delete(uint32_t key)
     return ret;
 }
 
-bool BoostingList::Find(uint32_t key)
+bool BoostingSkip::Find(uint32_t key)
 {
-    return m_lock.Lock(key) && m_list.Find(key);
+    bool ret = m_lock.Lock(key);
+
+    if(ret)
+    {
+        setval_t v = set_lookup(m_list, key);
+        ret = v != NULL;
+    }
+
+    return ret;
 }
 
-void BoostingList::OnAbort()
+void BoostingSkip::OnAbort()
 {
     __sync_fetch_and_add(&g_count_abort, 1);
 
@@ -79,11 +97,13 @@ void BoostingList::OnAbort()
         }
         else if(op.type == INSERT)
         {
-            ret = m_list.Insert(op.key);
+            setval_t v = set_update(m_list, op.key, (void*)0xf0f0f0, false);
+            ret = v == NULL;
         }
         else
         {
-            ret = m_list.Delete(op.key);
+            setval_t v = set_remove(m_list, op.key);
+            ret = v != NULL;
         }
 
         ASSERT(ret, "Revert operations have to succeed");
@@ -93,7 +113,7 @@ void BoostingList::OnAbort()
     m_lock.Unlock();
 }
 
-void BoostingList::OnCommit()
+void BoostingSkip::OnCommit()
 {
     __sync_fetch_and_add(&g_count_commit, 1);
 
@@ -101,7 +121,7 @@ void BoostingList::OnCommit()
     m_lock.Unlock();
 }
 
-void BoostingList::Print()
+void BoostingSkip::Print()
 {
-    m_list.Print();
+    boostskip_print(m_list);
 }
