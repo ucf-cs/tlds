@@ -1,0 +1,168 @@
+\documentclass{beamer}
+\usepackage{beamerthemeshadow}
+\usepackage[ruled]{algorithm}
+\usepackage{listings}
+\usepackage[font=scriptsize]{subcaption}
+\usepackage[font=scriptsize]{caption}
+\usepackage[noend]{algpseudocode}
+
+\begin{document}
+\title[Lock-free Transaction for Linked Data Structures]{Lock-free Transaction without Aborts for Linked Data Structures}
+\author[D. Zhang]{Deli Zhang}
+\institute{University of Central Florida}
+\date{\today}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\begin{frame}
+    %\frametitle{Table of Contents}
+    %\tableofcontents
+%\end{frame}
+
+\section{Background}
+\subsection{Motivation}
+\begin{frame} \frametitle{The Problem of Method Composition}
+    Execute a sequence of operations (transaction) on a linearizable concurrent data structure 
+    \begin{enumerate}
+        \item Atomically, i.e., if one operation fails the entire transaction fails;
+        \item In isolation, i.e., concurrent execution of transactions appears to take effect in some sequential order.
+    \end{enumerate}
+    Existing lock-free data structures do not readily support composing method calls into transactions.
+    \begin{figure}[h]
+        \centering
+        \includegraphics<1>[width=0.7\textwidth]{compose.pdf}
+    \end{figure}
+\end{frame}
+
+\subsection{Related Work}
+\begin{frame} \frametitle{Software Transactional Memory (STM)}
+    \begin{block}{}
+        \small
+        An STM instruments threads' memory accesses, which records the locations a thread read in a \emph{read set}, and the locations it wrote in a \emph{write set}. Conflicts are detected among the \emph{read/write sets} of different threads. In the presence of conflicts, only one transaction is allowed to commit while the others are aborted and restarted.
+    \end{block}
+    \begin{itemize}
+        \item Memory instrumentation exhibits large overhead
+        \item Low-level memory conflicts do not translate to high-level semantic conflicts, which cause excessive aborts
+    \end{itemize}
+    \begin{figure}[h]
+        \centering
+        \includegraphics<1>[width=0.6\textwidth]{conflict.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame} \frametitle{Transactional Boosting}
+    \begin{block}{}
+        \small
+        Transaction boosting uses \emph{abstract lock} to ensure that non-commutative method calls never occur concurrently. A transaction makes a sequence of calls to the objects methods after acquiring the abstract lock associated with each call. It aborts when failed to acquire a lock and recovers from failure by invoking \emph{inverses} of already executed calls.
+    \end{block}
+    \begin{itemize}
+        \item Use of locks degrades the progress guarantee of lock-free data structures 
+        \item Upon transaction failure the rollback process causes overhead
+    \end{itemize}
+    \begin{figure}[h]
+        \centering
+        \includegraphics<1>[width=0.6\textwidth]{boosting.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame} \frametitle{Lock Inference}
+    \begin{block}{}
+        \small
+        Automatically enforces atomicity of given code fragments (multiple calls to different data structures) by inserting pessimistic \emph{abstract locks}.
+    \end{block}
+    \begin{itemize}
+        \item Pessimistic locking avoids rollbacks 
+        \item Use of locks degrades lock-freedom
+        \item Require static analysis that does not scale to large code base
+    \end{itemize}
+    \begin{figure}[h]
+        \centering
+        \includegraphics<1>[width=1\textwidth]{lock-inference.png}
+    \end{figure}
+\end{frame}
+
+\section{Algorithm}
+\subsection{Preliminary}
+\begin{frame} \frametitle{Concurrent Sets and Maps}
+Abstract Data Types
+    \begin{itemize}
+        \item Set: Insert(k), Delete(k), Contain(k)
+        \item Map: Insert(k,v), Update(k,v), Delete(k), Get(k)
+    \end{itemize}
+    Node-based Linked Data Structures
+    \begin{itemize}
+        \item Linked List, Binary Search Trees, Skiplist, MDList
+        \item Common fields: $key,val,next[]$
+        \item Lock-free implementations synchronize different methods on different fields, e.g., insertion on $next$, update on $val$, deletion on $val$ or $next$
+    \end{itemize}
+    Key Challenges
+    \begin{itemize}
+        \item Detect conflict at semantic level
+        \item Eliminate aborts due to access conflict
+        \item Provide lock-free progress
+    \end{itemize}
+\end{frame}
+
+\subsection{Observation}
+\begin{frame} \frametitle{Asymmetrical Update and Deletion}
+    \begin{itemize}
+        \item Update can be done by inserting new nodes with updated value, which replaces the target node
+            \begin{exampleblock}{}
+            \center
+            \includegraphics<1>[width=0.7\textwidth]{update.pdf}
+        \end{exampleblock}
+    \item Deletion can be done by inserting new nodes (logically marked) that replaces the deleted nodes
+        \begin{exampleblock}{}
+            \center
+            \includegraphics<1>[width=0.7\textwidth]{delete.pdf}
+        \end{exampleblock}
+    \end{itemize}
+\end{frame}
+
+\subsection{Details}
+\begin{frame} \frametitle{Lock-free Transaction}
+    \begin{itemize}
+        \item All write operations are done through insertion of new nodes
+        \item Each node contains a \emph{Transaction Descriptor}, which stores a sequence of operation and operands as well as the transaction statues (in-progress, succeeded, failed)
+        \item The status of the transaction denotes a node's logical status depending on the operation type.
+            \begin{exampleblock}{}
+                \center
+                \includegraphics<1>[width=0.7\textwidth]{transaction.pdf}
+            \end{exampleblock}
+    \end{itemize}
+\end{frame}
+
+\begin{frame} \frametitle{Lock-free Transaction Cont.}
+    \begin{itemize}
+        \item In-progress and failed transactions do not alter the \emph{abstract state} of the data structure
+        \item Transactions only abort due to unsatisfied precondition; they do not abort on conflict
+        \item Conflicting transactions help delayed operations by executing subsequent operations in the descriptor
+        \item No rollback is needed for aborted transactions because the inserted nodes are logically inactive
+    \end{itemize}
+\end{frame}
+
+
+%\section{Conclusion}
+%\begin{frame} \frametitle{Comments}
+    %\begin{itemize}
+        %\small
+        %\item Todo: fix a bug that nodes are sometimes missing after insertion
+        %\item Todo: integrate Sundell's approach for further testing
+        %\item Insight: high dimension for more tree like behavior - faster insertions
+        %\item Insight: low dimension for more list like behavior - faster deletions
+        %\item Application: Priority Queue, Dictionary, Sparse vector
+    %\end{itemize}
+%\end{frame}
+
+%\begin{frame}
+    %\begin{center}
+        %\large
+%Questions? \\
+%\bigskip
+%Thank you!
+    %\end{center}
+%\end{frame}
+
+\end{document}
