@@ -4,7 +4,7 @@ __thread BoostingList::LogType* BoostingList::m_log;
 
 BoostingList::~BoostingList()
 {
-    printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+    printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
 
     ASSERT_CODE
     (
@@ -26,45 +26,62 @@ void BoostingList::Uninit()
     m_lock.Uninit();
 }
 
-bool BoostingList::Insert(uint32_t key)
+BoostingList::ReturnCode BoostingList::Insert(uint32_t key)
 {
-    bool ret = m_lock.Lock(key);
-
-    if(ret)
+    if(!m_lock.Lock(key))
     {
-        ret = m_list.Insert(key);
-        if(ret)
-        {
-            m_log->push_back(Operation(DELETE, key));
-        }
+        return LOCK_FAIL;
     }
 
-    return ret;
-}
-
-bool BoostingList::Delete(uint32_t key)
-{
-    bool ret = m_lock.Lock(key);
-
-    if(ret)
+    if(!m_list.Insert(key))
     {
-        ret = m_list.Delete(key);
-        if(ret)
-        {
-            m_log->push_back(Operation(INSERT, key));
-        }
+        return OP_FAIL;
     }
 
-    return ret;
+    m_log->push_back(Operation(DELETE, key));
+
+    return OK;
 }
 
-bool BoostingList::Find(uint32_t key)
+BoostingList::ReturnCode BoostingList::Delete(uint32_t key)
 {
-    return m_lock.Lock(key) && m_list.Find(key);
+    if(!m_lock.Lock(key))
+    {
+        return LOCK_FAIL;
+    }
+
+    if(!m_list.Delete(key))
+    {
+        return OP_FAIL;
+    }
+
+    m_log->push_back(Operation(INSERT, key));
+
+    return OK;
 }
 
-void BoostingList::OnAbort()
+BoostingList::ReturnCode BoostingList::Find(uint32_t key)
 {
+    if(!m_lock.Lock(key))
+    {
+        return LOCK_FAIL; 
+    }
+            
+    if(!m_list.Find(key))
+    {
+        return OP_FAIL; 
+    }
+
+    return OK;
+}
+
+void BoostingList::OnAbort(ReturnCode ret)
+{
+    if(ret == LOCK_FAIL)
+    {
+        __sync_fetch_and_add(&g_count_fake_abort, 1);
+    }
+
     __sync_fetch_and_add(&g_count_abort, 1);
 
     for(int i = m_log->size() - 1; i >= 0; --i)

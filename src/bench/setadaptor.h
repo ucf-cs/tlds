@@ -61,7 +61,7 @@ public:
         //TransList::Desc* desc = m_list.AllocateDesc(ops.size());
         TransList::Desc* desc = m_descAllocator.Alloc();
         desc->size = ops.size();
-        desc->status = TransList::LIVE;
+        desc->status = 0;
 
         for(uint32_t i = 0; i < ops.size(); ++i)
         {
@@ -143,7 +143,7 @@ public:
     {
         TM_SYS_SHUTDOWN();
 
-        printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+        printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_stm_abort - g_count_abort);
     }
 
     void Init()
@@ -154,9 +154,12 @@ public:
     void Uninit()
     {
         TM_THREAD_SHUTDOWN();
+        TM_GET_THREAD();
+
+        __sync_fetch_and_add(&g_count_stm_abort, tx->num_aborts);
     }
 
-    bool ExecuteOps(const SetOpArray& ops)
+    bool ExecuteOps(const SetOpArray& ops) __attribute__ ((optimize (0)))
     {
         bool ret = true;
 
@@ -208,6 +211,7 @@ private:
 
     uint32_t g_count_commit = 0;
     uint32_t g_count_abort = 0;
+    uint32_t g_count_stm_abort = 0;
 };
 
 
@@ -268,7 +272,7 @@ public:
 
     bool ExecuteOps(const SetOpArray& ops)
     {
-        bool ret = false;
+        BoostingList::ReturnCode ret = BoostingList::OP_FAIL;
 
         for(uint32_t i = 0; i < ops.size(); ++i)
         {
@@ -287,14 +291,14 @@ public:
                 ret = m_list.Delete(key);
             }
 
-            if(ret == false)
+            if(ret != BoostingList::OK)
             {
-                m_list.OnAbort();
+                m_list.OnAbort(ret);
                 break;
             }
         }
 
-        if(ret == true)
+        if(ret == BoostingList::OK)
         {
             m_list.OnCommit();
         }

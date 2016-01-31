@@ -70,14 +70,14 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
 
     set.Init();
 
-    //SetOpArray ops(1);
+    SetOpArray ops(1);
 
-    //for(unsigned int i = 0; i < testSize; ++i)
-    //{
-        //ops[0].type = INSERT;
-        //ops[0].key  = randomDist(randomGen);
-        //set.ExecuteOps(ops);
-    //}
+    for(unsigned int i = 0; i < keyRange; ++i)
+    {
+        ops[0].type = INSERT;
+        ops[0].key  = randomDist(randomGen);
+        set.ExecuteOps(ops);
+    }
 
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 

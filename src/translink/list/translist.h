@@ -9,11 +9,14 @@
 class TransList
 {
 public:
-    enum OpStatus
+    const int8_t ABORTED = -1;
+    const int8_t COMMITTED = -2;
+
+    enum ReturnCode
     {
-        LIVE = 0,
-        COMMITTED,
-        ABORTED
+        OK = 0,
+        SKIP,
+        FAIL
     };
 
     enum OpType
@@ -33,21 +36,22 @@ public:
     {
         static size_t SizeOf(uint8_t size)
         {
-            return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
+            return sizeof(int8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
         }
 
-        volatile uint8_t status;
+        // Status of the transaction: values in [0, size] means live txn, values -1 means aborted, value -2 means committed.
+        volatile int8_t status;
         uint8_t size;
         Operator ops[];
     };
     
     struct NodeDesc
     {
-        NodeDesc(Desc* _desc, uint8_t _opid)
+        NodeDesc(Desc* _desc, int8_t _opid)
             : desc(_desc), opid(_opid){}
 
         Desc* desc;
-        uint8_t opid;
+        int8_t opid;
     };
 
     struct Node
@@ -108,17 +112,18 @@ public:
     Desc* AllocateDesc(uint8_t size);
 
 private:
-    bool Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
-    bool Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
-    bool Find(uint32_t key, Desc* desc, uint8_t opid);
+    ReturnCode Insert(uint32_t key, Desc* desc, int8_t opid, Node*& inserted, Node*& pred);
+    ReturnCode Delete(uint32_t key, Desc* desc, int8_t opid, Node*& deleted, Node*& pred);
+    ReturnCode Find(uint32_t key, Desc* desc, int8_t opid);
 
-    bool HelpOps(Desc* desc, uint8_t opid);
+    void HelpOps(Desc* desc);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
-    bool FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
+    void FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
     bool IsNodeExist(Node* node, uint32_t key);
-    bool IsNodeActive(NodeDesc* nodeDesc, Desc* desc);
-    bool IsKeyExist(NodeDesc* nodeDesc, Desc* desc);
+    bool IsNodeActive(NodeDesc* nodeDesc);
+    bool IsKeyExist(NodeDesc* nodeDesc);
     void LocatePred(Node*& pred, Node*& curr, uint32_t key);
+    void MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc);
 
     void Print();
 
@@ -142,6 +147,7 @@ private:
 
     uint32_t g_count_commit = 0;
     uint32_t g_count_abort = 0;
+    uint32_t g_count_fake_abort = 0;
 };
 
 #endif /* end of include guard: TRANSLIST_H */    
