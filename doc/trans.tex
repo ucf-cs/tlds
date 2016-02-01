@@ -79,12 +79,17 @@
     Non-blocking data structures allow scalable and thread-safe accesses to shared data. 
     They provide individual operations that appear to execute atomically.
     However, it is often desirable to execute multiple operations atomically in a transactional manner.
-    This is nearly impossible without revamping the data structures' intricate underlying design.
-    In this work, we present a new methodology for implementing high-performance lock-free transactional linked data structures.
-    Our novel technique allows transactions to insert into the data structure logically inactive nodes, which are invisible to operations outside the scope of the transaction.
-    We implement a shared transaction descriptor that atomically activates all nodes within a transaction upon committing.
-    Comparing to generic approaches, such as software transactional memory (STM) and transactional boosting, our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and operation roll back.
-    In our experimental evaluation using randomly generated transactions, our approach outperforms the state of the art STM approaches by as much as $500\%$ across all scenarios.
+    Previous solutions, such as software transactional memory (STM) and transactional boosting, manage transaction synchronization in an external layer separated from the data structure's own thread level synchronization.
+    Although this reduces programming effort, it is not as efficient due to the overhead of additional synchronization and more importantly the need to rollback failed transactions.
+    
+    In this work, we present a new methodology for transforming high-performance lock-free linked data structures to high-performance lock-free transactional data structures without revamping the data structures' original synchronization design.
+    We encapsulate all operations, operands, and transaction status in a transaction descriptor, which is shared among each node accessed by the same transaction.
+    For each data structure operations, we introduce additional procedures that allow them to interpret the logical status of a node based on the transaction status. 
+    Newly inserted nodes are logically inactive, meaning they are invisible to operations outside the scope of the transaction until the transaction commits.
+    %We also coordinate threads to help finish delayed transactions based on remaining operations and operands in the transaction descriptor.
+    Our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and operation roll back.
+    In our experimental evaluation using randomly generated transactions, our lock-free transactional lists and skiplist outperform the transactional boosted ones by $40\%$ on average and as much as $125\%$ for large transactions.
+    STM based approaches fall behind by as much as $500\%$ across all scenarios.
 \end{abstract}
 
 %\category{D.1.3}{Concurrent Programming}{Algorithms}
