@@ -61,7 +61,7 @@ public:
         //TransList::Desc* desc = m_list.AllocateDesc(ops.size());
         TransList::Desc* desc = m_descAllocator.Alloc();
         desc->size = ops.size();
-        desc->status = 0;
+        desc->status = TransList::ACTIVE;
 
         for(uint32_t i = 0; i < ops.size(); ++i)
         {

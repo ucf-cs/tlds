@@ -30,16 +30,16 @@ def main():
 
     iteration = 100000
     key_range = 10000
-    insertion = 15
-    deletion = 5
+    insertion = 33
+    deletion = 33
     average = 1
     #for pq_type in [0, 1, 2, 3, 4, 5]:
-    for pq_type in [1]:
+    for pq_type in [0, 2, 1]:
         list_type = pq_dict[pq_type]
         if pq_type == 1:
             list_type = list_type + '_' + stm_config
         wall_time_perpq = []
-        for thread in [1, 2, 4, 8, 16, 32, 64]:
+        for thread in [1, 2, 4, 8, 16, 32, 64, 128]:
             wall_time_perthread = []
             for txn_size in [1, 2, 4, 8, 16]:
                 cpu_time = 0.0

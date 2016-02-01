@@ -49,7 +49,7 @@ TransList::Desc* TransList::AllocateDesc(uint8_t size)
 {
     Desc* desc = m_descAllocator->Alloc();
     desc->size = size;
-    desc->status = 0;
+    desc->status = ACTIVE;
     
     return desc;
 }
@@ -58,7 +58,7 @@ bool TransList::ExecuteOps(Desc* desc)
 {
     helpStack.Init();
 
-    HelpOps(desc);
+    HelpOps(desc, 0);
 
     bool ret = desc->status != ABORTED;
 
@@ -110,11 +110,9 @@ inline void TransList::MarkForDeletion(const std::vector<Node*>& nodes, const st
     }
 }
 
-inline void TransList::HelpOps(Desc* desc)
+inline void TransList::HelpOps(Desc* desc, uint8_t opid)
 {
-    int8_t opid = desc->status;
-
-    if(opid < 0)
+    if(desc->status != ACTIVE)
     {
         return;
     }
@@ -122,7 +120,7 @@ inline void TransList::HelpOps(Desc* desc)
     //Cyclic dependcy check
     if(helpStack.Contain(desc))
     {
-        if(__sync_bool_compare_and_swap(&desc->status, opid, ABORTED))
+        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
         {
             __sync_fetch_and_add(&g_count_abort, 1);
             __sync_fetch_and_add(&g_count_fake_abort, 1);
@@ -131,7 +129,7 @@ inline void TransList::HelpOps(Desc* desc)
         return;
     }
 
-    ReturnCode ret = FAIL;
+    ReturnCode ret = OK;
     std::vector<Node*> delNodes;
     std::vector<Node*> delPredNodes;
     std::vector<Node*> insNodes;
@@ -139,7 +137,7 @@ inline void TransList::HelpOps(Desc* desc)
 
     helpStack.Push(desc);
 
-    while(opid >= 0)
+    while(desc->status == ACTIVE && ret != FAIL && opid < desc->size)
     {
         const Operator& op = desc->ops[opid];
 
@@ -165,39 +163,31 @@ inline void TransList::HelpOps(Desc* desc)
         {
             ret = Find(op.key, desc, opid);
         }
-
-        if(ret == OK)
-        {
-            if(opid == desc->size - 1)
-            {
-                if(__sync_bool_compare_and_swap(&desc->status, opid, COMMITTED))
-                {
-                    MarkForDeletion(delNodes, delPredNodes, desc);
-                    __sync_fetch_and_add(&g_count_commit, 1);
-                }
-            }
-            else
-            {
-                //Increament progress counter in the shared desc, so every helping thread can see it
-                __sync_bool_compare_and_swap(&desc->status, opid, opid + 1);
-            }
-        }
-        else if(ret == FAIL)
-        {
-            if(__sync_bool_compare_and_swap(&desc->status, opid, ABORTED))
-            {
-                MarkForDeletion(insNodes, insPredNodes, desc);
-                __sync_fetch_and_add(&g_count_abort, 1);
-            }     
-        }
-
-        opid = desc->status;
+        
+        opid++;
     }
 
     helpStack.Pop();
+
+    if(ret != FAIL)
+    {
+        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
+        {
+            MarkForDeletion(delNodes, delPredNodes, desc);
+            __sync_fetch_and_add(&g_count_commit, 1);
+        }
+    }
+    else
+    {
+        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
+        {
+            MarkForDeletion(insNodes, insPredNodes, desc);
+            __sync_fetch_and_add(&g_count_abort, 1);
+        }     
+    }
 }
 
-inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, int8_t opid, Node*& inserted, Node*& pred)
+inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred)
 {
     inserted = NULL;
     NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
@@ -212,9 +202,9 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, int8_t 
         {
             //Node* pred_next = pred->next;
 
-            if(desc->status < 0)
+            if(desc->status != ACTIVE)
             {
-                return SKIP;
+                return FAIL;
             }
 
             //if(pred_next == curr)
@@ -268,9 +258,9 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, int8_t 
             {
                 NodeDesc* currDesc = curr->nodeDesc;
 
-                if(desc->status < 0)
+                if(desc->status != ACTIVE)
                 {
-                    return SKIP;
+                    return FAIL;
                 }
 
                 //if(currDesc == oldCurrDesc)
@@ -298,7 +288,7 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, int8_t 
     }
 }
 
-inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, int8_t opid, Node*& deleted, Node*& pred)
+inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
 {
     deleted = NULL;
     NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
@@ -335,9 +325,9 @@ inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, int8_t 
             {
                 NodeDesc* currDesc = curr->nodeDesc;
 
-                if(desc->status < 0)
+                if(desc->status != ACTIVE)
                 {
-                    return SKIP;
+                    return FAIL;
                 }
 
                 //if(currDesc == oldCurrDesc)
@@ -376,7 +366,7 @@ inline bool TransList::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
 }
 
 
-inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, int8_t opid)
+inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, uint8_t opid)
 {
     NodeDesc* nodeDesc = NULL;
     Node* pred;
@@ -413,9 +403,9 @@ inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, int8_t op
             {
                 NodeDesc* currDesc = curr->nodeDesc;
 
-                if(desc->status < 0)
+                if(desc->status != ACTIVE)
                 {
-                    return SKIP;
+                    return FAIL;
                 }
 
                 //if(currDesc == oldCurrDesc)
@@ -454,7 +444,7 @@ inline void TransList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
         return;
     }
 
-    HelpOps(nodeDesc->desc);
+    HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
 }
 
 inline bool TransList::IsNodeActive(NodeDesc* nodeDesc)

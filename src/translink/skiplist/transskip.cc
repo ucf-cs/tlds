@@ -95,6 +95,7 @@ static int gc_id[NUM_LEVELS];
 
 static uint32_t g_count_commit = 0;
 static uint32_t g_count_abort = 0;
+static uint32_t g_count_fake_abort = 0;
 
 /*
  * PRIVATE FUNCTIONS

@@ -9,8 +9,12 @@
 class TransList
 {
 public:
-    const int8_t ABORTED = -1;
-    const int8_t COMMITTED = -2;
+    enum OpStatus
+    {
+        ACTIVE = 0,
+        COMMITTED,
+        ABORTED,
+    };
 
     enum ReturnCode
     {
@@ -36,22 +40,22 @@ public:
     {
         static size_t SizeOf(uint8_t size)
         {
-            return sizeof(int8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
+            return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
         }
 
         // Status of the transaction: values in [0, size] means live txn, values -1 means aborted, value -2 means committed.
-        volatile int8_t status;
+        volatile uint8_t status;
         uint8_t size;
         Operator ops[];
     };
     
     struct NodeDesc
     {
-        NodeDesc(Desc* _desc, int8_t _opid)
+        NodeDesc(Desc* _desc, uint8_t _opid)
             : desc(_desc), opid(_opid){}
 
         Desc* desc;
-        int8_t opid;
+        uint8_t opid;
     };
 
     struct Node
@@ -112,11 +116,11 @@ public:
     Desc* AllocateDesc(uint8_t size);
 
 private:
-    ReturnCode Insert(uint32_t key, Desc* desc, int8_t opid, Node*& inserted, Node*& pred);
-    ReturnCode Delete(uint32_t key, Desc* desc, int8_t opid, Node*& deleted, Node*& pred);
-    ReturnCode Find(uint32_t key, Desc* desc, int8_t opid);
+    ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
+    ReturnCode Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
+    ReturnCode Find(uint32_t key, Desc* desc, uint8_t opid);
 
-    void HelpOps(Desc* desc);
+    void HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
     void FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
     bool IsNodeExist(Node* node, uint32_t key);
