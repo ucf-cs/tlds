@@ -64,7 +64,7 @@
 
 \begin{document}
 
-\title{Lock-free Transactions with Minimal Aborts for Linked Data Structures}
+\title{Lock-free Transactions without Rollback for Linked Data Structures}
 
 \author{\IEEEauthorblockN{Deli~Zhang\hspace{14pt} Damian~Dechev}
     \IEEEauthorblockA{Department of Computer Science\\
@@ -169,7 +169,7 @@ Each node has one inbound reference and can have one (e.g., linked list), two (e
 Consider the three basic write operations one can perform on a node: insert, delete, and update.
 %TODO: think whether the operations indeed act directly, how about those using descriptors?
 In existing lock-free implementations, these operations act directly on different fields of a node, and the effects are rendered immediately in the state of the abstract data type (ADT).
-We address the two key challenges of supporting transactional operations without rollback: 1) transaction isolation requires that the effects of an operation are invisible to operations outside the transaction's scope before the transaction successfully commits; and 2) delete and update operations require indirection such that their effects can be muted in case of transaction failure.
+We address the two key challenges of supporting transactional operations without rollback: 1) transaction isolation requires that the effects of an operation are invisible to operations outside the transaction's scope before the transaction successfully commits; and 2) delete and update operations require buffering such that their effects can be muted in case of transaction failure.
 
 %TODO: Break this sentence in two: 1st sentence focus on the use of "logical status"; and 2nd sentence: how we implement it
 % In 1st sentence, include a "bridge" from the previous paragraph, such as: "To overcome these challenges ..."
@@ -223,13 +223,15 @@ We conclude the paper in Section~\ref{sec:conclusion}.
 \label{sec:related}
 %1: lock-free data structures with thread-level synchronization techniques
 %2: transaction synchronization
+Non-blocking linked data structures have been extensively studied because their distributed memory layout provides data access parallelism and scalability under high levels of contention~\cite{linden2013skiplist,zhang2015lockfree,michael2002high}.
+To the best of our knowledge, there is no existing linked data structure that provides native support for transactions.
 A transactional execution of data structure operations can be seen as a restricted form of \emph{software transactions}~\cite{harris2010transactional}.
 %The scope of the data and the are well defined according to the semantics of the data structure.
 %This opens up opportunity for enabling data structure specific optimizations. 
 %The users of concurrent data structures have to devise their own concurrency control scheme. 
-Straightforward generic constructions can be implemented by executing all shared memory accesses in \emph{atomic sections}, which can employ either optimistic (e.g., STM) or pessimistic (e.g., lock inference) concurrency control.
+Straightforward generic constructions can be implemented by executing all shared memory accesses in coarse-grained \emph{atomic sections}, which can employ either optimistic (e.g., STM) or pessimistic (e.g., lock inference) concurrency control.
 More sophisticated approaches~\cite{bronson2010transactional,herlihy2008transactional,golan2015automatic} exploit semantic conflict detection for transaction level synchronization to reduce benign conflicts.
-In our work, we combine both fine-grained thread-level synchronization and semantic conflict detection to implement transactional linked data structures without the overhead of atomic section synchronizations.
+%In our work, we combine both fine-grained thread-level synchronization found in existing lock-free data structures and semantic conflict detection to implement transactional linked data structures without the overhead of atomic section synchronizations.
 
 \subsection{Transactional Memory}
 Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
@@ -258,7 +260,6 @@ Moreover, the use of locks degrades any non-blocking progress guarantee one migh
 In contrast, our approach guarantees lock-free progress.
 %Kempf2014combining combines lock inference and stm.
 
-
 \subsection{Semantic Conflict Detection}
 Considering the imprecise nature of data-based conflict detection, semantic-based approaches have been proposed to identify conflicts at a high-level (e.g., two commutative operations would not raise conflict even though they may access and modify the same data) which enables greater parallelism.
 Because semantically independent transactions may have low-level memory access conflicts, some other concurrency control mechanism must be used to protect accesses to the underlying data structure.
@@ -272,17 +273,16 @@ Other STM variants, such open nested transactions~\cite{ni2007open} support a mo
 The relaxation of STM systems and its implication on composability has been studied by Gramoli et al.~\cite{gramoli2013composing}.
 The work by Golan-Gueta et al.~\cite{golan2015automatic} apply commutativity specification obtained from programmers' input to inferring locks for abstract data types.
 All these approaches require the underlying data structure to be linearizable whereas our approach combines the two layers of synchronization into one.
+%TODO: we build transaction sync into thread-level sync to maximize efficiency, enable us to achieve lock-freedom. built-in descriptors
 %Our approach, do not track read/write set, highly concurrent, Optimistic lock-free
 %we leverage the semantic knowledge of the data structure implementation, 
 
-\section{Algorithm}
+\section{Methodology}
 \label{sec:algorithm}
-Non-blocking algorithms for linked data structures have been extensively studied because their distributed memory layout provides data access parallelism and scalability under high levels of contention~\cite{linden2013skiplist,zhang2015lockfree,michael2002high}.
-To the best of our knowledge, there is no existing non-blocking linked data structure that provides native support for atomic transactions.
-To ensure atomicity in a non-blocking transaction execution without an additional layer of synchronization, a write operation needs to either ``hide'' its effects until the transaction commits or revert its modifications upon transaction failure.
+To ensure atomicity in non-blocking transaction executions, a write operation needs to either buffer or ``hide'' its update until the transaction commits or revert its modifications upon transaction failure.
 
 To achieve a higher degree of efficiency, we follow the former strategy.
-Implementing the latter requires extra coordinations between operations in different transaction in order to achieve isolation.
+Implementing the latter requires extra coordinations between operations in different transaction in order to guarantee isolation.
 To effectively ``hide'' the newly inserted nodes before a transaction completes, we embed a logical flag in them, which keeps track of the transaction status. 
 This is similar to the \emph{logical deletion} technique, which is used in the lock-free linked list algorithm~\cite{harris2001pragmatic} to ensure list integrity and in the lock-free priority queue algorithms~\cite{linden2013skiplist,zhang2015lockfree} to speedup the \emph{delete-min} process.
 Logical deletion encodes a binary logical status in a node's bit-marked next pointer~\cite{harris2001pragmatic}, whereas our approach embeds a multi-value transaction status in the descriptor object shared among nodes.
@@ -734,7 +734,7 @@ We show the throughput and the number of superfluous aborts in Figure~\ref{fig:t
 The throughput is measured in terms of number of completed operations per second, which is the product of the number of committed transactions and transaction size.
 The number of superfluous aborts takes into account the number of aborted transactions except self-aborted ones.
 This is an indicator for the effectiveness of the conflict management scheme.
-Each threads performs 1 million transactions and the key range is set up to 10 thousand.
+Each thread performs 1 hundred thousand transactions and the key range is set up to 10 thousand.
 Our lock-free transactional list is denoted by LFT, the boosted list by BST, and the NOrec STM list by NTM. 
 The underlying list implementations for both LFT and BST were based on Harris' lock-free design~\cite{harris2001pragmatic}.
 The linked list for NTM is taken directly from the benchmark implementation in RSTM suite.
@@ -778,14 +778,76 @@ We show the results from mixed and read-dominated workloads in Figure~\ref{fig:t
 The throughputs follows the same pattern as in Figure~\ref{fig:txnlist50} with LFT lists' performance advantage slightly diminishes in read-dominated workload.
 This is because the \textsc{Find} operations in LFT lists also update descriptors in nodes, which requires extra cycle compared with read-only BST \textsc{Find} operations.
 Nevertheless, LFT lists still maintain an average of 20\% speedup over BST lists in these scenarios and achieves as much as 40\% throughput gain for large transactions.  
+Because of allowing reader concurrency, NTM lists also exhibit some degree of scalability in read-dominated scenarios.
+
+\begin{figure*}[t]
+    \begin{subfigure}{0.325\textwidth}
+        \centering
+        \includegraphics[width=1\columnwidth]{./data/amdskip50ins10kfilled.pdf}
+        \caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
+        \label{fig:txnskip50}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.325\textwidth}
+        \centering
+        \includegraphics[width=1\columnwidth]{./data/amdskip33ins10kfilled.pdf}
+        \caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
+        \label{fig:txnskip33}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.325\textwidth}
+        \centering
+        \includegraphics[width=1\columnwidth]{./data/amdskip15ins10kfilled.pdf}
+        \vspace{-0.17in}
+        \caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
+        \label{fig:txnskip15}
+    \end{subfigure}
+    \caption{Throughput and Superfluous Abort Counts for Transaction Skiplists (1M Key Range)}
+    \label{fig:txnskip}
+    \vspace{-0.2in}
+\end{figure*}
 
 \subsection{Transactional Skiplist}
 \label{sec:txnskiplistexp}
+In Figure~\ref{fig:txnskip}, we show the throughput and the number of superfluous aborts for three types of transactional skiplists.
+All of them were based on Fraser's open source lock-free skiplist~\cite{fraser2004practical}. 
+The naming convention for BST and LFT skiplists remain the same as in Figure~\ref{fig:txnlist}.
+We denote the STM based skiplist as OTM because it uses Fraser's object-based STM.
+Compared with word-based STMs, an object-based STM groups memory into blocks thus reduces metadata overhead.
+Since skiplists have logarithmic search time, we were able to stress the algorithms with heavier workloads: each threads now performs 1 million transactions and the key range is also boosted to 1 million.
+
+Overall, with a peak throughput of more than 3 million (OP/s), transaction execution on skiplists is considerable more efficient than on linked lists.
+Also both OTM and BST skiplists generates 2 orders or magnitude less superfluous aborts than their list counterparts.
+Because skiplist algorithms traverse exponentially less nodes than list algorithms, a single operation could finish much sooner, which greatly reduces the probability of memory access conflicts in STM and lock acquisition time out in transaction boosting.
+Another noteworthy difference is that the divergent scalability trends of large and small transactions. 
+As we can see in in Figure~\ref{fig:txnskip50}, large transaction such as LFT-8 and LFT-16 achieves maximum throughputs on a single thread, then their throughputs steadily fall as the number of thread increases.
+On the contrary, the throughputs of small transactions such as LFT-2 and LFT-4 start low, but gain momentum as more threads are added.
+Large transactions have lower synchronization overhead but are vulnerable to conflict.
+As the number of thread increases, a failed large transaction could easily forfeit a considerable amount of operations.
+On the flip side, small transactions incurs greater synchronization overhead, but are less likely to encounter conflicts when more threads contend with each other.
+%Transaction lists also exhibits signs of such divergence in Figure~\ref{fig:txnlist} but it is not as significant.
+
+Despite the differences, we still observe performance results generally similar to that of transaction lists.
+LFT and BST skiplists outperforms OTM skiplists by as much as 3 times across all scenarios, while LFT skiplists maintain an average of 60\% speedup over BST for large transactions.
+For example, in Figure~\ref{fig:txnskip50} on 32 threads LFT-8 outperforms BST-8 by 125\%.
+Even for small transactions, LFT skiplists begin to set the throughput apart from BST skiplists further than what is in Figure~\ref{fig:txnlist}.
+For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% speedup over BST-2.
 
 \section{Conclusion}
 \label{sec:conclusion}
-\_
+We have introduced a methodology for transforming high-performance lock-free linked data structures into high-performance lock-free transactional data structures. 
+Our approach embeds the transaction metadata in each node, which enables resovling transaction conflicts cooperatively through thread level synchronization.
+No undo log nor rollback is needed because operations can correctly interpret the logical status of nodes left over by aborted transaction.
+Data structures that guarantees lock-free or weaker progress will be able to maintain their progress properties during the transformation.
+We demonstrated the application of our lock-free transactional transformation on two fundamental data structure: a linked list and a skiplist.  
+The performance evaluation results show that our transaction synchronization scheme has exceptional low overhead and high scalability--providing an average of $40\%$ speedup over our good-faith transaction boosting implementations across all scenarios and as much as $125\%$ more throughput for large transactions.
+The performance gain over STMs are even more substantial: more than 10 times over the word-based STM and 3 times over the object-based STM.
+Besides the performance advantages, our approach brings down superfluous aborts to an extreme low level, which could be desirable if transaction success rate is a decisive factor for application.
 
+We defer extending the methodology to encompass dictionary API to future work.
+The key challenge is versioning the value field on a node.
+The \textsc{Update} function needs to be carefully designed so that the old value can be recovered if an update fails.
+We also plan to further evaluate our approach on SMP systems to verify potential performance gain under low memory latency.
 
 \bibliographystyle{IEEEtran}
 \bibliography{citation}
