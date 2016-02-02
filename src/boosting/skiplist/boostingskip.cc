@@ -10,7 +10,7 @@ BoostingSkip::BoostingSkip()
 
 BoostingSkip::~BoostingSkip()
 {
-    printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+    printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
 
     ASSERT_CODE
     (
@@ -34,55 +34,66 @@ void BoostingSkip::Uninit()
     m_lock.Uninit();
 }
 
-bool BoostingSkip::Insert(uint32_t key)
+BoostingSkip::ReturnCode BoostingSkip::Insert(uint32_t key)
 {
     bool ret = m_lock.Lock(key);
 
-    if(ret)
+    if(!ret)
     {
-        setval_t v = set_update(m_list, key, (void*)0xf0f0f0f0, false);
-        ret = v == NULL;
-        if(ret)
-        {
-            m_log->push_back(Operation(DELETE, key));
-        }
+        return LOCK_FAIL;
     }
 
-    return ret;
+    setval_t v = set_update(m_list, key, (void*)0xf0f0f0f0, false);
+    ret = v == NULL;
+    if(!ret)
+    {
+        return OP_FAIL;
+    }
+
+    m_log->push_back(Operation(DELETE, key));
+    return OK;
 }
 
-bool BoostingSkip::Delete(uint32_t key)
+BoostingSkip::ReturnCode BoostingSkip::Delete(uint32_t key)
 {
     bool ret = m_lock.Lock(key);
-
-    if(ret)
+    if(!ret)
     {
-        setval_t v = set_remove(m_list, key);
-        ret = v != NULL;
-        if(ret)
-        {
-            m_log->push_back(Operation(INSERT, key));
-        }
+        return LOCK_FAIL;
     }
 
-    return ret;
+    setval_t v = set_remove(m_list, key);
+    ret = v != NULL;
+    if(!ret)
+    {
+        return OP_FAIL;
+    }
+
+    m_log->push_back(Operation(INSERT, key));
+    return OK;
 }
 
-bool BoostingSkip::Find(uint32_t key)
+BoostingSkip::ReturnCode BoostingSkip::Find(uint32_t key)
 {
     bool ret = m_lock.Lock(key);
-
-    if(ret)
+    if(!ret)
     {
-        setval_t v = set_lookup(m_list, key);
-        ret = v != NULL;
+        return LOCK_FAIL;
     }
 
-    return ret;
+    setval_t v = set_lookup(m_list, key);
+    ret = v != NULL;
+
+    return ret ? OK : OP_FAIL;
 }
 
-void BoostingSkip::OnAbort()
+void BoostingSkip::OnAbort(ReturnCode ret)
 {
+    if(ret == LOCK_FAIL)
+    {
+        __sync_fetch_and_add(&g_count_fake_abort, 1);
+    }
+
     __sync_fetch_and_add(&g_count_abort, 1);
 
     for(int i = m_log->size() - 1; i >= 0; --i)

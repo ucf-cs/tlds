@@ -28,13 +28,13 @@ def main():
                4: "BSTSKIP",
                5: "STMSKIP"}
 
-    iteration = 100000
-    key_range = 10000
-    insertion = 33
-    deletion = 33
+    iteration = 1000000
+    key_range = 1000000
+    insertion = 15
+    deletion = 5
     average = 1
     #for pq_type in [0, 1, 2, 3, 4, 5]:
-    for pq_type in [0, 2, 1]:
+    for pq_type in [3, 4, 5]:
         list_type = pq_dict[pq_type]
         if pq_type == 1:
             list_type = list_type + '_' + stm_config

@@ -124,7 +124,7 @@ static inline bool IsNodeActive(NodeDesc* nodeDesc)
     return nodeDesc->desc->status == COMMITTED;
 }
 
-static inline bool IsKeyExist(NodeDesc* nodeDesc, Desc* desc)
+static inline bool IsKeyExist(NodeDesc* nodeDesc)
 {
     bool isNodeActive = IsNodeActive(nodeDesc);
     uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
@@ -402,7 +402,13 @@ bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
             goto out;
         }
 
-        if(!IsSameOperation(oldCurrDesc, nodeDesc) && !IsKeyExist(oldCurrDesc, desc))
+        if(IsSameOperation(oldCurrDesc, nodeDesc))
+        {
+            ret = true;
+            goto out;
+        }
+
+        if(!IsKeyExist(oldCurrDesc))
         {
             NodeDesc* currDesc = succ->nodeDesc;
 
@@ -576,7 +582,13 @@ bool transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
             nodeDesc->opid = opid;
         }
 
-        if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
+        if(IsSameOperation(oldCurrDesc, nodeDesc))
+        {
+            ret = true;
+            goto out;
+        }
+
+        if(IsKeyExist(oldCurrDesc))
         {
             NodeDesc* currDesc = succ->nodeDesc;
 
@@ -717,7 +729,13 @@ retry:
             nodeDesc->opid = opid;
         }
 
-        if(!IsSameOperation(oldCurrDesc, nodeDesc) && IsKeyExist(oldCurrDesc, desc))
+        if(IsSameOperation(oldCurrDesc, nodeDesc))
+        {
+            ret = true;
+            goto out;
+        }
+
+        if(IsKeyExist(oldCurrDesc))
         {
             NodeDesc* currDesc = x->nodeDesc;
 
@@ -796,8 +814,9 @@ void destroy_transskip_subsystem(void)
 static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
 {
     bool ret = true;
-    std::vector<node_t*> deletedNodes;
-    std::vector<node_t*> insertedNodes;
+    // For less than 1 million nodes, it is faster not to delete nodes
+    //std::vector<node_t*> deletedNodes;
+    //std::vector<node_t*> insertedNodes;
 
     //Cyclic dependcy check
     if(helpStack.Contain(desc))
@@ -805,6 +824,7 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
         if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
         {
             __sync_fetch_and_add(&g_count_abort, 1);
+            __sync_fetch_and_add(&g_count_fake_abort, 1);
         }
         return false;
     }
@@ -844,19 +864,19 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
             __sync_fetch_and_add(&g_count_commit, 1);
 
             // Mark nodes for physical deletion
-            for(uint32_t i = 0; i < deletedNodes.size(); ++i)
-            {
-                node_t* x = deletedNodes[i];
-                if(x == NULL) { continue; }
+            //for(uint32_t i = 0; i < deletedNodes.size(); ++i)
+            //{
+                //node_t* x = deletedNodes[i];
+                //if(x == NULL) { continue; }
 
-                NodeDesc* nodeDesc = x->nodeDesc;
-                if(nodeDesc->desc != desc) { continue; }
+                //NodeDesc* nodeDesc = x->nodeDesc;
+                //if(nodeDesc->desc != desc) { continue; }
 
-                if(__sync_bool_compare_and_swap(&x->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
-                {
-                    transskip_delete_org(l, x->k);
-                }
-            }
+                //if(__sync_bool_compare_and_swap(&x->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
+                //{
+                    //transskip_delete_org(l, x->k);
+                //}
+            //}
         }
     }
     else
@@ -866,19 +886,19 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
             __sync_fetch_and_add(&g_count_abort, 1);
             
             // Mark nodes for physical deletion
-            for(uint32_t i = 0; i < insertedNodes.size(); ++i)
-            {
-                node_t* x = insertedNodes[i];
-                if(x == NULL) { continue; }
+            //for(uint32_t i = 0; i < insertedNodes.size(); ++i)
+            //{
+                //node_t* x = insertedNodes[i];
+                //if(x == NULL) { continue; }
 
-                NodeDesc* nodeDesc = x->nodeDesc;
-                if(nodeDesc->desc != desc) { continue; }
+                //NodeDesc* nodeDesc = x->nodeDesc;
+                //if(nodeDesc->desc != desc) { continue; }
 
-                if(__sync_bool_compare_and_swap(&x->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
-                {
-                    transskip_delete_org(l, x->k);
-                }
-            }
+                //if(__sync_bool_compare_and_swap(&x->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
+                //{
+                    //transskip_delete_org(l, x->k);
+                //}
+            //}
         }
     }
 
@@ -901,14 +921,14 @@ void transskip_print(trans_skip* l)
 
     while(curr != l->tail)
     {
-        printf("Node [%p] Key [%u] Status [%s]\n", curr, INTERNAL_TO_CALLER_KEY(curr->k), IsKeyExist(CLR_MARKD(curr->nodeDesc), NULL)? "Exist":"Inexist");
+        printf("Node [%p] Key [%u] Status [%s]\n", curr, INTERNAL_TO_CALLER_KEY(curr->k), IsKeyExist(CLR_MARKD(curr->nodeDesc))? "Exist":"Inexist");
         curr = (node_t*)get_unmarked_ref(curr->next[0]); 
     }
 }
 
 void transskip_free(trans_skip* l)
 {
-    printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+    printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
 
     //transskip_print(l);
 }

@@ -330,7 +330,7 @@ public:
 
     bool ExecuteOps(const SetOpArray& ops)
     {
-        bool ret = false;
+        BoostingSkip::ReturnCode ret = BoostingSkip::OP_FAIL;
 
         for(uint32_t i = 0; i < ops.size(); ++i)
         {
@@ -349,14 +349,14 @@ public:
                 ret = m_list.Delete(key);
             }
 
-            if(ret == false)
+            if(ret != BoostingSkip::OK)
             {
-                m_list.OnAbort();
+                m_list.OnAbort(ret);
                 break;
             }
         }
 
-        if(ret == true)
+        if(ret == BoostingSkip::OK)
         {
             m_list.OnCommit();
         }
