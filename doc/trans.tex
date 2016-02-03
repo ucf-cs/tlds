@@ -83,17 +83,18 @@
     Non-blocking data structures allow scalable and thread-safe accesses to shared data. 
     They provide individual operations that appear to execute atomically.
     However, it is often desirable to execute multiple operations atomically in a transactional manner.
-    Previous solutions, such as software transactional memory (STM) and transactional boosting, manage transaction synchronization in an external layer separated from the data structure's own thread level concurrency control.
-    Although this reduces programming effort, it is not as efficient due to the overhead of additional synchronization and more importantly the need to rollback failed transactions.
+    Previous solutions, such as software transactional memory (STM) and transactional boosting, manage transaction synchronization in an external layer separated from the data structure's own thread-level concurrency control. 
+    Although this reduces programming effort, it leads to overhead associated with additional synchronization and the need to rollback failed transactions.
+    % TODO: Add 1-2 sentences and explain how our approach is different
     
     In this work, we present a new methodology for transforming high-performance lock-free linked data structures into high-performance lock-free transactional data structures without revamping the data structures' original synchronization design.
-    We encapsulate all operations, operands, and transaction status in a transaction descriptor, which is shared among each node accessed by the same transaction.
-    We coordinate threads to help finish the remaining operation of delayed a transaction based on its transaction descriptor.
-    For each data structure operation, we introduce an additional procedure that allows them to interpret the logical status of a node based on the transaction status. 
+    We encapsulate all operations, operands, and transaction status in a transaction descriptor, which is shared among the nodes accessed by the same transaction.
+    We coordinate threads to help finish the remaining operations of delayed transactions based on their transaction descriptors.
+    For each data structure operation, we introduce a procedure that allows the interpretation of the logical status of a node based on the transaction status. 
     Write operations are invisible to operations outside the scope of the transaction until the transaction commits.
-    Our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and rollback.
-    In our experimental evaluation using randomly generated transactions, our lock-free transactional lists and skiplist outperform the transactional boosted ones by $40\%$ on average and as much as $125\%$ for large transactions.
-    STM based approaches fall behind by as much as 3~10 times across all scenarios.
+    Our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflicts and rollbacks.
+    In our experimental evaluation using transactions with randomly generated operations, our lock-free transactional lists and skiplist outperform the transactional boosted ones by $40\%$ on average and as much as $125\%$ for large transactions. Furthermore, our methodology outperforms the alternative STM-based approaches by a factor of 3 to 10 across all scenarios. 
+    % TODO: Add more details: e.g. higher ratio of successfully executed transactions, other contributions
 \end{abstract}
 
 %\category{D.1.3}{Concurrent Programming}{Algorithms}
@@ -104,6 +105,7 @@
 
 \section{Introduction}
 \label{sec:intro}
+% TODO: include a defense against reviewers complaining about the limitation to linked data structures
 With the growing prevalence of multi-core systems numerous highly concurrent non-blocking data structures have emerged~\cite{linden2013skiplist,ellen2010non,braginsky2012lock,zhang2015lockfree,michael2002high}.
 Researchers and advanced users have been using libraries like LibCDS~\footnote{http://libcds.sourceforge.net/}, Tervel~\footnote{http://ucf-cs.github.io/Tervel/} and Intel's TBB~\footnote{https://www.threadingbuildingblocks.org/}, which are packed with efficient concurrent implementations of fundamental data structures.
 High level programming languages such as C\#, JAVA and Scala also introduce concurrent libraries, which allow users who are unaware of the pitfalls of concurrent programming to safely take advantage of the performance benefits of increased concurrency.
@@ -169,8 +171,8 @@ In this paper, we present \emph{lock-free transactional transformation}: a metho
 Our approach is applicable to a large class of linked data structures---ones that comprise a set of data nodes organized by references. 
 We focus our discussion here on the data structures that implement the integer set \emph{abstract data type} with three canonical operations \textsc{Insert}, \textsc{Delete}, and \textsc{Find}.
 The specification for the base data structures thus defines an \emph{abstract state}, which is the set of integer keys, and an \emph{concrete state}, which consists of all accessible nodes.
-Lock-free transactional transformation treats the based data structure as a \emph{white box}, and introduces a new code path for transaction level synchronization using only the single-word \textsc{CompareAndSwap} (CAS) synchronization primitive.
-The two key challenges for high-performance data structure transaction executions are: 1) to efficiently buffer write operations so that its modification is invisible to operations outside the transaction scope; and 2) to minimize the penalty of rollbacks when aborting partially executed transactions. 
+Lock-free transactional transformation treats the base data structure as a \emph{white box}, and introduces a new code path for transaction-level synchronization using only the single-word \textsc{CompareAndSwap} (CAS) synchronization primitive.
+The two key challenges for high-performance data structure transaction executions are: 1) to efficiently buffer write operations so that their modifications are invisible to operations outside the transaction scope; and 2) to minimize the penalty of rollbacks when aborting partially executed transactions. 
 
 %Each node has one inbound reference and can have one (e.g., linked list), two (e.g., binary tree), or more (e.g., B-tree and multi-dimensional linked list) outbound references.
 %In existing lock-free implementations, these operations act directly on different fields of a node, and the effects are rendered immediately in the state of the abstract data type (ADT).
@@ -179,38 +181,39 @@ The two key challenges for high-performance data structure transaction execution
 To overcome the first challenge, we employ a cooperative transaction execution scheme in which threads help each other finish delayed transactions so that the delay does not propagate across the system.
 We embed a reference to a \emph{transaction descriptor} in each node, which stores the instructions and arguments for operations along with a flag indicating the status of the transaction (i.e., active, committed, or aborted).
 A transaction descriptor is shared among a group of nodes accessed by the same transaction. 
-When an operation tries to access a node, it first reads the node's descriptor and only proceed with its modification if the descriptor indicates the previous transaction has committed or aborted. 
-Otherwise, the operation help execute active transaction according to the instructions in the descriptor.
+When an operation tries to access a node, it first reads the node's descriptor and proceeds with its modification only if the descriptor indicates the previous transaction has committed or aborted. 
+Otherwise, the operation helps execute active transaction according to the instructions in the descriptor.
 
 To overcome the second challenge, we introduce \emph{logical rollback}---a process integrated into the transformed data structure to interpret the \emph{logical status} of the nodes.
-This process interpret the logical status of the nodes left behind by an aborted transaction in such a way that concurrent operations observe a consistent abstract state as if the aborted transaction has been revoked.
+This process interprets the logical status of the nodes left behind by an aborted transaction in such a way that concurrent operations observe a consistent abstract state as if the aborted transaction has been revoked.
 The logical status defines how the concrete state of a data structure (i.e., set of nodes) should be mapped to its abstract state (i.e., set of keys).
-Usually the mapping is simple---every node in the concrete state correspond to an key in the abstract state.
-Previous works on lock-free data structure has been using \emph{logical deletion}~\cite{harris2001pragmatic}, in which a key is considered removed from the abstract state if the corresponding node has been bit-marked.
-Logical deletion encodes a binary logical status so that a node only maps to a key if its reference has not been bit-marked.
-We further generalize this technique by interpreting a node's logical status based on the combination of transaction status and operation type.
+Usually the mapping is simple---every node in the concrete state correspond to a key in the abstract state.
+Previous works on lock-free data structures have been using \emph{logical deletion}~\cite{harris2001pragmatic}, in which a key is considered removed from the abstract state if the corresponding node is bit-marked.
+Logical deletion encodes a binary logical status so that a node maps to a key only if its reference has not been bit-marked.
+We generalize this technique by interpreting a node's logical status based on the combination of transaction status and operation type.
 The intuition behind our approach is that operations can recover the correct abstract state by \emph{inversely interpreting} the logical status of the nodes with a descriptor indicating an aborted transaction.
 For example, if a transaction with two operations \textsc{Insert(3)} and \textsc{Delete(4)} fails because key 4 does not exist, the logical status of the newly inserted node with key 3 will be interpret as \emph{not inserted}.
 
 We applied lock-free transaction transformation on an existing lock-free linked list and a lock-free skiplist to obtain their lock-free transactional counterparts.
 In our experimental evaluation, we compare them against the transactional data structures constructed from transactional boosting, a word-based STM, and an object-based STM.
-We execute a micro-bench on a 64-core NUMA system to measure the throughput and number of aborts under three types of workloads.
-The result shows that our transactional data structure achieve an average of $40\%$ speedup over transactional boosting based approaches, an average of 10 times speedup over the word-based STM, and an average of 3 times over the object-based STM.
-Moreover, the aborts generated by our approach is 4 orders of magnitude less than transactional boosting and 6 orders of magnitude less than STMs.
+We execute a micro-benchmark on a 64-core NUMA system to measure the throughput and number of aborts under three types of workloads.
+The results show that our transactional data structures achieve an average of $40\%$ speedup over transactional boosting based approaches, an average of 10 times speedup over the word-based STM, and an average of 3 times over the object-based STM.
+Moreover, the aborts generated by our approach are 4 orders of magnitude less than transactional boosting and 6 orders of magnitude less than STMs.
 
+% TODO: make it clear what do we claim as contribution in each item; maybe by using a phrase to name a contribution and then explaining it; finish with a claim for Speedup and Efficiency and combine the last 2 items there.
 This paper makes the following contributions:
 \begin{itemize}
-    \item To the best of our knowledge, lock-free transactional transform is the first methodology that provides lock-free progress for data structure transactions. 
+    \item To the best of our knowledge, lock-free transactional transformation is the first methodology that provides lock-free progress for data structure transactions. 
     \item Our logical status interpretation draws inspiration from logical deletion and extends the idea to enable transaction execution without explicitly revoking aborted transactions.
-    \item Because our transaction level synchronization is tightly integrated with the base data structure's thread level synchronization, we are able to exploit the considerable amount of effort and brilliance devoted to the development lock-free data structures.
-    \item We conduct thorough performance evaluation with various transaction sizes and workloads to characterizes the performance of transformed data structures; and recognizes their appeal for transactions with more than 8 operations. 
+    \item Because our transaction-level synchronization is compatible with the base data structure's thread level synchronization, we are able to exploit the considerable amount of effort devoted to the development of lock-free data structures.
+    \item We conduct thorough performance evaluation with various transaction sizes and workloads to characterizes the performance of transformed data structures; and recognize their appeal for transactions with more than 8 operations. 
     \item Our approach enforces serialization through cooperative execution, thus the number of aborts caused by node access conflict is brought down to a minimum.
 \end{itemize}
 
 The rest of the paper is organized as follows. 
 In Section~\ref{sec:related}, we review existing approaches on constructing transactional data structures.
 In Section~\ref{sec:algorithm}, we explain our methodology in details.
-We present the template for building transactional linked list and skiplist in Section~\ref{sec:application}.
+We present the template for building transactional linked lists and skiplists in Section~\ref{sec:application}.
 We reason about the correctness and progress properties of our algorithms in Section~\ref{sec:correctness}.
 The performance evaluation is presented in Section~\ref{sec:experiment}.
 We conclude the paper in Section~\ref{sec:conclusion}.
@@ -926,19 +929,20 @@ For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% 
 
 \section{Conclusion}
 \label{sec:conclusion}
-We have introduced a methodology for transforming high-performance lock-free linked data structures into high-performance lock-free transactional data structures. 
-Our approach embeds the transaction metadata in each node, which enables resovling transaction conflicts cooperatively through thread level synchronization.
-No undo log nor rollback is needed because operations can correctly interpret the logical status of nodes left over by aborted transaction.
+We introduced a methodology for transforming lock-free linked data structures into high-performance lock-free transactional data structures. 
+Our approach embeds the transaction metadata in each node, which enables resolving transaction conflicts cooperatively through thread-level synchronization.
+No undo logs nor rollbacks are needed because operations can correctly interpret the logical status of nodes left over by aborted transactions.
 Data structures that guarantees lock-free or weaker progress will be able to maintain their progress properties during the transformation.
-We demonstrated the application of our lock-free transactional transformation on two fundamental data structure: a linked list and a skiplist.  
-The performance evaluation results show that our transaction synchronization scheme has exceptional low overhead and high scalability--providing an average of $40\%$ speedup over our good-faith transaction boosting implementations across all scenarios and as much as $125\%$ more throughput for large transactions.
-The performance gain over STMs are even more substantial: more than 10 times over the word-based STM and 3 times over the object-based STM.
-Besides the performance advantages, our approach brings down superfluous aborts to an extreme low level, which could be desirable if transaction success rate is a decisive factor for the application.
+We demonstrated the application of our lock-free transactional transformation on two fundamental data structures: a linked list and a skiplist.  
+The performance evaluation results show that our transaction synchronization scheme has low overhead and high scalability--providing an average of $40\%$ speedup over our good-faith transaction boosting implementations across all scenarios and as much as $125\%$ more throughput for large transactions.
+The performance gain over STMs are even more substantial: more than 10 times over the alternative word-based STM and 3 times over the object-based STM.
+Besides the performance advantages, our approach decreases superfluous aborts to a minimum, which is desirable because transaction success rate is a decisive factor for a majority of the applications.
 
+%TODO: make this short and demonstrate impact
 We defer extending the methodology to encompass dictionary API to future work.
 The key challenge is versioning the value field on a node.
 The \textsc{Update} function needs to be carefully designed so that the old value can be recovered if an update fails.
-We also plan to further evaluate our approach on SMP systems to verify potential performance gain under low memory latency.
+We also plan to further evaluate our approach on SMP systems to verify potential performance gains under low memory latency.
 
 \bibliographystyle{IEEEtran}
 \bibliography{citation}
