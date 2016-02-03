@@ -44,9 +44,10 @@
 \newcommand\OR{\;\text{\textbf{or}}\;}
 \newcommand\INSERT{\text{\textbf{Insert}}}
 \newcommand\DELETE{\text{\textbf{Delete}}}
-\newcommand\SUCCEED{\text{\textbf{Succeeded}}}
-\newcommand\FAIL{\text{\textbf{Failed}}}
-\newcommand\INPROGRESS{\text{\textbf{InProgress}}}
+\newcommand\FIND{\text{\textbf{Find}}}
+\newcommand\COMMITTED{\text{\textbf{Committed}}}
+\newcommand\ABORTED{\text{\textbf{Aborted}}}
+\newcommand\ACTIVE{\text{\textbf{Active}}}
 \algrenewcommand\algorithmicindent{1em}
 
 \algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
@@ -61,10 +62,13 @@
 \algtext*{EndInline}
 \algblockdefx[SwitchBlock]{Switch}{EndSwitch} [1]{\textbf{switch} (#1)} [0]{}
 \algtext*{EndSwitch}
+\algblockdefx[CaseBlock]{Case}{EndCase} [1]{\textbf{case: #1}} [0]{}
+\algtext*{EndCase}
+
 
 \begin{document}
 
-\title{Lock-free Transactions without Rollback for Linked Data Structures}
+\title{Lock-free Transactions without Rollbacks for Linked Data Structures}
 
 \author{\IEEEauthorblockN{Deli~Zhang\hspace{14pt} Damian~Dechev}
     \IEEEauthorblockA{Department of Computer Science\\
@@ -102,6 +106,7 @@
 %TODO: define CAS
 %TODO: define existing node and active node
 %TODO: define status of transaction live/committed/aborted transactions
+%TODO: define abstract state and concrete state, herlihy boosting
 
 \section{Introduction}
 \label{sec:intro}
@@ -168,7 +173,7 @@ Moreover, in case of non-blocking algorithms, the progress guarantee of the boos
 %In the boosted linked list shown in Figure~\ref{fig:boosting}, the abstract lock is pertaining to each key.  
 %thread 1 tries to execute \texttt{Insert(1)} and \texttt{Insert(4)} in a transaction while thread 2 tries to execute \texttt{Remove(9)} and \texttt{Insert(4)} transactionally.
  
-In this paper we present a methodology for implementing high-performance lock-free transactional linked data structures without rollback by relying only on the single-word \texttt{ComapreAndSwap} synchronization primitive.
+In this paper we present a methodology for implementing high-performance lock-free transactional linked data structures without rollback by relying only on the single-word \texttt{CompareAndSwap} (CAS) synchronization primitive.
 By a linked data structure we mean one that comprises a set of data nodes organized by references. 
 Each node has one inbound reference and can have one (e.g., linked list), two (e.g., binary tree), or more (e.g., B-tree and multi-dimensional linked list) outbound references.
 Consider the three basic write operations one can perform on a node: insert, delete, and update.
@@ -282,46 +287,58 @@ All these approaches require the underlying data structure to be linearizable wh
 %Our approach, do not track read/write set, highly concurrent, Optimistic lock-free
 %we leverage the semantic knowledge of the data structure implementation, 
 
-\section{Methodology}
+\section{Lock-free Transactional Transformation}
 \label{sec:algorithm}
-To ensure atomicity in non-blocking transaction executions, a write operation needs to either buffer or ``hide'' its update until the transaction commits or revert its modifications upon transaction failure.
+Any transactional data structure must deal with two tasks: conflict detection and recovery.
+In previous works, locks were often used to prevent access conflict, and undo logs were often used to discard speculative changes when a transaction aborts.
+We streamline the execution of a transaction by abolishing locks and undo logs.
+Our lock-free transactional transformation combines three key ideas: 1) Node-based semantic conflict detection; 2) interpretation-based logical rollback ; and 3) cooperative transaction execution.
+In this section, we explain these ideas and introduce the core procedures that will be used by transformed data structures: a) the procedure to interpret the logical status of a node; b) the procedure to update an existing node with a new transaction descriptor; and c) the transaction execution procedure that orchestrates concurrent executions.
 
-To achieve a higher degree of efficiency, we follow the former strategy.
-Implementing the latter requires extra coordinations between operations in different transaction in order to guarantee isolation.
-To effectively ``hide'' the newly inserted nodes before a transaction completes, we embed a logical flag in them, which keeps track of the transaction status. 
-This is similar to the \emph{logical deletion} technique, which is used in the lock-free linked list algorithm~\cite{harris2001pragmatic} to ensure list integrity and in the lock-free priority queue algorithms~\cite{linden2013skiplist,zhang2015lockfree} to speedup the \emph{delete-min} process.
-Logical deletion encodes a binary logical status in a node's bit-marked next pointer~\cite{harris2001pragmatic}, whereas our approach embeds a multi-value transaction status in the descriptor object shared among nodes.
-The key challenge remains to design a deletion and update process that allows logically invisible modification.
-We achieve this goal by having these operations insert nodes that are logically inactive instead of removing or modify existing nodes in the data structure.
-
-In this section we explain the data type definition of generic transactional linked data structures. 
-We also introduce the core procedures that are shared among different kinds of linked data structures: a) the lock-free node replacement algorithm that converts node deletion and modification into node insertion; and b) the transaction execution procedure that orchestrate concurrent transaction executions.
+For clarity, we now lists the constants and data type definitions in Algorithm~\ref{alg:nodestructure} .
+In addition to the fields used by the original lock-free data structure, we introduced a new field $info$ in \textsc{Node}.
+\textsc{NodeInfo} stores $desc$, a reference to the shared transaction descriptor, and an index $opid$, which provides a history record on the last access (i.e., given a node $n$, $n.info.desc.ops[n.desc.opid]$ is the most recent operation that accessed it).
+We say a node is active when the last transaction accessed it has an active status (i.e., $n.info.desc.status=\text{Active}$).
+A descriptor~\cite{herlihy2012art} is a shared object commonly used in lock-free programming to announce steps that cannot be done by a single atomic primitives.
+The functionalities of our transaction descriptor is twofold: 1) it stores all the necessary context for helping finish a delayed transaction; and 2) it shares the transaction status among all nodes participating in the same transaction.
+For set operations, we were able to compactly pack the high-level instructions including the operation type and the operand in a few bytes.
+We also employ the pointer marking technique described by Harris~\cite{harris2001pragmatic} to mark logically deleted nodes. 
+The macros for pointer marking are defined in Algorithm~\ref{alg:pointermarking}.
+The $Mark$ flag is co-located with the $info$ pointers.
 
 \begin{algorithm}[h]
-    \caption{Node Structures}
+    \caption{Type Definitions}
     \label{alg:nodestructure}
     \vspace{-0.2in}
     \begin{multicols}{2}
         \begin{algorithmic}[1]
-            \Enum{Status}
-            \State \textbf{InProgress}
-            \State \textbf{Succeeded}
-            \State \textbf{Failed}
+            \Enum{TxStatus}
+            \State Active
+            \State Commited
+            \State Aborted
             \EndEnum
+            \Enum{OpType}
+            \State Insert
+            \State Delete
+            \State Find
+            \EndEnum
+            \Struct{Operation}
+            \State \textbf{OpType} $type$
+            \State \textbf{int} $key$
+            \EndStruct
             \Struct{Desc}
             \State \textbf{int} $size$
-            \State \textbf{Stauts} $flag$
+            \State \textbf{TxStauts} $status$
             \State \textbf{Operation} $ops[\;]$
             \EndStruct
-            \Struct{Operation}
-            \State \textbf{int} $type,key$
-            \State \textbf{void*} $val$
+            \Struct{NodeInfo}
+            \State \textbf{Desc*} $desc$
+            \State \textbf{int} $opid$
             \EndStruct
             \Struct{Node}
-            \State \textbf{int} $key,opid$
-            \State \textbf{void*} $val$
-            \State \textbf{Node*} $child[N],repl$
-            \State \textbf{Desc*} $desc$
+            \State \textbf{NodeInfo*} $info$
+            \State \textbf{int} $key$
+            \State ...
             \EndStruct
             \end{algorithmic}
     \end{multicols}
@@ -332,269 +349,357 @@ We also introduce the core procedures that are shared among different kinds of l
     \caption{Pointer Marking}
     \label{alg:pointermarking}
     \begin{algorithmic}[1]
-        \State \textbf{const int} $F_{adp} \gets \texttt{0x1}$
-        \Define{SetMark}{$(p)$} $(p\;|\;F_{adp})$
+        \State \textbf{int} $Mark \gets \texttt{0x1}$
+        \Define{SetMark}{$(p)$} $(p\;|\;Mark)$
         \EndDefine
-        \Define{ClearMark}{$(p)$} $(p\;\&\;\sim F_{adp})$
+        \Define{ClearMark}{$(p)$} $(p\;\&\;\sim Mark)$
         \EndDefine
-        \Define{IsMarked}{$(p)$} $(p\;\&\;F_{adp})$
+        \Define{IsMarked}{$(p)$} $(p\;\&\;Mark)$
         \EndDefine
     \end{algorithmic}
 \end{algorithm}
 
+%Each \texttt{Operation} structure keeps a key-value pair for the operation and an enumeration of operation type. 
+%The values of the enumeration should encompass the subset of the concrete data types' application programming interface (API) that supports transactional execution.
 
-\subsection{Data Type Definition}
-We define the generic node structure used in the rest of the paper in Algorithm~\ref{alg:nodestructure}. 
-A node contains a key-value pair, and an array of child pointers $child[N]$, where $N$ depends on the concrete data type (e.g., 1 for linked lists, 2 for binary trees, etc.)
-It also stores a reference to the shared transaction descriptor object $desc$ and an index $opid$ that provides reference to the operation pertaining to this node (i.e., $desc.ops[opid]$ is the operation that inserted this node).
-Finally, it has a reference $repl$ to the node it replaces (if it replaces anything).
-The descriptor object~\cite{herlihy2012art} \textsc{Desc} is a data structure used in lock-free programming to announce steps that cannot be done by a single atomic instruction.
-The functionalities of a transactional descriptor is twofold: 1) it stores all the necessary context for any thread to finish a pending transaction; and 2) it provides the transaction status shared among all nodes participating in the same transaction.
-Each \texttt{Operation} structure keeps a key-value pair for the operation and an enumeration of operation type. 
-The values of the enumeration should encompass the subset of the concrete data types' application programming interface (API) that supports transactional execution.
-We employ the pointer marking technique described by Harris~\cite{harris2001pragmatic} to mark adopted child nodes as well as logically deleted nodes. 
-The macros for pointer marking are defined in Algorithm~\ref{alg:pointermarking}.
-The $F_{adp}$ flag is co-located with the $child$ pointers.
+%Any transactional object must solve two tasks: synchronization
+%and recovery. Synchronization requires detecting when transactions
+%conflict, and recovery requires discarding speculative changes
+%when a transaction aborts.
 
-\begin{figure}[th]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\columnwidth]{figure/deletion.pdf}
-    \caption{Node Deletion}
-    \label{fig:nodedeletion}
+    \includegraphics[width=1\columnwidth]{figure/lfttconflict.pdf}
+    \caption{Transaction Execution and Conflict}
+    \label{fig:lfttconflict}
 \end{figure}
 
+\subsection{Node-based Conflict Detection}
+In our transformed data structures, conflict are detected at the granularity of a node. 
+If two transactions access different nodes (i.e. the method calls in them commute~\cite{herlihy2008transactional}), they are allowed to proceed concurrently. 
+In this case, shared-memory accesses are coordinated by the concurrency control mechanism in the original data structure.
+Otherwise, threads proceed in a cooperative manner as detailed in Section~\ref{sec:txnexec}
+For set data types, each node is associated with a unique key, thus our conflict detection operates at the same granularity as the abstract locking used by transactional boosting.
+
+Moreover, our transaction synchronization is \emph{optimistic} in that it allows transactions to proceed in parallel until they need to access an active node.
+We illustrate an example of node access conflict in Figure~\ref{fig:lfttconflict}.
+At the beginning, Thread 1 committed a transaction $t1$ inserting node 1 and 3. 
+Thread 2 attempted to insert 4 and 2 in transaction $t2$, while Thread 3 was concurrently executing transaction $t3$ to delete 3 and 4.
+Thread 3 was able to perform its first operation by updating the $info$ pointer on node 3 with a new \textsc{NodeInfo}.
+However, it encounters a conflict when attempting to update node 4 because Thread 2 has yet to finish its second operation.
+To enforce serialization, operations must not modify an active node. 
+In such cases, we can let the later transaction to either wait for the other active transaction to finish, or forcibly abort the competitor, or help carry out the remaining operations in the other transaction.
+In the second case, the data structure become obstruction-free, in the last case it is lock-free.
+%We focus on the lock-free case because the obstruction-free version can be trivially obtained from disabling the help mechanism in the lock-free version.
+
+Furthermore, node-based conflict detection effectively compartmentalizes the execution of operations.
+Completed operations will not be affected should the current operation experience contention and need to retry (most lock-free data structures have a CAS-based retry loop). 
+Each node acts as a checkpoint, once an operation successfully updates a node the transaction permanently advances one step towards completion.
+Word-based conflict detection, due to the lack of such algorithm specific knowledge, has to restart the whole transaction upon conflict. 
+
+\subsection{Logical Status Interpretation}
+\label{sec:logical}
+To achieve isolation in transaction executions, a write operation needs to buffer or ``hide'' its update until the transaction commits; and to achieve atomicity it needs to revoke its modifications upon transaction abort.
+%Transactional boosting employs locks to ensure the former condition is met and it uses undo logs to rollback aborted transactions. 
+In the context of data structure transactions, existing strategies undo the operations by invoking the their inverse operations~\cite{herlihy2008transactional}.
+This would incur significant penalty because the compute cycles spent on the inverse operations do not contribute to the overall throughput and introduce additional contention.
+We approach the recovery task from another angle: a failed transaction does not need to physically invoke the inverse methods; executed operations in a failed transaction just need to \emph{appear to have be undone}.
+We achieve this by having operations \emph{inversely interprets} the logical status of nodes accessed by operations in a failed transaction.
+Both physical undo and our logical undo reach the same goal of restoring the abstract state of the data structure. 
+
+In Algorithm~\ref{alg:logicalstatus}, we list the function to interpret the logical status of a node according to the value of the transaction descriptor.
+Function \textsc{IsNodeExist}, verifies that a node associated with a specific key is present.
+This is a common test found in existing linked data structures.
+Given a node's presence, function \textsc{IsKeyExist} verifies that if the key should be logically included in the set, and returns a boolean value based on the combination of operation type and transaction status.
+For a node lastly accessed by an \textsc{Insert} operation, its key is considered present if the transaction has successfully \emph{committed}.
+On the contrary, according the semantics of \textsc{Delete}, a successful operation must remove the key from the set.
+Thus for a node lastly accessed by a \textsc{Delete} operation, its key is considered present if the transaction has \emph{aborted}.
+These two opposite interpretations also match previous observations that \textsc{Insert} and \textsc{Delete} are a pair of inverse operations~\cite{herlihy2008transactional}.
+Since the \textsc{Find} operation is read-only, no rollback is needed.
+The node's key is always present regardless the status of the transaction.
+A special case is the operations in a active transaction, which we treat as committed but only visible to subsequent operations within the same transaction scope.
+%Suppose a transaction contains two operations \textsc{Insert(4)} and \textsc{Find(4)}. The later needs to recognize the key newly inserted by the former as present. 
+
+%To effectively ``hide'' the newly inserted nodes before a transaction completes, we embed a logical flag in them, which keeps track of the transaction status. 
+%This is similar to the \emph{logical deletion} technique, which is used in the lock-free linked list algorithm~\cite{harris2001pragmatic} to ensure list integrity and in the lock-free priority queue algorithms~\cite{linden2013skiplist,zhang2015lockfree} to speedup the \emph{delete-min} process.
+%Logical deletion encodes a binary logical status in a node's bit-marked next pointer~\cite{harris2001pragmatic}, whereas our approach embeds a multi-value transaction status in the descriptor object shared among nodes.
+%The key challenge remains to design a deletion and update process that allows logically invisible modification.
+%We achieve this goal by having these operations insert nodes that are logically inactive instead of removing or modify existing nodes in the data structure.
+
 \begin{algorithm}[th]
-    \caption{Node Replacement}
-    \label{alg:replace}
+    \caption{Logical Status}
+    \label{alg:logicalstatus}
     \begin{algorithmic}[1]
-        \Function{Replace}{$\textbf{Node*}\;pred,\;\textbf{Node*}\;curr\;\textbf{Node*}\;n,\break\;\textbf{bool}\;replace,\;\textbf{int}\;d_p,\;\textbf{int}\;d_c$}
-        \State $n.repl \gets replace = \TRUE \;?\; curr : \NIL$
-        \State $n.child[d_c] \gets replace = \TRUE \;?\; \NIL : curr$
-        \If {$\text{\textsc{CAS}}(\&pred.child[d_p],\;curr,\;n)$} \label{l:link}
-        \State \Call{AdoptChild}{$n$} \label{l:adoptself}
-        \State \Return \TRUE
-        \Else
-        \State \Return \FALSE
-        \EndIf
+        \Function{IsNodeExist}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
+        \State \Return $n.key = key$ \label{l:nodeexist}
         \EndFunction
         \Statex
-        \Function{AdoptChild}{$\textbf{Node*}\;n$}
-        %\If {$n = \NIL$}
-        %\State \Return
-        %\EndIf
-        \State \textbf{Node*} $curr \gets n.repl$
-        \If {$curr=\NIL \OR \textsc{IsMarked}(curr)$}
-        \State \Return
-        \EndIf
-        \State \textsc{CAS}$(\&curr.repl,\; \NIL,\; \textsc{SetMark}(n)$ \label{l:adoptsetrepl}
-        \State \textbf{Node*} $child \gets \NIL$
-        \For {$i \in [0, N)$}
-        \State $child \gets \textsc{FetchAndOr}(\&curr.child[i],\;F_{adp})$ \label{l:setadp} 
-        \State $child \gets \textsc{ClearMark}(child)$
-        \State $\text{\textsc{CAS}}(\&n.child[i],\;\NIL,\;child)$ \label{l:adopt}
-        \EndFor
-        \State $\textsc{CAS}(\&n.repl,\;curr,\;\NIL)$
+        \Function{IsKeyExist}{$\textbf{NodeInfo*}\;info$}
+        \State $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
+        \State $\textbf{TxStatus}\;status \gets info.desc.status$
+        \Switch{$status$} 
+        \Case{$\ACTIVE$}
+        \EndCase
+        \Case{$\COMMITTED$} 
+        \State \Return $op=\FIND \OR op=\INSERT$ \label{l:casecommitted} 
+        \EndCase
+        \Case{$\ABORTED$}
+        \State \Return $op=\FIND \OR op=\DELETE$ \label{l:caseaborted} 
+        \EndCase
+        \EndSwitch
         \EndFunction
-        \end{algorithmic}
+    \end{algorithmic}
 \end{algorithm}
 
-\subsection{Lock-free Node Replacement}
-\label{sec:noderepl}
-All write operations in our approach try to insert new nodes.
-If no node with the same key exists, lock-free insertion can be done by simply swinging the next pointer of the predecessor node~\cite{zhang2015lockfree,harris2001pragmatic}. However more often, nodes are inserted to replace an existing node in order to change its logical status.
-In Figure~\ref{fig:nodedeletion} we depict the deletion of an existing node (the node labeled with number 4) from a linked-list. 
-To perform the operation, in place of the original node we insert a new node (labeled with number 4')
-%TODO: explain the helping mechanism of child adoption with graph?
-%TODO: make Replace function also insert new node if the node to be replaced is NULL
-This requires the child nodes of node being replaced to be transferred to the new node in a lock-free manner.
-The \textsc{Replace} function as shown in Algorithm~\ref{alg:replace} inserts a new node $n$ as the $d_p$th child of the predecessor $pred$.
-Depending on the boolean flag \textit{replace}, the new node $n$ either replaces $pred$'s original child $curr$ or be positioned between $pred$ and $curr$.
-We link $pred.child[d_p]$ to the new node on line\footnote{In the rest of the paper we refer to Line $x$ in Algorithm $y$ as Line x.y}~\algref{alg:replace}{l:link}, and proceed to adopt child nodes from $repl$ in the helper function \textsc{AdoptChild}.
-At the beginning of the child adoption process, we store the node pointer $n$ in the $repl$ field of the node that it replaces (line~\algref{alg:replace}{l:adoptsetrepl}).
-This back pointer serves as a shortcut for future traversal operations to back track from the replaced node as detailed in Section~\ref{sec:applist}.
-Before a child pointer can be copied, we must safeguard it so that it cannot be changed by concurrent insertions while the copy is in progress.
-This is done by setting the $F_{adp}$ flag in the child pointers (line~\algref{alg:replace}{l:setadp}).
-Once the flag is set either by this thread or by other threads, the function proceeds to copy the pointer to $n$ (line~\algref{alg:replace}{l:adopt}). 
-Finally, the descriptor field in $n$ is cleared to designate the operation's completion.
+\begin{algorithm}[t]
+    \caption{Update NodeInfo}
+    \label{alg:updateinfo}
+    \begin{algorithmic}[1]
+        \Function{UpdateInfo}{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool},\;wantkey$}
+        \State $\textbf{NodeInfo*}\; oldinfo \gets n.info$ \label{l:readinfo}
+        \If {$\Call{IsMarked}{oldinfo}$}
+        \State $\Call{Do\_Delete}{n}$ 
+        \State \Return retry
+        \EndIf
+        \If {$oldinfo.desc \neq info.desc$} \label{l:testself}
+        \State \Call{ExecuteOps}{$oldinfo.desc,\;oldinfo.opid + 1$} \label{l:helpops}
+        \ElsIf {$oldinfo.opid \ge info.opid$} \label{l:testhelped}
+        \State \Return success
+        \EndIf
+        \State $\textbf{bool}\;haskey \gets \Call{IsKeyExist}{oldinfo}$ \label{l:testkey} 
+        \If {$(!haskey \AND wantkey) \OR (haskey \AND !wantkey)$} \label{l:testdesire}
+        \State \Return fail
+        \EndIf
+        \If {$info.desc.status \neq Active$} \label{l:testactive}
+        \State \Return fail
+        \EndIf
+        \If {$\Call{CAS}{\&n.info,\;oldinfo,\;info}$} \label{l:casinfo}
+        \State \Return success
+        \Else
+        \State \Return retry
+        \EndIf
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
 
 \begin{algorithm}[th]
     \caption{Transaction Execution}
     \label{alg:transaction}
     \begin{algorithmic}[1]
+        \State $\textbf{thread\_local\;Stack}\;helpstack$
+        \Function{ExecuteTransaction}{$\textbf{Desc*}\;desc$}
+        \State $helpstack.\Call{Init}$
+        \State $\Call{ExecuteOps}{desc, 0}$
+        \State \Return $desc.status = Committed$
+        \EndFunction
+        \Statex
         \Function{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-        \State $ret \gets \TRUE$
-        \While {$desc.flag = InProgress$ $\AND ret \AND$ $opid < desc.size$} \label{l:txnwhile}
-        \State $\textbf{Operation*} op \gets \&desc.ops[opid]$
-        \State $ret \gets \Call{ExecuteOp}{op}$
+        \State $\textbf{bool}\;ret \gets \TRUE$
+        \State $\textbf{set}\;delnodes$
+        \If {$helpstack.\Call{Contains}{desc}$} \label{l:stackcontain}
+        \State $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}
+        \State \Return
+        \EndIf
+        \State $helpstack.\Call{Push}{desc}$
+        \While {$desc.status = Active$ $\AND ret \AND$ $opid < desc.size$} \label{l:txnwhile}
+        \State $\textbf{Operation*}\;op \gets desc.ops[opid]$
+        \If{$op.type = \FIND$} 
+        \State $ret \gets \Call{Find}{op.key,\;desc,\;opid}$
+        \ElsIf {$op.type = \INSERT$}
+        \State $ret \gets \Call{Insert}{op.key,\;desc,\;opid}$
+        \ElsIf{$op.type = \DELETE$}
+        \State $\textbf{Node*}\;del$
+        \State $ret \gets \Call{Delete}{op.key,\;desc,\;opid,\;del}$
+        \State $delnodes.\Call{Insert}{del}$
+        \EndIf
         \State $opid \gets opid + 1$
         \EndWhile
+        \State $helpstack.\Call{Pop}$
         \If {$ret = \TRUE$}
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Succeeded)$ \label{l:txnsuccess}
+        \If {$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$} \label{l:txnsuccess}
+        \State $\Call{MarkDelete}{delnodes,\;desc}$ \label{l:markdelete}
+        \EndIf
         \Else
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;InProgress,\;Failed)$ \label{l:txnfail}
+        \State $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txnfail}
         \EndIf
         \EndFunction
         \end{algorithmic}
 \end{algorithm}
 
+\subsection{Logical Status Update}
+\label{sec:logicalupdate}
+As mentioned above, the logical status of a node depends on the interpretation of its transaction descriptor. 
+In a transformed data structure, a operation needs change a node's logical status before performing any necessary low-level node manipulations. 
+This is done by updating the node's \textsc{NodeInfo} pointer as shown in Algorithm~\ref{alg:updateinfo}. 
+Given a node $n$, the function \textsc{UpdateInfo} reads its current $info$ field (line~\algref{alg:updateinfo}{l:readinfo}), verifies its sanity, and attempts to update $n.info$ through the use of CAS (line~\algref{alg:updateinfo}{l:casinfo}).
+It returns a tri-state value indicating whether the operation succeeded, failed, or should be retried.
+We make sure that any other active transaction accessing $n$ is completed by helping execute its remaining operations (line~\algref{alg:updateinfo}{l:helpops}).
+%We explain the details of \textsc{ExecuteOps} in the next section.
+However, we have to avoid helping the same transaction because of the hazard of infinite recursions.
+This is prevented by the condition check on line~\algref{alg:updateinfo}{l:testself}.
+We also skip the update and report success if the operation has already been performed by other threads (line~\algref{alg:updateinfo}{l:testhelped}).
+Due to the use of helping mechanism, the same operation may be executed multiple times by different threads.
+This condition check allows us to identify node accessed threads that executes the same transaction and thus ensures consistent result code is return.
+We validate the presence of the key on line~\algref{alg:updateinfo}{l:testkey} and test if the key's presence (as required by deletions and finds), or lack of presence (as required by insertions), is desired on line~\algref{alg:updateinfo}{l:testdesire}.
+$wantkey$ is a boolean flag passed on by the caller function to indicate if the presence of key is desired.
+The operation reports failure when $wantkey$ contradicts $haskey$.
+Finally, we validate that the transaction is still active (line~\algref{alg:updateinfo}{l:testactive}) to prevent a terminated transaction from erroneously overwriting $n.info$.
 
 \subsection{Transaction Execution}
 \label{sec:txnexec}
-%The caveat is that the read operations need to check a node's status to ensure it is in a consistent status or even help the write operation to finish the remaining steps.
-In our approach, we treat nodes as the natural units for conflict detection.
-%; e.g., insert 3 modifies node 2, but update 3 modifies node 3
-Write operations inserting nodes with different keys are allowed to execute concurrently.
-Should conflicts among write operations occur, threads help finish the delayed transaction starting from the next operation as indicated by the transaction descriptor in the node in conflict.
-The \textsc{ExecuteOps} function in Algorithm~\ref{alg:transaction} execute operations starting from $opid$ in the transaction descriptor $desc$.
-The thread initiating the transaction will start from $opid=0$, while other threads may concurrently invoke this method to help unfinished operations with $opid\in[1,desc.size)$.
-The method consists of a while loop (line~\algref{alg:transaction}{l:txnwhile}) that executes each operation in order.
-The next operation will only be executed if the previous operation completes successfully.
-Otherwise, it indicates the precondition required by the previous operation is unsatisfied and the transaction aborts. 
-For example, the precondition for a successful deletion operation is that the target key is contained in the data structure.
-If this is unsatisfied, the transaction containing such deletion operation will fail.
-The concrete \textsc{ExecuteOp} function varies slightly among different data types.
-We explain the differences in details in Section~\ref{sec:application}. %TODO: algorithm lists the supported API of a list
-Once all operations complete successfully we atomically update the transaction status with a \emph{Succeeded} flag (line~\algref{alg:transaction}{l:txnsuccess}).
+We consider the transaction execution model in which a transaction is explicitly aborted upon the first operation failure.
+The \textsc{ExecuteTransaction} in Algorithm~\ref{alg:transaction} is the entry point of transaction execution, which is invoked by the thread that initiates a transaction.
+The \textsc{ExecuteOps} function execute operations in sequence starting from $opid$.
+For threads that help to execute a delayed transaction, the $opid$ could be in the range of $[1,\;desc.size]$.
+In each step of the while loop (line~\algref{alg:transaction}{l:txnwhile}), the return value of the previous operation is verified.
+We require the operations to return a boolean value indicating if the executions are successful.
+A false value indicates the precondition required by the operation is unsatisfied and the transaction will abort. 
+Once all operations complete successfully we atomically update the transaction status with a \emph{Commited} flag (line~\algref{alg:transaction}{l:txnsuccess}).
+It is not necessary to retry this CAS operation as a failed CAS indicates that some other thread must have successfully updated the transaction status.
+The thread that successfully executed the CAS will be responsible for performing physical node deletion (line~\algref{alg:transaction}{l:markdelete}), which will be explained in Section~\ref{sec:application}
 
+By adopting cooperative transaction execution, our approach is able to eliminate the majority of aborts caused by access conflicts.
+Although rare, potential deadlock is possible if two threads were to access two of the same nodes in opposite order.
+In such cases, both threads will be trapped in infinite recursions helping execute each other's transaction.
+We detect and recover from this hazard by using a per-thread \emph{help stack}, which is a simple stack containing $Desc$ pointers. 
+This is similar to a function call stack, only it records the invocation of \textsc{ExecuteOps}.
+A thread initializes its help stack before initiating a transaction.
+Each time a thread begins to help another transaction, it pushes the transaction descriptor on to its help stack.
+A thread pop its help stack once the help completes.
+A deadlock generates cyclic dependencies among transaction executions, which can be detected by check for duplicate entries in the help stack (line~\algref{alg:transaction}{l:stackcontain}). 
+We recover by aborting one of the transactions as shown on line~\algref{alg:transaction}{l:txncyclicabort}.
+
+%Our approach treats the original data structure as a white box, 
 \section{Application Examples}
 \label{sec:application}
-In this section we demonstrate the application of our methodology for implementing transactional linked data structures based on their sequential counterparts. This requires two steps: 1) identifying the conditions that determine if a node is active, and 2) applying the aforementioned lock-free node replacement technique to convert the write operations. The goal of the first step is to construct a sub-routine which helps operations correctly recognize the logical status of a node.
-The second step generates uniform write operations that share the same basic node insertion procedure and differ only in the trigger condition for insertion.
+In this section we demonstrate the application of our lock-free transaction transformation on linked lists and skiplists based sets. 
+The process involves two steps: 1) identify and encapsulate the original data structure's methods for locating, inserting, and deleting nodes; and 2) integrate the \textsc{UpdateInfo} function (Algorithm~\ref{alg:updateinfo}) in each operation using the templates provided in this section.
 
-%TODO: move node activeness to previous section
-\subsection{Linked List}
-\label{sec:applist}
-We now demonstrate the implementation of a transactional ordered linked list.
-%TODO: maybe add 2 sentences as a "teaser" and summary of what was most challenging/interesting about the transformation of the linked-list
-Algorithm~\ref{alg:listfind} lists the \texttt{Find} operation as well as four sub-routines that are shared among \texttt{Insert} and \texttt{Delete} operations.
-\texttt{Find} determines if a node with a specific key exists.
-The node traversal algorithm \texttt{LocatePred}\footnote{We use the notion of reference arguments marked by \textbf{ref}, which surfaces the modification of arguments done by the callee function in the caller function.} locates a node's immediate parent node $pred$ and child node $curr$. 
-Similar to the sequential algorithm, termination condition is based on the comparison of the key values (line~\algref{alg:listfind}{l:listpredcheck}).
-The child adoption step (line~\algref{alg:listfind}{l:listpredhelp}) is unique to the concurrent algorithm.
-It ensures that the child pointer in $curr$ is up to date when read on line~\algref{alg:listfind}{l:listpredchild}
+The first step is necessary because we still rely on the original algorithm and its concurrency control to add, update, and remove linkage among nodes.
+This is a refactor process, as we do not alter the functionality of the original implementations. 
+Although implementation details such as argument types and return values may vary, we expect to prepare the following three functions: \textsc{Do\_LocatePred}, \textsc{Do\_Insert}, and \textsc{Do\_Delete}.
+We add a prefix \textsc{Do\_} to indicate these are the methods provided by the original data structures.
+For brevity, we omit detailed code listings, but express the general functionality specifications.
+Given a key, \textsc{Do\_LocatePred} should return the target node (and any necessary variables for linking and unlinking a node, e.g., its predecessor).
+\textsc{Do\_Insert} should create the necessary linkage to correctly place the new node in the data structure.
+\textsc{Do\_Delete} should remove any reference to the node.
+Note that some lock-free data structures~\cite{harris2001pragmatic,fraser2004practical} employs a two-phased deletion algorithm, where the actual node removal is delay or even separated from the first phase of logical deletion.
+In this case, we only expect \textsc{Do\_Delete} to perform the logical deletion as nodes will be physically removed during the next traversal.
+%We also assume there will be sentinel head and tail nodes so that the \textsc{Do\_LocatePred} function will not return null pointers.
 
-\begin{algorithm}[th]
-    \caption{Linked List Find}
-    \label{alg:listfind}
-    \begin{algorithmic}[1]
-        \Function{Find}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc$}
-        \State $\textbf{Node*}\;pred \gets \NIL,\;curr \gets head$
-        \State \Call{LocatePred}{$pred,\;curr,\;key$}
-        \State \Return \Call{ContainKey}{$curr,\;key,\;desc$}
-        \EndFunction
-        \Statex
-        \Function{LocatePred}{$\textbf{ref Node*}\; pred,\;\hfill$ $\textbf{ref Node*}\; curr,\;\textbf{int}\;key$}
-        \While {$curr \neq \NIL \AND curr.key < key$} \label{l:listpredcheck}
-        \State $pred \gets curr$
-        \State \Call{AdoptChild}{$curr$} \label{l:listpredhelp}
-        \State $curr \gets \textsc{ClearMark}(curr.child[0])$ \label{l:listpredchild}
-        \EndWhile
-        \EndFunction
-        \Statex
-    \Function{ContainKey}{$\textbf{Node*}\; n,\; \textbf{int}\; key,\;\textbf{Desc*}\;desc$}
-    \State \Return $\Call{IsExist}{n,key} \AND \Call{IsActive}{n,desc}$ \label{l:listcontain}
-        \EndFunction
-        \Statex
-        \Function{IsExist}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
-        \State \Return $n \neq \NIL \AND n.key = key$ \label{l:listfindexist}
-        \EndFunction
-        \Statex
-        \Function{IsActive}{$\textbf{Node*}\;n,\; \textbf{Desc*}\; desc$}
-        \If{$n.desc.status = \INPROGRESS$} \label{l:listactiveinprogress}
-        \If{$n.desc = desc$} \label{l:listactivedesc}
-        \State \Return $n.desc.ops[n.opid].type = \INSERT$
-        \Else
-        \State \Call{ExecuteOps}{$n.desc,\;n.opid+1$} \label{l:listactivehelp}
-        \EndIf
-        \EndIf
-        \State $\textbf{Status}\; status \gets n.desc.status$ \label{l:listfindreadstatus}
-        \State $\textbf{int}\; type \gets n.desc.ops[n.opid].type$
-        \State \Return $(type = \INSERT \AND status = \SUCCEED) \hfill\break \OR (type = \DELETE \AND status = \FAIL)$ \label{l:listactivecond}
-        \EndFunction
-    \end{algorithmic}
-\end{algorithm}
 
-Upon the completion of node traversal, we determine whether the list actually contains target key by two criteria on line~\algref{alg:listfind}{l:listcontain}: 1) the node is found to exist (i.e., it is reachable from the head); and 2) the node is active.
-The first condition follows the sequential algorithm and is checked in the \texttt{IsExist} function.
-The second condition is checked in the \texttt{IsActive} function.
-We consider a node active if it is inserted by an \texttt{Insert} operation and the whole transaction commits successfully, or if it is inserted by a \texttt{Delete} operation and the transaction fails (line~\algref{alg:listfind}{l:listactivecond}).
-Moreover, for in-progress transactions (line~\algref{alg:listfind}{l:listactiveinprogress}) we also need to recognize nodes inserted by the \texttt{Insert} operations in the same transaction as active. %TODO: correctness citation
-This is done by testing the equality between the current transaction's descriptor and the descriptor of the transaction that inserted the node (line~\algref{alg:listfind}{l:listactivedesc}).
-For all other in progress transactions, we invoke the helper method (line~\algref{alg:listfind}{l:listactivehelp}) and obtain the node's activeness after the transaction completes. %TODO: the help method should set status flag if opid is larger than the op size
+Algorithm~\ref{alg:listinsert} lists the template for the transformed \textsc{Insert} function.
+The function still resembles the original node insertion algorithm with a CAS-based while loop (line~\algref{alg:listinsert}{l:listinsertwhile}).
+The only addition is the code path for invoking \textsc{UpdateInfo} on line~\algref{alg:listinsert}{l:insupdateinfo}, without which they are functionally equivalent.
+The logic is very simple: on line~\algref{alg:listinsert}{l:listinsertcontain} we check if the data structure already contains a node with the target key.
+If so, we try to update the node's logical status, otherwise we fall back to the original code path to insert a new node. 
+Should any of the two code paths indicates a retry due to contention, we start the traverse over again.
+
+The \textsc{Delete} operation listed in Algorithm~\ref{alg:listdelete} is identical to \textsc{Insert} except it terminates with failure when the target node does not exist (line~\algref{alg:listdelete}{l:deletefail}).
+We also adopt a two-phase process for unlinking nodes from the data structure: deleted nodes will firstly be buffered in a set in \textsc{ExecuteOps}, and upon transaction commit the $info$ field of buffered nodes will be marked (line~\algref{alg:listdelete}{l:markinfo}) and consequently unlinked from the data structure by invoking original data structures' \textsc{Do\_Delete}.
+One advantage of our logical status interpretation is that unlinking nodes from the data structure is optional, where as in transactional boosting nodes must be physically unlinked to restore the abstract state. 
+This opens up opportunity to optimize performance based application scenarios.
+Timely unlinking deleted nodes is important for linked list because the number of ``zombie'' nodes has linear impact on sequential search time.
+Leaving delete nodes in the data structure may be beneficial for skiplists because the overhead and contention introduced by unlinking nodes may outweigh the slight increase in sequential search time ($\mathcal{O}(log{}n)$).
+
+The \textsc{Find} operation listed in Algorithm~\ref{alg:listfind} also needs to update the node's $info$ pointer.
+Without this, concurrent deletions may remove the node after \textsc{Find} has returned and before the transaction commits.
+%Our \textsc{Find} operation is not literally read-only anymore, but it still is in the logical sense.
+Since we have extract the core functionality of interpreting and update logical status into a common subroutine, the transformation process is generic and straightforward.
+To use a transformed data structure, application should first initialize and fill a \textsc{Desc} structure, then invoke \textsc{ExecuteTransaction} (Algorithm~\ref{alg:transaction}) with it as an argument.
+The allocation of the transaction descriptor contributes to most of the transaction execution overhead.
+We discuss this in more details in Section~\ref{sec:experiment}.
 
 \begin{algorithm}[t]
-    \caption{Linked List Insert}
+    \caption{Template for Transformed Insert Function}
     \label{alg:listinsert}
     \begin{algorithmic}[1]
         \Function{Insert}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-        \State $\textbf{Node*}\; n \gets \text{\textbf{new Node}}$
-        \State $n.key \gets key,\;n.val \gets val$
-        \State $n.desc \gets desc,\;n.opid \gets opid$
-        \State $\textbf{Node*}\; pred \gets \NIL,\;curr \gets head$
+        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+        \State $info.desc \gets desc,\;info.opid \gets opid$
         \While{\TRUE} \label{l:listinsertwhile}
-        \State \Call{LocatePred}{$pred,\;curr,\;key$}
-        \If{\Call{ContainKey}{$curr,\;key,\;desc$}} \label{l:listinsertcontain}
-        \State \Return $curr.desc = desc$ \label{l:listinsertdesc}
-        \EndIf
-        \State $\textbf{bool}\; replace \gets \Call{IsExist}{curr,\;key}$ \label{l:listinsertexist}
-        \If {\Call{Replace}{$pred,\;curr,\;n,\;replace,\;0,\;0$}} \label{l:listinsertreplace}
-        \State \Return \TRUE \label{l:listinsertreturn}
+        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
+        \If{\Call{IsNodeExist}{$curr,\;key$}} \label{l:listinsertcontain}
+        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;false}$ \label{l:insupdateinfo}
         \Else
-        \State $curr \gets \textsc{IsMakred}(pred.child[0]) \;?\; \hfill \break  \textsc{ClearMark}(pred.repl) : pred$ \label{l:listinsertpred}
-        \State $pred \gets \NIL$ 
-        \EndIf
-        \EndWhile
-        \EndFunction
-    \end{algorithmic}
-\end{algorithm}
-
-
-\begin{algorithm}[t]
-    \caption{Linked List Delete}
-    \label{alg:listdelete}
-    \begin{algorithmic}[1]
-        \Function{Delete}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
         \State $\textbf{Node*}\; n \gets \text{\textbf{new Node}}$
-        \State $n.key \gets key,\;n.val \gets val$
-        \State $n.desc \gets desc,\;n.opid \gets opid$
-        \State $\textbf{Node*}\; pred \gets \NIL,\;curr \gets head$
-        \While{\TRUE}
-        \State \Call{LocatePred}{$pred,\;curr,\;key$}
-        \If{$!\Call{IsExist}{curr,\;key}$} \label{l:listdeleteexist}
+        \State $n.key \gets key,\;n.info \gets info$
+        \State $ret \gets \Call{Do\_Insert}{n}$
+        \EndIf
+        \If {$ret = success$}
+        \State \Return \TRUE
+        \ElsIf {$ret = fail$}
         \State \Return \FALSE
         \EndIf
-        \If{!\Call{IsActive}{$curr,\;desc$}} \label{l:listdeleteactive}
-        \State \Return $curr.desc = desc$
-        \EndIf
-        \If {\Call{Replace}{$pred,\;curr,\;n,\;\TRUE,\;0,\;0$}} \label{l:listdeletereplace}
-        \State \Return \TRUE
-        \Else
-        \State $curr \gets \textsc{IsMakred}(pred.child[0]) \;?\;\hfill \break \textsc{ClearMark}(pred.repl) : pred$ 
-        \State $pred \gets \NIL$ 
-        \EndIf
         \EndWhile
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
 
-Algorithm~\ref{alg:listinsert} lists the \texttt{Insert} function.
-After allocating a new node and set its field values, the function enters a CAS-based while loop (line~\algref{alg:listinsert}{l:listinsertwhile}).
-The position to insert the new node is given by \texttt{LocatePred}.
-Note that on line~\algref{alg:listinsert}{l:listinsertcontain} we check if the list already contains the target key.
-If this is the case, we skip the insertion and return result code based on the equality of the transaction descriptors (line~\algref{alg:listinsert}{l:listinsertdesc}).
-Due to the use of helping mechanism, the same \texttt{Insert} operation may be executed multiple times by different threads.
-This condition check allows us to identify node inserted by other threads that executes the same transaction and thus ensures consistent result code is return for all execution paths.
-This is important as all helping threads will try to set the transaction phase flag at the end of the execution; conflicts attempts on setting the transaction phase flag is possible if multiple execution of the same operation do not reach consensus on the result code.
-On line~\algref{alg:listinsert}{l:listinsertreplace}, \texttt{Replace} is called to place the new node in the list.
-If a node with same key exist but is inactive (line~\algref{alg:listinsert}{l:listinsertexist}), the existing node $curr$ will be replaced by the new node.
-Should the CAS operation in \texttt{Replace} fail due to contention, we reset the traverse variable $pred$ and $curr$ and start the loop over again.
-The traverse restart point depends on whether $pred$ node has been replaced by some other nodes, which can be inferred from the marked child pointer (line~\algref{alg:listinsert}{l:listinsertpred}).
-When $pred$'s child node is marked, $pred$ is no longer reachable from the head.
-We restart the traversal from the node that replaces $pred$, whose reference was stored in the $pred$'s $repl$ field during the child adoption process (line~\algref{alg:replace}{l:adoptsetrepl}).
-Otherwise, we simply start from $pred$.
+\begin{algorithm}[t]
+    \caption{Template for Transformed Delete Function}
+    \label{alg:listdelete}
+    \begin{algorithmic}[1]
+        \Function{Delete}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid,\;$ $\textbf{ref Node*}\; del$}
+        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+        \State $info.desc \gets desc,\;info.opid \gets opid$
+        \While{\TRUE} \label{l:listinsertwhile}
+        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
+        \If{\Call{IsNodeExist}{$curr,\;key$}}
+        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;true}$
+        \Else
+        \State $ret \gets fail$
+        \EndIf
+        \If {$ret = success$}
+        \State $del \gets curr$
+        \State \Return \TRUE
+        \ElsIf {$ret = fail$} \label{l:deletefail}
+        \State $del \gets \NIL$
+        \State \Return \FALSE
+        \EndIf
+        \EndWhile
+        \EndFunction
+        \Statex
+        \Function{MarkDelete}{$\textbf{set}\;delnodes,\;\textbf{Desc*}\;desc$}
+        \For {$del \in delnodes$}
+        \If {$del = \NIL$}  
+        \State \CONTINUE
+        \EndIf
+        \State $\textbf{NodeInfo*}\;info \gets del.info$
+        \If {$info.desc \ne desc$}
+        \State \CONTINUE
+        \EndIf
+        \If {$\Call{CAS}{del.info,info,\textsc{SetMark}(info)}$} \label{l:markinfo}
+        \State $\Call{Do\_Delete}{del}$
+        \EndIf
+        \EndFor
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
 
-The \texttt{Delete} operation listed in Algorithm~\ref{alg:listdelete} shares the same structure as the \texttt{Insert} operation.
-The difference is that it inserts the new node when the list contains the target key (line~\algref{alg:listdelete}{l:listdeleteexist} and~\algref{alg:listdelete}{l:listdeleteactive}), and the newly inserted node always replaces an existing active node (the \textit{replace} flag on line~\algref{alg:listdelete}{l:listdeletereplace} is set to true).
+\begin{algorithm}[t]
+    \caption{Template for Transformed Find Function}
+    \label{alg:listfind}
+    \begin{algorithmic}[1]
+        \Function{Find}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
+        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+        \State $info.desc \gets desc,\;info.opid \gets opid$
+        \While{\TRUE} \label{l:listinsertwhile}
+        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
+        \If{\Call{IsNodeExist}{$curr,\;key$}}
+        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;true}$
+        \Else
+        \State $ret \gets fail$
+        \EndIf
+        \If {$ret = success$}
+        \State \Return \TRUE
+        \ElsIf {$ret = fail$} \label{l:findfail} 
+        \State \Return \FALSE
+        \EndIf
+        \EndWhile
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
 
 \section{Correctness}
 \label{sec:correctness}
@@ -847,7 +952,7 @@ Data structures that guarantees lock-free or weaker progress will be able to mai
 We demonstrated the application of our lock-free transactional transformation on two fundamental data structure: a linked list and a skiplist.  
 The performance evaluation results show that our transaction synchronization scheme has exceptional low overhead and high scalability--providing an average of $40\%$ speedup over our good-faith transaction boosting implementations across all scenarios and as much as $125\%$ more throughput for large transactions.
 The performance gain over STMs are even more substantial: more than 10 times over the word-based STM and 3 times over the object-based STM.
-Besides the performance advantages, our approach brings down superfluous aborts to an extreme low level, which could be desirable if transaction success rate is a decisive factor for application.
+Besides the performance advantages, our approach brings down superfluous aborts to an extreme low level, which could be desirable if transaction success rate is a decisive factor for the application.
 
 We defer extending the methodology to encompass dictionary API to future work.
 The key challenge is versioning the value field on a node.
