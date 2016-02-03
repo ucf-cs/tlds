@@ -88,12 +88,12 @@
     
     In this work, we present a new methodology for transforming high-performance lock-free linked data structures into high-performance lock-free transactional data structures without revamping the data structures' original synchronization design.
     We encapsulate all operations, operands, and transaction status in a transaction descriptor, which is shared among each node accessed by the same transaction.
-    For each data structure operations, we introduce additional procedures that allow them to interpret the logical status of a node based on the transaction status. 
-    Newly inserted nodes are logically inactive, meaning they are invisible to operations outside the scope of the transaction until the transaction commits.
-    %We also coordinate threads to help finish delayed transactions based on remaining operations and operands in the transaction descriptor.
-    Our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and operation roll back.
+    We coordinate threads to help finish the remaining operation of delayed a transaction based on its transaction descriptor.
+    For each data structure operation, we introduce an additional procedure that allows them to interpret the logical status of a node based on the transaction status. 
+    Write operations are invisible to operations outside the scope of the transaction until the transaction commits.
+    Our approach leverages the semantic knowledge of the data structure implementation to eliminate the overhead of false conflict and rollback.
     In our experimental evaluation using randomly generated transactions, our lock-free transactional lists and skiplist outperform the transactional boosted ones by $40\%$ on average and as much as $125\%$ for large transactions.
-    STM based approaches fall behind by as much as $500\%$ across all scenarios.
+    STM based approaches fall behind by as much as 3~10 times across all scenarios.
 \end{abstract}
 
 %\category{D.1.3}{Concurrent Programming}{Algorithms}
