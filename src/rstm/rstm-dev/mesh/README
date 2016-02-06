@@ -1,0 +1,29 @@
+This directory contains source for a C++ Delaunay mesh creation app.  Originally
+developed as a course project in Java, the app was ported to C++ with the
+original RSTM "smart pointer" API for inclusion in the RSTM suite.  The current
+version has been significantly simplified and moved to the C++ draft TM
+specification, using __transaction [[atomic]] { ... }.  It can also be compiled
+using fine-grain or coarse-grain locks.  As of June 2011, it works with both gcc
+(FGL and CGL only) and the transactional version of icc (all three versions).
+
+We provide Display.java that can be used to visualize the mesh output from the
+algorithm when run with the -oi or -oe flags.
+
+no 64-bit: Mesh currently only builds as a 32-bit application because we have
+          problems including libstdc++ headers in 64-bit mode from icc.
+
+ libstd++: Intel's C+ STM compiler does not support variadic templates, which
+           are prevalent in the gcc-4.4 branch of the libstdc++-v3 headers. You
+           will need a set of gcc-4.3 compatible headers, however they do not
+           need to be compiled or installed. If you have gcc-4.3 on your system
+           (or your system gcc is built with an older libstdc++-v3) then it's
+           possible that you do not need to do anything special to build the C++
+           TM versions of mesh.
+
+           If you find that you are receiving a large number of warnings related
+           to template definitions that use '...' you should download a gcc-4.3
+           branch, from either the gnu ftp site or ftp, and configure the
+           mesh_libstdcxx-v3_path to point to the
+           <gcc-4.3-src>/libstdc++-v3/include directory.
+
+           Versions of libstdc++-v3 from other gcc-4 versions are untested.
