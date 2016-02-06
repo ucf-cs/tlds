@@ -77,8 +77,10 @@ static int do_padding; /* Should all allocations be padded to a cache line? */
 
 #define ALLOCATOR_SIZE(_s) (do_padding ? CACHE_LINE_SIZE : (_s))
 
-#define ARENA_SIZE      40960
-#define DESCRIPTOR_SIZE  8192
+/*#define ARENA_SIZE      40960*/
+/*#define DESCRIPTOR_SIZE  4096*/
+#define ARENA_SIZE      163840
+#define DESCRIPTOR_SIZE  16384
 
 #define TXS_IN_PROGRESS 0
 #define TXS_READ_PHASE  1

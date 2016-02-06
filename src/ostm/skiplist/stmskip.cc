@@ -37,6 +37,7 @@ extern "C"{
 
 static uint32_t g_count_commit = 0;
 static uint32_t g_count_abort = 0;
+static uint32_t g_count_real_abort = 0;
 
 enum SetOpType
 {
@@ -234,7 +235,7 @@ setval_t stmskip_lookup(ptst_t *ptst, stm_tx *tx, set_t *l, setkey_t k)
 }
 
 
-bool stmskip_execute_ops(void* s, set_op ops[], int op_size)
+bool __attribute__ ((optimize (0))) stmskip_execute_ops(void* s, set_op ops[], int op_size) 
 {
     set_t* l = (set_t*)s;
 
@@ -266,6 +267,7 @@ bool stmskip_execute_ops(void* s, set_op ops[], int op_size)
         if(ret == false)
         {
             abort_stm_tx(ptst, tx);
+            __sync_fetch_and_add(&g_count_real_abort, 1);
             break;
         }
     }
@@ -303,5 +305,5 @@ void destory_stmskip_subsystem(void)
 
     fr_critical_exit(ptst);
 
-    printf("Total commit %u, abort %u\n", g_count_commit, g_count_abort);
+    printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_abort - g_count_real_abort);
 }

@@ -19,7 +19,7 @@ trans_SOURCES = bench/main.cc \
 				boosting/skiplist/boostingskip.cc\
 				boosting/lockkey.cc
 
-trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11\
+trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11 -pthread\
 				-DINTEL -DCACHE_LINE_SIZE=`getconf LEVEL1_DCACHE_LINESIZE`\
 				 -I$(top_builddir)/src -I$(top_srcdir)/src\
 				 -I$(rstm_builddir)/include -I$(rstm_srcdir)/include -I$(rstm_srcdir)

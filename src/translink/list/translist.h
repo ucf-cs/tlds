@@ -11,9 +11,16 @@ class TransList
 public:
     enum OpStatus
     {
-        LIVE = 0,
+        ACTIVE = 0,
         COMMITTED,
-        ABORTED
+        ABORTED,
+    };
+
+    enum ReturnCode
+    {
+        OK = 0,
+        SKIP,
+        FAIL
     };
 
     enum OpType
@@ -36,6 +43,7 @@ public:
             return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
         }
 
+        // Status of the transaction: values in [0, size] means live txn, values -1 means aborted, value -2 means committed.
         volatile uint8_t status;
         uint8_t size;
         Operator ops[];
@@ -108,17 +116,18 @@ public:
     Desc* AllocateDesc(uint8_t size);
 
 private:
-    bool Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
-    bool Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
-    bool Find(uint32_t key, Desc* desc, uint8_t opid);
+    ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
+    ReturnCode Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
+    ReturnCode Find(uint32_t key, Desc* desc, uint8_t opid);
 
-    bool HelpOps(Desc* desc, uint8_t opid);
+    void HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
-    bool FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
+    void FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
     bool IsNodeExist(Node* node, uint32_t key);
-    bool IsNodeActive(NodeDesc* nodeDesc, Desc* desc);
-    bool IsKeyExist(NodeDesc* nodeDesc, Desc* desc);
+    bool IsNodeActive(NodeDesc* nodeDesc);
+    bool IsKeyExist(NodeDesc* nodeDesc);
     void LocatePred(Node*& pred, Node*& curr, uint32_t key);
+    void MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc);
 
     void Print();
 
@@ -142,6 +151,7 @@ private:
 
     uint32_t g_count_commit = 0;
     uint32_t g_count_abort = 0;
+    uint32_t g_count_fake_abort = 0;
 };
 
 #endif /* end of include guard: TRANSLIST_H */    
