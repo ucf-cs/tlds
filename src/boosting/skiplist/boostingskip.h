@@ -1,13 +1,16 @@
-#ifndef BOOSTINGLIST_H
-#define BOOSTINGLIST_H
+#ifndef BOOSTINGSKIP_H
+#define BOOSTINGSKIP_H
 
 #include <vector>
 #include "boosting/lockkey.h"
-#include "boosting/list/lockfreelist.h"
+extern "C"
+{
+#include "boosting/skiplist/lockfreeskip.h"
+}
 #include "common/assert.h"
 
 
-class BoostingList
+class BoostingSkip
 {
     enum OpType
     {
@@ -25,6 +28,7 @@ class BoostingList
         uint32_t key;
     };
 
+
     typedef std::vector<Operation> LogType;
 
 public:
@@ -35,9 +39,9 @@ public:
         OP_FAIL
     };
 
-
 public:
-   ~BoostingList(); 
+    BoostingSkip();
+   ~BoostingSkip(); 
 
     void Init();
     
@@ -56,7 +60,7 @@ public:
     void Print();
     
 private:
-    LockfreeList m_list;
+    boost_skip* m_list;
     LockKey m_lock;
     static __thread LogType* m_log;
 

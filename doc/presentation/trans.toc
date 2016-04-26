@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{Background}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Motivation}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Related Work}{3}{0}{1}
+\beamer@sectionintoc {2}{Algorithm}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Preliminary}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Observation}{7}{0}{2}
+\beamer@subsectionintoc {2}{3}{Details}{8}{0}{2}

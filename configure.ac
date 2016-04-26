@@ -13,7 +13,7 @@ AC_SUBST([WARN_FLAGS], ['-Wall'])
 #CXXFLAGS='-g -O3 -pg'
 #CXXFLAGS='-g -O0'
 CXXFLAGS='-O3 -DNDEBUG'
-AC_DEFINE(ENABLE_ASSERT, , 'Enable custom assert macros')
+#AC_DEFINE(ENABLE_ASSERT, , 'Enable custom assert macros')
 #AC_DEFINE(ENABLE_STATIC_ASSERT, , 'Enable custom static assert macros')
 
 LT_INIT
@@ -70,6 +70,8 @@ AC_CHECK_FUNCS(clock_gettime, [], [AC_CHECK_LIB(rt, clock_gettime, [AC_DEFINE([H
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile
+                 src/common/fraser/Makefile
+                 src/boosting/skiplist/Makefile
                  doc/Makefile
                  script/Makefile])
 
