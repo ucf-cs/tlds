@@ -1,0 +1,13 @@
+destination: production
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+paginate: 10
+highlighter: pygments
+
+myurl: http://ucf-cs.github.io/Tervel
+# myurl: http://127.0.0.1:4000/
+gitrepo: "https://github.com/ucf-cs/tervel"
+
