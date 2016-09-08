@@ -8,7 +8,7 @@ layout: tervel_documentation
 
 Supported platforms:
 
-*   Ubuntu Linux, Mac OS X
+*   Ubuntu Linux
 
 
 ## Downloading Tervel
@@ -23,30 +23,32 @@ $ git clone {{ site.gitrepo }}
 
 ### Dependencies
 
-* g++4.8.0 or greater
+* g++4.8.4 or above
 
-* [gflags](http://gflags.github.io/gflags/)
+* pthreads
+
+* boost 1.37 or above
+
+* Intel TBB
+
+* tcmalloc
+
+* GSL
+
 
 ### Building
 
 {% highlight bash %}
-$ cd tervel/tests
-$ ./compile.sh
+$ ./boostrap.sh
+$ autoreconf --install
+$ mkdir build
+$ cd build
+$ ../configure
+$ make
 {% endhighlight %}
-
-
-
-## Running Tervel Tests
-
-Browse to the test directory, pick a test, and have fun!
-
-## Sanity Check: Running the tests
-
-To make sure everything runs correctly, run some of the binaries located in:
-`tests/*/Executables/`
 
 ## Next Steps
 
-Now you can added Tervel containers and algorithms into your own applications.
-See [user manual](tervel-user-manual.html) for more information.
+Now you can add tlds containers and algorithms into your own applications.
+See [user manual](tlds-user-manual.html) for more information.
 Let us know if you have any questions!

@@ -4,8 +4,8 @@ layout: tervel_home
 
 <div class="hero">
   <div class="container">
-    <img src="{{site.myurl}}/images/tervel-logo.png" class="img-responsive center-block" />
-    <p class="lead">Fast wait-free algorithms designed for shared memory systems</p>
+
+    <p class="lead">Lock-free Transactions without Rollbacks for Linked Data Structures</p>
   </div>
 </div>
 <div class="hero-bar">
@@ -18,28 +18,23 @@ layout: tervel_home
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Tervel: A framework for implementing wait-free algorithms</h1>
+        <h1>tlds: Transactional Operations for Linked Data Structures</h1>
 
-        <p class="lead"> Tervel is a framework and library that unifies methodologies and techniques to enable the efficient implementation of wait-free algorithms. It includes a unified memory reclamation structure, progress assurance scheme, and a construct that limits recursive helping. It advocates a call-back centric design pattern to reduce code duplication, observable states, and improve code readability. </p>
+        <p class="lead"> tlds provides a framework for developing transactional containers from lock-free ones. It includes two examples of transactional data structures, a lock-free linked list and a lock-free skip list.
+ </p>
 
 
       </div>
       <div class="col-sm-4">
-        <h3>Wait-Free</h3>
+        <h3>Lock-Free</h3>
         <p>
-        Wait-freedom is the strongest non-blocking guarantee of progress, it guarantees system-wide progress and starvation-freedom. An algorithm is wait-free if every operation has a bound on the number of steps the algorithm will take before the operation completes. This property is critical for real-time systems.
+        Lock-free algorithms guarantee that the system makes progress in a finite number of steps, regardless of the system scheduler or actions of other threads. This property is critical for real-time systems.
         </p>
       </div>
       <div class="col-sm-4">
         <h3>Framework</h3>
         <p>
-        As a framework, Tervel provides to API, tools, and examples to enable developers to craft their own wait-free algorithms. By providing implementations of memory management, progress assurance, and other constructs, Tervel allows the developer to focus on the correctness and performance of their approach. </p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Library</h3>
-        <p>
-        As a library, Tervel provides several wait-free algorithms and containers, with plans to expand its collection in the near future.  The concurrent API used in the implementation of these algorithms removes ambiguousness found in the sequential API, improving the developer ability to reason about correctness.
-        </p>
+        As a framework, tlds provides a way to transform hand-crafted lock-free data structures into transactional ones. This transformation degrades neither the progress nor correctness guarantees. </p>
       </div>
       </div>
     </div>

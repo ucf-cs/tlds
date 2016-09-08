@@ -2,10 +2,10 @@
 layout: tervel_about
 ---
 
-# Tervel Feature Road map
+# tlds Feature Road map
 
-Author: [The Tervel Team](bio.html)
+Author: [The tlds Team](bio.html)
 
-Tervel's immediate future plans focus on spreading the word of Tervel's release and developing a userbase.
+The immediate future plans focus on spreading the word of our release and developing a userbase.
 
 We also plan to implement more algorithms and containers to make it even more attractive for application designers.
