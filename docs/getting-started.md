@@ -2,7 +2,7 @@
 layout: tervel_documentation
 ---
 
-# Installing Tervel
+# Installing tlds
 
 ## System Requirements
 
@@ -11,15 +11,15 @@ Supported platforms:
 *   Ubuntu Linux
 
 
-## Downloading Tervel
+## Downloading tlds
 
-Clone the Tervel from the git repo:
+Clone the tlds from the git repo:
 
 {% highlight bash %}
 $ git clone {{ site.gitrepo }}
 {% endhighlight %}
 
-## Building Tervel
+## Building tlds
 
 ### Dependencies
 
