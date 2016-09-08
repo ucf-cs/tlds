@@ -1,0 +1,252 @@
+\hypertarget{dictionary_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/intruder/dictionary.h File Reference}
+\label{dictionary_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/dictionary.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/dictionary.\-h}}
+}
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for dictionary.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{dictionary_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dictionary_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dictionary_8h_a3b51f458c17f09f8e3d7ab4e90224f56}{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C}()~\hyperlink{dictionary_8h_aa8e9e51e64e83de3cc2eaa99671a14a6}{Pdictionary\-\_\-alloc}()
+\item 
+\#define \hyperlink{dictionary_8h_a4bfa3a9266ef78d847e800789e559047}{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E}(d)~\hyperlink{dictionary_8h_a02a8bf61c6b1dfc32fe70365f60fdbb9}{Pdictionary\-\_\-free}(d)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} \hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$ \hyperlink{dictionary_8h_aaa33d443a04012470ce383597e3e45e1}{dictionary\-\_\-alloc} ()
+\item 
+\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$ \hyperlink{dictionary_8h_aa8e9e51e64e83de3cc2eaa99671a14a6}{Pdictionary\-\_\-alloc} ()
+\item 
+void \hyperlink{dictionary_8h_a92591885f28faf13b0af2e36a8116ca0}{dictionary\-\_\-free} (\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$dictionary\-Ptr)
+\item 
+void \hyperlink{dictionary_8h_a02a8bf61c6b1dfc32fe70365f60fdbb9}{Pdictionary\-\_\-free} (\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$dictionary\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{dictionary_8h_a32da254c2b6b0bd96afb15ae3f559d53}{dictionary\-\_\-add} (\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$dictionary\-Ptr, char $\ast$str)
+\item 
+char $\ast$ \hyperlink{dictionary_8h_ad8caba4178372c57cf9c4f77ee37dc64}{dictionary\-\_\-get} (\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$dictionary\-Ptr, long i)
+\item 
+char $\ast$ \hyperlink{dictionary_8h_a0c07d212f7aec2b95dd3e173f2e50849}{dictionary\-\_\-match} (\hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$dictionary\-Ptr, char $\ast$str)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{dictionary_8h_a798efe80fd1d64c4e5f5a577e8b43864}{global\-\_\-default\-Signatures} \mbox{[}$\,$\mbox{]}
+\item 
+const long \hyperlink{dictionary_8h_ab224634dea1da2884a80f282ff5828fe}{global\-\_\-num\-Default\-Signature}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dictionary_8h_a3b51f458c17f09f8e3d7ab4e90224f56}{\index{dictionary.\-h@{dictionary.\-h}!P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C@{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C}}
+\index{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C@{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Pdictionary\-\_\-alloc}()}}\label{dictionary_8h_a3b51f458c17f09f8e3d7ab4e90224f56}
+\hypertarget{dictionary_8h_a4bfa3a9266ef78d847e800789e559047}{\index{dictionary.\-h@{dictionary.\-h}!P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E@{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E}}
+\index{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E@{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-D\-I\-C\-T\-I\-O\-N\-A\-R\-Y\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~{\bf Pdictionary\-\_\-free}(d)}}\label{dictionary_8h_a4bfa3a9266ef78d847e800789e559047}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{\index{dictionary.\-h@{dictionary.\-h}!dictionary\-\_\-t@{dictionary\-\_\-t}}
+\index{dictionary\-\_\-t@{dictionary\-\_\-t}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{dictionary\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf vector\-\_\-t} {\bf dictionary\-\_\-t}}}\label{dictionary_8h_a372959a54aef1af6aef8c730cf051701}
+
+
+\subsection{Function Documentation}
+\hypertarget{dictionary_8h_a32da254c2b6b0bd96afb15ae3f559d53}{\index{dictionary.\-h@{dictionary.\-h}!dictionary\-\_\-add@{dictionary\-\_\-add}}
+\index{dictionary\-\_\-add@{dictionary\-\_\-add}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{dictionary\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} dictionary\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{{\bf dictionary\-\_\-t} $\ast$}]{dictionary\-Ptr, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_a32da254c2b6b0bd96afb15ae3f559d53}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{dictionary_8h_a32da254c2b6b0bd96afb15ae3f559d53_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dictionary_8h_aaa33d443a04012470ce383597e3e45e1}{\index{dictionary.\-h@{dictionary.\-h}!dictionary\-\_\-alloc@{dictionary\-\_\-alloc}}
+\index{dictionary\-\_\-alloc@{dictionary\-\_\-alloc}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{dictionary\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dictionary\-\_\-t}$\ast$ dictionary\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_aaa33d443a04012470ce383597e3e45e1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{dictionary_8h_aaa33d443a04012470ce383597e3e45e1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dictionary_8h_aaa33d443a04012470ce383597e3e45e1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dictionary_8h_a92591885f28faf13b0af2e36a8116ca0}{\index{dictionary.\-h@{dictionary.\-h}!dictionary\-\_\-free@{dictionary\-\_\-free}}
+\index{dictionary\-\_\-free@{dictionary\-\_\-free}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{dictionary\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void dictionary\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf dictionary\-\_\-t} $\ast$}]{dictionary\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_a92591885f28faf13b0af2e36a8116ca0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{dictionary_8h_a92591885f28faf13b0af2e36a8116ca0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dictionary_8h_a92591885f28faf13b0af2e36a8116ca0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dictionary_8h_ad8caba4178372c57cf9c4f77ee37dc64}{\index{dictionary.\-h@{dictionary.\-h}!dictionary\-\_\-get@{dictionary\-\_\-get}}
+\index{dictionary\-\_\-get@{dictionary\-\_\-get}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{dictionary\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ dictionary\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf dictionary\-\_\-t} $\ast$}]{dictionary\-Ptr, }
+\item[{long}]{i}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_ad8caba4178372c57cf9c4f77ee37dc64}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{dictionary_8h_ad8caba4178372c57cf9c4f77ee37dc64_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dictionary_8h_ad8caba4178372c57cf9c4f77ee37dc64_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dictionary_8h_a0c07d212f7aec2b95dd3e173f2e50849}{\index{dictionary.\-h@{dictionary.\-h}!dictionary\-\_\-match@{dictionary\-\_\-match}}
+\index{dictionary\-\_\-match@{dictionary\-\_\-match}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{dictionary\-\_\-match}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ dictionary\-\_\-match (
+\begin{DoxyParamCaption}
+\item[{{\bf dictionary\-\_\-t} $\ast$}]{dictionary\-Ptr, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_a0c07d212f7aec2b95dd3e173f2e50849}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{dictionary_8h_a0c07d212f7aec2b95dd3e173f2e50849_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dictionary_8h_a0c07d212f7aec2b95dd3e173f2e50849_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{dictionary_8h_aa8e9e51e64e83de3cc2eaa99671a14a6}{\index{dictionary.\-h@{dictionary.\-h}!Pdictionary\-\_\-alloc@{Pdictionary\-\_\-alloc}}
+\index{Pdictionary\-\_\-alloc@{Pdictionary\-\_\-alloc}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{Pdictionary\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dictionary\-\_\-t}$\ast$ Pdictionary\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_aa8e9e51e64e83de3cc2eaa99671a14a6}
+\hypertarget{dictionary_8h_a02a8bf61c6b1dfc32fe70365f60fdbb9}{\index{dictionary.\-h@{dictionary.\-h}!Pdictionary\-\_\-free@{Pdictionary\-\_\-free}}
+\index{Pdictionary\-\_\-free@{Pdictionary\-\_\-free}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{Pdictionary\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pdictionary\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf dictionary\-\_\-t} $\ast$}]{dictionary\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{dictionary_8h_a02a8bf61c6b1dfc32fe70365f60fdbb9}
+
+
+\subsection{Variable Documentation}
+\hypertarget{dictionary_8h_a798efe80fd1d64c4e5f5a577e8b43864}{\index{dictionary.\-h@{dictionary.\-h}!global\-\_\-default\-Signatures@{global\-\_\-default\-Signatures}}
+\index{global\-\_\-default\-Signatures@{global\-\_\-default\-Signatures}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{global\-\_\-default\-Signatures}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ global\-\_\-default\-Signatures\mbox{[}$\,$\mbox{]}}}\label{dictionary_8h_a798efe80fd1d64c4e5f5a577e8b43864}
+\hypertarget{dictionary_8h_ab224634dea1da2884a80f282ff5828fe}{\index{dictionary.\-h@{dictionary.\-h}!global\-\_\-num\-Default\-Signature@{global\-\_\-num\-Default\-Signature}}
+\index{global\-\_\-num\-Default\-Signature@{global\-\_\-num\-Default\-Signature}!dictionary.h@{dictionary.\-h}}
+\subsubsection[{global\-\_\-num\-Default\-Signature}]{\setlength{\rightskip}{0pt plus 5cm}const long global\-\_\-num\-Default\-Signature}}\label{dictionary_8h_ab224634dea1da2884a80f282ff5828fe}

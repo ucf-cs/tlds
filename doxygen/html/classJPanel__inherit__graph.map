@@ -1,0 +1,4 @@
+<map id="JPanel" name="JPanel">
+<area shape="rect" id="node2" href="$classSurface.html" title="{Surface\n|~ edges\l&#45; c\l&#45; u\l&#45; inp\l&#45; minX\l&#45; maxX\l&#45; minY\l&#45; maxY\l&#45; width\l&#45; height\l&#45; dotsize\l&#45; border\l|+ paintComponent()\l+ Surface()\l+ triangulate()\l&#45; xPosition()\l&#45; yPosition()\l}" alt="" coords="5,131,141,429"/>
+<area shape="rect" id="node3" href="$classUI.html" title="{UI\n|&#45; c\l&#45; t\l&#45; root\l&#45; state\l&#45; timeLabel\l&#45; externalBorder\l&#45; stopped\l&#45; running\l&#45; paused\l|+ updateTime()\l+ UI()\l}" alt="" coords="167,175,281,385"/>
+</map>

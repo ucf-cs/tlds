@@ -1,0 +1,348 @@
+\hypertarget{router_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/labyrinth/router.c File Reference}
+\label{router_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/router.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/router.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}coordinate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}grid.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}router.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for router.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{classpoint}{point}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3}{momentum} \hyperlink{router_8c_a6ee6de1e56ee5f57c6a3890544872da9}{momentum\-\_\-t}
+\item 
+typedef struct \hyperlink{classpoint}{point} \hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3}{momentum} \{ \\*
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3ac405ff3ef7a16077a69959fff3f2b07c}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-Z\-E\-R\-O} = 0, 
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a5fd94b28ffb8b0e1fc4ac5f11feb7c6b}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X} = 1, 
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3afe4bea4e033ea4674888607381e27568}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y} = 2, 
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a280805b94a5af61517e799929885b400}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z} = 3, 
+\\*
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a40a8c9d8b097210f96ebcc9e2bf693b5}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X} = 4, 
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a1e30dffa37c36df2a0a85ead7c6ae0c7}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y} = 5, 
+\hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3ad7f8f9b63ea44da47343b0c99ae3fbf3}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z} = 6
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{router_8h_a027679db3515967427aea1f9e7e51d4d}{router\-\_\-t} $\ast$ \hyperlink{router_8c_ab702dfcb3c10b11c3a5a6950269de63d}{router\-\_\-alloc} (long x\-Cost, long y\-Cost, long z\-Cost, long bend\-Cost)
+\item 
+void \hyperlink{router_8c_a28eeaf81f66a72c769f0eb868b14cea9}{router\-\_\-free} (\hyperlink{router_8h_a027679db3515967427aea1f9e7e51d4d}{router\-\_\-t} $\ast$router\-Ptr)
+\item 
+static void \hyperlink{router_8c_a5de066233778d73e5c17f4ed03404f26}{Pexpand\-To\-Neighbor} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$my\-Grid\-Ptr, long x, long y, long z, long value, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+static \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{router_8c_a30a3b3fa79c8edd2bc05533b7a3ef342}{Pdo\-Expansion} (\hyperlink{router_8h_a027679db3515967427aea1f9e7e51d4d}{router\-\_\-t} $\ast$router\-Ptr, \hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$my\-Grid\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr, \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$src\-Ptr, \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$dst\-Ptr)
+\item 
+static void \hyperlink{router_8c_a3959d336c2ceb91b15ab0e2f004f1af4}{trace\-To\-Neighbor} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$my\-Grid\-Ptr, \hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} $\ast$curr\-Ptr, \hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} $\ast$move\-Ptr, \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} use\-Momentum, long bend\-Cost, \hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} $\ast$next\-Ptr)
+\item 
+static \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$ \hyperlink{router_8c_ac5973d035daa93806bb4391426b310f4}{Pdo\-Traceback} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, \hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$my\-Grid\-Ptr, \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$dst\-Ptr, long bend\-Cost)
+\item 
+void \hyperlink{router_8c_afc99f42b8c4c1bdfd53f6e15b75900b7}{router\-\_\-solve} (void $\ast$arg\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} \hyperlink{router_8c_a60f5666f89c3c5255730f3bf25748912}{M\-O\-V\-E\-\_\-\-P\-O\-S\-X} = \{ 1, 0, 0, 0, \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a5fd94b28ffb8b0e1fc4ac5f11feb7c6b}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X}\}
+\item 
+\hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} \hyperlink{router_8c_a8137e1fdbe302302ab77d3f4e72656b7}{M\-O\-V\-E\-\_\-\-P\-O\-S\-Y} = \{ 0, 1, 0, 0, \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3afe4bea4e033ea4674888607381e27568}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y}\}
+\item 
+\hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} \hyperlink{router_8c_a1eca17403a142298aa21f9038e06ac6b}{M\-O\-V\-E\-\_\-\-P\-O\-S\-Z} = \{ 0, 0, 1, 0, \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a280805b94a5af61517e799929885b400}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z}\}
+\item 
+\hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} \hyperlink{router_8c_abcd163c49894cc976ef3c4640e7eb2a5}{M\-O\-V\-E\-\_\-\-N\-E\-G\-X} = \{-\/1, 0, 0, 0, \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a40a8c9d8b097210f96ebcc9e2bf693b5}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X}\}
+\item 
+\hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} \hyperlink{router_8c_acbdda8d59607367acab9f968b2b39330}{M\-O\-V\-E\-\_\-\-N\-E\-G\-Y} = \{ 0, -\/1, 0, 0, \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3a1e30dffa37c36df2a0a85ead7c6ae0c7}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y}\}
+\item 
+\hyperlink{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{point\-\_\-t} \hyperlink{router_8c_a084d00950be49b6c7b3e89e35ac338a6}{M\-O\-V\-E\-\_\-\-N\-E\-G\-Z} = \{ 0, 0, -\/1, 0, \hyperlink{router_8c_a5494cd2b1062326282e219f0df5d2bc3ad7f8f9b63ea44da47343b0c99ae3fbf3}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{router_8c_a6ee6de1e56ee5f57c6a3890544872da9}{\index{router.\-c@{router.\-c}!momentum\-\_\-t@{momentum\-\_\-t}}
+\index{momentum\-\_\-t@{momentum\-\_\-t}!router.c@{router.\-c}}
+\subsubsection[{momentum\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf momentum}  {\bf momentum\-\_\-t}}}\label{router_8c_a6ee6de1e56ee5f57c6a3890544872da9}
+\hypertarget{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}{\index{router.\-c@{router.\-c}!point\-\_\-t@{point\-\_\-t}}
+\index{point\-\_\-t@{point\-\_\-t}!router.c@{router.\-c}}
+\subsubsection[{point\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf point}  {\bf point\-\_\-t}}}\label{router_8c_a7a31ff9ffbde2c44d8a5b7f56faeed48}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3}{\index{router.\-c@{router.\-c}!momentum@{momentum}}
+\index{momentum@{momentum}!router.c@{router.\-c}}
+\subsubsection[{momentum}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf momentum}}}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-Z\-E\-R\-O@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-Z\-E\-R\-O}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-Z\-E\-R\-O@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-Z\-E\-R\-O}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3ac405ff3ef7a16077a69959fff3f2b07c}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-Z\-E\-R\-O}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3ac405ff3ef7a16077a69959fff3f2b07c}
+}]\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3a5fd94b28ffb8b0e1fc4ac5f11feb7c6b}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3a5fd94b28ffb8b0e1fc4ac5f11feb7c6b}
+}]\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3afe4bea4e033ea4674888607381e27568}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3afe4bea4e033ea4674888607381e27568}
+}]\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3a280805b94a5af61517e799929885b400}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3a280805b94a5af61517e799929885b400}
+}]\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3a40a8c9d8b097210f96ebcc9e2bf693b5}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3a40a8c9d8b097210f96ebcc9e2bf693b5}
+}]\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3a1e30dffa37c36df2a0a85ead7c6ae0c7}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3a1e30dffa37c36df2a0a85ead7c6ae0c7}
+}]\index{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z}!router.\-c@{router.\-c}}\index{router.\-c@{router.\-c}!M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z@{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z}}\item[{\em 
+\hypertarget{router_8c_a5494cd2b1062326282e219f0df5d2bc3ad7f8f9b63ea44da47343b0c99ae3fbf3}{M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z}\label{router_8c_a5494cd2b1062326282e219f0df5d2bc3ad7f8f9b63ea44da47343b0c99ae3fbf3}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{router_8c_a30a3b3fa79c8edd2bc05533b7a3ef342}{\index{router.\-c@{router.\-c}!Pdo\-Expansion@{Pdo\-Expansion}}
+\index{Pdo\-Expansion@{Pdo\-Expansion}!router.c@{router.\-c}}
+\subsubsection[{Pdo\-Expansion}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf bool\-\_\-t} Pdo\-Expansion (
+\begin{DoxyParamCaption}
+\item[{{\bf router\-\_\-t} $\ast$}]{router\-Ptr, }
+\item[{{\bf grid\-\_\-t} $\ast$}]{my\-Grid\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr, }
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{src\-Ptr, }
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{dst\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{router_8c_a30a3b3fa79c8edd2bc05533b7a3ef342}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c_a30a3b3fa79c8edd2bc05533b7a3ef342_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{router_8c_a30a3b3fa79c8edd2bc05533b7a3ef342_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8c_ac5973d035daa93806bb4391426b310f4}{\index{router.\-c@{router.\-c}!Pdo\-Traceback@{Pdo\-Traceback}}
+\index{Pdo\-Traceback@{Pdo\-Traceback}!router.c@{router.\-c}}
+\subsubsection[{Pdo\-Traceback}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf vector\-\_\-t}$\ast$ Pdo\-Traceback (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{{\bf grid\-\_\-t} $\ast$}]{my\-Grid\-Ptr, }
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{dst\-Ptr, }
+\item[{long}]{bend\-Cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{router_8c_ac5973d035daa93806bb4391426b310f4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c_ac5973d035daa93806bb4391426b310f4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{router_8c_ac5973d035daa93806bb4391426b310f4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8c_a5de066233778d73e5c17f4ed03404f26}{\index{router.\-c@{router.\-c}!Pexpand\-To\-Neighbor@{Pexpand\-To\-Neighbor}}
+\index{Pexpand\-To\-Neighbor@{Pexpand\-To\-Neighbor}!router.c@{router.\-c}}
+\subsubsection[{Pexpand\-To\-Neighbor}]{\setlength{\rightskip}{0pt plus 5cm}static void Pexpand\-To\-Neighbor (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{my\-Grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z, }
+\item[{long}]{value, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{router_8c_a5de066233778d73e5c17f4ed03404f26}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{router_8c_a5de066233778d73e5c17f4ed03404f26_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c_a5de066233778d73e5c17f4ed03404f26_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8c_ab702dfcb3c10b11c3a5a6950269de63d}{\index{router.\-c@{router.\-c}!router\-\_\-alloc@{router\-\_\-alloc}}
+\index{router\-\_\-alloc@{router\-\_\-alloc}!router.c@{router.\-c}}
+\subsubsection[{router\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf router\-\_\-t}$\ast$ router\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{x\-Cost, }
+\item[{long}]{y\-Cost, }
+\item[{long}]{z\-Cost, }
+\item[{long}]{bend\-Cost}
+\end{DoxyParamCaption}
+)}}\label{router_8c_ab702dfcb3c10b11c3a5a6950269de63d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{router_8c_ab702dfcb3c10b11c3a5a6950269de63d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8c_a28eeaf81f66a72c769f0eb868b14cea9}{\index{router.\-c@{router.\-c}!router\-\_\-free@{router\-\_\-free}}
+\index{router\-\_\-free@{router\-\_\-free}!router.c@{router.\-c}}
+\subsubsection[{router\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void router\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf router\-\_\-t} $\ast$}]{router\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{router_8c_a28eeaf81f66a72c769f0eb868b14cea9}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{router_8c_a28eeaf81f66a72c769f0eb868b14cea9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8c_afc99f42b8c4c1bdfd53f6e15b75900b7}{\index{router.\-c@{router.\-c}!router\-\_\-solve@{router\-\_\-solve}}
+\index{router\-\_\-solve@{router\-\_\-solve}!router.c@{router.\-c}}
+\subsubsection[{router\-\_\-solve}]{\setlength{\rightskip}{0pt plus 5cm}void router\-\_\-solve (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{router_8c_afc99f42b8c4c1bdfd53f6e15b75900b7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c_afc99f42b8c4c1bdfd53f6e15b75900b7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{router_8c_afc99f42b8c4c1bdfd53f6e15b75900b7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8c_a3959d336c2ceb91b15ab0e2f004f1af4}{\index{router.\-c@{router.\-c}!trace\-To\-Neighbor@{trace\-To\-Neighbor}}
+\index{trace\-To\-Neighbor@{trace\-To\-Neighbor}!router.c@{router.\-c}}
+\subsubsection[{trace\-To\-Neighbor}]{\setlength{\rightskip}{0pt plus 5cm}static void trace\-To\-Neighbor (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{my\-Grid\-Ptr, }
+\item[{{\bf point\-\_\-t} $\ast$}]{curr\-Ptr, }
+\item[{{\bf point\-\_\-t} $\ast$}]{move\-Ptr, }
+\item[{{\bf bool\-\_\-t}}]{use\-Momentum, }
+\item[{long}]{bend\-Cost, }
+\item[{{\bf point\-\_\-t} $\ast$}]{next\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{router_8c_a3959d336c2ceb91b15ab0e2f004f1af4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c_a3959d336c2ceb91b15ab0e2f004f1af4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8c_a3959d336c2ceb91b15ab0e2f004f1af4_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{router_8c_abcd163c49894cc976ef3c4640e7eb2a5}{\index{router.\-c@{router.\-c}!M\-O\-V\-E\-\_\-\-N\-E\-G\-X@{M\-O\-V\-E\-\_\-\-N\-E\-G\-X}}
+\index{M\-O\-V\-E\-\_\-\-N\-E\-G\-X@{M\-O\-V\-E\-\_\-\-N\-E\-G\-X}!router.c@{router.\-c}}
+\subsubsection[{M\-O\-V\-E\-\_\-\-N\-E\-G\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\-\_\-t} M\-O\-V\-E\-\_\-\-N\-E\-G\-X = \{-\/1, 0, 0, 0, {\bf M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-X}\}}}\label{router_8c_abcd163c49894cc976ef3c4640e7eb2a5}
+\hypertarget{router_8c_acbdda8d59607367acab9f968b2b39330}{\index{router.\-c@{router.\-c}!M\-O\-V\-E\-\_\-\-N\-E\-G\-Y@{M\-O\-V\-E\-\_\-\-N\-E\-G\-Y}}
+\index{M\-O\-V\-E\-\_\-\-N\-E\-G\-Y@{M\-O\-V\-E\-\_\-\-N\-E\-G\-Y}!router.c@{router.\-c}}
+\subsubsection[{M\-O\-V\-E\-\_\-\-N\-E\-G\-Y}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\-\_\-t} M\-O\-V\-E\-\_\-\-N\-E\-G\-Y = \{ 0, -\/1, 0, 0, {\bf M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Y}\}}}\label{router_8c_acbdda8d59607367acab9f968b2b39330}
+\hypertarget{router_8c_a084d00950be49b6c7b3e89e35ac338a6}{\index{router.\-c@{router.\-c}!M\-O\-V\-E\-\_\-\-N\-E\-G\-Z@{M\-O\-V\-E\-\_\-\-N\-E\-G\-Z}}
+\index{M\-O\-V\-E\-\_\-\-N\-E\-G\-Z@{M\-O\-V\-E\-\_\-\-N\-E\-G\-Z}!router.c@{router.\-c}}
+\subsubsection[{M\-O\-V\-E\-\_\-\-N\-E\-G\-Z}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\-\_\-t} M\-O\-V\-E\-\_\-\-N\-E\-G\-Z = \{ 0, 0, -\/1, 0, {\bf M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-N\-E\-G\-Z}\}}}\label{router_8c_a084d00950be49b6c7b3e89e35ac338a6}
+\hypertarget{router_8c_a60f5666f89c3c5255730f3bf25748912}{\index{router.\-c@{router.\-c}!M\-O\-V\-E\-\_\-\-P\-O\-S\-X@{M\-O\-V\-E\-\_\-\-P\-O\-S\-X}}
+\index{M\-O\-V\-E\-\_\-\-P\-O\-S\-X@{M\-O\-V\-E\-\_\-\-P\-O\-S\-X}!router.c@{router.\-c}}
+\subsubsection[{M\-O\-V\-E\-\_\-\-P\-O\-S\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\-\_\-t} M\-O\-V\-E\-\_\-\-P\-O\-S\-X = \{ 1, 0, 0, 0, {\bf M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-X}\}}}\label{router_8c_a60f5666f89c3c5255730f3bf25748912}
+\hypertarget{router_8c_a8137e1fdbe302302ab77d3f4e72656b7}{\index{router.\-c@{router.\-c}!M\-O\-V\-E\-\_\-\-P\-O\-S\-Y@{M\-O\-V\-E\-\_\-\-P\-O\-S\-Y}}
+\index{M\-O\-V\-E\-\_\-\-P\-O\-S\-Y@{M\-O\-V\-E\-\_\-\-P\-O\-S\-Y}!router.c@{router.\-c}}
+\subsubsection[{M\-O\-V\-E\-\_\-\-P\-O\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\-\_\-t} M\-O\-V\-E\-\_\-\-P\-O\-S\-Y = \{ 0, 1, 0, 0, {\bf M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Y}\}}}\label{router_8c_a8137e1fdbe302302ab77d3f4e72656b7}
+\hypertarget{router_8c_a1eca17403a142298aa21f9038e06ac6b}{\index{router.\-c@{router.\-c}!M\-O\-V\-E\-\_\-\-P\-O\-S\-Z@{M\-O\-V\-E\-\_\-\-P\-O\-S\-Z}}
+\index{M\-O\-V\-E\-\_\-\-P\-O\-S\-Z@{M\-O\-V\-E\-\_\-\-P\-O\-S\-Z}!router.c@{router.\-c}}
+\subsubsection[{M\-O\-V\-E\-\_\-\-P\-O\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\-\_\-t} M\-O\-V\-E\-\_\-\-P\-O\-S\-Z = \{ 0, 0, 1, 0, {\bf M\-O\-M\-E\-N\-T\-U\-M\-\_\-\-P\-O\-S\-Z}\}}}\label{router_8c_a1eca17403a142298aa21f9038e06ac6b}

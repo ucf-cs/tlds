@@ -1,0 +1,558 @@
+\hypertarget{lockfreeskip_8c}{\section{boosting/skiplist/lockfreeskip.c File Reference}
+\label{lockfreeskip_8c}\index{boosting/skiplist/lockfreeskip.\-c@{boosting/skiplist/lockfreeskip.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common/fraser/portable\-\_\-defns.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/fraser/ptst.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lockfreeskip.\-h\char`\"{}}\\*
+Include dependency graph for lockfreeskip.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnode__st}{node\-\_\-st}
+\item 
+struct \hyperlink{structfr__set__st}{fr\-\_\-set\-\_\-st}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lockfreeskip_8c_af1bd7bf5aa6d6de3cc5f9d5ec4b0f955}{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}
+\item 
+\#define \hyperlink{lockfreeskip_8c_aa71742aab7060a6a1c9c74ad558c0128}{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}~0x0ff
+\item 
+\#define \hyperlink{lockfreeskip_8c_aa446fba61d38f15700f9bb749aaee7c9}{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}~0x100
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structnode__st}{node\-\_\-st} \hyperlink{lockfreeskip_8c_ab254c8fc5827c00ce5040bba5130f5e3}{node\-\_\-t}
+\item 
+typedef struct \hyperlink{structfr__set__st}{fr\-\_\-set\-\_\-st} \hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip}
+\item 
+typedef \hyperlink{intel__defns_8h_ad11a425b3e3a32fcc63fb4296c23dcc4}{V\-O\-L\-A\-T\-I\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{lockfreeskip_8c_ab6919257456cff4d47684cdfd3bc5a3c}{get\-\_\-level} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{lockfreeskip_8c_aaebbe09bfcc49916e869df817e0ef5f2}{alloc\-\_\-node} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+static void \hyperlink{lockfreeskip_8c_ab054f9326717e9cb34629a01bd93dbc6}{free\-\_\-node} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} n)
+\item 
+static \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} \hyperlink{lockfreeskip_8c_a5b9ae140c05ded5ef68e086be1c15052}{strong\-\_\-search\-\_\-predecessors} (\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} $\ast$pa, \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} $\ast$na)
+\item 
+static \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} \hyperlink{lockfreeskip_8c_a751de1edff41da2526ac249c0c1dbbcd}{weak\-\_\-search\-\_\-predecessors} (\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} $\ast$pa, \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} $\ast$na)
+\item 
+static void \hyperlink{lockfreeskip_8c_aa90f43c28b73bafc95db43e5b8f3d42d}{mark\-\_\-deleted} (\hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} x, int level)
+\item 
+static int \hyperlink{lockfreeskip_8c_a4270e93e64c293502d088c95927ec90b}{check\-\_\-for\-\_\-full\-\_\-delete} (\hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} x)
+\item 
+static void \hyperlink{lockfreeskip_8c_a8a6df5fd4d3d94fdc980d581fc586e62}{do\-\_\-full\-\_\-delete} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{sh\-\_\-node\-\_\-pt} x, int level)
+\item 
+\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$ \hyperlink{lockfreeskip_8c_a4da8e1b5eb7ab1ed4a57f2e17e5d0b4f}{boostskip\-\_\-alloc} (void)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{lockfreeskip_8c_a7c19229bc86af3f74044cff79f5059fa}{set\-\_\-update} (\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} v, int overwrite)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{lockfreeskip_8c_a0fa29e404756986c37476b188391af23}{set\-\_\-remove} (\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{lockfreeskip_8c_aefa2372a5bfe14a1b7553116ddf1338d}{set\-\_\-lookup} (\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k)
+\item 
+void \hyperlink{lockfreeskip_8c_a843161a44f973a3538e402c608c23671}{init\-\_\-boostskip\-\_\-subsystem} (void)
+\item 
+void \hyperlink{lockfreeskip_8c_a4efaacff91043c1e91555eba5d605ae7}{destroy\-\_\-boostskip\-\_\-subsystem} (void)
+\item 
+void \hyperlink{lockfreeskip_8c_a7f94a329d202f8f19230ea3f09deccc8}{boostskip\-\_\-print} (\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$\hyperlink{structl}{l})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{lockfreeskip_8c_a4680ac3204207c1899defd92356d606a}{gc\-\_\-id} \mbox{[}N\-U\-M\-\_\-\-L\-E\-V\-E\-L\-S\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{lockfreeskip_8c_af1bd7bf5aa6d6de3cc5f9d5ec4b0f955}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-@{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-@{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}}\label{lockfreeskip_8c_af1bd7bf5aa6d6de3cc5f9d5ec4b0f955}
+\hypertarget{lockfreeskip_8c_aa71742aab7060a6a1c9c74ad558c0128}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K@{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}}
+\index{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K@{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K~0x0ff}}\label{lockfreeskip_8c_aa71742aab7060a6a1c9c74ad558c0128}
+\hypertarget{lockfreeskip_8c_aa446fba61d38f15700f9bb749aaee7c9}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E@{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}}
+\index{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E@{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E~0x100}}\label{lockfreeskip_8c_aa446fba61d38f15700f9bb749aaee7c9}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!boost\-\_\-skip@{boost\-\_\-skip}}
+\index{boost\-\_\-skip@{boost\-\_\-skip}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{boost\-\_\-skip}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf fr\-\_\-set\-\_\-st} {\bf boost\-\_\-skip}}}\label{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}
+\hypertarget{lockfreeskip_8c_ab254c8fc5827c00ce5040bba5130f5e3}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!node\-\_\-t@{node\-\_\-t}}
+\index{node\-\_\-t@{node\-\_\-t}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{node\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf node\-\_\-st} {\bf node\-\_\-t}}}\label{lockfreeskip_8c_ab254c8fc5827c00ce5040bba5130f5e3}
+\hypertarget{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!sh\-\_\-node\-\_\-pt@{sh\-\_\-node\-\_\-pt}}
+\index{sh\-\_\-node\-\_\-pt@{sh\-\_\-node\-\_\-pt}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{sh\-\_\-node\-\_\-pt}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf V\-O\-L\-A\-T\-I\-L\-E} {\bf node\-\_\-t}$\ast$ {\bf sh\-\_\-node\-\_\-pt}}}\label{lockfreeskip_8c_a2e54b95470140e694f7e369854761a00}
+
+
+\subsection{Function Documentation}
+\hypertarget{lockfreeskip_8c_aaebbe09bfcc49916e869df817e0ef5f2}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!alloc\-\_\-node@{alloc\-\_\-node}}
+\index{alloc\-\_\-node@{alloc\-\_\-node}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{alloc\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ alloc\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_aaebbe09bfcc49916e869df817e0ef5f2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_aaebbe09bfcc49916e869df817e0ef5f2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_aaebbe09bfcc49916e869df817e0ef5f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a4da8e1b5eb7ab1ed4a57f2e17e5d0b4f}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!boostskip\-\_\-alloc@{boostskip\-\_\-alloc}}
+\index{boostskip\-\_\-alloc@{boostskip\-\_\-alloc}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{boostskip\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf boost\-\_\-skip}$\ast$ boostskip\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_a4da8e1b5eb7ab1ed4a57f2e17e5d0b4f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{lockfreeskip_8c_a4da8e1b5eb7ab1ed4a57f2e17e5d0b4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a7f94a329d202f8f19230ea3f09deccc8}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!boostskip\-\_\-print@{boostskip\-\_\-print}}
+\index{boostskip\-\_\-print@{boostskip\-\_\-print}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{boostskip\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void boostskip\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_a7f94a329d202f8f19230ea3f09deccc8}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{lockfreeskip_8c_a7f94a329d202f8f19230ea3f09deccc8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{lockfreeskip_8c_a7f94a329d202f8f19230ea3f09deccc8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a4270e93e64c293502d088c95927ec90b}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!check\-\_\-for\-\_\-full\-\_\-delete@{check\-\_\-for\-\_\-full\-\_\-delete}}
+\index{check\-\_\-for\-\_\-full\-\_\-delete@{check\-\_\-for\-\_\-full\-\_\-delete}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{check\-\_\-for\-\_\-full\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}static int check\-\_\-for\-\_\-full\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf sh\-\_\-node\-\_\-pt}}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_a4270e93e64c293502d088c95927ec90b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a4270e93e64c293502d088c95927ec90b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a4efaacff91043c1e91555eba5d605ae7}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!destroy\-\_\-boostskip\-\_\-subsystem@{destroy\-\_\-boostskip\-\_\-subsystem}}
+\index{destroy\-\_\-boostskip\-\_\-subsystem@{destroy\-\_\-boostskip\-\_\-subsystem}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{destroy\-\_\-boostskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\-\_\-boostskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_a4efaacff91043c1e91555eba5d605ae7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a4efaacff91043c1e91555eba5d605ae7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a4efaacff91043c1e91555eba5d605ae7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a8a6df5fd4d3d94fdc980d581fc586e62}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!do\-\_\-full\-\_\-delete@{do\-\_\-full\-\_\-delete}}
+\index{do\-\_\-full\-\_\-delete@{do\-\_\-full\-\_\-delete}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{do\-\_\-full\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}static void do\-\_\-full\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf sh\-\_\-node\-\_\-pt}}]{x, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_a8a6df5fd4d3d94fdc980d581fc586e62}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a8a6df5fd4d3d94fdc980d581fc586e62_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a8a6df5fd4d3d94fdc980d581fc586e62_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_ab054f9326717e9cb34629a01bd93dbc6}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!free\-\_\-node@{free\-\_\-node}}
+\index{free\-\_\-node@{free\-\_\-node}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{free\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf sh\-\_\-node\-\_\-pt}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_ab054f9326717e9cb34629a01bd93dbc6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_ab054f9326717e9cb34629a01bd93dbc6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_ab054f9326717e9cb34629a01bd93dbc6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_ab6919257456cff4d47684cdfd3bc5a3c}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!get\-\_\-level@{get\-\_\-level}}
+\index{get\-\_\-level@{get\-\_\-level}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{get\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}static int get\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_ab6919257456cff4d47684cdfd3bc5a3c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_ab6919257456cff4d47684cdfd3bc5a3c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a843161a44f973a3538e402c608c23671}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!init\-\_\-boostskip\-\_\-subsystem@{init\-\_\-boostskip\-\_\-subsystem}}
+\index{init\-\_\-boostskip\-\_\-subsystem@{init\-\_\-boostskip\-\_\-subsystem}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{init\-\_\-boostskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-boostskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_a843161a44f973a3538e402c608c23671}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a843161a44f973a3538e402c608c23671_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a843161a44f973a3538e402c608c23671_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_aa90f43c28b73bafc95db43e5b8f3d42d}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!mark\-\_\-deleted@{mark\-\_\-deleted}}
+\index{mark\-\_\-deleted@{mark\-\_\-deleted}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{mark\-\_\-deleted}]{\setlength{\rightskip}{0pt plus 5cm}static void mark\-\_\-deleted (
+\begin{DoxyParamCaption}
+\item[{{\bf sh\-\_\-node\-\_\-pt}}]{x, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_aa90f43c28b73bafc95db43e5b8f3d42d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{lockfreeskip_8c_aa90f43c28b73bafc95db43e5b8f3d42d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_aa90f43c28b73bafc95db43e5b8f3d42d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_aefa2372a5bfe14a1b7553116ddf1338d}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!set\-\_\-lookup@{set\-\_\-lookup}}
+\index{set\-\_\-lookup@{set\-\_\-lookup}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{set\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} set\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_aefa2372a5bfe14a1b7553116ddf1338d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_aefa2372a5bfe14a1b7553116ddf1338d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{lockfreeskip_8c_aefa2372a5bfe14a1b7553116ddf1338d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a0fa29e404756986c37476b188391af23}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!set\-\_\-remove@{set\-\_\-remove}}
+\index{set\-\_\-remove@{set\-\_\-remove}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{set\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} set\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_a0fa29e404756986c37476b188391af23}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a0fa29e404756986c37476b188391af23_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{lockfreeskip_8c_a0fa29e404756986c37476b188391af23_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a7c19229bc86af3f74044cff79f5059fa}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!set\-\_\-update@{set\-\_\-update}}
+\index{set\-\_\-update@{set\-\_\-update}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{set\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} set\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf setval\-\_\-t}}]{v, }
+\item[{int}]{overwrite}
+\end{DoxyParamCaption}
+)}}\label{lockfreeskip_8c_a7c19229bc86af3f74044cff79f5059fa}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a7c19229bc86af3f74044cff79f5059fa_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{lockfreeskip_8c_a7c19229bc86af3f74044cff79f5059fa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a5b9ae140c05ded5ef68e086be1c15052}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!strong\-\_\-search\-\_\-predecessors@{strong\-\_\-search\-\_\-predecessors}}
+\index{strong\-\_\-search\-\_\-predecessors@{strong\-\_\-search\-\_\-predecessors}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{strong\-\_\-search\-\_\-predecessors}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf sh\-\_\-node\-\_\-pt} strong\-\_\-search\-\_\-predecessors (
+\begin{DoxyParamCaption}
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf sh\-\_\-node\-\_\-pt} $\ast$}]{pa, }
+\item[{{\bf sh\-\_\-node\-\_\-pt} $\ast$}]{na}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_a5b9ae140c05ded5ef68e086be1c15052}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a5b9ae140c05ded5ef68e086be1c15052_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a5b9ae140c05ded5ef68e086be1c15052_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lockfreeskip_8c_a751de1edff41da2526ac249c0c1dbbcd}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!weak\-\_\-search\-\_\-predecessors@{weak\-\_\-search\-\_\-predecessors}}
+\index{weak\-\_\-search\-\_\-predecessors@{weak\-\_\-search\-\_\-predecessors}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{weak\-\_\-search\-\_\-predecessors}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf sh\-\_\-node\-\_\-pt} weak\-\_\-search\-\_\-predecessors (
+\begin{DoxyParamCaption}
+\item[{{\bf boost\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf sh\-\_\-node\-\_\-pt} $\ast$}]{pa, }
+\item[{{\bf sh\-\_\-node\-\_\-pt} $\ast$}]{na}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_a751de1edff41da2526ac249c0c1dbbcd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a751de1edff41da2526ac249c0c1dbbcd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreeskip_8c_a751de1edff41da2526ac249c0c1dbbcd_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{lockfreeskip_8c_a4680ac3204207c1899defd92356d606a}{\index{lockfreeskip.\-c@{lockfreeskip.\-c}!gc\-\_\-id@{gc\-\_\-id}}
+\index{gc\-\_\-id@{gc\-\_\-id}!lockfreeskip.c@{lockfreeskip.\-c}}
+\subsubsection[{gc\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int gc\-\_\-id\mbox{[}N\-U\-M\-\_\-\-L\-E\-V\-E\-L\-S\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{lockfreeskip_8c_a4680ac3204207c1899defd92356d606a}

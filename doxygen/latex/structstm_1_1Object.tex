@@ -1,0 +1,92 @@
+\hypertarget{structstm_1_1Object}{\section{stm\-:\-:Object Struct Reference}
+\label{structstm_1_1Object}\index{stm\-::\-Object@{stm\-::\-Object}}
+}
+
+
+{\ttfamily \#include $<$library.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{structstm_1_1Object__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{structstm_1_1Object_a0b63515053eb5f392c76da3d78e9519c}{operator new} (size\-\_\-t size)
+\item 
+void \hyperlink{structstm_1_1Object_afac8435413e9dccf8151b66fba9199ae}{operator delete} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr})
+\item 
+virtual \hyperlink{structstm_1_1Object_a1c1b6f45d8438cd6470688d15f79225f}{$\sim$\-Object} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Master class for all objects that are used in transactions, to ensure that those objects have tx-\/safe allocation
+
+W\-A\-R\-N\-I\-N\-G\-: D\-E\-P\-R\-E\-C\-A\-T\-E\-D \begin{DoxyVerb}We no longer use the Object class.  In G++ it is unsafe to call
+destructors from within a transaction (they trash the vtable
+pointer in an unrecoverable way!), and some compilers don't handle
+new() within a transaction correctly.  Ugly though it is, for now,
+you should just use malloc and free to create objects.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1Object_a1c1b6f45d8438cd6470688d15f79225f}{\index{stm\-::\-Object@{stm\-::\-Object}!$\sim$\-Object@{$\sim$\-Object}}
+\index{$\sim$\-Object@{$\sim$\-Object}!stm::Object@{stm\-::\-Object}}
+\subsubsection[{$\sim$\-Object}]{\setlength{\rightskip}{0pt plus 5cm}virtual stm\-::\-Object\-::$\sim$\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{structstm_1_1Object_a1c1b6f45d8438cd6470688d15f79225f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1Object_afac8435413e9dccf8151b66fba9199ae}{\index{stm\-::\-Object@{stm\-::\-Object}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!stm::Object@{stm\-::\-Object}}
+\subsubsection[{operator delete}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Object\-::operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1Object_afac8435413e9dccf8151b66fba9199ae}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1Object_afac8435413e9dccf8151b66fba9199ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1Object_a0b63515053eb5f392c76da3d78e9519c}{\index{stm\-::\-Object@{stm\-::\-Object}!operator new@{operator new}}
+\index{operator new@{operator new}!stm::Object@{stm\-::\-Object}}
+\subsubsection[{operator new}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-Object\-::operator new (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1Object_a0b63515053eb5f392c76da3d78e9519c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{structstm_1_1Object_a0b63515053eb5f392c76da3d78e9519c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/api/\hyperlink{library_8hpp}{library.\-hpp}\end{DoxyCompactItemize}

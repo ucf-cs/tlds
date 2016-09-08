@@ -1,0 +1,11 @@
+<map id="ScopedTimer::~ScopedTimer" name="ScopedTimer::~ScopedTimer">
+<area shape="rect" id="node2" href="$classTimer.html#a6379e797f968aaee6ac3bb12dc6b81c5" title="Timer::Stop" alt="" coords="439,5,529,32"/>
+<area shape="rect" id="node5" href="$classTimer.html#a795b041a2b7a515e0f03fabbfa253393" title="Timer::ToSecond" alt="" coords="245,107,368,133"/>
+<area shape="rect" id="node9" href="$classTimer.html#a4849689a80aff58f35edd5f7a818add2" title="Timer::ToString" alt="" coords="251,157,363,184"/>
+<area shape="rect" id="node3" href="$classTime.html#ad5144f12e23805225735ab695f38f069" title="Time::GetCpuTime" alt="" coords="601,132,735,159"/>
+<area shape="rect" id="node4" href="$classTime.html#a508ab252117d5c378fcc33d0644d56d0" title="Time::GetWallTime" alt="" coords="601,31,735,57"/>
+<area shape="rect" id="node6" href="$classTime.html#abdd4d172b3749e0f4490c33f20ea5038" title="Time::ToSecond" alt="" coords="425,56,543,83"/>
+<area shape="rect" id="node7" href="$classTimer.html#a587790d9ce5c034e9b36984813e1e605" title="Timer::ElapsedCpu" alt="" coords="417,157,551,184"/>
+<area shape="rect" id="node8" href="$classTimer.html#a4c1956ab933185eb2c64168ff8805c8e" title="Timer::ElapsedWall" alt="" coords="416,107,552,133"/>
+<area shape="rect" id="node10" href="$classTime.html#a3e26dce6c11e2c9817c973f03a9a6f1e" title="Time::ToString" alt="" coords="430,208,538,235"/>
+</map>

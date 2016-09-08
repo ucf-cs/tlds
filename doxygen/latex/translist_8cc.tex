@@ -1,0 +1,68 @@
+\hypertarget{translist_8cc}{\section{translink/list/translist.cc File Reference}
+\label{translist_8cc}\index{translink/list/translist.\-cc@{translink/list/translist.\-cc}}
+}
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include $<$new$>$}\\*
+{\ttfamily \#include \char`\"{}translink/list/translist.\-h\char`\"{}}\\*
+Include dependency graph for translist.\-cc\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{translist_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{translist_8cc_ae30687225c8f14173511d0dccedea716}{S\-E\-T\-\_\-\-M\-A\-R\-K}(\-\_\-p)~((Node $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) $\vert$ 1))
+\item 
+\#define \hyperlink{translist_8cc_a79fb2f1c41f7a9308694dd8c06a8db2e}{C\-L\-R\-\_\-\-M\-A\-R\-K}(\-\_\-p)~((Node $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) \& $\sim$1))
+\item 
+\#define \hyperlink{translist_8cc_a7bd1dc6e2afa5f73f39d6dbc604b8b8f}{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}(\-\_\-p)~((\hyperlink{structNodeDesc}{Node\-Desc} $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) \& $\sim$1))
+\item 
+\#define \hyperlink{translist_8cc_a5045996183a50435fa2685920b8ea19f}{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}(\-\_\-p)~(((uintptr\-\_\-t)(\-\_\-p)) \& 1)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\-\_\-\-\_\-thread \hyperlink{structTransList_1_1HelpStack}{Trans\-List\-::\-Help\-Stack} \hyperlink{translist_8cc_a3175120c9ff9212d60922f6fd8021b48}{help\-Stack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{translist_8cc_a79fb2f1c41f7a9308694dd8c06a8db2e}{\index{translist.\-cc@{translist.\-cc}!C\-L\-R\-\_\-\-M\-A\-R\-K@{C\-L\-R\-\_\-\-M\-A\-R\-K}}
+\index{C\-L\-R\-\_\-\-M\-A\-R\-K@{C\-L\-R\-\_\-\-M\-A\-R\-K}!translist.cc@{translist.\-cc}}
+\subsubsection[{C\-L\-R\-\_\-\-M\-A\-R\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-L\-R\-\_\-\-M\-A\-R\-K(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((Node $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) \& $\sim$1))}}\label{translist_8cc_a79fb2f1c41f7a9308694dd8c06a8db2e}
+\hypertarget{translist_8cc_a7bd1dc6e2afa5f73f39d6dbc604b8b8f}{\index{translist.\-cc@{translist.\-cc}!C\-L\-R\-\_\-\-M\-A\-R\-K\-D@{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}}
+\index{C\-L\-R\-\_\-\-M\-A\-R\-K\-D@{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}!translist.cc@{translist.\-cc}}
+\subsubsection[{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-L\-R\-\_\-\-M\-A\-R\-K\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(({\bf Node\-Desc} $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) \& $\sim$1))}}\label{translist_8cc_a7bd1dc6e2afa5f73f39d6dbc604b8b8f}
+\hypertarget{translist_8cc_a5045996183a50435fa2685920b8ea19f}{\index{translist.\-cc@{translist.\-cc}!I\-S\-\_\-\-M\-A\-R\-K\-E\-D@{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}}
+\index{I\-S\-\_\-\-M\-A\-R\-K\-E\-D@{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}!translist.cc@{translist.\-cc}}
+\subsubsection[{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-S\-\_\-\-M\-A\-R\-K\-E\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(((uintptr\-\_\-t)(\-\_\-p)) \& 1)}}\label{translist_8cc_a5045996183a50435fa2685920b8ea19f}
+\hypertarget{translist_8cc_ae30687225c8f14173511d0dccedea716}{\index{translist.\-cc@{translist.\-cc}!S\-E\-T\-\_\-\-M\-A\-R\-K@{S\-E\-T\-\_\-\-M\-A\-R\-K}}
+\index{S\-E\-T\-\_\-\-M\-A\-R\-K@{S\-E\-T\-\_\-\-M\-A\-R\-K}!translist.cc@{translist.\-cc}}
+\subsubsection[{S\-E\-T\-\_\-\-M\-A\-R\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-T\-\_\-\-M\-A\-R\-K(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((Node $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) $\vert$ 1))}}\label{translist_8cc_ae30687225c8f14173511d0dccedea716}
+
+
+\subsection{Variable Documentation}
+\hypertarget{translist_8cc_a3175120c9ff9212d60922f6fd8021b48}{\index{translist.\-cc@{translist.\-cc}!help\-Stack@{help\-Stack}}
+\index{help\-Stack@{help\-Stack}!translist.cc@{translist.\-cc}}
+\subsubsection[{help\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-thread {\bf Trans\-List\-::\-Help\-Stack} help\-Stack}}\label{translist_8cc_a3175120c9ff9212d60922f6fd8021b48}

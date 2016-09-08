@@ -1,0 +1,11 @@
+<map id="compareQuery" name="compareQuery">
+<area shape="rect" id="node2" href="$learner_8c.html#a02c8bbd9e58f6b76caafe97e1265357d" title="populateQueryVectors" alt="" coords="170,33,321,59"/>
+<area shape="rect" id="node8" href="$learner_8c.html#ad1501982eb48921ad41de7de9457db4b" title="TMpopulateQueryVectors" alt="" coords="160,83,331,110"/>
+<area shape="rect" id="node10" href="$learner_8c.html#af4655d41f33380b11243cae071a4ce37" title="TMfindBestInsertTask" alt="" coords="170,134,321,161"/>
+<area shape="rect" id="node3" href="$learner_8h.html#a643517a90c64064dfb94cb9cb8d6eddf" title="learner_score" alt="" coords="381,33,481,59"/>
+<area shape="rect" id="node4" href="$bayes_8c.html#aa39a74293929705f5dfd47a76641d12a" title="score" alt="" coords="531,33,586,59"/>
+<area shape="rect" id="node5" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="928,33,984,59"/>
+<area shape="rect" id="node6" href="$learner_8c.html#a5a45fbc491ab273140631145a6e82e54" title="createTaskList" alt="" coords="635,83,743,110"/>
+<area shape="rect" id="node7" href="$learner_8h.html#a23d451d4d355a14fa7c9735304ba4d95" title="learner_run" alt="" coords="793,83,879,110"/>
+<area shape="rect" id="node9" href="$learner_8c.html#a992842224f9ab3030136c9cadb79bd44" title="learnStructure" alt="" coords="379,134,482,161"/>
+</map>

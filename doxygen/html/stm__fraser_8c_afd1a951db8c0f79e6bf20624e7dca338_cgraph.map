@@ -1,0 +1,8 @@
+<map id="release_descriptor" name="release_descriptor">
+<area shape="rect" id="node2" href="$gc_8c.html#a80f4a5c119aa70ab0452a73dfac21bbd" title="fr_gc_free" alt="" coords="357,31,437,57"/>
+<area shape="rect" id="node7" href="$gc_8c.html#a1e1a80c2d04496b5b70bd86b59510355" title="fr_gc_unsafe_free" alt="" coords="182,56,309,83"/>
+<area shape="rect" id="node3" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="486,31,618,57"/>
+<area shape="rect" id="node4" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="667,31,799,57"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="849,5,983,32"/>
+<area shape="rect" id="node6" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="849,56,983,83"/>
+</map>

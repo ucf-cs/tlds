@@ -1,0 +1,6 @@
+<map id="stm::WBMMPolicy::onTxBegin" name="stm::WBMMPolicy::onTxBegin">
+<area shape="rect" id="node2" href="$namespacestm.html#a74784f193abf87bd1c6f688d6b25cacd" title="stm::begin_CGL" alt="" coords="291,5,408,32"/>
+<area shape="rect" id="node4" href="$structanonymous__namespace_02norec_8cpp_03_1_1NOrec__Generic.html#a440d5658bbdfe717dad3ab9e0ca3ccf6" title="anonymous_namespace\l\{norec::cpp\}::NOrec\l_Generic::begin" alt="" coords="268,56,431,112"/>
+<area shape="rect" id="node5" href="$structanonymous__namespace_02oreceager_8cpp_03_1_1OrecEager__Generic.html#a44a78f32ae55fe5c152e0494d1ee1136" title="anonymous_namespace\l\{oreceager::cpp\}::OrecEager\l_Generic::begin" alt="" coords="256,136,443,192"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a976f5145078328564e9e05c97bce777e" title="stm::initTM\&lt; CGL \&gt;" alt="" coords="491,5,629,32"/>
+</map>

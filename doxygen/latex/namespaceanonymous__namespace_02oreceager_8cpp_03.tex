@@ -1,0 +1,211 @@
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03}{\section{anonymous\-\_\-namespace\{oreceager.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02oreceager_8cpp_03}\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02oreceager_8cpp_03_1_1OrecEager__Generic}{Orec\-Eager\-\_\-\-Generic}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void $\ast$ \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_a7a88c7a7453bbfaca53eeac03b80a5d6}{read} (\hyperlink{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,))
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_ac18758bd7e358cee7461af925e192062}{write} (\hyperlink{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,))
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_a1475ab9f49eebf212fa2ce83906d6d9b}{irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,))
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} void \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_a5b3a6ab30d79a83a3d13e0718231d4b4}{validate} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+void \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_abf7d699a962bf5ab23bcbaf26b58e0bb}{on\-Switch\-To} ()
+\item 
+void $\ast$ \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_a2cc56c58ad02007cf0cfa008839f0001}{read} (\hyperlink{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, addr,))
+\item 
+void \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_a4412d636846d1de7149b2ef022d5bf83}{write} (\hyperlink{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, addr, val, mask))
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02oreceager_8cpp_03_afcbd1231ae5e881c4c271cd297d6cf97}{irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx},))
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declare the functions that we're going to implement, so that we can avoid circular dependencies.
+
+N\-B\-: Orec\-Eager actually does better without fine-\/grained switching for read-\/only transactions, so we don't support the read-\/only optimization in this code. 
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_a1475ab9f49eebf212fa2ce83906d6d9b}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!irrevoc@{irrevoc}}
+\index{irrevoc@{irrevoc}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::irrevoc (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_a1475ab9f49eebf212fa2ce83906d6d9b}
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_afcbd1231ae5e881c4c271cd297d6cf97}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!irrevoc@{irrevoc}}
+\index{irrevoc@{irrevoc}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::irrevoc (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}({\bf tx},)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_afcbd1231ae5e881c4c271cd297d6cf97}
+Orec\-Eager in-\/flight irrevocability\-:
+
+Either commit the transaction or return false. Note that we're already serial by the time this code runs.
+
+N\-B\-: This doesn't Undo anything, so there's no need to protect the stack. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_afcbd1231ae5e881c4c271cd297d6cf97_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_abf7d699a962bf5ab23bcbaf26b58e0bb}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!on\-Switch\-To@{on\-Switch\-To}}
+\index{on\-Switch\-To@{on\-Switch\-To}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{on\-Switch\-To}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::on\-Switch\-To (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_abf7d699a962bf5ab23bcbaf26b58e0bb}
+Switch to Orec\-Eager\-:
+
+The timestamp must be $>$= the maximum value of any orec. Some algs use timestamp as a zero-\/one mutex. If they do, then they back up the timestamp first, in timestamp\-\_\-max. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_abf7d699a962bf5ab23bcbaf26b58e0bb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_a7a88c7a7453bbfaca53eeac03b80a5d6}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!read@{read}}
+\index{read@{read}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void$\ast$ anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::read (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_a7a88c7a7453bbfaca53eeac03b80a5d6}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_a7a88c7a7453bbfaca53eeac03b80a5d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_a2cc56c58ad02007cf0cfa008839f0001}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!read@{read}}
+\index{read@{read}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::read (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}({\bf tx}, addr,)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_a2cc56c58ad02007cf0cfa008839f0001}
+Orec\-Eager read\-:
+
+Must check orec twice, and may need to validate 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_a2cc56c58ad02007cf0cfa008839f0001_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_a2cc56c58ad02007cf0cfa008839f0001_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_a5b3a6ab30d79a83a3d13e0718231d4b4}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!validate@{validate}}
+\index{validate@{validate}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\-O\-I\-N\-L\-I\-N\-E} void anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::validate (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_a5b3a6ab30d79a83a3d13e0718231d4b4}
+Orec\-Eager validation\-:
+
+Make sure that all orecs that we've read have timestamps older than our start time, unless we locked those orecs. If we locked the orec, we did so when the time was smaller than our start time, so we're sure to be O\-K. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_a5b3a6ab30d79a83a3d13e0718231d4b4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_ac18758bd7e358cee7461af925e192062}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!write@{write}}
+\index{write@{write}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::write (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_ac18758bd7e358cee7461af925e192062}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_ac18758bd7e358cee7461af925e192062_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreceager_8cpp_03_a4412d636846d1de7149b2ef022d5bf83}{\index{anonymous\-\_\-namespace\{oreceager.\-cpp\}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}!write@{write}}
+\index{write@{write}!anonymous_namespace{oreceager.cpp}@{anonymous\-\_\-namespace\{oreceager.\-cpp\}}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{oreceager.\-cpp\}\-::write (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}({\bf tx}, addr, val, mask)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreceager_8cpp_03_a4412d636846d1de7149b2ef022d5bf83}
+Orec\-Eager write\-:
+
+Lock the orec, log the old value, do the write 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_a4412d636846d1de7149b2ef022d5bf83_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreceager_8cpp_03_a4412d636846d1de7149b2ef022d5bf83_icgraph}
+\end{center}
+\end{figure}
+
+

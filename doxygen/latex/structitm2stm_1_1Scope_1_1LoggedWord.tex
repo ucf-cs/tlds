@@ -1,0 +1,132 @@
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord}{\section{itm2stm\-:\-:Scope\-:\-:Logged\-Word Struct Reference}
+\label{structitm2stm_1_1Scope_1_1LoggedWord}\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+}
+
+
+Collaboration diagram for itm2stm\-:\-:Scope\-:\-:Logged\-Word\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{structitm2stm_1_1Scope_1_1LoggedWord__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_a9fd1090bc58044f65f9c5b11060d52e8}{Logged\-Word} (void $\ast$$\ast$addr, void $\ast$val, size\-\_\-t bytes)
+\item 
+void $\ast$$\ast$ \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_af69b02157266eadd47ff96b63c28fff2}{begin} () const 
+\item 
+void $\ast$$\ast$ \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_a922742445114011b09a448c5ec52788c}{end} () const 
+\item 
+void \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_a1d4b21645a98313919db8436c3088728}{undo} (\hyperlink{structitm2stm_1_1Scope_1_1ThrownObject}{Thrown\-Object} \&, void $\ast$$\ast$protected\-\_\-stack\-\_\-lower\-\_\-bound)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_ae9e8ba50b0407ec0c10c299d4422a9b7}{clip} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$$\ast$ \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_a2e34bed1d68bf7796977878e87746a3c}{address\-\_\-}
+\item 
+void $\ast$ \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_af683b956944064aeec6cd04c08916628}{value\-\_\-}
+\item 
+size\-\_\-t \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord_ac8f7885001bbcd034edc803d665a7bd1}{bytes\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I\-T\-M will sometimes want to log a thread-\/local value, but instead of using stack-\/space and well-\/known control flow, it will ask the library to perform the logging on its behalf. We could simply use existing transactional metadata structures to log them, but these logged values do not need conflict detection, and we don't expect them to be common. For this reason, we do simple logging in the shim, and undo the logged values during rollback.
+
+We log in word-\/sized maximum chunks. {\itshape These are not assumed to have any specific alignment.} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_a9fd1090bc58044f65f9c5b11060d52e8}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!Logged\-Word@{Logged\-Word}}
+\index{Logged\-Word@{Logged\-Word}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{Logged\-Word}]{\setlength{\rightskip}{0pt plus 5cm}itm2stm\-::\-Scope\-::\-Logged\-Word\-::\-Logged\-Word (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{addr, }
+\item[{void $\ast$}]{val, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_a9fd1090bc58044f65f9c5b11060d52e8}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_af69b02157266eadd47ff96b63c28fff2}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!begin@{begin}}
+\index{begin@{begin}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Scope\-::\-Logged\-Word\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_af69b02157266eadd47ff96b63c28fff2}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_ae9e8ba50b0407ec0c10c299d4422a9b7}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!clip@{clip}}
+\index{clip@{clip}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{clip}]{\setlength{\rightskip}{0pt plus 5cm}void Scope\-::\-Logged\-Word\-::clip (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_ae9e8ba50b0407ec0c10c299d4422a9b7}
+The clip routine is used to protect against undoing to both thrown objects and the protected stack. We aren't capable of undoing to a discontinuous range (i.\-e., if the logged value is larger than the range, and the range is completely contained withing the logged address range, and there is some \char`\"{}left-\/over\char`\"{} space on each side).
+
+The range is \mbox{[}lower, upper) 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{structitm2stm_1_1Scope_1_1LoggedWord_ae9e8ba50b0407ec0c10c299d4422a9b7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_a922742445114011b09a448c5ec52788c}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!end@{end}}
+\index{end@{end}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Scope\-::\-Logged\-Word\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_a922742445114011b09a448c5ec52788c}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_a1d4b21645a98313919db8436c3088728}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!undo@{undo}}
+\index{undo@{undo}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{undo}]{\setlength{\rightskip}{0pt plus 5cm}void Scope\-::\-Logged\-Word\-::undo (
+\begin{DoxyParamCaption}
+\item[{{\bf Thrown\-Object} \&}]{thrown, }
+\item[{void $\ast$$\ast$}]{protected\-\_\-stack\-\_\-lower\-\_\-bound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_a1d4b21645a98313919db8436c3088728}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structitm2stm_1_1Scope_1_1LoggedWord_a1d4b21645a98313919db8436c3088728_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_a2e34bed1d68bf7796977878e87746a3c}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!address\-\_\-@{address\-\_\-}}
+\index{address\-\_\-@{address\-\_\-}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{address\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ itm2stm\-::\-Scope\-::\-Logged\-Word\-::address\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_a2e34bed1d68bf7796977878e87746a3c}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_ac8f7885001bbcd034edc803d665a7bd1}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!bytes\-\_\-@{bytes\-\_\-}}
+\index{bytes\-\_\-@{bytes\-\_\-}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{bytes\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t itm2stm\-::\-Scope\-::\-Logged\-Word\-::bytes\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_ac8f7885001bbcd034edc803d665a7bd1}
+\hypertarget{structitm2stm_1_1Scope_1_1LoggedWord_af683b956944064aeec6cd04c08916628}{\index{itm2stm\-::\-Scope\-::\-Logged\-Word@{itm2stm\-::\-Scope\-::\-Logged\-Word}!value\-\_\-@{value\-\_\-}}
+\index{value\-\_\-@{value\-\_\-}!itm2stm::Scope::LoggedWord@{itm2stm\-::\-Scope\-::\-Logged\-Word}}
+\subsubsection[{value\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ itm2stm\-::\-Scope\-::\-Logged\-Word\-::value\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{structitm2stm_1_1Scope_1_1LoggedWord_af683b956944064aeec6cd04c08916628}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libitm2stm/\hyperlink{Scope_8h}{Scope.\-h}\item 
+rstm/rstm-\/dev/libitm2stm/\hyperlink{Scope_8cpp}{Scope.\-cpp}\end{DoxyCompactItemize}

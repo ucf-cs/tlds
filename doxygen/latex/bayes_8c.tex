@@ -1,0 +1,372 @@
+\hypertarget{bayes_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/bayes.c File Reference}
+\label{bayes_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/bayes.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/bayes.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$getopt.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}learner.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}net.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for bayes.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bayes_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bayes_8c_ab7fa6bc19f0f9824449a65b0a5bbdc47}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y}~1.\-0\-F
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688c}{param\-\_\-types} \{ \\*
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae1e089fffa0a51ba4ce812904169aef9}{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E} = (unsigned char)'e', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca0f92ec055830431a6a2765b50e5b2973}{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T} = (unsigned char)'i', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R} = (unsigned char)'n', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca6672bcf164002bbef0853faf8ce30b92}{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T} = (unsigned char)'p', 
+\\*
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca82d9e91c689c1f182fb35420b749f7d6}{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D} = (unsigned char)'r', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D} = (unsigned char)'s', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688caabf25d1f467352cbe7b4111973fdac84}{P\-A\-R\-A\-M\-\_\-\-V\-A\-R} = (unsigned char)'v', 
+\\*
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688cae9ecb67a0716f816f88dbbe5c13a8ae4}{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E} = (unsigned char)'g', 
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R} = (unsigned char)'n', 
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688ca275a689bba706b230dbec8da7cd71ca1}{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T} = (unsigned char)'s', 
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\\*
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca86c72cc7ef78bf2315322352c4c64d57}{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K} = (unsigned char)'a', 
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca8254a2e73a99bec7b129c814f7d72ca8}{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H} = (unsigned char)'l', 
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca75731fe255b1db610be93bfb89fd1ca1}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M} = (unsigned char)'n', 
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D} = (unsigned char)'s', 
+\\*
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca862dab6d80c9d21eb19e8864e994f335}{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T} = (unsigned char)'b', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688cafd939048b86bcb967efbad0f8222481a}{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T} = (unsigned char)'x', 
+\\*
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca404432718bbc6b407bfafadc6863c781}{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T} = (unsigned char)'y', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca98adb97c9d3b363c140dcc8ccc828df2}{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T} = (unsigned char)'z', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca79d71b7631f0befc4cb8316092996b09}{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S} = (unsigned char)'c', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R} = (unsigned char)'n', 
+\\*
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca00dd82f01d9136ce8ba75ebcc193f359}{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S} = (unsigned char)'q', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca1e19ff0100ee27ae260a5119764bbe6a}{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S} = (unsigned char)'r', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688cab610f31849afcf022d335292cb911aa7}{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S} = (unsigned char)'t', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae2b667d5d6f60946a67bb7dceedf5f68}{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R} = (unsigned char)'u'
+ \}
+\item 
+enum \hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036c}{param\-\_\-defaults} \{ \\*
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca3d724fabaaf69d297cc0b9f11df37ed8}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E} = -\/1, 
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca6526615abb1d18a325895adfe03baa75}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T} = 1, 
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca7113c75554551f8fce67dfcc1afd9ed7}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R} = 4, 
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca09a20e1864a9b0159d1ce6c7a4c3a173}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-P\-E\-R\-C\-E\-N\-T} = 10, 
+\\*
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca626d0cd34a30349beb99e50c3caedad0}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-C\-O\-R\-D} = 4096, 
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca2231a716abf6bc5a053c51011ab9647c}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D} = 1, 
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D} = 1, 
+\hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caeca60b1a4c0b23c2c1552bab7bf56bd0}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-V\-A\-R} = 32, 
+\\*
+\hyperlink{intruder_8c_a34c16f19a8d56b5c90b575c3d26f036ca29ff05154d44d2ae8ffba7a1e1146962}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-T\-T\-A\-C\-K} = 10, 
+\hyperlink{intruder_8c_a34c16f19a8d56b5c90b575c3d26f036ca7b8a214d462d92fe63184853b5d9f9b7}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-E\-N\-G\-T\-H} = 16, 
+\hyperlink{intruder_8c_a34c16f19a8d56b5c90b575c3d26f036cade9400788145214857bc7dfc78d2c6d6}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M} = 1 $<$$<$ 20, 
+\hyperlink{intruder_8c_a34c16f19a8d56b5c90b575c3d26f036ca2231a716abf6bc5a053c51011ab9647c}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D} = 1, 
+\\*
+\hyperlink{intruder_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D} = 1, 
+\hyperlink{labyrinth_8c_a34c16f19a8d56b5c90b575c3d26f036ca772322ca1c0fa90a6ac051dfc61e8c35}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T} = 1, 
+\hyperlink{labyrinth_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D} = 1, 
+\hyperlink{labyrinth_8c_a34c16f19a8d56b5c90b575c3d26f036caaea0ecb0065448a50e5027334b1070f6}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-X\-C\-O\-S\-T} = 1, 
+\\*
+\hyperlink{labyrinth_8c_a34c16f19a8d56b5c90b575c3d26f036caa970781042242c407bdbcfda6b45155c}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Y\-C\-O\-S\-T} = 1, 
+\hyperlink{labyrinth_8c_a34c16f19a8d56b5c90b575c3d26f036ca8cb3da9bea7b96cf440598217f1b4744}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Z\-C\-O\-S\-T} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{bayes_8c_afa36de360eec20abef9d05d036b8b285}{display\-Usage} (const char $\ast$app\-Name)
+\item 
+static void \hyperlink{bayes_8c_a016efab4bdc7de50acd10796a39c7b33}{set\-Default\-Params} ()
+\item 
+static void \hyperlink{bayes_8c_accf0fd4bc6c5b765d7fc74882d20f222}{parse\-Args} (long argc, char $\ast$const argv\mbox{[}$\,$\mbox{]})
+\item 
+static float \hyperlink{bayes_8c_aa39a74293929705f5dfd47a76641d12a}{score} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr)
+\item 
+\hyperlink{bayes_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{M\-A\-I\-N} (argc, argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{bayes_8c_a0c6f50f729d4d107abf7d6c15d51640c}{global\-\_\-params} \mbox{[}256\mbox{]}
+\item 
+long \hyperlink{bayes_8c_a010ff63ad76a5580f266f7b9001be4f9}{global\-\_\-max\-Num\-Edge\-Learned} = \hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca3d724fabaaf69d297cc0b9f11df37ed8}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E}
+\item 
+long \hyperlink{bayes_8c_a195cfeaaa4f9abe8b0f9ee267571a08c}{global\-\_\-insert\-Penalty} = \hyperlink{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca6526615abb1d18a325895adfe03baa75}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T}
+\item 
+float \hyperlink{bayes_8c_a88d7bbe4159b4d4febb6897920f14471}{global\-\_\-operation\-Quality\-Factor} = \hyperlink{bayes_8c_ab7fa6bc19f0f9824449a65b0a5bbdc47}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bayes_8c_ab7fa6bc19f0f9824449a65b0a5bbdc47}{\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y}!bayes.c@{bayes.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y~1.\-0\-F}}\label{bayes_8c_ab7fa6bc19f0f9824449a65b0a5bbdc47}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036c}{\index{bayes.\-c@{bayes.\-c}!param\-\_\-defaults@{param\-\_\-defaults}}
+\index{param\-\_\-defaults@{param\-\_\-defaults}!bayes.c@{bayes.\-c}}
+\subsubsection[{param\-\_\-defaults}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf param\-\_\-defaults}}}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036c}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca3d724fabaaf69d297cc0b9f11df37ed8}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca3d724fabaaf69d297cc0b9f11df37ed8}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca6526615abb1d18a325895adfe03baa75}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca6526615abb1d18a325895adfe03baa75}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca7113c75554551f8fce67dfcc1afd9ed7}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca7113c75554551f8fce67dfcc1afd9ed7}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-P\-E\-R\-C\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-P\-E\-R\-C\-E\-N\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-P\-E\-R\-C\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-P\-E\-R\-C\-E\-N\-T}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca09a20e1864a9b0159d1ce6c7a4c3a173}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-P\-E\-R\-C\-E\-N\-T}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca09a20e1864a9b0159d1ce6c7a4c3a173}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-C\-O\-R\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-C\-O\-R\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-C\-O\-R\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-C\-O\-R\-D}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca626d0cd34a30349beb99e50c3caedad0}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-C\-O\-R\-D}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca626d0cd34a30349beb99e50c3caedad0}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca2231a716abf6bc5a053c51011ab9647c}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca2231a716abf6bc5a053c51011ab9647c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-V\-A\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-V\-A\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-V\-A\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-V\-A\-R}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caeca60b1a4c0b23c2c1552bab7bf56bd0}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-V\-A\-R}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caeca60b1a4c0b23c2c1552bab7bf56bd0}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-T\-T\-A\-C\-K@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-T\-T\-A\-C\-K}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-T\-T\-A\-C\-K@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-T\-T\-A\-C\-K}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca29ff05154d44d2ae8ffba7a1e1146962}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-T\-T\-A\-C\-K}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca29ff05154d44d2ae8ffba7a1e1146962}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-E\-N\-G\-T\-H@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-E\-N\-G\-T\-H}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-E\-N\-G\-T\-H@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-E\-N\-G\-T\-H}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca7b8a214d462d92fe63184853b5d9f9b7}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-E\-N\-G\-T\-H}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca7b8a214d462d92fe63184853b5d9f9b7}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036cade9400788145214857bc7dfc78d2c6d6}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036cade9400788145214857bc7dfc78d2c6d6}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca2231a716abf6bc5a053c51011ab9647c}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-E\-D}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca2231a716abf6bc5a053c51011ab9647c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca772322ca1c0fa90a6ac051dfc61e8c35}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca772322ca1c0fa90a6ac051dfc61e8c35}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca5bc9b922864283a0a6cdf3c87a318ecc}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-X\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-X\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-X\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-X\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caaea0ecb0065448a50e5027334b1070f6}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-X\-C\-O\-S\-T}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caaea0ecb0065448a50e5027334b1070f6}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Y\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Y\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Y\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Y\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caa970781042242c407bdbcfda6b45155c}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Y\-C\-O\-S\-T}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036caa970781042242c407bdbcfda6b45155c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Z\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Z\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Z\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Z\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca8cb3da9bea7b96cf440598217f1b4744}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Z\-C\-O\-S\-T}\label{bayes_8c_a34c16f19a8d56b5c90b575c3d26f036ca8cb3da9bea7b96cf440598217f1b4744}
+}]\end{description}
+\end{Desc}
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688c}{\index{bayes.\-c@{bayes.\-c}!param\-\_\-types@{param\-\_\-types}}
+\index{param\-\_\-types@{param\-\_\-types}!bayes.c@{bayes.\-c}}
+\subsubsection[{param\-\_\-types}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf param\-\_\-types}}}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688c}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E@{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E@{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae1e089fffa0a51ba4ce812904169aef9}{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae1e089fffa0a51ba4ce812904169aef9}
+}]\index{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T@{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T@{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca0f92ec055830431a6a2765b50e5b2973}{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca0f92ec055830431a6a2765b50e5b2973}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}
+}]\index{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca6672bcf164002bbef0853faf8ce30b92}{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca6672bcf164002bbef0853faf8ce30b92}
+}]\index{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D@{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D@{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca82d9e91c689c1f182fb35420b749f7d6}{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca82d9e91c689c1f182fb35420b749f7d6}
+}]\index{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-V\-A\-R@{P\-A\-R\-A\-M\-\_\-\-V\-A\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-V\-A\-R@{P\-A\-R\-A\-M\-\_\-\-V\-A\-R}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688caabf25d1f467352cbe7b4111973fdac84}{P\-A\-R\-A\-M\-\_\-\-V\-A\-R}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688caabf25d1f467352cbe7b4111973fdac84}
+}]\index{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E@{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E@{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae9ecb67a0716f816f88dbbe5c13a8ae4}{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae9ecb67a0716f816f88dbbe5c13a8ae4}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}
+}]\index{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca275a689bba706b230dbec8da7cd71ca1}{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca275a689bba706b230dbec8da7cd71ca1}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K@{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K@{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca86c72cc7ef78bf2315322352c4c64d57}{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca86c72cc7ef78bf2315322352c4c64d57}
+}]\index{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H@{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H@{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca8254a2e73a99bec7b129c814f7d72ca8}{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca8254a2e73a99bec7b129c814f7d72ca8}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca75731fe255b1db610be93bfb89fd1ca1}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca75731fe255b1db610be93bfb89fd1ca1}
+}]\index{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca862dab6d80c9d21eb19e8864e994f335}{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca862dab6d80c9d21eb19e8864e994f335}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688cafd939048b86bcb967efbad0f8222481a}{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688cafd939048b86bcb967efbad0f8222481a}
+}]\index{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca404432718bbc6b407bfafadc6863c781}{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca404432718bbc6b407bfafadc6863c781}
+}]\index{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca98adb97c9d3b363c140dcc8ccc828df2}{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca98adb97c9d3b363c140dcc8ccc828df2}
+}]\index{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S@{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S@{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca79d71b7631f0befc4cb8316092996b09}{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca79d71b7631f0befc4cb8316092996b09}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}
+}]\index{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S@{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S@{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca00dd82f01d9136ce8ba75ebcc193f359}{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca00dd82f01d9136ce8ba75ebcc193f359}
+}]\index{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca1e19ff0100ee27ae260a5119764bbe6a}{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca1e19ff0100ee27ae260a5119764bbe6a}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688cab610f31849afcf022d335292cb911aa7}{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688cab610f31849afcf022d335292cb911aa7}
+}]\index{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R@{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R}!bayes.\-c@{bayes.\-c}}\index{bayes.\-c@{bayes.\-c}!P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R@{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R}}\item[{\em 
+\hypertarget{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae2b667d5d6f60946a67bb7dceedf5f68}{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R}\label{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae2b667d5d6f60946a67bb7dceedf5f68}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{bayes_8c_afa36de360eec20abef9d05d036b8b285}{\index{bayes.\-c@{bayes.\-c}!display\-Usage@{display\-Usage}}
+\index{display\-Usage@{display\-Usage}!bayes.c@{bayes.\-c}}
+\subsubsection[{display\-Usage}]{\setlength{\rightskip}{0pt plus 5cm}static void display\-Usage (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{app\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{bayes_8c_afa36de360eec20abef9d05d036b8b285}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{bayes_8c_afa36de360eec20abef9d05d036b8b285_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bayes_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{\index{bayes.\-c@{bayes.\-c}!M\-A\-I\-N@{M\-A\-I\-N}}
+\index{M\-A\-I\-N@{M\-A\-I\-N}!bayes.c@{bayes.\-c}}
+\subsubsection[{M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}M\-A\-I\-N (
+\begin{DoxyParamCaption}
+\item[{argc}]{, }
+\item[{argv}]{}
+\end{DoxyParamCaption}
+)}}\label{bayes_8c_a40c5c0b0d4eb7b59a91108269f69dc89}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bayes_8c_a40c5c0b0d4eb7b59a91108269f69dc89_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bayes_8c_accf0fd4bc6c5b765d7fc74882d20f222}{\index{bayes.\-c@{bayes.\-c}!parse\-Args@{parse\-Args}}
+\index{parse\-Args@{parse\-Args}!bayes.c@{bayes.\-c}}
+\subsubsection[{parse\-Args}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-Args (
+\begin{DoxyParamCaption}
+\item[{long}]{argc, }
+\item[{char $\ast$const}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{bayes_8c_accf0fd4bc6c5b765d7fc74882d20f222}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{bayes_8c_accf0fd4bc6c5b765d7fc74882d20f222_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{bayes_8c_accf0fd4bc6c5b765d7fc74882d20f222_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bayes_8c_aa39a74293929705f5dfd47a76641d12a}{\index{bayes.\-c@{bayes.\-c}!score@{score}}
+\index{score@{score}!bayes.c@{bayes.\-c}}
+\subsubsection[{score}]{\setlength{\rightskip}{0pt plus 5cm}static float score (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{bayes_8c_aa39a74293929705f5dfd47a76641d12a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bayes_8c_aa39a74293929705f5dfd47a76641d12a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bayes_8c_aa39a74293929705f5dfd47a76641d12a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bayes_8c_a016efab4bdc7de50acd10796a39c7b33}{\index{bayes.\-c@{bayes.\-c}!set\-Default\-Params@{set\-Default\-Params}}
+\index{set\-Default\-Params@{set\-Default\-Params}!bayes.c@{bayes.\-c}}
+\subsubsection[{set\-Default\-Params}]{\setlength{\rightskip}{0pt plus 5cm}static void set\-Default\-Params (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{bayes_8c_a016efab4bdc7de50acd10796a39c7b33}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bayes_8c_a016efab4bdc7de50acd10796a39c7b33_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{bayes_8c_a195cfeaaa4f9abe8b0f9ee267571a08c}{\index{bayes.\-c@{bayes.\-c}!global\-\_\-insert\-Penalty@{global\-\_\-insert\-Penalty}}
+\index{global\-\_\-insert\-Penalty@{global\-\_\-insert\-Penalty}!bayes.c@{bayes.\-c}}
+\subsubsection[{global\-\_\-insert\-Penalty}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-insert\-Penalty = {\bf P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-S\-E\-R\-T}}}\label{bayes_8c_a195cfeaaa4f9abe8b0f9ee267571a08c}
+\hypertarget{bayes_8c_a010ff63ad76a5580f266f7b9001be4f9}{\index{bayes.\-c@{bayes.\-c}!global\-\_\-max\-Num\-Edge\-Learned@{global\-\_\-max\-Num\-Edge\-Learned}}
+\index{global\-\_\-max\-Num\-Edge\-Learned@{global\-\_\-max\-Num\-Edge\-Learned}!bayes.c@{bayes.\-c}}
+\subsubsection[{global\-\_\-max\-Num\-Edge\-Learned}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-max\-Num\-Edge\-Learned = {\bf P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-E\-D\-G\-E}}}\label{bayes_8c_a010ff63ad76a5580f266f7b9001be4f9}
+\hypertarget{bayes_8c_a88d7bbe4159b4d4febb6897920f14471}{\index{bayes.\-c@{bayes.\-c}!global\-\_\-operation\-Quality\-Factor@{global\-\_\-operation\-Quality\-Factor}}
+\index{global\-\_\-operation\-Quality\-Factor@{global\-\_\-operation\-Quality\-Factor}!bayes.c@{bayes.\-c}}
+\subsubsection[{global\-\_\-operation\-Quality\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}float global\-\_\-operation\-Quality\-Factor = {\bf P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-A\-L\-I\-T\-Y}}}\label{bayes_8c_a88d7bbe4159b4d4febb6897920f14471}
+\hypertarget{bayes_8c_a0c6f50f729d4d107abf7d6c15d51640c}{\index{bayes.\-c@{bayes.\-c}!global\-\_\-params@{global\-\_\-params}}
+\index{global\-\_\-params@{global\-\_\-params}!bayes.c@{bayes.\-c}}
+\subsubsection[{global\-\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-params\mbox{[}256\mbox{]}}}\label{bayes_8c_a0c6f50f729d4d107abf7d6c15d51640c}

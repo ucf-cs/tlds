@@ -1,0 +1,18 @@
+<map id="TransList::Insert" name="TransList::Insert">
+<area shape="rect" id="node2" href="$classAllocator.html#ab991ae25a95eb984d8ef4e2d12db6178" title="Allocator::Alloc" alt="" coords="859,192,970,218"/>
+<area shape="rect" id="node3" href="$avltree_8c.html#a645f38498ce0006cd109919b893e21f4" title="new_node" alt="" coords="225,90,306,117"/>
+<area shape="rect" id="node4" href="$classTransList.html#aeab677f18c6e898efda31cca493c26c1" title="TransList::LocatePred" alt="" coords="839,242,990,269"/>
+<area shape="rect" id="node5" href="$classTransList.html#a6154ae0491b3194b51194694a182b2e4" title="TransList::IsNodeExist" alt="" coords="837,293,993,320"/>
+<area shape="rect" id="node6" href="$classTransList.html#acb41d121c9576454e04c266e1fd16960" title="TransList::ASSERT_CODE" alt="" coords="823,90,1007,117"/>
+<area shape="rect" id="node7" href="$classTransList.html#a7ed667a308f2f7422dde28c7fe40cdc7" title="TransList::FinishPendingTxn" alt="" coords="171,293,359,320"/>
+<area shape="rect" id="node12" href="$classTransList.html#a43cd23404964da4642819074b68459a5" title="TransList::IsSameOperation" alt="" coords="822,344,1007,370"/>
+<area shape="rect" id="node13" href="$classTransList.html#a83d76bc637fa7e3b9e705d7792e949ed" title="TransList::IsKeyExist" alt="" coords="841,394,989,421"/>
+<area shape="rect" id="node8" href="$classTransList.html#aa7e67c5ff8aeadc6d1d7791a297a58c4" title="TransList::HelpOps" alt="" coords="409,350,543,377"/>
+<area shape="rect" id="node9" href="$structTransList_1_1HelpStack.html#ab2202f6b8230d901f572cb478e0b348e" title="TransList::HelpStack\l::Contain" alt="" coords="610,344,755,386"/>
+<area shape="rect" id="node10" href="$structTransList_1_1HelpStack.html#a319263ee24304f1beed845f1ab4f1997" title="TransList::HelpStack\l::Push" alt="" coords="610,410,755,451"/>
+<area shape="rect" id="node11" href="$classTransList.html#ae48aacff3239bd5b85749631c2ac271a" title="TransList::Delete" alt="" coords="621,242,744,269"/>
+<area shape="rect" id="node15" href="$classTransList.html#ab75389528ee7e0773ac0fe9c00351670" title="TransList::Find" alt="" coords="628,293,737,320"/>
+<area shape="rect" id="node16" href="$structTransList_1_1HelpStack.html#a904c73647d6093edd7e4cc3334d1aa0c" title="TransList::HelpStack::Pop" alt="" coords="595,476,771,502"/>
+<area shape="rect" id="node17" href="$classTransList.html#a13f1abe3e7a04039c8150dd347737cb8" title="TransList::MarkForDeletion" alt="" coords="593,526,773,553"/>
+<area shape="rect" id="node14" href="$classTransList.html#a153541a58266143ebb08963d3c955952" title="TransList::IsNodeActive" alt="" coords="1056,394,1219,421"/>
+</map>

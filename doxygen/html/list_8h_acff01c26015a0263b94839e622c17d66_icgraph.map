@@ -1,0 +1,20 @@
+<map id="Plist_alloc" name="Plist_alloc">
+<area shape="rect" id="node2" href="$learner_8h.html#aea1955f8471f02d66c6a39136d621f5b" title="learner_alloc" alt="" coords="561,149,655,176"/>
+<area shape="rect" id="node8" href="$net_8c.html#a030be629086cd702f3bf5b69aaf97842" title="allocNode" alt="" coords="165,200,245,227"/>
+<area shape="rect" id="node11" href="$customer_8h.html#a977a1905b51f19c2b024776bcad52548" title="customer_alloc_seq" alt="" coords="136,251,275,277"/>
+<area shape="rect" id="node16" href="$element_8h.html#a1a00d843176baba36fcdf77c6c37d6f8" title="element_alloc" alt="" coords="154,301,257,328"/>
+<area shape="rect" id="node3" href="$bayes_8c.html#aa39a74293929705f5dfd47a76641d12a" title="score" alt="" coords="739,99,794,125"/>
+<area shape="rect" id="node4" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="1184,99,1240,125"/>
+<area shape="rect" id="node5" href="$learner_8c.html#a5a45fbc491ab273140631145a6e82e54" title="createTaskList" alt="" coords="875,48,983,75"/>
+<area shape="rect" id="node7" href="$learner_8h.html#a643517a90c64064dfb94cb9cb8d6eddf" title="learner_score" alt="" coords="879,99,979,125"/>
+<area shape="rect" id="node6" href="$learner_8h.html#a23d451d4d355a14fa7c9735304ba4d95" title="learner_run" alt="" coords="1041,48,1127,75"/>
+<area shape="rect" id="node9" href="$net_8h.html#a0e1584818d0f7bb3619e74222bc3f918" title="net_alloc" alt="" coords="379,200,453,227"/>
+<area shape="rect" id="node10" href="$data_8h.html#a0f45b98c6cac17904d9daf25fbdc1dc9" title="data_generate" alt="" coords="1032,200,1136,227"/>
+<area shape="rect" id="node12" href="$manager_8h.html#a065147f4828a2f8104c450af70f20371" title="manager_addCustomer_seq" alt="" coords="323,251,509,277"/>
+<area shape="rect" id="node13" href="$vacation_8c.html#a71a90924e6bac2c48cdfc1153b33084b" title="addCustomer" alt="" coords="558,251,658,277"/>
+<area shape="rect" id="node14" href="$vacation_8c.html#a50cbd725eec0f7508965d533f2dadf44" title="initializeManager" alt="" coords="707,251,826,277"/>
+<area shape="rect" id="node15" href="$vacation_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="901,251,957,277"/>
+<area shape="rect" id="node17" href="$mesh_8c.html#a0351e3ec738e05a319ead0e2e44353d0" title="createElement" alt="" coords="363,301,469,328"/>
+<area shape="rect" id="node18" href="$mesh_8h.html#a0ee17a9bc1b62a498c98f8e0dc41d902" title="mesh_read" alt="" coords="565,301,651,328"/>
+<area shape="rect" id="node19" href="$yada_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="739,301,795,328"/>
+</map>

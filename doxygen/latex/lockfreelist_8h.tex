@@ -1,0 +1,54 @@
+\hypertarget{lockfreelist_8h}{\section{boosting/list/lockfreelist.h File Reference}
+\label{lockfreelist_8h}\index{boosting/list/lockfreelist.\-h@{boosting/list/lockfreelist.\-h}}
+}
+{\ttfamily \#include $<$cstdint$>$}\\*
+Include dependency graph for lockfreelist.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{lockfreelist_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lockfreelist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLockfreeList}{Lockfree\-List}
+\item 
+struct \hyperlink{structLockfreeList_1_1Node}{Lockfree\-List\-::\-Node}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lockfreelist_8h_afb8ce4456ad39c9a2aa7198c8a8c3f0e}{C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L}(addr, old, new)~(old == C\-A\-S\-\_\-\-P\-T\-R(addr, old, new))
+\item 
+\#define \hyperlink{lockfreelist_8h_a9d95772e57a729d564fb1aa461594c40}{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}~1000000
+\item 
+\#define \hyperlink{lockfreelist_8h_ad4e118fe75f9a1cce9823a4749be07b3}{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T}~500
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{lockfreelist_8h_afb8ce4456ad39c9a2aa7198c8a8c3f0e}{\index{lockfreelist.\-h@{lockfreelist.\-h}!C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L@{C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L}}
+\index{C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L@{C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L}!lockfreelist.h@{lockfreelist.\-h}}
+\subsubsection[{C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S\-\_\-\-P\-T\-R\-\_\-\-B\-O\-O\-L(
+\begin{DoxyParamCaption}
+\item[{}]{addr, }
+\item[{}]{old, }
+\item[{}]{new}
+\end{DoxyParamCaption}
+)~(old == C\-A\-S\-\_\-\-P\-T\-R(addr, old, new))}}\label{lockfreelist_8h_afb8ce4456ad39c9a2aa7198c8a8c3f0e}
+\hypertarget{lockfreelist_8h_ad4e118fe75f9a1cce9823a4749be07b3}{\index{lockfreelist.\-h@{lockfreelist.\-h}!M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T@{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T}}
+\index{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T@{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T}!lockfreelist.h@{lockfreelist.\-h}}
+\subsubsection[{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-N\-T~500}}\label{lockfreelist_8h_ad4e118fe75f9a1cce9823a4749be07b3}
+\hypertarget{lockfreelist_8h_a9d95772e57a729d564fb1aa461594c40}{\index{lockfreelist.\-h@{lockfreelist.\-h}!M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}}
+\index{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}!lockfreelist.h@{lockfreelist.\-h}}
+\subsubsection[{M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-M\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E~1000000}}\label{lockfreelist_8h_a9d95772e57a729d564fb1aa461594c40}

@@ -1,0 +1,81 @@
+\hypertarget{namespaceanonymous__namespace_02oreclazy_8cpp_03}{\section{anonymous\-\_\-namespace\{oreclazy.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02oreclazy_8cpp_03}\index{anonymous\-\_\-namespace\{oreclazy.\-cpp\}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02oreclazy_8cpp_03_1_1OrecLazy__Generic}{Orec\-Lazy\-\_\-\-Generic}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_a228bf9de4c09f23374e35032fba36d36}{on\-Switch\-To} ()
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_acf582010356d11b17267b5a63fe72066}{irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,))
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} void \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_a8434dca53f6bf86e1ac69c7d3c135251}{validate} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_a91428098388d7e210055baacee0f0481}{irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, upper\-\_\-stack\-\_\-bound))
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02oreclazy_8cpp_03_acf582010356d11b17267b5a63fe72066}{\index{anonymous\-\_\-namespace\{oreclazy.\-cpp\}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}!irrevoc@{irrevoc}}
+\index{irrevoc@{irrevoc}!anonymous_namespace{oreclazy.cpp}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}}
+\subsubsection[{irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::irrevoc (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreclazy_8cpp_03_acf582010356d11b17267b5a63fe72066}
+\hypertarget{namespaceanonymous__namespace_02oreclazy_8cpp_03_a91428098388d7e210055baacee0f0481}{\index{anonymous\-\_\-namespace\{oreclazy.\-cpp\}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}!irrevoc@{irrevoc}}
+\index{irrevoc@{irrevoc}!anonymous_namespace{oreclazy.cpp}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}}
+\subsubsection[{irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::irrevoc (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}({\bf tx}, upper\-\_\-stack\-\_\-bound)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreclazy_8cpp_03_a91428098388d7e210055baacee0f0481}
+Orec\-Lazy in-\/flight irrevocability\-:
+
+Either commit the transaction or return false. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreclazy_8cpp_03_a91428098388d7e210055baacee0f0481_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreclazy_8cpp_03_a228bf9de4c09f23374e35032fba36d36}{\index{anonymous\-\_\-namespace\{oreclazy.\-cpp\}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}!on\-Switch\-To@{on\-Switch\-To}}
+\index{on\-Switch\-To@{on\-Switch\-To}!anonymous_namespace{oreclazy.cpp}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}}
+\subsubsection[{on\-Switch\-To}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::on\-Switch\-To (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreclazy_8cpp_03_a228bf9de4c09f23374e35032fba36d36}
+Switch to Orec\-Lazy\-:
+
+The timestamp must be $>$= the maximum value of any orec. Some algs use timestamp as a zero-\/one mutex. If they do, then they back up the timestamp first, in timestamp\-\_\-max. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02oreclazy_8cpp_03_a228bf9de4c09f23374e35032fba36d36_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02oreclazy_8cpp_03_a8434dca53f6bf86e1ac69c7d3c135251}{\index{anonymous\-\_\-namespace\{oreclazy.\-cpp\}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}!validate@{validate}}
+\index{validate@{validate}!anonymous_namespace{oreclazy.cpp}@{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\-O\-I\-N\-L\-I\-N\-E} void anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::validate (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02oreclazy_8cpp_03_a8434dca53f6bf86e1ac69c7d3c135251}
+Orec\-Lazy validation\-:
+
+We only call this when in-\/flight, which means that we don't have any locks... This makes the code very simple, but it is still better to not inline it. 

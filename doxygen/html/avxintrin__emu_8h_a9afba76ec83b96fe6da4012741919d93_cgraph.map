@@ -1,0 +1,4 @@
+<map id="__emu_mm256_setr_epi64x" name="__emu_mm256_setr_epi64x">
+<area shape="rect" id="node2" href="$avxintrin__emu_8h.html#a1341e5bf31b4f558286023faff04f9ca" title="__emu_mm_set_epi64x" alt="" coords="240,5,400,32"/>
+<area shape="rect" id="node3" href="$avxintrin__emu_8h.html#a72d54be78196aa9cf31d5450b43127e2" title="__emu_set_m128i" alt="" coords="256,56,384,83"/>
+</map>

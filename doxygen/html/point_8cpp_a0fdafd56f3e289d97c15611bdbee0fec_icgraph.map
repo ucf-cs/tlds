@@ -1,0 +1,12 @@
+<map id="det3" name="det3">
+<area shape="rect" id="node2" href="$point_8cpp.html#a0586855a04f97999cb91cca634421222" title="det4" alt="" coords="102,55,149,81"/>
+<area shape="rect" id="node3" href="$point_8hpp.html#adc5a37ca463ce316961d084c335b2f1b" title="encircled" alt="" coords="197,55,272,81"/>
+<area shape="rect" id="node4" href="$dwyer_8cpp.html#ac5af40cdd517beac7515468404be6c72" title="stitch" alt="" coords="561,29,615,56"/>
+<area shape="rect" id="node9" href="$classedge.html#aad0f6a205dbe62d5f1bc564cb66cd9e8" title="edge::reconsider" alt="" coords="529,105,647,132"/>
+<area shape="rect" id="node11" href="$structpv__side.html#ab6c6440d122035bd15a096d96350ce77" title="pv_side::find_candidate" alt="" coords="321,55,479,81"/>
+<area shape="rect" id="node5" href="$dwyer_8hpp.html#af02e2aa3c0f40c330c2d1bc03ad9438a" title="dwyer_solve" alt="" coords="707,29,802,56"/>
+<area shape="rect" id="node6" href="$mesh_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="872,29,923,56"/>
+<area shape="rect" id="node7" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="862,80,933,107"/>
+<area shape="rect" id="node8" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="982,80,1106,107"/>
+<area shape="rect" id="node10" href="$worker_8cpp.html#aaaf358d95d261241cf6073eaf7de2a94" title="reconsider_edge" alt="" coords="696,131,813,157"/>
+</map>

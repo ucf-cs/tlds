@@ -1,0 +1,124 @@
+\hypertarget{queues_8cpp}{\section{rstm/rstm-\/dev/mesh/queues.cpp File Reference}
+\label{queues_8cpp}\index{rstm/rstm-\/dev/mesh/queues.\-cpp@{rstm/rstm-\/dev/mesh/queues.\-cpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}edge.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queues.\-hpp\char`\"{}}\\*
+Include dependency graph for queues.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queues_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structqnode__t}{qnode\-\_\-t$<$ T $>$}
+\item 
+class \hyperlink{classblock__pool}{block\-\_\-pool$<$ T $>$}
+\item 
+struct \hyperlink{structblock__pool_1_1shared__block__t}{block\-\_\-pool$<$ T $>$\-::shared\-\_\-block\-\_\-t}
+\item 
+struct \hyperlink{structblock__pool_1_1block__head__node__t}{block\-\_\-pool$<$ T $>$\-::block\-\_\-head\-\_\-node\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{queues_8cpp_a16e90c60ad68fd8646dc24dedad10c5a}{alloc\-\_\-mmap} (unsigned size)
+\item 
+void \hyperlink{queues_8cpp_ada583800adbfa89fd475f7de0b05163d}{free\-\_\-mmap} (void $\ast$)
+\item 
+static unsigned long long \hyperlink{queues_8cpp_a6499d4f1af7965a1e2ec7fa2ce62b07d}{a\-\_\-ld} (volatile unsigned long long $\ast$src)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+shared\-\_\-block\-\_\-t $\ast$volatile \hyperlink{queues_8cpp_a1598313e958f37e6ad029867ac89e3ff}{top}
+\item 
+shared\-\_\-block\-\_\-t $\ast$volatile \hyperlink{queues_8cpp_adb788e0b013fa2cf038d50e2938aef8a}{nth}
+\item 
+volatile unsigned long \hyperlink{queues_8cpp_a878712936e2532aba564589865c50f85}{count}
+\item 
+static \hyperlink{classblock__pool}{block\-\_\-pool}$<$ \hyperlink{classedge}{edge} $\ast$ $>$ $\ast$ \hyperlink{queues_8cpp_af711d55973ba2816b0e5e7028ec8083d}{bp} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{queues_8cpp_a6499d4f1af7965a1e2ec7fa2ce62b07d}{\index{queues.\-cpp@{queues.\-cpp}!a\-\_\-ld@{a\-\_\-ld}}
+\index{a\-\_\-ld@{a\-\_\-ld}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{a\-\_\-ld}]{\setlength{\rightskip}{0pt plus 5cm}static unsigned long long a\-\_\-ld (
+\begin{DoxyParamCaption}
+\item[{volatile unsigned long long $\ast$}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{queues_8cpp_a6499d4f1af7965a1e2ec7fa2ce62b07d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queues_8cpp_a6499d4f1af7965a1e2ec7fa2ce62b07d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queues_8cpp_a16e90c60ad68fd8646dc24dedad10c5a}{\index{queues.\-cpp@{queues.\-cpp}!alloc\-\_\-mmap@{alloc\-\_\-mmap}}
+\index{alloc\-\_\-mmap@{alloc\-\_\-mmap}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{alloc\-\_\-mmap}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ alloc\-\_\-mmap (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{queues_8cpp_a16e90c60ad68fd8646dc24dedad10c5a}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{queues_8cpp_a16e90c60ad68fd8646dc24dedad10c5a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queues_8cpp_ada583800adbfa89fd475f7de0b05163d}{\index{queues.\-cpp@{queues.\-cpp}!free\-\_\-mmap@{free\-\_\-mmap}}
+\index{free\-\_\-mmap@{free\-\_\-mmap}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{free\-\_\-mmap}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-mmap (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{queues_8cpp_ada583800adbfa89fd475f7de0b05163d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{queues_8cpp_ada583800adbfa89fd475f7de0b05163d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{queues_8cpp_af711d55973ba2816b0e5e7028ec8083d}{\index{queues.\-cpp@{queues.\-cpp}!bp@{bp}}
+\index{bp@{bp}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{bp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf block\-\_\-pool}$<${\bf edge}$\ast$$>$$\ast$ bp = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{queues_8cpp_af711d55973ba2816b0e5e7028ec8083d}
+\hypertarget{queues_8cpp_a878712936e2532aba564589865c50f85}{\index{queues.\-cpp@{queues.\-cpp}!count@{count}}
+\index{count@{count}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long count}}\label{queues_8cpp_a878712936e2532aba564589865c50f85}
+\hypertarget{queues_8cpp_adb788e0b013fa2cf038d50e2938aef8a}{\index{queues.\-cpp@{queues.\-cpp}!nth@{nth}}
+\index{nth@{nth}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{nth}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-block\-\_\-t$\ast$ volatile nth}}\label{queues_8cpp_adb788e0b013fa2cf038d50e2938aef8a}
+\hypertarget{queues_8cpp_a1598313e958f37e6ad029867ac89e3ff}{\index{queues.\-cpp@{queues.\-cpp}!top@{top}}
+\index{top@{top}!queues.cpp@{queues.\-cpp}}
+\subsubsection[{top}]{\setlength{\rightskip}{0pt plus 5cm}shared\-\_\-block\-\_\-t$\ast$ volatile top}}\label{queues_8cpp_a1598313e958f37e6ad029867ac89e3ff}

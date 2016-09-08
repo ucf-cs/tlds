@@ -1,0 +1,102 @@
+\hypertarget{structCustomForest}{\section{Custom\-Forest Struct Reference}
+\label{structCustomForest}\index{Custom\-Forest@{Custom\-Forest}}
+}
+
+
+Collaboration diagram for Custom\-Forest\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structCustomForest__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structCustomForest_ad44371ca2d5043de9a084343cb02dcf9}{Custom\-Forest} (uint32\-\_\-t keys, uint32\-\_\-t ro, uint32\-\_\-t numtrees, uint32\-\_\-t per)
+\item 
+\hyperlink{structCustomForest_a55f34066a69ac53eafeddb0dc3779245}{$\sim$\-Custom\-Forest} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{structCustomForest_a4fb358056d0c2b9959d025bbb91d3bf1}{keydepths}
+\item 
+uint32\-\_\-t \hyperlink{structCustomForest_ae8739de035eeb4214ac1861ad3453405}{roratio}
+\item 
+uint32\-\_\-t \hyperlink{structCustomForest_a8011fa27621e3a81f4f614ac718370b0}{insratio}
+\item 
+uint32\-\_\-t \hyperlink{structCustomForest_a2a68926260c0bcc10b91127362897e87}{total\-\_\-trees}
+\item 
+uint32\-\_\-t \hyperlink{structCustomForest_a2f890aea4e4375743240e33ba940e0d6}{trees\-\_\-per\-\_\-tx}
+\item 
+\hyperlink{classRBTree}{R\-B\-Tree} $\ast$$\ast$ \hyperlink{structCustomForest_a473d09bb83cd583577c8a99247fac849}{trees}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information Step 1\-: Include the configuration code for the harness, and the A\-P\-I code. We provide the option to build the entire benchmark in a single source. The \hyperlink{bmconfig_8hpp}{bmconfig.\-hpp} include defines all of the important functions that are implemented in this file, and \hyperlink{bmharness_8cpp}{bmharness.\-cpp} defines the execution infrastructure. Step 2\-: Declare the data type that will be stress tested via this benchmark. Also provide any functions that will be needed to manipulate the data type. Take care to avoid unnecessary indirection. Forest of R\-B\-Trees
+
+In the past, we made this have lots of different sized trees. That, in turn, led to a lot of complexity, and resulted in the benchmark not receiving much use. In this new instance, we make things less configurable, but hopefully more useful.
+
+The Forest holds many trees, all of which are exactly the same wrt key range and lookup ratio. A transaction performs a fixed number of tree ops on the forest, selecting trees at random (with replacement). 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structCustomForest_ad44371ca2d5043de9a084343cb02dcf9}{\index{Custom\-Forest@{Custom\-Forest}!Custom\-Forest@{Custom\-Forest}}
+\index{Custom\-Forest@{Custom\-Forest}!CustomForest@{Custom\-Forest}}
+\subsubsection[{Custom\-Forest}]{\setlength{\rightskip}{0pt plus 5cm}Custom\-Forest\-::\-Custom\-Forest (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{keys, }
+\item[{uint32\-\_\-t}]{ro, }
+\item[{uint32\-\_\-t}]{numtrees, }
+\item[{uint32\-\_\-t}]{per}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structCustomForest_ad44371ca2d5043de9a084343cb02dcf9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{structCustomForest_ad44371ca2d5043de9a084343cb02dcf9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structCustomForest_a55f34066a69ac53eafeddb0dc3779245}{\index{Custom\-Forest@{Custom\-Forest}!$\sim$\-Custom\-Forest@{$\sim$\-Custom\-Forest}}
+\index{$\sim$\-Custom\-Forest@{$\sim$\-Custom\-Forest}!CustomForest@{Custom\-Forest}}
+\subsubsection[{$\sim$\-Custom\-Forest}]{\setlength{\rightskip}{0pt plus 5cm}Custom\-Forest\-::$\sim$\-Custom\-Forest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structCustomForest_a55f34066a69ac53eafeddb0dc3779245}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structCustomForest_a8011fa27621e3a81f4f614ac718370b0}{\index{Custom\-Forest@{Custom\-Forest}!insratio@{insratio}}
+\index{insratio@{insratio}!CustomForest@{Custom\-Forest}}
+\subsubsection[{insratio}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Custom\-Forest\-::insratio}}\label{structCustomForest_a8011fa27621e3a81f4f614ac718370b0}
+\hypertarget{structCustomForest_a4fb358056d0c2b9959d025bbb91d3bf1}{\index{Custom\-Forest@{Custom\-Forest}!keydepths@{keydepths}}
+\index{keydepths@{keydepths}!CustomForest@{Custom\-Forest}}
+\subsubsection[{keydepths}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Custom\-Forest\-::keydepths}}\label{structCustomForest_a4fb358056d0c2b9959d025bbb91d3bf1}
+\hypertarget{structCustomForest_ae8739de035eeb4214ac1861ad3453405}{\index{Custom\-Forest@{Custom\-Forest}!roratio@{roratio}}
+\index{roratio@{roratio}!CustomForest@{Custom\-Forest}}
+\subsubsection[{roratio}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Custom\-Forest\-::roratio}}\label{structCustomForest_ae8739de035eeb4214ac1861ad3453405}
+\hypertarget{structCustomForest_a2a68926260c0bcc10b91127362897e87}{\index{Custom\-Forest@{Custom\-Forest}!total\-\_\-trees@{total\-\_\-trees}}
+\index{total\-\_\-trees@{total\-\_\-trees}!CustomForest@{Custom\-Forest}}
+\subsubsection[{total\-\_\-trees}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Custom\-Forest\-::total\-\_\-trees}}\label{structCustomForest_a2a68926260c0bcc10b91127362897e87}
+\hypertarget{structCustomForest_a473d09bb83cd583577c8a99247fac849}{\index{Custom\-Forest@{Custom\-Forest}!trees@{trees}}
+\index{trees@{trees}!CustomForest@{Custom\-Forest}}
+\subsubsection[{trees}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-B\-Tree}$\ast$$\ast$ Custom\-Forest\-::trees}}\label{structCustomForest_a473d09bb83cd583577c8a99247fac849}
+\hypertarget{structCustomForest_a2f890aea4e4375743240e33ba940e0d6}{\index{Custom\-Forest@{Custom\-Forest}!trees\-\_\-per\-\_\-tx@{trees\-\_\-per\-\_\-tx}}
+\index{trees\-\_\-per\-\_\-tx@{trees\-\_\-per\-\_\-tx}!CustomForest@{Custom\-Forest}}
+\subsubsection[{trees\-\_\-per\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Custom\-Forest\-::trees\-\_\-per\-\_\-tx}}\label{structCustomForest_a2f890aea4e4375743240e33ba940e0d6}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/bench/\hyperlink{ForestBench_8cpp}{Forest\-Bench.\-cpp}\end{DoxyCompactItemize}

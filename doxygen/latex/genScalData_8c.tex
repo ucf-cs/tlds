@@ -1,0 +1,162 @@
+\hypertarget{genScalData_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/ssca2/gen\-Scal\-Data.c File Reference}
+\label{genScalData_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/ssca2/gen\-Scal\-Data.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/ssca2/gen\-Scal\-Data.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}alg\-\_\-radix\-\_\-smp.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}create\-Partition.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}gen\-Scal\-Data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}globals.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for gen\-Scal\-Data.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{genScalData_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{genScalData_8c_a4885ce59d36c89468f52212b59d390bf}{gen\-Scal\-Data\-\_\-seq} (\hyperlink{structgraphSDG}{graph\-S\-D\-G} $\ast$S\-D\-Gdata\-Ptr)
+\item 
+void \hyperlink{genScalData_8c_ac380874217ff9a010adeea46c52ec486}{gen\-Scal\-Data} (void $\ast$arg\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_a933a98964190293c45934d84f56d27eb}{global\-\_\-perm\-V} = N\-U\-L\-L
+\item 
+static long $\ast$ \hyperlink{genScalData_8c_a28e03920d113b2d5db0009979b920059}{global\-\_\-clique\-Sizes} = N\-U\-L\-L
+\item 
+static long \hyperlink{genScalData_8c_aa8b69e2612017df58856612c744a2113}{global\-\_\-tot\-Cliques} = 0
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_ade3d7e7b0c7885c69c75a89c82fda3ed}{global\-\_\-first\-Vs\-In\-Cliques} = N\-U\-L\-L
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_a0d486f740d9ca4bc7411262191c75237}{global\-\_\-last\-Vs\-In\-Cliques} = N\-U\-L\-L
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_a91177f4549ebeda7c20caea0e89c34ca}{global\-\_\-i\-\_\-edge\-Start\-Counter} = N\-U\-L\-L
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_ae175d1c264255691bfe3440311cce47d}{global\-\_\-i\-\_\-edge\-End\-Counter} = N\-U\-L\-L
+\item 
+static long \hyperlink{genScalData_8c_a05e37940ed4742fb7986ba6486157570}{global\-\_\-edge\-Num} = 0
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} \hyperlink{genScalData_8c_adf51fa161da6beae00683fd92120a3f3}{global\-\_\-num\-Str\-Wt\-Edges} = 0
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_ae5bb341ac87f2f605076a27302204ee0}{global\-\_\-start\-Vertex} = N\-U\-L\-L
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_abd1f3f6a1f36b532be1913787640d3a9}{global\-\_\-end\-Vertex} = N\-U\-L\-L
+\item 
+static \hyperlink{defs_8h_ade719b705ff384b386384c9385517e0b}{U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} $\ast$ \hyperlink{genScalData_8c_aa85e4a11ed59a02824b1609466e40b67}{global\-\_\-temp\-Index} = N\-U\-L\-L
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{genScalData_8c_ac380874217ff9a010adeea46c52ec486}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!gen\-Scal\-Data@{gen\-Scal\-Data}}
+\index{gen\-Scal\-Data@{gen\-Scal\-Data}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{gen\-Scal\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void gen\-Scal\-Data (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{genScalData_8c_ac380874217ff9a010adeea46c52ec486}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{genScalData_8c_ac380874217ff9a010adeea46c52ec486_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{genScalData_8c_ac380874217ff9a010adeea46c52ec486_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{genScalData_8c_a4885ce59d36c89468f52212b59d390bf}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!gen\-Scal\-Data\-\_\-seq@{gen\-Scal\-Data\-\_\-seq}}
+\index{gen\-Scal\-Data\-\_\-seq@{gen\-Scal\-Data\-\_\-seq}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{gen\-Scal\-Data\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}void gen\-Scal\-Data\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf graph\-S\-D\-G} $\ast$}]{S\-D\-Gdata\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{genScalData_8c_a4885ce59d36c89468f52212b59d390bf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{genScalData_8c_a4885ce59d36c89468f52212b59d390bf_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{genScalData_8c_a4885ce59d36c89468f52212b59d390bf_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{genScalData_8c_a28e03920d113b2d5db0009979b920059}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-clique\-Sizes@{global\-\_\-clique\-Sizes}}
+\index{global\-\_\-clique\-Sizes@{global\-\_\-clique\-Sizes}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-clique\-Sizes}]{\setlength{\rightskip}{0pt plus 5cm}long$\ast$ global\-\_\-clique\-Sizes = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_a28e03920d113b2d5db0009979b920059}
+\hypertarget{genScalData_8c_a05e37940ed4742fb7986ba6486157570}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-edge\-Num@{global\-\_\-edge\-Num}}
+\index{global\-\_\-edge\-Num@{global\-\_\-edge\-Num}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-edge\-Num}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-edge\-Num = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_a05e37940ed4742fb7986ba6486157570}
+\hypertarget{genScalData_8c_abd1f3f6a1f36b532be1913787640d3a9}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-end\-Vertex@{global\-\_\-end\-Vertex}}
+\index{global\-\_\-end\-Vertex@{global\-\_\-end\-Vertex}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-end\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-end\-Vertex = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_abd1f3f6a1f36b532be1913787640d3a9}
+\hypertarget{genScalData_8c_ade3d7e7b0c7885c69c75a89c82fda3ed}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-first\-Vs\-In\-Cliques@{global\-\_\-first\-Vs\-In\-Cliques}}
+\index{global\-\_\-first\-Vs\-In\-Cliques@{global\-\_\-first\-Vs\-In\-Cliques}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-first\-Vs\-In\-Cliques}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-first\-Vs\-In\-Cliques = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_ade3d7e7b0c7885c69c75a89c82fda3ed}
+\hypertarget{genScalData_8c_ae175d1c264255691bfe3440311cce47d}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-i\-\_\-edge\-End\-Counter@{global\-\_\-i\-\_\-edge\-End\-Counter}}
+\index{global\-\_\-i\-\_\-edge\-End\-Counter@{global\-\_\-i\-\_\-edge\-End\-Counter}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-i\-\_\-edge\-End\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-i\-\_\-edge\-End\-Counter = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_ae175d1c264255691bfe3440311cce47d}
+\hypertarget{genScalData_8c_a91177f4549ebeda7c20caea0e89c34ca}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-i\-\_\-edge\-Start\-Counter@{global\-\_\-i\-\_\-edge\-Start\-Counter}}
+\index{global\-\_\-i\-\_\-edge\-Start\-Counter@{global\-\_\-i\-\_\-edge\-Start\-Counter}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-i\-\_\-edge\-Start\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-i\-\_\-edge\-Start\-Counter = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_a91177f4549ebeda7c20caea0e89c34ca}
+\hypertarget{genScalData_8c_a0d486f740d9ca4bc7411262191c75237}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-last\-Vs\-In\-Cliques@{global\-\_\-last\-Vs\-In\-Cliques}}
+\index{global\-\_\-last\-Vs\-In\-Cliques@{global\-\_\-last\-Vs\-In\-Cliques}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-last\-Vs\-In\-Cliques}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-last\-Vs\-In\-Cliques = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_a0d486f740d9ca4bc7411262191c75237}
+\hypertarget{genScalData_8c_adf51fa161da6beae00683fd92120a3f3}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-num\-Str\-Wt\-Edges@{global\-\_\-num\-Str\-Wt\-Edges}}
+\index{global\-\_\-num\-Str\-Wt\-Edges@{global\-\_\-num\-Str\-Wt\-Edges}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-num\-Str\-Wt\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T} global\-\_\-num\-Str\-Wt\-Edges = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_adf51fa161da6beae00683fd92120a3f3}
+\hypertarget{genScalData_8c_a933a98964190293c45934d84f56d27eb}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-perm\-V@{global\-\_\-perm\-V}}
+\index{global\-\_\-perm\-V@{global\-\_\-perm\-V}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-perm\-V}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-perm\-V = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_a933a98964190293c45934d84f56d27eb}
+\hypertarget{genScalData_8c_ae5bb341ac87f2f605076a27302204ee0}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-start\-Vertex@{global\-\_\-start\-Vertex}}
+\index{global\-\_\-start\-Vertex@{global\-\_\-start\-Vertex}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-start\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-start\-Vertex = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_ae5bb341ac87f2f605076a27302204ee0}
+\hypertarget{genScalData_8c_aa85e4a11ed59a02824b1609466e40b67}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-temp\-Index@{global\-\_\-temp\-Index}}
+\index{global\-\_\-temp\-Index@{global\-\_\-temp\-Index}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-temp\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G\-I\-N\-T\-\_\-\-T}$\ast$ global\-\_\-temp\-Index = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_aa85e4a11ed59a02824b1609466e40b67}
+\hypertarget{genScalData_8c_aa8b69e2612017df58856612c744a2113}{\index{gen\-Scal\-Data.\-c@{gen\-Scal\-Data.\-c}!global\-\_\-tot\-Cliques@{global\-\_\-tot\-Cliques}}
+\index{global\-\_\-tot\-Cliques@{global\-\_\-tot\-Cliques}!genScalData.c@{gen\-Scal\-Data.\-c}}
+\subsubsection[{global\-\_\-tot\-Cliques}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-tot\-Cliques = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{genScalData_8c_aa8b69e2612017df58856612c744a2113}

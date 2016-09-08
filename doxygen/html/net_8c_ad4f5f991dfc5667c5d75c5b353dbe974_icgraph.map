@@ -1,0 +1,7 @@
+<map id="insertEdge" name="insertEdge">
+<area shape="rect" id="node2" href="$net_8c.html#a456ce4308d1d5e4f0a816165f0d1b9ac" title="reverseEdge" alt="" coords="183,5,278,32"/>
+<area shape="rect" id="node3" href="$net_8h.html#a7a2e0647373945c39b0efcdf78618993" title="net_applyOperation" alt="" coords="371,31,506,57"/>
+<area shape="rect" id="node4" href="$net_8h.html#a7ac0b179e1d386a853aba9b4fffa369a" title="net_generateRandomEdges" alt="" coords="139,107,322,133"/>
+<area shape="rect" id="node5" href="$data_8h.html#a0f45b98c6cac17904d9daf25fbdc1dc9" title="data_generate" alt="" coords="387,107,491,133"/>
+<area shape="rect" id="node6" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="555,107,611,133"/>
+</map>

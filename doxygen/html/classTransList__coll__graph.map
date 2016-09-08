@@ -1,0 +1,10 @@
+<map id="TransList" name="TransList">
+<area shape="rect" id="node2" href="$classAllocator.html" title="{Allocator\&lt; TransList\l::Desc \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="147,689,286,839"/>
+<area shape="rect" id="node5" href="$classAllocator.html" title="{Allocator\&lt; DataType \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="367,488,521,624"/>
+<area shape="rect" id="node6" href="$classAllocator.html" title="{Allocator\&lt; TransList\l::Node \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="443,689,582,839"/>
+<area shape="rect" id="node8" href="$classAllocator.html" title="{Allocator\&lt; TransList\l::NodeDesc \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="726,689,865,839"/>
+<area shape="rect" id="node9" href="$structTransList_1_1Node.html" title="{TransList::Node\n||+ Node()\l+ Node()\l}" alt="" coords="923,718,1038,810"/>
+<area shape="rect" id="node13" href="$structTransList_1_1Operator.html" title="{TransList::Operator\n||}" alt="" coords="997,147,1131,224"/>
+<area shape="rect" id="node10" href="$structTransList_1_1NodeDesc.html" title="{TransList::NodeDesc\n||+ NodeDesc()\l}" alt="" coords="907,517,1054,595"/>
+<area shape="rect" id="node12" href="$structTransList_1_1Desc.html" title="{TransList::Desc\n||+ SizeOf()\l}" alt="" coords="923,288,1038,365"/>
+</map>

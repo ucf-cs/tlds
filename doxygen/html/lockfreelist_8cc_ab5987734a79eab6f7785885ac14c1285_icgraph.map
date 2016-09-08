@@ -1,0 +1,11 @@
+<map id="get_marked_ref" name="get_marked_ref">
+<area shape="rect" id="node2" href="$classLockfreeList.html#a8be9fbf09485d88165f5a3ff614bb121" title="LockfreeList::Delete" alt="" coords="165,56,304,83"/>
+<area shape="rect" id="node5" href="$lockfreeskip_8c.html#aa90f43c28b73bafc95db43e5b8f3d42d" title="mark_deleted" alt="" coords="185,107,285,133"/>
+<area shape="rect" id="node3" href="$classBoostingList.html#ad0ab949b2089c509eef7e21357080ae0" title="BoostingList::Delete" alt="" coords="358,5,498,32"/>
+<area shape="rect" id="node4" href="$classBoostingList.html#add73a97e46b96edaf01a3de3b185fd53" title="BoostingList::OnAbort" alt="" coords="353,56,503,83"/>
+<area shape="rect" id="node6" href="$lockfreeskip_8h.html#ae4d4144644d817c1c038bdda714a16c7" title="set_update" alt="" coords="385,107,471,133"/>
+<area shape="rect" id="node9" href="$lockfreeskip_8h.html#aa995b64d64a390fcb661ae5c92241d61" title="set_remove" alt="" coords="383,157,473,184"/>
+<area shape="rect" id="node7" href="$classBoostingSkip.html#ae0ddab9bd1e3d1972fc8bcaa74a9ed81" title="BoostingSkip::Insert" alt="" coords="559,81,699,108"/>
+<area shape="rect" id="node8" href="$classBoostingSkip.html#ac9bf8693a172f366ae733c5a78804071" title="BoostingSkip::OnAbort" alt="" coords="552,132,707,159"/>
+<area shape="rect" id="node10" href="$classBoostingSkip.html#ab1f1f0ba800de912c42ec328767c4685" title="BoostingSkip::Delete" alt="" coords="557,183,702,209"/>
+</map>

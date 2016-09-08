@@ -1,0 +1,25 @@
+<map id="_init_stm_subsystem" name="_init_stm_subsystem">
+<area shape="rect" id="node2" href="$gc_8c.html#a28811cf9cf00d0ff764ddab38590e9ef" title="fr_gc_add_allocator" alt="" coords="505,31,639,57"/>
+<area shape="rect" id="node7" href="$stm__fraser_8c.html#aa57c521c9ca8d9bfc271c7077c3ea3a0" title="handle_fault" alt="" coords="201,233,293,260"/>
+<area shape="rect" id="node3" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="1568,93,1691,120"/>
+<area shape="rect" id="node4" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="1745,195,1877,221"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="1926,144,2061,171"/>
+<area shape="rect" id="node6" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="1926,195,2061,221"/>
+<area shape="rect" id="node8" href="$ptst_8c.html#a9f490f3eb71074b856eb2206f97c6cb1" title="fr_critical_enter" alt="" coords="1051,157,1162,184"/>
+<area shape="rect" id="node14" href="$stm__fraser_8c.html#acd69585b95bbcac8c69333f4aaee4335" title="validate_stm_tx" alt="" coords="341,233,456,260"/>
+<area shape="rect" id="node22" href="$stm__fraser_8c.html#a31ea9d61a84d817aac10ffbc4ba9f296" title="commit_stm_tx" alt="" coords="688,309,800,336"/>
+<area shape="rect" id="node24" href="$stmskip_8cc.html#a5db6833ad98c08797c5dffd75d264833" title="fr_critical_exit" alt="" coords="347,335,450,361"/>
+<area shape="rect" id="node9" href="$gc_8c.html#aa06f5acb271ed4c9afcc728f3ceae52f" title="fr_gc_init" alt="" coords="1248,183,1323,209"/>
+<area shape="rect" id="node12" href="$gc_8c.html#a1b011e952f943e62b80e39768305d3fb" title="fr_gc_enter" alt="" coords="1242,93,1329,120"/>
+<area shape="rect" id="node10" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="1398,144,1514,171"/>
+<area shape="rect" id="node11" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="1563,245,1695,272"/>
+<area shape="rect" id="node13" href="$gc_8c.html#a8c8094a35212fa8ed75ed9a4a38c7b9c" title="gc_reclaim" alt="" coords="1768,68,1853,95"/>
+<area shape="rect" id="node15" href="$stm__fraser_8c.html#a4e016a575dac2ee3931ef9ec94550d33" title="read_blk_data" alt="" coords="521,233,623,260"/>
+<area shape="rect" id="node16" href="$stm__fraser_8c.html#a3baf54f8c2c6bdb79109865e5500cbd9" title="rc_up_descriptor" alt="" coords="861,296,979,323"/>
+<area shape="rect" id="node18" href="$stm__fraser_8c.html#ad41e28910c7dbe8cfd98c9e0c168c9dc" title="rc_down_descriptor" alt="" coords="853,245,987,272"/>
+<area shape="rect" id="node17" href="$stm__fraser_8c.html#a1a59f05201730ec9ba9a348070073e57" title="rc_delta_descriptor" alt="" coords="1041,296,1173,323"/>
+<area shape="rect" id="node19" href="$stm__fraser_8c.html#afd1a951db8c0f79e6bf20624e7dca338" title="release_descriptor" alt="" coords="1043,245,1171,272"/>
+<area shape="rect" id="node20" href="$gc_8c.html#a80f4a5c119aa70ab0452a73dfac21bbd" title="fr_gc_free" alt="" coords="1416,296,1496,323"/>
+<area shape="rect" id="node21" href="$gc_8c.html#a1e1a80c2d04496b5b70bd86b59510355" title="fr_gc_unsafe_free" alt="" coords="1222,296,1349,323"/>
+<area shape="rect" id="node23" href="$stm__fraser_8c.html#aca0d40200c3502bdabeb44b27dfd4105" title="search_stm_tx_entry" alt="" coords="848,347,992,373"/>
+</map>

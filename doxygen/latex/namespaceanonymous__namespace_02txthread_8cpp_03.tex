@@ -1,0 +1,32 @@
+\hypertarget{namespaceanonymous__namespace_02txthread_8cpp_03}{\section{anonymous\-\_\-namespace\{txthread.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02txthread_8cpp_03}\index{anonymous\-\_\-namespace\{txthread.\-cpp\}@{anonymous\-\_\-namespace\{txthread.\-cpp\}}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} void \hyperlink{namespaceanonymous__namespace_02txthread_8cpp_03_a4d3440e70fa954abc911d00af383bcb4}{default\-\_\-abort\-\_\-handler} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{namespaceanonymous__namespace_02txthread_8cpp_03_a48fac128b632fd74dfb62133fb88dd18}{init\-\_\-lib\-\_\-name}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02txthread_8cpp_03_a4d3440e70fa954abc911d00af383bcb4}{\index{anonymous\-\_\-namespace\{txthread.\-cpp\}@{anonymous\-\_\-namespace\{txthread.\-cpp\}}!default\-\_\-abort\-\_\-handler@{default\-\_\-abort\-\_\-handler}}
+\index{default\-\_\-abort\-\_\-handler@{default\-\_\-abort\-\_\-handler}!anonymous_namespace{txthread.cpp}@{anonymous\-\_\-namespace\{txthread.\-cpp\}}}
+\subsubsection[{default\-\_\-abort\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\-O\-R\-E\-T\-U\-R\-N} void anonymous\-\_\-namespace\{txthread.\-cpp\}\-::default\-\_\-abort\-\_\-handler (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02txthread_8cpp_03_a4d3440e70fa954abc911d00af383bcb4}
+The default mechanism that libstm uses for an abort. An A\-P\-I environment may also provide its own abort mechanism (see \hyperlink{namespaceitm2stm}{itm2stm} for an example of how the itm shim does this).
+
+This is ugly because rollback has a configuration-\/dependent signature. 
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceanonymous__namespace_02txthread_8cpp_03_a48fac128b632fd74dfb62133fb88dd18}{\index{anonymous\-\_\-namespace\{txthread.\-cpp\}@{anonymous\-\_\-namespace\{txthread.\-cpp\}}!init\-\_\-lib\-\_\-name@{init\-\_\-lib\-\_\-name}}
+\index{init\-\_\-lib\-\_\-name@{init\-\_\-lib\-\_\-name}!anonymous_namespace{txthread.cpp}@{anonymous\-\_\-namespace\{txthread.\-cpp\}}}
+\subsubsection[{init\-\_\-lib\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ anonymous\-\_\-namespace\{txthread.\-cpp\}\-::init\-\_\-lib\-\_\-name}}\label{namespaceanonymous__namespace_02txthread_8cpp_03_a48fac128b632fd74dfb62133fb88dd18}
+The name of the algorithm with which libstm was initialized 

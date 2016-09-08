@@ -1,0 +1,98 @@
+\hypertarget{namespaceanonymous__namespace_02profiling_8cpp_03}{\section{anonymous\-\_\-namespace\{profiling.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02profiling_8cpp_03}\index{anonymous\-\_\-namespace\{profiling.\-cpp\}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceanonymous__namespace_02profiling_8cpp_03_a00942ad1d38b82f3a2e0f66b704bef44}{adjust\-\_\-thresholds} (uint32\-\_\-t new\-\_\-alg, uint32\-\_\-t old\-\_\-alg)
+\item 
+void \hyperlink{namespaceanonymous__namespace_02profiling_8cpp_03_ad2de7e300bb6e53bf611aaf35c46d80b}{collect\-\_\-profiles} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespaceanonymous__namespace_02profiling_8cpp_03_ac7a6d6bebec6c014c2d09c19efb4390c}{change\-\_\-algorithm} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, unsigned new\-\_\-algorithm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02profiling_8cpp_03_a00942ad1d38b82f3a2e0f66b704bef44}{\index{anonymous\-\_\-namespace\{profiling.\-cpp\}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}!adjust\-\_\-thresholds@{adjust\-\_\-thresholds}}
+\index{adjust\-\_\-thresholds@{adjust\-\_\-thresholds}!anonymous_namespace{profiling.cpp}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}}
+\subsubsection[{adjust\-\_\-thresholds}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{profiling.\-cpp\}\-::adjust\-\_\-thresholds (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{new\-\_\-alg, }
+\item[{uint32\-\_\-t}]{old\-\_\-alg}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02profiling_8cpp_03_a00942ad1d38b82f3a2e0f66b704bef44}
+If we change the algorithm, then we need to reset the wait and abort thresholds. If we do not change the algorithm, then if we revisited our decision based on aborts, then backoff the wait and abort thresholds. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02profiling_8cpp_03_a00942ad1d38b82f3a2e0f66b704bef44_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02profiling_8cpp_03_ac7a6d6bebec6c014c2d09c19efb4390c}{\index{anonymous\-\_\-namespace\{profiling.\-cpp\}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}!change\-\_\-algorithm@{change\-\_\-algorithm}}
+\index{change\-\_\-algorithm@{change\-\_\-algorithm}!anonymous_namespace{profiling.cpp}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}}
+\subsubsection[{change\-\_\-algorithm}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{profiling.\-cpp\}\-::change\-\_\-algorithm (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx, }
+\item[{unsigned}]{new\-\_\-algorithm}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02profiling_8cpp_03_ac7a6d6bebec6c014c2d09c19efb4390c}
+change\-\_\-algorithm is used to transition between S\-T\-M implementations when Profile\-T\-M is not involved. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02profiling_8cpp_03_ac7a6d6bebec6c014c2d09c19efb4390c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02profiling_8cpp_03_ac7a6d6bebec6c014c2d09c19efb4390c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02profiling_8cpp_03_ad2de7e300bb6e53bf611aaf35c46d80b}{\index{anonymous\-\_\-namespace\{profiling.\-cpp\}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}!collect\-\_\-profiles@{collect\-\_\-profiles}}
+\index{collect\-\_\-profiles@{collect\-\_\-profiles}!anonymous_namespace{profiling.cpp}@{anonymous\-\_\-namespace\{profiling.\-cpp\}}}
+\subsubsection[{collect\-\_\-profiles}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{profiling.\-cpp\}\-::collect\-\_\-profiles (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02profiling_8cpp_03_ad2de7e300bb6e53bf611aaf35c46d80b}
+Collecting profiles is a lot like changing algorithms, but there are a few customizations we make to address the probing. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02profiling_8cpp_03_ad2de7e300bb6e53bf611aaf35c46d80b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02profiling_8cpp_03_ad2de7e300bb6e53bf611aaf35c46d80b_icgraph}
+\end{center}
+\end{figure}
+
+

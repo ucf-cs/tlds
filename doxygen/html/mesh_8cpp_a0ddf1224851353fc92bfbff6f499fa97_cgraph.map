@@ -1,0 +1,25 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$mesh_8cpp.html#a48a104c6721732cbc3da3080ffc0b4c9" title="parse_args" alt="" coords="142,69,229,96"/>
+<area shape="rect" id="node4" href="$point_8cpp.html#aaff3532e0132a077bf3099417a9f2619" title="create_points" alt="" coords="135,152,235,179"/>
+<area shape="rect" id="node5" href="$classedge__set.html#a7fad8e778b5c76c07472464eb95cba82" title="edge_set::help_initialize" alt="" coords="105,203,266,229"/>
+<area shape="rect" id="node6" href="$dwyer_8cpp.html#af4c356bbffe9fd6572b438c3af338c89" title="dwyer_solve" alt="" coords="138,277,233,304"/>
+<area shape="rect" id="node22" href="$bmharness_8hpp.html#a02b05a605f4bd514db3ba9879a5d3cd6" title="barrier" alt="" coords="156,379,215,405"/>
+<area shape="rect" id="node23" href="$classedge__set.html#aad055d2afc3506ec7b62e2a42414dc04" title="edge_set::print_all" alt="" coords="315,420,443,447"/>
+<area shape="rect" id="node3" href="$mesh_8cpp.html#a64a6014565bb3e03294ec4a952d5add0" title="usage" alt="" coords="350,5,407,32"/>
+<area shape="rect" id="node7" href="$point_8cpp.html#ae77890a7cdbacaf1b115d396c571bfda" title="extern_angle" alt="" coords="863,132,959,159"/>
+<area shape="rect" id="node8" href="$dwyer_8cpp.html#ac5af40cdd517beac7515468404be6c72" title="stitch" alt="" coords="351,293,406,320"/>
+<area shape="rect" id="node9" href="$structpv__side.html#a163c81bef5a8989bb0f307e7ce72f555" title="pv_side::initialize" alt="" coords="509,259,632,285"/>
+<area shape="rect" id="node11" href="$classedge.html#a528535c93e864fea104ca95de447b198" title="edge::index_of" alt="" coords="857,284,964,311"/>
+<area shape="rect" id="node12" href="$structpv__side.html#a58d4b8e4888146331f3af5a3a6a0eaa6" title="pv_side::move" alt="" coords="699,107,805,133"/>
+<area shape="rect" id="node13" href="$structpv__side.html#ab6c6440d122035bd15a096d96350ce77" title="pv_side::find_candidate" alt="" coords="491,360,650,387"/>
+<area shape="rect" id="node14" href="$point_8cpp.html#a015cc895b4407d06a8c9b1e9155359ae" title="encircled" alt="" coords="715,461,789,488"/>
+<area shape="rect" id="node10" href="$side_8cpp.html#aff00fd7e652791cd3d588bbd711d0327" title="hull_edge" alt="" coords="713,157,791,184"/>
+<area shape="rect" id="node17" href="$classedge.html#a17a50641ad92dce62c3c8db8bf528ddc" title="edge::destroy" alt="" coords="701,411,803,437"/>
+<area shape="rect" id="node15" href="$point_8cpp.html#a0586855a04f97999cb91cca634421222" title="det4" alt="" coords="887,461,934,488"/>
+<area shape="rect" id="node16" href="$point_8cpp.html#a0fdafd56f3e289d97c15611bdbee0fec" title="det3" alt="" coords="1034,487,1081,513"/>
+<area shape="rect" id="node18" href="$classedge__set.html#a4cd26bf920c05e300c6856848870aeb9" title="edge_set::erase" alt="" coords="853,411,968,437"/>
+<area shape="rect" id="node19" href="$edge__set_8cpp.html#a04afedf3efb1930b4069d80cd6122ca9" title="segment" alt="" coords="1021,385,1093,412"/>
+<area shape="rect" id="node21" href="$classedge.html#a67b4470d9fae58c63a3a63765880cf58" title="edge::print" alt="" coords="1016,436,1099,463"/>
+<area shape="rect" id="node20" href="$point_8hpp.html#ac3affcd51103a7fafe2143a933683b30" title="bucket" alt="" coords="1147,385,1208,412"/>
+<area shape="rect" id="node24" href="$edge__set_8cpp.html#a8fc599e170cb66db2a6755b150fe9e5d" title="print_edge" alt="" coords="529,500,612,527"/>
+</map>

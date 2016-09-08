@@ -1,0 +1,13 @@
+<map id="queue_alloc" name="queue_alloc">
+<area shape="rect" id="node2" href="$data_8h.html#a0f45b98c6cac17904d9daf25fbdc1dc9" title="data_generate" alt="" coords="376,28,480,55"/>
+<area shape="rect" id="node4" href="$net_8h.html#a7ac0b179e1d386a853aba9b4fffa369a" title="net_generateRandomEdges" alt="" coords="145,40,327,67"/>
+<area shape="rect" id="node5" href="$decoder_8h.html#a4a3e9ee9fe6edab76ef637f69d63d0ac" title="decoder_alloc" alt="" coords="185,91,287,118"/>
+<area shape="rect" id="node7" href="$stream_8h.html#aa29c66520e741eb346620fc26900adf6" title="stream_alloc" alt="" coords="188,142,284,168"/>
+<area shape="rect" id="node8" href="$maze_8h.html#aa3aa9180f10aa9397ef1096806431345" title="maze_alloc" alt="" coords="192,192,280,219"/>
+<area shape="rect" id="node10" href="$mesh_8h.html#a8a3880badf1fc87c04f37b9ec617faca" title="mesh_alloc" alt="" coords="192,243,280,270"/>
+<area shape="rect" id="node12" href="$mesh_8h.html#afb91c14cea2629ce82a85ab0f37da14b" title="mesh_check" alt="" coords="188,294,284,320"/>
+<area shape="rect" id="node3" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="528,28,584,55"/>
+<area shape="rect" id="node6" href="$intruder_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="400,104,456,131"/>
+<area shape="rect" id="node9" href="$labyrinth_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="400,192,456,219"/>
+<area shape="rect" id="node11" href="$yada_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="400,268,456,295"/>
+</map>

@@ -1,0 +1,51 @@
+\hypertarget{mesh_2macros_8hpp}{\section{rstm/rstm-\/dev/mesh/macros.hpp File Reference}
+\label{mesh_2macros_8hpp}\index{rstm/rstm-\/dev/mesh/macros.\-hpp@{rstm/rstm-\/dev/mesh/macros.\-hpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+Include dependency graph for macros.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{mesh_2macros_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_2macros_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mesh_2macros_8hpp_ade2216eca2b9a7481c2958ffccf5de81}{V\-E\-R\-I\-F\-Y}(E)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mesh_2macros_8hpp_ade2216eca2b9a7481c2958ffccf5de81}{\index{mesh/macros.\-hpp@{mesh/macros.\-hpp}!V\-E\-R\-I\-F\-Y@{V\-E\-R\-I\-F\-Y}}
+\index{V\-E\-R\-I\-F\-Y@{V\-E\-R\-I\-F\-Y}!mesh/macros.hpp@{mesh/macros.\-hpp}}
+\subsubsection[{V\-E\-R\-I\-F\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-R\-I\-F\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{E}
+\end{DoxyParamCaption}
+)}}\label{mesh_2macros_8hpp_ade2216eca2b9a7481c2958ffccf5de81}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                                                                   \(\backslash\)
+        int stat = (\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5fbccff2a7f8301aa2364704541da649}{E});                                                 \hyperlink{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{\(\backslash\)}
+\hyperlink{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{        if} (stat != 0) \{                                                \(\backslash\)
+         std::cerr << \_\_FILE\_\_ << \textcolor{stringliteral}{"["} << \_\_LINE\_\_ << \textcolor{stringliteral}{"] bad return("}    \(\backslash\)
+                   << stat << \textcolor{stringliteral}{"): "} << strerror(stat) << \textcolor{stringliteral}{"\(\backslash\)n"} << std::flush; \(\backslash\)
+         assert(\textcolor{keyword}{false});                                                 \(\backslash\)
+        \}                                                               \(\backslash\)
+    \}
+\end{DoxyCode}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 

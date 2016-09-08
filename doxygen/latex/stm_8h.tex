@@ -1,0 +1,471 @@
+\hypertarget{stm_8h}{\section{common/fraser/stm.h File Reference}
+\label{stm_8h}\index{common/fraser/stm.\-h@{common/fraser/stm.\-h}}
+}
+{\ttfamily \#include \char`\"{}ptst.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\-h$>$}\\*
+Include dependency graph for stm.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{stm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{stm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stm_8h_a0b5d8db8e6827300c8db6dba884e76ce}{new\-\_\-stm\-\_\-tx}(\-\_\-tx, \-\_\-ptst, \-\_\-mem)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structstm__st}{stm\-\_\-st} \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm}
+\item 
+typedef struct \hyperlink{structstm__blk__st}{stm\-\_\-blk\-\_\-st} \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk}
+\item 
+typedef struct \hyperlink{structstm__tx__st}{stm\-\_\-tx\-\_\-st} \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$ \hyperlink{stm_8h_a949151d8bcac092e7cb4bd782059c194}{new\-\_\-stm} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, int blk\-\_\-size)
+\item 
+void \hyperlink{stm_8h_a11462d544b66c8e0e0324e88dd32650d}{free\-\_\-stm} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem)
+\item 
+\hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$ \hyperlink{stm_8h_a7f41614dded09613f4ccd7578ef188ba}{new\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem)
+\item 
+void \hyperlink{stm_8h_a61731e38dec59f7f2995842fed69719f}{free\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void $\ast$ \hyperlink{stm_8h_a2c77806bb0511fb17494d226b5ea20d8}{init\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+int \hyperlink{stm_8h_a29d1fe9b70bc01d34adba12ecb23fa3b}{sizeof\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$ \hyperlink{stm_8h_a2e088d3290a0848f5727d19f36c1cb76}{new\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, sigjmp\-\_\-buf $\ast$penv)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{stm_8h_a31ea9d61a84d817aac10ffbc4ba9f296}{commit\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{stm_8h_acd69585b95bbcac8c69333f4aaee4335}{validate\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+void \hyperlink{stm_8h_ad6e1404788ef0e710c991c3e00fd5c39}{abort\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+void $\ast$ \hyperlink{stm_8h_a5594d7fca67459d7d9738436af589c5c}{read\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void $\ast$ \hyperlink{stm_8h_a00de1ad150378181157510e2e5982f75}{write\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void \hyperlink{stm_8h_aafb218e9a278fa119b9749daa02cfadf}{remove\-\_\-from\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void \hyperlink{stm_8h_a7b76b85023f5a028abad5e822391f95a}{\-\_\-init\-\_\-stm\-\_\-subsystem} (int pad\-\_\-data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stm_8h_a0b5d8db8e6827300c8db6dba884e76ce}{\index{stm.\-h@{stm.\-h}!new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}}
+\index{new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{new\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}\#define new\-\_\-stm\-\_\-tx(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-tx, }
+\item[{}]{\-\_\-ptst, }
+\item[{}]{\-\_\-mem}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a0b5d8db8e6827300c8db6dba884e76ce}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                            \(\backslash\)
+        sigjmp\_buf env;                             \(\backslash\)
+        sigsetjmp(env, 1);                          \(\backslash\)
+        (\_tx) = \hyperlink{stm_8h_a0b5d8db8e6827300c8db6dba884e76ce}{new\_stm\_tx}((\_ptst), (\_mem), &env);  \(\backslash\)
+    \} \textcolor{keywordflow}{while} ( 0 )
+\end{DoxyCode}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{\index{stm.\-h@{stm.\-h}!stm@{stm}}
+\index{stm@{stm}!stm.h@{stm.\-h}}
+\subsubsection[{stm}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-st} {\bf stm}}}\label{stm_8h_a9064e992f352e5c38e2333c1489b5efc}
+\hypertarget{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{\index{stm.\-h@{stm.\-h}!stm\-\_\-blk@{stm\-\_\-blk}}
+\index{stm\-\_\-blk@{stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-blk\-\_\-st} {\bf stm\-\_\-blk}}}\label{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}
+\hypertarget{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{\index{stm.\-h@{stm.\-h}!stm\-\_\-tx@{stm\-\_\-tx}}
+\index{stm\-\_\-tx@{stm\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-tx\-\_\-st} {\bf stm\-\_\-tx}}}\label{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}
+
+
+\subsection{Function Documentation}
+\hypertarget{stm_8h_a7b76b85023f5a028abad5e822391f95a}{\index{stm.\-h@{stm.\-h}!\-\_\-init\-\_\-stm\-\_\-subsystem@{\-\_\-init\-\_\-stm\-\_\-subsystem}}
+\index{\-\_\-init\-\_\-stm\-\_\-subsystem@{\-\_\-init\-\_\-stm\-\_\-subsystem}!stm.h@{stm.\-h}}
+\subsubsection[{\-\_\-init\-\_\-stm\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-init\-\_\-stm\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{int}]{pad\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a7b76b85023f5a028abad5e822391f95a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a7b76b85023f5a028abad5e822391f95a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a7b76b85023f5a028abad5e822391f95a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_ad6e1404788ef0e710c991c3e00fd5c39}{\index{stm.\-h@{stm.\-h}!abort\-\_\-stm\-\_\-tx@{abort\-\_\-stm\-\_\-tx}}
+\index{abort\-\_\-stm\-\_\-tx@{abort\-\_\-stm\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{abort\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void abort\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_ad6e1404788ef0e710c991c3e00fd5c39}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_ad6e1404788ef0e710c991c3e00fd5c39_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a31ea9d61a84d817aac10ffbc4ba9f296}{\index{stm.\-h@{stm.\-h}!commit\-\_\-stm\-\_\-tx@{commit\-\_\-stm\-\_\-tx}}
+\index{commit\-\_\-stm\-\_\-tx@{commit\-\_\-stm\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{commit\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} commit\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a31ea9d61a84d817aac10ffbc4ba9f296}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a31ea9d61a84d817aac10ffbc4ba9f296_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a31ea9d61a84d817aac10ffbc4ba9f296_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a11462d544b66c8e0e0324e88dd32650d}{\index{stm.\-h@{stm.\-h}!free\-\_\-stm@{free\-\_\-stm}}
+\index{free\-\_\-stm@{free\-\_\-stm}!stm.h@{stm.\-h}}
+\subsubsection[{free\-\_\-stm}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-stm (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a11462d544b66c8e0e0324e88dd32650d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{stm_8h_a11462d544b66c8e0e0324e88dd32650d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a11462d544b66c8e0e0324e88dd32650d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a61731e38dec59f7f2995842fed69719f}{\index{stm.\-h@{stm.\-h}!free\-\_\-stm\-\_\-blk@{free\-\_\-stm\-\_\-blk}}
+\index{free\-\_\-stm\-\_\-blk@{free\-\_\-stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{free\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a61731e38dec59f7f2995842fed69719f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a61731e38dec59f7f2995842fed69719f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a2c77806bb0511fb17494d226b5ea20d8}{\index{stm.\-h@{stm.\-h}!init\-\_\-stm\-\_\-blk@{init\-\_\-stm\-\_\-blk}}
+\index{init\-\_\-stm\-\_\-blk@{init\-\_\-stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{init\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ init\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a2c77806bb0511fb17494d226b5ea20d8}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a2c77806bb0511fb17494d226b5ea20d8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a949151d8bcac092e7cb4bd782059c194}{\index{stm.\-h@{stm.\-h}!new\-\_\-stm@{new\-\_\-stm}}
+\index{new\-\_\-stm@{new\-\_\-stm}!stm.h@{stm.\-h}}
+\subsubsection[{new\-\_\-stm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm}$\ast$ new\-\_\-stm (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{int}]{blk\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a949151d8bcac092e7cb4bd782059c194}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a949151d8bcac092e7cb4bd782059c194_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a949151d8bcac092e7cb4bd782059c194_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a7f41614dded09613f4ccd7578ef188ba}{\index{stm.\-h@{stm.\-h}!new\-\_\-stm\-\_\-blk@{new\-\_\-stm\-\_\-blk}}
+\index{new\-\_\-stm\-\_\-blk@{new\-\_\-stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{new\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-blk}$\ast$ new\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a7f41614dded09613f4ccd7578ef188ba}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a7f41614dded09613f4ccd7578ef188ba_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a7f41614dded09613f4ccd7578ef188ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a2e088d3290a0848f5727d19f36c1cb76}{\index{stm.\-h@{stm.\-h}!new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}}
+\index{new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{new\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx}$\ast$ new\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{sigjmp\-\_\-buf $\ast$}]{penv}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a2e088d3290a0848f5727d19f36c1cb76}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a2e088d3290a0848f5727d19f36c1cb76_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a5594d7fca67459d7d9738436af589c5c}{\index{stm.\-h@{stm.\-h}!read\-\_\-stm\-\_\-blk@{read\-\_\-stm\-\_\-blk}}
+\index{read\-\_\-stm\-\_\-blk@{read\-\_\-stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{read\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ read\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a5594d7fca67459d7d9738436af589c5c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a5594d7fca67459d7d9738436af589c5c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a5594d7fca67459d7d9738436af589c5c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_aafb218e9a278fa119b9749daa02cfadf}{\index{stm.\-h@{stm.\-h}!remove\-\_\-from\-\_\-tx@{remove\-\_\-from\-\_\-tx}}
+\index{remove\-\_\-from\-\_\-tx@{remove\-\_\-from\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{remove\-\_\-from\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void remove\-\_\-from\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_aafb218e9a278fa119b9749daa02cfadf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_aafb218e9a278fa119b9749daa02cfadf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a29d1fe9b70bc01d34adba12ecb23fa3b}{\index{stm.\-h@{stm.\-h}!sizeof\-\_\-stm\-\_\-blk@{sizeof\-\_\-stm\-\_\-blk}}
+\index{sizeof\-\_\-stm\-\_\-blk@{sizeof\-\_\-stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{sizeof\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}int sizeof\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a29d1fe9b70bc01d34adba12ecb23fa3b}
+\hypertarget{stm_8h_acd69585b95bbcac8c69333f4aaee4335}{\index{stm.\-h@{stm.\-h}!validate\-\_\-stm\-\_\-tx@{validate\-\_\-stm\-\_\-tx}}
+\index{validate\-\_\-stm\-\_\-tx@{validate\-\_\-stm\-\_\-tx}!stm.h@{stm.\-h}}
+\subsubsection[{validate\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} validate\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_acd69585b95bbcac8c69333f4aaee4335}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_acd69585b95bbcac8c69333f4aaee4335_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_acd69585b95bbcac8c69333f4aaee4335_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm_8h_a00de1ad150378181157510e2e5982f75}{\index{stm.\-h@{stm.\-h}!write\-\_\-stm\-\_\-blk@{write\-\_\-stm\-\_\-blk}}
+\index{write\-\_\-stm\-\_\-blk@{write\-\_\-stm\-\_\-blk}!stm.h@{stm.\-h}}
+\subsubsection[{write\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ write\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm_8h_a00de1ad150378181157510e2e5982f75}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a00de1ad150378181157510e2e5982f75_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm_8h_a00de1ad150378181157510e2e5982f75_icgraph}
+\end{center}
+\end{figure}
+
+

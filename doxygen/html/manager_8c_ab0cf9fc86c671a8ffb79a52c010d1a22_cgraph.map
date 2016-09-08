@@ -1,0 +1,7 @@
+<map id="manager_addRoom_seq" name="manager_addRoom_seq">
+<area shape="rect" id="node2" href="$manager_8c.html#a5f407c87365596a5d4085c9d53982a91" title="addReservation_seq" alt="" coords="216,56,357,83"/>
+<area shape="rect" id="node3" href="$reservation_8c.html#a5a7178e63efa3d32eb1eb43f9d95b758" title="reservation_alloc_seq" alt="" coords="427,5,575,32"/>
+<area shape="rect" id="node5" href="$reservation_8c.html#a095eddecd019df693bdcce5a3182799a" title="reservation_addToTotal_seq" alt="" coords="408,56,595,83"/>
+<area shape="rect" id="node6" href="$reservation_8c.html#af0f4e11ded3a9cc6d745ad63cc433f10" title="reservation_updatePrice_seq" alt="" coords="406,107,597,133"/>
+<area shape="rect" id="node4" href="$reservation_8c.html#a00e6e3fa05212396ac8ee5bc91602c30" title="checkReservation_seq" alt="" coords="645,56,800,83"/>
+</map>

@@ -1,0 +1,182 @@
+\hypertarget{adtree_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/adtree.h File Reference}
+\label{adtree_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/adtree.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/adtree.\-h}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}query.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for adtree.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structadtree__node}{adtree\-\_\-node}
+\item 
+struct \hyperlink{structadtree__vary}{adtree\-\_\-vary}
+\item 
+struct \hyperlink{structadtree}{adtree}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structadtree__node}{adtree\-\_\-node} \hyperlink{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{adtree\-\_\-node\-\_\-t}
+\item 
+typedef struct \hyperlink{structadtree__vary}{adtree\-\_\-vary} \hyperlink{adtree_8h_a37532d8c999860973387f9d2c8ce3c24}{adtree\-\_\-vary\-\_\-t}
+\item 
+typedef struct \hyperlink{structadtree}{adtree} \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$ \hyperlink{adtree_8h_a83025088480eae030c245c40e7ccafdb}{adtree\-\_\-alloc} ()
+\item 
+void \hyperlink{adtree_8h_a9cba9e5120be281ebb063760aa19ced9}{adtree\-\_\-free} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr)
+\item 
+void \hyperlink{adtree_8h_a46c5e833c1bac78330c62d54d924f065}{adtree\-\_\-make} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr)
+\item 
+long \hyperlink{adtree_8h_a378e9c0c9fae060a6a0d9ccdef934643}{adtree\-\_\-get\-Count} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-node\-\_\-t@{adtree\-\_\-node\-\_\-t}}
+\index{adtree\-\_\-node\-\_\-t@{adtree\-\_\-node\-\_\-t}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-node\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf adtree\-\_\-node}  {\bf adtree\-\_\-node\-\_\-t}}}\label{adtree_8h_a320946afe6df18cfa6bed04e16c49662}
+\hypertarget{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-t@{adtree\-\_\-t}}
+\index{adtree\-\_\-t@{adtree\-\_\-t}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf adtree}  {\bf adtree\-\_\-t}}}\label{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}
+\hypertarget{adtree_8h_a37532d8c999860973387f9d2c8ce3c24}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-vary\-\_\-t@{adtree\-\_\-vary\-\_\-t}}
+\index{adtree\-\_\-vary\-\_\-t@{adtree\-\_\-vary\-\_\-t}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-vary\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf adtree\-\_\-vary}  {\bf adtree\-\_\-vary\-\_\-t}}}\label{adtree_8h_a37532d8c999860973387f9d2c8ce3c24}
+
+
+\subsection{Function Documentation}
+\hypertarget{adtree_8h_a83025088480eae030c245c40e7ccafdb}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-alloc@{adtree\-\_\-alloc}}
+\index{adtree\-\_\-alloc@{adtree\-\_\-alloc}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf adtree\-\_\-t}$\ast$ adtree\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{adtree_8h_a83025088480eae030c245c40e7ccafdb}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{adtree_8h_a83025088480eae030c245c40e7ccafdb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8h_a9cba9e5120be281ebb063760aa19ced9}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-free@{adtree\-\_\-free}}
+\index{adtree\-\_\-free@{adtree\-\_\-free}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void adtree\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8h_a9cba9e5120be281ebb063760aa19ced9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8h_a9cba9e5120be281ebb063760aa19ced9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{adtree_8h_a9cba9e5120be281ebb063760aa19ced9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8h_a378e9c0c9fae060a6a0d9ccdef934643}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-get\-Count@{adtree\-\_\-get\-Count}}
+\index{adtree\-\_\-get\-Count@{adtree\-\_\-get\-Count}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-get\-Count}]{\setlength{\rightskip}{0pt plus 5cm}long adtree\-\_\-get\-Count (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8h_a378e9c0c9fae060a6a0d9ccdef934643}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8h_a378e9c0c9fae060a6a0d9ccdef934643_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8h_a378e9c0c9fae060a6a0d9ccdef934643_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8h_a46c5e833c1bac78330c62d54d924f065}{\index{adtree.\-h@{adtree.\-h}!adtree\-\_\-make@{adtree\-\_\-make}}
+\index{adtree\-\_\-make@{adtree\-\_\-make}!adtree.h@{adtree.\-h}}
+\subsubsection[{adtree\-\_\-make}]{\setlength{\rightskip}{0pt plus 5cm}void adtree\-\_\-make (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8h_a46c5e833c1bac78330c62d54d924f065}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8h_a46c5e833c1bac78330c62d54d924f065_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{adtree_8h_a46c5e833c1bac78330c62d54d924f065_icgraph}
+\end{center}
+\end{figure}
+
+

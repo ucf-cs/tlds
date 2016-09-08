@@ -1,0 +1,10 @@
+<map id="init_transskip_subsystem" name="init_transskip_subsystem">
+<area shape="rect" id="node2" href="$ptst_8c.html#a1871243b5465e5a17a02e631887ef9c2" title="fr_init_ptst_subsystem" alt="" coords="224,5,379,32"/>
+<area shape="rect" id="node4" href="$gc_8c.html#adf9d2cd51bda8cedc0279dfc15c822ea" title="fr_init_gc_subsystem" alt="" coords="597,56,744,83"/>
+<area shape="rect" id="node6" href="$gc_8c.html#a28811cf9cf00d0ff764ddab38590e9ef" title="fr_gc_add_allocator" alt="" coords="234,107,369,133"/>
+<area shape="rect" id="node3" href="$ptst_8c.html#a2236017553cfe5b386310bcc8b52927d" title="ptst_destructor" alt="" coords="433,5,543,32"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="793,56,927,83"/>
+<area shape="rect" id="node7" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="427,107,549,133"/>
+<area shape="rect" id="node8" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="605,107,737,133"/>
+<area shape="rect" id="node9" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="793,107,927,133"/>
+</map>

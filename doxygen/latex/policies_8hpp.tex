@@ -1,0 +1,106 @@
+\hypertarget{policies_8hpp}{\section{rstm/rstm-\/dev/libstm/policies/policies.hpp File Reference}
+\label{policies_8hpp}\index{rstm/rstm-\/dev/libstm/policies/policies.\-hpp@{rstm/rstm-\/dev/libstm/policies/policies.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\\*
+{\ttfamily \#include $<$common/platform.\-hpp$>$}\\*
+{\ttfamily \#include $<$stm/metadata.\-hpp$>$}\\*
+{\ttfamily \#include $<$stm/txthread.\-hpp$>$}\\*
+{\ttfamily \#include $<$stm/lib\-\_\-globals.\-hpp$>$}\\*
+Include dependency graph for policies.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{policies_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{policies_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1pol__t}{stm\-::pol\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1behavior__t}{stm\-::behavior\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1dynprof__t}{stm\-::dynprof\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1qtable__t}{stm\-::qtable\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493}{stm\-::\-P\-O\-L\-S} \{ \\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af00d76b2e9570c9ef71fb59bbff6b3d3}{stm\-::\-Single}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a96f3581ddaae6418a394fc270057e005}{stm\-::\-P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5fbccff2a7f8301aa2364704541da649}{stm\-::\-E}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a20042be93e440ec38c8d74f645b25ea8}{stm\-::\-E\-R}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493adbfb4e354fc128dfe6c7334ff08ac558}{stm\-::\-R}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493afe98ca998e91d9883900ccc2579411cb}{stm\-::\-X}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aee65cfe9901d210de837cbb1f243cf5a}{stm\-::\-C\-B\-R\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a876c8a530cb793b2acd9d30c42a991f9}{stm\-::\-C\-B\-R\-\_\-\-Read}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a84543cc00203169452a705770cc8d6b4}{stm\-::\-C\-B\-R\-\_\-\-Write}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa5811bdeb030f29963e5423f5121ba4e}{stm\-::\-C\-B\-R\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a8e768ff49c3143004726d68ada5936ba}{stm\-::\-C\-B\-R\-\_\-\-R\-W}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a43bf92d9361dd7de388df69779b458f4}{stm\-::\-C\-B\-R\-\_\-\-R\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a2cb2e5e6b3f044931be9781fd2c79a2f}{stm\-::\-C\-B\-R\-\_\-\-R\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a9134216f95da9c5c7849249bbd5b62f8}{stm\-::\-C\-B\-R\-\_\-\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae1dbf21e41fb8372766523d3f0e688ce}{stm\-::\-C\-B\-R\-\_\-\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a094e12c62e309f2e570b8959d593d5e8}{stm\-::\-C\-B\-R\-\_\-\-Time\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac6415b359d0dc955c70c67bcc5402606}{stm\-::\-C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493afa709945322d7ea48e851b0de26c5c34}{stm\-::\-C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aca5947c981294f35a2d961a197a0dc1f}{stm\-::\-C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af801e9827272485287bff05341e616b8}{stm\-::\-C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a89b74f4a4c7545721046c423a7df1916}{stm\-::\-C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493acbb2745792185384618cd5f53c504679}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab13ff4d0f101aa2b4fe5cd5e7149a18f}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5e3f60d689489c25ccd05fb76816753d}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3f241476ddf4da1dc2d8194c554e01fc}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae86936227191c732ccec32fcba58c414}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac15bb8ce5873c11067ad826df68d156e}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab6d6ce02597f0f8b6893da6a09762599}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3dca4058ca95a62397e9615854e392f7}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af3e389d67745aaf8609d8cffc0e6f3a6}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a004e80d5506fed5d3b5781be1dd3b7e7}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af60bda5479cef87cc48befe9628efd13}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a26a5548e99bb334be9053f9b3c9e52b7}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa40e7559e06316c0e8b327418b48a68f}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a779665fdec869cf0000966bb51ae85f4}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a70013125e0613a74c89b4f99f55747b8}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a6d9d1d0725de77bf02e0265cf934033c}{stm\-::\-C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae9cfae39bec896ef08d7792295866d60}{stm\-::\-P\-O\-L\-\_\-\-M\-A\-X}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b}{stm\-::pol\-\_\-init} (const char $\ast$mode)
+\item 
+int \hyperlink{namespacestm_a67c0991ee0ce05d2dc2015dff47a584e}{stm\-::pol\-\_\-name\-\_\-map} (const char $\ast$phasename)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} unsigned long long \hyperlink{namespacestm_a18a81b01de87995b54cd855bb6eeaae7}{stm\-::get\-\_\-nontxtime} ()
+\item 
+void \hyperlink{namespacestm_a87a28ba567cb694e4251e884f3ae77ae}{stm\-::init\-\_\-adapt\-\_\-pol} (uint32\-\_\-t Policy\-I\-D, int32\-\_\-t startmode, int32\-\_\-t abort\-Thresh, int32\-\_\-t wait\-Thresh, bool is\-Dynamic, bool is\-C\-B\-R, bool is\-Commit\-Profile, uint32\-\_\-t($\ast$decider)() \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}, const char $\ast$name)
+\end{DoxyCompactItemize}

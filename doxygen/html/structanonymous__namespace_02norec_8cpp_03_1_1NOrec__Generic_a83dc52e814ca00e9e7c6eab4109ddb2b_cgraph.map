@@ -1,0 +1,13 @@
+<map id="anonymous_namespace{norec::cpp}::NOrec_Generic::commit" name="anonymous_namespace{norec::cpp}::NOrec_Generic::commit">
+<area shape="rect" id="node2" href="$namespacestm.html#a00287c50a719dcda144cc1cbc9e9ae4b" title="stm::OnReadOnlyCommit" alt="" coords="219,136,392,163"/>
+<area shape="rect" id="node11" href="$namespaceanonymous__namespace_02norec_8cpp_03.html#aee95b2525a8da3a37e412cee0724967c" title="anonymous_namespace\l\{norec::cpp\}::validate" alt="" coords="224,187,387,229"/>
+<area shape="rect" id="node12" href="$namespacestm.html#aaaa08c01741f1eba381fd4a279df12b1" title="stm::OnReadWriteCommit" alt="" coords="217,85,394,112"/>
+<area shape="rect" id="node3" href="$classstm_1_1WBMMPolicy.html#af174b70b9898c8d900a5a2604cfadc7c" title="stm::WBMMPolicy::onTxCommit" alt="" coords="443,85,658,112"/>
+<area shape="rect" id="node10" href="$structstm_1_1toxic__nop__t.html#a1c92cb621137c523ad38b9c252b4da06" title="stm::toxic_nop_t::onCommit" alt="" coords="457,136,644,163"/>
+<area shape="rect" id="node4" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="727,5,881,32"/>
+<area shape="rect" id="node5" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="733,56,875,83"/>
+<area shape="rect" id="node6" href="$classstm_1_1WBMMPolicy.html#aa2aa233946e7b6b1d35b184503b8c9f9" title="stm::WBMMPolicy::schedFor\lReclaim" alt="" coords="707,107,901,149"/>
+<area shape="rect" id="node9" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="729,173,879,200"/>
+<area shape="rect" id="node7" href="$classstm_1_1WBMMPolicy.html#a80a035e5b8f805d49606613b869ddd3c" title="stm::WBMMPolicy::handle\l_full_prelimbo" alt="" coords="949,107,1128,149"/>
+<area shape="rect" id="node8" href="$namespaceanonymous__namespace_02WBMMPolicy_8cpp_03.html#a030c6e9142fd49127ce70ad9b1af5e79" title="anonymous_namespace\l\{WBMMPolicy::cpp\}::is\l_strictly_older" alt="" coords="1176,100,1339,156"/>
+</map>

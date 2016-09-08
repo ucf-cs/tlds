@@ -1,0 +1,7 @@
+<map id="initializeClients" name="initializeClients">
+<area shape="rect" id="node2" href="$random_8c.html#a492ffea554d80a899bcd43afdf4a53c4" title="random_alloc" alt="" coords="311,5,409,32"/>
+<area shape="rect" id="node4" href="$client_8c.html#a9094acbb5971e0476517e7ee94415126" title="client_alloc" alt="" coords="170,56,257,83"/>
+<area shape="rect" id="node6" href="$random_8c.html#a0c229220c85a7223d42ab697628d1f95" title="random_free" alt="" coords="166,107,261,133"/>
+<area shape="rect" id="node3" href="$mt19937ar_8c.html#aba3fcf9d2e0c0d1db5b8b63af90eb51c" title="init_genrand" alt="" coords="459,31,551,57"/>
+<area shape="rect" id="node5" href="$random_8c.html#a4863f841babe7ce3664a4e4bed6180ab" title="random_seed" alt="" coords="310,56,410,83"/>
+</map>

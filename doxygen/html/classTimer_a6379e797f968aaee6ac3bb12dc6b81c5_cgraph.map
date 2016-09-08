@@ -1,0 +1,4 @@
+<map id="Timer::Stop" name="Timer::Stop">
+<area shape="rect" id="node2" href="$classTime.html#ad5144f12e23805225735ab695f38f069" title="Time::GetCpuTime" alt="" coords="145,5,279,32"/>
+<area shape="rect" id="node3" href="$classTime.html#a508ab252117d5c378fcc33d0644d56d0" title="Time::GetWallTime" alt="" coords="145,56,279,83"/>
+</map>

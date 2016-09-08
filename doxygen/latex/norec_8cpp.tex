@@ -1,0 +1,81 @@
+\hypertarget{norec_8cpp}{\section{rstm/rstm-\/dev/libstm/algs/norec.cpp File Reference}
+\label{norec_8cpp}\index{rstm/rstm-\/dev/libstm/algs/norec.\-cpp@{rstm/rstm-\/dev/libstm/algs/norec.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}../cm.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Redo\-R\-A\-W\-Utils.\-hpp\char`\"{}}\\*
+Include dependency graph for norec.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{norec_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02norec_8cpp_03_1_1NOrec__Generic}{anonymous\-\_\-namespace\{norec.\-cpp\}\-::\-N\-Orec\-\_\-\-Generic$<$ C\-M $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02norec_8cpp_03}{anonymous\-\_\-namespace\{norec.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{norec_8cpp_a7dca04e20a1ce647ad53669ab4296f5c}{F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C}(M\-A\-C\-R\-O)
+\item 
+\#define \hyperlink{norec_8cpp_af775db3d1b1af1f984609a78836d0a6e}{I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C}(I\-D, C\-M)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} uintptr\-\_\-t \hyperlink{namespaceanonymous__namespace_02norec_8cpp_03_aee95b2525a8da3a37e412cee0724967c}{anonymous\-\_\-namespace\{norec.\-cpp\}\-::validate} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02norec_8cpp_03_a0a6ec6794c0677e7f91daf5cb3a57775}{anonymous\-\_\-namespace\{norec.\-cpp\}\-::irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,))
+\item 
+void \hyperlink{namespaceanonymous__namespace_02norec_8cpp_03_a964889786277f55bf219ecf6a8fbd4a1}{anonymous\-\_\-namespace\{norec.\-cpp\}\-::on\-Switch\-To} ()
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02norec_8cpp_03_af8d688b5b5c223deffce84766ea687ca}{anonymous\-\_\-namespace\{norec.\-cpp\}\-::irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, upper\-\_\-stack\-\_\-bound))
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uintptr\-\_\-t \hyperlink{namespaceanonymous__namespace_02norec_8cpp_03_a9f9326929879517472fe0cdccf616ffb}{anonymous\-\_\-namespace\{norec.\-cpp\}\-::\-V\-A\-L\-I\-D\-A\-T\-I\-O\-N\-\_\-\-F\-A\-I\-L\-E\-D} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{norec_8cpp_a7dca04e20a1ce647ad53669ab4296f5c}{\index{norec.\-cpp@{norec.\-cpp}!F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C@{F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C}}
+\index{F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C@{F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C}!norec.cpp@{norec.\-cpp}}
+\subsubsection[{F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-R\-E\-A\-C\-H\-\_\-\-N\-O\-R\-E\-C(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-C\-R\-O}
+\end{DoxyParamCaption}
+)}}\label{norec_8cpp_a7dca04e20a1ce647ad53669ab4296f5c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aefcd72d51be4ac5fa48359c5656bd6b9}{NOrec}, HyperAggressiveCM)             \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a92c8a3800760b319d7f208d796cde8a8}{NOrecHour}, HourglassCM)               \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a6fd409ae7e92c7ff3516416621257265}{NOrecBackoff}, BackoffCM)              \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7428b7322325893892f8600bb89a0f94}{NOrecHB}, HourglassBackoffCM)
+\end{DoxyCode}
+\hypertarget{norec_8cpp_af775db3d1b1af1f984609a78836d0a6e}{\index{norec.\-cpp@{norec.\-cpp}!I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C@{I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C}}
+\index{I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C@{I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C}!norec.cpp@{norec.\-cpp}}
+\subsubsection[{I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-\_\-\-N\-O\-R\-E\-C(
+\begin{DoxyParamCaption}
+\item[{}]{I\-D, }
+\item[{}]{C\-M}
+\end{DoxyParamCaption}
+)}}\label{norec_8cpp_af775db3d1b1af1f984609a78836d0a6e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <>                                 \(\backslash\)
+    void initTM<ID>() \{                         \(\backslash\)
+        NOrec\_Generic<CM>::initialize(ID, #ID);     \(\backslash\)
+    \}
+\end{DoxyCode}

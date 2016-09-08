@@ -1,0 +1,24 @@
+\hypertarget{namespaceanonymous__namespace_02types_8cpp_03}{\section{anonymous\-\_\-namespace\{types.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02types_8cpp_03}\index{anonymous\-\_\-namespace\{types.\-cpp\}@{anonymous\-\_\-namespace\{types.\-cpp\}}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T $\ast$ \hyperlink{namespaceanonymous__namespace_02types_8cpp_03_abafdc74e2a701faf445fe4d4cc8445e8}{typed\-\_\-malloc} (size\-\_\-t \hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information In the types/ folder, we have a lot of data structure implementations. In some cases, the optimal implementation will have a 'noinline' function that is rarely called. To actually ensure that the 'noinline' behavior is achieved, we put the implementations of those functions here, in a separate compilation unit. 
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02types_8cpp_03_abafdc74e2a701faf445fe4d4cc8445e8}{\index{anonymous\-\_\-namespace\{types.\-cpp\}@{anonymous\-\_\-namespace\{types.\-cpp\}}!typed\-\_\-malloc@{typed\-\_\-malloc}}
+\index{typed\-\_\-malloc@{typed\-\_\-malloc}!anonymous_namespace{types.cpp}@{anonymous\-\_\-namespace\{types.\-cpp\}}}
+\subsubsection[{typed\-\_\-malloc}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T$\ast$ anonymous\-\_\-namespace\{types.\-cpp\}\-::typed\-\_\-malloc (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceanonymous__namespace_02types_8cpp_03_abafdc74e2a701faf445fe4d4cc8445e8}
+We use malloc a couple of times here, and this makes it a bit easier 

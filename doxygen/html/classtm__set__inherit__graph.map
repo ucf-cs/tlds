@@ -1,0 +1,4 @@
+<map id="tm_set&lt; T &gt;" name="tm_set&lt; T &gt;">
+<area shape="rect" id="node2" href="$classtm__hash__set.html" title="{tm_hash_set\&lt; T \&gt;\n|&#45; bucket\l&#45; num_buckets\l|+ insert()\l+ remove()\l+ lookup()\l+ apply_to_all()\l+ tm_hash_set()\l+ ~tm_hash_set()\l+ print_stats()\l&#45; tm_hash_set()\l&#45; operator=()\l&#45; hash()\l}" alt="" coords="5,189,133,413"/>
+<area shape="rect" id="node3" href="$classtm__list__set.html" title="{tm_list_set\&lt; T \&gt;\n|&#45; head_node\l|+ insert()\l+ remove()\l+ lookup()\l+ apply_to_all()\l+ tm_list_set()\l+ ~tm_list_set()\l+ size()\l&#45; tm_list_set()\l&#45; operator=()\l}" alt="" coords="158,204,276,399"/>
+</map>

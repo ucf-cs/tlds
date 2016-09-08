@@ -1,0 +1,5 @@
+<map id="maze" name="maze">
+<area shape="rect" id="node2" href="$structvector.html" title="{vector\n||}" alt="" coords="240,205,298,283"/>
+<area shape="rect" id="node6" href="$structqueue.html" title="{queue\n||}" alt="" coords="114,205,171,283"/>
+<area shape="rect" id="node5" href="$structgrid.html" title="{grid\n||}" alt="" coords="366,205,408,283"/>
+</map>

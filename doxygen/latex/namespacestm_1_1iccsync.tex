@@ -1,0 +1,118 @@
+\hypertarget{namespacestm_1_1iccsync}{\section{stm\-:\-:iccsync Namespace Reference}
+\label{namespacestm_1_1iccsync}\index{stm\-::iccsync@{stm\-::iccsync}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC}{S\-Y\-N\-C}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_01W_00_011_01_4}{S\-Y\-N\-C$<$ T, W, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_01W_00_012_01_4}{S\-Y\-N\-C$<$ T, W, 2 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_01W_00_014_01_4}{S\-Y\-N\-C$<$ T, W, 4 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_014_00_018_01_4}{S\-Y\-N\-C$<$ T, 4, 8 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4}{S\-Y\-N\-C$<$ T, 8, 8 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_0116_01_4}{S\-Y\-N\-C$<$ T, 8, 16 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER}{C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER_3_01T_00_01T_00_011_01_4}{C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, T, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER_3_01T_00_01S_00_010_01_4}{C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, 0 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER}{S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_3_01T_00_01T_00_011_01_4}{S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, T, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_3_01T_00_01S_00_011_01_4}{S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_3_01T_00_01S_00_010_01_4}{S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, 0 $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\T \hyperlink{namespacestm_1_1iccsync_a9b09f35a68551cff0b8cbbd3cc4424ef}{lock\-\_\-test\-\_\-and\-\_\-set} (volatile T $\ast$address, S value)
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\bool \hyperlink{namespacestm_1_1iccsync_ae9b8fb58e501278819d7083a0b8802f0}{bool\-\_\-compare\-\_\-and\-\_\-swap} (volatile T $\ast$address, S from, S to)
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\T \hyperlink{namespacestm_1_1iccsync_afa85ce51e68f13c37b0240e7bc662c31}{val\-\_\-compare\-\_\-and\-\_\-swap} (volatile T $\ast$address, S from, S to)
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\T \hyperlink{namespacestm_1_1iccsync_ac92b0d2a99b157c716d8f842fe8233ed}{fetch\-\_\-and\-\_\-add} (volatile T $\ast$address, S value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacestm_1_1iccsync_ae9b8fb58e501278819d7083a0b8802f0}{\index{stm\-::iccsync@{stm\-::iccsync}!bool\-\_\-compare\-\_\-and\-\_\-swap@{bool\-\_\-compare\-\_\-and\-\_\-swap}}
+\index{bool\-\_\-compare\-\_\-and\-\_\-swap@{bool\-\_\-compare\-\_\-and\-\_\-swap}!stm::iccsync@{stm\-::iccsync}}
+\subsubsection[{bool\-\_\-compare\-\_\-and\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S $>$ bool stm\-::iccsync\-::bool\-\_\-compare\-\_\-and\-\_\-swap (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{from, }
+\item[{S}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_1_1iccsync_ae9b8fb58e501278819d7083a0b8802f0}
+The primary interface to the bool compare-\/and-\/swap routine. Uses the parameter types to pick the correct implementation. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_1_1iccsync_ae9b8fb58e501278819d7083a0b8802f0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_1_1iccsync_ac92b0d2a99b157c716d8f842fe8233ed}{\index{stm\-::iccsync@{stm\-::iccsync}!fetch\-\_\-and\-\_\-add@{fetch\-\_\-and\-\_\-add}}
+\index{fetch\-\_\-and\-\_\-add@{fetch\-\_\-and\-\_\-add}!stm::iccsync@{stm\-::iccsync}}
+\subsubsection[{fetch\-\_\-and\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S $>$ T stm\-::iccsync\-::fetch\-\_\-and\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_1_1iccsync_ac92b0d2a99b157c716d8f842fe8233ed}
+We implement fetch\-\_\-and\-\_\-add implemented in terms of bcas. We actually don't have a problem with the type of the value parameter, as long as the T + S operator returns a T, which it almost always will. \hypertarget{namespacestm_1_1iccsync_a9b09f35a68551cff0b8cbbd3cc4424ef}{\index{stm\-::iccsync@{stm\-::iccsync}!lock\-\_\-test\-\_\-and\-\_\-set@{lock\-\_\-test\-\_\-and\-\_\-set}}
+\index{lock\-\_\-test\-\_\-and\-\_\-set@{lock\-\_\-test\-\_\-and\-\_\-set}!stm::iccsync@{stm\-::iccsync}}
+\subsubsection[{lock\-\_\-test\-\_\-and\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S $>$ T stm\-::iccsync\-::lock\-\_\-test\-\_\-and\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_1_1iccsync_a9b09f35a68551cff0b8cbbd3cc4424ef}
+The primary interface to the lock\-\_\-test\-\_\-and\-\_\-set primitive. Uses the parameter types to pick the correct swap adapter. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_1_1iccsync_a9b09f35a68551cff0b8cbbd3cc4424ef_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_1_1iccsync_afa85ce51e68f13c37b0240e7bc662c31}{\index{stm\-::iccsync@{stm\-::iccsync}!val\-\_\-compare\-\_\-and\-\_\-swap@{val\-\_\-compare\-\_\-and\-\_\-swap}}
+\index{val\-\_\-compare\-\_\-and\-\_\-swap@{val\-\_\-compare\-\_\-and\-\_\-swap}!stm::iccsync@{stm\-::iccsync}}
+\subsubsection[{val\-\_\-compare\-\_\-and\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S $>$ T stm\-::iccsync\-::val\-\_\-compare\-\_\-and\-\_\-swap (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{from, }
+\item[{S}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_1_1iccsync_afa85ce51e68f13c37b0240e7bc662c31}
+The primary interface to the val compare-\/and-\/swap routine. Uses the parameter types to pick the correct implementation. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_1_1iccsync_afa85ce51e68f13c37b0240e7bc662c31_cgraph}
+\end{center}
+\end{figure}
+
+

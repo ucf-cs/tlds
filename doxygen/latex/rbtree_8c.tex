@@ -1,0 +1,1245 @@
+\hypertarget{rbtree_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/rbtree.c File Reference}
+\label{rbtree_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/rbtree.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/rbtree.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}memory.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rbtree.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lehigh.\-h\char`\"{}}\\*
+Include dependency graph for rbtree.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rbtree_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnode}{node}
+\item 
+struct \hyperlink{structrbtree}{rbtree}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rbtree_8c_addb7fece878f359efd40c8d08c24902a}{L\-D\-A}(a)~$\ast$(a)
+\item 
+\#define \hyperlink{rbtree_8c_a2dc9503de7ceeabcc1c7e6a70584ede0}{S\-T\-A}(a, v)~$\ast$(a) = (v)
+\item 
+\#define \hyperlink{rbtree_8c_a35dbc6fb7714916907e02473097a66f0}{L\-D\-V}(a)~(a)
+\item 
+\#define \hyperlink{rbtree_8c_a8667be0f3e08451845f93567cb207e92}{S\-T\-V}(a, v)~(a) = (v)
+\item 
+\#define \hyperlink{rbtree_8c_acc8c946acf7585a37d0b5a1ff260c9d6}{L\-D\-F}(o, f)~((o)-\/$>$f)
+\item 
+\#define \hyperlink{rbtree_8c_a289011d941625ea9e4436e4726d4716f}{S\-T\-F}(o, f, v)~((o)-\/$>$f) = (v)
+\item 
+\#define \hyperlink{rbtree_8c_a114100e5d6a2ad99fb23e114d77c36a7}{L\-D\-N\-O\-D\-E}(o, f)~((\hyperlink{structnode__t}{node\-\_\-t}$\ast$)(\hyperlink{rbtree_8c_acc8c946acf7585a37d0b5a1ff260c9d6}{L\-D\-F}((o),f)))
+\item 
+\#define \hyperlink{rbtree_8c_aae6e55d3749ed7622af3306fd6e34824}{T\-X\-\_\-\-L\-D\-A}(a)~\hyperlink{tm_8h_aa29ec4171f364afc325476bc640d1da6}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-L}($\ast$(a))
+\item 
+\#define \hyperlink{rbtree_8c_a833cb29071bed4a87738788b00c57acc}{T\-X\-\_\-\-S\-T\-A}(a, v)~\hyperlink{tm_8h_aa8c96a89040d0159309c046bc2f87742}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-L}($\ast$(a), v)
+\item 
+\#define \hyperlink{rbtree_8c_abe6ea39eb672eea3c09ab60a5820f2c2}{T\-X\-\_\-\-L\-D\-V}(a)~\hyperlink{tm_8h_aa29ec4171f364afc325476bc640d1da6}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-L}(a)
+\item 
+\#define \hyperlink{rbtree_8c_acbb131bc7d6661df7a1fcd933f52f2f5}{T\-X\-\_\-\-S\-T\-V}(a, v)~\hyperlink{tm_8h_a6ef4133f911cf4937ee8c2e34c0bc15e}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-P}(a, v)
+\item 
+\#define \hyperlink{rbtree_8c_ab8fc7db14690e9cc3fb108c57368b3c0}{T\-X\-\_\-\-L\-D\-F}(o, f)~((long)\hyperlink{tm_8h_aa29ec4171f364afc325476bc640d1da6}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-L}((o)-\/$>$f))
+\item 
+\#define \hyperlink{rbtree_8c_a95c4216fd8959e1f3d126d62d6061c12}{T\-X\-\_\-\-L\-D\-F\-\_\-\-P}(o, f)~((void$\ast$)\hyperlink{tm_8h_a1b61f7889ee4b8ef66cbd036303bee24}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-P}((o)-\/$>$f))
+\item 
+\#define \hyperlink{rbtree_8c_a81edfecd1e08275a3d27c47db2b521ba}{T\-X\-\_\-\-S\-T\-F}(o, f, v)~\hyperlink{tm_8h_aa8c96a89040d0159309c046bc2f87742}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-L}((o)-\/$>$f, v)
+\item 
+\#define \hyperlink{rbtree_8c_aeca229802328c1f68680f440f241c3d9}{T\-X\-\_\-\-S\-T\-F\-\_\-\-P}(o, f, v)~\hyperlink{tm_8h_a6ef4133f911cf4937ee8c2e34c0bc15e}{T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-P}((o)-\/$>$f, v)
+\item 
+\#define \hyperlink{rbtree_8c_a6fad02b70fa204c8627b9431250b88b8}{T\-X\-\_\-\-L\-D\-N\-O\-D\-E}(o, f)~((\hyperlink{structnode__t}{node\-\_\-t}$\ast$)(\hyperlink{rbtree_8c_a95c4216fd8959e1f3d126d62d6061c12}{T\-X\-\_\-\-L\-D\-F\-\_\-\-P}((o),f)))
+\item 
+\#define \hyperlink{rbtree_8c_a7c7fcd8a0b37249ab90e781a1c35cbce}{L\-O\-O\-K\-U\-P}(set, key)~\hyperlink{rbtree_8c_a13b187579d6acc84e8ab35945efe7d7c}{lookup}(set, key)
+\item 
+\#define \hyperlink{rbtree_8c_a362214d711c0ccc54a5092f13d653738}{T\-X\-\_\-\-L\-O\-O\-K\-U\-P}(set, key)~\hyperlink{rbtree_8c_a5a3fde8bbd77e4030998d12f9c0b9160}{T\-Mlookup}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  set, key)
+\item 
+\#define \hyperlink{rbtree_8c_ab42d05d769d363a201aab377c2ab8c28}{R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}(set, \hyperlink{structnode}{node})~\hyperlink{rbtree_8c_a146f23171fbff419257579067196b94b}{rotate\-Left}(set, \hyperlink{structnode}{node})
+\item 
+\#define \hyperlink{rbtree_8c_a7a89b3dd003d32598aaeba492aa0bc86}{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}(set, \hyperlink{structnode}{node})~\hyperlink{rbtree_8c_aa0bab997470a9040c7b12d3df8c2ec8a}{T\-Mrotate\-Left}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  set, \hyperlink{structnode}{node})
+\item 
+\#define \hyperlink{rbtree_8c_a3c1d54b52fe5537af0f29d308ef56367}{R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}(set, \hyperlink{structnode}{node})~\hyperlink{rbtree_8c_a3555b1ef9e25200c5e20aca7e126fd51}{rotate\-Right}(set, \hyperlink{structnode}{node})
+\item 
+\#define \hyperlink{rbtree_8c_af0b0395bcef75231749c3544e4ceda73}{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}(set, \hyperlink{structnode}{node})~\hyperlink{rbtree_8c_a72dc51d288c1ecae8a381fb8d5d94cfc}{T\-Mrotate\-Right}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  set, \hyperlink{structnode}{node})
+\item 
+\#define \hyperlink{rbtree_8c_aed7f71ed3b1a2bcd3caff4e6dcdc8c1b}{P\-A\-R\-E\-N\-T\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a8b8c530f2d8697c804c3fbd073392ab4}{parent\-Of}(n)
+\item 
+\#define \hyperlink{rbtree_8c_a7d535b607d02e8b1626036a7e25081d9}{T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a015ab6aed9462afc5ac7043e990747f2}{T\-Mparent\-Of}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  n)
+\item 
+\#define \hyperlink{rbtree_8c_a7217f77398b3ba6d9f018c408e9ce5f2}{L\-E\-F\-T\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a7348310548e74e6c4a567a79694df531}{left\-Of}(n)
+\item 
+\#define \hyperlink{rbtree_8c_a09e44798791a3d9be85449230e5c00a2}{T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a41bdb79cebd1689852ea0fd02924daa3}{T\-Mleft\-Of}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  n)
+\item 
+\#define \hyperlink{rbtree_8c_a3152c3e258e7eb940da1b377181a62bb}{R\-I\-G\-H\-T\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a5306b129f2f4500ab85b59727b4ef37d}{right\-Of}(n)
+\item 
+\#define \hyperlink{rbtree_8c_a3d4f19aee5cdef507adda3ed5ccae630}{T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a35e6b6f551b493325d1ca4a93c06f90d}{T\-Mright\-Of}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  n)
+\item 
+\#define \hyperlink{rbtree_8c_aba71d87f9e15be4083d1e34851f885d8}{C\-O\-L\-O\-R\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_aa3dc8daeb745d0a0b5b45c1d08b5c4c2}{color\-Of}(n)
+\item 
+\#define \hyperlink{rbtree_8c_a5b2bf9b592663efb64631afde2126186}{T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F}(n)~\hyperlink{rbtree_8c_a95d7042e3a1107b0e096a2a02fa35403}{T\-Mcolor\-Of}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  n)
+\item 
+\#define \hyperlink{rbtree_8c_a412a0be6fa896377ed8cf2e088690c64}{S\-E\-T\-\_\-\-C\-O\-L\-O\-R}(n, c)~\hyperlink{rbtree_8c_ad030383165d2c4dabdb9aaac049d0fc7}{set\-Color}(n, c)
+\item 
+\#define \hyperlink{rbtree_8c_a26a31e956775a4f5638686e943de5378}{T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R}(n, c)~\hyperlink{rbtree_8c_afcea7c6a6b9f6812dcf1f85c4dbe24b4}{T\-Mset\-Color}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  n, c)
+\item 
+\#define \hyperlink{rbtree_8c_a4e0198c5fab6f83496c873c99b4fbb76}{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}(s, x)~\hyperlink{rbtree_8c_a9982f05f34de7226ffd0e1c68d178b81}{fix\-After\-Insertion}(s, x)
+\item 
+\#define \hyperlink{rbtree_8c_ac146cbf2c07b43d4e8772c36c2b112e8}{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}(s, x)~\hyperlink{rbtree_8c_a93d403bc2e13d0c8a2665b14149f6823}{T\-Mfix\-After\-Insertion}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  s, x)
+\item 
+\#define \hyperlink{rbtree_8c_a11e64629dd32a2e2dc9e9b22d4d9964b}{I\-N\-S\-E\-R\-T}(s, k, v, n)~\hyperlink{rbtree_8c_a14bd83586612336b5eb09f902e95b02f}{insert}(s, k, v, n)
+\item 
+\#define \hyperlink{rbtree_8c_a0a5a3f02cab8baaae9bcc69c12c16323}{T\-X\-\_\-\-I\-N\-S\-E\-R\-T}(s, k, v, n)~\hyperlink{rbtree_8c_a47dc2cb2c9de9c39f968f120e1fe9ed4}{T\-Minsert}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  s, k, v, n)
+\item 
+\#define \hyperlink{rbtree_8c_a2045ddb330c7e52c2b85d3fdca18dfeb}{S\-U\-C\-C\-E\-S\-S\-O\-R}(n)~\hyperlink{rbtree_8c_a5122a9a805e6a00b2c829dc3fc287a0e}{successor}(n)
+\item 
+\#define \hyperlink{rbtree_8c_aaac6ababc91693b23152ffbed82ab74c}{T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R}(n)~\hyperlink{rbtree_8c_a2fc5e30134e57161fbce071520f9b55c}{T\-Msuccessor}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  n)
+\item 
+\#define \hyperlink{rbtree_8c_ab80ac3ba7befcc1ff41dd6f6702b623d}{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}(s, n)~\hyperlink{rbtree_8c_a13a8eec7675af86fe68f2addcf6d147e}{fix\-After\-Deletion}(s, n)
+\item 
+\#define \hyperlink{rbtree_8c_a10093081d4b4b5645f04158a869878b4}{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}(s, n)~\hyperlink{rbtree_8c_a7f3d04a3bbd6cb1355100fbed163a995}{T\-Mfix\-After\-Deletion}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  s, n )
+\item 
+\#define \hyperlink{rbtree_8c_a1168b12ed4d4d06a9a0004f6ee8d25f0}{D\-E\-L\-E\-T\-E}(s, n)~\hyperlink{rbtree_8c_a2d802b28f8b6c5bc9557357375a0b2ee}{delete\-\_\-node}(s, n)
+\item 
+\#define \hyperlink{rbtree_8c_a3a42080df6bce7181c69a31e1b579961}{T\-X\-\_\-\-D\-E\-L\-E\-T\-E}(s, n)~\hyperlink{rbtree_8c_a96b35903a1600dd8b0212fa079e88dbe}{T\-Mdelete}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  s, n)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structnode}{node} \hyperlink{rbtree_8c_ae9a21d6d42a362acf7978de7ad532d0b}{node\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a5a3fde8bbd77e4030998d12f9c0b9160}{T\-Mlookup} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, void $\ast$k)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{rbtree_8c_aa0bab997470a9040c7b12d3df8c2ec8a}{T\-Mrotate\-Left} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{rbtree_8c_a72dc51d288c1ecae8a381fb8d5d94cfc}{T\-Mrotate\-Right} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a015ab6aed9462afc5ac7043e990747f2}{T\-Mparent\-Of} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a41bdb79cebd1689852ea0fd02924daa3}{T\-Mleft\-Of} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a35e6b6f551b493325d1ca4a93c06f90d}{T\-Mright\-Of} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{rbtree_8c_a95d7042e3a1107b0e096a2a02fa35403}{T\-Mcolor\-Of} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{rbtree_8c_afcea7c6a6b9f6812dcf1f85c4dbe24b4}{T\-Mset\-Color} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n, long c)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{rbtree_8c_a93d403bc2e13d0c8a2665b14149f6823}{T\-Mfix\-After\-Insertion} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a2fc5e30134e57161fbce071520f9b55c}{T\-Msuccessor} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$t)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{rbtree_8c_a7f3d04a3bbd6cb1355100fbed163a995}{T\-Mfix\-After\-Deletion} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a47dc2cb2c9de9c39f968f120e1fe9ed4}{T\-Minsert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, void $\ast$k, void $\ast$v, \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_acda2cf48dbc4b90683124b79d8809bc8}{T\-Mget\-Node} (\hyperlink{tm_8h_a1e777a44e336d5f4adc02eb8e9e41062}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L\-\_\-\-A\-L\-O\-N\-E})
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a96b35903a1600dd8b0212fa079e88dbe}{T\-Mdelete} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a13b187579d6acc84e8ab35945efe7d7c}{lookup} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, void $\ast$k)
+\item 
+static void \hyperlink{rbtree_8c_a146f23171fbff419257579067196b94b}{rotate\-Left} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static void \hyperlink{rbtree_8c_a3555b1ef9e25200c5e20aca7e126fd51}{rotate\-Right} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a8b8c530f2d8697c804c3fbd073392ab4}{parent\-Of} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a7348310548e74e6c4a567a79694df531}{left\-Of} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a5306b129f2f4500ab85b59727b4ef37d}{right\-Of} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static long \hyperlink{rbtree_8c_aa3dc8daeb745d0a0b5b45c1d08b5c4c2}{color\-Of} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static void \hyperlink{rbtree_8c_ad030383165d2c4dabdb9aaac049d0fc7}{set\-Color} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n, long c)
+\item 
+static void \hyperlink{rbtree_8c_a9982f05f34de7226ffd0e1c68d178b81}{fix\-After\-Insertion} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a14bd83586612336b5eb09f902e95b02f}{insert} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, void $\ast$k, void $\ast$v, \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a5122a9a805e6a00b2c829dc3fc287a0e}{successor} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$t)
+\item 
+static void \hyperlink{rbtree_8c_a13a8eec7675af86fe68f2addcf6d147e}{fix\-After\-Deletion} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a2d802b28f8b6c5bc9557357375a0b2ee}{delete\-\_\-node} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, \hyperlink{structnode__t}{node\-\_\-t} $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a6d8aba7dee2ceddf116b9d132fa797c4}{first\-Entry} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s)
+\item 
+static long \hyperlink{rbtree_8c_ad263cebf1ba660e88ab86e1908611937}{verify\-Red\-Black} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$root, long depth)
+\item 
+long \hyperlink{rbtree_8c_a9b6ec3e754f9859f90137cac234ff484}{rbtree\-\_\-verify} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$s, long \hyperlink{mesh_8cpp_ab3f078684998b83967d507d0f453f454}{verbose})
+\item 
+static long \hyperlink{rbtree_8c_a53357f9a878dfe5b1bc5baf3f8ce443f}{compare\-Keys\-Default} (const void $\ast$a, const void $\ast$b)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{rbtree_8c_aca52370724d20bc6af3406bce673c3a5}{T\-Mcompare\-Keys\-Default} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$a, const void $\ast$b)
+\item 
+\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$ \hyperlink{rbtree_8c_aa431eb69c79dae0257d7232729c9ada3}{rbtree\-\_\-alloc} (\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare)
+\item 
+\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$ \hyperlink{rbtree_8c_a384b5a2b979d92bce5bffe4da0b4395d}{T\-Mrbtree\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare)
+\item 
+static void \hyperlink{rbtree_8c_a8f8a469092ac5036bea92bd85edcfbdf}{release\-Node} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{rbtree_8c_aca7b16a10ec54418d4f8268a24cae56b}{T\-Mrelease\-Node} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static void \hyperlink{rbtree_8c_a51f7a019df94c04cc3af108024dcb1d0}{free\-Node} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static void \hyperlink{rbtree_8c_a45d31fe9f4b5f760c0c1d2d9146ca521}{T\-Mfree\-Node} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+void \hyperlink{rbtree_8c_a0cbabe86101a114c379c35aacdaea4a7}{rbtree\-\_\-free} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r)
+\item 
+void \hyperlink{rbtree_8c_aa700457df21ccf3c15f61381e37a90fb}{T\-Mrbtree\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{rbtree_8c_afba101a1f526e7f553543e4f91476e54}{get\-Node} ()
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{rbtree_8c_aff4bb45ba57765e56867712f83e9a920}{rbtree\-\_\-insert} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key, void $\ast$val)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{rbtree_8c_a51369260a24abe497eb9c92b0de523a5}{T\-Mrbtree\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key, void $\ast$val)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{rbtree_8c_a4d7951ae32145c8a578fb4855084a5d3}{rbtree\-\_\-delete} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{rbtree_8c_a037b2341094bff427c0140b296d13cd9}{T\-Mrbtree\-\_\-delete} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{rbtree_8c_aa9172a41b4b221175309a897753cb41d}{rbtree\-\_\-update} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key, void $\ast$val)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{rbtree_8c_a442aca41f05b1489464670b8371a93cf}{T\-Mrbtree\-\_\-update} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key, void $\ast$val)
+\item 
+void $\ast$ \hyperlink{rbtree_8c_a218f70e7b8846618cb4737a93b2e78d8}{rbtree\-\_\-get} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key)
+\item 
+void $\ast$ \hyperlink{rbtree_8c_ae8d6b8aa6ef0fc49cc67d2560f7be788}{T\-Mrbtree\-\_\-get} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key)
+\item 
+long \hyperlink{rbtree_8c_aa8b321070f25dc93d8c25978d9323d9a}{rbtree\-\_\-contains} (\hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key)
+\item 
+long \hyperlink{rbtree_8c_aebcc3a9f9b4f741376a9ec95ceda4836}{T\-Mrbtree\-\_\-contains} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{rbtree_8h_ab310b7893f0688e609868e8ccb717a77}{rbtree\-\_\-t} $\ast$r, void $\ast$key)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static long \hyperlink{rbtree_8c_a0aac6a40efdab135714afb9235e49fc0}{R\-E\-D} = 0
+\item 
+static long \hyperlink{rbtree_8c_a466f1fcb6e4c2d2aaf0087810d1d2606}{B\-L\-A\-C\-K} = 1
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} \\*
+rbtree\-\_\-comparekeysdefault \& \hyperlink{rbtree_8c_a90d34f5f4fb14490b1b3ba0cae7d135d}{compare\-Keys\-Default}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rbtree_8c_aba71d87f9e15be4083d1e34851f885d8}{\index{rbtree.\-c@{rbtree.\-c}!C\-O\-L\-O\-R\-\_\-\-O\-F@{C\-O\-L\-O\-R\-\_\-\-O\-F}}
+\index{C\-O\-L\-O\-R\-\_\-\-O\-F@{C\-O\-L\-O\-R\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{C\-O\-L\-O\-R\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-L\-O\-R\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf color\-Of}(n)}}\label{rbtree_8c_aba71d87f9e15be4083d1e34851f885d8}
+\hypertarget{rbtree_8c_a1168b12ed4d4d06a9a0004f6ee8d25f0}{\index{rbtree.\-c@{rbtree.\-c}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}
+\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf delete\-\_\-node}(s, n)}}\label{rbtree_8c_a1168b12ed4d4d06a9a0004f6ee8d25f0}
+\hypertarget{rbtree_8c_ab80ac3ba7befcc1ff41dd6f6702b623d}{\index{rbtree.\-c@{rbtree.\-c}!F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N@{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}}
+\index{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N@{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf fix\-After\-Deletion}(s, n)}}\label{rbtree_8c_ab80ac3ba7befcc1ff41dd6f6702b623d}
+\hypertarget{rbtree_8c_a4e0198c5fab6f83496c873c99b4fbb76}{\index{rbtree.\-c@{rbtree.\-c}!F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N@{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}}
+\index{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N@{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf fix\-After\-Insertion}(s, x)}}\label{rbtree_8c_a4e0198c5fab6f83496c873c99b4fbb76}
+\hypertarget{rbtree_8c_a11e64629dd32a2e2dc9e9b22d4d9964b}{\index{rbtree.\-c@{rbtree.\-c}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}
+\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{I\-N\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-S\-E\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{k, }
+\item[{}]{v, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf insert}(s, k, v, n)}}\label{rbtree_8c_a11e64629dd32a2e2dc9e9b22d4d9964b}
+\hypertarget{rbtree_8c_addb7fece878f359efd40c8d08c24902a}{\index{rbtree.\-c@{rbtree.\-c}!L\-D\-A@{L\-D\-A}}
+\index{L\-D\-A@{L\-D\-A}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{L\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-D\-A(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~$\ast$(a)}}\label{rbtree_8c_addb7fece878f359efd40c8d08c24902a}
+\hypertarget{rbtree_8c_acc8c946acf7585a37d0b5a1ff260c9d6}{\index{rbtree.\-c@{rbtree.\-c}!L\-D\-F@{L\-D\-F}}
+\index{L\-D\-F@{L\-D\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{L\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-D\-F(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~((o)-\/$>$f)}}\label{rbtree_8c_acc8c946acf7585a37d0b5a1ff260c9d6}
+\hypertarget{rbtree_8c_a114100e5d6a2ad99fb23e114d77c36a7}{\index{rbtree.\-c@{rbtree.\-c}!L\-D\-N\-O\-D\-E@{L\-D\-N\-O\-D\-E}}
+\index{L\-D\-N\-O\-D\-E@{L\-D\-N\-O\-D\-E}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{L\-D\-N\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-D\-N\-O\-D\-E(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~(({\bf node\-\_\-t}$\ast$)({\bf L\-D\-F}((o),f)))}}\label{rbtree_8c_a114100e5d6a2ad99fb23e114d77c36a7}
+\hypertarget{rbtree_8c_a35dbc6fb7714916907e02473097a66f0}{\index{rbtree.\-c@{rbtree.\-c}!L\-D\-V@{L\-D\-V}}
+\index{L\-D\-V@{L\-D\-V}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{L\-D\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-D\-V(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~(a)}}\label{rbtree_8c_a35dbc6fb7714916907e02473097a66f0}
+\hypertarget{rbtree_8c_a7217f77398b3ba6d9f018c408e9ce5f2}{\index{rbtree.\-c@{rbtree.\-c}!L\-E\-F\-T\-\_\-\-O\-F@{L\-E\-F\-T\-\_\-\-O\-F}}
+\index{L\-E\-F\-T\-\_\-\-O\-F@{L\-E\-F\-T\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{L\-E\-F\-T\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-F\-T\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf left\-Of}(n)}}\label{rbtree_8c_a7217f77398b3ba6d9f018c408e9ce5f2}
+\hypertarget{rbtree_8c_a7c7fcd8a0b37249ab90e781a1c35cbce}{\index{rbtree.\-c@{rbtree.\-c}!L\-O\-O\-K\-U\-P@{L\-O\-O\-K\-U\-P}}
+\index{L\-O\-O\-K\-U\-P@{L\-O\-O\-K\-U\-P}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{L\-O\-O\-K\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-O\-K\-U\-P(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{key}
+\end{DoxyParamCaption}
+)~{\bf lookup}(set, key)}}\label{rbtree_8c_a7c7fcd8a0b37249ab90e781a1c35cbce}
+\hypertarget{rbtree_8c_aed7f71ed3b1a2bcd3caff4e6dcdc8c1b}{\index{rbtree.\-c@{rbtree.\-c}!P\-A\-R\-E\-N\-T\-\_\-\-O\-F@{P\-A\-R\-E\-N\-T\-\_\-\-O\-F}}
+\index{P\-A\-R\-E\-N\-T\-\_\-\-O\-F@{P\-A\-R\-E\-N\-T\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{P\-A\-R\-E\-N\-T\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-E\-N\-T\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf parent\-Of}(n)}}\label{rbtree_8c_aed7f71ed3b1a2bcd3caff4e6dcdc8c1b}
+\hypertarget{rbtree_8c_a3152c3e258e7eb940da1b377181a62bb}{\index{rbtree.\-c@{rbtree.\-c}!R\-I\-G\-H\-T\-\_\-\-O\-F@{R\-I\-G\-H\-T\-\_\-\-O\-F}}
+\index{R\-I\-G\-H\-T\-\_\-\-O\-F@{R\-I\-G\-H\-T\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{R\-I\-G\-H\-T\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-I\-G\-H\-T\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf right\-Of}(n)}}\label{rbtree_8c_a3152c3e258e7eb940da1b377181a62bb}
+\hypertarget{rbtree_8c_ab42d05d769d363a201aab377c2ab8c28}{\index{rbtree.\-c@{rbtree.\-c}!R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T@{R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}}
+\index{R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T@{R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf node}}
+\end{DoxyParamCaption}
+)~{\bf rotate\-Left}(set, {\bf node})}}\label{rbtree_8c_ab42d05d769d363a201aab377c2ab8c28}
+\hypertarget{rbtree_8c_a3c1d54b52fe5537af0f29d308ef56367}{\index{rbtree.\-c@{rbtree.\-c}!R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T@{R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}}
+\index{R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T@{R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf node}}
+\end{DoxyParamCaption}
+)~{\bf rotate\-Right}(set, {\bf node})}}\label{rbtree_8c_a3c1d54b52fe5537af0f29d308ef56367}
+\hypertarget{rbtree_8c_a412a0be6fa896377ed8cf2e088690c64}{\index{rbtree.\-c@{rbtree.\-c}!S\-E\-T\-\_\-\-C\-O\-L\-O\-R@{S\-E\-T\-\_\-\-C\-O\-L\-O\-R}}
+\index{S\-E\-T\-\_\-\-C\-O\-L\-O\-R@{S\-E\-T\-\_\-\-C\-O\-L\-O\-R}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{S\-E\-T\-\_\-\-C\-O\-L\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-T\-\_\-\-C\-O\-L\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~{\bf set\-Color}(n, c)}}\label{rbtree_8c_a412a0be6fa896377ed8cf2e088690c64}
+\hypertarget{rbtree_8c_a2dc9503de7ceeabcc1c7e6a70584ede0}{\index{rbtree.\-c@{rbtree.\-c}!S\-T\-A@{S\-T\-A}}
+\index{S\-T\-A@{S\-T\-A}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{S\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~$\ast$(a) = (v)}}\label{rbtree_8c_a2dc9503de7ceeabcc1c7e6a70584ede0}
+\hypertarget{rbtree_8c_a289011d941625ea9e4436e4726d4716f}{\index{rbtree.\-c@{rbtree.\-c}!S\-T\-F@{S\-T\-F}}
+\index{S\-T\-F@{S\-T\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{S\-T\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-F(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~((o)-\/$>$f) = (v)}}\label{rbtree_8c_a289011d941625ea9e4436e4726d4716f}
+\hypertarget{rbtree_8c_a8667be0f3e08451845f93567cb207e92}{\index{rbtree.\-c@{rbtree.\-c}!S\-T\-V@{S\-T\-V}}
+\index{S\-T\-V@{S\-T\-V}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{S\-T\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-V(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~(a) = (v)}}\label{rbtree_8c_a8667be0f3e08451845f93567cb207e92}
+\hypertarget{rbtree_8c_a2045ddb330c7e52c2b85d3fdca18dfeb}{\index{rbtree.\-c@{rbtree.\-c}!S\-U\-C\-C\-E\-S\-S\-O\-R@{S\-U\-C\-C\-E\-S\-S\-O\-R}}
+\index{S\-U\-C\-C\-E\-S\-S\-O\-R@{S\-U\-C\-C\-E\-S\-S\-O\-R}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{S\-U\-C\-C\-E\-S\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-C\-C\-E\-S\-S\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf successor}(n)}}\label{rbtree_8c_a2045ddb330c7e52c2b85d3fdca18dfeb}
+\hypertarget{rbtree_8c_a5b2bf9b592663efb64631afde2126186}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F@{T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F}}
+\index{T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F@{T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-C\-O\-L\-O\-R\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mcolor\-Of}({\bf T\-M\-\_\-\-A\-R\-G}  n)}}\label{rbtree_8c_a5b2bf9b592663efb64631afde2126186}
+\hypertarget{rbtree_8c_a3a42080df6bce7181c69a31e1b579961}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-D\-E\-L\-E\-T\-E@{T\-X\-\_\-\-D\-E\-L\-E\-T\-E}}
+\index{T\-X\-\_\-\-D\-E\-L\-E\-T\-E@{T\-X\-\_\-\-D\-E\-L\-E\-T\-E}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-D\-E\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mdelete}({\bf T\-M\-\_\-\-A\-R\-G}  s, n)}}\label{rbtree_8c_a3a42080df6bce7181c69a31e1b579961}
+\hypertarget{rbtree_8c_a10093081d4b4b5645f04158a869878b4}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N@{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}}
+\index{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N@{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-D\-E\-L\-E\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mfix\-After\-Deletion}({\bf T\-M\-\_\-\-A\-R\-G}  s, n )}}\label{rbtree_8c_a10093081d4b4b5645f04158a869878b4}
+\hypertarget{rbtree_8c_ac146cbf2c07b43d4e8772c36c2b112e8}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N@{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}}
+\index{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N@{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-F\-I\-X\-\_\-\-A\-F\-T\-E\-R\-\_\-\-I\-N\-S\-E\-R\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf T\-Mfix\-After\-Insertion}({\bf T\-M\-\_\-\-A\-R\-G}  s, x)}}\label{rbtree_8c_ac146cbf2c07b43d4e8772c36c2b112e8}
+\hypertarget{rbtree_8c_a0a5a3f02cab8baaae9bcc69c12c16323}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-I\-N\-S\-E\-R\-T@{T\-X\-\_\-\-I\-N\-S\-E\-R\-T}}
+\index{T\-X\-\_\-\-I\-N\-S\-E\-R\-T@{T\-X\-\_\-\-I\-N\-S\-E\-R\-T}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-I\-N\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-I\-N\-S\-E\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{k, }
+\item[{}]{v, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Minsert}({\bf T\-M\-\_\-\-A\-R\-G}  s, k, v, n)}}\label{rbtree_8c_a0a5a3f02cab8baaae9bcc69c12c16323}
+\hypertarget{rbtree_8c_aae6e55d3749ed7622af3306fd6e34824}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-D\-A@{T\-X\-\_\-\-L\-D\-A}}
+\index{T\-X\-\_\-\-L\-D\-A@{T\-X\-\_\-\-L\-D\-A}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-D\-A(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-L}($\ast$(a))}}\label{rbtree_8c_aae6e55d3749ed7622af3306fd6e34824}
+\hypertarget{rbtree_8c_ab8fc7db14690e9cc3fb108c57368b3c0}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-D\-F@{T\-X\-\_\-\-L\-D\-F}}
+\index{T\-X\-\_\-\-L\-D\-F@{T\-X\-\_\-\-L\-D\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-D\-F(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~((long){\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-L}((o)-\/$>$f))}}\label{rbtree_8c_ab8fc7db14690e9cc3fb108c57368b3c0}
+\hypertarget{rbtree_8c_a95c4216fd8959e1f3d126d62d6061c12}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-D\-F\-\_\-\-P@{T\-X\-\_\-\-L\-D\-F\-\_\-\-P}}
+\index{T\-X\-\_\-\-L\-D\-F\-\_\-\-P@{T\-X\-\_\-\-L\-D\-F\-\_\-\-P}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-D\-F\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-D\-F\-\_\-\-P(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~((void$\ast$){\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-P}((o)-\/$>$f))}}\label{rbtree_8c_a95c4216fd8959e1f3d126d62d6061c12}
+\hypertarget{rbtree_8c_a6fad02b70fa204c8627b9431250b88b8}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-D\-N\-O\-D\-E@{T\-X\-\_\-\-L\-D\-N\-O\-D\-E}}
+\index{T\-X\-\_\-\-L\-D\-N\-O\-D\-E@{T\-X\-\_\-\-L\-D\-N\-O\-D\-E}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-D\-N\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-D\-N\-O\-D\-E(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~(({\bf node\-\_\-t}$\ast$)({\bf T\-X\-\_\-\-L\-D\-F\-\_\-\-P}((o),f)))}}\label{rbtree_8c_a6fad02b70fa204c8627b9431250b88b8}
+\hypertarget{rbtree_8c_abe6ea39eb672eea3c09ab60a5820f2c2}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-D\-V@{T\-X\-\_\-\-L\-D\-V}}
+\index{T\-X\-\_\-\-L\-D\-V@{T\-X\-\_\-\-L\-D\-V}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-D\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-D\-V(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-R\-E\-A\-D\-\_\-\-L}(a)}}\label{rbtree_8c_abe6ea39eb672eea3c09ab60a5820f2c2}
+\hypertarget{rbtree_8c_a09e44798791a3d9be85449230e5c00a2}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F@{T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F}}
+\index{T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F@{T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-E\-F\-T\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mleft\-Of}({\bf T\-M\-\_\-\-A\-R\-G}  n)}}\label{rbtree_8c_a09e44798791a3d9be85449230e5c00a2}
+\hypertarget{rbtree_8c_a362214d711c0ccc54a5092f13d653738}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-L\-O\-O\-K\-U\-P@{T\-X\-\_\-\-L\-O\-O\-K\-U\-P}}
+\index{T\-X\-\_\-\-L\-O\-O\-K\-U\-P@{T\-X\-\_\-\-L\-O\-O\-K\-U\-P}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-L\-O\-O\-K\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-L\-O\-O\-K\-U\-P(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{key}
+\end{DoxyParamCaption}
+)~{\bf T\-Mlookup}({\bf T\-M\-\_\-\-A\-R\-G}  set, key)}}\label{rbtree_8c_a362214d711c0ccc54a5092f13d653738}
+\hypertarget{rbtree_8c_a7d535b607d02e8b1626036a7e25081d9}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F@{T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F}}
+\index{T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F@{T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-P\-A\-R\-E\-N\-T\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mparent\-Of}({\bf T\-M\-\_\-\-A\-R\-G}  n)}}\label{rbtree_8c_a7d535b607d02e8b1626036a7e25081d9}
+\hypertarget{rbtree_8c_a3d4f19aee5cdef507adda3ed5ccae630}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F@{T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F}}
+\index{T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F@{T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-R\-I\-G\-H\-T\-\_\-\-O\-F(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mright\-Of}({\bf T\-M\-\_\-\-A\-R\-G}  n)}}\label{rbtree_8c_a3d4f19aee5cdef507adda3ed5ccae630}
+\hypertarget{rbtree_8c_a7a89b3dd003d32598aaeba492aa0bc86}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T@{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}}
+\index{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T@{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-L\-E\-F\-T(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf node}}
+\end{DoxyParamCaption}
+)~{\bf T\-Mrotate\-Left}({\bf T\-M\-\_\-\-A\-R\-G}  set, {\bf node})}}\label{rbtree_8c_a7a89b3dd003d32598aaeba492aa0bc86}
+\hypertarget{rbtree_8c_af0b0395bcef75231749c3544e4ceda73}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T@{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}}
+\index{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T@{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-R\-O\-T\-A\-T\-E\-\_\-\-R\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf node}}
+\end{DoxyParamCaption}
+)~{\bf T\-Mrotate\-Right}({\bf T\-M\-\_\-\-A\-R\-G}  set, {\bf node})}}\label{rbtree_8c_af0b0395bcef75231749c3544e4ceda73}
+\hypertarget{rbtree_8c_a26a31e956775a4f5638686e943de5378}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R@{T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R}}
+\index{T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R@{T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-S\-E\-T\-\_\-\-C\-O\-L\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~{\bf T\-Mset\-Color}({\bf T\-M\-\_\-\-A\-R\-G}  n, c)}}\label{rbtree_8c_a26a31e956775a4f5638686e943de5378}
+\hypertarget{rbtree_8c_a833cb29071bed4a87738788b00c57acc}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-S\-T\-A@{T\-X\-\_\-\-S\-T\-A}}
+\index{T\-X\-\_\-\-S\-T\-A@{T\-X\-\_\-\-S\-T\-A}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-S\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-S\-T\-A(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-L}($\ast$(a), v)}}\label{rbtree_8c_a833cb29071bed4a87738788b00c57acc}
+\hypertarget{rbtree_8c_a81edfecd1e08275a3d27c47db2b521ba}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-S\-T\-F@{T\-X\-\_\-\-S\-T\-F}}
+\index{T\-X\-\_\-\-S\-T\-F@{T\-X\-\_\-\-S\-T\-F}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-S\-T\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-S\-T\-F(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-L}((o)-\/$>$f, v)}}\label{rbtree_8c_a81edfecd1e08275a3d27c47db2b521ba}
+\hypertarget{rbtree_8c_aeca229802328c1f68680f440f241c3d9}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-S\-T\-F\-\_\-\-P@{T\-X\-\_\-\-S\-T\-F\-\_\-\-P}}
+\index{T\-X\-\_\-\-S\-T\-F\-\_\-\-P@{T\-X\-\_\-\-S\-T\-F\-\_\-\-P}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-S\-T\-F\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-S\-T\-F\-\_\-\-P(
+\begin{DoxyParamCaption}
+\item[{}]{o, }
+\item[{}]{f, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-P}((o)-\/$>$f, v)}}\label{rbtree_8c_aeca229802328c1f68680f440f241c3d9}
+\hypertarget{rbtree_8c_acbb131bc7d6661df7a1fcd933f52f2f5}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-S\-T\-V@{T\-X\-\_\-\-S\-T\-V}}
+\index{T\-X\-\_\-\-S\-T\-V@{T\-X\-\_\-\-S\-T\-V}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-S\-T\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-S\-T\-V(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-H\-A\-R\-E\-D\-\_\-\-W\-R\-I\-T\-E\-\_\-\-P}(a, v)}}\label{rbtree_8c_acbb131bc7d6661df7a1fcd933f52f2f5}
+\hypertarget{rbtree_8c_aaac6ababc91693b23152ffbed82ab74c}{\index{rbtree.\-c@{rbtree.\-c}!T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R@{T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R}}
+\index{T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R@{T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-S\-U\-C\-C\-E\-S\-S\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Msuccessor}({\bf T\-M\-\_\-\-A\-R\-G}  n)}}\label{rbtree_8c_aaac6ababc91693b23152ffbed82ab74c}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{rbtree_8c_ae9a21d6d42a362acf7978de7ad532d0b}{\index{rbtree.\-c@{rbtree.\-c}!node\-\_\-t@{node\-\_\-t}}
+\index{node\-\_\-t@{node\-\_\-t}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{node\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf node}  {\bf node\-\_\-t}}}\label{rbtree_8c_ae9a21d6d42a362acf7978de7ad532d0b}
+
+
+\subsection{Function Documentation}
+\hypertarget{rbtree_8c_aa3dc8daeb745d0a0b5b45c1d08b5c4c2}{\index{rbtree.\-c@{rbtree.\-c}!color\-Of@{color\-Of}}
+\index{color\-Of@{color\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{color\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static long color\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_aa3dc8daeb745d0a0b5b45c1d08b5c4c2}
+\hypertarget{rbtree_8c_a53357f9a878dfe5b1bc5baf3f8ce443f}{\index{rbtree.\-c@{rbtree.\-c}!compare\-Keys\-Default@{compare\-Keys\-Default}}
+\index{compare\-Keys\-Default@{compare\-Keys\-Default}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{compare\-Keys\-Default}]{\setlength{\rightskip}{0pt plus 5cm}static long compare\-Keys\-Default (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{a, }
+\item[{const void $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a53357f9a878dfe5b1bc5baf3f8ce443f}
+\hypertarget{rbtree_8c_a2d802b28f8b6c5bc9557357375a0b2ee}{\index{rbtree.\-c@{rbtree.\-c}!delete\-\_\-node@{delete\-\_\-node}}
+\index{delete\-\_\-node@{delete\-\_\-node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{delete\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ delete\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a2d802b28f8b6c5bc9557357375a0b2ee}
+\hypertarget{rbtree_8c_a6d8aba7dee2ceddf116b9d132fa797c4}{\index{rbtree.\-c@{rbtree.\-c}!first\-Entry@{first\-Entry}}
+\index{first\-Entry@{first\-Entry}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{first\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ first\-Entry (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a6d8aba7dee2ceddf116b9d132fa797c4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{rbtree_8c_a6d8aba7dee2ceddf116b9d132fa797c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a13a8eec7675af86fe68f2addcf6d147e}{\index{rbtree.\-c@{rbtree.\-c}!fix\-After\-Deletion@{fix\-After\-Deletion}}
+\index{fix\-After\-Deletion@{fix\-After\-Deletion}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{fix\-After\-Deletion}]{\setlength{\rightskip}{0pt plus 5cm}static void fix\-After\-Deletion (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a13a8eec7675af86fe68f2addcf6d147e}
+\hypertarget{rbtree_8c_a9982f05f34de7226ffd0e1c68d178b81}{\index{rbtree.\-c@{rbtree.\-c}!fix\-After\-Insertion@{fix\-After\-Insertion}}
+\index{fix\-After\-Insertion@{fix\-After\-Insertion}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{fix\-After\-Insertion}]{\setlength{\rightskip}{0pt plus 5cm}static void fix\-After\-Insertion (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a9982f05f34de7226ffd0e1c68d178b81}
+\hypertarget{rbtree_8c_a51f7a019df94c04cc3af108024dcb1d0}{\index{rbtree.\-c@{rbtree.\-c}!free\-Node@{free\-Node}}
+\index{free\-Node@{free\-Node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{free\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a51f7a019df94c04cc3af108024dcb1d0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{rbtree_8c_a51f7a019df94c04cc3af108024dcb1d0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{rbtree_8c_a51f7a019df94c04cc3af108024dcb1d0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_afba101a1f526e7f553543e4f91476e54}{\index{rbtree.\-c@{rbtree.\-c}!get\-Node@{get\-Node}}
+\index{get\-Node@{get\-Node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{get\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ get\-Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_afba101a1f526e7f553543e4f91476e54}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{rbtree_8c_afba101a1f526e7f553543e4f91476e54_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a14bd83586612336b5eb09f902e95b02f}{\index{rbtree.\-c@{rbtree.\-c}!insert@{insert}}
+\index{insert@{insert}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ insert (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{void $\ast$}]{k, }
+\item[{void $\ast$}]{v, }
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a14bd83586612336b5eb09f902e95b02f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rbtree_8c_a14bd83586612336b5eb09f902e95b02f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a7348310548e74e6c4a567a79694df531}{\index{rbtree.\-c@{rbtree.\-c}!left\-Of@{left\-Of}}
+\index{left\-Of@{left\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{left\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ left\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a7348310548e74e6c4a567a79694df531}
+\hypertarget{rbtree_8c_a13b187579d6acc84e8ab35945efe7d7c}{\index{rbtree.\-c@{rbtree.\-c}!lookup@{lookup}}
+\index{lookup@{lookup}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ lookup (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{void $\ast$}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a13b187579d6acc84e8ab35945efe7d7c}
+\hypertarget{rbtree_8c_a8b8c530f2d8697c804c3fbd073392ab4}{\index{rbtree.\-c@{rbtree.\-c}!parent\-Of@{parent\-Of}}
+\index{parent\-Of@{parent\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{parent\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ parent\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a8b8c530f2d8697c804c3fbd073392ab4}
+\hypertarget{rbtree_8c_aa431eb69c79dae0257d7232729c9ada3}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-alloc@{rbtree\-\_\-alloc}}
+\index{rbtree\-\_\-alloc@{rbtree\-\_\-alloc}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rbtree\-\_\-t}$\ast$ rbtree\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_aa431eb69c79dae0257d7232729c9ada3}
+\hypertarget{rbtree_8c_aa8b321070f25dc93d8c25978d9323d9a}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-contains@{rbtree\-\_\-contains}}
+\index{rbtree\-\_\-contains@{rbtree\-\_\-contains}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-contains}]{\setlength{\rightskip}{0pt plus 5cm}long rbtree\-\_\-contains (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_aa8b321070f25dc93d8c25978d9323d9a}
+\hypertarget{rbtree_8c_a4d7951ae32145c8a578fb4855084a5d3}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-delete@{rbtree\-\_\-delete}}
+\index{rbtree\-\_\-delete@{rbtree\-\_\-delete}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} rbtree\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a4d7951ae32145c8a578fb4855084a5d3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{rbtree_8c_a4d7951ae32145c8a578fb4855084a5d3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a0cbabe86101a114c379c35aacdaea4a7}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-free@{rbtree\-\_\-free}}
+\index{rbtree\-\_\-free@{rbtree\-\_\-free}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void rbtree\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{r}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a0cbabe86101a114c379c35aacdaea4a7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{rbtree_8c_a0cbabe86101a114c379c35aacdaea4a7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a218f70e7b8846618cb4737a93b2e78d8}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-get@{rbtree\-\_\-get}}
+\index{rbtree\-\_\-get@{rbtree\-\_\-get}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ rbtree\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a218f70e7b8846618cb4737a93b2e78d8}
+\hypertarget{rbtree_8c_aff4bb45ba57765e56867712f83e9a920}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-insert@{rbtree\-\_\-insert}}
+\index{rbtree\-\_\-insert@{rbtree\-\_\-insert}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} rbtree\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_aff4bb45ba57765e56867712f83e9a920}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{rbtree_8c_aff4bb45ba57765e56867712f83e9a920_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_aa9172a41b4b221175309a897753cb41d}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-update@{rbtree\-\_\-update}}
+\index{rbtree\-\_\-update@{rbtree\-\_\-update}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} rbtree\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_aa9172a41b4b221175309a897753cb41d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{rbtree_8c_aa9172a41b4b221175309a897753cb41d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a9b6ec3e754f9859f90137cac234ff484}{\index{rbtree.\-c@{rbtree.\-c}!rbtree\-\_\-verify@{rbtree\-\_\-verify}}
+\index{rbtree\-\_\-verify@{rbtree\-\_\-verify}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rbtree\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}long rbtree\-\_\-verify (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{long}]{verbose}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a9b6ec3e754f9859f90137cac234ff484}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{rbtree_8c_a9b6ec3e754f9859f90137cac234ff484_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a8f8a469092ac5036bea92bd85edcfbdf}{\index{rbtree.\-c@{rbtree.\-c}!release\-Node@{release\-Node}}
+\index{release\-Node@{release\-Node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{release\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static void release\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a8f8a469092ac5036bea92bd85edcfbdf}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rbtree_8c_a8f8a469092ac5036bea92bd85edcfbdf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a5306b129f2f4500ab85b59727b4ef37d}{\index{rbtree.\-c@{rbtree.\-c}!right\-Of@{right\-Of}}
+\index{right\-Of@{right\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{right\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ right\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a5306b129f2f4500ab85b59727b4ef37d}
+\hypertarget{rbtree_8c_a146f23171fbff419257579067196b94b}{\index{rbtree.\-c@{rbtree.\-c}!rotate\-Left@{rotate\-Left}}
+\index{rotate\-Left@{rotate\-Left}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rotate\-Left}]{\setlength{\rightskip}{0pt plus 5cm}static void rotate\-Left (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a146f23171fbff419257579067196b94b}
+\hypertarget{rbtree_8c_a3555b1ef9e25200c5e20aca7e126fd51}{\index{rbtree.\-c@{rbtree.\-c}!rotate\-Right@{rotate\-Right}}
+\index{rotate\-Right@{rotate\-Right}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{rotate\-Right}]{\setlength{\rightskip}{0pt plus 5cm}static void rotate\-Right (
+\begin{DoxyParamCaption}
+\item[{{\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a3555b1ef9e25200c5e20aca7e126fd51}
+\hypertarget{rbtree_8c_ad030383165d2c4dabdb9aaac049d0fc7}{\index{rbtree.\-c@{rbtree.\-c}!set\-Color@{set\-Color}}
+\index{set\-Color@{set\-Color}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{set\-Color}]{\setlength{\rightskip}{0pt plus 5cm}static void set\-Color (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{n, }
+\item[{long}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_ad030383165d2c4dabdb9aaac049d0fc7}
+\hypertarget{rbtree_8c_a5122a9a805e6a00b2c829dc3fc287a0e}{\index{rbtree.\-c@{rbtree.\-c}!successor@{successor}}
+\index{successor@{successor}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{successor}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ successor (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a5122a9a805e6a00b2c829dc3fc287a0e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{rbtree_8c_a5122a9a805e6a00b2c829dc3fc287a0e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a95d7042e3a1107b0e096a2a02fa35403}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mcolor\-Of@{T\-Mcolor\-Of}}
+\index{T\-Mcolor\-Of@{T\-Mcolor\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mcolor\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static long T\-Mcolor\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a95d7042e3a1107b0e096a2a02fa35403}
+\hypertarget{rbtree_8c_aca52370724d20bc6af3406bce673c3a5}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mcompare\-Keys\-Default@{T\-Mcompare\-Keys\-Default}}
+\index{T\-Mcompare\-Keys\-Default@{T\-Mcompare\-Keys\-Default}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mcompare\-Keys\-Default}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long T\-Mcompare\-Keys\-Default (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$}]{a, }
+\item[{const void $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_aca52370724d20bc6af3406bce673c3a5}
+\hypertarget{rbtree_8c_a96b35903a1600dd8b0212fa079e88dbe}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mdelete@{T\-Mdelete}}
+\index{T\-Mdelete@{T\-Mdelete}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mdelete}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Mdelete (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a96b35903a1600dd8b0212fa079e88dbe}
+\hypertarget{rbtree_8c_a7f3d04a3bbd6cb1355100fbed163a995}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mfix\-After\-Deletion@{T\-Mfix\-After\-Deletion}}
+\index{T\-Mfix\-After\-Deletion@{T\-Mfix\-After\-Deletion}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mfix\-After\-Deletion}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mfix\-After\-Deletion (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a7f3d04a3bbd6cb1355100fbed163a995}
+\hypertarget{rbtree_8c_a93d403bc2e13d0c8a2665b14149f6823}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mfix\-After\-Insertion@{T\-Mfix\-After\-Insertion}}
+\index{T\-Mfix\-After\-Insertion@{T\-Mfix\-After\-Insertion}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mfix\-After\-Insertion}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mfix\-After\-Insertion (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a93d403bc2e13d0c8a2665b14149f6823}
+\hypertarget{rbtree_8c_a45d31fe9f4b5f760c0c1d2d9146ca521}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mfree\-Node@{T\-Mfree\-Node}}
+\index{T\-Mfree\-Node@{T\-Mfree\-Node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mfree\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mfree\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a45d31fe9f4b5f760c0c1d2d9146ca521}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{rbtree_8c_a45d31fe9f4b5f760c0c1d2d9146ca521_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{rbtree_8c_a45d31fe9f4b5f760c0c1d2d9146ca521_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_acda2cf48dbc4b90683124b79d8809bc8}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mget\-Node@{T\-Mget\-Node}}
+\index{T\-Mget\-Node@{T\-Mget\-Node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mget\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Mget\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_acda2cf48dbc4b90683124b79d8809bc8}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{rbtree_8c_acda2cf48dbc4b90683124b79d8809bc8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a47dc2cb2c9de9c39f968f120e1fe9ed4}{\index{rbtree.\-c@{rbtree.\-c}!T\-Minsert@{T\-Minsert}}
+\index{T\-Minsert@{T\-Minsert}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Minsert}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Minsert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{void $\ast$}]{k, }
+\item[{void $\ast$}]{v, }
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a47dc2cb2c9de9c39f968f120e1fe9ed4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rbtree_8c_a47dc2cb2c9de9c39f968f120e1fe9ed4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a41bdb79cebd1689852ea0fd02924daa3}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mleft\-Of@{T\-Mleft\-Of}}
+\index{T\-Mleft\-Of@{T\-Mleft\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mleft\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Mleft\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a41bdb79cebd1689852ea0fd02924daa3}
+\hypertarget{rbtree_8c_a5a3fde8bbd77e4030998d12f9c0b9160}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mlookup@{T\-Mlookup}}
+\index{T\-Mlookup@{T\-Mlookup}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mlookup}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Mlookup (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{void $\ast$}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a5a3fde8bbd77e4030998d12f9c0b9160}
+\hypertarget{rbtree_8c_a015ab6aed9462afc5ac7043e990747f2}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mparent\-Of@{T\-Mparent\-Of}}
+\index{T\-Mparent\-Of@{T\-Mparent\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mparent\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Mparent\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a015ab6aed9462afc5ac7043e990747f2}
+\hypertarget{rbtree_8c_a384b5a2b979d92bce5bffe4da0b4395d}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-alloc@{T\-Mrbtree\-\_\-alloc}}
+\index{T\-Mrbtree\-\_\-alloc@{T\-Mrbtree\-\_\-alloc}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rbtree\-\_\-t}$\ast$ T\-Mrbtree\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf comparator\-\_\-t} $\ast$}]{compare}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a384b5a2b979d92bce5bffe4da0b4395d}
+\hypertarget{rbtree_8c_aebcc3a9f9b4f741376a9ec95ceda4836}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-contains@{T\-Mrbtree\-\_\-contains}}
+\index{T\-Mrbtree\-\_\-contains@{T\-Mrbtree\-\_\-contains}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-contains}]{\setlength{\rightskip}{0pt plus 5cm}long T\-Mrbtree\-\_\-contains (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_aebcc3a9f9b4f741376a9ec95ceda4836}
+\hypertarget{rbtree_8c_a037b2341094bff427c0140b296d13cd9}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-delete@{T\-Mrbtree\-\_\-delete}}
+\index{T\-Mrbtree\-\_\-delete@{T\-Mrbtree\-\_\-delete}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mrbtree\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a037b2341094bff427c0140b296d13cd9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{rbtree_8c_a037b2341094bff427c0140b296d13cd9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_aa700457df21ccf3c15f61381e37a90fb}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-free@{T\-Mrbtree\-\_\-free}}
+\index{T\-Mrbtree\-\_\-free@{T\-Mrbtree\-\_\-free}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mrbtree\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{r}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_aa700457df21ccf3c15f61381e37a90fb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rbtree_8c_aa700457df21ccf3c15f61381e37a90fb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_ae8d6b8aa6ef0fc49cc67d2560f7be788}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-get@{T\-Mrbtree\-\_\-get}}
+\index{T\-Mrbtree\-\_\-get@{T\-Mrbtree\-\_\-get}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\-Mrbtree\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_ae8d6b8aa6ef0fc49cc67d2560f7be788}
+\hypertarget{rbtree_8c_a51369260a24abe497eb9c92b0de523a5}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-insert@{T\-Mrbtree\-\_\-insert}}
+\index{T\-Mrbtree\-\_\-insert@{T\-Mrbtree\-\_\-insert}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mrbtree\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a51369260a24abe497eb9c92b0de523a5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{rbtree_8c_a51369260a24abe497eb9c92b0de523a5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a442aca41f05b1489464670b8371a93cf}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrbtree\-\_\-update@{T\-Mrbtree\-\_\-update}}
+\index{T\-Mrbtree\-\_\-update@{T\-Mrbtree\-\_\-update}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrbtree\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mrbtree\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{r, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{rbtree_8c_a442aca41f05b1489464670b8371a93cf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{rbtree_8c_a442aca41f05b1489464670b8371a93cf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_aca7b16a10ec54418d4f8268a24cae56b}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrelease\-Node@{T\-Mrelease\-Node}}
+\index{T\-Mrelease\-Node@{T\-Mrelease\-Node}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrelease\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void T\-Mrelease\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_aca7b16a10ec54418d4f8268a24cae56b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rbtree_8c_aca7b16a10ec54418d4f8268a24cae56b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rbtree_8c_a35e6b6f551b493325d1ca4a93c06f90d}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mright\-Of@{T\-Mright\-Of}}
+\index{T\-Mright\-Of@{T\-Mright\-Of}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mright\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Mright\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_a35e6b6f551b493325d1ca4a93c06f90d}
+\hypertarget{rbtree_8c_aa0bab997470a9040c7b12d3df8c2ec8a}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrotate\-Left@{T\-Mrotate\-Left}}
+\index{T\-Mrotate\-Left@{T\-Mrotate\-Left}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrotate\-Left}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mrotate\-Left (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_aa0bab997470a9040c7b12d3df8c2ec8a}
+\hypertarget{rbtree_8c_a72dc51d288c1ecae8a381fb8d5d94cfc}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mrotate\-Right@{T\-Mrotate\-Right}}
+\index{T\-Mrotate\-Right@{T\-Mrotate\-Right}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mrotate\-Right}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mrotate\-Right (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf rbtree\-\_\-t} $\ast$}]{s, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a72dc51d288c1ecae8a381fb8d5d94cfc}
+\hypertarget{rbtree_8c_afcea7c6a6b9f6812dcf1f85c4dbe24b4}{\index{rbtree.\-c@{rbtree.\-c}!T\-Mset\-Color@{T\-Mset\-Color}}
+\index{T\-Mset\-Color@{T\-Mset\-Color}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Mset\-Color}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mset\-Color (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{n, }
+\item[{long}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{rbtree_8c_afcea7c6a6b9f6812dcf1f85c4dbe24b4}
+\hypertarget{rbtree_8c_a2fc5e30134e57161fbce071520f9b55c}{\index{rbtree.\-c@{rbtree.\-c}!T\-Msuccessor@{T\-Msuccessor}}
+\index{T\-Msuccessor@{T\-Msuccessor}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{T\-Msuccessor}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t} $\ast$ T\-Msuccessor (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf node\-\_\-t} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a2fc5e30134e57161fbce071520f9b55c}
+\hypertarget{rbtree_8c_ad263cebf1ba660e88ab86e1908611937}{\index{rbtree.\-c@{rbtree.\-c}!verify\-Red\-Black@{verify\-Red\-Black}}
+\index{verify\-Red\-Black@{verify\-Red\-Black}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{verify\-Red\-Black}]{\setlength{\rightskip}{0pt plus 5cm}static long verify\-Red\-Black (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{root, }
+\item[{long}]{depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_ad263cebf1ba660e88ab86e1908611937}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{rbtree_8c_ad263cebf1ba660e88ab86e1908611937_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{rbtree_8c_a466f1fcb6e4c2d2aaf0087810d1d2606}{\index{rbtree.\-c@{rbtree.\-c}!B\-L\-A\-C\-K@{B\-L\-A\-C\-K}}
+\index{B\-L\-A\-C\-K@{B\-L\-A\-C\-K}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{B\-L\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}long B\-L\-A\-C\-K = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a466f1fcb6e4c2d2aaf0087810d1d2606}
+\hypertarget{rbtree_8c_a90d34f5f4fb14490b1b3ba0cae7d135d}{\index{rbtree.\-c@{rbtree.\-c}!compare\-Keys\-Default@{compare\-Keys\-Default}}
+\index{compare\-Keys\-Default@{compare\-Keys\-Default}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{compare\-Keys\-Default}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} rbtree\-\_\-comparekeysdefault\& compare\-Keys\-Default}}\label{rbtree_8c_a90d34f5f4fb14490b1b3ba0cae7d135d}
+\hypertarget{rbtree_8c_a0aac6a40efdab135714afb9235e49fc0}{\index{rbtree.\-c@{rbtree.\-c}!R\-E\-D@{R\-E\-D}}
+\index{R\-E\-D@{R\-E\-D}!rbtree.c@{rbtree.\-c}}
+\subsubsection[{R\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}long R\-E\-D = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{rbtree_8c_a0aac6a40efdab135714afb9235e49fc0}

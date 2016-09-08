@@ -1,0 +1,67 @@
+\hypertarget{structitm2stm_1_1Scope_1_1Callback}{\section{itm2stm\-:\-:Scope\-:\-:Callback$<$ F $>$ Struct Template Reference}
+\label{structitm2stm_1_1Scope_1_1Callback}\index{itm2stm\-::\-Scope\-::\-Callback$<$ F $>$@{itm2stm\-::\-Scope\-::\-Callback$<$ F $>$}}
+}
+
+
+Collaboration diagram for itm2stm\-:\-:Scope\-:\-:Callback$<$ F $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{structitm2stm_1_1Scope_1_1Callback__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structitm2stm_1_1Scope_1_1Callback_a1cb5c158a859fa1e972c37b16bc25ac6}{Callback} (F f, void $\ast$\hyperlink{structarg}{arg})
+\item 
+void \hyperlink{structitm2stm_1_1Scope_1_1Callback_aa0743939cacae776c9e6d2b92a4d1288}{eval} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+F \hyperlink{structitm2stm_1_1Scope_1_1Callback_a7c2595062b0f5e20526c68ee32491bef}{function\-\_\-}
+\item 
+void $\ast$ \hyperlink{structitm2stm_1_1Scope_1_1Callback_aca985326958a4925f1891baff8c8aadb}{arg\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename F$>$struct itm2stm\-::\-Scope\-::\-Callback$<$ F $>$}
+
+I\-T\-M allows users to register on\-Commit and on\-Abort handlers to execute user code during those events. The I\-T\-M interface defines the callbacks with independent type name (user\-Commit\-Action and user\-Abort\-Action), even though they are structurally equivalent (void ($\ast$)(void$\ast$)). We don't want to rely on the structural equivalence, so we use this templated struct to store and evaluate both types of callbacks. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structitm2stm_1_1Scope_1_1Callback_a1cb5c158a859fa1e972c37b16bc25ac6}{\index{itm2stm\-::\-Scope\-::\-Callback@{itm2stm\-::\-Scope\-::\-Callback}!Callback@{Callback}}
+\index{Callback@{Callback}!itm2stm::Scope::Callback@{itm2stm\-::\-Scope\-::\-Callback}}
+\subsubsection[{Callback}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ {\bf itm2stm\-::\-Scope\-::\-Callback}$<$ F $>$\-::{\bf Callback} (
+\begin{DoxyParamCaption}
+\item[{F}]{f, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structitm2stm_1_1Scope_1_1Callback_a1cb5c158a859fa1e972c37b16bc25ac6}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structitm2stm_1_1Scope_1_1Callback_aa0743939cacae776c9e6d2b92a4d1288}{\index{itm2stm\-::\-Scope\-::\-Callback@{itm2stm\-::\-Scope\-::\-Callback}!eval@{eval}}
+\index{eval@{eval}!itm2stm::Scope::Callback@{itm2stm\-::\-Scope\-::\-Callback}}
+\subsubsection[{eval}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ void {\bf itm2stm\-::\-Scope\-::\-Callback}$<$ F $>$\-::eval (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structitm2stm_1_1Scope_1_1Callback_aa0743939cacae776c9e6d2b92a4d1288}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structitm2stm_1_1Scope_1_1Callback_aca985326958a4925f1891baff8c8aadb}{\index{itm2stm\-::\-Scope\-::\-Callback@{itm2stm\-::\-Scope\-::\-Callback}!arg\-\_\-@{arg\-\_\-}}
+\index{arg\-\_\-@{arg\-\_\-}!itm2stm::Scope::Callback@{itm2stm\-::\-Scope\-::\-Callback}}
+\subsubsection[{arg\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ void$\ast$ {\bf itm2stm\-::\-Scope\-::\-Callback}$<$ F $>$\-::arg\-\_\-}}\label{structitm2stm_1_1Scope_1_1Callback_aca985326958a4925f1891baff8c8aadb}
+\hypertarget{structitm2stm_1_1Scope_1_1Callback_a7c2595062b0f5e20526c68ee32491bef}{\index{itm2stm\-::\-Scope\-::\-Callback@{itm2stm\-::\-Scope\-::\-Callback}!function\-\_\-@{function\-\_\-}}
+\index{function\-\_\-@{function\-\_\-}!itm2stm::Scope::Callback@{itm2stm\-::\-Scope\-::\-Callback}}
+\subsubsection[{function\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ F {\bf itm2stm\-::\-Scope\-::\-Callback}$<$ F $>$\-::function\-\_\-}}\label{structitm2stm_1_1Scope_1_1Callback_a7c2595062b0f5e20526c68ee32491bef}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libitm2stm/\hyperlink{Scope_8h}{Scope.\-h}\end{DoxyCompactItemize}

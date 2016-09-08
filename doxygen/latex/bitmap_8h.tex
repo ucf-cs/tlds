@@ -1,0 +1,401 @@
+\hypertarget{bitmap_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/bitmap.h File Reference}
+\label{bitmap_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/bitmap.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/bitmap.\-h}}
+}
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for bitmap.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{bitmap_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbitmap}{bitmap}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bitmap_8h_a4c7ebcc509bb4e719243bf43cbf16071}{P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C}(n)~\hyperlink{bitmap_8h_a94c17c67494e97da62fe468bc0d28ac1}{Pbitmap\-\_\-alloc}(n)
+\item 
+\#define \hyperlink{bitmap_8h_a6c34ff32166df3feefd34019132cf982}{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E}(b)~\hyperlink{bitmap_8h_aecedd78ed8ee067c6762e5003e1cb143}{Pbitmap\-\_\-free}(b)
+\item 
+\#define \hyperlink{bitmap_8h_a61ec82f11424e0974cd1d29eabfacade}{P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T}(b, i)~\hyperlink{bitmap_8h_a2383729dfcc0f66dc0e7e150cf372fe7}{bitmap\-\_\-set}(b, i)
+\item 
+\#define \hyperlink{bitmap_8h_af8a5b31a6bdefb3f6db0b64ae4c20c4a}{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R}(b, i)~\hyperlink{bitmap_8h_ab0579199140480a624c6713f6b5f5268}{bitmap\-\_\-clear}(b, i)
+\item 
+\#define \hyperlink{bitmap_8h_aa1f19697db17686588f450769129533e}{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L}(b)~\hyperlink{bitmap_8h_a88b6163f7036234de1a8139872a0970f}{bitmap\-\_\-clear\-All}(b)
+\item 
+\#define \hyperlink{bitmap_8h_a8fca918828be80e6828d3fbd12e43987}{P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T}(b, i)~\hyperlink{bitmap_8h_a9ea3dd55ec9b66d62c7ca619fd4b6eb6}{bitmap\-\_\-is\-Set}(b, i)
+\item 
+\#define \hyperlink{bitmap_8h_ab9f8c74f48bdfb24f8a9153cc0837509}{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R}(b, i)~\hyperlink{bitmap_8h_aeb1d4a0a5c4a3f08e1829d745867f13a}{bitmap\-\_\-find\-Clear}(b, i)
+\item 
+\#define \hyperlink{bitmap_8h_ac7301b342e3ac4443257c6290a64c4b2}{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T}(b, i)~\hyperlink{bitmap_8h_a739d92271f0571885bfab436cb2a5ebc}{bitmap\-\_\-find\-Set}(b, i)
+\item 
+\#define \hyperlink{bitmap_8h_a3ca1a28177557bb2c1895f6f5ff7d602}{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R}(b)~\hyperlink{bitmap_8h_a5a24edbdca7dde76a73f9db4d072edb2}{bitmap\-\_\-get\-Num\-Clear}(b)
+\item 
+\#define \hyperlink{bitmap_8h_ab58f33fe86091ecb36acc3d76c3f5061}{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T}(b)~\hyperlink{bitmap_8h_a7d3524a072c446aa92d5a87c4fb5b218}{bitmap\-\_\-get\-Num\-Set}(b)
+\item 
+\#define \hyperlink{bitmap_8h_a6b0fca55b33ee1e0c9d1aa27ce81d984}{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y}(b)~\hyperlink{bitmap_8h_a122f728f2fef45d18843cdef530a1652}{bitmap\-\_\-copy}(b)
+\item 
+\#define \hyperlink{bitmap_8h_a0220a5555bd7152356cf1ddb9d722fd0}{P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L}(b)~\hyperlink{bitmap_8h_abfacdb6fafe2a97e57e90f2fa46e685f}{bitmap\-\_\-toggle\-All}(b)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structbitmap}{bitmap} \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$ \hyperlink{bitmap_8h_a17f375463bf2c249c1d62427a79a959d}{bitmap\-\_\-alloc} (long num\-Bit)
+\item 
+\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$ \hyperlink{bitmap_8h_a94c17c67494e97da62fe468bc0d28ac1}{Pbitmap\-\_\-alloc} (long num\-Bit)
+\item 
+void \hyperlink{bitmap_8h_af1049bfe9930ae3984f70151e2a8c6cd}{bitmap\-\_\-free} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr)
+\item 
+void \hyperlink{bitmap_8h_aecedd78ed8ee067c6762e5003e1cb143}{Pbitmap\-\_\-free} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{bitmap_8h_a2383729dfcc0f66dc0e7e150cf372fe7}{bitmap\-\_\-set} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr, long i)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{bitmap_8h_ab0579199140480a624c6713f6b5f5268}{bitmap\-\_\-clear} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr, long i)
+\item 
+void \hyperlink{bitmap_8h_a88b6163f7036234de1a8139872a0970f}{bitmap\-\_\-clear\-All} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{bitmap_8h_a9ea3dd55ec9b66d62c7ca619fd4b6eb6}{bitmap\-\_\-is\-Set} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr, long i)
+\item 
+long \hyperlink{bitmap_8h_aeb1d4a0a5c4a3f08e1829d745867f13a}{bitmap\-\_\-find\-Clear} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr, long start\-Index)
+\item 
+long \hyperlink{bitmap_8h_a739d92271f0571885bfab436cb2a5ebc}{bitmap\-\_\-find\-Set} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr, long start\-Index)
+\item 
+long \hyperlink{bitmap_8h_a5a24edbdca7dde76a73f9db4d072edb2}{bitmap\-\_\-get\-Num\-Clear} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr)
+\item 
+long \hyperlink{bitmap_8h_a7d3524a072c446aa92d5a87c4fb5b218}{bitmap\-\_\-get\-Num\-Set} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr)
+\item 
+void \hyperlink{bitmap_8h_a122f728f2fef45d18843cdef530a1652}{bitmap\-\_\-copy} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$dst\-Ptr, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$src\-Ptr)
+\item 
+void \hyperlink{bitmap_8h_abfacdb6fafe2a97e57e90f2fa46e685f}{bitmap\-\_\-toggle\-All} (\hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$bitmap\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bitmap_8h_a4c7ebcc509bb4e719243bf43cbf16071}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C@{P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C@{P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf Pbitmap\-\_\-alloc}(n)}}\label{bitmap_8h_a4c7ebcc509bb4e719243bf43cbf16071}
+\hypertarget{bitmap_8h_af8a5b31a6bdefb3f6db0b64ae4c20c4a}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R@{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R@{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{b, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-clear}(b, i)}}\label{bitmap_8h_af8a5b31a6bdefb3f6db0b64ae4c20c4a}
+\hypertarget{bitmap_8h_aa1f19697db17686588f450769129533e}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L@{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L@{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-L\-E\-A\-R\-A\-L\-L(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-clear\-All}(b)}}\label{bitmap_8h_aa1f19697db17686588f450769129533e}
+\hypertarget{bitmap_8h_a6b0fca55b33ee1e0c9d1aa27ce81d984}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y@{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y@{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-C\-O\-P\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-copy}(b)}}\label{bitmap_8h_a6b0fca55b33ee1e0c9d1aa27ce81d984}
+\hypertarget{bitmap_8h_ab9f8c74f48bdfb24f8a9153cc0837509}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R@{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R@{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-C\-L\-E\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{b, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-find\-Clear}(b, i)}}\label{bitmap_8h_ab9f8c74f48bdfb24f8a9153cc0837509}
+\hypertarget{bitmap_8h_ac7301b342e3ac4443257c6290a64c4b2}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-I\-N\-D\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{b, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-find\-Set}(b, i)}}\label{bitmap_8h_ac7301b342e3ac4443257c6290a64c4b2}
+\hypertarget{bitmap_8h_a6c34ff32166df3feefd34019132cf982}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E@{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E@{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf Pbitmap\-\_\-free}(b)}}\label{bitmap_8h_a6c34ff32166df3feefd34019132cf982}
+\hypertarget{bitmap_8h_a3ca1a28177557bb2c1895f6f5ff7d602}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R@{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R@{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-C\-L\-E\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-get\-Num\-Clear}(b)}}\label{bitmap_8h_a3ca1a28177557bb2c1895f6f5ff7d602}
+\hypertarget{bitmap_8h_ab58f33fe86091ecb36acc3d76c3f5061}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-G\-E\-T\-N\-U\-M\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-get\-Num\-Set}(b)}}\label{bitmap_8h_ab58f33fe86091ecb36acc3d76c3f5061}
+\hypertarget{bitmap_8h_a8fca918828be80e6828d3fbd12e43987}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-I\-S\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{b, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-is\-Set}(b, i)}}\label{bitmap_8h_a8fca918828be80e6828d3fbd12e43987}
+\hypertarget{bitmap_8h_a61ec82f11424e0974cd1d29eabfacade}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T@{P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{b, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-set}(b, i)}}\label{bitmap_8h_a61ec82f11424e0974cd1d29eabfacade}
+\hypertarget{bitmap_8h_a0220a5555bd7152356cf1ddb9d722fd0}{\index{bitmap.\-h@{bitmap.\-h}!P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L@{P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L}}
+\index{P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L@{P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-I\-T\-M\-A\-P\-\_\-\-T\-O\-G\-G\-L\-E\-A\-L\-L(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf bitmap\-\_\-toggle\-All}(b)}}\label{bitmap_8h_a0220a5555bd7152356cf1ddb9d722fd0}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-t@{bitmap\-\_\-t}}
+\index{bitmap\-\_\-t@{bitmap\-\_\-t}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf bitmap}  {\bf bitmap\-\_\-t}}}\label{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}
+
+
+\subsection{Function Documentation}
+\hypertarget{bitmap_8h_a17f375463bf2c249c1d62427a79a959d}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-alloc@{bitmap\-\_\-alloc}}
+\index{bitmap\-\_\-alloc@{bitmap\-\_\-alloc}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bitmap\-\_\-t}$\ast$ bitmap\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Bit}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a17f375463bf2c249c1d62427a79a959d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_a17f375463bf2c249c1d62427a79a959d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_ab0579199140480a624c6713f6b5f5268}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-clear@{bitmap\-\_\-clear}}
+\index{bitmap\-\_\-clear@{bitmap\-\_\-clear}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} bitmap\-\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr, }
+\item[{long}]{i}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_ab0579199140480a624c6713f6b5f5268}
+\hypertarget{bitmap_8h_a88b6163f7036234de1a8139872a0970f}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-clear\-All@{bitmap\-\_\-clear\-All}}
+\index{bitmap\-\_\-clear\-All@{bitmap\-\_\-clear\-All}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-clear\-All}]{\setlength{\rightskip}{0pt plus 5cm}void bitmap\-\_\-clear\-All (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a88b6163f7036234de1a8139872a0970f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_a88b6163f7036234de1a8139872a0970f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_a122f728f2fef45d18843cdef530a1652}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-copy@{bitmap\-\_\-copy}}
+\index{bitmap\-\_\-copy@{bitmap\-\_\-copy}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void bitmap\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{dst\-Ptr, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{src\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a122f728f2fef45d18843cdef530a1652}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_a122f728f2fef45d18843cdef530a1652_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_aeb1d4a0a5c4a3f08e1829d745867f13a}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-find\-Clear@{bitmap\-\_\-find\-Clear}}
+\index{bitmap\-\_\-find\-Clear@{bitmap\-\_\-find\-Clear}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-find\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}long bitmap\-\_\-find\-Clear (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr, }
+\item[{long}]{start\-Index}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_aeb1d4a0a5c4a3f08e1829d745867f13a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_aeb1d4a0a5c4a3f08e1829d745867f13a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_a739d92271f0571885bfab436cb2a5ebc}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-find\-Set@{bitmap\-\_\-find\-Set}}
+\index{bitmap\-\_\-find\-Set@{bitmap\-\_\-find\-Set}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-find\-Set}]{\setlength{\rightskip}{0pt plus 5cm}long bitmap\-\_\-find\-Set (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr, }
+\item[{long}]{start\-Index}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a739d92271f0571885bfab436cb2a5ebc}
+\hypertarget{bitmap_8h_af1049bfe9930ae3984f70151e2a8c6cd}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-free@{bitmap\-\_\-free}}
+\index{bitmap\-\_\-free@{bitmap\-\_\-free}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void bitmap\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_af1049bfe9930ae3984f70151e2a8c6cd}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_af1049bfe9930ae3984f70151e2a8c6cd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_a5a24edbdca7dde76a73f9db4d072edb2}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-get\-Num\-Clear@{bitmap\-\_\-get\-Num\-Clear}}
+\index{bitmap\-\_\-get\-Num\-Clear@{bitmap\-\_\-get\-Num\-Clear}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-get\-Num\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}long bitmap\-\_\-get\-Num\-Clear (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a5a24edbdca7dde76a73f9db4d072edb2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{bitmap_8h_a5a24edbdca7dde76a73f9db4d072edb2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_a7d3524a072c446aa92d5a87c4fb5b218}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-get\-Num\-Set@{bitmap\-\_\-get\-Num\-Set}}
+\index{bitmap\-\_\-get\-Num\-Set@{bitmap\-\_\-get\-Num\-Set}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-get\-Num\-Set}]{\setlength{\rightskip}{0pt plus 5cm}long bitmap\-\_\-get\-Num\-Set (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a7d3524a072c446aa92d5a87c4fb5b218}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{bitmap_8h_a7d3524a072c446aa92d5a87c4fb5b218_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_a9ea3dd55ec9b66d62c7ca619fd4b6eb6}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-is\-Set@{bitmap\-\_\-is\-Set}}
+\index{bitmap\-\_\-is\-Set@{bitmap\-\_\-is\-Set}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-is\-Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} bitmap\-\_\-is\-Set (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr, }
+\item[{long}]{i}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a9ea3dd55ec9b66d62c7ca619fd4b6eb6}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_a9ea3dd55ec9b66d62c7ca619fd4b6eb6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_a2383729dfcc0f66dc0e7e150cf372fe7}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-set@{bitmap\-\_\-set}}
+\index{bitmap\-\_\-set@{bitmap\-\_\-set}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} bitmap\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr, }
+\item[{long}]{i}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a2383729dfcc0f66dc0e7e150cf372fe7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8h_a2383729dfcc0f66dc0e7e150cf372fe7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bitmap_8h_abfacdb6fafe2a97e57e90f2fa46e685f}{\index{bitmap.\-h@{bitmap.\-h}!bitmap\-\_\-toggle\-All@{bitmap\-\_\-toggle\-All}}
+\index{bitmap\-\_\-toggle\-All@{bitmap\-\_\-toggle\-All}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{bitmap\-\_\-toggle\-All}]{\setlength{\rightskip}{0pt plus 5cm}void bitmap\-\_\-toggle\-All (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_abfacdb6fafe2a97e57e90f2fa46e685f}
+\hypertarget{bitmap_8h_a94c17c67494e97da62fe468bc0d28ac1}{\index{bitmap.\-h@{bitmap.\-h}!Pbitmap\-\_\-alloc@{Pbitmap\-\_\-alloc}}
+\index{Pbitmap\-\_\-alloc@{Pbitmap\-\_\-alloc}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{Pbitmap\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bitmap\-\_\-t}$\ast$ Pbitmap\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Bit}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_a94c17c67494e97da62fe468bc0d28ac1}
+\hypertarget{bitmap_8h_aecedd78ed8ee067c6762e5003e1cb143}{\index{bitmap.\-h@{bitmap.\-h}!Pbitmap\-\_\-free@{Pbitmap\-\_\-free}}
+\index{Pbitmap\-\_\-free@{Pbitmap\-\_\-free}!bitmap.h@{bitmap.\-h}}
+\subsubsection[{Pbitmap\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pbitmap\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{bitmap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{bitmap_8h_aecedd78ed8ee067c6762e5003e1cb143}

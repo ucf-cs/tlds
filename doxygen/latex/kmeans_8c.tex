@@ -1,0 +1,97 @@
+\hypertarget{kmeans_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/kmeans/kmeans.c File Reference}
+\label{kmeans_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/kmeans/kmeans.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/kmeans/kmeans.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$getopt.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}cluster.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+Include dependency graph for kmeans.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kmeans_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{kmeans_8c_af0f2173e3b202ddf5756531b4471dcb2}{M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H}~1000000 /$\ast$ max input is 400000 one digit input + spaces $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{kmeans_8c_aab572e7e1b87f1aef5ad051ecb320d2d}{usage} (char $\ast$argv0)
+\item 
+\hyperlink{kmeans_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{M\-A\-I\-N} (argc, argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{kmeans_8c_aa3ea98c7e5ad42511b3ec7e0e90e61a4}{global\-\_\-time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{kmeans_8c_af0f2173e3b202ddf5756531b4471dcb2}{\index{kmeans.\-c@{kmeans.\-c}!M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H@{M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H@{M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H}!kmeans.c@{kmeans.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-E\-\_\-\-L\-E\-N\-G\-T\-H~1000000 /$\ast$ max input is 400000 one digit input + spaces $\ast$/}}\label{kmeans_8c_af0f2173e3b202ddf5756531b4471dcb2}
+
+
+\subsection{Function Documentation}
+\hypertarget{kmeans_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{\index{kmeans.\-c@{kmeans.\-c}!M\-A\-I\-N@{M\-A\-I\-N}}
+\index{M\-A\-I\-N@{M\-A\-I\-N}!kmeans.c@{kmeans.\-c}}
+\subsubsection[{M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}M\-A\-I\-N (
+\begin{DoxyParamCaption}
+\item[{argc}]{, }
+\item[{argv}]{}
+\end{DoxyParamCaption}
+)}}\label{kmeans_8c_a40c5c0b0d4eb7b59a91108269f69dc89}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kmeans_8c_a40c5c0b0d4eb7b59a91108269f69dc89_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{kmeans_8c_aab572e7e1b87f1aef5ad051ecb320d2d}{\index{kmeans.\-c@{kmeans.\-c}!usage@{usage}}
+\index{usage@{usage}!kmeans.c@{kmeans.\-c}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}static void usage (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{argv0}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{kmeans_8c_aab572e7e1b87f1aef5ad051ecb320d2d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{kmeans_8c_aab572e7e1b87f1aef5ad051ecb320d2d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{kmeans_8c_aa3ea98c7e5ad42511b3ec7e0e90e61a4}{\index{kmeans.\-c@{kmeans.\-c}!global\-\_\-time@{global\-\_\-time}}
+\index{global\-\_\-time@{global\-\_\-time}!kmeans.c@{kmeans.\-c}}
+\subsubsection[{global\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}double global\-\_\-time}}\label{kmeans_8c_aa3ea98c7e5ad42511b3ec7e0e90e61a4}

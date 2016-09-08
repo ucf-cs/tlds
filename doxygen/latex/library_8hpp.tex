@@ -1,0 +1,252 @@
+\hypertarget{library_8hpp}{\section{rstm/rstm-\/dev/include/api/library.hpp File Reference}
+\label{library_8hpp}\index{rstm/rstm-\/dev/include/api/library.\-hpp@{rstm/rstm-\/dev/include/api/library.\-hpp}}
+}
+{\ttfamily \#include $<$setjmp.\-h$>$}\\*
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$common/platform.\-hpp$>$}\\*
+{\ttfamily \#include $<$stm/txthread.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}library\-\_\-inst.\-hpp\char`\"{}}\\*
+Include dependency graph for library.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{library_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{library_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1Object}{stm\-::\-Object}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{library_8hpp_ab6de3b726da330cbf6350d08a48ec2a2}{T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C}()~\hyperlink{namespacestm_a1f53cda33965f891e41b86a99b2424a2}{stm\-::become\-\_\-irrevoc}()
+\item 
+\#define \hyperlink{library_8hpp_a976eeec02c2b700b8d954159e26e57d1}{T\-M\-\_\-\-R\-E\-A\-D}(var)~\hyperlink{namespacestm_a38b27de6fa528286c9099d08193aaab9}{stm\-::stm\-\_\-read}(\&var, \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\#define \hyperlink{library_8hpp_aad8767849818c377a9ac7d5c842dd2d8}{T\-M\-\_\-\-W\-R\-I\-T\-E}(var, val)~\hyperlink{namespacestm_a5a362b61a07175408ecf4b50f208c59f}{stm\-::stm\-\_\-write}(\&var, val, \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\#define \hyperlink{library_8hpp_a1cb53e08b96086f82f01d6d4b7ec7365}{T\-M\-\_\-\-B\-E\-G\-I\-N}(T\-Y\-P\-E)
+\item 
+\#define \hyperlink{library_8hpp_a13a5d474cb5c9b5c6f3bd33ad11fe2aa}{T\-M\-\_\-\-E\-N\-D}
+\item 
+\#define \hyperlink{library_8hpp_a1ca5f081233a99e3039682fa6e3d907c}{T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D}()~\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread}$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx} = (\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread}$\ast$)stm\-::\-Self
+\item 
+\#define \hyperlink{library_8hpp_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}~\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread}$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\item 
+\#define \hyperlink{library_8hpp_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}~, \hyperlink{tm_8h_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}
+\item 
+\#define \hyperlink{library_8hpp_a3b4d51de8217e196b8cb1f3257377974}{T\-M\-\_\-\-P\-A\-R\-A\-M}~, \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\item 
+\#define \hyperlink{library_8hpp_a5c3dd1e3979ebae57023e24338985f65}{T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E}~\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\item 
+\#define \hyperlink{library_8hpp_aaf1c26c2e00d4cc73da63151ce18c021}{T\-M\-\_\-\-W\-A\-I\-V\-E\-R}
+\item 
+\#define \hyperlink{library_8hpp_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E}
+\item 
+\#define \hyperlink{library_8hpp_a5d2eb61fb8d5259e7c1f56586c95ca90}{T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T}()~\hyperlink{namespacestm_a72477788735f5e06365f341d2f09d3cb}{stm\-::sys\-\_\-init}()
+\item 
+\#define \hyperlink{library_8hpp_a0d13978f2b0ee46e2543a7620995aff9}{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}~\hyperlink{namespacestm_a3de69c665250e84ef5238477ae8524b0}{stm\-::thread\-\_\-init}
+\item 
+\#define \hyperlink{library_8hpp_abffb6745d04d4379b7bfc05ae2e993a3}{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}()~\hyperlink{namespacestm_a2a46964337523dddb35f77c89cb0b9f4}{stm\-::thread\-\_\-shutdown}()
+\item 
+\#define \hyperlink{library_8hpp_a8ca9da826276af3dcce771988263a87a}{T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}~\hyperlink{namespacestm_a2eba242629a31539bd21eed09aa926c6}{stm\-::sys\-\_\-shutdown}
+\item 
+\#define \hyperlink{library_8hpp_aef6d42c92b142a7fc88e8a56ef415f3b}{T\-M\-\_\-\-A\-L\-L\-O\-C}~\hyperlink{namespacestm_a74d23d2fb8a8e63642bdd14bd4941f7a}{stm\-::tx\-\_\-alloc}
+\item 
+\#define \hyperlink{library_8hpp_a9a8a6af19379720b3633cf1e9845b90f}{T\-M\-\_\-\-F\-R\-E\-E}~\hyperlink{namespacestm_aaf0d2ecece13eb0926a4b59b49cfb8cd}{stm\-::tx\-\_\-free}
+\item 
+\#define \hyperlink{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y}(P)~\hyperlink{namespacestm_a945573c8ffc100f3908f1373d12ebffd}{stm\-::set\-\_\-policy}(P)
+\item 
+\#define \hyperlink{library_8hpp_a46b38feceaf4dcbd5dc88c33377c86c7}{T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E}()~\hyperlink{namespacestm_ae189ae33f77d3feb28d2f2776156a10e}{stm\-::get\-\_\-algname}()
+\item 
+\#define \hyperlink{library_8hpp_abbb2f93beb05511c15a6c47a7702000f}{T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}()
+\item 
+\#define \hyperlink{library_8hpp_acfaa393f4c98826c7d4790e8ad01f4da}{T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}()~\hyperlink{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y}(\-\_\-\-\_\-config\-\_\-string\-\_\-\-\_\-)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{stm\-::begin} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, scope\-\_\-t $\ast$s, uint32\-\_\-t)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{namespacestm_a94dbca4907e005c8c803e452b123903f}{stm\-::commit} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} \hyperlink{namespacestm_a51b2c0958e7709b39500d037648c461b}{stm\-::\-U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E} (const char $\ast$)
+\item 
+void $\ast$ \hyperlink{namespacestm_a74d23d2fb8a8e63642bdd14bd4941f7a}{stm\-::tx\-\_\-alloc} (size\-\_\-t size)
+\item 
+void \hyperlink{namespacestm_aaf0d2ecece13eb0926a4b59b49cfb8cd}{stm\-::tx\-\_\-free} (void $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+void \hyperlink{namespacestm_a72477788735f5e06365f341d2f09d3cb}{stm\-::sys\-\_\-init} (void($\ast$abort\-\_\-handler)(Tx\-Thread $\ast$)=N\-U\-L\-L)
+\item 
+void \hyperlink{namespacestm_a2eba242629a31539bd21eed09aa926c6}{stm\-::sys\-\_\-shutdown} ()
+\item 
+void \hyperlink{namespacestm_a3de69c665250e84ef5238477ae8524b0}{stm\-::thread\-\_\-init} ()
+\item 
+void \hyperlink{namespacestm_a2a46964337523dddb35f77c89cb0b9f4}{stm\-::thread\-\_\-shutdown} ()
+\item 
+void \hyperlink{namespacestm_a945573c8ffc100f3908f1373d12ebffd}{stm\-::set\-\_\-policy} (const char $\ast$)
+\item 
+const char $\ast$ \hyperlink{namespacestm_ae189ae33f77d3feb28d2f2776156a10e}{stm\-::get\-\_\-algname} ()
+\item 
+bool \hyperlink{namespacestm_a1f53cda33965f891e41b86a99b2424a2}{stm\-::become\-\_\-irrevoc} (\hyperlink{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(void $\ast$$\ast$top\-\_\-of\-\_\-stack))
+\item 
+void \hyperlink{namespacestm_ab344bb49ceb6098cdc32aba5d36e76f3}{stm\-::restart} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacestm_a38b27de6fa528286c9099d08193aaab9}{stm\-::stm\-\_\-read} (T $\ast$addr, Tx\-Thread $\ast$\hyperlink{classthread}{thread})
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacestm_a5a362b61a07175408ecf4b50f208c59f}{stm\-::stm\-\_\-write} (T $\ast$addr, T val, Tx\-Thread $\ast$\hyperlink{classthread}{thread})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{library_8hpp_aef6d42c92b142a7fc88e8a56ef415f3b}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-A\-L\-L\-O\-C@{T\-M\-\_\-\-A\-L\-L\-O\-C}}
+\index{T\-M\-\_\-\-A\-L\-L\-O\-C@{T\-M\-\_\-\-A\-L\-L\-O\-C}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-A\-L\-L\-O\-C~{\bf stm\-::tx\-\_\-alloc}}}\label{library_8hpp_aef6d42c92b142a7fc88e8a56ef415f3b}
+\hypertarget{library_8hpp_a030f4350a175fed7a99c242cbaa53258}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-A\-R\-G@{T\-M\-\_\-\-A\-R\-G}}
+\index{T\-M\-\_\-\-A\-R\-G@{T\-M\-\_\-\-A\-R\-G}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-A\-R\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-A\-R\-G~, {\bf T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}}\label{library_8hpp_a030f4350a175fed7a99c242cbaa53258}
+\hypertarget{library_8hpp_a5f5ab8a008b9734c5378be81bcb3639e}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E@{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}
+\index{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E@{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E~{\bf stm\-::\-Tx\-Thread}$\ast$ {\bf tx}}}\label{library_8hpp_a5f5ab8a008b9734c5378be81bcb3639e}
+\hypertarget{library_8hpp_ab6de3b726da330cbf6350d08a48ec2a2}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C@{T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C}}
+\index{T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C@{T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf stm\-::become\-\_\-irrevoc}()}}\label{library_8hpp_ab6de3b726da330cbf6350d08a48ec2a2}
+\hypertarget{library_8hpp_a1cb53e08b96086f82f01d6d4b7ec7365}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-B\-E\-G\-I\-N@{T\-M\-\_\-\-B\-E\-G\-I\-N}}
+\index{T\-M\-\_\-\-B\-E\-G\-I\-N@{T\-M\-\_\-\-B\-E\-G\-I\-N}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-B\-E\-G\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-B\-E\-G\-I\-N(
+\begin{DoxyParamCaption}
+\item[{}]{T\-Y\-P\-E}
+\end{DoxyParamCaption}
+)}}\label{library_8hpp_a1cb53e08b96086f82f01d6d4b7ec7365}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                                                       \(\backslash\)
+    stm::TxThread* \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx} = (\hyperlink{structstm_1_1TxThread}{stm::TxThread}*)stm::Self;          \(\backslash\)
+    jmp\_buf \_jmpbuf;                                        \(\backslash\)
+    uint32\_t abort\_flags = setjmp(\_jmpbuf);                 \hyperlink{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{\(\backslash\)}
+\hyperlink{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{    stm::begin}(tx, &\_jmpbuf, abort\_flags);                  \(\backslash\)
+    CFENCE;                                                 \(\backslash\)
+    \{
+\end{DoxyCode}
+This is the way to start a transaction \hypertarget{library_8hpp_abbb2f93beb05511c15a6c47a7702000f}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N@{T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}}
+\index{T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N@{T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{library_8hpp_abbb2f93beb05511c15a6c47a7702000f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* \_\_config\_string\_\_ = \hyperlink{library_8hpp_a46b38feceaf4dcbd5dc88c33377c86c7}{TM\_GET\_ALGNAME}();   \hyperlink{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}{\(\backslash\)}
+\hyperlink{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}{    TM\_SET\_POLICY}(\textcolor{stringliteral}{"CGL"});                               \hyperlink{library_8hpp_a1ca5f081233a99e3039682fa6e3d907c}{\(\backslash\)}
+\hyperlink{library_8hpp_a1ca5f081233a99e3039682fa6e3d907c}{    TM\_GET\_THREAD}()
+\end{DoxyCode}
+This is gross. I\-T\-M, like any good compiler, will make nontransactional versions of code so that we can cleanly do initialization from outside of a transaction. The library {\bfseries can} do this, but only via some cumbersome template games that we really don't want to keep playing (see the previous release for examples).
+
+Since we don't want to have transactional configuration (it is slow, and it messes up some accounting of commits and transaction sizes), we use the following trick\-: if we aren't using a compiler for instrumentation, then B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N will copy the current S\-T\-M configuration (envar S\-T\-M\-\_\-\-C\-O\-N\-F\-I\-G) to a local, then switch the mode to C\-G\-L, then call the instrumented functions using C\-G\-L instrumentation (e.\-g., the lightest possible, and correct without a 'commit'). Likewise, if we aren't using a compiler for instrumentation, then E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N will restore the original configuration, so that the app will use the S\-T\-M as expected. \hypertarget{library_8hpp_adf0341d9b0d169f1aba20257caed702e}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E@{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E}}
+\index{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E@{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E}}\label{library_8hpp_adf0341d9b0d169f1aba20257caed702e}
+\hypertarget{library_8hpp_a13a5d474cb5c9b5c6f3bd33ad11fe2aa}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-E\-N\-D@{T\-M\-\_\-\-E\-N\-D}}
+\index{T\-M\-\_\-\-E\-N\-D@{T\-M\-\_\-\-E\-N\-D}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-E\-N\-D}}\label{library_8hpp_a13a5d474cb5c9b5c6f3bd33ad11fe2aa}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\}                                           \hyperlink{namespacestm_a94dbca4907e005c8c803e452b123903f}{\(\backslash\)}
+\hyperlink{namespacestm_a94dbca4907e005c8c803e452b123903f}{    stm::commit}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx});                            \(\backslash\)
+    \}
+\end{DoxyCode}
+This is the way to commit a transaction. Note that these macros weakly enforce lexical scoping \hypertarget{library_8hpp_acfaa393f4c98826c7d4790e8ad01f4da}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N@{T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}}
+\index{T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N@{T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y}(\-\_\-\-\_\-config\-\_\-string\-\_\-\-\_\-)}}\label{library_8hpp_acfaa393f4c98826c7d4790e8ad01f4da}
+\hypertarget{library_8hpp_a9a8a6af19379720b3633cf1e9845b90f}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-F\-R\-E\-E@{T\-M\-\_\-\-F\-R\-E\-E}}
+\index{T\-M\-\_\-\-F\-R\-E\-E@{T\-M\-\_\-\-F\-R\-E\-E}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-F\-R\-E\-E~{\bf stm\-::tx\-\_\-free}}}\label{library_8hpp_a9a8a6af19379720b3633cf1e9845b90f}
+\hypertarget{library_8hpp_a46b38feceaf4dcbd5dc88c33377c86c7}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E@{T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E}}
+\index{T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E@{T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf stm\-::get\-\_\-algname}()}}\label{library_8hpp_a46b38feceaf4dcbd5dc88c33377c86c7}
+\hypertarget{library_8hpp_a1ca5f081233a99e3039682fa6e3d907c}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D@{T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D}}
+\index{T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D@{T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf stm\-::\-Tx\-Thread}$\ast$ {\bf tx} = ({\bf stm\-::\-Tx\-Thread}$\ast$)stm\-::\-Self}}\label{library_8hpp_a1ca5f081233a99e3039682fa6e3d907c}
+Macro to get S\-T\-M context. This currently produces a pointer to a Tx\-Thread \hypertarget{library_8hpp_a3b4d51de8217e196b8cb1f3257377974}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-P\-A\-R\-A\-M@{T\-M\-\_\-\-P\-A\-R\-A\-M}}
+\index{T\-M\-\_\-\-P\-A\-R\-A\-M@{T\-M\-\_\-\-P\-A\-R\-A\-M}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-P\-A\-R\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-P\-A\-R\-A\-M~, {\bf tx}}}\label{library_8hpp_a3b4d51de8217e196b8cb1f3257377974}
+\hypertarget{library_8hpp_a5c3dd1e3979ebae57023e24338985f65}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E@{T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E}}
+\index{T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E@{T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E~{\bf tx}}}\label{library_8hpp_a5c3dd1e3979ebae57023e24338985f65}
+\hypertarget{library_8hpp_a976eeec02c2b700b8d954159e26e57d1}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-R\-E\-A\-D@{T\-M\-\_\-\-R\-E\-A\-D}}
+\index{T\-M\-\_\-\-R\-E\-A\-D@{T\-M\-\_\-\-R\-E\-A\-D}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-R\-E\-A\-D(
+\begin{DoxyParamCaption}
+\item[{}]{var}
+\end{DoxyParamCaption}
+)~{\bf stm\-::stm\-\_\-read}(\&var, {\bf tx})}}\label{library_8hpp_a976eeec02c2b700b8d954159e26e57d1}
+Code should only use these calls, not the template stuff declared above \hypertarget{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y@{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y}}
+\index{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y@{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{P}
+\end{DoxyParamCaption}
+)~{\bf stm\-::set\-\_\-policy}(P)}}\label{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}
+\hypertarget{library_8hpp_a5d2eb61fb8d5259e7c1f56586c95ca90}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T@{T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T}}
+\index{T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T@{T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf stm\-::sys\-\_\-init}()}}\label{library_8hpp_a5d2eb61fb8d5259e7c1f56586c95ca90}
+\hypertarget{library_8hpp_a8ca9da826276af3dcce771988263a87a}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}}
+\index{T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N~{\bf stm\-::sys\-\_\-shutdown}}}\label{library_8hpp_a8ca9da826276af3dcce771988263a87a}
+\hypertarget{library_8hpp_a0d13978f2b0ee46e2543a7620995aff9}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T@{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}}
+\index{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T@{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T~{\bf stm\-::thread\-\_\-init}}}\label{library_8hpp_a0d13978f2b0ee46e2543a7620995aff9}
+\hypertarget{library_8hpp_abffb6745d04d4379b7bfc05ae2e993a3}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}}
+\index{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf stm\-::thread\-\_\-shutdown}()}}\label{library_8hpp_abffb6745d04d4379b7bfc05ae2e993a3}
+\hypertarget{library_8hpp_aaf1c26c2e00d4cc73da63151ce18c021}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-W\-A\-I\-V\-E\-R@{T\-M\-\_\-\-W\-A\-I\-V\-E\-R}}
+\index{T\-M\-\_\-\-W\-A\-I\-V\-E\-R@{T\-M\-\_\-\-W\-A\-I\-V\-E\-R}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-W\-A\-I\-V\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-W\-A\-I\-V\-E\-R}}\label{library_8hpp_aaf1c26c2e00d4cc73da63151ce18c021}
+\hypertarget{library_8hpp_aad8767849818c377a9ac7d5c842dd2d8}{\index{library.\-hpp@{library.\-hpp}!T\-M\-\_\-\-W\-R\-I\-T\-E@{T\-M\-\_\-\-W\-R\-I\-T\-E}}
+\index{T\-M\-\_\-\-W\-R\-I\-T\-E@{T\-M\-\_\-\-W\-R\-I\-T\-E}!library.hpp@{library.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-W\-R\-I\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{var, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~{\bf stm\-::stm\-\_\-write}(\&var, val, {\bf tx})}}\label{library_8hpp_aad8767849818c377a9ac7d5c842dd2d8}

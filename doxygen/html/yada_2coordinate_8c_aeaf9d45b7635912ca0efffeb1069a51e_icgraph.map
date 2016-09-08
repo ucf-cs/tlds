@@ -1,0 +1,10 @@
+<map id="TMcoordinate_compare" name="TMcoordinate_compare">
+<area shape="rect" id="node2" href="$element_8h.html#ae380ad5ec9d33d843da1f4b112ffd85a" title="TMelement_compare" alt="" coords="213,19,357,45"/>
+<area shape="rect" id="node4" href="$element_8c.html#abafda835f7dca433b69224d96906260a" title="TMcompareEdge" alt="" coords="225,95,346,121"/>
+<area shape="rect" id="node3" href="$element_8h.html#adc2e33ebfb14ffbc80676c81e995e82b" title="TMelement_listCompare" alt="" coords="421,5,585,32"/>
+<area shape="rect" id="node5" href="$element_8h.html#adb5a15a115cf60b1b815d9ee4fd2d498" title="TMelement_listCompareEdge" alt="" coords="405,56,600,83"/>
+<area shape="rect" id="node6" href="$element_8h.html#af7669e40b15c66b7102a7ec84f09d2e0" title="TMelement_getCommonEdge" alt="" coords="405,107,600,133"/>
+<area shape="rect" id="node9" href="$element_8h.html#a120544b37874c2c354a6bcacaa34c87f" title="TMelement_getNewPoint" alt="" coords="418,157,587,184"/>
+<area shape="rect" id="node7" href="$region_8c.html#afd9637f04d120aec5464b6304cfa0c99" title="TMgrowRegion" alt="" coords="649,132,759,159"/>
+<area shape="rect" id="node8" href="$region_8h.html#a74d9ac41436518894e8e1bd6564ebf42" title="TMregion_refine" alt="" coords="808,132,923,159"/>
+</map>

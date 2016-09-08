@@ -1,0 +1,65 @@
+\hypertarget{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4}{\section{stm\-:\-:iccsync\-:\-:S\-Y\-N\-C$<$ T, 8, 8 $>$ Struct Template Reference}
+\label{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4}\index{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}}
+}
+
+
+{\ttfamily \#include $<$icc-\/sync.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:iccsync\-:\-:S\-Y\-N\-C$<$ T, 8, 8 $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_aae5886161121983f0112471db1e7c604}{swap} (volatile T $\ast$address, T value)
+\item 
+static T \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_a76f8ae0b2cd5c1c800ff0d45a4e7a2b9}{cas} (volatile T $\ast$addr, T from, T to)
+\item 
+static bool \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_a4736cc3d68c210085c02e6895fbdc424}{bcas} (volatile T $\ast$addr, T from, T to)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$struct stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}
+
+The doubleword sync implementations, for 8-\/byte platforms. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_a4736cc3d68c210085c02e6895fbdc424}{\index{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}!bcas@{bcas}}
+\index{bcas@{bcas}!stm::iccsync::SYNC< T, 8, 8 >@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}}
+\subsubsection[{bcas}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ static bool {\bf stm\-::iccsync\-::\-S\-Y\-N\-C}$<$ T, 8, 8 $>$\-::bcas (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{addr, }
+\item[{T}]{from, }
+\item[{T}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_a4736cc3d68c210085c02e6895fbdc424}
+\hypertarget{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_a76f8ae0b2cd5c1c800ff0d45a4e7a2b9}{\index{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}!cas@{cas}}
+\index{cas@{cas}!stm::iccsync::SYNC< T, 8, 8 >@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}}
+\subsubsection[{cas}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ static T {\bf stm\-::iccsync\-::\-S\-Y\-N\-C}$<$ T, 8, 8 $>$\-::cas (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{addr, }
+\item[{T}]{from, }
+\item[{T}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_a76f8ae0b2cd5c1c800ff0d45a4e7a2b9}
+\hypertarget{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_aae5886161121983f0112471db1e7c604}{\index{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}!swap@{swap}}
+\index{swap@{swap}!stm::iccsync::SYNC< T, 8, 8 >@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ static T {\bf stm\-::iccsync\-::\-S\-Y\-N\-C}$<$ T, 8, 8 $>$\-::swap (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{T}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4_aae5886161121983f0112471db1e7c604}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/common/\hyperlink{icc-sync_8hpp}{icc-\/sync.\-hpp}\end{DoxyCompactItemize}

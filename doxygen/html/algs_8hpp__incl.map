@@ -1,0 +1,18 @@
+<map id="rstm/rstm&#45;dev/libstm/algs/algs.hpp" name="rstm/rstm&#45;dev/libstm/algs/algs.hpp">
+<area shape="rect" id="node4" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="983,395,1109,421"/>
+<area shape="rect" id="node14" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="501,245,621,272"/>
+<area shape="rect" id="node25" href="$profiling_8hpp.html" title="../profiling.hpp" alt="" coords="205,96,309,123"/>
+<area shape="rect" id="node5" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="581,469,715,496"/>
+<area shape="rect" id="node13" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="1257,544,1375,571"/>
+<area shape="rect" id="node9" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="1085,544,1232,571"/>
+<area shape="rect" id="node15" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="246,320,399,347"/>
+<area shape="rect" id="node17" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="1034,469,1165,496"/>
+<area shape="rect" id="node18" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="475,320,647,347"/>
+<area shape="rect" id="node19" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="330,469,453,496"/>
+<area shape="rect" id="node21" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="773,395,899,421"/>
+<area shape="rect" id="node23" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="231,395,357,421"/>
+<area shape="rect" id="node24" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="671,320,797,347"/>
+<area shape="rect" id="node22" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="791,469,907,496"/>
+<area shape="rect" id="node26" href="$policies_8hpp.html" title="./policies/policies.hpp" alt="" coords="984,171,1131,197"/>
+<area shape="rect" id="node28" href="$lib__globals_8hpp.html" title="stm/lib_globals.hpp" alt="" coords="874,320,1008,347"/>
+</map>

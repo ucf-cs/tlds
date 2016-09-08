@@ -1,0 +1,5 @@
+<map id="UI" name="UI">
+<area shape="rect" id="node6" href="$classSurface.html" title="{Surface\n||+ paintComponent()\l+ Surface()\l+ triangulate()\l&#45; xPosition()\l&#45; yPosition()\l}" alt="" coords="187,557,324,693"/>
+<area shape="rect" id="node2" href="$classJPanel.html" title="{JPanel\n||}" alt="" coords="5,161,67,239"/>
+<area shape="rect" id="node9" href="$classCoordinator.html" title="{Coordinator\n||+ hesitate()\l+ toggle()\l+ Coordinator()\l}" alt="" coords="511,147,620,253"/>
+</map>

@@ -1,0 +1,907 @@
+\hypertarget{list_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/list.c File Reference}
+\label{list_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/list.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/list.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for list.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$ \hyperlink{list_8c_abae8c22f79c73d231c8ddd9b795e47d9}{T\-Mfind\-Previous} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{list_8c_a048f102e50784dd0668b7ff6db6e1f3b}{T\-Mfree\-List} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+static long \hyperlink{list_8c_ae1704407b4d53d43eef4dbebd7913279}{compare\-Data\-Ptr\-Addresses} (const void $\ast$a, const void $\ast$b)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{list_8c_aa82ebdfb5e8d4f82a59aaf0ea72a2b8e}{T\-Mcompare\-Data\-Ptr\-Addresses} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$a, const void $\ast$b)
+\item 
+void \hyperlink{list_8c_af9a0fb76faf3f2c75d3454dc7f7d9b6a}{list\-\_\-iter\-\_\-reset} (\hyperlink{list_8h_a9c6da8350cc243ef487a7f9686c377e8}{list\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+void \hyperlink{list_8c_a4d5ac725ce9a964d10b5d7e37bcdfe75}{T\-Mlist\-\_\-iter\-\_\-reset} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_a9c6da8350cc243ef487a7f9686c377e8}{list\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_af8d7b94e84661c7b1da55a7c87619911}{list\-\_\-iter\-\_\-has\-Next} (\hyperlink{list_8h_a9c6da8350cc243ef487a7f9686c377e8}{list\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_a05835c1ec9cf285329fc04cb21292432}{T\-Mlist\-\_\-iter\-\_\-has\-Next} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_a9c6da8350cc243ef487a7f9686c377e8}{list\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+void $\ast$ \hyperlink{list_8c_a3dce8c731efc2b63a61958b2503f4c5d}{list\-\_\-iter\-\_\-next} (\hyperlink{list_8h_a9c6da8350cc243ef487a7f9686c377e8}{list\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+void $\ast$ \hyperlink{list_8c_a688bb1dfb6218c9a3abf441c5ea2c13f}{T\-Mlist\-\_\-iter\-\_\-next} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_a9c6da8350cc243ef487a7f9686c377e8}{list\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+static \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$ \hyperlink{list_8c_a83f50b1d8e5fda2432265d6ec526558e}{alloc\-Node} (void $\ast$data\-Ptr)
+\item 
+static \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$ \hyperlink{list_8c_a29763be02fafb5c45c66fd3c2732cf0a}{Palloc\-Node} (void $\ast$data\-Ptr)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$ \hyperlink{list_8c_a469b774e2d87a6c53e2c0e4af03306d3}{T\-Malloc\-Node} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} void $\ast$data\-Ptr)
+\item 
+\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$ \hyperlink{list_8c_a60c3333b1e6568ec3997d44127a9985b}{T\-Mlist\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$comp)
+\item 
+\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$ \hyperlink{list_8c_acff01c26015a0263b94839e622c17d66}{Plist\-\_\-alloc} (\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$comp)
+\item 
+\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$ \hyperlink{list_8c_afb48e81a34dc4cb5c37fd445b128df68}{list\-\_\-alloc} (\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$comp)
+\item 
+static void \hyperlink{list_8c_ac485202058cce61a3db7ad23eea4c658}{free\-Node} (\hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+static void \hyperlink{list_8c_aa0d20e134da87470791d0621d655d31e}{Pfree\-Node} (\hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{list_8c_afa945682e445397e0a5195b009042791}{T\-Mfree\-Node} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+static void \hyperlink{list_8c_a475696d1a0aedfdbac6a0c6516fc78da}{free\-List} (\hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+static void \hyperlink{list_8c_a6b1a80c1e3dd7162630ac048d37c4c2c}{Pfree\-List} (\hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+void \hyperlink{list_8c_a4fb22eb8e01180e8150cd15c8257e57a}{list\-\_\-free} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+void \hyperlink{list_8c_aeeb44928a75497916888d4f858d43e14}{Plist\-\_\-free} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+void \hyperlink{list_8c_a081d9fe6c2acc202f871e823ed4a80b4}{T\-Mlist\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_a0d30e817d457c2a78d4e03cfa90d40cc}{list\-\_\-is\-Empty} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_ae8ae1df70c89bf6a441e7cc4d8169788}{T\-Mlist\-\_\-is\-Empty} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+long \hyperlink{list_8c_aa154e6bc9945a0491e0516756a7fb20c}{list\-\_\-get\-Size} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+long \hyperlink{list_8c_ab514f3b098d37af7aa80cf0e13de36c9}{T\-Mlist\-\_\-get\-Size} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+static \hyperlink{list_8h_ad8b8636e2e25308b521b32071e849c80}{list\-\_\-node\-\_\-t} $\ast$ \hyperlink{list_8c_a3ed9de59a6e4cd353dee80f797da7a19}{find\-Previous} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+void $\ast$ \hyperlink{list_8c_a1379a3cf001369bd5979fe53160640f5}{list\-\_\-find} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+void $\ast$ \hyperlink{list_8c_a8c301e32cea930ecabae9058749a160b}{T\-Mlist\-\_\-find} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_a06249cb6bbda6b10f5777b96a6c122f9}{list\-\_\-insert} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_a857fdaea81fb44b5918c9d446707f23e}{Plist\-\_\-insert} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_aa3a707abd28e70565337e7ebfe4f7123}{T\-Mlist\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_af5a09f2dc4e901d1c8052e282d4d87d3}{list\-\_\-remove} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_a1fa145871fd1d110f892094bbc153cbf}{Plist\-\_\-remove} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{list_8c_a8c8a4394dd28984b834c56f8cda0b917}{T\-Mlist\-\_\-remove} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr, void $\ast$data\-Ptr)
+\item 
+void \hyperlink{list_8c_a36908d6e058cd744a99cffbf8bda63af}{T\-Mlist\-\_\-clear} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\item 
+void \hyperlink{list_8c_a4ea0ab7dd309987a04b05cb033eb6cf6}{Plist\-\_\-clear} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$list\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} \\*
+default\-\_\-list\-\_\-comparator \& \hyperlink{list_8c_a987bcc169a88b91849ac21287382c693}{compare\-Data\-Ptr\-Addresses}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{list_8c_a83f50b1d8e5fda2432265d6ec526558e}{\index{list.\-c@{list.\-c}!alloc\-Node@{alloc\-Node}}
+\index{alloc\-Node@{alloc\-Node}!list.c@{list.\-c}}
+\subsubsection[{alloc\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf list\-\_\-node\-\_\-t}$\ast$ alloc\-Node (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a83f50b1d8e5fda2432265d6ec526558e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a83f50b1d8e5fda2432265d6ec526558e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_ae1704407b4d53d43eef4dbebd7913279}{\index{list.\-c@{list.\-c}!compare\-Data\-Ptr\-Addresses@{compare\-Data\-Ptr\-Addresses}}
+\index{compare\-Data\-Ptr\-Addresses@{compare\-Data\-Ptr\-Addresses}!list.c@{list.\-c}}
+\subsubsection[{compare\-Data\-Ptr\-Addresses}]{\setlength{\rightskip}{0pt plus 5cm}static long compare\-Data\-Ptr\-Addresses (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{a, }
+\item[{const void $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_ae1704407b4d53d43eef4dbebd7913279}
+\hypertarget{list_8c_a3ed9de59a6e4cd353dee80f797da7a19}{\index{list.\-c@{list.\-c}!find\-Previous@{find\-Previous}}
+\index{find\-Previous@{find\-Previous}!list.c@{list.\-c}}
+\subsubsection[{find\-Previous}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf list\-\_\-node\-\_\-t}$\ast$ find\-Previous (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a3ed9de59a6e4cd353dee80f797da7a19}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a3ed9de59a6e4cd353dee80f797da7a19_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a3ed9de59a6e4cd353dee80f797da7a19_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a475696d1a0aedfdbac6a0c6516fc78da}{\index{list.\-c@{list.\-c}!free\-List@{free\-List}}
+\index{free\-List@{free\-List}!list.c@{list.\-c}}
+\subsubsection[{free\-List}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a475696d1a0aedfdbac6a0c6516fc78da}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{list_8c_a475696d1a0aedfdbac6a0c6516fc78da_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a475696d1a0aedfdbac6a0c6516fc78da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_ac485202058cce61a3db7ad23eea4c658}{\index{list.\-c@{list.\-c}!free\-Node@{free\-Node}}
+\index{free\-Node@{free\-Node}!list.c@{list.\-c}}
+\subsubsection[{free\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_ac485202058cce61a3db7ad23eea4c658}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_ac485202058cce61a3db7ad23eea4c658_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_afb48e81a34dc4cb5c37fd445b128df68}{\index{list.\-c@{list.\-c}!list\-\_\-alloc@{list\-\_\-alloc}}
+\index{list\-\_\-alloc@{list\-\_\-alloc}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\-\_\-t}$\ast$ list\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf comparator\-\_\-t} $\ast$}]{comp}
+\end{DoxyParamCaption}
+)}}\label{list_8c_afb48e81a34dc4cb5c37fd445b128df68}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_afb48e81a34dc4cb5c37fd445b128df68_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a1379a3cf001369bd5979fe53160640f5}{\index{list.\-c@{list.\-c}!list\-\_\-find@{list\-\_\-find}}
+\index{list\-\_\-find@{list\-\_\-find}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ list\-\_\-find (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a1379a3cf001369bd5979fe53160640f5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a1379a3cf001369bd5979fe53160640f5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a1379a3cf001369bd5979fe53160640f5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a4fb22eb8e01180e8150cd15c8257e57a}{\index{list.\-c@{list.\-c}!list\-\_\-free@{list\-\_\-free}}
+\index{list\-\_\-free@{list\-\_\-free}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void list\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a4fb22eb8e01180e8150cd15c8257e57a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{list_8c_a4fb22eb8e01180e8150cd15c8257e57a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a4fb22eb8e01180e8150cd15c8257e57a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_aa154e6bc9945a0491e0516756a7fb20c}{\index{list.\-c@{list.\-c}!list\-\_\-get\-Size@{list\-\_\-get\-Size}}
+\index{list\-\_\-get\-Size@{list\-\_\-get\-Size}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}long list\-\_\-get\-Size (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_aa154e6bc9945a0491e0516756a7fb20c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_aa154e6bc9945a0491e0516756a7fb20c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a06249cb6bbda6b10f5777b96a6c122f9}{\index{list.\-c@{list.\-c}!list\-\_\-insert@{list\-\_\-insert}}
+\index{list\-\_\-insert@{list\-\_\-insert}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} list\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a06249cb6bbda6b10f5777b96a6c122f9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a06249cb6bbda6b10f5777b96a6c122f9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a06249cb6bbda6b10f5777b96a6c122f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a0d30e817d457c2a78d4e03cfa90d40cc}{\index{list.\-c@{list.\-c}!list\-\_\-is\-Empty@{list\-\_\-is\-Empty}}
+\index{list\-\_\-is\-Empty@{list\-\_\-is\-Empty}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} list\-\_\-is\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a0d30e817d457c2a78d4e03cfa90d40cc}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{list_8c_a0d30e817d457c2a78d4e03cfa90d40cc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_af8d7b94e84661c7b1da55a7c87619911}{\index{list.\-c@{list.\-c}!list\-\_\-iter\-\_\-has\-Next@{list\-\_\-iter\-\_\-has\-Next}}
+\index{list\-\_\-iter\-\_\-has\-Next@{list\-\_\-iter\-\_\-has\-Next}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-iter\-\_\-has\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} list\-\_\-iter\-\_\-has\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_af8d7b94e84661c7b1da55a7c87619911}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_af8d7b94e84661c7b1da55a7c87619911_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a3dce8c731efc2b63a61958b2503f4c5d}{\index{list.\-c@{list.\-c}!list\-\_\-iter\-\_\-next@{list\-\_\-iter\-\_\-next}}
+\index{list\-\_\-iter\-\_\-next@{list\-\_\-iter\-\_\-next}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ list\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a3dce8c731efc2b63a61958b2503f4c5d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a3dce8c731efc2b63a61958b2503f4c5d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_af9a0fb76faf3f2c75d3454dc7f7d9b6a}{\index{list.\-c@{list.\-c}!list\-\_\-iter\-\_\-reset@{list\-\_\-iter\-\_\-reset}}
+\index{list\-\_\-iter\-\_\-reset@{list\-\_\-iter\-\_\-reset}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-iter\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void list\-\_\-iter\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_af9a0fb76faf3f2c75d3454dc7f7d9b6a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_af9a0fb76faf3f2c75d3454dc7f7d9b6a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_af5a09f2dc4e901d1c8052e282d4d87d3}{\index{list.\-c@{list.\-c}!list\-\_\-remove@{list\-\_\-remove}}
+\index{list\-\_\-remove@{list\-\_\-remove}!list.c@{list.\-c}}
+\subsubsection[{list\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} list\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_af5a09f2dc4e901d1c8052e282d4d87d3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_af5a09f2dc4e901d1c8052e282d4d87d3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_af5a09f2dc4e901d1c8052e282d4d87d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a29763be02fafb5c45c66fd3c2732cf0a}{\index{list.\-c@{list.\-c}!Palloc\-Node@{Palloc\-Node}}
+\index{Palloc\-Node@{Palloc\-Node}!list.c@{list.\-c}}
+\subsubsection[{Palloc\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf list\-\_\-node\-\_\-t}$\ast$ Palloc\-Node (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a29763be02fafb5c45c66fd3c2732cf0a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{list_8c_a29763be02fafb5c45c66fd3c2732cf0a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a6b1a80c1e3dd7162630ac048d37c4c2c}{\index{list.\-c@{list.\-c}!Pfree\-List@{Pfree\-List}}
+\index{Pfree\-List@{Pfree\-List}!list.c@{list.\-c}}
+\subsubsection[{Pfree\-List}]{\setlength{\rightskip}{0pt plus 5cm}static void Pfree\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a6b1a80c1e3dd7162630ac048d37c4c2c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{list_8c_a6b1a80c1e3dd7162630ac048d37c4c2c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a6b1a80c1e3dd7162630ac048d37c4c2c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_aa0d20e134da87470791d0621d655d31e}{\index{list.\-c@{list.\-c}!Pfree\-Node@{Pfree\-Node}}
+\index{Pfree\-Node@{Pfree\-Node}!list.c@{list.\-c}}
+\subsubsection[{Pfree\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static void Pfree\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_aa0d20e134da87470791d0621d655d31e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_aa0d20e134da87470791d0621d655d31e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_acff01c26015a0263b94839e622c17d66}{\index{list.\-c@{list.\-c}!Plist\-\_\-alloc@{Plist\-\_\-alloc}}
+\index{Plist\-\_\-alloc@{Plist\-\_\-alloc}!list.c@{list.\-c}}
+\subsubsection[{Plist\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\-\_\-t}$\ast$ Plist\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf comparator\-\_\-t} $\ast$}]{comp}
+\end{DoxyParamCaption}
+)}}\label{list_8c_acff01c26015a0263b94839e622c17d66}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_acff01c26015a0263b94839e622c17d66_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a4ea0ab7dd309987a04b05cb033eb6cf6}{\index{list.\-c@{list.\-c}!Plist\-\_\-clear@{Plist\-\_\-clear}}
+\index{Plist\-\_\-clear@{Plist\-\_\-clear}!list.c@{list.\-c}}
+\subsubsection[{Plist\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void Plist\-\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a4ea0ab7dd309987a04b05cb033eb6cf6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{list_8c_a4ea0ab7dd309987a04b05cb033eb6cf6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_aeeb44928a75497916888d4f858d43e14}{\index{list.\-c@{list.\-c}!Plist\-\_\-free@{Plist\-\_\-free}}
+\index{Plist\-\_\-free@{Plist\-\_\-free}!list.c@{list.\-c}}
+\subsubsection[{Plist\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Plist\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_aeeb44928a75497916888d4f858d43e14}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{list_8c_aeeb44928a75497916888d4f858d43e14_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_aeeb44928a75497916888d4f858d43e14_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a857fdaea81fb44b5918c9d446707f23e}{\index{list.\-c@{list.\-c}!Plist\-\_\-insert@{Plist\-\_\-insert}}
+\index{Plist\-\_\-insert@{Plist\-\_\-insert}!list.c@{list.\-c}}
+\subsubsection[{Plist\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} Plist\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a857fdaea81fb44b5918c9d446707f23e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a857fdaea81fb44b5918c9d446707f23e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a1fa145871fd1d110f892094bbc153cbf}{\index{list.\-c@{list.\-c}!Plist\-\_\-remove@{Plist\-\_\-remove}}
+\index{Plist\-\_\-remove@{Plist\-\_\-remove}!list.c@{list.\-c}}
+\subsubsection[{Plist\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} Plist\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a1fa145871fd1d110f892094bbc153cbf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a1fa145871fd1d110f892094bbc153cbf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a469b774e2d87a6c53e2c0e4af03306d3}{\index{list.\-c@{list.\-c}!T\-Malloc\-Node@{T\-Malloc\-Node}}
+\index{T\-Malloc\-Node@{T\-Malloc\-Node}!list.c@{list.\-c}}
+\subsubsection[{T\-Malloc\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf list\-\_\-node\-\_\-t}$\ast$ T\-Malloc\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a469b774e2d87a6c53e2c0e4af03306d3}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{list_8c_a469b774e2d87a6c53e2c0e4af03306d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_aa82ebdfb5e8d4f82a59aaf0ea72a2b8e}{\index{list.\-c@{list.\-c}!T\-Mcompare\-Data\-Ptr\-Addresses@{T\-Mcompare\-Data\-Ptr\-Addresses}}
+\index{T\-Mcompare\-Data\-Ptr\-Addresses@{T\-Mcompare\-Data\-Ptr\-Addresses}!list.c@{list.\-c}}
+\subsubsection[{T\-Mcompare\-Data\-Ptr\-Addresses}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long T\-Mcompare\-Data\-Ptr\-Addresses (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$}]{a, }
+\item[{const void $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_aa82ebdfb5e8d4f82a59aaf0ea72a2b8e}
+\hypertarget{list_8c_abae8c22f79c73d231c8ddd9b795e47d9}{\index{list.\-c@{list.\-c}!T\-Mfind\-Previous@{T\-Mfind\-Previous}}
+\index{T\-Mfind\-Previous@{T\-Mfind\-Previous}!list.c@{list.\-c}}
+\subsubsection[{T\-Mfind\-Previous}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf list\-\_\-node\-\_\-t} $\ast$ T\-Mfind\-Previous (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_abae8c22f79c73d231c8ddd9b795e47d9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_abae8c22f79c73d231c8ddd9b795e47d9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{list_8c_abae8c22f79c73d231c8ddd9b795e47d9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a048f102e50784dd0668b7ff6db6e1f3b}{\index{list.\-c@{list.\-c}!T\-Mfree\-List@{T\-Mfree\-List}}
+\index{T\-Mfree\-List@{T\-Mfree\-List}!list.c@{list.\-c}}
+\subsubsection[{T\-Mfree\-List}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mfree\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_a048f102e50784dd0668b7ff6db6e1f3b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{list_8c_a048f102e50784dd0668b7ff6db6e1f3b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{list_8c_a048f102e50784dd0668b7ff6db6e1f3b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_afa945682e445397e0a5195b009042791}{\index{list.\-c@{list.\-c}!T\-Mfree\-Node@{T\-Mfree\-Node}}
+\index{T\-Mfree\-Node@{T\-Mfree\-Node}!list.c@{list.\-c}}
+\subsubsection[{T\-Mfree\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void T\-Mfree\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{list_8c_afa945682e445397e0a5195b009042791}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_afa945682e445397e0a5195b009042791_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a60c3333b1e6568ec3997d44127a9985b}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-alloc@{T\-Mlist\-\_\-alloc}}
+\index{T\-Mlist\-\_\-alloc@{T\-Mlist\-\_\-alloc}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\-\_\-t}$\ast$ T\-Mlist\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf comparator\-\_\-t} $\ast$}]{comp}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a60c3333b1e6568ec3997d44127a9985b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a60c3333b1e6568ec3997d44127a9985b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a36908d6e058cd744a99cffbf8bda63af}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-clear@{T\-Mlist\-\_\-clear}}
+\index{T\-Mlist\-\_\-clear@{T\-Mlist\-\_\-clear}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mlist\-\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a36908d6e058cd744a99cffbf8bda63af}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a36908d6e058cd744a99cffbf8bda63af_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a8c301e32cea930ecabae9058749a160b}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-find@{T\-Mlist\-\_\-find}}
+\index{T\-Mlist\-\_\-find@{T\-Mlist\-\_\-find}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\-Mlist\-\_\-find (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a8c301e32cea930ecabae9058749a160b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a8c301e32cea930ecabae9058749a160b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_a081d9fe6c2acc202f871e823ed4a80b4}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-free@{T\-Mlist\-\_\-free}}
+\index{T\-Mlist\-\_\-free@{T\-Mlist\-\_\-free}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mlist\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a081d9fe6c2acc202f871e823ed4a80b4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a081d9fe6c2acc202f871e823ed4a80b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_ab514f3b098d37af7aa80cf0e13de36c9}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-get\-Size@{T\-Mlist\-\_\-get\-Size}}
+\index{T\-Mlist\-\_\-get\-Size@{T\-Mlist\-\_\-get\-Size}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}long T\-Mlist\-\_\-get\-Size (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_ab514f3b098d37af7aa80cf0e13de36c9}
+\hypertarget{list_8c_aa3a707abd28e70565337e7ebfe4f7123}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-insert@{T\-Mlist\-\_\-insert}}
+\index{T\-Mlist\-\_\-insert@{T\-Mlist\-\_\-insert}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mlist\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_aa3a707abd28e70565337e7ebfe4f7123}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_aa3a707abd28e70565337e7ebfe4f7123_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{list_8c_ae8ae1df70c89bf6a441e7cc4d8169788}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-is\-Empty@{T\-Mlist\-\_\-is\-Empty}}
+\index{T\-Mlist\-\_\-is\-Empty@{T\-Mlist\-\_\-is\-Empty}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mlist\-\_\-is\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_ae8ae1df70c89bf6a441e7cc4d8169788}
+\hypertarget{list_8c_a05835c1ec9cf285329fc04cb21292432}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-iter\-\_\-has\-Next@{T\-Mlist\-\_\-iter\-\_\-has\-Next}}
+\index{T\-Mlist\-\_\-iter\-\_\-has\-Next@{T\-Mlist\-\_\-iter\-\_\-has\-Next}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-iter\-\_\-has\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mlist\-\_\-iter\-\_\-has\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a05835c1ec9cf285329fc04cb21292432}
+\hypertarget{list_8c_a688bb1dfb6218c9a3abf441c5ea2c13f}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-iter\-\_\-next@{T\-Mlist\-\_\-iter\-\_\-next}}
+\index{T\-Mlist\-\_\-iter\-\_\-next@{T\-Mlist\-\_\-iter\-\_\-next}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\-Mlist\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a688bb1dfb6218c9a3abf441c5ea2c13f}
+\hypertarget{list_8c_a4d5ac725ce9a964d10b5d7e37bcdfe75}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-iter\-\_\-reset@{T\-Mlist\-\_\-iter\-\_\-reset}}
+\index{T\-Mlist\-\_\-iter\-\_\-reset@{T\-Mlist\-\_\-iter\-\_\-reset}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-iter\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mlist\-\_\-iter\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{list\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a4d5ac725ce9a964d10b5d7e37bcdfe75}
+\hypertarget{list_8c_a8c8a4394dd28984b834c56f8cda0b917}{\index{list.\-c@{list.\-c}!T\-Mlist\-\_\-remove@{T\-Mlist\-\_\-remove}}
+\index{T\-Mlist\-\_\-remove@{T\-Mlist\-\_\-remove}!list.c@{list.\-c}}
+\subsubsection[{T\-Mlist\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mlist\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{list\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a8c8a4394dd28984b834c56f8cda0b917}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{list_8c_a8c8a4394dd28984b834c56f8cda0b917_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{list_8c_a987bcc169a88b91849ac21287382c693}{\index{list.\-c@{list.\-c}!compare\-Data\-Ptr\-Addresses@{compare\-Data\-Ptr\-Addresses}}
+\index{compare\-Data\-Ptr\-Addresses@{compare\-Data\-Ptr\-Addresses}!list.c@{list.\-c}}
+\subsubsection[{compare\-Data\-Ptr\-Addresses}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} default\-\_\-list\-\_\-comparator\& compare\-Data\-Ptr\-Addresses}}\label{list_8c_a987bcc169a88b91849ac21287382c693}

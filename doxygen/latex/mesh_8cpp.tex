@@ -1,0 +1,175 @@
+\hypertarget{mesh_8cpp}{\section{rstm/rstm-\/dev/mesh/mesh.cpp File Reference}
+\label{mesh_8cpp}\index{rstm/rstm-\/dev/mesh/mesh.\-cpp@{rstm/rstm-\/dev/mesh/mesh.\-cpp}}
+}
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lock.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}edge.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}edge\-\_\-set.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}my\-\_\-thread.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dwyer.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}worker.\-hpp\char`\"{}}\\*
+Include dependency graph for mesh.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mesh_8cpp_a8a4a75b4a231b7d14e3d9c2e009eceb9}{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E} (\hyperlink{classthread}{thread} $\ast$) current\-Thread
+\item 
+static void \hyperlink{mesh_8cpp_a64a6014565bb3e03294ec4a952d5add0}{usage} ()
+\item 
+static void \hyperlink{mesh_8cpp_a48a104c6721732cbc3da3080ffc0b4c9}{parse\-\_\-args} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{mesh_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classd__lock}{d\-\_\-lock} \hyperlink{mesh_8cpp_ad16735b0eb2c7489aa7450ac4bb75990}{io\-\_\-lock}
+\item 
+unsigned long long \hyperlink{mesh_8cpp_a53de2496b5ea419c54d02b6391ec16e5}{start\-\_\-time}
+\item 
+unsigned long long \hyperlink{mesh_8cpp_a3ceb81ba3162a09a5c798afdd76aae38}{last\-\_\-time}
+\item 
+\hyperlink{classedge__set}{edge\-\_\-set} $\ast$ \hyperlink{mesh_8cpp_a52e2b15c283046c322842a67c96a349b}{edges}
+\item 
+int \hyperlink{mesh_8cpp_abaef4f818f7fb7047b746a6cdd2bfdda}{num\-\_\-points} = 100
+\item 
+int \hyperlink{mesh_8cpp_aea83690c8f0d7b9af3af06fb64793822}{num\-\_\-workers} = 4
+\item 
+static int \hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed} = 1
+\item 
+bool \hyperlink{mesh_8cpp_a8d4cddbc2e906817a67cc1f88aca5d7f}{output\-\_\-incremental} = false
+\item 
+bool \hyperlink{mesh_8cpp_a75427bc7bd64ac5cb6711a7efb4ba2e7}{output\-\_\-end} = false
+\item 
+bool \hyperlink{mesh_8cpp_ab3f078684998b83967d507d0f453f454}{verbose} = false
+\item 
+static bool \hyperlink{mesh_8cpp_af525513e6b92a2abdf9d03375ef3dc65}{read\-\_\-points} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mesh_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{mesh.\-cpp@{mesh.\-cpp}!main@{main}}
+\index{main@{main}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{mesh_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8cpp_a48a104c6721732cbc3da3080ffc0b4c9}{\index{mesh.\-cpp@{mesh.\-cpp}!parse\-\_\-args@{parse\-\_\-args}}
+\index{parse\-\_\-args@{parse\-\_\-args}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{parse\-\_\-args}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-\_\-args (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{mesh_8cpp_a48a104c6721732cbc3da3080ffc0b4c9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{mesh_8cpp_a48a104c6721732cbc3da3080ffc0b4c9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{mesh_8cpp_a48a104c6721732cbc3da3080ffc0b4c9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8cpp_a8a4a75b4a231b7d14e3d9c2e009eceb9}{\index{mesh.\-cpp@{mesh.\-cpp}!T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}}
+\index{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8cpp_a8a4a75b4a231b7d14e3d9c2e009eceb9}
+\hypertarget{mesh_8cpp_a64a6014565bb3e03294ec4a952d5add0}{\index{mesh.\-cpp@{mesh.\-cpp}!usage@{usage}}
+\index{usage@{usage}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}static void usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{mesh_8cpp_a64a6014565bb3e03294ec4a952d5add0}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{mesh_8cpp_a64a6014565bb3e03294ec4a952d5add0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{mesh_8cpp_a52e2b15c283046c322842a67c96a349b}{\index{mesh.\-cpp@{mesh.\-cpp}!edges@{edges}}
+\index{edges@{edges}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}{\bf edge\-\_\-set}$\ast$ edges}}\label{mesh_8cpp_a52e2b15c283046c322842a67c96a349b}
+\hypertarget{mesh_8cpp_ad16735b0eb2c7489aa7450ac4bb75990}{\index{mesh.\-cpp@{mesh.\-cpp}!io\-\_\-lock@{io\-\_\-lock}}
+\index{io\-\_\-lock@{io\-\_\-lock}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{io\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf d\-\_\-lock} io\-\_\-lock}}\label{mesh_8cpp_ad16735b0eb2c7489aa7450ac4bb75990}
+\hypertarget{mesh_8cpp_a3ceb81ba3162a09a5c798afdd76aae38}{\index{mesh.\-cpp@{mesh.\-cpp}!last\-\_\-time@{last\-\_\-time}}
+\index{last\-\_\-time@{last\-\_\-time}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{last\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long last\-\_\-time}}\label{mesh_8cpp_a3ceb81ba3162a09a5c798afdd76aae38}
+\hypertarget{mesh_8cpp_abaef4f818f7fb7047b746a6cdd2bfdda}{\index{mesh.\-cpp@{mesh.\-cpp}!num\-\_\-points@{num\-\_\-points}}
+\index{num\-\_\-points@{num\-\_\-points}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{num\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-points = 100}}\label{mesh_8cpp_abaef4f818f7fb7047b746a6cdd2bfdda}
+\hypertarget{mesh_8cpp_aea83690c8f0d7b9af3af06fb64793822}{\index{mesh.\-cpp@{mesh.\-cpp}!num\-\_\-workers@{num\-\_\-workers}}
+\index{num\-\_\-workers@{num\-\_\-workers}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{num\-\_\-workers}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-workers = 4}}\label{mesh_8cpp_aea83690c8f0d7b9af3af06fb64793822}
+\hypertarget{mesh_8cpp_a75427bc7bd64ac5cb6711a7efb4ba2e7}{\index{mesh.\-cpp@{mesh.\-cpp}!output\-\_\-end@{output\-\_\-end}}
+\index{output\-\_\-end@{output\-\_\-end}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{output\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}bool output\-\_\-end = false}}\label{mesh_8cpp_a75427bc7bd64ac5cb6711a7efb4ba2e7}
+\hypertarget{mesh_8cpp_a8d4cddbc2e906817a67cc1f88aca5d7f}{\index{mesh.\-cpp@{mesh.\-cpp}!output\-\_\-incremental@{output\-\_\-incremental}}
+\index{output\-\_\-incremental@{output\-\_\-incremental}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{output\-\_\-incremental}]{\setlength{\rightskip}{0pt plus 5cm}bool output\-\_\-incremental = false}}\label{mesh_8cpp_a8d4cddbc2e906817a67cc1f88aca5d7f}
+\hypertarget{mesh_8cpp_af525513e6b92a2abdf9d03375ef3dc65}{\index{mesh.\-cpp@{mesh.\-cpp}!read\-\_\-points@{read\-\_\-points}}
+\index{read\-\_\-points@{read\-\_\-points}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{read\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}bool read\-\_\-points = false\hspace{0.3cm}{\ttfamily [static]}}}\label{mesh_8cpp_af525513e6b92a2abdf9d03375ef3dc65}
+\hypertarget{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{\index{mesh.\-cpp@{mesh.\-cpp}!seed@{seed}}
+\index{seed@{seed}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{seed}]{\setlength{\rightskip}{0pt plus 5cm}int seed = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}
+\hypertarget{mesh_8cpp_a53de2496b5ea419c54d02b6391ec16e5}{\index{mesh.\-cpp@{mesh.\-cpp}!start\-\_\-time@{start\-\_\-time}}
+\index{start\-\_\-time@{start\-\_\-time}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{start\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long start\-\_\-time}}\label{mesh_8cpp_a53de2496b5ea419c54d02b6391ec16e5}
+\hypertarget{mesh_8cpp_ab3f078684998b83967d507d0f453f454}{\index{mesh.\-cpp@{mesh.\-cpp}!verbose@{verbose}}
+\index{verbose@{verbose}!mesh.cpp@{mesh.\-cpp}}
+\subsubsection[{verbose}]{\setlength{\rightskip}{0pt plus 5cm}bool verbose = false}}\label{mesh_8cpp_ab3f078684998b83967d507d0f453f454}

@@ -1,0 +1,47 @@
+var transskip_8cc =
+[
+    [ "HelpStack", "structHelpStack.html", "structHelpStack" ],
+    [ "__SET_IMPLEMENTATION__", "transskip_8cc.html#af1bd7bf5aa6d6de3cc5f9d5ec4b0f955", null ],
+    [ "CLR_MARKD", "transskip_8cc.html#a7bd1dc6e2afa5f73f39d6dbc604b8b8f", null ],
+    [ "IS_MARKED", "transskip_8cc.html#a5045996183a50435fa2685920b8ea19f", null ],
+    [ "SET_MARK", "transskip_8cc.html#ae30687225c8f14173511d0dccedea716", null ],
+    [ "OpStatus", "transskip_8cc.html#af9e675a7980d5ac679b868f4ac463c25", [
+      [ "LIVE", "transskip_8cc.html#af9e675a7980d5ac679b868f4ac463c25a5810f7a85a06138a19e6f548273a6927", null ],
+      [ "COMMITTED", "transskip_8cc.html#af9e675a7980d5ac679b868f4ac463c25a9b6890d649a5ed95ee892f10e432e6ac", null ],
+      [ "ABORTED", "transskip_8cc.html#af9e675a7980d5ac679b868f4ac463c25a3ae09818606786b529d9ca89180fa29a", null ]
+    ] ],
+    [ "OpType", "transskip_8cc.html#aa1aa1c6a8f3bbed5b167bc2d4511b969", [
+      [ "FIND", "transskip_8cc.html#aa1aa1c6a8f3bbed5b167bc2d4511b969a8f189475707a2b69614aeb6c6904a6df", null ],
+      [ "INSERT", "transskip_8cc.html#aa1aa1c6a8f3bbed5b167bc2d4511b969aa15c451953b2d2a93403afe786930d0f", null ],
+      [ "DELETE", "transskip_8cc.html#aa1aa1c6a8f3bbed5b167bc2d4511b969a9d61e82a9a12752f10aece1b22183913", null ]
+    ] ],
+    [ "alloc_node", "transskip_8cc.html#aaebbe09bfcc49916e869df817e0ef5f2", null ],
+    [ "check_for_full_delete", "transskip_8cc.html#a0f45b30b9ae66fe48f2f0ca09a49069e", null ],
+    [ "destroy_transskip_subsystem", "transskip_8cc.html#aae78ecc87cdfcfb8093d7b980fdab301", null ],
+    [ "do_full_delete", "transskip_8cc.html#adef6414bd01ff21125b7e1042f709ac2", null ],
+    [ "execute_ops", "transskip_8cc.html#ab9c29316cb91737b6c383818ff700dd0", null ],
+    [ "FinishPendingTxn", "transskip_8cc.html#a0d6d503fca08ea29d18df6b11d5fbcc0", null ],
+    [ "free_node", "transskip_8cc.html#a26a2b06dc93215a87d025facf8370427", null ],
+    [ "get_level", "transskip_8cc.html#ab6919257456cff4d47684cdfd3bc5a3c", null ],
+    [ "help_ops", "transskip_8cc.html#a4ae3b77271a6617ab4b15183a6ca9601", null ],
+    [ "init_transskip_subsystem", "transskip_8cc.html#a45613be712b23cdba5b2f588f2c2e244", null ],
+    [ "IsKeyExist", "transskip_8cc.html#a0abe05e214e4e5e4b505029db0933f6d", null ],
+    [ "IsNodeActive", "transskip_8cc.html#a04a4108bf9903c66f1dc0480135b8c1d", null ],
+    [ "IsSameOperation", "transskip_8cc.html#a2d52630adc00d6e36da0088ceb90327f", null ],
+    [ "mark_deleted", "transskip_8cc.html#a75266fd2f1b1dcd3213e6450a326421d", null ],
+    [ "strong_search_predecessors", "transskip_8cc.html#a8df32de13951af05c7685b1698ce80dd", null ],
+    [ "transskip_alloc", "transskip_8cc.html#aca5b2ecf6dbd28c51a830b02e2b12911", null ],
+    [ "transskip_delete", "transskip_8cc.html#a45102b19cad6e5d69fc6d1b4db42cf44", null ],
+    [ "transskip_delete_org", "transskip_8cc.html#a0476ce376b2b4276828a9b197a43d75a", null ],
+    [ "transskip_find", "transskip_8cc.html#ae89a19c5e265e1f4988a8df74d9d27f7", null ],
+    [ "transskip_find_original", "transskip_8cc.html#a292c5287f7cc9497a62add15d3aca707", null ],
+    [ "transskip_free", "transskip_8cc.html#a4b81d9a45ece4bd0ae969d39798a6a3f", null ],
+    [ "transskip_insert", "transskip_8cc.html#a977b7a640f81eb02b78ee08376387721", null ],
+    [ "transskip_print", "transskip_8cc.html#a7bcad9ac414cdbcb1c0ef4715535267f", null ],
+    [ "weak_search_predecessors", "transskip_8cc.html#ad58834877131f5aaab060ce615d060f5", null ],
+    [ "g_count_abort", "transskip_8cc.html#af6d2ec7fd143428ba3a29037b463a512", null ],
+    [ "g_count_commit", "transskip_8cc.html#a31e805bc19e3448a48adec9322bbb28a", null ],
+    [ "g_count_fake_abort", "transskip_8cc.html#addca4ad790cd72e92c19479bf9095c22", null ],
+    [ "gc_id", "transskip_8cc.html#a4680ac3204207c1899defd92356d606a", null ],
+    [ "helpStack", "transskip_8cc.html#ad626624dfd5f6a2004a2a3984b899c4c", null ]
+];

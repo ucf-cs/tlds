@@ -1,0 +1,63 @@
+\hypertarget{structstm_1_1bytelock__t}{\section{stm\-:\-:bytelock\-\_\-t Struct Reference}
+\label{structstm_1_1bytelock__t}\index{stm\-::bytelock\-\_\-t@{stm\-::bytelock\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$metadata.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:bytelock\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{structstm_1_1bytelock__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structstm_1_1bytelock__t_a513888b4e0df93693d25b4c19d1cfdfc}{set\-\_\-read\-\_\-byte} (uint32\-\_\-t id)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint32\-\_\-t \hyperlink{structstm_1_1bytelock__t_aa8374c1b43bca7bde750523925e2ccc5}{owner}
+\item 
+volatile unsigned char \hyperlink{structstm_1_1bytelock__t_a00f1e7e9b66381db5b9a0ffb39912342}{reader} \mbox{[}\hyperlink{platform_8hpp_a4538b5ec4a295a2b8a52560e61575041}{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}-\/sizeof(uint32\-\_\-t)\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\-L\-R\-W-\/style algorithms don't use orecs, but instead use \char`\"{}byte locks\char`\"{}. This is the type of a byte lock. We have 32 bits for the lock, and then 60 bytes corresponding to 60 named threads.
+
+N\-B\-: We don't support more than 60 threads in Byte\-Lock-\/based algorithms. If you have more than that many threads, you should use adaptivity to switch to a different algorithm. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1bytelock__t_a513888b4e0df93693d25b4c19d1cfdfc}{\index{stm\-::bytelock\-\_\-t@{stm\-::bytelock\-\_\-t}!set\-\_\-read\-\_\-byte@{set\-\_\-read\-\_\-byte}}
+\index{set\-\_\-read\-\_\-byte@{set\-\_\-read\-\_\-byte}!stm::bytelock_t@{stm\-::bytelock\-\_\-t}}
+\subsubsection[{set\-\_\-read\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::bytelock\-\_\-t\-::set\-\_\-read\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1bytelock__t_a513888b4e0df93693d25b4c19d1cfdfc}
+Setting the read byte is platform-\/specific, so we make it a method of the \hyperlink{structstm_1_1bytelock__t}{bytelock\-\_\-t}
+
+N\-B\-: implemented in \hyperlink{algs_8hpp}{algs.\-hpp}, so that it is visible where needed, but not visible globally
+
+Stuff from \hyperlink{metadata_8hpp}{metadata.\-hpp} Setting the read byte is platform-\/specific, so we are going to put it here to avoid lots of ifdefs in many code locations. The issue is that we need this write to also be a W\-B\-R fence, and the cheapest W\-B\-R is platform-\/dependent 
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1bytelock__t_aa8374c1b43bca7bde750523925e2ccc5}{\index{stm\-::bytelock\-\_\-t@{stm\-::bytelock\-\_\-t}!owner@{owner}}
+\index{owner@{owner}!stm::bytelock_t@{stm\-::bytelock\-\_\-t}}
+\subsubsection[{owner}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\-\_\-t stm\-::bytelock\-\_\-t\-::owner}}\label{structstm_1_1bytelock__t_aa8374c1b43bca7bde750523925e2ccc5}
+\hypertarget{structstm_1_1bytelock__t_a00f1e7e9b66381db5b9a0ffb39912342}{\index{stm\-::bytelock\-\_\-t@{stm\-::bytelock\-\_\-t}!reader@{reader}}
+\index{reader@{reader}!stm::bytelock_t@{stm\-::bytelock\-\_\-t}}
+\subsubsection[{reader}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char stm\-::bytelock\-\_\-t\-::reader\mbox{[}{\bf C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}-\/sizeof(uint32\-\_\-t)\mbox{]}}}\label{structstm_1_1bytelock__t_a00f1e7e9b66381db5b9a0ffb39912342}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{metadata_8hpp}{metadata.\-hpp}\item 
+rstm/rstm-\/dev/libstm/algs/\hyperlink{algs_8hpp}{algs.\-hpp}\end{DoxyCompactItemize}

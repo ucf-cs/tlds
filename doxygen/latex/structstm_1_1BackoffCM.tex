@@ -1,0 +1,80 @@
+\hypertarget{structstm_1_1BackoffCM}{\section{stm\-:\-:Backoff\-C\-M Struct Reference}
+\label{structstm_1_1BackoffCM}\index{stm\-::\-Backoff\-C\-M@{stm\-::\-Backoff\-C\-M}}
+}
+
+
+{\ttfamily \#include $<$cm.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Backoff\-C\-M\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{structstm_1_1BackoffCM__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1BackoffCM_af553f755ae5d32b484866638953af24f}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1BackoffCM_a8c47abe713d8739274ef4a122bab9711}{on\-Begin} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static void \hyperlink{structstm_1_1BackoffCM_a94b113bc9e5e55b87b8b75fa1c96bb13}{on\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static bool \hyperlink{structstm_1_1BackoffCM_a3a4ad9abc01889c23ae9177e01c629ad}{may\-Kill} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$, uint32\-\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Backoff C\-M policy\-: On abort, perform randomized exponential backoff 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1BackoffCM_a3a4ad9abc01889c23ae9177e01c629ad}{\index{stm\-::\-Backoff\-C\-M@{stm\-::\-Backoff\-C\-M}!may\-Kill@{may\-Kill}}
+\index{may\-Kill@{may\-Kill}!stm::BackoffCM@{stm\-::\-Backoff\-C\-M}}
+\subsubsection[{may\-Kill}]{\setlength{\rightskip}{0pt plus 5cm}static bool stm\-::\-Backoff\-C\-M\-::may\-Kill (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1BackoffCM_a3a4ad9abc01889c23ae9177e01c629ad}
+\hypertarget{structstm_1_1BackoffCM_af553f755ae5d32b484866638953af24f}{\index{stm\-::\-Backoff\-C\-M@{stm\-::\-Backoff\-C\-M}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::BackoffCM@{stm\-::\-Backoff\-C\-M}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Backoff\-C\-M\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1BackoffCM_af553f755ae5d32b484866638953af24f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1BackoffCM_af553f755ae5d32b484866638953af24f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1BackoffCM_a8c47abe713d8739274ef4a122bab9711}{\index{stm\-::\-Backoff\-C\-M@{stm\-::\-Backoff\-C\-M}!on\-Begin@{on\-Begin}}
+\index{on\-Begin@{on\-Begin}!stm::BackoffCM@{stm\-::\-Backoff\-C\-M}}
+\subsubsection[{on\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Backoff\-C\-M\-::on\-Begin (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1BackoffCM_a8c47abe713d8739274ef4a122bab9711}
+\hypertarget{structstm_1_1BackoffCM_a94b113bc9e5e55b87b8b75fa1c96bb13}{\index{stm\-::\-Backoff\-C\-M@{stm\-::\-Backoff\-C\-M}!on\-Commit@{on\-Commit}}
+\index{on\-Commit@{on\-Commit}!stm::BackoffCM@{stm\-::\-Backoff\-C\-M}}
+\subsubsection[{on\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Backoff\-C\-M\-::on\-Commit (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1BackoffCM_a94b113bc9e5e55b87b8b75fa1c96bb13}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{cm_8hpp}{cm.\-hpp}\end{DoxyCompactItemize}

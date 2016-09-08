@@ -1,0 +1,102 @@
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4}{\section{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$ Class Template Reference}
+\label{classSetAdaptor_3_01RSTMList_01_4}\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+}
+
+
+{\ttfamily \#include $<$setadaptor.\-h$>$}
+
+
+
+Collaboration diagram for Set\-Adaptor$<$ R\-S\-T\-M\-List $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSetAdaptor_3_01RSTMList_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSetAdaptor_3_01RSTMList_01_4_a11fa9978bccf2839600bd28734f647af}{Set\-Adaptor} ()
+\item 
+\hyperlink{classSetAdaptor_3_01RSTMList_01_4_ab8228acd306a1abe9cbe76a9ffb3559b}{$\sim$\-Set\-Adaptor} ()
+\item 
+void \hyperlink{classSetAdaptor_3_01RSTMList_01_4_ad85354a2aeb3b26ab57457ad8c9c3a41}{Init} ()
+\item 
+void \hyperlink{classSetAdaptor_3_01RSTMList_01_4_afd4d0e956e45032c550971dd375a0df0}{Uninit} ()
+\item 
+bool \hyperlink{classSetAdaptor_3_01RSTMList_01_4_a1594df7ff733c17f89d4c2175269bdc7}{Execute\-Ops} (const \hyperlink{setadaptor_8h_a7af6ba4d94b446744e0e49accfb08e24}{Set\-Op\-Array} \&\hyperlink{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}{ops}) \hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((optimize(0)))
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRSTMList}{R\-S\-T\-M\-List} \hyperlink{classSetAdaptor_3_01RSTMList_01_4_a826afd01fb3a7f2166cf7e6789f99cbf}{m\-\_\-list}
+\item 
+uint32\-\_\-t \hyperlink{classSetAdaptor_3_01RSTMList_01_4_af3874e2d596d426ef16d8d1b61ecd994}{g\-\_\-count\-\_\-commit} = 0
+\item 
+uint32\-\_\-t \hyperlink{classSetAdaptor_3_01RSTMList_01_4_a55375f9e3913416ccba84958682fc630}{g\-\_\-count\-\_\-abort} = 0
+\item 
+uint32\-\_\-t \hyperlink{classSetAdaptor_3_01RSTMList_01_4_a6df7f5de51e538c2fe8f19d6ef9ce7cd}{g\-\_\-count\-\_\-stm\-\_\-abort} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_a11fa9978bccf2839600bd28734f647af}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!Set\-Adaptor@{Set\-Adaptor}}
+\index{Set\-Adaptor@{Set\-Adaptor}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{Set\-Adaptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::{\bf Set\-Adaptor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01RSTMList_01_4_a11fa9978bccf2839600bd28734f647af}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_ab8228acd306a1abe9cbe76a9ffb3559b}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!$\sim$\-Set\-Adaptor@{$\sim$\-Set\-Adaptor}}
+\index{$\sim$\-Set\-Adaptor@{$\sim$\-Set\-Adaptor}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{$\sim$\-Set\-Adaptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::$\sim${\bf Set\-Adaptor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01RSTMList_01_4_ab8228acd306a1abe9cbe76a9ffb3559b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_a1594df7ff733c17f89d4c2175269bdc7}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!Execute\-Ops@{Execute\-Ops}}
+\index{Execute\-Ops@{Execute\-Ops}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{Execute\-Ops}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::Execute\-Ops (
+\begin{DoxyParamCaption}
+\item[{const {\bf Set\-Op\-Array} \&}]{ops}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01RSTMList_01_4_a1594df7ff733c17f89d4c2175269bdc7}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_ad85354a2aeb3b26ab57457ad8c9c3a41}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!Init@{Init}}
+\index{Init@{Init}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01RSTMList_01_4_ad85354a2aeb3b26ab57457ad8c9c3a41}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_afd4d0e956e45032c550971dd375a0df0}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01RSTMList_01_4_afd4d0e956e45032c550971dd375a0df0}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_a55375f9e3913416ccba84958682fc630}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}}
+\index{g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{g\-\_\-count\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::g\-\_\-count\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01RSTMList_01_4_a55375f9e3913416ccba84958682fc630}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_af3874e2d596d426ef16d8d1b61ecd994}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!g\-\_\-count\-\_\-commit@{g\-\_\-count\-\_\-commit}}
+\index{g\-\_\-count\-\_\-commit@{g\-\_\-count\-\_\-commit}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{g\-\_\-count\-\_\-commit}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::g\-\_\-count\-\_\-commit = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01RSTMList_01_4_af3874e2d596d426ef16d8d1b61ecd994}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_a6df7f5de51e538c2fe8f19d6ef9ce7cd}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!g\-\_\-count\-\_\-stm\-\_\-abort@{g\-\_\-count\-\_\-stm\-\_\-abort}}
+\index{g\-\_\-count\-\_\-stm\-\_\-abort@{g\-\_\-count\-\_\-stm\-\_\-abort}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{g\-\_\-count\-\_\-stm\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::g\-\_\-count\-\_\-stm\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01RSTMList_01_4_a6df7f5de51e538c2fe8f19d6ef9ce7cd}
+\hypertarget{classSetAdaptor_3_01RSTMList_01_4_a826afd01fb3a7f2166cf7e6789f99cbf}{\index{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}!m\-\_\-list@{m\-\_\-list}}
+\index{m\-\_\-list@{m\-\_\-list}!SetAdaptor< RSTMList >@{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}}
+\subsubsection[{m\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-S\-T\-M\-List} {\bf Set\-Adaptor}$<$ {\bf R\-S\-T\-M\-List} $>$\-::m\-\_\-list\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01RSTMList_01_4_a826afd01fb3a7f2166cf7e6789f99cbf}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+bench/\hyperlink{setadaptor_8h}{setadaptor.\-h}\end{DoxyCompactItemize}

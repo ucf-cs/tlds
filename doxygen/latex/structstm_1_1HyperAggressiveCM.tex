@@ -1,0 +1,68 @@
+\hypertarget{structstm_1_1HyperAggressiveCM}{\section{stm\-:\-:Hyper\-Aggressive\-C\-M Struct Reference}
+\label{structstm_1_1HyperAggressiveCM}\index{stm\-::\-Hyper\-Aggressive\-C\-M@{stm\-::\-Hyper\-Aggressive\-C\-M}}
+}
+
+
+{\ttfamily \#include $<$cm.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Hyper\-Aggressive\-C\-M\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{structstm_1_1HyperAggressiveCM__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1HyperAggressiveCM_a4318491b0620ba6f87558a6dccb16bf0}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static void \hyperlink{structstm_1_1HyperAggressiveCM_a839f5b2cc51987b10b7c5cc920aa15f1}{on\-Begin} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static void \hyperlink{structstm_1_1HyperAggressiveCM_a3a51fad00edf2296458700eb206245d9}{on\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static bool \hyperlink{structstm_1_1HyperAggressiveCM_aac31351b24fba3393c7bf2afcf88c4cf}{may\-Kill} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$, uint32\-\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hyper\-Aggressive C\-M policy\-: don't do backoff, just try to win all the time 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1HyperAggressiveCM_aac31351b24fba3393c7bf2afcf88c4cf}{\index{stm\-::\-Hyper\-Aggressive\-C\-M@{stm\-::\-Hyper\-Aggressive\-C\-M}!may\-Kill@{may\-Kill}}
+\index{may\-Kill@{may\-Kill}!stm::HyperAggressiveCM@{stm\-::\-Hyper\-Aggressive\-C\-M}}
+\subsubsection[{may\-Kill}]{\setlength{\rightskip}{0pt plus 5cm}static bool stm\-::\-Hyper\-Aggressive\-C\-M\-::may\-Kill (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HyperAggressiveCM_aac31351b24fba3393c7bf2afcf88c4cf}
+\hypertarget{structstm_1_1HyperAggressiveCM_a4318491b0620ba6f87558a6dccb16bf0}{\index{stm\-::\-Hyper\-Aggressive\-C\-M@{stm\-::\-Hyper\-Aggressive\-C\-M}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::HyperAggressiveCM@{stm\-::\-Hyper\-Aggressive\-C\-M}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Hyper\-Aggressive\-C\-M\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HyperAggressiveCM_a4318491b0620ba6f87558a6dccb16bf0}
+\hypertarget{structstm_1_1HyperAggressiveCM_a839f5b2cc51987b10b7c5cc920aa15f1}{\index{stm\-::\-Hyper\-Aggressive\-C\-M@{stm\-::\-Hyper\-Aggressive\-C\-M}!on\-Begin@{on\-Begin}}
+\index{on\-Begin@{on\-Begin}!stm::HyperAggressiveCM@{stm\-::\-Hyper\-Aggressive\-C\-M}}
+\subsubsection[{on\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Hyper\-Aggressive\-C\-M\-::on\-Begin (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HyperAggressiveCM_a839f5b2cc51987b10b7c5cc920aa15f1}
+\hypertarget{structstm_1_1HyperAggressiveCM_a3a51fad00edf2296458700eb206245d9}{\index{stm\-::\-Hyper\-Aggressive\-C\-M@{stm\-::\-Hyper\-Aggressive\-C\-M}!on\-Commit@{on\-Commit}}
+\index{on\-Commit@{on\-Commit}!stm::HyperAggressiveCM@{stm\-::\-Hyper\-Aggressive\-C\-M}}
+\subsubsection[{on\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Hyper\-Aggressive\-C\-M\-::on\-Commit (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HyperAggressiveCM_a3a51fad00edf2296458700eb206245d9}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{cm_8hpp}{cm.\-hpp}\end{DoxyCompactItemize}

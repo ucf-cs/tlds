@@ -1,0 +1,7 @@
+<map id="bitmap_findClear" name="bitmap_findClear">
+<area shape="rect" id="node2" href="$data_8h.html#a0f45b98c6cac17904d9daf25fbdc1dc9" title="data_generate" alt="" coords="373,5,477,32"/>
+<area shape="rect" id="node4" href="$learner_8c.html#af4655d41f33380b11243cae071a4ce37" title="TMfindBestInsertTask" alt="" coords="174,56,325,83"/>
+<area shape="rect" id="node3" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="661,31,717,57"/>
+<area shape="rect" id="node5" href="$learner_8c.html#a992842224f9ab3030136c9cadb79bd44" title="learnStructure" alt="" coords="374,56,477,83"/>
+<area shape="rect" id="node6" href="$learner_8h.html#a23d451d4d355a14fa7c9735304ba4d95" title="learner_run" alt="" coords="526,56,613,83"/>
+</map>

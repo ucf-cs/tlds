@@ -1,0 +1,6 @@
+<map id="fr_gc_add_ptr_to_hook_list" name="fr_gc_add_ptr_to_hook_list">
+<area shape="rect" id="node2" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="233,31,365,57"/>
+<area shape="rect" id="node3" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="414,31,546,57"/>
+<area shape="rect" id="node4" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="595,5,730,32"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="595,56,730,83"/>
+</map>

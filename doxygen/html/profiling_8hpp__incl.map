@@ -1,0 +1,17 @@
+<map id="rstm/rstm&#45;dev/libstm/profiling.hpp" name="rstm/rstm&#45;dev/libstm/profiling.hpp">
+<area shape="rect" id="node4" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="671,171,791,197"/>
+<area shape="rect" id="node24" href="$policies_8hpp.html" title="./policies/policies.hpp" alt="" coords="325,96,472,123"/>
+<area shape="rect" id="node5" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="871,245,1024,272"/>
+<area shape="rect" id="node7" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="167,395,299,421"/>
+<area shape="rect" id="node12" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="1101,245,1272,272"/>
+<area shape="rect" id="node13" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="434,320,560,347"/>
+<area shape="rect" id="node18" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="814,395,937,421"/>
+<area shape="rect" id="node20" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="1173,320,1299,347"/>
+<area shape="rect" id="node22" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="637,320,763,347"/>
+<area shape="rect" id="node23" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="721,245,847,272"/>
+<area shape="rect" id="node8" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="9,469,156,496"/>
+<area shape="rect" id="node14" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="637,395,771,421"/>
+<area shape="rect" id="node17" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="286,469,404,496"/>
+<area shape="rect" id="node21" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="1202,395,1317,421"/>
+<area shape="rect" id="node27" href="$lib__globals_8hpp.html" title="stm/lib_globals.hpp" alt="" coords="325,245,459,272"/>
+</map>

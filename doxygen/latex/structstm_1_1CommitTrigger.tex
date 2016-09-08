@@ -1,0 +1,118 @@
+\hypertarget{structstm_1_1CommitTrigger}{\section{stm\-:\-:Commit\-Trigger Struct Reference}
+\label{structstm_1_1CommitTrigger}\index{stm\-::\-Commit\-Trigger@{stm\-::\-Commit\-Trigger}}
+}
+
+
+{\ttfamily \#include $<$profiling.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Commit\-Trigger\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{structstm_1_1CommitTrigger__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1CommitTrigger_a4d706454d226b9100a972d36bb3be88e}{on\-Commit\-Lock} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1CommitTrigger_acdf3280966d01d057c2efc8ff1792aab}{on\-Commit\-S\-T\-M} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1CommitTrigger_aee144a92ac151fa1aae6942b04f68685}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned \hyperlink{structstm_1_1CommitTrigger_a03a352eb791b73886d5ddcc8242a1a69}{next} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the trigger we are currently favoring\-: request collection of profiles on 16 consecutive aborts, or when thread 2's commit count matches an exponentially decaying pattern. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1CommitTrigger_aee144a92ac151fa1aae6942b04f68685}{\index{stm\-::\-Commit\-Trigger@{stm\-::\-Commit\-Trigger}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::CommitTrigger@{stm\-::\-Commit\-Trigger}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Commit\-Trigger\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1CommitTrigger_aee144a92ac151fa1aae6942b04f68685}
+Part 3\-: the thing that gets inlined into stm abort, and gets called on every abort. It's the same as in \hyperlink{structstm_1_1AbortWaitTrigger}{Abort\-Wait\-Trigger} 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1CommitTrigger_aee144a92ac151fa1aae6942b04f68685_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1CommitTrigger_a4d706454d226b9100a972d36bb3be88e}{\index{stm\-::\-Commit\-Trigger@{stm\-::\-Commit\-Trigger}!on\-Commit\-Lock@{on\-Commit\-Lock}}
+\index{on\-Commit\-Lock@{on\-Commit\-Lock}!stm::CommitTrigger@{stm\-::\-Commit\-Trigger}}
+\subsubsection[{on\-Commit\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Commit\-Trigger\-::on\-Commit\-Lock (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1CommitTrigger_a4d706454d226b9100a972d36bb3be88e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1CommitTrigger_a4d706454d226b9100a972d36bb3be88e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1CommitTrigger_acdf3280966d01d057c2efc8ff1792aab}{\index{stm\-::\-Commit\-Trigger@{stm\-::\-Commit\-Trigger}!on\-Commit\-S\-T\-M@{on\-Commit\-S\-T\-M}}
+\index{on\-Commit\-S\-T\-M@{on\-Commit\-S\-T\-M}!stm::CommitTrigger@{stm\-::\-Commit\-Trigger}}
+\subsubsection[{on\-Commit\-S\-T\-M}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Commit\-Trigger\-::on\-Commit\-S\-T\-M (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1CommitTrigger_acdf3280966d01d057c2efc8ff1792aab}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1CommitTrigger_acdf3280966d01d057c2efc8ff1792aab_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{structstm_1_1CommitTrigger_acdf3280966d01d057c2efc8ff1792aab_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1CommitTrigger_a03a352eb791b73886d5ddcc8242a1a69}{\index{stm\-::\-Commit\-Trigger@{stm\-::\-Commit\-Trigger}!next@{next}}
+\index{next@{next}!stm::CommitTrigger@{stm\-::\-Commit\-Trigger}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}unsigned stm\-::\-Commit\-Trigger\-::next = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1CommitTrigger_a03a352eb791b73886d5ddcc8242a1a69}
+Track the next time to run a trigger. \char`\"{}time\char`\"{} means the next number of commits in thread2 that necessitates a trigger. 
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{profiling_8hpp}{profiling.\-hpp}\item 
+rstm/rstm-\/dev/libstm/\hyperlink{profiling_8cpp}{profiling.\-cpp}\end{DoxyCompactItemize}

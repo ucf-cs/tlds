@@ -1,0 +1,4 @@
+<map id="WorkThread" name="WorkThread">
+<area shape="rect" id="node2" href="$classTime.html#a508ab252117d5c378fcc33d0644d56d0" title="Time::GetWallTime" alt="" coords="147,5,282,32"/>
+<area shape="rect" id="node3" href="$classThreadBarrier.html#adc72d2cfe2e33213405b28786477e248" title="ThreadBarrier::Wait" alt="" coords="147,56,282,83"/>
+</map>

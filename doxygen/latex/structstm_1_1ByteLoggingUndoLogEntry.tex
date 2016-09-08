@@ -1,0 +1,190 @@
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry}{\section{stm\-:\-:Byte\-Logging\-Undo\-Log\-Entry Struct Reference}
+\label{structstm_1_1ByteLoggingUndoLogEntry}\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+}
+
+
+{\ttfamily \#include $<$Undo\-Log.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Byte\-Logging\-Undo\-Log\-Entry\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingUndoLogEntry__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a6d503a1bbaefc626ab2a486cec253d42}{Byte\-Logging\-Undo\-Log\-Entry} (void $\ast$$\ast$paddr, void $\ast$pval, uintptr\-\_\-t pmask)
+\item 
+void \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_ac24d57954b9236718f77912d5fbc47e3}{undo} () const 
+\item 
+bool \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a7c154c57183d3845c6ac425124a34530}{filter} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_ab1d7900a36d80fe4cf8eda27b9e27fac}{Do\-Masked\-Write} (void $\ast$$\ast$\hyperlink{structstm_1_1ByteLoggingUndoLogEntry_add3c3d6f73859b45df061b3847939440}{addr}, void $\ast$\hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a04ff02f94131a3ed589024795c13f28a}{val}, uintptr\-\_\-t \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a20d84801f239a2fe816d0cb64360b914}{mask})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>void $\ast$$\ast$ \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_add3c3d6f73859b45df061b3847939440}{addr}\\
+\>uint8\_t $\ast$ \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a21b0197017fb1bcee1e3714bc9cc6841}{byte\_addr}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>void $\ast$ \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a04ff02f94131a3ed589024795c13f28a}{val}\\
+\>uint8\_t \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_aea8c8f8cbb3a681a7199d8b55eb37593}{byte\_val} \mbox{[}sizeof(void $\ast$)\mbox{]}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uintptr\_t \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a20d84801f239a2fe816d0cb64360b914}{mask}\\
+\>uint8\_t \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_aaf3fc6fb3291d9acd7a879e0a5deff75}{byte\_mask} \mbox{[}sizeof(uintptr\_t)\mbox{]}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structstm_1_1ByteLoggingUndoLogEntry_a4671eade9d0730f1c7cee6e162327642}{filter\-Slow} (void $\ast$$\ast$, void $\ast$$\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a6d503a1bbaefc626ab2a486cec253d42}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!Byte\-Logging\-Undo\-Log\-Entry@{Byte\-Logging\-Undo\-Log\-Entry}}
+\index{Byte\-Logging\-Undo\-Log\-Entry@{Byte\-Logging\-Undo\-Log\-Entry}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{Byte\-Logging\-Undo\-Log\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::\-Byte\-Logging\-Undo\-Log\-Entry (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{paddr, }
+\item[{void $\ast$}]{pval, }
+\item[{uintptr\-\_\-t}]{pmask}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_a6d503a1bbaefc626ab2a486cec253d42}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_ab1d7900a36d80fe4cf8eda27b9e27fac}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!Do\-Masked\-Write@{Do\-Masked\-Write}}
+\index{Do\-Masked\-Write@{Do\-Masked\-Write}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{Do\-Masked\-Write}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::\-Do\-Masked\-Write (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{addr, }
+\item[{void $\ast$}]{val, }
+\item[{uintptr\-\_\-t}]{mask}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_ab1d7900a36d80fe4cf8eda27b9e27fac}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingUndoLogEntry_ab1d7900a36d80fe4cf8eda27b9e27fac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a7c154c57183d3845c6ac425124a34530}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!filter@{filter}}
+\index{filter@{filter}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::filter (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_a7c154c57183d3845c6ac425124a34530}
+The bytelog implementation of the filter operation support any sort of intersection possible. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingUndoLogEntry_a7c154c57183d3845c6ac425124a34530_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a4671eade9d0730f1c7cee6e162327642}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!filter\-Slow@{filter\-Slow}}
+\index{filter\-Slow@{filter\-Slow}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{filter\-Slow}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::filter\-Slow (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_a4671eade9d0730f1c7cee6e162327642}
+We outline the slowpath filter. If this /ever/ happens it will be such a corner case that it just doesn't matter. Plus this is an abort path anyway.
+
+We outline the slowpath filter. If this /ever/ happens it will be such a corner case that it just doesn't matter. Plus this is an abort path anyway... consider it a contention management technique. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingUndoLogEntry_a4671eade9d0730f1c7cee6e162327642_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_ac24d57954b9236718f77912d5fbc47e3}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!undo@{undo}}
+\index{undo@{undo}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{undo}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::undo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_ac24d57954b9236718f77912d5fbc47e3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingUndoLogEntry_ac24d57954b9236718f77912d5fbc47e3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a4d44a8c75fe904563855024724d5da96}{\subsubsection[{"@4}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structstm_1_1ByteLoggingUndoLogEntry_a4d44a8c75fe904563855024724d5da96}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_aa9b32e26ef6e34a62ac88bcd0b307bbe}{\subsubsection[{"@6}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structstm_1_1ByteLoggingUndoLogEntry_aa9b32e26ef6e34a62ac88bcd0b307bbe}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_ad6ca3d3ce87b6d9e0eb668889c313da6}{\subsubsection[{"@8}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structstm_1_1ByteLoggingUndoLogEntry_ad6ca3d3ce87b6d9e0eb668889c313da6}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_add3c3d6f73859b45df061b3847939440}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!addr@{addr}}
+\index{addr@{addr}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::addr}}\label{structstm_1_1ByteLoggingUndoLogEntry_add3c3d6f73859b45df061b3847939440}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a21b0197017fb1bcee1e3714bc9cc6841}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!byte\-\_\-addr@{byte\-\_\-addr}}
+\index{byte\-\_\-addr@{byte\-\_\-addr}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{byte\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::byte\-\_\-addr}}\label{structstm_1_1ByteLoggingUndoLogEntry_a21b0197017fb1bcee1e3714bc9cc6841}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_aaf3fc6fb3291d9acd7a879e0a5deff75}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!byte\-\_\-mask@{byte\-\_\-mask}}
+\index{byte\-\_\-mask@{byte\-\_\-mask}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{byte\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::byte\-\_\-mask\mbox{[}sizeof(uintptr\-\_\-t)\mbox{]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_aaf3fc6fb3291d9acd7a879e0a5deff75}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_aea8c8f8cbb3a681a7199d8b55eb37593}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!byte\-\_\-val@{byte\-\_\-val}}
+\index{byte\-\_\-val@{byte\-\_\-val}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{byte\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::byte\-\_\-val\mbox{[}sizeof(void $\ast$)\mbox{]}}}\label{structstm_1_1ByteLoggingUndoLogEntry_aea8c8f8cbb3a681a7199d8b55eb37593}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a20d84801f239a2fe816d0cb64360b914}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!mask@{mask}}
+\index{mask@{mask}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{mask}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::mask}}\label{structstm_1_1ByteLoggingUndoLogEntry_a20d84801f239a2fe816d0cb64360b914}
+\hypertarget{structstm_1_1ByteLoggingUndoLogEntry_a04ff02f94131a3ed589024795c13f28a}{\index{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}!val@{val}}
+\index{val@{val}!stm::ByteLoggingUndoLogEntry@{stm\-::\-Byte\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-Byte\-Logging\-Undo\-Log\-Entry\-::val}}\label{structstm_1_1ByteLoggingUndoLogEntry_a04ff02f94131a3ed589024795c13f28a}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{UndoLog_8hpp}{Undo\-Log.\-hpp}\item 
+rstm/rstm-\/dev/libstm/\hyperlink{types_8cpp}{types.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,204 @@
+\hypertarget{point_8cpp}{\section{rstm/rstm-\/dev/mesh/point.cpp File Reference}
+\label{point_8cpp}\index{rstm/rstm-\/dev/mesh/point.\-cpp@{rstm/rstm-\/dev/mesh/point.\-cpp}}
+}
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$tr1/unordered\-\_\-set$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$iomanip$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point.\-hpp\char`\"{}}\\*
+Include dependency graph for point.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} double \hyperlink{point_8cpp_a0fdafd56f3e289d97c15611bdbee0fec}{det3} (const double a, const double b, const double c, const double d, const double e, const double f, const double g, const double h, const double i)
+\item 
+static \hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} double \hyperlink{point_8cpp_a0586855a04f97999cb91cca634421222}{det4} (const double a, const double b, const double c, const double d, const double e, const double f, const double g, const double h, const double i, const double j, const double k, const double \hyperlink{structl}{l}, const double m, const double n, const double o, const double \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+bool \hyperlink{point_8cpp_a015cc895b4407d06a8c9b1e9155359ae}{encircled} (const \hyperlink{classpoint}{point} $\ast$A, const \hyperlink{classpoint}{point} $\ast$B, const \hyperlink{classpoint}{point} $\ast$C, const \hyperlink{classpoint}{point} $\ast$D, const int dir)
+\item 
+bool \hyperlink{point_8cpp_ae77890a7cdbacaf1b115d396c571bfda}{extern\-\_\-angle} (const \hyperlink{classpoint}{point} $\ast$p1, const \hyperlink{classpoint}{point} $\ast$p2, const \hyperlink{classpoint}{point} $\ast$p3, const int dir)
+\item 
+void \hyperlink{point_8cpp_aaff3532e0132a077bf3099417a9f2619}{create\-\_\-points} (const int \hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpoint}{point} $\ast$ \hyperlink{point_8cpp_a0605a8c090d14e0ccb26952ff98a62b4}{all\-\_\-points}
+\item 
+int \hyperlink{point_8cpp_a0b4f3372e7dc170facf2c91eb32b70cb}{min\-\_\-coord} \mbox{[}2\mbox{]} = \{I\-N\-T\-\_\-\-M\-A\-X, I\-N\-T\-\_\-\-M\-A\-X\}
+\item 
+int \hyperlink{point_8cpp_a010cb5c0ef3c5d506ccb1ed5693ca597}{max\-\_\-coord} \mbox{[}2\mbox{]} = \{I\-N\-T\-\_\-\-M\-I\-N, I\-N\-T\-\_\-\-M\-I\-N\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{point_8cpp_aaff3532e0132a077bf3099417a9f2619}{\index{point.\-cpp@{point.\-cpp}!create\-\_\-points@{create\-\_\-points}}
+\index{create\-\_\-points@{create\-\_\-points}!point.cpp@{point.\-cpp}}
+\subsubsection[{create\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}void create\-\_\-points (
+\begin{DoxyParamCaption}
+\item[{const int}]{seed}
+\end{DoxyParamCaption}
+)}}\label{point_8cpp_aaff3532e0132a077bf3099417a9f2619}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{point_8cpp_aaff3532e0132a077bf3099417a9f2619_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8cpp_a0fdafd56f3e289d97c15611bdbee0fec}{\index{point.\-cpp@{point.\-cpp}!det3@{det3}}
+\index{det3@{det3}!point.cpp@{point.\-cpp}}
+\subsubsection[{det3}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} double det3 (
+\begin{DoxyParamCaption}
+\item[{const double}]{a, }
+\item[{const double}]{b, }
+\item[{const double}]{c, }
+\item[{const double}]{d, }
+\item[{const double}]{e, }
+\item[{const double}]{f, }
+\item[{const double}]{g, }
+\item[{const double}]{h, }
+\item[{const double}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8cpp_a0fdafd56f3e289d97c15611bdbee0fec}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8cpp_a0fdafd56f3e289d97c15611bdbee0fec_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8cpp_a0586855a04f97999cb91cca634421222}{\index{point.\-cpp@{point.\-cpp}!det4@{det4}}
+\index{det4@{det4}!point.cpp@{point.\-cpp}}
+\subsubsection[{det4}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} double det4 (
+\begin{DoxyParamCaption}
+\item[{const double}]{a, }
+\item[{const double}]{b, }
+\item[{const double}]{c, }
+\item[{const double}]{d, }
+\item[{const double}]{e, }
+\item[{const double}]{f, }
+\item[{const double}]{g, }
+\item[{const double}]{h, }
+\item[{const double}]{i, }
+\item[{const double}]{j, }
+\item[{const double}]{k, }
+\item[{const double}]{l, }
+\item[{const double}]{m, }
+\item[{const double}]{n, }
+\item[{const double}]{o, }
+\item[{const double}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8cpp_a0586855a04f97999cb91cca634421222}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{point_8cpp_a0586855a04f97999cb91cca634421222_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8cpp_a0586855a04f97999cb91cca634421222_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8cpp_a015cc895b4407d06a8c9b1e9155359ae}{\index{point.\-cpp@{point.\-cpp}!encircled@{encircled}}
+\index{encircled@{encircled}!point.cpp@{point.\-cpp}}
+\subsubsection[{encircled}]{\setlength{\rightskip}{0pt plus 5cm}bool encircled (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$}]{A, }
+\item[{const {\bf point} $\ast$}]{B, }
+\item[{const {\bf point} $\ast$}]{C, }
+\item[{const {\bf point} $\ast$}]{D, }
+\item[{const int}]{dir}
+\end{DoxyParamCaption}
+)}}\label{point_8cpp_a015cc895b4407d06a8c9b1e9155359ae}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{point_8cpp_a015cc895b4407d06a8c9b1e9155359ae_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8cpp_a015cc895b4407d06a8c9b1e9155359ae_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8cpp_ae77890a7cdbacaf1b115d396c571bfda}{\index{point.\-cpp@{point.\-cpp}!extern\-\_\-angle@{extern\-\_\-angle}}
+\index{extern\-\_\-angle@{extern\-\_\-angle}!point.cpp@{point.\-cpp}}
+\subsubsection[{extern\-\_\-angle}]{\setlength{\rightskip}{0pt plus 5cm}bool extern\-\_\-angle (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$}]{p1, }
+\item[{const {\bf point} $\ast$}]{p2, }
+\item[{const {\bf point} $\ast$}]{p3, }
+\item[{const int}]{dir}
+\end{DoxyParamCaption}
+)}}\label{point_8cpp_ae77890a7cdbacaf1b115d396c571bfda}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8cpp_ae77890a7cdbacaf1b115d396c571bfda_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{point_8cpp_a0605a8c090d14e0ccb26952ff98a62b4}{\index{point.\-cpp@{point.\-cpp}!all\-\_\-points@{all\-\_\-points}}
+\index{all\-\_\-points@{all\-\_\-points}!point.cpp@{point.\-cpp}}
+\subsubsection[{all\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point}$\ast$ all\-\_\-points}}\label{point_8cpp_a0605a8c090d14e0ccb26952ff98a62b4}
+\hypertarget{point_8cpp_a010cb5c0ef3c5d506ccb1ed5693ca597}{\index{point.\-cpp@{point.\-cpp}!max\-\_\-coord@{max\-\_\-coord}}
+\index{max\-\_\-coord@{max\-\_\-coord}!point.cpp@{point.\-cpp}}
+\subsubsection[{max\-\_\-coord}]{\setlength{\rightskip}{0pt plus 5cm}int max\-\_\-coord\mbox{[}2\mbox{]} = \{I\-N\-T\-\_\-\-M\-I\-N, I\-N\-T\-\_\-\-M\-I\-N\}}}\label{point_8cpp_a010cb5c0ef3c5d506ccb1ed5693ca597}
+\hypertarget{point_8cpp_a0b4f3372e7dc170facf2c91eb32b70cb}{\index{point.\-cpp@{point.\-cpp}!min\-\_\-coord@{min\-\_\-coord}}
+\index{min\-\_\-coord@{min\-\_\-coord}!point.cpp@{point.\-cpp}}
+\subsubsection[{min\-\_\-coord}]{\setlength{\rightskip}{0pt plus 5cm}int min\-\_\-coord\mbox{[}2\mbox{]} = \{I\-N\-T\-\_\-\-M\-A\-X, I\-N\-T\-\_\-\-M\-A\-X\}}}\label{point_8cpp_a0b4f3372e7dc170facf2c91eb32b70cb}

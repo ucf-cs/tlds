@@ -1,0 +1,10 @@
+<map id="TMelement_alloc" name="TMelement_alloc">
+<area shape="rect" id="node2" href="$element_8c.html#ac0e5e56e092166a5407cbd8df8d566cc" title="minimizeCoordinates" alt="" coords="376,5,520,32"/>
+<area shape="rect" id="node4" href="$element_8c.html#a516b4b4c0f1c9b721118afb05dc2bc39" title="checkAngles" alt="" coords="203,157,301,184"/>
+<area shape="rect" id="node7" href="$element_8c.html#aa2f8ebe6a209829f3c48db5dece61abe" title="calculateCircumCircle" alt="" coords="177,107,327,133"/>
+<area shape="rect" id="node8" href="$element_8c.html#ad41119d6e3f2c2b16323533b941cabee" title="initEdges" alt="" coords="214,56,290,83"/>
+<area shape="rect" id="node3" href="$yada_2coordinate_8c.html#a6ab38f14cde3ffe89a1496fbdf628549" title="coordinate_compare" alt="" coords="568,31,707,57"/>
+<area shape="rect" id="node5" href="$yada_2coordinate_8c.html#a23a6907e7021be62b89c588424af02d5" title="coordinate_angle" alt="" coords="388,157,508,184"/>
+<area shape="rect" id="node6" href="$yada_2coordinate_8c.html#a4b619d07f8343b4990b31920c9307c44" title="coordinate_distance" alt="" coords="568,107,707,133"/>
+<area shape="rect" id="node9" href="$element_8c.html#a32284f030a82851bfa5e95cb61901fea" title="setEdge" alt="" coords="413,56,483,83"/>
+</map>

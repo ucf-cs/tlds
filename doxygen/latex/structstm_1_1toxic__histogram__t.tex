@@ -1,0 +1,106 @@
+\hypertarget{structstm_1_1toxic__histogram__t}{\section{stm\-:\-:toxic\-\_\-histogram\-\_\-t Struct Reference}
+\label{structstm_1_1toxic__histogram__t}\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$metadata.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:toxic\-\_\-histogram\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{structstm_1_1toxic__histogram__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structstm_1_1toxic__histogram__t_a31bcf74fa119d35372d23cf6bc6c26d2}{on\-Commit} (uint32\-\_\-t aborts)
+\item 
+void \hyperlink{structstm_1_1toxic__histogram__t_a67465241133cd9695f0418632dfbd291}{dump} ()
+\item 
+void \hyperlink{structstm_1_1toxic__histogram__t_a7d6a2bc3d8be3a6cb7d7cda65379c01d}{on\-H\-G\-Commit} ()
+\item 
+void \hyperlink{structstm_1_1toxic__histogram__t_a87a2e657cd6e6a2142feafb9b7c3172e}{on\-H\-G\-Abort} ()
+\item 
+\hyperlink{structstm_1_1toxic__histogram__t_a7db09137bfa8631fca2076107f82dfa5}{toxic\-\_\-histogram\-\_\-t} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1toxic__histogram__t_a827674af676c90eb51dc144ea61d522f}{max}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1toxic__histogram__t_ade96eca19424d8931f51a871d900b3a8}{hg\-\_\-commits}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1toxic__histogram__t_a474fe9e7bdd0f9924b646f7cc2c4a76d}{hg\-\_\-aborts}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1toxic__histogram__t_a4d9c243e216847f6ffdde9fb366ad7fe}{buckets} \mbox{[}18\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+These are for counting consecutive aborts in a histogram. We use them for measuring toxic transactions. Note that there is special support for counting how many times an hourglass transaction commits or aborts. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1toxic__histogram__t_a7db09137bfa8631fca2076107f82dfa5}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!toxic\-\_\-histogram\-\_\-t@{toxic\-\_\-histogram\-\_\-t}}
+\index{toxic\-\_\-histogram\-\_\-t@{toxic\-\_\-histogram\-\_\-t}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{toxic\-\_\-histogram\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::toxic\-\_\-histogram\-\_\-t\-::toxic\-\_\-histogram\-\_\-t (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1toxic__histogram__t_a7db09137bfa8631fca2076107f82dfa5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1toxic__histogram__t_a67465241133cd9695f0418632dfbd291}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!dump@{dump}}
+\index{dump@{dump}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{dump}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::toxic\-\_\-histogram\-\_\-t\-::dump (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1toxic__histogram__t_a67465241133cd9695f0418632dfbd291}
+\hypertarget{structstm_1_1toxic__histogram__t_a31bcf74fa119d35372d23cf6bc6c26d2}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!on\-Commit@{on\-Commit}}
+\index{on\-Commit@{on\-Commit}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{on\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::toxic\-\_\-histogram\-\_\-t\-::on\-Commit (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{aborts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1toxic__histogram__t_a31bcf74fa119d35372d23cf6bc6c26d2}
+\hypertarget{structstm_1_1toxic__histogram__t_a87a2e657cd6e6a2142feafb9b7c3172e}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!on\-H\-G\-Abort@{on\-H\-G\-Abort}}
+\index{on\-H\-G\-Abort@{on\-H\-G\-Abort}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{on\-H\-G\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::toxic\-\_\-histogram\-\_\-t\-::on\-H\-G\-Abort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1toxic__histogram__t_a87a2e657cd6e6a2142feafb9b7c3172e}
+\hypertarget{structstm_1_1toxic__histogram__t_a7d6a2bc3d8be3a6cb7d7cda65379c01d}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!on\-H\-G\-Commit@{on\-H\-G\-Commit}}
+\index{on\-H\-G\-Commit@{on\-H\-G\-Commit}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{on\-H\-G\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::toxic\-\_\-histogram\-\_\-t\-::on\-H\-G\-Commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1toxic__histogram__t_a7d6a2bc3d8be3a6cb7d7cda65379c01d}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1toxic__histogram__t_a4d9c243e216847f6ffdde9fb366ad7fe}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!buckets@{buckets}}
+\index{buckets@{buckets}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{buckets}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::toxic\-\_\-histogram\-\_\-t\-::buckets\mbox{[}18\mbox{]}}}\label{structstm_1_1toxic__histogram__t_a4d9c243e216847f6ffdde9fb366ad7fe}
+\hypertarget{structstm_1_1toxic__histogram__t_a474fe9e7bdd0f9924b646f7cc2c4a76d}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!hg\-\_\-aborts@{hg\-\_\-aborts}}
+\index{hg\-\_\-aborts@{hg\-\_\-aborts}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{hg\-\_\-aborts}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::toxic\-\_\-histogram\-\_\-t\-::hg\-\_\-aborts}}\label{structstm_1_1toxic__histogram__t_a474fe9e7bdd0f9924b646f7cc2c4a76d}
+\hypertarget{structstm_1_1toxic__histogram__t_ade96eca19424d8931f51a871d900b3a8}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!hg\-\_\-commits@{hg\-\_\-commits}}
+\index{hg\-\_\-commits@{hg\-\_\-commits}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{hg\-\_\-commits}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::toxic\-\_\-histogram\-\_\-t\-::hg\-\_\-commits}}\label{structstm_1_1toxic__histogram__t_ade96eca19424d8931f51a871d900b3a8}
+\hypertarget{structstm_1_1toxic__histogram__t_a827674af676c90eb51dc144ea61d522f}{\index{stm\-::toxic\-\_\-histogram\-\_\-t@{stm\-::toxic\-\_\-histogram\-\_\-t}!max@{max}}
+\index{max@{max}!stm::toxic_histogram_t@{stm\-::toxic\-\_\-histogram\-\_\-t}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::toxic\-\_\-histogram\-\_\-t\-::max}}\label{structstm_1_1toxic__histogram__t_a827674af676c90eb51dc144ea61d522f}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{metadata_8hpp}{metadata.\-hpp}\item 
+rstm/rstm-\/dev/libstm/algs/\hyperlink{algs_8hpp}{algs.\-hpp}\end{DoxyCompactItemize}

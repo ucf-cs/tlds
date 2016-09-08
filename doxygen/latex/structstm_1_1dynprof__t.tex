@@ -1,0 +1,178 @@
+\hypertarget{structstm_1_1dynprof__t}{\section{stm\-:\-:dynprof\-\_\-t Struct Reference}
+\label{structstm_1_1dynprof__t}\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$policies.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:dynprof\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{structstm_1_1dynprof__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1dynprof__t_a6e2f084dade90e12f76bd8c29cfba11a}{dynprof\-\_\-t} ()
+\item 
+\hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} \& \hyperlink{structstm_1_1dynprof__t_afb59bdfcfff22b7a75837f4423ec15e1}{operator=} (const \hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} $\ast$profile)
+\item 
+void \hyperlink{structstm_1_1dynprof__t_a16cfdcbd81c4528cd778b587d46c94e5}{dump} ()
+\item 
+void \hyperlink{structstm_1_1dynprof__t_a3a563bc6d70ae8791d4d940bdeed38fd}{clear} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1dynprof__t_a2b3bf61e8cd914963dc3ff653ec2f6bc}{doavg} (\hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} \&dest, \hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} $\ast$\hyperlink{structlist}{list}, int num)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structstm_1_1dynprof__t_af1e78f3394edfbf9de5699112c41cea4}{read\-\_\-ro}
+\item 
+int \hyperlink{structstm_1_1dynprof__t_a0a198a899b311419f63ab993e0afeeaf}{read\-\_\-rw\-\_\-nonraw}
+\item 
+int \hyperlink{structstm_1_1dynprof__t_ab1c13f6928a4d9037a768e3df8dc5f40}{read\-\_\-rw\-\_\-raw}
+\item 
+int \hyperlink{structstm_1_1dynprof__t_aa8824b4a711da2929d1065d7f7f005fa}{write\-\_\-nonwaw}
+\item 
+int \hyperlink{structstm_1_1dynprof__t_a9365e2a5faf3ac711df3ea74c522d5db}{write\-\_\-waw}
+\item 
+int \hyperlink{structstm_1_1dynprof__t_ad447eb05504a614fbcc966d02534aec5}{pad}
+\item 
+uint64\-\_\-t \hyperlink{structstm_1_1dynprof__t_ac21d53f32c09ea9a58cd389d7cf7f102}{txn\-\_\-time}
+\item 
+uint64\-\_\-t \hyperlink{structstm_1_1dynprof__t_a146c7efc1729bd2dc3f682da5506672d}{timecounter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data type for holding the dynamic transaction profiles that we collect. This is pretty sloppy for now, and the 'dump' command is really not going to be important once we get out of the debug phase. We may also determine that we need more information than we currently have. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1dynprof__t_a6e2f084dade90e12f76bd8c29cfba11a}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!dynprof\-\_\-t@{dynprof\-\_\-t}}
+\index{dynprof\-\_\-t@{dynprof\-\_\-t}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{dynprof\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::dynprof\-\_\-t\-::dynprof\-\_\-t (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1dynprof__t_a6e2f084dade90e12f76bd8c29cfba11a}
+simple ctor to prevent compiler warnings 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1dynprof__t_a3a563bc6d70ae8791d4d940bdeed38fd}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!clear@{clear}}
+\index{clear@{clear}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::dynprof\-\_\-t\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1dynprof__t_a3a563bc6d70ae8791d4d940bdeed38fd}
+Clear a \hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1dynprof__t_a3a563bc6d70ae8791d4d940bdeed38fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1dynprof__t_a2b3bf61e8cd914963dc3ff653ec2f6bc}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!doavg@{doavg}}
+\index{doavg@{doavg}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{doavg}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::dynprof\-\_\-t\-::doavg (
+\begin{DoxyParamCaption}
+\item[{{\bf dynprof\-\_\-t} \&}]{dest, }
+\item[{{\bf dynprof\-\_\-t} $\ast$}]{list, }
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1dynprof__t_a2b3bf61e8cd914963dc3ff653ec2f6bc}
+If we have lots of profiles, compute their average value for each field 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{structstm_1_1dynprof__t_a2b3bf61e8cd914963dc3ff653ec2f6bc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1dynprof__t_a2b3bf61e8cd914963dc3ff653ec2f6bc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1dynprof__t_a16cfdcbd81c4528cd778b587d46c94e5}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!dump@{dump}}
+\index{dump@{dump}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{dump}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::dynprof\-\_\-t\-::dump (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1dynprof__t_a16cfdcbd81c4528cd778b587d46c94e5}
+Print a \hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1dynprof__t_a16cfdcbd81c4528cd778b587d46c94e5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1dynprof__t_afb59bdfcfff22b7a75837f4423ec15e1}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!operator=@{operator=}}
+\index{operator=@{operator=}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dynprof\-\_\-t}\& stm\-::dynprof\-\_\-t\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf dynprof\-\_\-t} $\ast$}]{profile}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1dynprof__t_afb59bdfcfff22b7a75837f4423ec15e1}
+\hyperlink{structOperator}{Operator} for copying profiles 
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1dynprof__t_ad447eb05504a614fbcc966d02534aec5}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!pad@{pad}}
+\index{pad@{pad}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{pad}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::dynprof\-\_\-t\-::pad}}\label{structstm_1_1dynprof__t_ad447eb05504a614fbcc966d02534aec5}
+\hypertarget{structstm_1_1dynprof__t_af1e78f3394edfbf9de5699112c41cea4}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!read\-\_\-ro@{read\-\_\-ro}}
+\index{read\-\_\-ro@{read\-\_\-ro}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{read\-\_\-ro}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::dynprof\-\_\-t\-::read\-\_\-ro}}\label{structstm_1_1dynprof__t_af1e78f3394edfbf9de5699112c41cea4}
+\hypertarget{structstm_1_1dynprof__t_a0a198a899b311419f63ab993e0afeeaf}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!read\-\_\-rw\-\_\-nonraw@{read\-\_\-rw\-\_\-nonraw}}
+\index{read\-\_\-rw\-\_\-nonraw@{read\-\_\-rw\-\_\-nonraw}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{read\-\_\-rw\-\_\-nonraw}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::dynprof\-\_\-t\-::read\-\_\-rw\-\_\-nonraw}}\label{structstm_1_1dynprof__t_a0a198a899b311419f63ab993e0afeeaf}
+\hypertarget{structstm_1_1dynprof__t_ab1c13f6928a4d9037a768e3df8dc5f40}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!read\-\_\-rw\-\_\-raw@{read\-\_\-rw\-\_\-raw}}
+\index{read\-\_\-rw\-\_\-raw@{read\-\_\-rw\-\_\-raw}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{read\-\_\-rw\-\_\-raw}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::dynprof\-\_\-t\-::read\-\_\-rw\-\_\-raw}}\label{structstm_1_1dynprof__t_ab1c13f6928a4d9037a768e3df8dc5f40}
+\hypertarget{structstm_1_1dynprof__t_a146c7efc1729bd2dc3f682da5506672d}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!timecounter@{timecounter}}
+\index{timecounter@{timecounter}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{timecounter}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t stm\-::dynprof\-\_\-t\-::timecounter}}\label{structstm_1_1dynprof__t_a146c7efc1729bd2dc3f682da5506672d}
+\hypertarget{structstm_1_1dynprof__t_ac21d53f32c09ea9a58cd389d7cf7f102}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!txn\-\_\-time@{txn\-\_\-time}}
+\index{txn\-\_\-time@{txn\-\_\-time}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{txn\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t stm\-::dynprof\-\_\-t\-::txn\-\_\-time}}\label{structstm_1_1dynprof__t_ac21d53f32c09ea9a58cd389d7cf7f102}
+\hypertarget{structstm_1_1dynprof__t_aa8824b4a711da2929d1065d7f7f005fa}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!write\-\_\-nonwaw@{write\-\_\-nonwaw}}
+\index{write\-\_\-nonwaw@{write\-\_\-nonwaw}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{write\-\_\-nonwaw}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::dynprof\-\_\-t\-::write\-\_\-nonwaw}}\label{structstm_1_1dynprof__t_aa8824b4a711da2929d1065d7f7f005fa}
+\hypertarget{structstm_1_1dynprof__t_a9365e2a5faf3ac711df3ea74c522d5db}{\index{stm\-::dynprof\-\_\-t@{stm\-::dynprof\-\_\-t}!write\-\_\-waw@{write\-\_\-waw}}
+\index{write\-\_\-waw@{write\-\_\-waw}!stm::dynprof_t@{stm\-::dynprof\-\_\-t}}
+\subsubsection[{write\-\_\-waw}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::dynprof\-\_\-t\-::write\-\_\-waw}}\label{structstm_1_1dynprof__t_a9365e2a5faf3ac711df3ea74c522d5db}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/policies/\hyperlink{policies_8hpp}{policies.\-hpp}\end{DoxyCompactItemize}

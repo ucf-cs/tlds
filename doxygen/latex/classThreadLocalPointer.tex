@@ -1,0 +1,110 @@
+\hypertarget{classThreadLocalPointer}{\section{Thread\-Local\-Pointer$<$ T $>$ Class Template Reference}
+\label{classThreadLocalPointer}\index{Thread\-Local\-Pointer$<$ T $>$@{Thread\-Local\-Pointer$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$thread\-\_\-local.\-hpp$>$}
+
+
+
+Collaboration diagram for Thread\-Local\-Pointer$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classThreadLocalPointer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classThreadLocalPointer_ad715f8eec1f28bd65e8e61aeea984932}{Thread\-Local\-Pointer} ()
+\item 
+\hyperlink{classThreadLocalPointer_a45b9217b7e2047301c7a3430584ab466}{$\sim$\-Thread\-Local\-Pointer} ()
+\item 
+T $\ast$ \hyperlink{classThreadLocalPointer_ae9c140a2ebb545cb5f77de40ad7ef75d}{get} () const 
+\item 
+void \hyperlink{classThreadLocalPointer_a7aab8b97729c24d294a961136d87b905}{set} (T $\ast$val)
+\item 
+T $\ast$ \hyperlink{classThreadLocalPointer_a18ef9ed743c47e2cf8c8eec764726fa0}{operator-\/$>$} () const 
+\item 
+T \& \hyperlink{classThreadLocalPointer_ae779db7b336460454f746eac86acb1dd}{operator$\ast$} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static L\-O\-C\-A\-L\-\_\-\-P\-O\-I\-N\-T\-E\-R\-\_\-\-A\-N\-N\-O\-T\-A\-T\-I\-O\-N T $\ast$ \hyperlink{classThreadLocalPointer_a51e14971b3275a17be597258a5010988}{thr\-\_\-local\-\_\-key}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class Thread\-Local\-Pointer$<$ T $>$}
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information To use a \hyperlink{classThreadLocalPointer}{Thread\-Local\-Pointer}, declare one in a header like this\-: extern Thread\-Local\-Pointer$<$foo$>$ my\-\_\-foo;
+
+Then you must back the pointer in a cpp file like this\-: Thread\-Local\-Pointer$<$foo$>$ current\-Heap; \hyperlink{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{if} defined(\-L\-O\-C\-A\-L\-\_\-\-P\-O\-I\-N\-T\-E\-R\-\_\-\-A\-N\-N\-O\-T\-A\-T\-I\-O\-N) template $<$$>$ L\-O\-C\-A\-L\-\_\-\-P\-O\-I\-N\-T\-E\-R\-\_\-\-A\-N\-N\-O\-T\-A\-T\-I\-O\-N foo$\ast$ \hyperlink{classThreadLocalPointer_a51e14971b3275a17be597258a5010988}{Thread\-Local\-Pointer$<$foo$>$\-::thr\-\_\-local\-\_\-key} = N\-U\-L\-L; \#endif This \hyperlink{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{if} block serves three roles\-:
+\begin{DoxyItemize}
+\item It includes files as necessary for different pthread implementations
+\item It hides differences between Visual\-C++ and G\-C\-C syntax
+\item It makes sure that a valid thread-\/local option is specified so that subsequent \#ifs don't have to do error checking Hide the fact that some of our platforms use pthread\-\_\-getspecific while others use os-\/specific thread local storage mechanisms. In all cases, if you instantiate one of these with a T, then you'll get a thread-\/local pointer to a T that is easy to access and platform independent 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classThreadLocalPointer_ad715f8eec1f28bd65e8e61aeea984932}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!Thread\-Local\-Pointer@{Thread\-Local\-Pointer}}
+\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{Thread\-Local\-Pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Thread\-Local\-Pointer}$<$ T $>$\-::{\bf Thread\-Local\-Pointer} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classThreadLocalPointer_ad715f8eec1f28bd65e8e61aeea984932}
+Perform global initialization of the thread key, if applicable. Note that we have a default value of N\-U\-L\-L. You can't store a N\-U\-L\-L value in this thread-\/local pointer if you want to do subsequent tests to ensure that the variable is initialized for your thread. \hypertarget{classThreadLocalPointer_a45b9217b7e2047301c7a3430584ab466}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!$\sim$\-Thread\-Local\-Pointer@{$\sim$\-Thread\-Local\-Pointer}}
+\index{$\sim$\-Thread\-Local\-Pointer@{$\sim$\-Thread\-Local\-Pointer}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{$\sim$\-Thread\-Local\-Pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Thread\-Local\-Pointer}$<$ T $>$\-::$\sim${\bf Thread\-Local\-Pointer} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classThreadLocalPointer_a45b9217b7e2047301c7a3430584ab466}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classThreadLocalPointer_ae9c140a2ebb545cb5f77de40ad7ef75d}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!get@{get}}
+\index{get@{get}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T$\ast$ {\bf Thread\-Local\-Pointer}$<$ T $>$\-::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classThreadLocalPointer_ae9c140a2ebb545cb5f77de40ad7ef75d}
+\hypertarget{classThreadLocalPointer_ae779db7b336460454f746eac86acb1dd}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T\& {\bf Thread\-Local\-Pointer}$<$ T $>$\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classThreadLocalPointer_ae779db7b336460454f746eac86acb1dd}
+\hypertarget{classThreadLocalPointer_a18ef9ed743c47e2cf8c8eec764726fa0}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{operator-\/$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T$\ast$ {\bf Thread\-Local\-Pointer}$<$ T $>$\-::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classThreadLocalPointer_a18ef9ed743c47e2cf8c8eec764726fa0}
+\hypertarget{classThreadLocalPointer_a7aab8b97729c24d294a961136d87b905}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!set@{set}}
+\index{set@{set}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf Thread\-Local\-Pointer}$<$ T $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classThreadLocalPointer_a7aab8b97729c24d294a961136d87b905}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classThreadLocalPointer_a51e14971b3275a17be597258a5010988}{\index{Thread\-Local\-Pointer@{Thread\-Local\-Pointer}!thr\-\_\-local\-\_\-key@{thr\-\_\-local\-\_\-key}}
+\index{thr\-\_\-local\-\_\-key@{thr\-\_\-local\-\_\-key}!ThreadLocalPointer@{Thread\-Local\-Pointer}}
+\subsubsection[{thr\-\_\-local\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ L\-O\-C\-A\-L\-\_\-\-P\-O\-I\-N\-T\-E\-R\-\_\-\-A\-N\-N\-O\-T\-A\-T\-I\-O\-N T$\ast$ {\bf Thread\-Local\-Pointer}$<$ T $>$\-::thr\-\_\-local\-\_\-key\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classThreadLocalPointer_a51e14971b3275a17be597258a5010988}
+either declare a key for interfacing to P\-T\-H\-R\-E\-A\-D thread local storage, or else declare a static thread-\/local var of type T$\ast$ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{thread__local_8hpp}{thread\-\_\-local.\-hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,83 @@
+\hypertarget{classstm_1_1ByteLoggingValueListEntry}{\section{stm\-:\-:Byte\-Logging\-Value\-List\-Entry Class Reference}
+\label{classstm_1_1ByteLoggingValueListEntry}\index{stm\-::\-Byte\-Logging\-Value\-List\-Entry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}}
+}
+
+
+{\ttfamily \#include $<$Value\-List.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Byte\-Logging\-Value\-List\-Entry\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classstm_1_1ByteLoggingValueListEntry__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstm_1_1ByteLoggingValueListEntry_af70b0f133c0c3be7009dd0f27a56b19e}{Byte\-Logging\-Value\-List\-Entry} (void $\ast$$\ast$a, void $\ast$v, uintptr\-\_\-t m)
+\item 
+bool \hyperlink{classstm_1_1ByteLoggingValueListEntry_a2fe0d03e9839d0683cce124a9edd6795}{is\-Valid} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$$\ast$ \hyperlink{classstm_1_1ByteLoggingValueListEntry_af8f2497fb19517a21dab23a99a89a562}{addr}
+\item 
+void $\ast$ \hyperlink{classstm_1_1ByteLoggingValueListEntry_a27e92d283a385a490452265a73f03d44}{val}
+\item 
+uintptr\-\_\-t \hyperlink{classstm_1_1ByteLoggingValueListEntry_ad3a8699b42840bd57e487072c92c8012}{mask}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+When we're byte-\/logging we store a third word, the mask, and use it in the \hyperlink{classstm_1_1ByteLoggingValueListEntry_a2fe0d03e9839d0683cce124a9edd6795}{is\-Valid()} operation. The value we store is stored in masked form, which is an extra operation of overhead for single-\/threaded execution, but saves us masking during validation. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classstm_1_1ByteLoggingValueListEntry_af70b0f133c0c3be7009dd0f27a56b19e}{\index{stm\-::\-Byte\-Logging\-Value\-List\-Entry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}!Byte\-Logging\-Value\-List\-Entry@{Byte\-Logging\-Value\-List\-Entry}}
+\index{Byte\-Logging\-Value\-List\-Entry@{Byte\-Logging\-Value\-List\-Entry}!stm::ByteLoggingValueListEntry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}}
+\subsubsection[{Byte\-Logging\-Value\-List\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Byte\-Logging\-Value\-List\-Entry\-::\-Byte\-Logging\-Value\-List\-Entry (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{a, }
+\item[{void $\ast$}]{v, }
+\item[{uintptr\-\_\-t}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1ByteLoggingValueListEntry_af70b0f133c0c3be7009dd0f27a56b19e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classstm_1_1ByteLoggingValueListEntry_a2fe0d03e9839d0683cce124a9edd6795}{\index{stm\-::\-Byte\-Logging\-Value\-List\-Entry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}!is\-Valid@{is\-Valid}}
+\index{is\-Valid@{is\-Valid}!stm::ByteLoggingValueListEntry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}}
+\subsubsection[{is\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Byte\-Logging\-Value\-List\-Entry\-::is\-Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1ByteLoggingValueListEntry_a2fe0d03e9839d0683cce124a9edd6795}
+When we're dealing with byte-\/granularity we need to check values on a per-\/byte basis.
+
+We believe that this implementation is safe because the logged address is {\itshape always} word aligned, thus promoting subword loads to aligned word loads followed by a masking operation will not cause any undesired H\-W behavior (page fault, etc.).
+
+We're also assuming that the masking operation means that any potential \char`\"{}low-\/level\char`\"{} race that we introduce is immaterial---this may or may not be safe in C++1\-X. As an example, someone is nontransactionally writing the first byte of a word and we're transactionally reading the scond byte. There is no language-\/level race, however when we promote the transactional byte read to a word, we read the same location the nontransactional access is writing, and there is no intervening synchronization. We're safe from some bad behavior because of the atomicity of word-\/level accesses, and we mask out the first byte, which means the racing read was actually dead. There are no executions where the source program can observe the race and thus they conclude that it is race-\/free.
+
+I don't know if this argument is valid, but it is certainly valid for now, since there is no memory model for C/\-C++.
+
+If this becomes a problem we can switch to a loop-\/when-\/mask != $\sim$0x0 approach. 
+
+\subsection{Member Data Documentation}
+\hypertarget{classstm_1_1ByteLoggingValueListEntry_af8f2497fb19517a21dab23a99a89a562}{\index{stm\-::\-Byte\-Logging\-Value\-List\-Entry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}!addr@{addr}}
+\index{addr@{addr}!stm::ByteLoggingValueListEntry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ stm\-::\-Byte\-Logging\-Value\-List\-Entry\-::addr\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1ByteLoggingValueListEntry_af8f2497fb19517a21dab23a99a89a562}
+\hypertarget{classstm_1_1ByteLoggingValueListEntry_ad3a8699b42840bd57e487072c92c8012}{\index{stm\-::\-Byte\-Logging\-Value\-List\-Entry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}!mask@{mask}}
+\index{mask@{mask}!stm::ByteLoggingValueListEntry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}}
+\subsubsection[{mask}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Byte\-Logging\-Value\-List\-Entry\-::mask\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1ByteLoggingValueListEntry_ad3a8699b42840bd57e487072c92c8012}
+\hypertarget{classstm_1_1ByteLoggingValueListEntry_a27e92d283a385a490452265a73f03d44}{\index{stm\-::\-Byte\-Logging\-Value\-List\-Entry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}!val@{val}}
+\index{val@{val}!stm::ByteLoggingValueListEntry@{stm\-::\-Byte\-Logging\-Value\-List\-Entry}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-Byte\-Logging\-Value\-List\-Entry\-::val\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1ByteLoggingValueListEntry_a27e92d283a385a490452265a73f03d44}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{ValueList_8hpp}{Value\-List.\-hpp}\end{DoxyCompactItemize}

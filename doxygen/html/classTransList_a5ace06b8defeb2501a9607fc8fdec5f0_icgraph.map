@@ -1,0 +1,7 @@
+<map id="TransList::Insert" name="TransList::Insert">
+<area shape="rect" id="node2" href="$classTransList.html#aa7e67c5ff8aeadc6d1d7791a297a58c4" title="TransList::HelpOps" alt="" coords="171,82,306,109"/>
+<area shape="rect" id="node3" href="$classTransList.html#abe5853275ff6befa6ccd7ab0e84b4dce" title="TransList::ExecuteOps" alt="" coords="371,32,527,58"/>
+<area shape="rect" id="node4" href="$classTransList.html#a7ed667a308f2f7422dde28c7fe40cdc7" title="TransList::FinishPendingTxn" alt="" coords="355,133,543,160"/>
+<area shape="rect" id="node5" href="$classTransList.html#ae48aacff3239bd5b85749631c2ac271a" title="TransList::Delete" alt="" coords="592,20,715,46"/>
+<area shape="rect" id="node6" href="$classTransList.html#ab75389528ee7e0773ac0fe9c00351670" title="TransList::Find" alt="" coords="599,108,708,134"/>
+</map>

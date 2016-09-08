@@ -1,0 +1,3 @@
+<map id="itm2stm::Checkpoint" name="itm2stm::Checkpoint">
+<area shape="rect" id="node2" href="$classitm2stm_1_1Scope.html" title="{itm2stm::Scope\n|&#45; aborted_\l&#45; flags_\l&#45; id_\l&#45; thrown_\l&#45; do_on_rollback_\l&#45; undo_on_rollback_\l&#45; do_on_commit_\l&#45; owner_\l|+ Scope()\l+ getId()\l+ getFlags()\l+ isExceptionBlock()\l+ setAborted()\l+ getAborted()\l+ getOwner()\l+ enter()\l+ rollback()\l+ commit()\l+ setThrownObject()\l+ clearThrownObject()\l+ log()\l+ registerOnCommit()\l+ registerOnAbort()\l&#45; make_callback()\l}" alt="" coords="5,131,155,531"/>
+</map>

@@ -1,0 +1,209 @@
+\hypertarget{classHashTable}{\section{Hash\-Table Class Reference}
+\label{classHashTable}\index{Hash\-Table@{Hash\-Table}}
+}
+
+
+{\ttfamily \#include $<$Hash.\-hpp$>$}
+
+
+
+Collaboration diagram for Hash\-Table\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classHashTable__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classHashTable_a438d8bd36dbc6e946c92ff31655fa4e0}{insert} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{classHashTable_afc24322b6018e44c24b55d4fe60917dc}{lookup} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classHashTable_a15759896e8e9960cd44fa70673bec921}{remove} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+bool \hyperlink{classHashTable_ad7ef164978b3a4e34d27d175ccbaecfb}{is\-Sane} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classList}{List} \hyperlink{classHashTable_a43d16ae8fc0f530758b5924a8ab7a9c6}{bucket} \mbox{[}\hyperlink{classHashTable_a61024c536f9eb01bb0327ba3ed5361cc}{N\-\_\-\-B\-U\-C\-K\-E\-T\-S}\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classHashTable_a45e8619d114405fe58a54402a3eb8624}{verify\-\_\-hash\-\_\-function} (uint32\-\_\-t val, uint32\-\_\-t \hyperlink{classHashTable_a43d16ae8fc0f530758b5924a8ab7a9c6}{bucket})
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classHashTable_a61024c536f9eb01bb0327ba3ed5361cc}{N\-\_\-\-B\-U\-C\-K\-E\-T\-S} = 256
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Member Function Documentation}
+\hypertarget{classHashTable_a438d8bd36dbc6e946c92ff31655fa4e0}{\index{Hash\-Table@{Hash\-Table}!insert@{insert}}
+\index{insert@{insert}!HashTable@{Hash\-Table}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void Hash\-Table\-::insert (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHashTable_a438d8bd36dbc6e946c92ff31655fa4e0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{classHashTable_a438d8bd36dbc6e946c92ff31655fa4e0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classHashTable_a438d8bd36dbc6e946c92ff31655fa4e0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classHashTable_ad7ef164978b3a4e34d27d175ccbaecfb}{\index{Hash\-Table@{Hash\-Table}!is\-Sane@{is\-Sane}}
+\index{is\-Sane@{is\-Sane}!HashTable@{Hash\-Table}}
+\subsubsection[{is\-Sane}]{\setlength{\rightskip}{0pt plus 5cm}bool Hash\-Table\-::is\-Sane (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHashTable_ad7ef164978b3a4e34d27d175ccbaecfb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classHashTable_ad7ef164978b3a4e34d27d175ccbaecfb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classHashTable_ad7ef164978b3a4e34d27d175ccbaecfb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classHashTable_afc24322b6018e44c24b55d4fe60917dc}{\index{Hash\-Table@{Hash\-Table}!lookup@{lookup}}
+\index{lookup@{lookup}!HashTable@{Hash\-Table}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool Hash\-Table\-::lookup (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHashTable_afc24322b6018e44c24b55d4fe60917dc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classHashTable_afc24322b6018e44c24b55d4fe60917dc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{classHashTable_afc24322b6018e44c24b55d4fe60917dc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classHashTable_a15759896e8e9960cd44fa70673bec921}{\index{Hash\-Table@{Hash\-Table}!remove@{remove}}
+\index{remove@{remove}!HashTable@{Hash\-Table}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void Hash\-Table\-::remove (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHashTable_a15759896e8e9960cd44fa70673bec921}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{classHashTable_a15759896e8e9960cd44fa70673bec921_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{classHashTable_a15759896e8e9960cd44fa70673bec921_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classHashTable_a45e8619d114405fe58a54402a3eb8624}{\index{Hash\-Table@{Hash\-Table}!verify\-\_\-hash\-\_\-function@{verify\-\_\-hash\-\_\-function}}
+\index{verify\-\_\-hash\-\_\-function@{verify\-\_\-hash\-\_\-function}!HashTable@{Hash\-Table}}
+\subsubsection[{verify\-\_\-hash\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}static bool Hash\-Table\-::verify\-\_\-hash\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{val, }
+\item[{uint32\-\_\-t}]{bucket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}}\label{classHashTable_a45e8619d114405fe58a54402a3eb8624}
+during a sanity check, we want to make sure that every element in a bucket actually hashes to that bucket; we do it by passing this method to the extended\-Sanity\-Check for the bucket. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classHashTable_a45e8619d114405fe58a54402a3eb8624_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classHashTable_a43d16ae8fc0f530758b5924a8ab7a9c6}{\index{Hash\-Table@{Hash\-Table}!bucket@{bucket}}
+\index{bucket@{bucket}!HashTable@{Hash\-Table}}
+\subsubsection[{bucket}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List} Hash\-Table\-::bucket\mbox{[}{\bf N\-\_\-\-B\-U\-C\-K\-E\-T\-S}\mbox{]}}}\label{classHashTable_a43d16ae8fc0f530758b5924a8ab7a9c6}
+Templated type defines what kind of list we'll use at each bucket. \hypertarget{classHashTable_a61024c536f9eb01bb0327ba3ed5361cc}{\index{Hash\-Table@{Hash\-Table}!N\-\_\-\-B\-U\-C\-K\-E\-T\-S@{N\-\_\-\-B\-U\-C\-K\-E\-T\-S}}
+\index{N\-\_\-\-B\-U\-C\-K\-E\-T\-S@{N\-\_\-\-B\-U\-C\-K\-E\-T\-S}!HashTable@{Hash\-Table}}
+\subsubsection[{N\-\_\-\-B\-U\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}const int Hash\-Table\-::\-N\-\_\-\-B\-U\-C\-K\-E\-T\-S = 256\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classHashTable_a61024c536f9eb01bb0327ba3ed5361cc}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/bench/\hyperlink{Hash_8hpp}{Hash.\-hpp}\end{DoxyCompactItemize}

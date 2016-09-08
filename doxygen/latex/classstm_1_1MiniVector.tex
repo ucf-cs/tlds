@@ -1,0 +1,233 @@
+\hypertarget{classstm_1_1MiniVector}{\section{stm\-:\-:Mini\-Vector$<$ T $>$ Class Template Reference}
+\label{classstm_1_1MiniVector}\index{stm\-::\-Mini\-Vector$<$ T $>$@{stm\-::\-Mini\-Vector$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$Mini\-Vector.\-hpp$>$}
+
+
+
+Inheritance diagram for stm\-:\-:Mini\-Vector$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for stm\-:\-:Mini\-Vector$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classstm_1_1MiniVector__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef T $\ast$ \hyperlink{classstm_1_1MiniVector_aa5998549c20eb0d6fac9bee27b4f0024}{iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstm_1_1MiniVector_a7983427989e1d868d70475eb9b1018a1}{Mini\-Vector} (const unsigned long capacity)
+\item 
+\hyperlink{classstm_1_1MiniVector_a335a372abb7c3871076a13667cef0588}{$\sim$\-Mini\-Vector} ()
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{classstm_1_1MiniVector_ad17f9c76202d399264ba62812f0b5c41}{reset} ()
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{classstm_1_1MiniVector_ac2a0e4cb478962dfc435dcc861793f02}{insert} (T \hyperlink{structdata}{data})
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} unsigned long \hyperlink{classstm_1_1MiniVector_a2b30e4feb605f230ca17dec2b39fe472}{size} () const 
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{classstm_1_1MiniVector_aa5998549c20eb0d6fac9bee27b4f0024}{iterator} \hyperlink{classstm_1_1MiniVector_a4d707e1115e162943b4709a2af92ed77}{begin} () const 
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{classstm_1_1MiniVector_aa5998549c20eb0d6fac9bee27b4f0024}{iterator} \hyperlink{classstm_1_1MiniVector_ae2297c706ac2ebee161ef60ace9ae645}{end} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstm_1_1MiniVector_a94cd17b5d364819e4799751f98a5a5c6}{expand} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{classstm_1_1MiniVector_a4bd8f8e389faa9a5bb09021a442b7ccc}{m\-\_\-cap}
+\item 
+unsigned long \hyperlink{classstm_1_1MiniVector_a8dfe53c19634a322f594d5a09f591a1c}{m\-\_\-size}
+\item 
+T $\ast$ \hyperlink{classstm_1_1MiniVector_a0b43a284b4391e435e97aad1b4706c96}{m\-\_\-elements}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classstm_1_1MiniVector_aa5998549c20eb0d6fac9bee27b4f0024}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!iterator@{iterator}}
+\index{iterator@{iterator}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ typedef T$\ast$ {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::{\bf iterator}}}\label{classstm_1_1MiniVector_aa5998549c20eb0d6fac9bee27b4f0024}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classstm_1_1MiniVector_a7983427989e1d868d70475eb9b1018a1}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!Mini\-Vector@{Mini\-Vector}}
+\index{Mini\-Vector@{Mini\-Vector}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{Mini\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::{\bf Mini\-Vector} (
+\begin{DoxyParamCaption}
+\item[{const unsigned long}]{capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_a7983427989e1d868d70475eb9b1018a1}
+\hypertarget{classstm_1_1MiniVector_a335a372abb7c3871076a13667cef0588}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!$\sim$\-Mini\-Vector@{$\sim$\-Mini\-Vector}}
+\index{$\sim$\-Mini\-Vector@{$\sim$\-Mini\-Vector}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{$\sim$\-Mini\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::$\sim${\bf Mini\-Vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_a335a372abb7c3871076a13667cef0588}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classstm_1_1MiniVector_a4d707e1115e162943b4709a2af92ed77}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!begin@{begin}}
+\index{begin@{begin}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf iterator} {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_a4d707e1115e162943b4709a2af92ed77}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector_a4d707e1115e162943b4709a2af92ed77_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1MiniVector_ae2297c706ac2ebee161ef60ace9ae645}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!end@{end}}
+\index{end@{end}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf iterator} {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_ae2297c706ac2ebee161ef60ace9ae645}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector_ae2297c706ac2ebee161ef60ace9ae645_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1MiniVector_a94cd17b5d364819e4799751f98a5a5c6}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!expand@{expand}}
+\index{expand@{expand}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{expand}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ template void {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::expand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1MiniVector_a94cd17b5d364819e4799751f98a5a5c6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector_a94cd17b5d364819e4799751f98a5a5c6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector_a94cd17b5d364819e4799751f98a5a5c6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1MiniVector_ac2a0e4cb478962dfc435dcc861793f02}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!insert@{insert}}
+\index{insert@{insert}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{T}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_ac2a0e4cb478962dfc435dcc861793f02}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector_ac2a0e4cb478962dfc435dcc861793f02_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1MiniVector_ad17f9c76202d399264ba62812f0b5c41}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!reset@{reset}}
+\index{reset@{reset}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_ad17f9c76202d399264ba62812f0b5c41}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1MiniVector_ad17f9c76202d399264ba62812f0b5c41_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1MiniVector_a2b30e4feb605f230ca17dec2b39fe472}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!size@{size}}
+\index{size@{size}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} unsigned long {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1MiniVector_a2b30e4feb605f230ca17dec2b39fe472}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classstm_1_1MiniVector_a2b30e4feb605f230ca17dec2b39fe472_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classstm_1_1MiniVector_a4bd8f8e389faa9a5bb09021a442b7ccc}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!m\-\_\-cap@{m\-\_\-cap}}
+\index{m\-\_\-cap@{m\-\_\-cap}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{m\-\_\-cap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ unsigned long {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::m\-\_\-cap\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1MiniVector_a4bd8f8e389faa9a5bb09021a442b7ccc}
+\hypertarget{classstm_1_1MiniVector_a0b43a284b4391e435e97aad1b4706c96}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!m\-\_\-elements@{m\-\_\-elements}}
+\index{m\-\_\-elements@{m\-\_\-elements}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{m\-\_\-elements}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T$\ast$ {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::m\-\_\-elements\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1MiniVector_a0b43a284b4391e435e97aad1b4706c96}
+\hypertarget{classstm_1_1MiniVector_a8dfe53c19634a322f594d5a09f591a1c}{\index{stm\-::\-Mini\-Vector@{stm\-::\-Mini\-Vector}!m\-\_\-size@{m\-\_\-size}}
+\index{m\-\_\-size@{m\-\_\-size}!stm::MiniVector@{stm\-::\-Mini\-Vector}}
+\subsubsection[{m\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ unsigned long {\bf stm\-::\-Mini\-Vector}$<$ T $>$\-::m\-\_\-size\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1MiniVector_a8dfe53c19634a322f594d5a09f591a1c}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{MiniVector_8hpp}{Mini\-Vector.\-hpp}\item 
+rstm/rstm-\/dev/libstm/\hyperlink{types_8cpp}{types.\-cpp}\end{DoxyCompactItemize}

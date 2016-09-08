@@ -1,0 +1,74 @@
+\hypertarget{structstm__tx__st}{\section{stm\-\_\-tx\-\_\-st Struct Reference}
+\label{structstm__tx__st}\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}}
+}
+
+
+Collaboration diagram for stm\-\_\-tx\-\_\-st\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm__tx__st__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structstm__tx__st_a1a63d8bd2ac112e17241b81773f3de75}{status}
+\item 
+int \hyperlink{structstm__tx__st_a1fcafa795a98eb07e0822ce72aff5b05}{rc}
+\item 
+\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$ \hyperlink{structstm__tx__st_af8d4d49ab6f2e8c9d152974334c7960e}{next\-\_\-free}
+\item 
+\hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$ \hyperlink{structstm__tx__st_ac348497da14526917aede588c08fcecf}{reads}
+\item 
+\hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$ \hyperlink{structstm__tx__st_a9572cc71b02430ce9ccd5e305dd313f3}{writes}
+\item 
+\hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$ \hyperlink{structstm__tx__st_a0a3260211b0c776d7d27671e42534e5b}{alloc\-\_\-ptr}
+\item 
+\hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$ \hyperlink{structstm__tx__st_a990b6b92bfd85204ee8c519180187493}{check}
+\item 
+int \hyperlink{structstm__tx__st_ac61720100a57333033d7a51eb26808eb}{gc\-\_\-data\-\_\-id}
+\item 
+int \hyperlink{structstm__tx__st_ab1803cee4d1835e6faacd1305f2d1d05}{blk\-\_\-size}
+\item 
+sigjmp\-\_\-buf $\ast$ \hyperlink{structstm__tx__st_a3e1745e8e19bae7c5da6790562210648}{penv}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm__tx__st_a0a3260211b0c776d7d27671e42534e5b}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!alloc\-\_\-ptr@{alloc\-\_\-ptr}}
+\index{alloc\-\_\-ptr@{alloc\-\_\-ptr}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{alloc\-\_\-ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx\-\_\-entry}$\ast$ stm\-\_\-tx\-\_\-st\-::alloc\-\_\-ptr}}\label{structstm__tx__st_a0a3260211b0c776d7d27671e42534e5b}
+\hypertarget{structstm__tx__st_ab1803cee4d1835e6faacd1305f2d1d05}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!blk\-\_\-size@{blk\-\_\-size}}
+\index{blk\-\_\-size@{blk\-\_\-size}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{blk\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-\_\-tx\-\_\-st\-::blk\-\_\-size}}\label{structstm__tx__st_ab1803cee4d1835e6faacd1305f2d1d05}
+\hypertarget{structstm__tx__st_a990b6b92bfd85204ee8c519180187493}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!check@{check}}
+\index{check@{check}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx\-\_\-entry} $\ast$ stm\-\_\-tx\-\_\-st\-::check}}\label{structstm__tx__st_a990b6b92bfd85204ee8c519180187493}
+\hypertarget{structstm__tx__st_ac61720100a57333033d7a51eb26808eb}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!gc\-\_\-data\-\_\-id@{gc\-\_\-data\-\_\-id}}
+\index{gc\-\_\-data\-\_\-id@{gc\-\_\-data\-\_\-id}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{gc\-\_\-data\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-\_\-tx\-\_\-st\-::gc\-\_\-data\-\_\-id}}\label{structstm__tx__st_ac61720100a57333033d7a51eb26808eb}
+\hypertarget{structstm__tx__st_af8d4d49ab6f2e8c9d152974334c7960e}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!next\-\_\-free@{next\-\_\-free}}
+\index{next\-\_\-free@{next\-\_\-free}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{next\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx}$\ast$ stm\-\_\-tx\-\_\-st\-::next\-\_\-free}}\label{structstm__tx__st_af8d4d49ab6f2e8c9d152974334c7960e}
+\hypertarget{structstm__tx__st_a3e1745e8e19bae7c5da6790562210648}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!penv@{penv}}
+\index{penv@{penv}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{penv}]{\setlength{\rightskip}{0pt plus 5cm}sigjmp\-\_\-buf$\ast$ stm\-\_\-tx\-\_\-st\-::penv}}\label{structstm__tx__st_a3e1745e8e19bae7c5da6790562210648}
+\hypertarget{structstm__tx__st_a1fcafa795a98eb07e0822ce72aff5b05}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!rc@{rc}}
+\index{rc@{rc}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{rc}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-\_\-tx\-\_\-st\-::rc}}\label{structstm__tx__st_a1fcafa795a98eb07e0822ce72aff5b05}
+\hypertarget{structstm__tx__st_ac348497da14526917aede588c08fcecf}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!reads@{reads}}
+\index{reads@{reads}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{reads}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx\-\_\-entry}$\ast$ stm\-\_\-tx\-\_\-st\-::reads}}\label{structstm__tx__st_ac348497da14526917aede588c08fcecf}
+\hypertarget{structstm__tx__st_a1a63d8bd2ac112e17241b81773f3de75}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!status@{status}}
+\index{status@{status}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-\_\-tx\-\_\-st\-::status}}\label{structstm__tx__st_a1a63d8bd2ac112e17241b81773f3de75}
+\hypertarget{structstm__tx__st_a9572cc71b02430ce9ccd5e305dd313f3}{\index{stm\-\_\-tx\-\_\-st@{stm\-\_\-tx\-\_\-st}!writes@{writes}}
+\index{writes@{writes}!stm_tx_st@{stm\-\_\-tx\-\_\-st}}
+\subsubsection[{writes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx\-\_\-entry}$\ast$ stm\-\_\-tx\-\_\-st\-::writes}}\label{structstm__tx__st_a9572cc71b02430ce9ccd5e305dd313f3}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+common/fraser/\hyperlink{stm__fraser_8c}{stm\-\_\-fraser.\-c}\end{DoxyCompactItemize}

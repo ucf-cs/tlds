@@ -1,0 +1,224 @@
+\hypertarget{heap_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/heap.h File Reference}
+\label{heap_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/heap.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/heap.\-h}}
+}
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lehigh.\-h\char`\"{}}\\*
+Include dependency graph for heap.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{heap_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{heap_8h_ad759d7c2fd076ab62c979a50096fb2b3}{T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T}(h, d)~\hyperlink{heap_8h_a6cbb1cf7be7ed574cffbf5a102422641}{T\-Mheap\-\_\-insert}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  (h), (d))
+\item 
+\#define \hyperlink{heap_8h_aa8f1b610bcf95762038ed171db7eb2b9}{T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E}(h)~\hyperlink{heap_8h_af6ac4ddb472dfa2fe94020219a3cfdb6}{T\-Mheap\-\_\-remove}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  (h))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structheap}{heap} \hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$ \hyperlink{heap_8h_a2ce849433b945206c1b879ddd700807d}{heap\-\_\-alloc} (long init\-Capacity, \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare)
+\item 
+\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$ \hyperlink{heap_8h_af42e586427848535c490a2f531bddc25}{T\-Mheap\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long init\-Capacity, \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare)
+\item 
+void \hyperlink{heap_8h_ac66cd3c89aa6db5a99ca128d83c5796f}{heap\-\_\-free} (\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$heap\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{heap_8h_ab089329268b6dd16e921ccc90751a8e9}{heap\-\_\-insert} (\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$heap\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{heap_8h_a6cbb1cf7be7ed574cffbf5a102422641}{T\-Mheap\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$heap\-Ptr, void $\ast$data\-Ptr)
+\item 
+void $\ast$ \hyperlink{heap_8h_a79f02300462dcf0efd9fc3bf6f9c375d}{heap\-\_\-remove} (\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$heap\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void $\ast$ \hyperlink{heap_8h_af6ac4ddb472dfa2fe94020219a3cfdb6}{T\-Mheap\-\_\-remove} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$heap\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{heap_8h_a9c77dbc94ac2daa5b202375477e26188}{heap\-\_\-is\-Valid} (\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$heap\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{heap_8h_ad759d7c2fd076ab62c979a50096fb2b3}{\index{heap.\-h@{heap.\-h}!T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T@{T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T}}
+\index{T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T@{T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T}!heap.h@{heap.\-h}}
+\subsubsection[{T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-H\-E\-A\-P\-\_\-\-I\-N\-S\-E\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{h, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~{\bf T\-Mheap\-\_\-insert}({\bf T\-M\-\_\-\-A\-R\-G}  (h), (d))}}\label{heap_8h_ad759d7c2fd076ab62c979a50096fb2b3}
+\hypertarget{heap_8h_aa8f1b610bcf95762038ed171db7eb2b9}{\index{heap.\-h@{heap.\-h}!T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E@{T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E}}
+\index{T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E@{T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E}!heap.h@{heap.\-h}}
+\subsubsection[{T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-H\-E\-A\-P\-\_\-\-R\-E\-M\-O\-V\-E(
+\begin{DoxyParamCaption}
+\item[{}]{h}
+\end{DoxyParamCaption}
+)~{\bf T\-Mheap\-\_\-remove}({\bf T\-M\-\_\-\-A\-R\-G}  (h))}}\label{heap_8h_aa8f1b610bcf95762038ed171db7eb2b9}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{\index{heap.\-h@{heap.\-h}!heap\-\_\-t@{heap\-\_\-t}}
+\index{heap\-\_\-t@{heap\-\_\-t}!heap.h@{heap.\-h}}
+\subsubsection[{heap\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf heap} {\bf heap\-\_\-t}}}\label{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}
+
+
+\subsection{Function Documentation}
+\hypertarget{heap_8h_a2ce849433b945206c1b879ddd700807d}{\index{heap.\-h@{heap.\-h}!heap\-\_\-alloc@{heap\-\_\-alloc}}
+\index{heap\-\_\-alloc@{heap\-\_\-alloc}!heap.h@{heap.\-h}}
+\subsubsection[{heap\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf heap\-\_\-t}$\ast$ heap\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{init\-Capacity, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_a2ce849433b945206c1b879ddd700807d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{heap_8h_a2ce849433b945206c1b879ddd700807d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{heap_8h_ac66cd3c89aa6db5a99ca128d83c5796f}{\index{heap.\-h@{heap.\-h}!heap\-\_\-free@{heap\-\_\-free}}
+\index{heap\-\_\-free@{heap\-\_\-free}!heap.h@{heap.\-h}}
+\subsubsection[{heap\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void heap\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf heap\-\_\-t} $\ast$}]{heap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_ac66cd3c89aa6db5a99ca128d83c5796f}
+\hypertarget{heap_8h_ab089329268b6dd16e921ccc90751a8e9}{\index{heap.\-h@{heap.\-h}!heap\-\_\-insert@{heap\-\_\-insert}}
+\index{heap\-\_\-insert@{heap\-\_\-insert}!heap.h@{heap.\-h}}
+\subsubsection[{heap\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} heap\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf heap\-\_\-t} $\ast$}]{heap\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_ab089329268b6dd16e921ccc90751a8e9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{heap_8h_ab089329268b6dd16e921ccc90751a8e9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{heap_8h_ab089329268b6dd16e921ccc90751a8e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{heap_8h_a9c77dbc94ac2daa5b202375477e26188}{\index{heap.\-h@{heap.\-h}!heap\-\_\-is\-Valid@{heap\-\_\-is\-Valid}}
+\index{heap\-\_\-is\-Valid@{heap\-\_\-is\-Valid}!heap.h@{heap.\-h}}
+\subsubsection[{heap\-\_\-is\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} heap\-\_\-is\-Valid (
+\begin{DoxyParamCaption}
+\item[{{\bf heap\-\_\-t} $\ast$}]{heap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_a9c77dbc94ac2daa5b202375477e26188}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap_8h_a9c77dbc94ac2daa5b202375477e26188_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{heap_8h_a79f02300462dcf0efd9fc3bf6f9c375d}{\index{heap.\-h@{heap.\-h}!heap\-\_\-remove@{heap\-\_\-remove}}
+\index{heap\-\_\-remove@{heap\-\_\-remove}!heap.h@{heap.\-h}}
+\subsubsection[{heap\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ heap\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf heap\-\_\-t} $\ast$}]{heap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_a79f02300462dcf0efd9fc3bf6f9c375d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{heap_8h_a79f02300462dcf0efd9fc3bf6f9c375d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{heap_8h_af42e586427848535c490a2f531bddc25}{\index{heap.\-h@{heap.\-h}!T\-Mheap\-\_\-alloc@{T\-Mheap\-\_\-alloc}}
+\index{T\-Mheap\-\_\-alloc@{T\-Mheap\-\_\-alloc}!heap.h@{heap.\-h}}
+\subsubsection[{T\-Mheap\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf heap\-\_\-t}$\ast$ T\-Mheap\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{init\-Capacity, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_af42e586427848535c490a2f531bddc25}
+\hypertarget{heap_8h_a6cbb1cf7be7ed574cffbf5a102422641}{\index{heap.\-h@{heap.\-h}!T\-Mheap\-\_\-insert@{T\-Mheap\-\_\-insert}}
+\index{T\-Mheap\-\_\-insert@{T\-Mheap\-\_\-insert}!heap.h@{heap.\-h}}
+\subsubsection[{T\-Mheap\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} T\-Mheap\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf heap\-\_\-t} $\ast$}]{heap\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_a6cbb1cf7be7ed574cffbf5a102422641}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{heap_8h_a6cbb1cf7be7ed574cffbf5a102422641_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{heap_8h_af6ac4ddb472dfa2fe94020219a3cfdb6}{\index{heap.\-h@{heap.\-h}!T\-Mheap\-\_\-remove@{T\-Mheap\-\_\-remove}}
+\index{T\-Mheap\-\_\-remove@{T\-Mheap\-\_\-remove}!heap.h@{heap.\-h}}
+\subsubsection[{T\-Mheap\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void$\ast$ T\-Mheap\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf heap\-\_\-t} $\ast$}]{heap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{heap_8h_af6ac4ddb472dfa2fe94020219a3cfdb6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{heap_8h_af6ac4ddb472dfa2fe94020219a3cfdb6_cgraph}
+\end{center}
+\end{figure}
+
+

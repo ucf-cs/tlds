@@ -1,0 +1,224 @@
+\hypertarget{intel__defns_8h}{\section{common/fraser/intel\-\_\-defns.h File Reference}
+\label{intel__defns_8h}\index{common/fraser/intel\-\_\-defns.\-h@{common/fraser/intel\-\_\-defns.\-h}}
+}
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$sched.\-h$>$}\\*
+Include dependency graph for intel\-\_\-defns.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{intel__defns_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{intel__defns_8h_aa5b6674baac007dfe40533a21ba0b964}{I\-N\-T\-E\-L}
+\item 
+\#define \hyperlink{intel__defns_8h_a671663ba29b405d9801dfd03d44e07ad}{C\-A\-S}(\-\_\-a, \-\_\-o, \-\_\-n)
+\item 
+\#define \hyperlink{intel__defns_8h_a34adee171003546959e36e57d2d70e2d}{F\-A\-S}(\-\_\-a, \-\_\-n)
+\item 
+\#define \hyperlink{intel__defns_8h_ab5e0e5fc7c2fb78a5616edeb01f198ef}{C\-A\-S64}(\-\_\-a, \-\_\-o, \-\_\-n)
+\item 
+\#define \hyperlink{intel__defns_8h_a8e552a503fdc2df51afdebeaba7d2dbf}{C\-A\-S\-I\-O}~\hyperlink{intel__defns_8h_a671663ba29b405d9801dfd03d44e07ad}{C\-A\-S}
+\item 
+\#define \hyperlink{intel__defns_8h_a0ce5035da9d4d12c5513eb1a250dda6e}{F\-A\-S\-I\-O}~\hyperlink{intel__defns_8h_a34adee171003546959e36e57d2d70e2d}{F\-A\-S}
+\item 
+\#define \hyperlink{intel__defns_8h_a4898a5c08f3909b8c5142d16a87008ec}{C\-A\-S\-P\-O}~\hyperlink{intel__defns_8h_a671663ba29b405d9801dfd03d44e07ad}{C\-A\-S}
+\item 
+\#define \hyperlink{intel__defns_8h_aab899b7f1356edc5a48a956d93f98a2e}{F\-A\-S\-P\-O}~\hyperlink{intel__defns_8h_a34adee171003546959e36e57d2d70e2d}{F\-A\-S}
+\item 
+\#define \hyperlink{intel__defns_8h_aa2f6ed21468b78dd76028779a4377ae5}{C\-A\-S32\-O}~\hyperlink{intel__defns_8h_a671663ba29b405d9801dfd03d44e07ad}{C\-A\-S}
+\item 
+\#define \hyperlink{intel__defns_8h_a75a85ac4bc7bfe36da939aac4b773a2b}{C\-A\-S64\-O}~\hyperlink{intel__defns_8h_ab5e0e5fc7c2fb78a5616edeb01f198ef}{C\-A\-S64}
+\item 
+\#define \hyperlink{intel__defns_8h_afaf21b9482166902c8854dfc2ab665e0}{M\-B}()~\hyperlink{icc-sync_8hpp_a3de7c4e7434d2028f0b1bdbe835ce3cb}{\-\_\-\-\_\-sync\-\_\-synchronize}()
+\item 
+\#define \hyperlink{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}{W\-M\-B}()~\-\_\-\-\_\-asm\-\_\-\-\_\- \-\_\-\-\_\-volatile\-\_\-\-\_\- (\char`\"{}\char`\"{} \-: \-: \-: \char`\"{}memory\char`\"{})
+\item 
+\#define \hyperlink{intel__defns_8h_a2a76b5f7f4a703efcd60c5dc44c33096}{R\-M\-B}()~\hyperlink{intel__defns_8h_afaf21b9482166902c8854dfc2ab665e0}{M\-B}()
+\item 
+\#define \hyperlink{intel__defns_8h_ad11a425b3e3a32fcc63fb4296c23dcc4}{V\-O\-L\-A\-T\-I\-L\-E}~/$\ast$volatile$\ast$/
+\item 
+\#define \hyperlink{intel__defns_8h_aec798343dd2470fd42244a4e89d34500}{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}()~\hyperlink{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}{W\-M\-B}()
+\item 
+\#define \hyperlink{intel__defns_8h_a7a9a123ebc3b3158281ea49d7dd3aa7f}{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}()~\hyperlink{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}{W\-M\-B}()
+\item 
+\#define \hyperlink{intel__defns_8h_adbac340cdfc6e376bc85324285627cc6}{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}()~\hyperlink{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}{W\-M\-B}()
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned long long \hyperlink{intel__defns_8h_a8a0ff1f8b58ab85ae284e0a15cceab7c}{tick\-\_\-t}
+\item 
+typedef unsigned char \hyperlink{intel__defns_8h_a78da78a18733e55d6fd26c02483c4971}{\-\_\-u8}
+\item 
+typedef unsigned short \hyperlink{intel__defns_8h_a9650a64e14204dada5abb94a7823bd92}{\-\_\-u16}
+\item 
+typedef unsigned int \hyperlink{intel__defns_8h_aa8c8559090a82903ea0aa0e011c8d358}{\-\_\-u32}
+\item 
+typedef unsigned long long \hyperlink{intel__defns_8h_a3593e2b78962ee189712ff4712a625ca}{\-\_\-u64}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{intel__defns_8h_a8a0ff1f8b58ab85ae284e0a15cceab7c}{tick\-\_\-t} \hyperlink{intel__defns_8h_a3d358c7ca11920828cdad47c3387d1bb}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((always\-\_\-inline)) R\-D\-T\-I\-C\-K()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{intel__defns_8h_a671663ba29b405d9801dfd03d44e07ad}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!C\-A\-S@{C\-A\-S}}
+\index{C\-A\-S@{C\-A\-S}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-a, }
+\item[{}]{\-\_\-o, }
+\item[{}]{\-\_\-n}
+\end{DoxyParamCaption}
+)}}\label{intel__defns_8h_a671663ba29b405d9801dfd03d44e07ad}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\{ \_\_typeof\_\_(\_o) \_\_o = \_o;                                \(\backslash\)
+   \_\_asm\_\_ \_\_volatile\_\_(                                   \(\backslash\)
+       "lock cmpxchg %3,%1"                                \(\backslash\)
+       : "=a" (\_\_o), "=m" (*(volatile \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} *)(\_a)) \(\backslash\)
+       :  "0" (\_\_o), "r" (\_n) );                           \(\backslash\)
+   \_\_o;                                                    \(\backslash\)
+\})
+\end{DoxyCode}
+\hypertarget{intel__defns_8h_aa2f6ed21468b78dd76028779a4377ae5}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!C\-A\-S32\-O@{C\-A\-S32\-O}}
+\index{C\-A\-S32\-O@{C\-A\-S32\-O}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-S32\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S32\-O~{\bf C\-A\-S}}}\label{intel__defns_8h_aa2f6ed21468b78dd76028779a4377ae5}
+\hypertarget{intel__defns_8h_ab5e0e5fc7c2fb78a5616edeb01f198ef}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!C\-A\-S64@{C\-A\-S64}}
+\index{C\-A\-S64@{C\-A\-S64}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-S64}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-a, }
+\item[{}]{\-\_\-o, }
+\item[{}]{\-\_\-n}
+\end{DoxyParamCaption}
+)}}\label{intel__defns_8h_ab5e0e5fc7c2fb78a5616edeb01f198ef}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\{ \_\_typeof\_\_(\_o) \_\_o = \_o;                                      \(\backslash\)
+   \_\_asm\_\_ \_\_volatile\_\_(                                         \(\backslash\)
+       "movl %3, %%ecx;"                                         \(\backslash\)
+       "movl %4, %%ebx;"                                         \(\backslash\)
+       "lock cmpxchg8b %1"                                       \(\backslash\)
+       : "=A" (\_\_o), "=m" (*(volatile \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} *)(\_a)) \(\backslash\)
+       : "0" (\_\_o), "m" (\_n >> 32), "m" (\_n)                     \(\backslash\)
+       : "ebx", "ecx" );                                         \(\backslash\)
+   \_\_o;                                                          \(\backslash\)
+\})
+\end{DoxyCode}
+\hypertarget{intel__defns_8h_a75a85ac4bc7bfe36da939aac4b773a2b}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!C\-A\-S64\-O@{C\-A\-S64\-O}}
+\index{C\-A\-S64\-O@{C\-A\-S64\-O}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-S64\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S64\-O~{\bf C\-A\-S64}}}\label{intel__defns_8h_a75a85ac4bc7bfe36da939aac4b773a2b}
+\hypertarget{intel__defns_8h_a8e552a503fdc2df51afdebeaba7d2dbf}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!C\-A\-S\-I\-O@{C\-A\-S\-I\-O}}
+\index{C\-A\-S\-I\-O@{C\-A\-S\-I\-O}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-S\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S\-I\-O~{\bf C\-A\-S}}}\label{intel__defns_8h_a8e552a503fdc2df51afdebeaba7d2dbf}
+\hypertarget{intel__defns_8h_a4898a5c08f3909b8c5142d16a87008ec}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!C\-A\-S\-P\-O@{C\-A\-S\-P\-O}}
+\index{C\-A\-S\-P\-O@{C\-A\-S\-P\-O}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-S\-P\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-S\-P\-O~{\bf C\-A\-S}}}\label{intel__defns_8h_a4898a5c08f3909b8c5142d16a87008ec}
+\hypertarget{intel__defns_8h_a34adee171003546959e36e57d2d70e2d}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!F\-A\-S@{F\-A\-S}}
+\index{F\-A\-S@{F\-A\-S}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{F\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-S(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-a, }
+\item[{}]{\-\_\-n}
+\end{DoxyParamCaption}
+)}}\label{intel__defns_8h_a34adee171003546959e36e57d2d70e2d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\{ \_\_typeof\_\_(\_n) \_\_o;                                     \(\backslash\)
+   \_\_asm\_\_ \_\_volatile\_\_(                                   \(\backslash\)
+       "lock xchg %0,%1"                                   \(\backslash\)
+       : "=r" (\_\_o), "=m" (*(volatile \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} *)(\_a)) \(\backslash\)
+       :  "0" (\_n) );                                      \(\backslash\)
+   \_\_o;                                                    \(\backslash\)
+\})
+\end{DoxyCode}
+\hypertarget{intel__defns_8h_a0ce5035da9d4d12c5513eb1a250dda6e}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!F\-A\-S\-I\-O@{F\-A\-S\-I\-O}}
+\index{F\-A\-S\-I\-O@{F\-A\-S\-I\-O}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{F\-A\-S\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-S\-I\-O~{\bf F\-A\-S}}}\label{intel__defns_8h_a0ce5035da9d4d12c5513eb1a250dda6e}
+\hypertarget{intel__defns_8h_aab899b7f1356edc5a48a956d93f98a2e}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!F\-A\-S\-P\-O@{F\-A\-S\-P\-O}}
+\index{F\-A\-S\-P\-O@{F\-A\-S\-P\-O}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{F\-A\-S\-P\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-S\-P\-O~{\bf F\-A\-S}}}\label{intel__defns_8h_aab899b7f1356edc5a48a956d93f98a2e}
+\hypertarget{intel__defns_8h_aa5b6674baac007dfe40533a21ba0b964}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!I\-N\-T\-E\-L@{I\-N\-T\-E\-L}}
+\index{I\-N\-T\-E\-L@{I\-N\-T\-E\-L}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{I\-N\-T\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-T\-E\-L}}\label{intel__defns_8h_aa5b6674baac007dfe40533a21ba0b964}
+\hypertarget{intel__defns_8h_afaf21b9482166902c8854dfc2ab665e0}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!M\-B@{M\-B}}
+\index{M\-B@{M\-B}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-B(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-\-\_\-sync\-\_\-synchronize}()}}\label{intel__defns_8h_afaf21b9482166902c8854dfc2ab665e0}
+\hypertarget{intel__defns_8h_adbac340cdfc6e376bc85324285627cc6}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}}
+\index{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf W\-M\-B}()}}\label{intel__defns_8h_adbac340cdfc6e376bc85324285627cc6}
+\hypertarget{intel__defns_8h_a2a76b5f7f4a703efcd60c5dc44c33096}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!R\-M\-B@{R\-M\-B}}
+\index{R\-M\-B@{R\-M\-B}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{R\-M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-B(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf M\-B}()}}\label{intel__defns_8h_a2a76b5f7f4a703efcd60c5dc44c33096}
+\hypertarget{intel__defns_8h_aec798343dd2470fd42244a4e89d34500}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}}
+\index{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf W\-M\-B}()}}\label{intel__defns_8h_aec798343dd2470fd42244a4e89d34500}
+\hypertarget{intel__defns_8h_ad11a425b3e3a32fcc63fb4296c23dcc4}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!V\-O\-L\-A\-T\-I\-L\-E@{V\-O\-L\-A\-T\-I\-L\-E}}
+\index{V\-O\-L\-A\-T\-I\-L\-E@{V\-O\-L\-A\-T\-I\-L\-E}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{V\-O\-L\-A\-T\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-O\-L\-A\-T\-I\-L\-E~/$\ast$volatile$\ast$/}}\label{intel__defns_8h_ad11a425b3e3a32fcc63fb4296c23dcc4}
+\hypertarget{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!W\-M\-B@{W\-M\-B}}
+\index{W\-M\-B@{W\-M\-B}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{W\-M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-M\-B(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-asm\-\_\-\-\_\- \-\_\-\-\_\-volatile\-\_\-\-\_\- (\char`\"{}\char`\"{} \-: \-: \-: \char`\"{}memory\char`\"{})}}\label{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}
+\hypertarget{intel__defns_8h_a7a9a123ebc3b3158281ea49d7dd3aa7f}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}}
+\index{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf W\-M\-B}()}}\label{intel__defns_8h_a7a9a123ebc3b3158281ea49d7dd3aa7f}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{intel__defns_8h_a9650a64e14204dada5abb94a7823bd92}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!\-\_\-u16@{\-\_\-u16}}
+\index{\-\_\-u16@{\-\_\-u16}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{\-\_\-u16}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short {\bf \-\_\-u16}}}\label{intel__defns_8h_a9650a64e14204dada5abb94a7823bd92}
+\hypertarget{intel__defns_8h_aa8c8559090a82903ea0aa0e011c8d358}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!\-\_\-u32@{\-\_\-u32}}
+\index{\-\_\-u32@{\-\_\-u32}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{\-\_\-u32}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf \-\_\-u32}}}\label{intel__defns_8h_aa8c8559090a82903ea0aa0e011c8d358}
+\hypertarget{intel__defns_8h_a3593e2b78962ee189712ff4712a625ca}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!\-\_\-u64@{\-\_\-u64}}
+\index{\-\_\-u64@{\-\_\-u64}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{\-\_\-u64}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long long {\bf \-\_\-u64}}}\label{intel__defns_8h_a3593e2b78962ee189712ff4712a625ca}
+\hypertarget{intel__defns_8h_a78da78a18733e55d6fd26c02483c4971}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!\-\_\-u8@{\-\_\-u8}}
+\index{\-\_\-u8@{\-\_\-u8}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{\-\_\-u8}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf \-\_\-u8}}}\label{intel__defns_8h_a78da78a18733e55d6fd26c02483c4971}
+\hypertarget{intel__defns_8h_a8a0ff1f8b58ab85ae284e0a15cceab7c}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!tick\-\_\-t@{tick\-\_\-t}}
+\index{tick\-\_\-t@{tick\-\_\-t}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{tick\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long long {\bf tick\-\_\-t}}}\label{intel__defns_8h_a8a0ff1f8b58ab85ae284e0a15cceab7c}
+
+
+\subsection{Function Documentation}
+\hypertarget{intel__defns_8h_a3d358c7ca11920828cdad47c3387d1bb}{\index{intel\-\_\-defns.\-h@{intel\-\_\-defns.\-h}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!intel_defns.h@{intel\-\_\-defns.\-h}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf tick\-\_\-t} \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(always\-\_\-inline)}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{intel__defns_8h_a3d358c7ca11920828cdad47c3387d1bb}

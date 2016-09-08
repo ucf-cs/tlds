@@ -1,0 +1,8 @@
+<map id="region" name="region">
+<area shape="rect" id="node2" href="$structcoordinate.html" title="{coordinate\n||}" alt="" coords="344,200,425,277"/>
+<area shape="rect" id="node5" href="$structvector.html" title="{vector\n||}" alt="" coords="69,200,126,277"/>
+<area shape="rect" id="node7" href="$structqueue.html" title="{queue\n||}" alt="" coords="207,200,264,277"/>
+<area shape="rect" id="node8" href="$structlist.html" title="{list\n||}" alt="" coords="534,349,572,427"/>
+<area shape="rect" id="node11" href="$structcomparator.html" title="{comparator\n||+ comparator()\l+ comparator()\l}" alt="" coords="713,193,820,285"/>
+<area shape="rect" id="node9" href="$structlist__node.html" title="{list_node\n||}" alt="" coords="536,200,609,277"/>
+</map>

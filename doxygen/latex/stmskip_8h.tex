@@ -1,0 +1,195 @@
+\hypertarget{stmskip_8h}{\section{ostm/skiplist/stmskip.h File Reference}
+\label{stmskip_8h}\index{ostm/skiplist/stmskip.\-h@{ostm/skiplist/stmskip.\-h}}
+}
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+Include dependency graph for stmskip.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{stmskip_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{stmskip_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structset__op__st}{set\-\_\-op\-\_\-st}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stmskip_8h_abb8c86e32129f8b885048ae34eb352b3}{K\-E\-Y\-\_\-\-M\-I\-N}~( 0\-U)
+\item 
+\#define \hyperlink{stmskip_8h_a609683a0c8de0ce9cdd1e696e71a6f07}{K\-E\-Y\-\_\-\-M\-A\-X}~(($\sim$0\-U) -\/ 3)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned long \hyperlink{stmskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t}
+\item 
+typedef void $\ast$ \hyperlink{stmskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t}
+\item 
+typedef struct \hyperlink{structset__op__st}{set\-\_\-op\-\_\-st} \hyperlink{stmskip_8h_a61f87fe27f28ce80c26c5a723f9e1ba1}{set\-\_\-op}
+\item 
+typedef void \hyperlink{stmskip_8h_a7ecd8caf74e76205ad7af0bf764cff66}{stm\-\_\-skip}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{stmskip_8h_aedbfc8f18bee8e611ee20d17feb55f98}{init\-\_\-stmskip\-\_\-subsystem} (void)
+\item 
+void \hyperlink{stmskip_8h_a35710eb6d2d01ed318faa7820460ec2e}{destory\-\_\-stmskip\-\_\-subsystem} (void)
+\item 
+\hyperlink{stmskip_8h_a7ecd8caf74e76205ad7af0bf764cff66}{stm\-\_\-skip} $\ast$ \hyperlink{stmskip_8h_a010792935ce773352fdab0ac90c520d6}{stmskip\-\_\-alloc} (void)
+\item 
+bool \hyperlink{stmskip_8h_a92e7ee5c7251030bd78d66ec89bab8c4}{stmskip\-\_\-execute\-\_\-ops} (\hyperlink{stmskip_8h_a7ecd8caf74e76205ad7af0bf764cff66}{stm\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{stmskip_8h_a61f87fe27f28ce80c26c5a723f9e1ba1}{set\-\_\-op} \hyperlink{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}{ops}\mbox{[}$\,$\mbox{]}, int op\-\_\-size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stmskip_8h_a609683a0c8de0ce9cdd1e696e71a6f07}{\index{stmskip.\-h@{stmskip.\-h}!K\-E\-Y\-\_\-\-M\-A\-X@{K\-E\-Y\-\_\-\-M\-A\-X}}
+\index{K\-E\-Y\-\_\-\-M\-A\-X@{K\-E\-Y\-\_\-\-M\-A\-X}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{K\-E\-Y\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-E\-Y\-\_\-\-M\-A\-X~(($\sim$0\-U) -\/ 3)}}\label{stmskip_8h_a609683a0c8de0ce9cdd1e696e71a6f07}
+\hypertarget{stmskip_8h_abb8c86e32129f8b885048ae34eb352b3}{\index{stmskip.\-h@{stmskip.\-h}!K\-E\-Y\-\_\-\-M\-I\-N@{K\-E\-Y\-\_\-\-M\-I\-N}}
+\index{K\-E\-Y\-\_\-\-M\-I\-N@{K\-E\-Y\-\_\-\-M\-I\-N}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{K\-E\-Y\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-E\-Y\-\_\-\-M\-I\-N~( 0\-U)}}\label{stmskip_8h_abb8c86e32129f8b885048ae34eb352b3}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{stmskip_8h_a61f87fe27f28ce80c26c5a723f9e1ba1}{\index{stmskip.\-h@{stmskip.\-h}!set\-\_\-op@{set\-\_\-op}}
+\index{set\-\_\-op@{set\-\_\-op}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{set\-\_\-op}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf set\-\_\-op\-\_\-st} {\bf set\-\_\-op}}}\label{stmskip_8h_a61f87fe27f28ce80c26c5a723f9e1ba1}
+\hypertarget{stmskip_8h_a3945a06384f87c28e0642d51b0524e92}{\index{stmskip.\-h@{stmskip.\-h}!setkey\-\_\-t@{setkey\-\_\-t}}
+\index{setkey\-\_\-t@{setkey\-\_\-t}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{setkey\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf setkey\-\_\-t}}}\label{stmskip_8h_a3945a06384f87c28e0642d51b0524e92}
+\hypertarget{stmskip_8h_a07e25227a67b4e708996b09fd575408b}{\index{stmskip.\-h@{stmskip.\-h}!setval\-\_\-t@{setval\-\_\-t}}
+\index{setval\-\_\-t@{setval\-\_\-t}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{setval\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ {\bf setval\-\_\-t}}}\label{stmskip_8h_a07e25227a67b4e708996b09fd575408b}
+\hypertarget{stmskip_8h_a7ecd8caf74e76205ad7af0bf764cff66}{\index{stmskip.\-h@{stmskip.\-h}!stm\-\_\-skip@{stm\-\_\-skip}}
+\index{stm\-\_\-skip@{stm\-\_\-skip}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{stm\-\_\-skip}]{\setlength{\rightskip}{0pt plus 5cm}typedef void {\bf stm\-\_\-skip}}}\label{stmskip_8h_a7ecd8caf74e76205ad7af0bf764cff66}
+
+
+\subsection{Function Documentation}
+\hypertarget{stmskip_8h_a35710eb6d2d01ed318faa7820460ec2e}{\index{stmskip.\-h@{stmskip.\-h}!destory\-\_\-stmskip\-\_\-subsystem@{destory\-\_\-stmskip\-\_\-subsystem}}
+\index{destory\-\_\-stmskip\-\_\-subsystem@{destory\-\_\-stmskip\-\_\-subsystem}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{destory\-\_\-stmskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void destory\-\_\-stmskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8h_a35710eb6d2d01ed318faa7820460ec2e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8h_a35710eb6d2d01ed318faa7820460ec2e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8h_a35710eb6d2d01ed318faa7820460ec2e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8h_aedbfc8f18bee8e611ee20d17feb55f98}{\index{stmskip.\-h@{stmskip.\-h}!init\-\_\-stmskip\-\_\-subsystem@{init\-\_\-stmskip\-\_\-subsystem}}
+\index{init\-\_\-stmskip\-\_\-subsystem@{init\-\_\-stmskip\-\_\-subsystem}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{init\-\_\-stmskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-stmskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8h_aedbfc8f18bee8e611ee20d17feb55f98}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8h_aedbfc8f18bee8e611ee20d17feb55f98_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8h_aedbfc8f18bee8e611ee20d17feb55f98_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8h_a010792935ce773352fdab0ac90c520d6}{\index{stmskip.\-h@{stmskip.\-h}!stmskip\-\_\-alloc@{stmskip\-\_\-alloc}}
+\index{stmskip\-\_\-alloc@{stmskip\-\_\-alloc}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{stmskip\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-skip}$\ast$ stmskip\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8h_a010792935ce773352fdab0ac90c520d6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8h_a010792935ce773352fdab0ac90c520d6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{stmskip_8h_a010792935ce773352fdab0ac90c520d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8h_a92e7ee5c7251030bd78d66ec89bab8c4}{\index{stmskip.\-h@{stmskip.\-h}!stmskip\-\_\-execute\-\_\-ops@{stmskip\-\_\-execute\-\_\-ops}}
+\index{stmskip\-\_\-execute\-\_\-ops@{stmskip\-\_\-execute\-\_\-ops}!stmskip.h@{stmskip.\-h}}
+\subsubsection[{stmskip\-\_\-execute\-\_\-ops}]{\setlength{\rightskip}{0pt plus 5cm}bool stmskip\-\_\-execute\-\_\-ops (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf set\-\_\-op}}]{ops\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{op\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8h_a92e7ee5c7251030bd78d66ec89bab8c4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{stmskip_8h_a92e7ee5c7251030bd78d66ec89bab8c4_icgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,5 @@
+<map id="client_alloc" name="client_alloc">
+<area shape="rect" id="node2" href="$random_8c.html#a492ffea554d80a899bcd43afdf4a53c4" title="random_alloc" alt="" coords="143,5,241,32"/>
+<area shape="rect" id="node4" href="$random_8c.html#a4863f841babe7ce3664a4e4bed6180ab" title="random_seed" alt="" coords="142,56,242,83"/>
+<area shape="rect" id="node3" href="$mt19937ar_8c.html#aba3fcf9d2e0c0d1db5b8b63af90eb51c" title="init_genrand" alt="" coords="291,31,383,57"/>
+</map>

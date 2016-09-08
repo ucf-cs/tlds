@@ -1,0 +1,17 @@
+<map id="reconsider_edge" name="reconsider_edge">
+<area shape="rect" id="node2" href="$classedge.html#aad0f6a205dbe62d5f1bc564cb66cd9e8" title="edge::reconsider" alt="" coords="191,183,310,210"/>
+<area shape="rect" id="node16" href="$classsimple__queue.html#a189cc4bc19b3a8c84fba3bdea89c75c1" title="simple_queue::enqueue" alt="" coords="171,234,330,261"/>
+<area shape="rect" id="node3" href="$point_8hpp.html#aa9b83c6c0cd506e8f62420ce41d7c5ac" title="closest_seam" alt="" coords="379,31,482,58"/>
+<area shape="rect" id="node5" href="$classedge.html#a528535c93e864fea104ca95de447b198" title="edge::index_of" alt="" coords="712,183,819,210"/>
+<area shape="rect" id="node6" href="$point_8cpp.html#a015cc895b4407d06a8c9b1e9155359ae" title="encircled" alt="" coords="393,285,468,311"/>
+<area shape="rect" id="node9" href="$classedge.html#a17a50641ad92dce62c3c8db8bf528ddc" title="edge::destroy" alt="" coords="380,183,481,210"/>
+<area shape="rect" id="node13" href="$classedge.html#a7e12d7aa8446beb4e11910ebcb442de2" title="edge::edge" alt="" coords="387,133,474,159"/>
+<area shape="rect" id="node4" href="$point_8hpp.html#ac3affcd51103a7fafe2143a933683b30" title="bucket" alt="" coords="867,31,928,58"/>
+<area shape="rect" id="node7" href="$point_8cpp.html#a0586855a04f97999cb91cca634421222" title="det4" alt="" coords="574,285,621,311"/>
+<area shape="rect" id="node8" href="$point_8cpp.html#a0fdafd56f3e289d97c15611bdbee0fec" title="det3" alt="" coords="742,285,789,311"/>
+<area shape="rect" id="node10" href="$classedge__set.html#a4cd26bf920c05e300c6856848870aeb9" title="edge_set::erase" alt="" coords="540,82,655,109"/>
+<area shape="rect" id="node11" href="$edge__set_8cpp.html#a04afedf3efb1930b4069d80cd6122ca9" title="segment" alt="" coords="729,82,801,109"/>
+<area shape="rect" id="node12" href="$classedge.html#a67b4470d9fae58c63a3a63765880cf58" title="edge::print" alt="" coords="724,31,807,58"/>
+<area shape="rect" id="node14" href="$classedge.html#af10ccfbaccf5198c07291317d70772fa" title="edge::initialize_end" alt="" coords="531,133,664,159"/>
+<area shape="rect" id="node15" href="$classedge__set.html#a412368ce88c3703ba3160a84c85a7ba9" title="edge_set::insert" alt="" coords="540,31,655,58"/>
+</map>

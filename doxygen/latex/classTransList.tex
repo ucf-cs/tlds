@@ -1,0 +1,589 @@
+\hypertarget{classTransList}{\section{Trans\-List Class Reference}
+\label{classTransList}\index{Trans\-List@{Trans\-List}}
+}
+
+
+{\ttfamily \#include $<$translist.\-h$>$}
+
+
+
+Collaboration diagram for Trans\-List\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTransList_1_1Desc}{Desc}
+\item 
+struct \hyperlink{structTransList_1_1HelpStack}{Help\-Stack}
+\item 
+struct \hyperlink{structTransList_1_1Node}{Node}
+\item 
+struct \hyperlink{structTransList_1_1NodeDesc}{Node\-Desc}
+\item 
+struct \hyperlink{structTransList_1_1Operator}{Operator}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classTransList_ad2f950383d1e3c092925b8da93cba077}{Op\-Status} \{ \hyperlink{classTransList_ad2f950383d1e3c092925b8da93cba077afd54079d85e81aa29eb670413495e5ac}{A\-C\-T\-I\-V\-E} = 0, 
+\hyperlink{classTransList_ad2f950383d1e3c092925b8da93cba077a02613108c4abd45e07055594d900835f}{C\-O\-M\-M\-I\-T\-T\-E\-D}, 
+\hyperlink{classTransList_ad2f950383d1e3c092925b8da93cba077afc37de87385a88580b88941e735278e6}{A\-B\-O\-R\-T\-E\-D}
+ \}
+\item 
+enum \hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267f}{Return\-Code} \{ \hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa317cfad278eb247533acd032f55d9cd8}{O\-K} = 0, 
+\hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa975fb5c50fc8698e2f94666100980ca6}{S\-K\-I\-P}, 
+\hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa88f2ebae62bd2d7d5d3b095b9be58b09}{F\-A\-I\-L}
+ \}
+\item 
+enum \hyperlink{classTransList_a5283c711063793711c7ef2da953d5563}{Op\-Type} \{ \hyperlink{classTransList_a5283c711063793711c7ef2da953d5563a493ff688d1c9bf3ad79b089889ad5446}{F\-I\-N\-D} = 0, 
+\hyperlink{classTransList_a5283c711063793711c7ef2da953d5563ad8c4e073b0ed6184a1f6851f6694ed81}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{classTransList_a5283c711063793711c7ef2da953d5563ab64b085a8d67b89391120bd0a2f8f485}{D\-E\-L\-E\-T\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTransList_afa3601be2aae71dfc71ba975594950c9}{Trans\-List} (\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1Node}{Node} $>$ $\ast$node\-Allocator, \hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1Desc}{Desc} $>$ $\ast$desc\-Allocator, \hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $>$ $\ast$node\-Desc\-Allocator)
+\item 
+\hyperlink{classTransList_ab2e6f219475f353257b70f9a0a7f0f2f}{$\sim$\-Trans\-List} ()
+\item 
+bool \hyperlink{classTransList_abe5853275ff6befa6ccd7ab0e84b4dce}{Execute\-Ops} (\hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc)
+\item 
+\hyperlink{structTransList_1_1Desc}{Desc} $\ast$ \hyperlink{classTransList_a4a0093e3ba48a0b4914ec3d5f6817d77}{Allocate\-Desc} (uint8\-\_\-t size)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267f}{Return\-Code} \hyperlink{classTransList_a5ace06b8defeb2501a9607fc8fdec5f0}{Insert} (uint32\-\_\-t key, \hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc, uint8\-\_\-t opid, \hyperlink{structTransList_1_1Node}{Node} $\ast$\&inserted, \hyperlink{structTransList_1_1Node}{Node} $\ast$\&pred)
+\item 
+\hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267f}{Return\-Code} \hyperlink{classTransList_ae48aacff3239bd5b85749631c2ac271a}{Delete} (uint32\-\_\-t key, \hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc, uint8\-\_\-t opid, \hyperlink{structTransList_1_1Node}{Node} $\ast$\&deleted, \hyperlink{structTransList_1_1Node}{Node} $\ast$\&pred)
+\item 
+\hyperlink{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267f}{Return\-Code} \hyperlink{classTransList_ab75389528ee7e0773ac0fe9c00351670}{Find} (uint32\-\_\-t key, \hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc, uint8\-\_\-t opid)
+\item 
+void \hyperlink{classTransList_aa7e67c5ff8aeadc6d1d7791a297a58c4}{Help\-Ops} (\hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc, uint8\-\_\-t opid)
+\item 
+bool \hyperlink{classTransList_a43cd23404964da4642819074b68459a5}{Is\-Same\-Operation} (\hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $\ast$node\-Desc1, \hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $\ast$node\-Desc2)
+\item 
+void \hyperlink{classTransList_a7ed667a308f2f7422dde28c7fe40cdc7}{Finish\-Pending\-Txn} (\hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $\ast$node\-Desc, \hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc)
+\item 
+bool \hyperlink{classTransList_a6154ae0491b3194b51194694a182b2e4}{Is\-Node\-Exist} (\hyperlink{structTransList_1_1Node}{Node} $\ast$\hyperlink{structnode}{node}, uint32\-\_\-t key)
+\item 
+bool \hyperlink{classTransList_a153541a58266143ebb08963d3c955952}{Is\-Node\-Active} (\hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $\ast$node\-Desc)
+\item 
+bool \hyperlink{classTransList_a83d76bc637fa7e3b9e705d7792e949ed}{Is\-Key\-Exist} (\hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $\ast$node\-Desc)
+\item 
+void \hyperlink{classTransList_aeab677f18c6e898efda31cca493c26c1}{Locate\-Pred} (\hyperlink{structTransList_1_1Node}{Node} $\ast$\&pred, \hyperlink{structTransList_1_1Node}{Node} $\ast$\&curr, uint32\-\_\-t key)
+\item 
+void \hyperlink{classTransList_a13f1abe3e7a04039c8150dd347737cb8}{Mark\-For\-Deletion} (const std\-::vector$<$ \hyperlink{structTransList_1_1Node}{Node} $\ast$ $>$ \&nodes, const std\-::vector$<$ \hyperlink{structTransList_1_1Node}{Node} $\ast$ $>$ \&preds, \hyperlink{structTransList_1_1Desc}{Desc} $\ast$desc)
+\item 
+void \hyperlink{classTransList_ac929bd3b5510818780364f4bdb9a97c5}{Print} ()
+\item 
+\hyperlink{classTransList_acb41d121c9576454e04c266e1fd16960}{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E} (uint32\-\_\-t g\-\_\-count=0;uint32\-\_\-t g\-\_\-count\-\_\-ins=0;uint32\-\_\-t g\-\_\-count\-\_\-ins\-\_\-new=0;uint32\-\_\-t g\-\_\-count\-\_\-del=0;uint32\-\_\-t g\-\_\-count\-\_\-del\-\_\-new=0;uint32\-\_\-t g\-\_\-count\-\_\-fnd=0;) uint32\-\_\-t \hyperlink{transskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{g\-\_\-count\-\_\-commit}=0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTransList_1_1Node}{Node} $\ast$ \hyperlink{classTransList_a68984196e5b9927e15999d83dd74c8d7}{m\-\_\-tail}
+\item 
+\hyperlink{structTransList_1_1Node}{Node} $\ast$ \hyperlink{classTransList_ab8ac04fb16a967124ea772639fa0beb4}{m\-\_\-head}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1Node}{Node} $>$ $\ast$ \hyperlink{classTransList_acab6fed9ee1f8d04411a384854cc9429}{m\-\_\-node\-Allocator}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1Desc}{Desc} $>$ $\ast$ \hyperlink{classTransList_a43e41c095b8a7f6ec6f9eed32db81179}{m\-\_\-desc\-Allocator}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1NodeDesc}{Node\-Desc} $>$ $\ast$ \hyperlink{classTransList_ad8a7d0a3827838d2bc7c334502e00b1b}{m\-\_\-node\-Desc\-Allocator}
+\item 
+uint32\-\_\-t \hyperlink{classTransList_a6ada7d29d449b4f1cd7e6d14c82336af}{g\-\_\-count\-\_\-abort} = 0
+\item 
+uint32\-\_\-t \hyperlink{classTransList_af98bf3b247f89cca25e17602a343388c}{g\-\_\-count\-\_\-fake\-\_\-abort} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classTransList_ad2f950383d1e3c092925b8da93cba077}{\index{Trans\-List@{Trans\-List}!Op\-Status@{Op\-Status}}
+\index{Op\-Status@{Op\-Status}!TransList@{Trans\-List}}
+\subsubsection[{Op\-Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Trans\-List\-::\-Op\-Status}}}\label{classTransList_ad2f950383d1e3c092925b8da93cba077}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-C\-T\-I\-V\-E@{A\-C\-T\-I\-V\-E}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!A\-C\-T\-I\-V\-E@{A\-C\-T\-I\-V\-E}}\item[{\em 
+\hypertarget{classTransList_ad2f950383d1e3c092925b8da93cba077afd54079d85e81aa29eb670413495e5ac}{A\-C\-T\-I\-V\-E}\label{classTransList_ad2f950383d1e3c092925b8da93cba077afd54079d85e81aa29eb670413495e5ac}
+}]\index{C\-O\-M\-M\-I\-T\-T\-E\-D@{C\-O\-M\-M\-I\-T\-T\-E\-D}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!C\-O\-M\-M\-I\-T\-T\-E\-D@{C\-O\-M\-M\-I\-T\-T\-E\-D}}\item[{\em 
+\hypertarget{classTransList_ad2f950383d1e3c092925b8da93cba077a02613108c4abd45e07055594d900835f}{C\-O\-M\-M\-I\-T\-T\-E\-D}\label{classTransList_ad2f950383d1e3c092925b8da93cba077a02613108c4abd45e07055594d900835f}
+}]\index{A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}}\item[{\em 
+\hypertarget{classTransList_ad2f950383d1e3c092925b8da93cba077afc37de87385a88580b88941e735278e6}{A\-B\-O\-R\-T\-E\-D}\label{classTransList_ad2f950383d1e3c092925b8da93cba077afc37de87385a88580b88941e735278e6}
+}]\end{description}
+\end{Desc}
+\hypertarget{classTransList_a5283c711063793711c7ef2da953d5563}{\index{Trans\-List@{Trans\-List}!Op\-Type@{Op\-Type}}
+\index{Op\-Type@{Op\-Type}!TransList@{Trans\-List}}
+\subsubsection[{Op\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Trans\-List\-::\-Op\-Type}}}\label{classTransList_a5283c711063793711c7ef2da953d5563}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\-I\-N\-D@{F\-I\-N\-D}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{classTransList_a5283c711063793711c7ef2da953d5563a493ff688d1c9bf3ad79b089889ad5446}{F\-I\-N\-D}\label{classTransList_a5283c711063793711c7ef2da953d5563a493ff688d1c9bf3ad79b089889ad5446}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{classTransList_a5283c711063793711c7ef2da953d5563ad8c4e073b0ed6184a1f6851f6694ed81}{I\-N\-S\-E\-R\-T}\label{classTransList_a5283c711063793711c7ef2da953d5563ad8c4e073b0ed6184a1f6851f6694ed81}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{classTransList_a5283c711063793711c7ef2da953d5563ab64b085a8d67b89391120bd0a2f8f485}{D\-E\-L\-E\-T\-E}\label{classTransList_a5283c711063793711c7ef2da953d5563ab64b085a8d67b89391120bd0a2f8f485}
+}]\end{description}
+\end{Desc}
+\hypertarget{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267f}{\index{Trans\-List@{Trans\-List}!Return\-Code@{Return\-Code}}
+\index{Return\-Code@{Return\-Code}!TransList@{Trans\-List}}
+\subsubsection[{Return\-Code}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Trans\-List\-::\-Return\-Code}}}\label{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267f}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{O\-K@{O\-K}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!O\-K@{O\-K}}\item[{\em 
+\hypertarget{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa317cfad278eb247533acd032f55d9cd8}{O\-K}\label{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa317cfad278eb247533acd032f55d9cd8}
+}]\index{S\-K\-I\-P@{S\-K\-I\-P}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!S\-K\-I\-P@{S\-K\-I\-P}}\item[{\em 
+\hypertarget{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa975fb5c50fc8698e2f94666100980ca6}{S\-K\-I\-P}\label{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa975fb5c50fc8698e2f94666100980ca6}
+}]\index{F\-A\-I\-L@{F\-A\-I\-L}!Trans\-List@{Trans\-List}}\index{Trans\-List@{Trans\-List}!F\-A\-I\-L@{F\-A\-I\-L}}\item[{\em 
+\hypertarget{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa88f2ebae62bd2d7d5d3b095b9be58b09}{F\-A\-I\-L}\label{classTransList_a038a4c9ca7ab3f2fb94f6fa4b2ba267fa88f2ebae62bd2d7d5d3b095b9be58b09}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTransList_afa3601be2aae71dfc71ba975594950c9}{\index{Trans\-List@{Trans\-List}!Trans\-List@{Trans\-List}}
+\index{Trans\-List@{Trans\-List}!TransList@{Trans\-List}}
+\subsubsection[{Trans\-List}]{\setlength{\rightskip}{0pt plus 5cm}Trans\-List\-::\-Trans\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf Allocator}$<$ {\bf Node} $>$ $\ast$}]{node\-Allocator, }
+\item[{{\bf Allocator}$<$ {\bf Desc} $>$ $\ast$}]{desc\-Allocator, }
+\item[{{\bf Allocator}$<$ {\bf Node\-Desc} $>$ $\ast$}]{node\-Desc\-Allocator}
+\end{DoxyParamCaption}
+)}}\label{classTransList_afa3601be2aae71dfc71ba975594950c9}
+\hypertarget{classTransList_ab2e6f219475f353257b70f9a0a7f0f2f}{\index{Trans\-List@{Trans\-List}!$\sim$\-Trans\-List@{$\sim$\-Trans\-List}}
+\index{$\sim$\-Trans\-List@{$\sim$\-Trans\-List}!TransList@{Trans\-List}}
+\subsubsection[{$\sim$\-Trans\-List}]{\setlength{\rightskip}{0pt plus 5cm}Trans\-List\-::$\sim$\-Trans\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTransList_ab2e6f219475f353257b70f9a0a7f0f2f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_ab2e6f219475f353257b70f9a0a7f0f2f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTransList_a4a0093e3ba48a0b4914ec3d5f6817d77}{\index{Trans\-List@{Trans\-List}!Allocate\-Desc@{Allocate\-Desc}}
+\index{Allocate\-Desc@{Allocate\-Desc}!TransList@{Trans\-List}}
+\subsubsection[{Allocate\-Desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trans\-List\-::\-Desc} $\ast$ Trans\-List\-::\-Allocate\-Desc (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{classTransList_a4a0093e3ba48a0b4914ec3d5f6817d77}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classTransList_a4a0093e3ba48a0b4914ec3d5f6817d77_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_acb41d121c9576454e04c266e1fd16960}{\index{Trans\-List@{Trans\-List}!A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E@{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E@{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}!TransList@{Trans\-List}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}Trans\-List\-::\-A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{g\-\_\-count = {\ttfamily 0;uint32\-\_\-t~g\-\_\-count\-\_\-ins=0;uint32\-\_\-t~g\-\_\-count\-\_\-ins\-\_\-new=0;uint32\-\_\-t~g\-\_\-count\-\_\-del=0;uint32\-\_\-t~g\-\_\-count\-\_\-del\-\_\-new=0;uint32\-\_\-t~g\-\_\-count\-\_\-fnd=0;}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classTransList_acb41d121c9576454e04c266e1fd16960}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_acb41d121c9576454e04c266e1fd16960_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_ae48aacff3239bd5b85749631c2ac271a}{\index{Trans\-List@{Trans\-List}!Delete@{Delete}}
+\index{Delete@{Delete}!TransList@{Trans\-List}}
+\subsubsection[{Delete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trans\-List\-::\-Return\-Code} Trans\-List\-::\-Delete (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid, }
+\item[{{\bf Node} $\ast$\&}]{deleted, }
+\item[{{\bf Node} $\ast$\&}]{pred}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_ae48aacff3239bd5b85749631c2ac271a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_ae48aacff3239bd5b85749631c2ac271a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_ae48aacff3239bd5b85749631c2ac271a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_abe5853275ff6befa6ccd7ab0e84b4dce}{\index{Trans\-List@{Trans\-List}!Execute\-Ops@{Execute\-Ops}}
+\index{Execute\-Ops@{Execute\-Ops}!TransList@{Trans\-List}}
+\subsubsection[{Execute\-Ops}]{\setlength{\rightskip}{0pt plus 5cm}bool Trans\-List\-::\-Execute\-Ops (
+\begin{DoxyParamCaption}
+\item[{{\bf Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}}\label{classTransList_abe5853275ff6befa6ccd7ab0e84b4dce}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_abe5853275ff6befa6ccd7ab0e84b4dce_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_ab75389528ee7e0773ac0fe9c00351670}{\index{Trans\-List@{Trans\-List}!Find@{Find}}
+\index{Find@{Find}!TransList@{Trans\-List}}
+\subsubsection[{Find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trans\-List\-::\-Return\-Code} Trans\-List\-::\-Find (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_ab75389528ee7e0773ac0fe9c00351670}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_ab75389528ee7e0773ac0fe9c00351670_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_ab75389528ee7e0773ac0fe9c00351670_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a7ed667a308f2f7422dde28c7fe40cdc7}{\index{Trans\-List@{Trans\-List}!Finish\-Pending\-Txn@{Finish\-Pending\-Txn}}
+\index{Finish\-Pending\-Txn@{Finish\-Pending\-Txn}!TransList@{Trans\-List}}
+\subsubsection[{Finish\-Pending\-Txn}]{\setlength{\rightskip}{0pt plus 5cm}void Trans\-List\-::\-Finish\-Pending\-Txn (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc, }
+\item[{{\bf Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a7ed667a308f2f7422dde28c7fe40cdc7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a7ed667a308f2f7422dde28c7fe40cdc7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a7ed667a308f2f7422dde28c7fe40cdc7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_aa7e67c5ff8aeadc6d1d7791a297a58c4}{\index{Trans\-List@{Trans\-List}!Help\-Ops@{Help\-Ops}}
+\index{Help\-Ops@{Help\-Ops}!TransList@{Trans\-List}}
+\subsubsection[{Help\-Ops}]{\setlength{\rightskip}{0pt plus 5cm}void Trans\-List\-::\-Help\-Ops (
+\begin{DoxyParamCaption}
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_aa7e67c5ff8aeadc6d1d7791a297a58c4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_aa7e67c5ff8aeadc6d1d7791a297a58c4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_aa7e67c5ff8aeadc6d1d7791a297a58c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a5ace06b8defeb2501a9607fc8fdec5f0}{\index{Trans\-List@{Trans\-List}!Insert@{Insert}}
+\index{Insert@{Insert}!TransList@{Trans\-List}}
+\subsubsection[{Insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trans\-List\-::\-Return\-Code} Trans\-List\-::\-Insert (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid, }
+\item[{{\bf Node} $\ast$\&}]{inserted, }
+\item[{{\bf Node} $\ast$\&}]{pred}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a5ace06b8defeb2501a9607fc8fdec5f0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a5ace06b8defeb2501a9607fc8fdec5f0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a5ace06b8defeb2501a9607fc8fdec5f0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a83d76bc637fa7e3b9e705d7792e949ed}{\index{Trans\-List@{Trans\-List}!Is\-Key\-Exist@{Is\-Key\-Exist}}
+\index{Is\-Key\-Exist@{Is\-Key\-Exist}!TransList@{Trans\-List}}
+\subsubsection[{Is\-Key\-Exist}]{\setlength{\rightskip}{0pt plus 5cm}bool Trans\-List\-::\-Is\-Key\-Exist (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a83d76bc637fa7e3b9e705d7792e949ed}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a83d76bc637fa7e3b9e705d7792e949ed_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a83d76bc637fa7e3b9e705d7792e949ed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a153541a58266143ebb08963d3c955952}{\index{Trans\-List@{Trans\-List}!Is\-Node\-Active@{Is\-Node\-Active}}
+\index{Is\-Node\-Active@{Is\-Node\-Active}!TransList@{Trans\-List}}
+\subsubsection[{Is\-Node\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Trans\-List\-::\-Is\-Node\-Active (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a153541a58266143ebb08963d3c955952}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a153541a58266143ebb08963d3c955952_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a6154ae0491b3194b51194694a182b2e4}{\index{Trans\-List@{Trans\-List}!Is\-Node\-Exist@{Is\-Node\-Exist}}
+\index{Is\-Node\-Exist@{Is\-Node\-Exist}!TransList@{Trans\-List}}
+\subsubsection[{Is\-Node\-Exist}]{\setlength{\rightskip}{0pt plus 5cm}bool Trans\-List\-::\-Is\-Node\-Exist (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node, }
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a6154ae0491b3194b51194694a182b2e4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a6154ae0491b3194b51194694a182b2e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a43cd23404964da4642819074b68459a5}{\index{Trans\-List@{Trans\-List}!Is\-Same\-Operation@{Is\-Same\-Operation}}
+\index{Is\-Same\-Operation@{Is\-Same\-Operation}!TransList@{Trans\-List}}
+\subsubsection[{Is\-Same\-Operation}]{\setlength{\rightskip}{0pt plus 5cm}bool Trans\-List\-::\-Is\-Same\-Operation (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc1, }
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a43cd23404964da4642819074b68459a5}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a43cd23404964da4642819074b68459a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_aeab677f18c6e898efda31cca493c26c1}{\index{Trans\-List@{Trans\-List}!Locate\-Pred@{Locate\-Pred}}
+\index{Locate\-Pred@{Locate\-Pred}!TransList@{Trans\-List}}
+\subsubsection[{Locate\-Pred}]{\setlength{\rightskip}{0pt plus 5cm}void Trans\-List\-::\-Locate\-Pred (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$\&}]{pred, }
+\item[{{\bf Node} $\ast$\&}]{curr, }
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_aeab677f18c6e898efda31cca493c26c1}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_aeab677f18c6e898efda31cca493c26c1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_a13f1abe3e7a04039c8150dd347737cb8}{\index{Trans\-List@{Trans\-List}!Mark\-For\-Deletion@{Mark\-For\-Deletion}}
+\index{Mark\-For\-Deletion@{Mark\-For\-Deletion}!TransList@{Trans\-List}}
+\subsubsection[{Mark\-For\-Deletion}]{\setlength{\rightskip}{0pt plus 5cm}void Trans\-List\-::\-Mark\-For\-Deletion (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{nodes, }
+\item[{const std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{preds, }
+\item[{{\bf Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_a13f1abe3e7a04039c8150dd347737cb8}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_a13f1abe3e7a04039c8150dd347737cb8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTransList_ac929bd3b5510818780364f4bdb9a97c5}{\index{Trans\-List@{Trans\-List}!Print@{Print}}
+\index{Print@{Print}!TransList@{Trans\-List}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Trans\-List\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classTransList_ac929bd3b5510818780364f4bdb9a97c5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTransList_ac929bd3b5510818780364f4bdb9a97c5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTransList_a6ada7d29d449b4f1cd7e6d14c82336af}{\index{Trans\-List@{Trans\-List}!g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}}
+\index{g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}!TransList@{Trans\-List}}
+\subsubsection[{g\-\_\-count\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Trans\-List\-::g\-\_\-count\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_a6ada7d29d449b4f1cd7e6d14c82336af}
+\hypertarget{classTransList_af98bf3b247f89cca25e17602a343388c}{\index{Trans\-List@{Trans\-List}!g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}}
+\index{g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}!TransList@{Trans\-List}}
+\subsubsection[{g\-\_\-count\-\_\-fake\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Trans\-List\-::g\-\_\-count\-\_\-fake\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_af98bf3b247f89cca25e17602a343388c}
+\hypertarget{classTransList_a43e41c095b8a7f6ec6f9eed32db81179}{\index{Trans\-List@{Trans\-List}!m\-\_\-desc\-Allocator@{m\-\_\-desc\-Allocator}}
+\index{m\-\_\-desc\-Allocator@{m\-\_\-desc\-Allocator}!TransList@{Trans\-List}}
+\subsubsection[{m\-\_\-desc\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Desc}$>$$\ast$ Trans\-List\-::m\-\_\-desc\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_a43e41c095b8a7f6ec6f9eed32db81179}
+\hypertarget{classTransList_ab8ac04fb16a967124ea772639fa0beb4}{\index{Trans\-List@{Trans\-List}!m\-\_\-head@{m\-\_\-head}}
+\index{m\-\_\-head@{m\-\_\-head}!TransList@{Trans\-List}}
+\subsubsection[{m\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ Trans\-List\-::m\-\_\-head\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_ab8ac04fb16a967124ea772639fa0beb4}
+\hypertarget{classTransList_acab6fed9ee1f8d04411a384854cc9429}{\index{Trans\-List@{Trans\-List}!m\-\_\-node\-Allocator@{m\-\_\-node\-Allocator}}
+\index{m\-\_\-node\-Allocator@{m\-\_\-node\-Allocator}!TransList@{Trans\-List}}
+\subsubsection[{m\-\_\-node\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Node}$>$$\ast$ Trans\-List\-::m\-\_\-node\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_acab6fed9ee1f8d04411a384854cc9429}
+\hypertarget{classTransList_ad8a7d0a3827838d2bc7c334502e00b1b}{\index{Trans\-List@{Trans\-List}!m\-\_\-node\-Desc\-Allocator@{m\-\_\-node\-Desc\-Allocator}}
+\index{m\-\_\-node\-Desc\-Allocator@{m\-\_\-node\-Desc\-Allocator}!TransList@{Trans\-List}}
+\subsubsection[{m\-\_\-node\-Desc\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Node\-Desc}$>$$\ast$ Trans\-List\-::m\-\_\-node\-Desc\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_ad8a7d0a3827838d2bc7c334502e00b1b}
+\hypertarget{classTransList_a68984196e5b9927e15999d83dd74c8d7}{\index{Trans\-List@{Trans\-List}!m\-\_\-tail@{m\-\_\-tail}}
+\index{m\-\_\-tail@{m\-\_\-tail}!TransList@{Trans\-List}}
+\subsubsection[{m\-\_\-tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ Trans\-List\-::m\-\_\-tail\hspace{0.3cm}{\ttfamily [private]}}}\label{classTransList_a68984196e5b9927e15999d83dd74c8d7}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+translink/list/\hyperlink{translist_8h}{translist.\-h}\item 
+translink/list/\hyperlink{translist_8cc}{translist.\-cc}\end{DoxyCompactItemize}

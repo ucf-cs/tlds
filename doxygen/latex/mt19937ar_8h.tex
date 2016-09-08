@@ -1,0 +1,248 @@
+\hypertarget{mt19937ar_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/mt19937ar.h File Reference}
+\label{mt19937ar_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/mt19937ar.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/mt19937ar.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+Include dependency graph for mt19937ar.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{mt19937ar_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N}~624
+\item 
+\#define \hyperlink{mt19937ar_8h_a52037c938e3c1b126c6277da5ca689d0}{M}~397
+\item 
+\#define \hyperlink{mt19937ar_8h_a376c3581bae3c2367fc9ce694e5a8949}{M\-A\-T\-R\-I\-X\-\_\-\-A}~0x9908b0df\-U\-L   /$\ast$ constant vector a $\ast$/
+\item 
+\#define \hyperlink{mt19937ar_8h_a39bc458849360f8f371b54c4365d397f}{U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K}~0x80000000\-U\-L /$\ast$ most significant w-\/r bits $\ast$/
+\item 
+\#define \hyperlink{mt19937ar_8h_a4ddd8cab3564b7a86a4b0e52ba08f70e}{L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K}~0x7fffffff\-U\-L /$\ast$ least significant r bits $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mt19937ar_8h_aba3fcf9d2e0c0d1db5b8b63af90eb51c}{init\-\_\-genrand} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr, unsigned long s)
+\item 
+void \hyperlink{mt19937ar_8h_a7b0999464159a26e515f9b8d1bb18b4c}{init\-\_\-by\-\_\-array} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr, unsigned long init\-\_\-key\mbox{[}$\,$\mbox{]}, long key\-\_\-length)
+\item 
+unsigned long \hyperlink{mt19937ar_8h_a8056efdcc7cbf6ff8f46ce36509c506e}{genrand\-\_\-int32} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr)
+\item 
+long \hyperlink{mt19937ar_8h_a22895ab052d478c93090514f884e4bcf}{genrand\-\_\-int31} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr)
+\item 
+double \hyperlink{mt19937ar_8h_a9cdbe418d13425e7bf65abd824a1cdd5}{genrand\-\_\-real1} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr)
+\item 
+double \hyperlink{mt19937ar_8h_ae9e9025d1bc3807ad45c5863a7c90e10}{genrand\-\_\-real2} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr)
+\item 
+double \hyperlink{mt19937ar_8h_a244da217eb5be212f4d65ca4800b9da0}{genrand\-\_\-real3} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr)
+\item 
+double \hyperlink{mt19937ar_8h_a8a89496ed1dfe0ef0a1758210a0fb2e0}{genrand\-\_\-res53} (unsigned long mt\mbox{[}$\,$\mbox{]}, unsigned long $\ast$mti\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mt19937ar_8h_a4ddd8cab3564b7a86a4b0e52ba08f70e}{\index{mt19937ar.\-h@{mt19937ar.\-h}!L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K@{L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K}}
+\index{L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K@{L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-W\-E\-R\-\_\-\-M\-A\-S\-K~0x7fffffff\-U\-L /$\ast$ least significant r bits $\ast$/}}\label{mt19937ar_8h_a4ddd8cab3564b7a86a4b0e52ba08f70e}
+\hypertarget{mt19937ar_8h_a52037c938e3c1b126c6277da5ca689d0}{\index{mt19937ar.\-h@{mt19937ar.\-h}!M@{M}}
+\index{M@{M}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M~397}}\label{mt19937ar_8h_a52037c938e3c1b126c6277da5ca689d0}
+\hypertarget{mt19937ar_8h_a376c3581bae3c2367fc9ce694e5a8949}{\index{mt19937ar.\-h@{mt19937ar.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-A@{M\-A\-T\-R\-I\-X\-\_\-\-A}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-A@{M\-A\-T\-R\-I\-X\-\_\-\-A}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-A~0x9908b0df\-U\-L   /$\ast$ constant vector a $\ast$/}}\label{mt19937ar_8h_a376c3581bae3c2367fc9ce694e5a8949}
+\hypertarget{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{\index{mt19937ar.\-h@{mt19937ar.\-h}!N@{N}}
+\index{N@{N}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N~624}}\label{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}
+\hypertarget{mt19937ar_8h_a39bc458849360f8f371b54c4365d397f}{\index{mt19937ar.\-h@{mt19937ar.\-h}!U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K@{U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K}}
+\index{U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K@{U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-P\-P\-E\-R\-\_\-\-M\-A\-S\-K~0x80000000\-U\-L /$\ast$ most significant w-\/r bits $\ast$/}}\label{mt19937ar_8h_a39bc458849360f8f371b54c4365d397f}
+
+
+\subsection{Function Documentation}
+\hypertarget{mt19937ar_8h_a22895ab052d478c93090514f884e4bcf}{\index{mt19937ar.\-h@{mt19937ar.\-h}!genrand\-\_\-int31@{genrand\-\_\-int31}}
+\index{genrand\-\_\-int31@{genrand\-\_\-int31}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{genrand\-\_\-int31}]{\setlength{\rightskip}{0pt plus 5cm}long genrand\-\_\-int31 (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_a22895ab052d478c93090514f884e4bcf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_a22895ab052d478c93090514f884e4bcf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_a8056efdcc7cbf6ff8f46ce36509c506e}{\index{mt19937ar.\-h@{mt19937ar.\-h}!genrand\-\_\-int32@{genrand\-\_\-int32}}
+\index{genrand\-\_\-int32@{genrand\-\_\-int32}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{genrand\-\_\-int32}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long genrand\-\_\-int32 (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_a8056efdcc7cbf6ff8f46ce36509c506e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{mt19937ar_8h_a8056efdcc7cbf6ff8f46ce36509c506e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_a8056efdcc7cbf6ff8f46ce36509c506e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_a9cdbe418d13425e7bf65abd824a1cdd5}{\index{mt19937ar.\-h@{mt19937ar.\-h}!genrand\-\_\-real1@{genrand\-\_\-real1}}
+\index{genrand\-\_\-real1@{genrand\-\_\-real1}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{genrand\-\_\-real1}]{\setlength{\rightskip}{0pt plus 5cm}double genrand\-\_\-real1 (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_a9cdbe418d13425e7bf65abd824a1cdd5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_a9cdbe418d13425e7bf65abd824a1cdd5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_ae9e9025d1bc3807ad45c5863a7c90e10}{\index{mt19937ar.\-h@{mt19937ar.\-h}!genrand\-\_\-real2@{genrand\-\_\-real2}}
+\index{genrand\-\_\-real2@{genrand\-\_\-real2}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{genrand\-\_\-real2}]{\setlength{\rightskip}{0pt plus 5cm}double genrand\-\_\-real2 (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_ae9e9025d1bc3807ad45c5863a7c90e10}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_ae9e9025d1bc3807ad45c5863a7c90e10_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_a244da217eb5be212f4d65ca4800b9da0}{\index{mt19937ar.\-h@{mt19937ar.\-h}!genrand\-\_\-real3@{genrand\-\_\-real3}}
+\index{genrand\-\_\-real3@{genrand\-\_\-real3}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{genrand\-\_\-real3}]{\setlength{\rightskip}{0pt plus 5cm}double genrand\-\_\-real3 (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_a244da217eb5be212f4d65ca4800b9da0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_a244da217eb5be212f4d65ca4800b9da0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_a8a89496ed1dfe0ef0a1758210a0fb2e0}{\index{mt19937ar.\-h@{mt19937ar.\-h}!genrand\-\_\-res53@{genrand\-\_\-res53}}
+\index{genrand\-\_\-res53@{genrand\-\_\-res53}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{genrand\-\_\-res53}]{\setlength{\rightskip}{0pt plus 5cm}double genrand\-\_\-res53 (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_a8a89496ed1dfe0ef0a1758210a0fb2e0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_a8a89496ed1dfe0ef0a1758210a0fb2e0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_a7b0999464159a26e515f9b8d1bb18b4c}{\index{mt19937ar.\-h@{mt19937ar.\-h}!init\-\_\-by\-\_\-array@{init\-\_\-by\-\_\-array}}
+\index{init\-\_\-by\-\_\-array@{init\-\_\-by\-\_\-array}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{init\-\_\-by\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-by\-\_\-array (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr, }
+\item[{unsigned long}]{init\-\_\-key\mbox{[}$\,$\mbox{]}, }
+\item[{long}]{key\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_a7b0999464159a26e515f9b8d1bb18b4c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{mt19937ar_8h_a7b0999464159a26e515f9b8d1bb18b4c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mt19937ar_8h_aba3fcf9d2e0c0d1db5b8b63af90eb51c}{\index{mt19937ar.\-h@{mt19937ar.\-h}!init\-\_\-genrand@{init\-\_\-genrand}}
+\index{init\-\_\-genrand@{init\-\_\-genrand}!mt19937ar.h@{mt19937ar.\-h}}
+\subsubsection[{init\-\_\-genrand}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-genrand (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{mt\mbox{[}$\,$\mbox{]}, }
+\item[{unsigned long $\ast$}]{mti\-Ptr, }
+\item[{unsigned long}]{s}
+\end{DoxyParamCaption}
+)}}\label{mt19937ar_8h_aba3fcf9d2e0c0d1db5b8b63af90eb51c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mt19937ar_8h_aba3fcf9d2e0c0d1db5b8b63af90eb51c_icgraph}
+\end{center}
+\end{figure}
+
+

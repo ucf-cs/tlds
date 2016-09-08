@@ -1,0 +1,6 @@
+<map id="stm::WBMMPolicy::onTxAbort" name="stm::WBMMPolicy::onTxAbort">
+<area shape="rect" id="node2" href="$namespacestm.html#ab1ed02e28e6963306b89990522792bb0" title="stm::PostRollback" alt="" coords="281,60,412,87"/>
+<area shape="rect" id="node5" href="$namespacestm.html#a102ef2437a8acd5cd91f32764a317639" title="stm::PostRollbackNoTrigger" alt="" coords="253,111,440,137"/>
+<area shape="rect" id="node3" href="$structanonymous__namespace_02norec_8cpp_03_1_1NOrec__Generic.html#af5eb33505fa3b5a7f79d66fd85e00720" title="anonymous_namespace\l\{norec::cpp\}::NOrec\l_Generic::rollback" alt="" coords="488,5,651,61"/>
+<area shape="rect" id="node4" href="$structanonymous__namespace_02swiss_8cpp_03_1_1Swiss.html#a6ac1773b93a23a973a959ba9cc65ca72" title="anonymous_namespace\l\{swiss::cpp\}::Swiss\l::rollback" alt="" coords="488,85,651,141"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="customer_alloc_seq" name="customer_alloc_seq">
+<area shape="rect" id="node2" href="$manager_8h.html#a065147f4828a2f8104c450af70f20371" title="manager_addCustomer_seq" alt="" coords="193,5,378,32"/>
+<area shape="rect" id="node3" href="$vacation_8c.html#a71a90924e6bac2c48cdfc1153b33084b" title="addCustomer" alt="" coords="427,5,527,32"/>
+<area shape="rect" id="node4" href="$vacation_8c.html#a50cbd725eec0f7508965d533f2dadf44" title="initializeManager" alt="" coords="577,5,695,32"/>
+<area shape="rect" id="node5" href="$vacation_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="744,5,800,32"/>
+</map>

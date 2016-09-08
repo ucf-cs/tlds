@@ -1,0 +1,167 @@
+\hypertarget{structDisjoint}{\section{Disjoint Struct Reference}
+\label{structDisjoint}\index{Disjoint@{Disjoint}}
+}
+
+
+{\ttfamily \#include $<$Disjoint.\-hpp$>$}
+
+
+
+Collaboration diagram for Disjoint\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structDisjoint__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDisjoint_1_1PaddedBuffer}{Padded\-Buffer}
+\item 
+struct \hyperlink{structDisjoint_1_1PaddedBufferEntry}{Padded\-Buffer\-Entry}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDisjoint_a9a1b4c47e0822325d289162f4dd10b9d}{Disjoint} (unsigned R, unsigned W, unsigned L, bool S)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{structDisjoint_ac740b0c2eb2b55099ce7614a0d69f4ff}{ro\-\_\-transaction} (uint32\-\_\-t id, uint32\-\_\-t startpoint \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}) \hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((noinline))
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{structDisjoint_ae4cb8cb741e2927d1d51bcfcbc9ee269}{r\-\_\-rw\-\_\-transaction} (uint32\-\_\-t id, uint32\-\_\-t startpoint \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDisjoint_1_1PaddedBuffer}{Padded\-Buffer} \hyperlink{structDisjoint_ac7ea93b748d1fbfd37086d5060df651b}{private\-Buffers} \mbox{[}\hyperlink{structDisjoint_acfc6dad8c41eb41ba711f907b6be98d3}{B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T}\mbox{]}
+\item 
+\hyperlink{structDisjoint_1_1PaddedBuffer}{Padded\-Buffer} \hyperlink{structDisjoint_ae391e9de469259ffa06f1a680fa7ba97}{public\-Buffer}
+\item 
+unsigned \hyperlink{structDisjoint_a4df2467d5cad8cd5aca6726d1565bd0e}{reads\-\_\-per\-\_\-ten}
+\item 
+unsigned \hyperlink{structDisjoint_a1c463cc08d167c5706612e8884827d70}{writes\-\_\-per\-\_\-ten}
+\item 
+unsigned \hyperlink{structDisjoint_aa144f54b8724bb1e00b1715ebce8d7f2}{locations\-\_\-per\-\_\-transaction}
+\item 
+bool \hyperlink{structDisjoint_ae06e538e8e6d7880a7db67d6d6d610df}{use\-\_\-shared\-\_\-read\-\_\-buffer}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned \hyperlink{structDisjoint_a3514072cfe176cf5953ee3a7444a3c7c}{D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E} = 1009
+\item 
+static const unsigned \hyperlink{structDisjoint_acfc6dad8c41eb41ba711f907b6be98d3}{B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T} = 256
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structDisjoint_a9a1b4c47e0822325d289162f4dd10b9d}{\index{Disjoint@{Disjoint}!Disjoint@{Disjoint}}
+\index{Disjoint@{Disjoint}!Disjoint@{Disjoint}}
+\subsubsection[{Disjoint}]{\setlength{\rightskip}{0pt plus 5cm}Disjoint\-::\-Disjoint (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{R, }
+\item[{unsigned}]{W, }
+\item[{unsigned}]{L, }
+\item[{bool}]{S}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structDisjoint_a9a1b4c47e0822325d289162f4dd10b9d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{structDisjoint_a9a1b4c47e0822325d289162f4dd10b9d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structDisjoint_ae4cb8cb741e2927d1d51bcfcbc9ee269}{\index{Disjoint@{Disjoint}!r\-\_\-rw\-\_\-transaction@{r\-\_\-rw\-\_\-transaction}}
+\index{r\-\_\-rw\-\_\-transaction@{r\-\_\-rw\-\_\-transaction}!Disjoint@{Disjoint}}
+\subsubsection[{r\-\_\-rw\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void Disjoint\-::r\-\_\-rw\-\_\-transaction (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{id, }
+\item[{uint32\-\_\-t startpoint}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structDisjoint_ae4cb8cb741e2927d1d51bcfcbc9ee269}
+do some reads, do some rmw's 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{structDisjoint_ae4cb8cb741e2927d1d51bcfcbc9ee269_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structDisjoint_ac740b0c2eb2b55099ce7614a0d69f4ff}{\index{Disjoint@{Disjoint}!ro\-\_\-transaction@{ro\-\_\-transaction}}
+\index{ro\-\_\-transaction@{ro\-\_\-transaction}!Disjoint@{Disjoint}}
+\subsubsection[{ro\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}bool Disjoint\-::ro\-\_\-transaction (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{id, }
+\item[{uint32\-\_\-t startpoint}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{structDisjoint_ac740b0c2eb2b55099ce7614a0d69f4ff}
+do some reads only... bool return type to keep it from being optimized out
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information Step 1\-: Include the configuration code for the harness, and the A\-P\-I code. We provide the option to build the entire benchmark in a single source. The \hyperlink{bmconfig_8hpp}{bmconfig.\-hpp} include defines all of the important functions that are implemented in this file, and \hyperlink{bmharness_8cpp}{bmharness.\-cpp} defines the execution infrastructure. Step 2\-: Declare the data type that will be stress tested via this benchmark. Also provide any functions that will be needed to manipulate the data type. Take care to avoid unnecessary indirection. N\-B\-: special case here, because icc doesn't like combination of noinline and header definitions.
+
+do some reads only... bool return type to keep it from being optimized out 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{structDisjoint_ac740b0c2eb2b55099ce7614a0d69f4ff_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structDisjoint_acfc6dad8c41eb41ba711f907b6be98d3}{\index{Disjoint@{Disjoint}!B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T@{B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T}}
+\index{B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T@{B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T}!Disjoint@{Disjoint}}
+\subsubsection[{B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned Disjoint\-::\-B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T = 256\hspace{0.3cm}{\ttfamily [static]}}}\label{structDisjoint_acfc6dad8c41eb41ba711f907b6be98d3}
+\hypertarget{structDisjoint_a3514072cfe176cf5953ee3a7444a3c7c}{\index{Disjoint@{Disjoint}!D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!Disjoint@{Disjoint}}
+\subsubsection[{D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned Disjoint\-::\-D\-J\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E = 1009\hspace{0.3cm}{\ttfamily [static]}}}\label{structDisjoint_a3514072cfe176cf5953ee3a7444a3c7c}
+\hypertarget{structDisjoint_aa144f54b8724bb1e00b1715ebce8d7f2}{\index{Disjoint@{Disjoint}!locations\-\_\-per\-\_\-transaction@{locations\-\_\-per\-\_\-transaction}}
+\index{locations\-\_\-per\-\_\-transaction@{locations\-\_\-per\-\_\-transaction}!Disjoint@{Disjoint}}
+\subsubsection[{locations\-\_\-per\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Disjoint\-::locations\-\_\-per\-\_\-transaction}}\label{structDisjoint_aa144f54b8724bb1e00b1715ebce8d7f2}
+\hypertarget{structDisjoint_ac7ea93b748d1fbfd37086d5060df651b}{\index{Disjoint@{Disjoint}!private\-Buffers@{private\-Buffers}}
+\index{private\-Buffers@{private\-Buffers}!Disjoint@{Disjoint}}
+\subsubsection[{private\-Buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Padded\-Buffer} Disjoint\-::private\-Buffers\mbox{[}{\bf B\-U\-F\-F\-E\-R\-\_\-\-C\-O\-U\-N\-T}\mbox{]}}}\label{structDisjoint_ac7ea93b748d1fbfd37086d5060df651b}
+\hypertarget{structDisjoint_ae391e9de469259ffa06f1a680fa7ba97}{\index{Disjoint@{Disjoint}!public\-Buffer@{public\-Buffer}}
+\index{public\-Buffer@{public\-Buffer}!Disjoint@{Disjoint}}
+\subsubsection[{public\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Padded\-Buffer} Disjoint\-::public\-Buffer}}\label{structDisjoint_ae391e9de469259ffa06f1a680fa7ba97}
+\hypertarget{structDisjoint_a4df2467d5cad8cd5aca6726d1565bd0e}{\index{Disjoint@{Disjoint}!reads\-\_\-per\-\_\-ten@{reads\-\_\-per\-\_\-ten}}
+\index{reads\-\_\-per\-\_\-ten@{reads\-\_\-per\-\_\-ten}!Disjoint@{Disjoint}}
+\subsubsection[{reads\-\_\-per\-\_\-ten}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Disjoint\-::reads\-\_\-per\-\_\-ten}}\label{structDisjoint_a4df2467d5cad8cd5aca6726d1565bd0e}
+\hypertarget{structDisjoint_ae06e538e8e6d7880a7db67d6d6d610df}{\index{Disjoint@{Disjoint}!use\-\_\-shared\-\_\-read\-\_\-buffer@{use\-\_\-shared\-\_\-read\-\_\-buffer}}
+\index{use\-\_\-shared\-\_\-read\-\_\-buffer@{use\-\_\-shared\-\_\-read\-\_\-buffer}!Disjoint@{Disjoint}}
+\subsubsection[{use\-\_\-shared\-\_\-read\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}bool Disjoint\-::use\-\_\-shared\-\_\-read\-\_\-buffer}}\label{structDisjoint_ae06e538e8e6d7880a7db67d6d6d610df}
+\hypertarget{structDisjoint_a1c463cc08d167c5706612e8884827d70}{\index{Disjoint@{Disjoint}!writes\-\_\-per\-\_\-ten@{writes\-\_\-per\-\_\-ten}}
+\index{writes\-\_\-per\-\_\-ten@{writes\-\_\-per\-\_\-ten}!Disjoint@{Disjoint}}
+\subsubsection[{writes\-\_\-per\-\_\-ten}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Disjoint\-::writes\-\_\-per\-\_\-ten}}\label{structDisjoint_a1c463cc08d167c5706612e8884827d70}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/bench/\hyperlink{Disjoint_8hpp}{Disjoint.\-hpp}\item 
+rstm/rstm-\/dev/bench/\hyperlink{DisjointBench_8cpp}{Disjoint\-Bench.\-cpp}\end{DoxyCompactItemize}

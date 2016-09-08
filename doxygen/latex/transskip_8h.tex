@@ -1,0 +1,226 @@
+\hypertarget{transskip_8h}{\section{translink/skiplist/transskip.h File Reference}
+\label{transskip_8h}\index{translink/skiplist/transskip.\-h@{translink/skiplist/transskip.\-h}}
+}
+{\ttfamily \#include $<$cstdint$>$}\\*
+{\ttfamily \#include \char`\"{}common/assert.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/allocator.\-h\char`\"{}}\\*
+Include dependency graph for transskip.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{transskip_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structOperator}{Operator}
+\item 
+struct \hyperlink{structDesc}{Desc}
+\item 
+struct \hyperlink{structNodeDesc}{Node\-Desc}
+\item 
+struct \hyperlink{structnode__t}{node\-\_\-t}
+\item 
+struct \hyperlink{structtrans__skip}{trans\-\_\-skip}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{transskip_8h_aa71742aab7060a6a1c9c74ad558c0128}{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}~0x0ff
+\item 
+\#define \hyperlink{transskip_8h_aa446fba61d38f15700f9bb749aaee7c9}{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}~0x100
+\item 
+\#define \hyperlink{transskip_8h_abb8c86e32129f8b885048ae34eb352b3}{K\-E\-Y\-\_\-\-M\-I\-N}~( 0\-U)
+\item 
+\#define \hyperlink{transskip_8h_a609683a0c8de0ce9cdd1e696e71a6f07}{K\-E\-Y\-\_\-\-M\-A\-X}~(($\sim$0\-U) -\/ 3)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned long \hyperlink{transskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t}
+\item 
+typedef void $\ast$ \hyperlink{transskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{transskip_8h_a45613be712b23cdba5b2f588f2c2e244}{init\-\_\-transskip\-\_\-subsystem} (void)
+\item 
+void \hyperlink{transskip_8h_aae78ecc87cdfcfb8093d7b980fdab301}{destroy\-\_\-transskip\-\_\-subsystem} (void)
+\item 
+bool \hyperlink{transskip_8h_ab9c29316cb91737b6c383818ff700dd0}{execute\-\_\-ops} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{structDesc}{Desc} $\ast$desc)
+\item 
+\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$ \hyperlink{transskip_8h_aca5b2ecf6dbd28c51a830b02e2b12911}{transskip\-\_\-alloc} (\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structDesc}{Desc} $>$ $\ast$\-\_\-desc\-Allocator, \hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structNodeDesc}{Node\-Desc} $>$ $\ast$\-\_\-node\-Desc\-Allocator)
+\item 
+void \hyperlink{transskip_8h_a4b81d9a45ece4bd0ae969d39798a6a3f}{transskip\-\_\-free} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{transskip_8h_a609683a0c8de0ce9cdd1e696e71a6f07}{\index{transskip.\-h@{transskip.\-h}!K\-E\-Y\-\_\-\-M\-A\-X@{K\-E\-Y\-\_\-\-M\-A\-X}}
+\index{K\-E\-Y\-\_\-\-M\-A\-X@{K\-E\-Y\-\_\-\-M\-A\-X}!transskip.h@{transskip.\-h}}
+\subsubsection[{K\-E\-Y\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-E\-Y\-\_\-\-M\-A\-X~(($\sim$0\-U) -\/ 3)}}\label{transskip_8h_a609683a0c8de0ce9cdd1e696e71a6f07}
+\hypertarget{transskip_8h_abb8c86e32129f8b885048ae34eb352b3}{\index{transskip.\-h@{transskip.\-h}!K\-E\-Y\-\_\-\-M\-I\-N@{K\-E\-Y\-\_\-\-M\-I\-N}}
+\index{K\-E\-Y\-\_\-\-M\-I\-N@{K\-E\-Y\-\_\-\-M\-I\-N}!transskip.h@{transskip.\-h}}
+\subsubsection[{K\-E\-Y\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-E\-Y\-\_\-\-M\-I\-N~( 0\-U)}}\label{transskip_8h_abb8c86e32129f8b885048ae34eb352b3}
+\hypertarget{transskip_8h_aa71742aab7060a6a1c9c74ad558c0128}{\index{transskip.\-h@{transskip.\-h}!L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K@{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}}
+\index{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K@{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}!transskip.h@{transskip.\-h}}
+\subsubsection[{L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-V\-E\-L\-\_\-\-M\-A\-S\-K~0x0ff}}\label{transskip_8h_aa71742aab7060a6a1c9c74ad558c0128}
+\hypertarget{transskip_8h_aa446fba61d38f15700f9bb749aaee7c9}{\index{transskip.\-h@{transskip.\-h}!R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E@{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}}
+\index{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E@{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}!transskip.h@{transskip.\-h}}
+\subsubsection[{R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-Y\-\_\-\-F\-O\-R\-\_\-\-F\-R\-E\-E~0x100}}\label{transskip_8h_aa446fba61d38f15700f9bb749aaee7c9}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{transskip_8h_a3945a06384f87c28e0642d51b0524e92}{\index{transskip.\-h@{transskip.\-h}!setkey\-\_\-t@{setkey\-\_\-t}}
+\index{setkey\-\_\-t@{setkey\-\_\-t}!transskip.h@{transskip.\-h}}
+\subsubsection[{setkey\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf setkey\-\_\-t}}}\label{transskip_8h_a3945a06384f87c28e0642d51b0524e92}
+\hypertarget{transskip_8h_a07e25227a67b4e708996b09fd575408b}{\index{transskip.\-h@{transskip.\-h}!setval\-\_\-t@{setval\-\_\-t}}
+\index{setval\-\_\-t@{setval\-\_\-t}!transskip.h@{transskip.\-h}}
+\subsubsection[{setval\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ {\bf setval\-\_\-t}}}\label{transskip_8h_a07e25227a67b4e708996b09fd575408b}
+
+
+\subsection{Function Documentation}
+\hypertarget{transskip_8h_aae78ecc87cdfcfb8093d7b980fdab301}{\index{transskip.\-h@{transskip.\-h}!destroy\-\_\-transskip\-\_\-subsystem@{destroy\-\_\-transskip\-\_\-subsystem}}
+\index{destroy\-\_\-transskip\-\_\-subsystem@{destroy\-\_\-transskip\-\_\-subsystem}!transskip.h@{transskip.\-h}}
+\subsubsection[{destroy\-\_\-transskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\-\_\-transskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{transskip_8h_aae78ecc87cdfcfb8093d7b980fdab301}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8h_aae78ecc87cdfcfb8093d7b980fdab301_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8h_aae78ecc87cdfcfb8093d7b980fdab301_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8h_ab9c29316cb91737b6c383818ff700dd0}{\index{transskip.\-h@{transskip.\-h}!execute\-\_\-ops@{execute\-\_\-ops}}
+\index{execute\-\_\-ops@{execute\-\_\-ops}!transskip.h@{transskip.\-h}}
+\subsubsection[{execute\-\_\-ops}]{\setlength{\rightskip}{0pt plus 5cm}bool execute\-\_\-ops (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}}\label{transskip_8h_ab9c29316cb91737b6c383818ff700dd0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8h_ab9c29316cb91737b6c383818ff700dd0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{transskip_8h_ab9c29316cb91737b6c383818ff700dd0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8h_a45613be712b23cdba5b2f588f2c2e244}{\index{transskip.\-h@{transskip.\-h}!init\-\_\-transskip\-\_\-subsystem@{init\-\_\-transskip\-\_\-subsystem}}
+\index{init\-\_\-transskip\-\_\-subsystem@{init\-\_\-transskip\-\_\-subsystem}!transskip.h@{transskip.\-h}}
+\subsubsection[{init\-\_\-transskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-transskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{transskip_8h_a45613be712b23cdba5b2f588f2c2e244}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8h_a45613be712b23cdba5b2f588f2c2e244_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8h_a45613be712b23cdba5b2f588f2c2e244_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8h_aca5b2ecf6dbd28c51a830b02e2b12911}{\index{transskip.\-h@{transskip.\-h}!transskip\-\_\-alloc@{transskip\-\_\-alloc}}
+\index{transskip\-\_\-alloc@{transskip\-\_\-alloc}!transskip.h@{transskip.\-h}}
+\subsubsection[{transskip\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf trans\-\_\-skip}$\ast$ transskip\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf Allocator}$<$ {\bf Desc} $>$ $\ast$}]{\-\_\-desc\-Allocator, }
+\item[{{\bf Allocator}$<$ {\bf Node\-Desc} $>$ $\ast$}]{\-\_\-node\-Desc\-Allocator}
+\end{DoxyParamCaption}
+)}}\label{transskip_8h_aca5b2ecf6dbd28c51a830b02e2b12911}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{transskip_8h_aca5b2ecf6dbd28c51a830b02e2b12911_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8h_a4b81d9a45ece4bd0ae969d39798a6a3f}{\index{transskip.\-h@{transskip.\-h}!transskip\-\_\-free@{transskip\-\_\-free}}
+\index{transskip\-\_\-free@{transskip\-\_\-free}!transskip.h@{transskip.\-h}}
+\subsubsection[{transskip\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void transskip\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{transskip_8h_a4b81d9a45ece4bd0ae969d39798a6a3f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{transskip_8h_a4b81d9a45ece4bd0ae969d39798a6a3f_icgraph}
+\end{center}
+\end{figure}
+
+

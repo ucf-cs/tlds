@@ -1,0 +1,52 @@
+\hypertarget{byteeager_8cpp}{\section{rstm/rstm-\/dev/libstm/algs/byteeager.cpp File Reference}
+\label{byteeager_8cpp}\index{rstm/rstm-\/dev/libstm/algs/byteeager.\-cpp@{rstm/rstm-\/dev/libstm/algs/byteeager.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}../profiling.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs.\-hpp\char`\"{}}\\*
+Include dependency graph for byteeager.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{byteeager_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02byteeager_8cpp_03_1_1ByteEager}{anonymous\-\_\-namespace\{byteeager.\-cpp\}\-::\-Byte\-Eager}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02byteeager_8cpp_03}{anonymous\-\_\-namespace\{byteeager.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{byteeager_8cpp_a18e13c9ac88403c42395bb0af487eb2d}{R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T}~32
+\item 
+\#define \hyperlink{byteeager_8cpp_ad3380960079cfcb4512550d61dc42404}{A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}~128
+\item 
+\#define \hyperlink{byteeager_8cpp_a4cd4798cadcb203af82bbcb206a46175}{D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}~256
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a8eb056d129b487626f62873c35b1b1fb}{stm\-::init\-T\-M$<$ Byte\-Eager $>$} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{byteeager_8cpp_ad3380960079cfcb4512550d61dc42404}{\index{byteeager.\-cpp@{byteeager.\-cpp}!A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T@{A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T@{A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}!byteeager.cpp@{byteeager.\-cpp}}
+\subsubsection[{A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-Q\-U\-I\-R\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T~128}}\label{byteeager_8cpp_ad3380960079cfcb4512550d61dc42404}
+\hypertarget{byteeager_8cpp_a4cd4798cadcb203af82bbcb206a46175}{\index{byteeager.\-cpp@{byteeager.\-cpp}!D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T@{D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T@{D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}!byteeager.cpp@{byteeager.\-cpp}}
+\subsubsection[{D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-R\-A\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T~256}}\label{byteeager_8cpp_a4cd4798cadcb203af82bbcb206a46175}
+\hypertarget{byteeager_8cpp_a18e13c9ac88403c42395bb0af487eb2d}{\index{byteeager.\-cpp@{byteeager.\-cpp}!R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T@{R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T@{R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T}!byteeager.cpp@{byteeager.\-cpp}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-T\-I\-M\-E\-O\-U\-T~32}}\label{byteeager_8cpp_a18e13c9ac88403c42395bb0af487eb2d}
+These defines are for tuning backoff behavior 

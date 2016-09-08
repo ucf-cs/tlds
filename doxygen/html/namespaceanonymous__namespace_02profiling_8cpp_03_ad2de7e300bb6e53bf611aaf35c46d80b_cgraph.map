@@ -1,0 +1,20 @@
+<map id="anonymous_namespace{profiling::cpp}::collect_profiles" name="anonymous_namespace{profiling::cpp}::collect_profiles">
+<area shape="rect" id="node2" href="$namespacestm.html#a347d5009be494e8595a8933c49a342b4" title="stm::begin_blocker" alt="" coords="223,168,355,195"/>
+<area shape="rect" id="node18" href="$locks_8hpp.html#a67493dc021b0db009a9603ea55d18c59" title="spin64" alt="" coords="465,219,525,245"/>
+<area shape="rect" id="node19" href="$namespacestm.html#a0af46d85108438d0b413d5c5d380d03f" title="stm::install_algorithm" alt="" coords="216,269,363,296"/>
+<area shape="rect" id="node3" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#a5f2e3da55eda99c9e30b6314c36ed8b2" title="anonymous_namespace\l\{irrevocability::cpp\}\l::set_irrevocable_barriers" alt="" coords="411,139,579,195"/>
+<area shape="rect" id="node4" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#af9e6aae425588bac29be16e10b91cd4c" title="anonymous_namespace\l\{irrevocability::cpp\}\l::commit_irrevocable" alt="" coords="627,59,789,115"/>
+<area shape="rect" id="node15" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#adfdb44f5b204ddd367543d1e3a5465fc" title="anonymous_namespace\l\{irrevocability::cpp\}\l::rollback_irrevocable" alt="" coords="627,139,789,195"/>
+<area shape="rect" id="node17" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#ac71fd4f2ae60b1814ccaedea40d424a2" title="anonymous_namespace\l\{irrevocability::cpp\}\l::abort_irrevocable" alt="" coords="627,219,789,275"/>
+<area shape="rect" id="node5" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#ab42770392de26e3b0bc1ffbe2f7932b8" title="anonymous_namespace\l\{irrevocability::cpp\}\l::unset_irrevocable_barriers" alt="" coords="838,31,1021,87"/>
+<area shape="rect" id="node6" href="$namespacestm.html#a00287c50a719dcda144cc1cbc9e9ae4b" title="stm::OnReadOnlyCommit" alt="" coords="843,111,1016,137"/>
+<area shape="rect" id="node7" href="$classstm_1_1WBMMPolicy.html#af174b70b9898c8d900a5a2604cfadc7c" title="stm::WBMMPolicy::onTxCommit" alt="" coords="1070,85,1285,112"/>
+<area shape="rect" id="node14" href="$structstm_1_1toxic__nop__t.html#a1c92cb621137c523ad38b9c252b4da06" title="stm::toxic_nop_t::onCommit" alt="" coords="1084,136,1271,163"/>
+<area shape="rect" id="node8" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="1354,5,1507,32"/>
+<area shape="rect" id="node9" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="1359,56,1502,83"/>
+<area shape="rect" id="node10" href="$classstm_1_1WBMMPolicy.html#aa2aa233946e7b6b1d35b184503b8c9f9" title="stm::WBMMPolicy::schedFor\lReclaim" alt="" coords="1333,107,1528,149"/>
+<area shape="rect" id="node13" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="1355,173,1506,200"/>
+<area shape="rect" id="node11" href="$classstm_1_1WBMMPolicy.html#a80a035e5b8f805d49606613b869ddd3c" title="stm::WBMMPolicy::handle\l_full_prelimbo" alt="" coords="1576,107,1755,149"/>
+<area shape="rect" id="node12" href="$namespaceanonymous__namespace_02WBMMPolicy_8cpp_03.html#a030c6e9142fd49127ce70ad9b1af5e79" title="anonymous_namespace\l\{WBMMPolicy::cpp\}::is\l_strictly_older" alt="" coords="1803,100,1965,156"/>
+<area shape="rect" id="node16" href="$namespacestm.html#a51b2c0958e7709b39500d037648c461b" title="stm::UNRECOVERABLE" alt="" coords="843,183,1016,209"/>
+</map>

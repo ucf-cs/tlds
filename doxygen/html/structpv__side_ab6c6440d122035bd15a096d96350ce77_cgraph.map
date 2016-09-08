@@ -1,0 +1,12 @@
+<map id="pv_side::find_candidate" name="pv_side::find_candidate">
+<area shape="rect" id="node2" href="$point_8cpp.html#ae77890a7cdbacaf1b115d396c571bfda" title="extern_angle" alt="" coords="216,5,312,32"/>
+<area shape="rect" id="node3" href="$classedge.html#a528535c93e864fea104ca95de447b198" title="edge::index_of" alt="" coords="367,107,473,133"/>
+<area shape="rect" id="node4" href="$point_8cpp.html#a015cc895b4407d06a8c9b1e9155359ae" title="encircled" alt="" coords="227,56,301,83"/>
+<area shape="rect" id="node7" href="$classedge.html#a17a50641ad92dce62c3c8db8bf528ddc" title="edge::destroy" alt="" coords="213,157,315,184"/>
+<area shape="rect" id="node5" href="$point_8cpp.html#a0586855a04f97999cb91cca634421222" title="det4" alt="" coords="397,56,443,83"/>
+<area shape="rect" id="node6" href="$point_8cpp.html#a0fdafd56f3e289d97c15611bdbee0fec" title="det3" alt="" coords="543,56,590,83"/>
+<area shape="rect" id="node8" href="$classedge__set.html#a4cd26bf920c05e300c6856848870aeb9" title="edge_set::erase" alt="" coords="363,157,477,184"/>
+<area shape="rect" id="node9" href="$edge__set_8cpp.html#a04afedf3efb1930b4069d80cd6122ca9" title="segment" alt="" coords="531,183,603,209"/>
+<area shape="rect" id="node11" href="$classedge.html#a67b4470d9fae58c63a3a63765880cf58" title="edge::print" alt="" coords="525,132,608,159"/>
+<area shape="rect" id="node10" href="$point_8hpp.html#ac3affcd51103a7fafe2143a933683b30" title="bucket" alt="" coords="656,183,717,209"/>
+</map>

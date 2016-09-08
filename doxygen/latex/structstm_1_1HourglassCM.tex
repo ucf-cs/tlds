@@ -1,0 +1,115 @@
+\hypertarget{structstm_1_1HourglassCM}{\section{stm\-:\-:Hourglass\-C\-M Struct Reference}
+\label{structstm_1_1HourglassCM}\index{stm\-::\-Hourglass\-C\-M@{stm\-::\-Hourglass\-C\-M}}
+}
+
+
+{\ttfamily \#include $<$cm.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Hourglass\-C\-M\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{structstm_1_1HourglassCM__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1HourglassCM_a0e93052d8f3cffebfc3cf74c7fd155ae}{on\-Begin} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1HourglassCM_a313b22ffc9afaa3602f94dd7965f04ac}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1HourglassCM_a59dc57fa05c484b45bd4fb1772d9f425}{on\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static bool \hyperlink{structstm_1_1HourglassCM_a6677b8b75089f65e5d6bfeeec006a979}{may\-Kill} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$, uint32\-\_\-t)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\-\_\-t \hyperlink{structstm_1_1HourglassCM_ae26eaa2287446ea7c80a60341f1748d1}{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hourglass C\-M\-: a concerned transaction serializes all execution 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1HourglassCM_a6677b8b75089f65e5d6bfeeec006a979}{\index{stm\-::\-Hourglass\-C\-M@{stm\-::\-Hourglass\-C\-M}!may\-Kill@{may\-Kill}}
+\index{may\-Kill@{may\-Kill}!stm::HourglassCM@{stm\-::\-Hourglass\-C\-M}}
+\subsubsection[{may\-Kill}]{\setlength{\rightskip}{0pt plus 5cm}static bool stm\-::\-Hourglass\-C\-M\-::may\-Kill (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HourglassCM_a6677b8b75089f65e5d6bfeeec006a979}
+During the transaction, always abort conflicting transactions \hypertarget{structstm_1_1HourglassCM_a313b22ffc9afaa3602f94dd7965f04ac}{\index{stm\-::\-Hourglass\-C\-M@{stm\-::\-Hourglass\-C\-M}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::HourglassCM@{stm\-::\-Hourglass\-C\-M}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Hourglass\-C\-M\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HourglassCM_a313b22ffc9afaa3602f94dd7965f04ac}
+On abort, get a timestamp if I exceed some threshold 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1HourglassCM_a313b22ffc9afaa3602f94dd7965f04ac_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1HourglassCM_a0e93052d8f3cffebfc3cf74c7fd155ae}{\index{stm\-::\-Hourglass\-C\-M@{stm\-::\-Hourglass\-C\-M}!on\-Begin@{on\-Begin}}
+\index{on\-Begin@{on\-Begin}!stm::HourglassCM@{stm\-::\-Hourglass\-C\-M}}
+\subsubsection[{on\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Hourglass\-C\-M\-::on\-Begin (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HourglassCM_a0e93052d8f3cffebfc3cf74c7fd155ae}
+On begin, block if there is a distinguished transaction 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1HourglassCM_a0e93052d8f3cffebfc3cf74c7fd155ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1HourglassCM_a59dc57fa05c484b45bd4fb1772d9f425}{\index{stm\-::\-Hourglass\-C\-M@{stm\-::\-Hourglass\-C\-M}!on\-Commit@{on\-Commit}}
+\index{on\-Commit@{on\-Commit}!stm::HourglassCM@{stm\-::\-Hourglass\-C\-M}}
+\subsubsection[{on\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Hourglass\-C\-M\-::on\-Commit (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1HourglassCM_a59dc57fa05c484b45bd4fb1772d9f425}
+On commit, release my timestamp 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1HourglassCM_a59dc57fa05c484b45bd4fb1772d9f425_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1HourglassCM_ae26eaa2287446ea7c80a60341f1748d1}{\index{stm\-::\-Hourglass\-C\-M@{stm\-::\-Hourglass\-C\-M}!A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}}
+\index{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}!stm::HourglassCM@{stm\-::\-Hourglass\-C\-M}}
+\subsubsection[{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-Hourglass\-C\-M\-::\-A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D = 2\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1HourglassCM_ae26eaa2287446ea7c80a60341f1748d1}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{cm_8hpp}{cm.\-hpp}\end{DoxyCompactItemize}

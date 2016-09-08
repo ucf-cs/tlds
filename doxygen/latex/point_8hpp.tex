@@ -1,0 +1,253 @@
+\hypertarget{point_8hpp}{\section{rstm/rstm-\/dev/mesh/point.hpp File Reference}
+\label{point_8hpp}\index{rstm/rstm-\/dev/mesh/point.\-hpp@{rstm/rstm-\/dev/mesh/point.\-hpp}}
+}
+{\ttfamily \#include $<$set$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-hpp\char`\"{}}\\*
+Include dependency graph for point.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{classpoint}{point}
+\item 
+struct \hyperlink{structeq__point}{eq\-\_\-point}
+\item 
+struct \hyperlink{structlt__point}{lt\-\_\-point}
+\item 
+struct \hyperlink{structhash__point}{hash\-\_\-point}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} int \hyperlink{point_8hpp_ac3affcd51103a7fafe2143a933683b30}{bucket} (const \hyperlink{classpoint}{point} $\ast$const \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+int \hyperlink{point_8hpp_a6962f569d8e79eaa58af0081e5f717ff}{stripe} (const \hyperlink{classpoint}{point} $\ast$const \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} int \hyperlink{point_8hpp_aa9b83c6c0cd506e8f62420ce41d7c5ac}{closest\-\_\-seam} (const \hyperlink{classpoint}{point} $\ast$const \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} bool \hyperlink{point_8hpp_adc5a37ca463ce316961d084c335b2f1b}{encircled} (const \hyperlink{classpoint}{point} $\ast$A, const \hyperlink{classpoint}{point} $\ast$B, const \hyperlink{classpoint}{point} $\ast$C, const \hyperlink{classpoint}{point} $\ast$D, const int dir)
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} bool \hyperlink{point_8hpp_a7675551f230aeac50cfaa1c22f9067ac}{extern\-\_\-angle} (const \hyperlink{classpoint}{point} $\ast$p1, const \hyperlink{classpoint}{point} $\ast$p2, const \hyperlink{classpoint}{point} $\ast$p3, const int dir)
+\item 
+void \hyperlink{point_8hpp_aaff3532e0132a077bf3099417a9f2619}{create\-\_\-points} (const int \hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{point_8hpp_aea75dd10e09d2d3eb69ed47e48cf81dc}{xdim} = 0
+\item 
+static const int \hyperlink{point_8hpp_ae4edf59451b5b93478325e260849c564}{ydim} = 1
+\item 
+static const int \hyperlink{point_8hpp_a29bf1d2c52baea58c373374f9c22f7e7}{ccw} = 0
+\item 
+static const int \hyperlink{point_8hpp_af117093a1decb42e2ad421797392a96d}{cw} = 1
+\item 
+static const int \hyperlink{point_8hpp_a3142b9f43568be70740a8667e01aeb98}{M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S} = 24
+\item 
+\hyperlink{classpoint}{point} $\ast$ \hyperlink{point_8hpp_a0605a8c090d14e0ccb26952ff98a62b4}{all\-\_\-points}
+\item 
+int \hyperlink{point_8hpp_af33df3714f85b957677ea97464f12aaa}{min\-\_\-coord} \mbox{[}$\,$\mbox{]}
+\item 
+int \hyperlink{point_8hpp_a6f7bd4a2dba274cd433c751499c514b6}{max\-\_\-coord} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{point_8hpp_ac3affcd51103a7fafe2143a933683b30}{\index{point.\-hpp@{point.\-hpp}!bucket@{bucket}}
+\index{bucket@{bucket}!point.hpp@{point.\-hpp}}
+\subsubsection[{bucket}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} int bucket (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$const}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{point_8hpp_ac3affcd51103a7fafe2143a933683b30}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8hpp_ac3affcd51103a7fafe2143a933683b30_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8hpp_aa9b83c6c0cd506e8f62420ce41d7c5ac}{\index{point.\-hpp@{point.\-hpp}!closest\-\_\-seam@{closest\-\_\-seam}}
+\index{closest\-\_\-seam@{closest\-\_\-seam}!point.hpp@{point.\-hpp}}
+\subsubsection[{closest\-\_\-seam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} int closest\-\_\-seam (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$const}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{point_8hpp_aa9b83c6c0cd506e8f62420ce41d7c5ac}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{point_8hpp_aa9b83c6c0cd506e8f62420ce41d7c5ac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8hpp_aa9b83c6c0cd506e8f62420ce41d7c5ac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8hpp_aaff3532e0132a077bf3099417a9f2619}{\index{point.\-hpp@{point.\-hpp}!create\-\_\-points@{create\-\_\-points}}
+\index{create\-\_\-points@{create\-\_\-points}!point.hpp@{point.\-hpp}}
+\subsubsection[{create\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}void create\-\_\-points (
+\begin{DoxyParamCaption}
+\item[{const int}]{seed}
+\end{DoxyParamCaption}
+)}}\label{point_8hpp_aaff3532e0132a077bf3099417a9f2619}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{point_8hpp_aaff3532e0132a077bf3099417a9f2619_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8hpp_adc5a37ca463ce316961d084c335b2f1b}{\index{point.\-hpp@{point.\-hpp}!encircled@{encircled}}
+\index{encircled@{encircled}!point.hpp@{point.\-hpp}}
+\subsubsection[{encircled}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} bool encircled (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$}]{A, }
+\item[{const {\bf point} $\ast$}]{B, }
+\item[{const {\bf point} $\ast$}]{C, }
+\item[{const {\bf point} $\ast$}]{D, }
+\item[{const int}]{dir}
+\end{DoxyParamCaption}
+)}}\label{point_8hpp_adc5a37ca463ce316961d084c335b2f1b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{point_8hpp_adc5a37ca463ce316961d084c335b2f1b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8hpp_adc5a37ca463ce316961d084c335b2f1b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8hpp_a7675551f230aeac50cfaa1c22f9067ac}{\index{point.\-hpp@{point.\-hpp}!extern\-\_\-angle@{extern\-\_\-angle}}
+\index{extern\-\_\-angle@{extern\-\_\-angle}!point.hpp@{point.\-hpp}}
+\subsubsection[{extern\-\_\-angle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} bool extern\-\_\-angle (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$}]{p1, }
+\item[{const {\bf point} $\ast$}]{p2, }
+\item[{const {\bf point} $\ast$}]{p3, }
+\item[{const int}]{dir}
+\end{DoxyParamCaption}
+)}}\label{point_8hpp_a7675551f230aeac50cfaa1c22f9067ac}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point_8hpp_a7675551f230aeac50cfaa1c22f9067ac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{point_8hpp_a6962f569d8e79eaa58af0081e5f717ff}{\index{point.\-hpp@{point.\-hpp}!stripe@{stripe}}
+\index{stripe@{stripe}!point.hpp@{point.\-hpp}}
+\subsubsection[{stripe}]{\setlength{\rightskip}{0pt plus 5cm}int stripe (
+\begin{DoxyParamCaption}
+\item[{const {\bf point} $\ast$const}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{point_8hpp_a6962f569d8e79eaa58af0081e5f717ff}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{point_8hpp_a6962f569d8e79eaa58af0081e5f717ff_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{point_8hpp_a6962f569d8e79eaa58af0081e5f717ff_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{point_8hpp_a0605a8c090d14e0ccb26952ff98a62b4}{\index{point.\-hpp@{point.\-hpp}!all\-\_\-points@{all\-\_\-points}}
+\index{all\-\_\-points@{all\-\_\-points}!point.hpp@{point.\-hpp}}
+\subsubsection[{all\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point}$\ast$ all\-\_\-points}}\label{point_8hpp_a0605a8c090d14e0ccb26952ff98a62b4}
+\hypertarget{point_8hpp_a29bf1d2c52baea58c373374f9c22f7e7}{\index{point.\-hpp@{point.\-hpp}!ccw@{ccw}}
+\index{ccw@{ccw}!point.hpp@{point.\-hpp}}
+\subsubsection[{ccw}]{\setlength{\rightskip}{0pt plus 5cm}const int ccw = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8hpp_a29bf1d2c52baea58c373374f9c22f7e7}
+\hypertarget{point_8hpp_af117093a1decb42e2ad421797392a96d}{\index{point.\-hpp@{point.\-hpp}!cw@{cw}}
+\index{cw@{cw}!point.hpp@{point.\-hpp}}
+\subsubsection[{cw}]{\setlength{\rightskip}{0pt plus 5cm}const int cw = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8hpp_af117093a1decb42e2ad421797392a96d}
+\hypertarget{point_8hpp_a6f7bd4a2dba274cd433c751499c514b6}{\index{point.\-hpp@{point.\-hpp}!max\-\_\-coord@{max\-\_\-coord}}
+\index{max\-\_\-coord@{max\-\_\-coord}!point.hpp@{point.\-hpp}}
+\subsubsection[{max\-\_\-coord}]{\setlength{\rightskip}{0pt plus 5cm}int max\-\_\-coord\mbox{[}$\,$\mbox{]}}}\label{point_8hpp_a6f7bd4a2dba274cd433c751499c514b6}
+\hypertarget{point_8hpp_a3142b9f43568be70740a8667e01aeb98}{\index{point.\-hpp@{point.\-hpp}!M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S@{M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S}}
+\index{M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S@{M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S}!point.hpp@{point.\-hpp}}
+\subsubsection[{M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}const int M\-A\-X\-\_\-\-C\-O\-O\-R\-D\-\_\-\-B\-I\-T\-S = 24\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8hpp_a3142b9f43568be70740a8667e01aeb98}
+\hypertarget{point_8hpp_af33df3714f85b957677ea97464f12aaa}{\index{point.\-hpp@{point.\-hpp}!min\-\_\-coord@{min\-\_\-coord}}
+\index{min\-\_\-coord@{min\-\_\-coord}!point.hpp@{point.\-hpp}}
+\subsubsection[{min\-\_\-coord}]{\setlength{\rightskip}{0pt plus 5cm}int min\-\_\-coord\mbox{[}$\,$\mbox{]}}}\label{point_8hpp_af33df3714f85b957677ea97464f12aaa}
+\hypertarget{point_8hpp_aea75dd10e09d2d3eb69ed47e48cf81dc}{\index{point.\-hpp@{point.\-hpp}!xdim@{xdim}}
+\index{xdim@{xdim}!point.hpp@{point.\-hpp}}
+\subsubsection[{xdim}]{\setlength{\rightskip}{0pt plus 5cm}const int xdim = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8hpp_aea75dd10e09d2d3eb69ed47e48cf81dc}
+\hypertarget{point_8hpp_ae4edf59451b5b93478325e260849c564}{\index{point.\-hpp@{point.\-hpp}!ydim@{ydim}}
+\index{ydim@{ydim}!point.hpp@{point.\-hpp}}
+\subsubsection[{ydim}]{\setlength{\rightskip}{0pt plus 5cm}const int ydim = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{point_8hpp_ae4edf59451b5b93478325e260849c564}

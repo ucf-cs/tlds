@@ -1,0 +1,7 @@
+<map id="Timer::ToString" name="Timer::ToString">
+<area shape="rect" id="node2" href="$classTime.html#a3e26dce6c11e2c9817c973f03a9a6f1e" title="Time::ToString" alt="" coords="179,5,287,32"/>
+<area shape="rect" id="node3" href="$classTimer.html#a587790d9ce5c034e9b36984813e1e605" title="Timer::ElapsedCpu" alt="" coords="166,56,301,83"/>
+<area shape="rect" id="node5" href="$classTimer.html#a4c1956ab933185eb2c64168ff8805c8e" title="Timer::ElapsedWall" alt="" coords="165,107,301,133"/>
+<area shape="rect" id="node4" href="$classTime.html#ad5144f12e23805225735ab695f38f069" title="Time::GetCpuTime" alt="" coords="351,56,484,83"/>
+<area shape="rect" id="node6" href="$classTime.html#a508ab252117d5c378fcc33d0644d56d0" title="Time::GetWallTime" alt="" coords="350,107,485,133"/>
+</map>

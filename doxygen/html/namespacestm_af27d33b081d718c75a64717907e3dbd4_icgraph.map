@@ -1,0 +1,5 @@
+<map id="stm::exp_backoff" name="stm::exp_backoff">
+<area shape="rect" id="node2" href="$structanonymous__namespace_02swiss_8cpp_03_1_1Swiss.html#a911d79b2c722b891f4bc66b87d9351f3" title="anonymous_namespace\l\{swiss::cpp\}::Swiss\l::cm_on_rollback" alt="" coords="184,5,347,61"/>
+<area shape="rect" id="node3" href="$structstm_1_1BackoffCM.html#af553f755ae5d32b484866638953af24f" title="stm::BackoffCM::onAbort" alt="" coords="180,85,351,112"/>
+<area shape="rect" id="node4" href="$structstm_1_1HourglassBackoffCM.html#a1a879f779ff65d8d3d2d0ae3a15088b7" title="stm::HourglassBackoffCM\l::onAbort" alt="" coords="177,137,354,178"/>
+</map>

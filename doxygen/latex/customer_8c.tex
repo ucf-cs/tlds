@@ -1,0 +1,174 @@
+\hypertarget{customer_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/vacation/customer.c File Reference}
+\label{customer_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/customer.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/customer.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}customer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}memory.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}reservation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for customer.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{customer_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static long \hyperlink{customer_8c_ac0e23ff2629d212a6e62cb8461a776ea}{compare\-Reservation\-Info} (const void $\ast$a\-Ptr, const void $\ast$b\-Ptr)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{customer_8c_aa2bd7e7406574d18072149f82dbb3cc6}{T\-Mcompare\-Reservation\-Info} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$a\-Ptr, const void $\ast$b\-Ptr)
+\item 
+\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$ \hyperlink{customer_8c_a160b4a3245314a9cf0bb31a494d69c17}{customer\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long id)
+\item 
+\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$ \hyperlink{customer_8c_a977a1905b51f19c2b024776bcad52548}{customer\-\_\-alloc\-\_\-seq} (long id)
+\item 
+long \hyperlink{customer_8c_a2238e1e89569ac40e2db682fcc79594f}{customer\-\_\-compare} (\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$a\-Ptr, \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$b\-Ptr)
+\item 
+void \hyperlink{customer_8c_a9d69f892ea7f3c96b1c8504208280a35}{customer\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{customer_8c_ac02af1c31aa3b5d67c3d9e8f0f168c32}{customer\-\_\-add\-Reservation\-Info} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr, \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t} type, long id, long price)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{customer_8c_a881b19470ced684cfd1f0a34ab05e49f}{customer\-\_\-remove\-Reservation\-Info} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr, \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t} type, long id)
+\item 
+long \hyperlink{customer_8c_a78a9560570e4b72966a68eabee2cf6ad}{customer\-\_\-get\-Bill} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} \\*
+customer\-\_\-comparereservationinfo \& \hyperlink{customer_8c_a0b4bba676909bd425cd2ee0ce5d42d5f}{compare\-Reservation\-Info}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{customer_8c_ac0e23ff2629d212a6e62cb8461a776ea}{\index{customer.\-c@{customer.\-c}!compare\-Reservation\-Info@{compare\-Reservation\-Info}}
+\index{compare\-Reservation\-Info@{compare\-Reservation\-Info}!customer.c@{customer.\-c}}
+\subsubsection[{compare\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}static long compare\-Reservation\-Info (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{a\-Ptr, }
+\item[{const void $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{customer_8c_ac0e23ff2629d212a6e62cb8461a776ea}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{customer_8c_ac0e23ff2629d212a6e62cb8461a776ea_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{customer_8c_ac02af1c31aa3b5d67c3d9e8f0f168c32}{\index{customer.\-c@{customer.\-c}!customer\-\_\-add\-Reservation\-Info@{customer\-\_\-add\-Reservation\-Info}}
+\index{customer\-\_\-add\-Reservation\-Info@{customer\-\_\-add\-Reservation\-Info}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-add\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} customer\-\_\-add\-Reservation\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr, }
+\item[{{\bf reservation\-\_\-type\-\_\-t}}]{type, }
+\item[{long}]{id, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_ac02af1c31aa3b5d67c3d9e8f0f168c32}
+\hypertarget{customer_8c_a160b4a3245314a9cf0bb31a494d69c17}{\index{customer.\-c@{customer.\-c}!customer\-\_\-alloc@{customer\-\_\-alloc}}
+\index{customer\-\_\-alloc@{customer\-\_\-alloc}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf customer\-\_\-t}$\ast$ customer\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{id}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_a160b4a3245314a9cf0bb31a494d69c17}
+\hypertarget{customer_8c_a977a1905b51f19c2b024776bcad52548}{\index{customer.\-c@{customer.\-c}!customer\-\_\-alloc\-\_\-seq@{customer\-\_\-alloc\-\_\-seq}}
+\index{customer\-\_\-alloc\-\_\-seq@{customer\-\_\-alloc\-\_\-seq}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-alloc\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf customer\-\_\-t}$\ast$ customer\-\_\-alloc\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_a977a1905b51f19c2b024776bcad52548}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{customer_8c_a977a1905b51f19c2b024776bcad52548_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{customer_8c_a977a1905b51f19c2b024776bcad52548_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{customer_8c_a2238e1e89569ac40e2db682fcc79594f}{\index{customer.\-c@{customer.\-c}!customer\-\_\-compare@{customer\-\_\-compare}}
+\index{customer\-\_\-compare@{customer\-\_\-compare}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-compare}]{\setlength{\rightskip}{0pt plus 5cm}long customer\-\_\-compare (
+\begin{DoxyParamCaption}
+\item[{{\bf customer\-\_\-t} $\ast$}]{a\-Ptr, }
+\item[{{\bf customer\-\_\-t} $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_a2238e1e89569ac40e2db682fcc79594f}
+\hypertarget{customer_8c_a9d69f892ea7f3c96b1c8504208280a35}{\index{customer.\-c@{customer.\-c}!customer\-\_\-free@{customer\-\_\-free}}
+\index{customer\-\_\-free@{customer\-\_\-free}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void customer\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_a9d69f892ea7f3c96b1c8504208280a35}
+\hypertarget{customer_8c_a78a9560570e4b72966a68eabee2cf6ad}{\index{customer.\-c@{customer.\-c}!customer\-\_\-get\-Bill@{customer\-\_\-get\-Bill}}
+\index{customer\-\_\-get\-Bill@{customer\-\_\-get\-Bill}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-get\-Bill}]{\setlength{\rightskip}{0pt plus 5cm}long customer\-\_\-get\-Bill (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_a78a9560570e4b72966a68eabee2cf6ad}
+\hypertarget{customer_8c_a881b19470ced684cfd1f0a34ab05e49f}{\index{customer.\-c@{customer.\-c}!customer\-\_\-remove\-Reservation\-Info@{customer\-\_\-remove\-Reservation\-Info}}
+\index{customer\-\_\-remove\-Reservation\-Info@{customer\-\_\-remove\-Reservation\-Info}!customer.c@{customer.\-c}}
+\subsubsection[{customer\-\_\-remove\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} customer\-\_\-remove\-Reservation\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr, }
+\item[{{\bf reservation\-\_\-type\-\_\-t}}]{type, }
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}\label{customer_8c_a881b19470ced684cfd1f0a34ab05e49f}
+\hypertarget{customer_8c_aa2bd7e7406574d18072149f82dbb3cc6}{\index{customer.\-c@{customer.\-c}!T\-Mcompare\-Reservation\-Info@{T\-Mcompare\-Reservation\-Info}}
+\index{T\-Mcompare\-Reservation\-Info@{T\-Mcompare\-Reservation\-Info}!customer.c@{customer.\-c}}
+\subsubsection[{T\-Mcompare\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long T\-Mcompare\-Reservation\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$}]{a\-Ptr, }
+\item[{const void $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{customer_8c_aa2bd7e7406574d18072149f82dbb3cc6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{customer_8c_aa2bd7e7406574d18072149f82dbb3cc6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{customer_8c_a0b4bba676909bd425cd2ee0ce5d42d5f}{\index{customer.\-c@{customer.\-c}!compare\-Reservation\-Info@{compare\-Reservation\-Info}}
+\index{compare\-Reservation\-Info@{compare\-Reservation\-Info}!customer.c@{customer.\-c}}
+\subsubsection[{compare\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} customer\-\_\-comparereservationinfo\& compare\-Reservation\-Info}}\label{customer_8c_a0b4bba676909bd425cd2ee0ce5d42d5f}

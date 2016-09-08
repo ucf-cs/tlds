@@ -1,0 +1,85 @@
+\hypertarget{profileapp_8cpp}{\section{rstm/rstm-\/dev/libstm/algs/profileapp.cpp File Reference}
+\label{profileapp_8cpp}\index{rstm/rstm-\/dev/libstm/algs/profileapp.\-cpp@{rstm/rstm-\/dev/libstm/algs/profileapp.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}../profiling.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Redo\-R\-A\-W\-Utils.\-hpp\char`\"{}}\\*
+Include dependency graph for profileapp.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{profileapp_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02profileapp_8cpp_03_1_1ProfileApp}{anonymous\-\_\-namespace\{profileapp.\-cpp\}\-::\-Profile\-App$<$ C\-O\-U\-N\-T\-M\-O\-D\-E $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02profileapp_8cpp_03}{anonymous\-\_\-namespace\{profileapp.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{profileapp_8cpp_a438b925345a4d03528257da43ea1fba2}{\-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E}~1
+\item 
+\#define \hyperlink{profileapp_8cpp_a92dd51f8965fb436bbfe1b4cf6425bd8}{\-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M}~0
+\item 
+\#define \hyperlink{profileapp_8cpp_a89eb650442f6e12bb69841948ab6e419}{U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X}(x, y)~\hyperlink{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{if}((x) $>$ (y)) (y) = (x)
+\item 
+\#define \hyperlink{profileapp_8cpp_a27bc89753ca55d19f56c80026eb273fc}{F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}(M\-A\-C\-R\-O)
+\item 
+\#define \hyperlink{profileapp_8cpp_a97059975a23379ed86eb979c6b63a495}{I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}(I\-D, M\-O\-D\-E)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{profileapp_8cpp_a438b925345a4d03528257da43ea1fba2}{\index{profileapp.\-cpp@{profileapp.\-cpp}!\-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E@{\-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E}}
+\index{\-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E@{\-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E}!profileapp.cpp@{profileapp.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-A\-V\-E\-R\-A\-G\-E~1}}\label{profileapp_8cpp_a438b925345a4d03528257da43ea1fba2}
+\hypertarget{profileapp_8cpp_a92dd51f8965fb436bbfe1b4cf6425bd8}{\index{profileapp.\-cpp@{profileapp.\-cpp}!\-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M@{\-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M}}
+\index{\-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M@{\-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M}!profileapp.cpp@{profileapp.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-M\-A\-X\-I\-M\-U\-M~0}}\label{profileapp_8cpp_a92dd51f8965fb436bbfe1b4cf6425bd8}
+\hypertarget{profileapp_8cpp_a27bc89753ca55d19f56c80026eb273fc}{\index{profileapp.\-cpp@{profileapp.\-cpp}!F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P@{F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}}
+\index{F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P@{F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}!profileapp.cpp@{profileapp.\-cpp}}
+\subsubsection[{F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-R\-E\-A\-C\-H\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-C\-R\-O}
+\end{DoxyParamCaption}
+)}}\label{profileapp_8cpp_a27bc89753ca55d19f56c80026eb273fc}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac73c083e2ef3a57a9a67840033e76044}{ProfileAppAvg}, \hyperlink{profileapp_8cpp_a438b925345a4d03528257da43ea1fba2}{\_\_AVERAGE})      \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a948565b4c6ec1e7c01b488547a32fcad}{ProfileAppMax}, \hyperlink{profileapp_8cpp_a92dd51f8965fb436bbfe1b4cf6425bd8}{\_\_MAXIMUM})      \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a9c09be1c8e5f99a3dcb3bd4266069c42}{ProfileAppAll}, \hyperlink{profileapp_8cpp_a438b925345a4d03528257da43ea1fba2}{\_\_AVERAGE})
+\end{DoxyCode}
+\hypertarget{profileapp_8cpp_a97059975a23379ed86eb979c6b63a495}{\index{profileapp.\-cpp@{profileapp.\-cpp}!I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P@{I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}}
+\index{I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P@{I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}!profileapp.cpp@{profileapp.\-cpp}}
+\subsubsection[{I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-\_\-\-P\-R\-O\-F\-I\-L\-E\-A\-P\-P(
+\begin{DoxyParamCaption}
+\item[{}]{I\-D, }
+\item[{}]{M\-O\-D\-E}
+\end{DoxyParamCaption}
+)}}\label{profileapp_8cpp_a97059975a23379ed86eb979c6b63a495}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <>                                 \(\backslash\)
+    void initTM<ID>() \{                         \(\backslash\)
+        ProfileApp<MODE>::Initialize(ID, #ID);   \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{profileapp_8cpp_a89eb650442f6e12bb69841948ab6e419}{\index{profileapp.\-cpp@{profileapp.\-cpp}!U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X@{U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X}}
+\index{U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X@{U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X}!profileapp.cpp@{profileapp.\-cpp}}
+\subsubsection[{U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-P\-D\-A\-T\-E\-\_\-\-M\-A\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf if}((x) $>$ (y)) (y) = (x)}}\label{profileapp_8cpp_a89eb650442f6e12bb69841948ab6e419}
+Helper M\-A\-C\-R\-O 

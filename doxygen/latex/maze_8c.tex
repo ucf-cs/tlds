@@ -1,0 +1,208 @@
+\hypertarget{maze_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/labyrinth/maze.c File Reference}
+\label{maze_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/maze.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/maze.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}coordinate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}grid.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}maze.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pair.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for maze.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maze_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{maze_8h_a1d02565ad0978a0b57d9d066843e2db1}{maze\-\_\-t} $\ast$ \hyperlink{maze_8c_aa3aa9180f10aa9397ef1096806431345}{maze\-\_\-alloc} ()
+\item 
+void \hyperlink{maze_8c_a959c036fa24bc70cb485a2ea6b614b71}{maze\-\_\-free} (\hyperlink{maze_8h_a1d02565ad0978a0b57d9d066843e2db1}{maze\-\_\-t} $\ast$maze\-Ptr)
+\item 
+static void \hyperlink{maze_8c_a3e149a3612d14ed3e9fbe35a4287bbd1}{add\-To\-Grid} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr, const char $\ast$type)
+\item 
+long \hyperlink{maze_8c_a2135cee3a633084c9456873cb7746e0e}{maze\-\_\-read} (\hyperlink{maze_8h_a1d02565ad0978a0b57d9d066843e2db1}{maze\-\_\-t} $\ast$maze\-Ptr, char $\ast$input\-File\-Name)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{maze_8c_a775c8061cec118a84b9e9f2740fb56f0}{maze\-\_\-check\-Paths} (\hyperlink{maze_8h_a1d02565ad0978a0b57d9d066843e2db1}{maze\-\_\-t} $\ast$maze\-Ptr, \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$path\-Vector\-List\-Ptr, \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} do\-Print\-Paths)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} maze\-\_\-compare \& \hyperlink{maze_8c_aa21d9cfbab74ecef68d6431df3edda65}{coordinate\-\_\-compare\-Pair}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{maze_8c_a3e149a3612d14ed3e9fbe35a4287bbd1}{\index{maze.\-c@{maze.\-c}!add\-To\-Grid@{add\-To\-Grid}}
+\index{add\-To\-Grid@{add\-To\-Grid}!maze.c@{maze.\-c}}
+\subsubsection[{add\-To\-Grid}]{\setlength{\rightskip}{0pt plus 5cm}static void add\-To\-Grid (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr, }
+\item[{const char $\ast$}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{maze_8c_a3e149a3612d14ed3e9fbe35a4287bbd1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maze_8c_a3e149a3612d14ed3e9fbe35a4287bbd1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{maze_8c_a3e149a3612d14ed3e9fbe35a4287bbd1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{maze_8c_aa3aa9180f10aa9397ef1096806431345}{\index{maze.\-c@{maze.\-c}!maze\-\_\-alloc@{maze\-\_\-alloc}}
+\index{maze\-\_\-alloc@{maze\-\_\-alloc}!maze.c@{maze.\-c}}
+\subsubsection[{maze\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf maze\-\_\-t}$\ast$ maze\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{maze_8c_aa3aa9180f10aa9397ef1096806431345}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{maze_8c_aa3aa9180f10aa9397ef1096806431345_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{maze_8c_aa3aa9180f10aa9397ef1096806431345_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{maze_8c_a775c8061cec118a84b9e9f2740fb56f0}{\index{maze.\-c@{maze.\-c}!maze\-\_\-check\-Paths@{maze\-\_\-check\-Paths}}
+\index{maze\-\_\-check\-Paths@{maze\-\_\-check\-Paths}!maze.c@{maze.\-c}}
+\subsubsection[{maze\-\_\-check\-Paths}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} maze\-\_\-check\-Paths (
+\begin{DoxyParamCaption}
+\item[{{\bf maze\-\_\-t} $\ast$}]{maze\-Ptr, }
+\item[{{\bf list\-\_\-t} $\ast$}]{path\-Vector\-List\-Ptr, }
+\item[{{\bf bool\-\_\-t}}]{do\-Print\-Paths}
+\end{DoxyParamCaption}
+)}}\label{maze_8c_a775c8061cec118a84b9e9f2740fb56f0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maze_8c_a775c8061cec118a84b9e9f2740fb56f0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{maze_8c_a775c8061cec118a84b9e9f2740fb56f0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{maze_8c_a959c036fa24bc70cb485a2ea6b614b71}{\index{maze.\-c@{maze.\-c}!maze\-\_\-free@{maze\-\_\-free}}
+\index{maze\-\_\-free@{maze\-\_\-free}!maze.c@{maze.\-c}}
+\subsubsection[{maze\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void maze\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf maze\-\_\-t} $\ast$}]{maze\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{maze_8c_a959c036fa24bc70cb485a2ea6b614b71}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{maze_8c_a959c036fa24bc70cb485a2ea6b614b71_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{maze_8c_a959c036fa24bc70cb485a2ea6b614b71_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{maze_8c_a2135cee3a633084c9456873cb7746e0e}{\index{maze.\-c@{maze.\-c}!maze\-\_\-read@{maze\-\_\-read}}
+\index{maze\-\_\-read@{maze\-\_\-read}!maze.c@{maze.\-c}}
+\subsubsection[{maze\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}long maze\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf maze\-\_\-t} $\ast$}]{maze\-Ptr, }
+\item[{char $\ast$}]{input\-File\-Name}
+\end{DoxyParamCaption}
+)}}\label{maze_8c_a2135cee3a633084c9456873cb7746e0e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maze_8c_a2135cee3a633084c9456873cb7746e0e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{maze_8c_a2135cee3a633084c9456873cb7746e0e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{maze_8c_aa21d9cfbab74ecef68d6431df3edda65}{\index{maze.\-c@{maze.\-c}!coordinate\-\_\-compare\-Pair@{coordinate\-\_\-compare\-Pair}}
+\index{coordinate\-\_\-compare\-Pair@{coordinate\-\_\-compare\-Pair}!maze.c@{maze.\-c}}
+\subsubsection[{coordinate\-\_\-compare\-Pair}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} maze\-\_\-compare\& coordinate\-\_\-compare\-Pair}}\label{maze_8c_aa21d9cfbab74ecef68d6431df3edda65}

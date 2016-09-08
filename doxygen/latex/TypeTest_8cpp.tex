@@ -1,0 +1,109 @@
+\hypertarget{TypeTest_8cpp}{\section{rstm/rstm-\/dev/bench/\-Type\-Test.cpp File Reference}
+\label{TypeTest_8cpp}\index{rstm/rstm-\/dev/bench/\-Type\-Test.\-cpp@{rstm/rstm-\/dev/bench/\-Type\-Test.\-cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$api/api.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}bmconfig.\-hpp\char`\"{}}\\*
+Include dependency graph for Type\-Test.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TypeTest_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTypeTestObject}{Type\-Test\-Object}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{TypeTest_8cpp_a532b74f3b8f3bf9ab294e47303c574c2}{Data\-Type\-Test} (\hyperlink{tm_8h_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E})
+\item 
+void \hyperlink{TypeTest_8cpp_a3adf213f254e3746cbce57cc95dfb687}{bench\-\_\-init} ()
+\item 
+void \hyperlink{TypeTest_8cpp_aedada04ef88f522227f8f6fca993e08c}{bench\-\_\-test} (uintptr\-\_\-t, uint32\-\_\-t $\ast$)
+\item 
+bool \hyperlink{TypeTest_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{bench\-\_\-verify} ()
+\item 
+void \hyperlink{TypeTest_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{bench\-\_\-reparse} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTypeTestObject}{Type\-Test\-Object} $\ast$ \hyperlink{TypeTest_8cpp_aceba93cf278dc1e99bb198c55ec1adb9}{tto}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{TypeTest_8cpp_a3adf213f254e3746cbce57cc95dfb687}{\index{Type\-Test.\-cpp@{Type\-Test.\-cpp}!bench\-\_\-init@{bench\-\_\-init}}
+\index{bench\-\_\-init@{bench\-\_\-init}!TypeTest.cpp@{Type\-Test.\-cpp}}
+\subsubsection[{bench\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{TypeTest_8cpp_a3adf213f254e3746cbce57cc95dfb687}
+B\-E\-N\-C\-H\-M\-A\-R\-K\-S I\-M\-P\-L\-E\-M\-E\-N\-T T\-H\-E F\-O\-L\-L\-O\-W\-I\-N\-G F\-U\-N\-C\-T\-I\-O\-N\-S
+
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions \hypertarget{TypeTest_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{\index{Type\-Test.\-cpp@{Type\-Test.\-cpp}!bench\-\_\-reparse@{bench\-\_\-reparse}}
+\index{bench\-\_\-reparse@{bench\-\_\-reparse}!TypeTest.cpp@{Type\-Test.\-cpp}}
+\subsubsection[{bench\-\_\-reparse}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-reparse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{TypeTest_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}
+Step 4\-: Include the code that has the \hyperlink{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{main()} function, and the code for creating threads and calling the three above-\/named functions. Don't forget to provide an arg reparser. \hypertarget{TypeTest_8cpp_aedada04ef88f522227f8f6fca993e08c}{\index{Type\-Test.\-cpp@{Type\-Test.\-cpp}!bench\-\_\-test@{bench\-\_\-test}}
+\index{bench\-\_\-test@{bench\-\_\-test}!TypeTest.cpp@{Type\-Test.\-cpp}}
+\subsubsection[{bench\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{, }
+\item[{uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{TypeTest_8cpp_aedada04ef88f522227f8f6fca993e08c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{TypeTest_8cpp_aedada04ef88f522227f8f6fca993e08c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{TypeTest_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{\index{Type\-Test.\-cpp@{Type\-Test.\-cpp}!bench\-\_\-verify@{bench\-\_\-verify}}
+\index{bench\-\_\-verify@{bench\-\_\-verify}!TypeTest.cpp@{Type\-Test.\-cpp}}
+\subsubsection[{bench\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}bool bench\-\_\-verify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{TypeTest_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}
+\hypertarget{TypeTest_8cpp_a532b74f3b8f3bf9ab294e47303c574c2}{\index{Type\-Test.\-cpp@{Type\-Test.\-cpp}!Data\-Type\-Test@{Data\-Type\-Test}}
+\index{Data\-Type\-Test@{Data\-Type\-Test}!TypeTest.cpp@{Type\-Test.\-cpp}}
+\subsubsection[{Data\-Type\-Test}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void Data\-Type\-Test (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{TypeTest_8cpp_a532b74f3b8f3bf9ab294e47303c574c2}
+This is just to make sure that all primitive data types are read, written, and read-\/after-\/written correctly. You'll need to visually inspect the output to make sure everything is correct, unless you feel like running this in a debugger and watching that the correct templated versions of stm read and stm write are called, and that the values are being stored and retrieved correctly from the log types. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{TypeTest_8cpp_a532b74f3b8f3bf9ab294e47303c574c2_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{TypeTest_8cpp_aceba93cf278dc1e99bb198c55ec1adb9}{\index{Type\-Test.\-cpp@{Type\-Test.\-cpp}!tto@{tto}}
+\index{tto@{tto}!TypeTest.cpp@{Type\-Test.\-cpp}}
+\subsubsection[{tto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Type\-Test\-Object}$\ast$ tto}}\label{TypeTest_8cpp_aceba93cf278dc1e99bb198c55ec1adb9}
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions 

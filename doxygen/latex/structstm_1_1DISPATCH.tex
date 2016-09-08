@@ -1,0 +1,61 @@
+\hypertarget{structstm_1_1DISPATCH}{\section{stm\-:\-:D\-I\-S\-P\-A\-T\-C\-H$<$ T, S $>$ Struct Template Reference}
+\label{structstm_1_1DISPATCH}\index{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H$<$ T, S $>$@{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H$<$ T, S $>$}}
+}
+
+
+{\ttfamily \#include $<$library\-\_\-inst.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:D\-I\-S\-P\-A\-T\-C\-H$<$ T, S $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{structstm_1_1DISPATCH__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1DISPATCH_1_1InvalidTypeAsSecondTemplateParameter}{Invalid\-Type\-As\-Second\-Template\-Parameter}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} T \hyperlink{structstm_1_1DISPATCH_a30476d40ef29d1b3cb5109b666a9fc3c}{read} (T $\ast$addr, \hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{classthread}{thread})
+\item 
+static \hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{structstm_1_1DISPATCH_afb6772f0e520bb34d0b8bb0744d68dd5}{write} (T $\ast$addr, T val, \hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{classthread}{thread})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, size\-\_\-t S$>$struct stm\-::\-D\-I\-S\-P\-A\-T\-C\-H$<$ T, S $>$}
+
+The \hyperlink{structstm_1_1DISPATCH}{D\-I\-S\-P\-A\-T\-C\-H} class takes an address and a type, and determines which words (represented as void$\ast$s) ought to be read and written to effect a read or write of the given type, from the given address.
+
+N\-B\-: if the compiler can't find a valid specialization, it will use this variant, which will cause an error. This is the desired behavior. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1DISPATCH_a30476d40ef29d1b3cb5109b666a9fc3c}{\index{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H@{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H}!read@{read}}
+\index{read@{read}!stm::DISPATCH@{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, size\-\_\-t S$>$ static {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} T {\bf stm\-::\-D\-I\-S\-P\-A\-T\-C\-H}$<$ T, S $>$\-::read (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{addr, }
+\item[{{\bf Tx\-Thread} $\ast$}]{thread}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1DISPATCH_a30476d40ef29d1b3cb5109b666a9fc3c}
+\hypertarget{structstm_1_1DISPATCH_afb6772f0e520bb34d0b8bb0744d68dd5}{\index{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H@{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H}!write@{write}}
+\index{write@{write}!stm::DISPATCH@{stm\-::\-D\-I\-S\-P\-A\-T\-C\-H}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, size\-\_\-t S$>$ static {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void {\bf stm\-::\-D\-I\-S\-P\-A\-T\-C\-H}$<$ T, S $>$\-::write (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{addr, }
+\item[{T}]{val, }
+\item[{{\bf Tx\-Thread} $\ast$}]{thread}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1DISPATCH_afb6772f0e520bb34d0b8bb0744d68dd5}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/api/\hyperlink{library__inst_8hpp}{library\-\_\-inst.\-hpp}\end{DoxyCompactItemize}

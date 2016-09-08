@@ -1,0 +1,12 @@
+\hypertarget{namespaceanonymous__namespace_02tml_8cpp_03}{\section{anonymous\-\_\-namespace\{tml.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02tml_8cpp_03}\index{anonymous\-\_\-namespace\{tml.\-cpp\}@{anonymous\-\_\-namespace\{tml.\-cpp\}}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02tml_8cpp_03_1_1TML}{T\-M\-L}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declare the functions that we're going to implement, so that we can avoid circular dependencies. Note that with \hyperlink{structanonymous__namespace_02tml_8cpp_03_1_1TML}{T\-M\-L}, we don't expect the reads and writes to be called, because we expect the instrumentation to be inlined via the dispatch mechanism. However, we must provide the code to handle the uncommon case. 

@@ -1,0 +1,12 @@
+<map id="SetAdaptor&lt; trans_skip &gt;" name="SetAdaptor&lt; trans_skip &gt;">
+<area shape="rect" id="node2" href="$classAllocator.html" title="{Allocator\&lt; Desc \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="728,829,856,965"/>
+<area shape="rect" id="node7" href="$structtrans__skip.html" title="{trans_skip\n||}" alt="" coords="422,1029,504,1107"/>
+<area shape="rect" id="node5" href="$classAllocator.html" title="{Allocator\&lt; DataType \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="644,629,797,765"/>
+<area shape="rect" id="node6" href="$classAllocator.html" title="{Allocator\&lt; NodeDesc \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="527,829,685,965"/>
+<area shape="rect" id="node8" href="$structnode__t.html" title="{node_t\n||}" alt="" coords="356,659,417,736"/>
+<area shape="rect" id="node17" href="$structnode__st.html" title="{node_st\n||}" alt="" coords="210,859,277,936"/>
+<area shape="rect" id="node10" href="$structNodeDesc.html" title="{NodeDesc\n||+ NodeDesc()\l}" alt="" coords="294,429,398,507"/>
+<area shape="rect" id="node11" href="$structDesc.html" title="{Desc\n||+ SizeOf()\l}" alt="" coords="261,288,342,365"/>
+<area shape="rect" id="node13" href="$structOperator.html" title="{Operator\n||}" alt="" coords="182,147,254,224"/>
+<area shape="rect" id="node19" href="$structstm__blk__st.html" title="{stm_blk_st\n||}" alt="" coords="58,659,144,736"/>
+</map>

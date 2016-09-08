@@ -1,0 +1,6 @@
+<map id="LockfreeList::Delete" name="LockfreeList::Delete">
+<area shape="rect" id="node2" href="$classLockfreeList.html#ad06b1c38c8c92b50e29876fe8d1738c3" title="LockfreeList::LocatePred" alt="" coords="193,5,359,32"/>
+<area shape="rect" id="node4" href="$lockfreelist_8cc.html#ae7e018e2dc9f9f93414a68f3e0bbd14c" title="get_unmarked_ref" alt="" coords="409,56,535,83"/>
+<area shape="rect" id="node5" href="$lockfreelist_8cc.html#ab5987734a79eab6f7785885ac14c1285" title="get_marked_ref" alt="" coords="220,107,332,133"/>
+<area shape="rect" id="node3" href="$lockfreelist_8cc.html#af3132c9d8404c5dc002b587f7318bdab" title="is_marked_ref" alt="" coords="420,5,524,32"/>
+</map>

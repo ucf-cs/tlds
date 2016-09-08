@@ -1,0 +1,55 @@
+\hypertarget{lib__globals_8hpp}{\section{rstm/rstm-\/dev/include/stm/lib\-\_\-globals.hpp File Reference}
+\label{lib__globals_8hpp}\index{rstm/rstm-\/dev/include/stm/lib\-\_\-globals.\-hpp@{rstm/rstm-\/dev/include/stm/lib\-\_\-globals.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$stm/metadata.\-hpp$>$}\\*
+Include dependency graph for lib\-\_\-globals.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib__globals_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib__globals_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{namespacestm_a8c4b0bd094cade5163014a1f0a17d4cd}{stm\-::\-Abort\-Handler} )(Tx\-Thread $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacestm_a74e50d0b6225aa25d0d3c3d6083a1609}{stm\-::sys\-\_\-init} (Abort\-Handler conflict\-\_\-abort)
+\item 
+void \hyperlink{namespacestm_a945573c8ffc100f3908f1373d12ebffd}{stm\-::set\-\_\-policy} (const char $\ast$)
+\item 
+void \hyperlink{namespacestm_a2eba242629a31539bd21eed09aa926c6}{stm\-::sys\-\_\-shutdown} ()
+\item 
+bool \hyperlink{namespacestm_ad6da235deafa9e47d4103080ae0bcdb5}{stm\-::is\-\_\-irrevoc} (const \hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&)
+\item 
+void \hyperlink{namespacestm_a58896d2f55a47543f798e330bc13799f}{stm\-::become\-\_\-irrevoc} ()
+\item 
+void \hyperlink{namespacestm_ab344bb49ceb6098cdc32aba5d36e76f3}{stm\-::restart} ()
+\item 
+const char $\ast$ \hyperlink{namespacestm_ae189ae33f77d3feb28d2f2776156a10e}{stm\-::get\-\_\-algname} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_ac554ffc5ca7bee783d48142f1a0ff82b}{stm\-::threadcount} = \{0\}
+\item 
+\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$ \hyperlink{namespacestm_ab2acabe9f596fb07413e3a12fa14d570}{stm\-::threads} \mbox{[}\hyperlink{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]} = \{0\}
+\end{DoxyCompactItemize}

@@ -1,0 +1,292 @@
+\hypertarget{queue_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/queue.c File Reference}
+\label{queue_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/queue.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/queue.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+Include dependency graph for queue.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structqueue}{queue}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{queue_8c_ad2256458892609d0533df5d72a7257ad}{config} \{ \hyperlink{queue_8c_ad2256458892609d0533df5d72a7257ada87db99bdf1b2318cd12394bc3ef65896}{Q\-U\-E\-U\-E\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$ \hyperlink{queue_8c_a7890a8cd62c016abd5b45fa6b0edde1f}{queue\-\_\-alloc} (long init\-Capacity)
+\item 
+\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$ \hyperlink{queue_8c_a828b487eb58a29fb819f988f123899a1}{Pqueue\-\_\-alloc} (long init\-Capacity)
+\item 
+\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$ \hyperlink{queue_8c_ab2619897b12f35705936056a10ed814c}{T\-Mqueue\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long init\-Capacity)
+\item 
+void \hyperlink{queue_8c_a85520e86d1a218a76796b2ce5243d642}{queue\-\_\-free} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+void \hyperlink{queue_8c_ae05697baf54f62594a60a1e3cb29a64e}{Pqueue\-\_\-free} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+void \hyperlink{queue_8c_a42c20ac47ce150fb93a076bcdc590705}{T\-Mqueue\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{queue_8c_aa98578d30aae87cf86214e5a718f2154}{queue\-\_\-is\-Empty} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+void \hyperlink{queue_8c_a93767784c0293bb49b6abb40780cfa57}{queue\-\_\-clear} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+void \hyperlink{queue_8c_a47371911ba47c1318916b94f3a43d63d}{T\-Mqueue\-\_\-clear} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{queue_8c_abf8e0104666c2e59d68bdf55be29253a}{T\-Mqueue\-\_\-is\-Empty} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+void \hyperlink{queue_8c_a87447e981672535f49608de36ac16438}{queue\-\_\-shuffle} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{queue_8c_a98d6f21bc723987400a7ea6f24cf3e52}{queue\-\_\-push} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{queue_8c_ae700487ca97b94c777c012e7e463da24}{Pqueue\-\_\-push} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{queue_8c_ad00f41c48a03c815123f4bac3ecb101e}{T\-Mqueue\-\_\-push} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr, void $\ast$data\-Ptr)
+\item 
+void $\ast$ \hyperlink{queue_8c_a0e389fd79bf9b6266a5d759cb84201fd}{queue\-\_\-pop} (\hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\item 
+void $\ast$ \hyperlink{queue_8c_ad4acb7a12abbff52849809d88b819b42}{T\-Mqueue\-\_\-pop} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$queue\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{queue_8c_ad2256458892609d0533df5d72a7257ad}{\index{queue.\-c@{queue.\-c}!config@{config}}
+\index{config@{config}!queue.c@{queue.\-c}}
+\subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf config}}}\label{queue_8c_ad2256458892609d0533df5d72a7257ad}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Q\-U\-E\-U\-E\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R@{Q\-U\-E\-U\-E\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R}!queue.\-c@{queue.\-c}}\index{queue.\-c@{queue.\-c}!Q\-U\-E\-U\-E\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R@{Q\-U\-E\-U\-E\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R}}\item[{\em 
+\hypertarget{queue_8c_ad2256458892609d0533df5d72a7257ada87db99bdf1b2318cd12394bc3ef65896}{Q\-U\-E\-U\-E\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R}\label{queue_8c_ad2256458892609d0533df5d72a7257ada87db99bdf1b2318cd12394bc3ef65896}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{queue_8c_a828b487eb58a29fb819f988f123899a1}{\index{queue.\-c@{queue.\-c}!Pqueue\-\_\-alloc@{Pqueue\-\_\-alloc}}
+\index{Pqueue\-\_\-alloc@{Pqueue\-\_\-alloc}!queue.c@{queue.\-c}}
+\subsubsection[{Pqueue\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf queue\-\_\-t}$\ast$ Pqueue\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{init\-Capacity}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a828b487eb58a29fb819f988f123899a1}
+\hypertarget{queue_8c_ae05697baf54f62594a60a1e3cb29a64e}{\index{queue.\-c@{queue.\-c}!Pqueue\-\_\-free@{Pqueue\-\_\-free}}
+\index{Pqueue\-\_\-free@{Pqueue\-\_\-free}!queue.c@{queue.\-c}}
+\subsubsection[{Pqueue\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pqueue\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_ae05697baf54f62594a60a1e3cb29a64e}
+\hypertarget{queue_8c_ae700487ca97b94c777c012e7e463da24}{\index{queue.\-c@{queue.\-c}!Pqueue\-\_\-push@{Pqueue\-\_\-push}}
+\index{Pqueue\-\_\-push@{Pqueue\-\_\-push}!queue.c@{queue.\-c}}
+\subsubsection[{Pqueue\-\_\-push}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} Pqueue\-\_\-push (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_ae700487ca97b94c777c012e7e463da24}
+\hypertarget{queue_8c_a7890a8cd62c016abd5b45fa6b0edde1f}{\index{queue.\-c@{queue.\-c}!queue\-\_\-alloc@{queue\-\_\-alloc}}
+\index{queue\-\_\-alloc@{queue\-\_\-alloc}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf queue\-\_\-t}$\ast$ queue\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{init\-Capacity}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a7890a8cd62c016abd5b45fa6b0edde1f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a7890a8cd62c016abd5b45fa6b0edde1f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_a93767784c0293bb49b6abb40780cfa57}{\index{queue.\-c@{queue.\-c}!queue\-\_\-clear@{queue\-\_\-clear}}
+\index{queue\-\_\-clear@{queue\-\_\-clear}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void queue\-\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a93767784c0293bb49b6abb40780cfa57}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a93767784c0293bb49b6abb40780cfa57_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_a85520e86d1a218a76796b2ce5243d642}{\index{queue.\-c@{queue.\-c}!queue\-\_\-free@{queue\-\_\-free}}
+\index{queue\-\_\-free@{queue\-\_\-free}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void queue\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a85520e86d1a218a76796b2ce5243d642}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a85520e86d1a218a76796b2ce5243d642_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_aa98578d30aae87cf86214e5a718f2154}{\index{queue.\-c@{queue.\-c}!queue\-\_\-is\-Empty@{queue\-\_\-is\-Empty}}
+\index{queue\-\_\-is\-Empty@{queue\-\_\-is\-Empty}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} queue\-\_\-is\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_aa98578d30aae87cf86214e5a718f2154}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_aa98578d30aae87cf86214e5a718f2154_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_a0e389fd79bf9b6266a5d759cb84201fd}{\index{queue.\-c@{queue.\-c}!queue\-\_\-pop@{queue\-\_\-pop}}
+\index{queue\-\_\-pop@{queue\-\_\-pop}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-pop}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ queue\-\_\-pop (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a0e389fd79bf9b6266a5d759cb84201fd}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a0e389fd79bf9b6266a5d759cb84201fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_a98d6f21bc723987400a7ea6f24cf3e52}{\index{queue.\-c@{queue.\-c}!queue\-\_\-push@{queue\-\_\-push}}
+\index{queue\-\_\-push@{queue\-\_\-push}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-push}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} queue\-\_\-push (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a98d6f21bc723987400a7ea6f24cf3e52}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a98d6f21bc723987400a7ea6f24cf3e52_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_a87447e981672535f49608de36ac16438}{\index{queue.\-c@{queue.\-c}!queue\-\_\-shuffle@{queue\-\_\-shuffle}}
+\index{queue\-\_\-shuffle@{queue\-\_\-shuffle}!queue.c@{queue.\-c}}
+\subsubsection[{queue\-\_\-shuffle}]{\setlength{\rightskip}{0pt plus 5cm}void queue\-\_\-shuffle (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\-\_\-t} $\ast$}]{queue\-Ptr, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a87447e981672535f49608de36ac16438}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a87447e981672535f49608de36ac16438_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{queue_8c_a87447e981672535f49608de36ac16438_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{queue_8c_ab2619897b12f35705936056a10ed814c}{\index{queue.\-c@{queue.\-c}!T\-Mqueue\-\_\-alloc@{T\-Mqueue\-\_\-alloc}}
+\index{T\-Mqueue\-\_\-alloc@{T\-Mqueue\-\_\-alloc}!queue.c@{queue.\-c}}
+\subsubsection[{T\-Mqueue\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf queue\-\_\-t}$\ast$ T\-Mqueue\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{init\-Capacity}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_ab2619897b12f35705936056a10ed814c}
+\hypertarget{queue_8c_a47371911ba47c1318916b94f3a43d63d}{\index{queue.\-c@{queue.\-c}!T\-Mqueue\-\_\-clear@{T\-Mqueue\-\_\-clear}}
+\index{T\-Mqueue\-\_\-clear@{T\-Mqueue\-\_\-clear}!queue.c@{queue.\-c}}
+\subsubsection[{T\-Mqueue\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mqueue\-\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a47371911ba47c1318916b94f3a43d63d}
+\hypertarget{queue_8c_a42c20ac47ce150fb93a076bcdc590705}{\index{queue.\-c@{queue.\-c}!T\-Mqueue\-\_\-free@{T\-Mqueue\-\_\-free}}
+\index{T\-Mqueue\-\_\-free@{T\-Mqueue\-\_\-free}!queue.c@{queue.\-c}}
+\subsubsection[{T\-Mqueue\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mqueue\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_a42c20ac47ce150fb93a076bcdc590705}
+\hypertarget{queue_8c_abf8e0104666c2e59d68bdf55be29253a}{\index{queue.\-c@{queue.\-c}!T\-Mqueue\-\_\-is\-Empty@{T\-Mqueue\-\_\-is\-Empty}}
+\index{T\-Mqueue\-\_\-is\-Empty@{T\-Mqueue\-\_\-is\-Empty}!queue.c@{queue.\-c}}
+\subsubsection[{T\-Mqueue\-\_\-is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mqueue\-\_\-is\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_abf8e0104666c2e59d68bdf55be29253a}
+\hypertarget{queue_8c_ad4acb7a12abbff52849809d88b819b42}{\index{queue.\-c@{queue.\-c}!T\-Mqueue\-\_\-pop@{T\-Mqueue\-\_\-pop}}
+\index{T\-Mqueue\-\_\-pop@{T\-Mqueue\-\_\-pop}!queue.c@{queue.\-c}}
+\subsubsection[{T\-Mqueue\-\_\-pop}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\-Mqueue\-\_\-pop (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf queue\-\_\-t} $\ast$}]{queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_ad4acb7a12abbff52849809d88b819b42}
+\hypertarget{queue_8c_ad00f41c48a03c815123f4bac3ecb101e}{\index{queue.\-c@{queue.\-c}!T\-Mqueue\-\_\-push@{T\-Mqueue\-\_\-push}}
+\index{T\-Mqueue\-\_\-push@{T\-Mqueue\-\_\-push}!queue.c@{queue.\-c}}
+\subsubsection[{T\-Mqueue\-\_\-push}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mqueue\-\_\-push (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf queue\-\_\-t} $\ast$}]{queue\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{queue_8c_ad00f41c48a03c815123f4bac3ecb101e}

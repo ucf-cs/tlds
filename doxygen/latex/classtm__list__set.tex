@@ -1,0 +1,159 @@
+\hypertarget{classtm__list__set}{\section{tm\-\_\-list\-\_\-set$<$ T $>$ Class Template Reference}
+\label{classtm__list__set}\index{tm\-\_\-list\-\_\-set$<$ T $>$@{tm\-\_\-list\-\_\-set$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$tm\-\_\-list\-\_\-set.\-hpp$>$}
+
+
+
+Inheritance diagram for tm\-\_\-list\-\_\-set$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classtm__list__set__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tm\-\_\-list\-\_\-set$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{classtm__list__set__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void \hyperlink{classtm__list__set_a7b2de448d04c0682cb276bfdcdc44034}{insert} (const T item)
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void \hyperlink{classtm__list__set_a6b0574bddef610f8dbf80c80b7210140}{remove} (const T item)
+\item 
+bool \hyperlink{classtm__list__set_ad5373e6893f79c296f5c9b91779485d7}{lookup} (const T item)
+\item 
+void \hyperlink{classtm__list__set_a7f9b4de667c8728bcd25675f48339449}{apply\-\_\-to\-\_\-all} (void($\ast$f)(T item))
+\item 
+\hyperlink{classtm__list__set_a5c301da4319ba7139feed749e4b47d78}{tm\-\_\-list\-\_\-set} ()
+\item 
+virtual \hyperlink{classtm__list__set_a13086b41790d602ec7c2320a36c94c66}{$\sim$tm\-\_\-list\-\_\-set} ()
+\item 
+int \hyperlink{classtm__list__set_ac54f2e79061bbf6a5dc5d07923e7bc47}{size} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtm__list__set_aef1f37c9533846bdb6c90783a3f45ea9}{tm\-\_\-list\-\_\-set} (const \hyperlink{classtm__list__set}{tm\-\_\-list\-\_\-set} \&)
+\item 
+\hyperlink{classtm__list__set}{tm\-\_\-list\-\_\-set} \& \hyperlink{classtm__list__set_a01c6fcd7e6bff3ff93c788359c065d4a}{operator=} (const \hyperlink{classtm__list__set}{tm\-\_\-list\-\_\-set} \&)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLLNode}{L\-L\-Node}$<$ T $>$ $\ast$ \hyperlink{classtm__list__set_add7bec95ca62fae4d4e0d4421c7c3dde}{head\-\_\-node}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class tm\-\_\-list\-\_\-set$<$ T $>$}
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtm__list__set_aef1f37c9533846bdb6c90783a3f45ea9}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}}
+\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{tm\-\_\-list\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::{\bf tm\-\_\-list\-\_\-set} (
+\begin{DoxyParamCaption}
+\item[{const {\bf tm\-\_\-list\-\_\-set}$<$ T $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__list__set_aef1f37c9533846bdb6c90783a3f45ea9}
+\hypertarget{classtm__list__set_a5c301da4319ba7139feed749e4b47d78}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}}
+\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{tm\-\_\-list\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::{\bf tm\-\_\-list\-\_\-set} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classtm__list__set_a5c301da4319ba7139feed749e4b47d78}
+\hypertarget{classtm__list__set_a13086b41790d602ec7c2320a36c94c66}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!$\sim$tm\-\_\-list\-\_\-set@{$\sim$tm\-\_\-list\-\_\-set}}
+\index{$\sim$tm\-\_\-list\-\_\-set@{$\sim$tm\-\_\-list\-\_\-set}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{$\sim$tm\-\_\-list\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::$\sim${\bf tm\-\_\-list\-\_\-set} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__list__set_a13086b41790d602ec7c2320a36c94c66}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtm__list__set_a7f9b4de667c8728bcd25675f48339449}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!apply\-\_\-to\-\_\-all@{apply\-\_\-to\-\_\-all}}
+\index{apply\-\_\-to\-\_\-all@{apply\-\_\-to\-\_\-all}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{apply\-\_\-to\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::apply\-\_\-to\-\_\-all (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(T item)}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__list__set_a7f9b4de667c8728bcd25675f48339449}
+
+
+Implements \hyperlink{classtm__set_a046e1d0e431a29f1c162a0aacd14ef2b}{tm\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__list__set_a7b2de448d04c0682cb276bfdcdc44034}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!insert@{insert}}
+\index{insert@{insert}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__list__set_a7b2de448d04c0682cb276bfdcdc44034}
+
+
+Implements \hyperlink{classtm__set_a8956169e12ecb29a1b5888634f034b50}{tm\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__list__set_ad5373e6893f79c296f5c9b91779485d7}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!lookup@{lookup}}
+\index{lookup@{lookup}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::lookup (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__list__set_ad5373e6893f79c296f5c9b91779485d7}
+
+
+Implements \hyperlink{classtm__set_a64e229588adaaf5108b9db56a1fcf55f}{tm\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__list__set_a01c6fcd7e6bff3ff93c788359c065d4a}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!operator=@{operator=}}
+\index{operator=@{operator=}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-list\-\_\-set}\& {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf tm\-\_\-list\-\_\-set}$<$ T $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__list__set_a01c6fcd7e6bff3ff93c788359c065d4a}
+\hypertarget{classtm__list__set_a6b0574bddef610f8dbf80c80b7210140}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!remove@{remove}}
+\index{remove@{remove}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__list__set_a6b0574bddef610f8dbf80c80b7210140}
+
+
+Implements \hyperlink{classtm__set_a45a928f648e51c4ea1c181db71efadf0}{tm\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__list__set_ac54f2e79061bbf6a5dc5d07923e7bc47}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!size@{size}}
+\index{size@{size}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classtm__list__set_ac54f2e79061bbf6a5dc5d07923e7bc47}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classtm__list__set_add7bec95ca62fae4d4e0d4421c7c3dde}{\index{tm\-\_\-list\-\_\-set@{tm\-\_\-list\-\_\-set}!head\-\_\-node@{head\-\_\-node}}
+\index{head\-\_\-node@{head\-\_\-node}!tm_list_set@{tm\-\_\-list\-\_\-set}}
+\subsubsection[{head\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf L\-L\-Node}$<$T$>$$\ast$ {\bf tm\-\_\-list\-\_\-set}$<$ T $>$\-::head\-\_\-node\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__list__set_add7bec95ca62fae4d4e0d4421c7c3dde}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{tm__list__set_8hpp}{tm\-\_\-list\-\_\-set.\-hpp}\end{DoxyCompactItemize}

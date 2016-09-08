@@ -1,0 +1,6 @@
+<map id="stm::begin_CGL" name="stm::begin_CGL">
+<area shape="rect" id="node2" href="$locks_8hpp.html#a0947d93866d35f8a9febdc3928bf7276" title="tatas_acquire" alt="" coords="222,5,322,32"/>
+<area shape="rect" id="node5" href="$classstm_1_1WBMMPolicy.html#a66451953ff2a0179699108a0e0b1cba3" title="stm::WBMMPolicy::onTxBegin" alt="" coords="171,56,373,83"/>
+<area shape="rect" id="node3" href="$locks_8hpp.html#a61d1a83c5eb0a8300dce2fbb225b078c" title="tatas_acquire_slowpath" alt="" coords="422,5,581,32"/>
+<area shape="rect" id="node4" href="$locks_8hpp.html#af5ba9b667099d9a2ff30ad4439e502a5" title="backoff" alt="" coords="630,5,695,32"/>
+</map>

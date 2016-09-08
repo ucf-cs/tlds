@@ -1,0 +1,224 @@
+\hypertarget{sequencer_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/genome/sequencer.c File Reference}
+\label{sequencer_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/sequencer.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/sequencer.\-c}}
+}
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}hash.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hashtable.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}segments.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sequencer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}table.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for sequencer.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structendInfoEntry}{end\-Info\-Entry}
+\item 
+struct \hyperlink{structconstructEntry}{construct\-Entry}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} \hyperlink{sequencer_8c_a0db9a5bde853d0151206dcc67dc41205}{hash\-String} (char $\ast$str)
+\item 
+static \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} \hyperlink{sequencer_8c_a5b1340bcb6ed237432e737d0e4621ba2}{hash\-Segment} (const void $\ast$key\-Ptr)
+\item 
+static long \hyperlink{sequencer_8c_a9b7c1738c13498354f8d8ba54f61d39a}{compare\-Segment} (const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$a, const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$b)
+\item 
+static long \hyperlink{sequencer_8c_a7ee419308cb7e4bd364135dd5a897ee1}{T\-Mcompare\-Segment} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$a, const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$b)
+\item 
+\hyperlink{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}{sequencer\-\_\-t} $\ast$ \hyperlink{sequencer_8c_ac075f78fc01ff6ba3a740957341bf254}{sequencer\-\_\-alloc} (long gene\-Length, long segment\-Length, \hyperlink{segments_8h_a6b833f170e932d51264176fcd9dd0bed}{segments\-\_\-t} $\ast$segments\-Ptr)
+\item 
+void \hyperlink{sequencer_8c_a302b260ded8a4cfd0db65f1e12d9a89b}{sequencer\-\_\-run} (void $\ast$arg\-Ptr)
+\item 
+void \hyperlink{sequencer_8c_ade65ca15593e63adb57d3ccb9ec0ca9a}{sequencer\-\_\-free} (\hyperlink{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}{sequencer\-\_\-t} $\ast$sequencer\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} \\*
+sequencer\-\_\-comparesegment \& \hyperlink{sequencer_8c_a89d08911ae97c1064e2d5f586461a6b7}{compare\-Segment}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sequencer_8c_a9b7c1738c13498354f8d8ba54f61d39a}{\index{sequencer.\-c@{sequencer.\-c}!compare\-Segment@{compare\-Segment}}
+\index{compare\-Segment@{compare\-Segment}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{compare\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}static long compare\-Segment (
+\begin{DoxyParamCaption}
+\item[{const {\bf pair\-\_\-t} $\ast$}]{a, }
+\item[{const {\bf pair\-\_\-t} $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{sequencer_8c_a9b7c1738c13498354f8d8ba54f61d39a}
+\hypertarget{sequencer_8c_a5b1340bcb6ed237432e737d0e4621ba2}{\index{sequencer.\-c@{sequencer.\-c}!hash\-Segment@{hash\-Segment}}
+\index{hash\-Segment@{hash\-Segment}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{hash\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf ulong\-\_\-t} hash\-Segment (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{sequencer_8c_a5b1340bcb6ed237432e737d0e4621ba2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{sequencer_8c_a5b1340bcb6ed237432e737d0e4621ba2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8c_a5b1340bcb6ed237432e737d0e4621ba2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8c_a0db9a5bde853d0151206dcc67dc41205}{\index{sequencer.\-c@{sequencer.\-c}!hash\-String@{hash\-String}}
+\index{hash\-String@{hash\-String}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{hash\-String}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf ulong\-\_\-t} hash\-String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{sequencer_8c_a0db9a5bde853d0151206dcc67dc41205}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{sequencer_8c_a0db9a5bde853d0151206dcc67dc41205_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8c_ac075f78fc01ff6ba3a740957341bf254}{\index{sequencer.\-c@{sequencer.\-c}!sequencer\-\_\-alloc@{sequencer\-\_\-alloc}}
+\index{sequencer\-\_\-alloc@{sequencer\-\_\-alloc}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{sequencer\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sequencer\-\_\-t}$\ast$ sequencer\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{gene\-Length, }
+\item[{long}]{segment\-Length, }
+\item[{{\bf segments\-\_\-t} $\ast$}]{segments\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{sequencer_8c_ac075f78fc01ff6ba3a740957341bf254}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8c_ac075f78fc01ff6ba3a740957341bf254_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{sequencer_8c_ac075f78fc01ff6ba3a740957341bf254_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8c_ade65ca15593e63adb57d3ccb9ec0ca9a}{\index{sequencer.\-c@{sequencer.\-c}!sequencer\-\_\-free@{sequencer\-\_\-free}}
+\index{sequencer\-\_\-free@{sequencer\-\_\-free}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{sequencer\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void sequencer\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf sequencer\-\_\-t} $\ast$}]{sequencer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{sequencer_8c_ade65ca15593e63adb57d3ccb9ec0ca9a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8c_ade65ca15593e63adb57d3ccb9ec0ca9a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{sequencer_8c_ade65ca15593e63adb57d3ccb9ec0ca9a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8c_a302b260ded8a4cfd0db65f1e12d9a89b}{\index{sequencer.\-c@{sequencer.\-c}!sequencer\-\_\-run@{sequencer\-\_\-run}}
+\index{sequencer\-\_\-run@{sequencer\-\_\-run}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{sequencer\-\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}void sequencer\-\_\-run (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{sequencer_8c_a302b260ded8a4cfd0db65f1e12d9a89b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8c_a302b260ded8a4cfd0db65f1e12d9a89b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{sequencer_8c_a302b260ded8a4cfd0db65f1e12d9a89b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8c_a7ee419308cb7e4bd364135dd5a897ee1}{\index{sequencer.\-c@{sequencer.\-c}!T\-Mcompare\-Segment@{T\-Mcompare\-Segment}}
+\index{T\-Mcompare\-Segment@{T\-Mcompare\-Segment}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{T\-Mcompare\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}static long T\-Mcompare\-Segment (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const {\bf pair\-\_\-t} $\ast$}]{a, }
+\item[{const {\bf pair\-\_\-t} $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{sequencer_8c_a7ee419308cb7e4bd364135dd5a897ee1}
+
+
+\subsection{Variable Documentation}
+\hypertarget{sequencer_8c_a89d08911ae97c1064e2d5f586461a6b7}{\index{sequencer.\-c@{sequencer.\-c}!compare\-Segment@{compare\-Segment}}
+\index{compare\-Segment@{compare\-Segment}!sequencer.c@{sequencer.\-c}}
+\subsubsection[{compare\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} sequencer\-\_\-comparesegment\& compare\-Segment}}\label{sequencer_8c_a89d08911ae97c1064e2d5f586461a6b7}

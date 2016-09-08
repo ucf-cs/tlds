@@ -1,0 +1,35 @@
+\hypertarget{structstm_1_1iccsync_1_1SYNC}{\section{stm\-:\-:iccsync\-:\-:S\-Y\-N\-C$<$ T, W, N $>$ Struct Template Reference}
+\label{structstm_1_1iccsync_1_1SYNC}\index{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, N $>$@{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, N $>$}}
+}
+
+
+{\ttfamily \#include $<$icc-\/sync.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:iccsync\-:\-:S\-Y\-N\-C$<$ T, W, N $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{structstm_1_1iccsync_1_1SYNC__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, size\-\_\-t W = sizeof(void$\ast$), size\-\_\-t N = sizeof(\-T)$>$struct stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, N $>$}
+
+Our partial specialization helper is parameterized based on the type (T), the number of bytes in the type (N), and if this is a subword, word or double-\/word access (W). We assume that all addresses are aligned.
+
+T is necessary so that the caller doesn't need to perform any casts.
+
+N is necessary because our implementation depends on the number of bytes.
+
+W allows us to deduce the platform without ifdefing anything.
+
+N\-B\-: We've only implemented partial templates for what we actually use. Extending this is straightforward. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/common/\hyperlink{icc-sync_8hpp}{icc-\/sync.\-hpp}\end{DoxyCompactItemize}

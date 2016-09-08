@@ -1,0 +1,155 @@
+\hypertarget{classMS__queue}{\section{M\-S\-\_\-queue$<$ T $>$ Class Template Reference}
+\label{classMS__queue}\index{M\-S\-\_\-queue$<$ T $>$@{M\-S\-\_\-queue$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$queues.\-hpp$>$}
+
+
+
+Inheritance diagram for M\-S\-\_\-queue$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classMS__queue__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\-S\-\_\-queue$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classMS__queue__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMS__queue_aa8d33c46343874ae7e918c9058bc6fc3}{enqueue} (T item, const int tid)
+\item 
+T \hyperlink{classMS__queue_a78a5210001367491d3184c55a7788cdb}{dequeue} (const int tid)
+\item 
+\hyperlink{classMS__queue_ae4ba0c987f8efae263ffeba2c96579a2}{M\-S\-\_\-queue} (const int tid)
+\item 
+virtual \hyperlink{classMS__queue_a482f0d5266ee26f9f4cb7d889cd80527}{$\sim$\-M\-S\-\_\-queue} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{unioncounted__ptr}{counted\-\_\-ptr} \hyperlink{classMS__queue_aa962c048d3b83e09562a5147d5af33fe}{head}
+\item 
+\hyperlink{unioncounted__ptr}{counted\-\_\-ptr} \hyperlink{classMS__queue_a644daae43a3ae28f04693962eaf9698d}{tail}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMS__queue_ae4ba0c987f8efae263ffeba2c96579a2}{\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!M\-S\-\_\-queue@{M\-S\-\_\-queue}}
+\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!MS_queue@{M\-S\-\_\-queue}}
+\subsubsection[{M\-S\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template {\bf M\-S\-\_\-queue}$<$ T $>$\-::{\bf M\-S\-\_\-queue} (
+\begin{DoxyParamCaption}
+\item[{const int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMS__queue_ae4ba0c987f8efae263ffeba2c96579a2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMS__queue_ae4ba0c987f8efae263ffeba2c96579a2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classMS__queue_a482f0d5266ee26f9f4cb7d889cd80527}{\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!$\sim$\-M\-S\-\_\-queue@{$\sim$\-M\-S\-\_\-queue}}
+\index{$\sim$\-M\-S\-\_\-queue@{$\sim$\-M\-S\-\_\-queue}!MS_queue@{M\-S\-\_\-queue}}
+\subsubsection[{$\sim$\-M\-S\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual {\bf M\-S\-\_\-queue}$<$ T $>$\-::$\sim${\bf M\-S\-\_\-queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classMS__queue_a482f0d5266ee26f9f4cb7d889cd80527}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMS__queue_a78a5210001367491d3184c55a7788cdb}{\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!MS_queue@{M\-S\-\_\-queue}}
+\subsubsection[{dequeue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template {\bf edge} $\ast$ {\bf M\-S\-\_\-queue}$<$ T $>$\-::dequeue (
+\begin{DoxyParamCaption}
+\item[{const int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMS__queue_a78a5210001367491d3184c55a7788cdb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMS__queue_a78a5210001367491d3184c55a7788cdb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMS__queue_a78a5210001367491d3184c55a7788cdb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classMS__queue_aa8d33c46343874ae7e918c9058bc6fc3}{\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!MS_queue@{M\-S\-\_\-queue}}
+\subsubsection[{enqueue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template void {\bf M\-S\-\_\-queue}$<$ T $>$\-::enqueue (
+\begin{DoxyParamCaption}
+\item[{T}]{item, }
+\item[{const int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMS__queue_aa8d33c46343874ae7e918c9058bc6fc3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMS__queue_aa8d33c46343874ae7e918c9058bc6fc3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMS__queue_aa8d33c46343874ae7e918c9058bc6fc3_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMS__queue_aa962c048d3b83e09562a5147d5af33fe}{\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!head@{head}}
+\index{head@{head}!MS_queue@{M\-S\-\_\-queue}}
+\subsubsection[{head}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf counted\-\_\-ptr} {\bf M\-S\-\_\-queue}$<$ T $>$\-::head\hspace{0.3cm}{\ttfamily [private]}}}\label{classMS__queue_aa962c048d3b83e09562a5147d5af33fe}
+\hypertarget{classMS__queue_a644daae43a3ae28f04693962eaf9698d}{\index{M\-S\-\_\-queue@{M\-S\-\_\-queue}!tail@{tail}}
+\index{tail@{tail}!MS_queue@{M\-S\-\_\-queue}}
+\subsubsection[{tail}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf counted\-\_\-ptr} {\bf M\-S\-\_\-queue}$<$ T $>$\-::tail\hspace{0.3cm}{\ttfamily [private]}}}\label{classMS__queue_a644daae43a3ae28f04693962eaf9698d}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{queues_8hpp}{queues.\-hpp}\item 
+rstm/rstm-\/dev/mesh/\hyperlink{queues_8cpp}{queues.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,8 @@
+<map id="stm::TxThread::thread_init" name="stm::TxThread::thread_init">
+<area shape="rect" id="node2" href="$namespacestm.html#a3de69c665250e84ef5238477ae8524b0" title="stm::thread_init" alt="" coords="247,56,359,83"/>
+<area shape="rect" id="node5" href="$libitm_8h.html#a5edce724a00eff63931f07466901ef7d" title="_ITM_getTransaction" alt="" coords="230,107,375,133"/>
+<area shape="rect" id="node3" href="$stamp_8hpp.html#a7672bd41fd85f42a21e565c37108b09a" title="tm_main_startup" alt="" coords="438,5,557,32"/>
+<area shape="rect" id="node4" href="$stamp_8hpp.html#a4f805a0e1a5d6f581e1d4dafbc83fdf0" title="tm_start" alt="" coords="462,56,533,83"/>
+<area shape="rect" id="node6" href="$libitm-5_81_005_8cpp.html#a5cde4a3f0f8e98db7d17e4a6ed3859ca" title="_ITM_initializeThread" alt="" coords="424,107,571,133"/>
+<area shape="rect" id="node7" href="$libitm-5_81_005_8cpp.html#ae97451d0a7481e2ad0e2b0c4196d5117" title="_ITM_initializeProcess" alt="" coords="619,107,773,133"/>
+</map>

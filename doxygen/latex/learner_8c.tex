@@ -1,0 +1,709 @@
+\hypertarget{learner_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/learner.c File Reference}
+\label{learner_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/learner.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/learner.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}adtree.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}learner.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}net.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}operation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}query.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for learner.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlearner__task}{learner\-\_\-task}
+\item 
+struct \hyperlink{structfindBestTaskArg}{find\-Best\-Task\-Arg}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structfindBestTaskArg}{find\-Best\-Task\-Arg} \hyperlink{learner_8c_aec62b90c05d99801bc041df26c9cc30e}{find\-Best\-Task\-Arg\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{learner_8h_a388a4b573490ce9e0436ce81867cbd38}{learner\-\_\-task\-\_\-t} \hyperlink{learner_8c_aa29b00ddc533146c018e2f21103e2222}{T\-Mfind\-Best\-Reverse\-Task} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{learner_8c_aec62b90c05d99801bc041df26c9cc30e}{find\-Best\-Task\-Arg\-\_\-t} $\ast$arg\-Ptr)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{learner_8h_a388a4b573490ce9e0436ce81867cbd38}{learner\-\_\-task\-\_\-t} \hyperlink{learner_8c_af4655d41f33380b11243cae071a4ce37}{T\-Mfind\-Best\-Insert\-Task} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{learner_8c_aec62b90c05d99801bc041df26c9cc30e}{find\-Best\-Task\-Arg\-\_\-t} $\ast$arg\-Ptr)
+\item 
+static \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{learner_8h_a388a4b573490ce9e0436ce81867cbd38}{learner\-\_\-task\-\_\-t} \hyperlink{learner_8c_a99307386b0d01dd209f88527643a58d3}{T\-Mfind\-Best\-Remove\-Task} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{learner_8c_aec62b90c05d99801bc041df26c9cc30e}{find\-Best\-Task\-Arg\-\_\-t} $\ast$arg\-Ptr)
+\item 
+static long \hyperlink{learner_8c_a50d5da8a8ab88d5e33809cf73aa6878b}{compare\-Task} (const void $\ast$a\-Ptr, const void $\ast$b\-Ptr)
+\item 
+static long \hyperlink{learner_8c_a09527d5a665045b1dfb52a89f8573321}{T\-Mcompare\-Task} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$a\-Ptr, const void $\ast$b\-Ptr)
+\item 
+static int \hyperlink{learner_8c_a05d316b71b33410bb2a7493a79b7a243}{compare\-Query} (const void $\ast$a\-Ptr, const void $\ast$b\-Ptr)
+\item 
+\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$ \hyperlink{learner_8c_aea1955f8471f02d66c6a39136d621f5b}{learner\-\_\-alloc} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr, \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, long num\-Thread)
+\item 
+void \hyperlink{learner_8c_abf2edbd2546d2d60274a331e41eb5147}{learner\-\_\-free} (\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$learner\-Ptr)
+\item 
+static float \hyperlink{learner_8c_a98c61c86b28cffdf94d0d158c4ae5aa0}{compute\-Specific\-Local\-Log\-Likelihood} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static void \hyperlink{learner_8c_acc48aeed933570cb6798c0e4930f6875}{create\-Partition} (long min, long max, long id, long n, long $\ast$start\-Ptr, long $\ast$stop\-Ptr)
+\item 
+static void \hyperlink{learner_8c_a5a45fbc491ab273140631145a6e82e54}{create\-Task\-List} (void $\ast$arg\-Ptr)
+\item 
+\hyperlink{learner_8h_a388a4b573490ce9e0436ce81867cbd38}{learner\-\_\-task\-\_\-t} $\ast$ \hyperlink{learner_8c_a1d593fcbf998464a50664bfdaa5aaec7}{T\-Mpop\-Task} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$task\-List\-Ptr)
+\item 
+static void \hyperlink{learner_8c_a923c66a4bc105d43d93146cddc7795cf}{populate\-Parent\-Query\-Vector} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{query_8h_a9e853aa52e22f13d41749d4245b61276}{query\-\_\-t} $\ast$queries, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static void \hyperlink{learner_8c_a6ead24509867bb6bb068620ad2d9da93}{T\-Mpopulate\-Parent\-Query\-Vector} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{query_8h_a9e853aa52e22f13d41749d4245b61276}{query\-\_\-t} $\ast$queries, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static void \hyperlink{learner_8c_a02c8bbd9e58f6b76caafe97e1265357d}{populate\-Query\-Vectors} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{query_8h_a9e853aa52e22f13d41749d4245b61276}{query\-\_\-t} $\ast$queries, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static void \hyperlink{learner_8c_ad1501982eb48921ad41de7de9457db4b}{T\-Mpopulate\-Query\-Vectors} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{query_8h_a9e853aa52e22f13d41749d4245b61276}{query\-\_\-t} $\ast$queries, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static float \hyperlink{learner_8c_a280dfaac5218200a65bd222548bd0563}{compute\-Local\-Log\-Likelihood\-Helper} (long i, long num\-Parent, \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{query_8h_a9e853aa52e22f13d41749d4245b61276}{query\-\_\-t} $\ast$queries, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static float \hyperlink{learner_8c_ad3241a2f5d00bb81f7db714702ea3d46}{compute\-Local\-Log\-Likelihood} (long id, \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, \hyperlink{query_8h_a9e853aa52e22f13d41749d4245b61276}{query\-\_\-t} $\ast$queries, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$parent\-Query\-Vector\-Ptr)
+\item 
+static void \hyperlink{learner_8c_a992842224f9ab3030136c9cadb79bd44}{learn\-Structure} (void $\ast$arg\-Ptr)
+\item 
+void \hyperlink{learner_8c_a23d451d4d355a14fa7c9735304ba4d95}{learner\-\_\-run} (\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$learner\-Ptr)
+\item 
+float \hyperlink{learner_8c_a643517a90c64064dfb94cb9cb8d6eddf}{learner\-\_\-score} (\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$learner\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{learner_8c_a195cfeaaa4f9abe8b0f9ee267571a08c}{global\-\_\-insert\-Penalty}
+\item 
+long \hyperlink{learner_8c_a010ff63ad76a5580f266f7b9001be4f9}{global\-\_\-max\-Num\-Edge\-Learned}
+\item 
+float \hyperlink{learner_8c_a88d7bbe4159b4d4febb6897920f14471}{global\-\_\-operation\-Quality\-Factor}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} learner\-\_\-comparetask \& \hyperlink{learner_8c_aac3cad01919daac25774e2daaabbd693}{compare\-Task}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{learner_8c_aec62b90c05d99801bc041df26c9cc30e}{\index{learner.\-c@{learner.\-c}!find\-Best\-Task\-Arg\-\_\-t@{find\-Best\-Task\-Arg\-\_\-t}}
+\index{find\-Best\-Task\-Arg\-\_\-t@{find\-Best\-Task\-Arg\-\_\-t}!learner.c@{learner.\-c}}
+\subsubsection[{find\-Best\-Task\-Arg\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf find\-Best\-Task\-Arg}  {\bf find\-Best\-Task\-Arg\-\_\-t}}}\label{learner_8c_aec62b90c05d99801bc041df26c9cc30e}
+
+
+\subsection{Function Documentation}
+\hypertarget{learner_8c_a05d316b71b33410bb2a7493a79b7a243}{\index{learner.\-c@{learner.\-c}!compare\-Query@{compare\-Query}}
+\index{compare\-Query@{compare\-Query}!learner.c@{learner.\-c}}
+\subsubsection[{compare\-Query}]{\setlength{\rightskip}{0pt plus 5cm}static int compare\-Query (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{a\-Ptr, }
+\item[{const void $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a05d316b71b33410bb2a7493a79b7a243}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a05d316b71b33410bb2a7493a79b7a243_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a50d5da8a8ab88d5e33809cf73aa6878b}{\index{learner.\-c@{learner.\-c}!compare\-Task@{compare\-Task}}
+\index{compare\-Task@{compare\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{compare\-Task}]{\setlength{\rightskip}{0pt plus 5cm}static long compare\-Task (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{a\-Ptr, }
+\item[{const void $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a50d5da8a8ab88d5e33809cf73aa6878b}
+\hypertarget{learner_8c_ad3241a2f5d00bb81f7db714702ea3d46}{\index{learner.\-c@{learner.\-c}!compute\-Local\-Log\-Likelihood@{compute\-Local\-Log\-Likelihood}}
+\index{compute\-Local\-Log\-Likelihood@{compute\-Local\-Log\-Likelihood}!learner.c@{learner.\-c}}
+\subsubsection[{compute\-Local\-Log\-Likelihood}]{\setlength{\rightskip}{0pt plus 5cm}static float compute\-Local\-Log\-Likelihood (
+\begin{DoxyParamCaption}
+\item[{long}]{id, }
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{{\bf query\-\_\-t} $\ast$}]{queries, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_ad3241a2f5d00bb81f7db714702ea3d46}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_ad3241a2f5d00bb81f7db714702ea3d46_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_ad3241a2f5d00bb81f7db714702ea3d46_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a280dfaac5218200a65bd222548bd0563}{\index{learner.\-c@{learner.\-c}!compute\-Local\-Log\-Likelihood\-Helper@{compute\-Local\-Log\-Likelihood\-Helper}}
+\index{compute\-Local\-Log\-Likelihood\-Helper@{compute\-Local\-Log\-Likelihood\-Helper}!learner.c@{learner.\-c}}
+\subsubsection[{compute\-Local\-Log\-Likelihood\-Helper}]{\setlength{\rightskip}{0pt plus 5cm}static float compute\-Local\-Log\-Likelihood\-Helper (
+\begin{DoxyParamCaption}
+\item[{long}]{i, }
+\item[{long}]{num\-Parent, }
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf query\-\_\-t} $\ast$}]{queries, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a280dfaac5218200a65bd222548bd0563}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a280dfaac5218200a65bd222548bd0563_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a280dfaac5218200a65bd222548bd0563_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a98c61c86b28cffdf94d0d158c4ae5aa0}{\index{learner.\-c@{learner.\-c}!compute\-Specific\-Local\-Log\-Likelihood@{compute\-Specific\-Local\-Log\-Likelihood}}
+\index{compute\-Specific\-Local\-Log\-Likelihood@{compute\-Specific\-Local\-Log\-Likelihood}!learner.c@{learner.\-c}}
+\subsubsection[{compute\-Specific\-Local\-Log\-Likelihood}]{\setlength{\rightskip}{0pt plus 5cm}static float compute\-Specific\-Local\-Log\-Likelihood (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a98c61c86b28cffdf94d0d158c4ae5aa0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a98c61c86b28cffdf94d0d158c4ae5aa0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a98c61c86b28cffdf94d0d158c4ae5aa0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_acc48aeed933570cb6798c0e4930f6875}{\index{learner.\-c@{learner.\-c}!create\-Partition@{create\-Partition}}
+\index{create\-Partition@{create\-Partition}!learner.c@{learner.\-c}}
+\subsubsection[{create\-Partition}]{\setlength{\rightskip}{0pt plus 5cm}static void create\-Partition (
+\begin{DoxyParamCaption}
+\item[{long}]{min, }
+\item[{long}]{max, }
+\item[{long}]{id, }
+\item[{long}]{n, }
+\item[{long $\ast$}]{start\-Ptr, }
+\item[{long $\ast$}]{stop\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_acc48aeed933570cb6798c0e4930f6875}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{learner_8c_acc48aeed933570cb6798c0e4930f6875_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_acc48aeed933570cb6798c0e4930f6875_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a5a45fbc491ab273140631145a6e82e54}{\index{learner.\-c@{learner.\-c}!create\-Task\-List@{create\-Task\-List}}
+\index{create\-Task\-List@{create\-Task\-List}!learner.c@{learner.\-c}}
+\subsubsection[{create\-Task\-List}]{\setlength{\rightskip}{0pt plus 5cm}static void create\-Task\-List (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a5a45fbc491ab273140631145a6e82e54}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a5a45fbc491ab273140631145a6e82e54_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{learner_8c_a5a45fbc491ab273140631145a6e82e54_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_aea1955f8471f02d66c6a39136d621f5b}{\index{learner.\-c@{learner.\-c}!learner\-\_\-alloc@{learner\-\_\-alloc}}
+\index{learner\-\_\-alloc@{learner\-\_\-alloc}!learner.c@{learner.\-c}}
+\subsubsection[{learner\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf learner\-\_\-t}$\ast$ learner\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr, }
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{long}]{num\-Thread}
+\end{DoxyParamCaption}
+)}}\label{learner_8c_aea1955f8471f02d66c6a39136d621f5b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_aea1955f8471f02d66c6a39136d621f5b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_aea1955f8471f02d66c6a39136d621f5b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_abf2edbd2546d2d60274a331e41eb5147}{\index{learner.\-c@{learner.\-c}!learner\-\_\-free@{learner\-\_\-free}}
+\index{learner\-\_\-free@{learner\-\_\-free}!learner.c@{learner.\-c}}
+\subsubsection[{learner\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void learner\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf learner\-\_\-t} $\ast$}]{learner\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8c_abf2edbd2546d2d60274a331e41eb5147}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_abf2edbd2546d2d60274a331e41eb5147_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_abf2edbd2546d2d60274a331e41eb5147_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a23d451d4d355a14fa7c9735304ba4d95}{\index{learner.\-c@{learner.\-c}!learner\-\_\-run@{learner\-\_\-run}}
+\index{learner\-\_\-run@{learner\-\_\-run}!learner.c@{learner.\-c}}
+\subsubsection[{learner\-\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}void learner\-\_\-run (
+\begin{DoxyParamCaption}
+\item[{{\bf learner\-\_\-t} $\ast$}]{learner\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8c_a23d451d4d355a14fa7c9735304ba4d95}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a23d451d4d355a14fa7c9735304ba4d95_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{learner_8c_a23d451d4d355a14fa7c9735304ba4d95_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a643517a90c64064dfb94cb9cb8d6eddf}{\index{learner.\-c@{learner.\-c}!learner\-\_\-score@{learner\-\_\-score}}
+\index{learner\-\_\-score@{learner\-\_\-score}!learner.c@{learner.\-c}}
+\subsubsection[{learner\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}float learner\-\_\-score (
+\begin{DoxyParamCaption}
+\item[{{\bf learner\-\_\-t} $\ast$}]{learner\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8c_a643517a90c64064dfb94cb9cb8d6eddf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a643517a90c64064dfb94cb9cb8d6eddf_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a643517a90c64064dfb94cb9cb8d6eddf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a992842224f9ab3030136c9cadb79bd44}{\index{learner.\-c@{learner.\-c}!learn\-Structure@{learn\-Structure}}
+\index{learn\-Structure@{learn\-Structure}!learner.c@{learner.\-c}}
+\subsubsection[{learn\-Structure}]{\setlength{\rightskip}{0pt plus 5cm}static void learn\-Structure (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a992842224f9ab3030136c9cadb79bd44}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a992842224f9ab3030136c9cadb79bd44_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{learner_8c_a992842224f9ab3030136c9cadb79bd44_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a923c66a4bc105d43d93146cddc7795cf}{\index{learner.\-c@{learner.\-c}!populate\-Parent\-Query\-Vector@{populate\-Parent\-Query\-Vector}}
+\index{populate\-Parent\-Query\-Vector@{populate\-Parent\-Query\-Vector}!learner.c@{learner.\-c}}
+\subsubsection[{populate\-Parent\-Query\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}static void populate\-Parent\-Query\-Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf query\-\_\-t} $\ast$}]{queries, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a923c66a4bc105d43d93146cddc7795cf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a923c66a4bc105d43d93146cddc7795cf_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a923c66a4bc105d43d93146cddc7795cf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a02c8bbd9e58f6b76caafe97e1265357d}{\index{learner.\-c@{learner.\-c}!populate\-Query\-Vectors@{populate\-Query\-Vectors}}
+\index{populate\-Query\-Vectors@{populate\-Query\-Vectors}!learner.c@{learner.\-c}}
+\subsubsection[{populate\-Query\-Vectors}]{\setlength{\rightskip}{0pt plus 5cm}static void populate\-Query\-Vectors (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf query\-\_\-t} $\ast$}]{queries, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a02c8bbd9e58f6b76caafe97e1265357d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a02c8bbd9e58f6b76caafe97e1265357d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a02c8bbd9e58f6b76caafe97e1265357d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a09527d5a665045b1dfb52a89f8573321}{\index{learner.\-c@{learner.\-c}!T\-Mcompare\-Task@{T\-Mcompare\-Task}}
+\index{T\-Mcompare\-Task@{T\-Mcompare\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mcompare\-Task}]{\setlength{\rightskip}{0pt plus 5cm}static long T\-Mcompare\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$}]{a\-Ptr, }
+\item[{const void $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a09527d5a665045b1dfb52a89f8573321}
+\hypertarget{learner_8c_af4655d41f33380b11243cae071a4ce37}{\index{learner.\-c@{learner.\-c}!T\-Mfind\-Best\-Insert\-Task@{T\-Mfind\-Best\-Insert\-Task}}
+\index{T\-Mfind\-Best\-Insert\-Task@{T\-Mfind\-Best\-Insert\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mfind\-Best\-Insert\-Task}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf learner\-\_\-task\-\_\-t} T\-Mfind\-Best\-Insert\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf find\-Best\-Task\-Arg\-\_\-t} $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_af4655d41f33380b11243cae071a4ce37}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_af4655d41f33380b11243cae071a4ce37_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_af4655d41f33380b11243cae071a4ce37_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a99307386b0d01dd209f88527643a58d3}{\index{learner.\-c@{learner.\-c}!T\-Mfind\-Best\-Remove\-Task@{T\-Mfind\-Best\-Remove\-Task}}
+\index{T\-Mfind\-Best\-Remove\-Task@{T\-Mfind\-Best\-Remove\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mfind\-Best\-Remove\-Task}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf learner\-\_\-task\-\_\-t} T\-Mfind\-Best\-Remove\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf find\-Best\-Task\-Arg\-\_\-t} $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a99307386b0d01dd209f88527643a58d3}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a99307386b0d01dd209f88527643a58d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_aa29b00ddc533146c018e2f21103e2222}{\index{learner.\-c@{learner.\-c}!T\-Mfind\-Best\-Reverse\-Task@{T\-Mfind\-Best\-Reverse\-Task}}
+\index{T\-Mfind\-Best\-Reverse\-Task@{T\-Mfind\-Best\-Reverse\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mfind\-Best\-Reverse\-Task}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf learner\-\_\-task\-\_\-t} T\-Mfind\-Best\-Reverse\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf find\-Best\-Task\-Arg\-\_\-t} $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_aa29b00ddc533146c018e2f21103e2222}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_aa29b00ddc533146c018e2f21103e2222_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a1d593fcbf998464a50664bfdaa5aaec7}{\index{learner.\-c@{learner.\-c}!T\-Mpop\-Task@{T\-Mpop\-Task}}
+\index{T\-Mpop\-Task@{T\-Mpop\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mpop\-Task}]{\setlength{\rightskip}{0pt plus 5cm}{\bf learner\-\_\-task\-\_\-t}$\ast$ T\-Mpop\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$}]{task\-List\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8c_a1d593fcbf998464a50664bfdaa5aaec7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a1d593fcbf998464a50664bfdaa5aaec7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_a6ead24509867bb6bb068620ad2d9da93}{\index{learner.\-c@{learner.\-c}!T\-Mpopulate\-Parent\-Query\-Vector@{T\-Mpopulate\-Parent\-Query\-Vector}}
+\index{T\-Mpopulate\-Parent\-Query\-Vector@{T\-Mpopulate\-Parent\-Query\-Vector}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mpopulate\-Parent\-Query\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mpopulate\-Parent\-Query\-Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf query\-\_\-t} $\ast$}]{queries, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_a6ead24509867bb6bb068620ad2d9da93}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a6ead24509867bb6bb068620ad2d9da93_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_a6ead24509867bb6bb068620ad2d9da93_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8c_ad1501982eb48921ad41de7de9457db4b}{\index{learner.\-c@{learner.\-c}!T\-Mpopulate\-Query\-Vectors@{T\-Mpopulate\-Query\-Vectors}}
+\index{T\-Mpopulate\-Query\-Vectors@{T\-Mpopulate\-Query\-Vectors}!learner.c@{learner.\-c}}
+\subsubsection[{T\-Mpopulate\-Query\-Vectors}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mpopulate\-Query\-Vectors (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf query\-\_\-t} $\ast$}]{queries, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{parent\-Query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{learner_8c_ad1501982eb48921ad41de7de9457db4b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_ad1501982eb48921ad41de7de9457db4b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8c_ad1501982eb48921ad41de7de9457db4b_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{learner_8c_aac3cad01919daac25774e2daaabbd693}{\index{learner.\-c@{learner.\-c}!compare\-Task@{compare\-Task}}
+\index{compare\-Task@{compare\-Task}!learner.c@{learner.\-c}}
+\subsubsection[{compare\-Task}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} learner\-\_\-comparetask\& compare\-Task}}\label{learner_8c_aac3cad01919daac25774e2daaabbd693}
+\hypertarget{learner_8c_a195cfeaaa4f9abe8b0f9ee267571a08c}{\index{learner.\-c@{learner.\-c}!global\-\_\-insert\-Penalty@{global\-\_\-insert\-Penalty}}
+\index{global\-\_\-insert\-Penalty@{global\-\_\-insert\-Penalty}!learner.c@{learner.\-c}}
+\subsubsection[{global\-\_\-insert\-Penalty}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-insert\-Penalty}}\label{learner_8c_a195cfeaaa4f9abe8b0f9ee267571a08c}
+\hypertarget{learner_8c_a010ff63ad76a5580f266f7b9001be4f9}{\index{learner.\-c@{learner.\-c}!global\-\_\-max\-Num\-Edge\-Learned@{global\-\_\-max\-Num\-Edge\-Learned}}
+\index{global\-\_\-max\-Num\-Edge\-Learned@{global\-\_\-max\-Num\-Edge\-Learned}!learner.c@{learner.\-c}}
+\subsubsection[{global\-\_\-max\-Num\-Edge\-Learned}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-max\-Num\-Edge\-Learned}}\label{learner_8c_a010ff63ad76a5580f266f7b9001be4f9}
+\hypertarget{learner_8c_a88d7bbe4159b4d4febb6897920f14471}{\index{learner.\-c@{learner.\-c}!global\-\_\-operation\-Quality\-Factor@{global\-\_\-operation\-Quality\-Factor}}
+\index{global\-\_\-operation\-Quality\-Factor@{global\-\_\-operation\-Quality\-Factor}!learner.c@{learner.\-c}}
+\subsubsection[{global\-\_\-operation\-Quality\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}float global\-\_\-operation\-Quality\-Factor}}\label{learner_8c_a88d7bbe4159b4d4febb6897920f14471}

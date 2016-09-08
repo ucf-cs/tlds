@@ -1,0 +1,19 @@
+<map id="rstm/rstm&#45;dev/libstm/algs/tml_inline.hpp" name="rstm/rstm&#45;dev/libstm/algs/tml_inline.hpp">
+<area shape="rect" id="node2" href="$algs_8hpp.html" title="algs.hpp" alt="" coords="222,96,292,123"/>
+<area shape="rect" id="node5" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="983,469,1109,496"/>
+<area shape="rect" id="node15" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="501,320,621,347"/>
+<area shape="rect" id="node26" href="$profiling_8hpp.html" title="../profiling.hpp" alt="" coords="205,171,309,197"/>
+<area shape="rect" id="node6" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="581,544,715,571"/>
+<area shape="rect" id="node14" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="1257,619,1375,645"/>
+<area shape="rect" id="node10" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="1085,619,1232,645"/>
+<area shape="rect" id="node16" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="246,395,399,421"/>
+<area shape="rect" id="node18" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="1034,544,1165,571"/>
+<area shape="rect" id="node19" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="475,395,647,421"/>
+<area shape="rect" id="node20" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="330,544,453,571"/>
+<area shape="rect" id="node22" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="773,469,899,496"/>
+<area shape="rect" id="node24" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="231,469,357,496"/>
+<area shape="rect" id="node25" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="671,395,797,421"/>
+<area shape="rect" id="node23" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="791,544,907,571"/>
+<area shape="rect" id="node27" href="$policies_8hpp.html" title="./policies/policies.hpp" alt="" coords="984,245,1131,272"/>
+<area shape="rect" id="node29" href="$lib__globals_8hpp.html" title="stm/lib_globals.hpp" alt="" coords="874,395,1008,421"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="stmskip_alloc" name="stmskip_alloc">
+<area shape="rect" id="node2" href="$ptst_8c.html#a9f490f3eb71074b856eb2206f97c6cb1" title="fr_critical_enter" alt="" coords="158,161,269,188"/>
+<area shape="rect" id="node12" href="$stm_8h.html#a7f41614dded09613f4ccd7578ef188ba" title="new_stm_blk" alt="" coords="164,212,263,239"/>
+<area shape="rect" id="node14" href="$stm_8h.html#a2c77806bb0511fb17494d226b5ea20d8" title="init_stm_blk" alt="" coords="167,263,259,289"/>
+<area shape="rect" id="node15" href="$stmskip_8cc.html#a5db6833ad98c08797c5dffd75d264833" title="fr_critical_exit" alt="" coords="162,313,265,340"/>
+<area shape="rect" id="node3" href="$gc_8c.html#aa06f5acb271ed4c9afcc728f3ceae52f" title="fr_gc_init" alt="" coords="323,104,397,131"/>
+<area shape="rect" id="node10" href="$gc_8c.html#a1b011e952f943e62b80e39768305d3fb" title="fr_gc_enter" alt="" coords="466,165,553,192"/>
+<area shape="rect" id="node4" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="798,51,930,77"/>
+<area shape="rect" id="node7" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="451,107,567,133"/>
+<area shape="rect" id="node9" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="617,25,749,52"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="979,152,1114,179"/>
+<area shape="rect" id="node6" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="979,51,1114,77"/>
+<area shape="rect" id="node8" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="621,76,744,103"/>
+<area shape="rect" id="node11" href="$gc_8c.html#a8c8094a35212fa8ed75ed9a4a38c7b9c" title="gc_reclaim" alt="" coords="640,177,725,204"/>
+<area shape="rect" id="node13" href="$gc_8c.html#a5c5981457deeeefd60df569f6265f59c" title="fr_gc_alloc" alt="" coords="317,212,403,239"/>
+</map>

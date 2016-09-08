@@ -1,0 +1,246 @@
+\hypertarget{region_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/yada/region.c File Reference}
+\label{region_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/region.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/region.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}region.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}coordinate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}element.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for region.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structregion}{region}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$ \hyperlink{region_8c_a8c683a35c5e2325f9e294ebe277c7461}{Pregion\-\_\-alloc} ()
+\item 
+\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$ \hyperlink{region_8c_a353c6334013e3cc4a4501fad51db5739}{T\-Mregion\-\_\-alloc} (\hyperlink{tm_8h_a1e777a44e336d5f4adc02eb8e9e41062}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L\-\_\-\-A\-L\-O\-N\-E})
+\item 
+void \hyperlink{region_8c_a8fae2be618d960d7868d0b58dabad59f}{Pregion\-\_\-free} (\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr)
+\item 
+void \hyperlink{region_8c_aba2c2c21da3751ec96436b196b6c2c24}{T\-Mregion\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr)
+\item 
+void \hyperlink{region_8c_a73cd7aece427be74d4262efdfd7329e1}{T\-Madd\-To\-Bad\-Vector} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$bad\-Vector\-Ptr, \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$bad\-Element\-Ptr)
+\item 
+long \hyperlink{region_8c_ad4b1f1f56943e4622f08b8a434aafe33}{T\-Mretriangulate} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$element\-Ptr, \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr, \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, M\-A\-P\-\_\-\-T $\ast$edge\-Map\-Ptr)
+\item 
+\hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$ \hyperlink{region_8c_afd9637f04d120aec5464b6304cfa0c99}{T\-Mgrow\-Region} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$center\-Element\-Ptr, \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr, \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, M\-A\-P\-\_\-\-T $\ast$edge\-Map\-Ptr)
+\item 
+long \hyperlink{region_8c_a74d9ac41436518894e8e1bd6564ebf42}{T\-Mregion\-\_\-refine} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr, \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$element\-Ptr, \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr)
+\item 
+void \hyperlink{region_8c_a6b4313793cf84a98da10815c65ce5b7e}{Pregion\-\_\-clear\-Bad} (\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr)
+\item 
+void \hyperlink{region_8c_a73dfcc2f406f8147c0edc05506f43bfd}{T\-Mregion\-\_\-transfer\-Bad} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr, \hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$work\-Heap\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} \\*
+region\-\_\-elementlistcompare \& \hyperlink{region_8c_a35b8fd382a9b7c4500410e98db4a5c2b}{element\-\_\-list\-Compare}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} \\*
+region\-\_\-listcompareedge \& \hyperlink{region_8c_a4ded98c4834c98f5e91b738f712ded59}{element\-\_\-list\-Compare\-Edge}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{region_8c_a8c683a35c5e2325f9e294ebe277c7461}{\index{region.\-c@{region.\-c}!Pregion\-\_\-alloc@{Pregion\-\_\-alloc}}
+\index{Pregion\-\_\-alloc@{Pregion\-\_\-alloc}!region.c@{region.\-c}}
+\subsubsection[{Pregion\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf region\-\_\-t}$\ast$ Pregion\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a8c683a35c5e2325f9e294ebe277c7461}
+\hypertarget{region_8c_a6b4313793cf84a98da10815c65ce5b7e}{\index{region.\-c@{region.\-c}!Pregion\-\_\-clear\-Bad@{Pregion\-\_\-clear\-Bad}}
+\index{Pregion\-\_\-clear\-Bad@{Pregion\-\_\-clear\-Bad}!region.c@{region.\-c}}
+\subsubsection[{Pregion\-\_\-clear\-Bad}]{\setlength{\rightskip}{0pt plus 5cm}void Pregion\-\_\-clear\-Bad (
+\begin{DoxyParamCaption}
+\item[{{\bf region\-\_\-t} $\ast$}]{region\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a6b4313793cf84a98da10815c65ce5b7e}
+\hypertarget{region_8c_a8fae2be618d960d7868d0b58dabad59f}{\index{region.\-c@{region.\-c}!Pregion\-\_\-free@{Pregion\-\_\-free}}
+\index{Pregion\-\_\-free@{Pregion\-\_\-free}!region.c@{region.\-c}}
+\subsubsection[{Pregion\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pregion\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf region\-\_\-t} $\ast$}]{region\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a8fae2be618d960d7868d0b58dabad59f}
+\hypertarget{region_8c_a73cd7aece427be74d4262efdfd7329e1}{\index{region.\-c@{region.\-c}!T\-Madd\-To\-Bad\-Vector@{T\-Madd\-To\-Bad\-Vector}}
+\index{T\-Madd\-To\-Bad\-Vector@{T\-Madd\-To\-Bad\-Vector}!region.c@{region.\-c}}
+\subsubsection[{T\-Madd\-To\-Bad\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Madd\-To\-Bad\-Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf vector\-\_\-t} $\ast$}]{bad\-Vector\-Ptr, }
+\item[{{\bf element\-\_\-t} $\ast$}]{bad\-Element\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a73cd7aece427be74d4262efdfd7329e1}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8c_a73cd7aece427be74d4262efdfd7329e1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{region_8c_afd9637f04d120aec5464b6304cfa0c99}{\index{region.\-c@{region.\-c}!T\-Mgrow\-Region@{T\-Mgrow\-Region}}
+\index{T\-Mgrow\-Region@{T\-Mgrow\-Region}!region.c@{region.\-c}}
+\subsubsection[{T\-Mgrow\-Region}]{\setlength{\rightskip}{0pt plus 5cm}{\bf element\-\_\-t}$\ast$ T\-Mgrow\-Region (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf element\-\_\-t} $\ast$}]{center\-Element\-Ptr, }
+\item[{{\bf region\-\_\-t} $\ast$}]{region\-Ptr, }
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{M\-A\-P\-\_\-\-T $\ast$}]{edge\-Map\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_afd9637f04d120aec5464b6304cfa0c99}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8c_afd9637f04d120aec5464b6304cfa0c99_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{region_8c_afd9637f04d120aec5464b6304cfa0c99_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{region_8c_a353c6334013e3cc4a4501fad51db5739}{\index{region.\-c@{region.\-c}!T\-Mregion\-\_\-alloc@{T\-Mregion\-\_\-alloc}}
+\index{T\-Mregion\-\_\-alloc@{T\-Mregion\-\_\-alloc}!region.c@{region.\-c}}
+\subsubsection[{T\-Mregion\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf region\-\_\-t}$\ast$ T\-Mregion\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a353c6334013e3cc4a4501fad51db5739}
+\hypertarget{region_8c_aba2c2c21da3751ec96436b196b6c2c24}{\index{region.\-c@{region.\-c}!T\-Mregion\-\_\-free@{T\-Mregion\-\_\-free}}
+\index{T\-Mregion\-\_\-free@{T\-Mregion\-\_\-free}!region.c@{region.\-c}}
+\subsubsection[{T\-Mregion\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mregion\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf region\-\_\-t} $\ast$}]{region\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_aba2c2c21da3751ec96436b196b6c2c24}
+\hypertarget{region_8c_a74d9ac41436518894e8e1bd6564ebf42}{\index{region.\-c@{region.\-c}!T\-Mregion\-\_\-refine@{T\-Mregion\-\_\-refine}}
+\index{T\-Mregion\-\_\-refine@{T\-Mregion\-\_\-refine}!region.c@{region.\-c}}
+\subsubsection[{T\-Mregion\-\_\-refine}]{\setlength{\rightskip}{0pt plus 5cm}long T\-Mregion\-\_\-refine (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf region\-\_\-t} $\ast$}]{region\-Ptr, }
+\item[{{\bf element\-\_\-t} $\ast$}]{element\-Ptr, }
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a74d9ac41436518894e8e1bd6564ebf42}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8c_a74d9ac41436518894e8e1bd6564ebf42_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{region_8c_a74d9ac41436518894e8e1bd6564ebf42_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{region_8c_a73dfcc2f406f8147c0edc05506f43bfd}{\index{region.\-c@{region.\-c}!T\-Mregion\-\_\-transfer\-Bad@{T\-Mregion\-\_\-transfer\-Bad}}
+\index{T\-Mregion\-\_\-transfer\-Bad@{T\-Mregion\-\_\-transfer\-Bad}!region.c@{region.\-c}}
+\subsubsection[{T\-Mregion\-\_\-transfer\-Bad}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mregion\-\_\-transfer\-Bad (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf region\-\_\-t} $\ast$}]{region\-Ptr, }
+\item[{{\bf heap\-\_\-t} $\ast$}]{work\-Heap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_a73dfcc2f406f8147c0edc05506f43bfd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{region_8c_a73dfcc2f406f8147c0edc05506f43bfd_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{region_8c_ad4b1f1f56943e4622f08b8a434aafe33}{\index{region.\-c@{region.\-c}!T\-Mretriangulate@{T\-Mretriangulate}}
+\index{T\-Mretriangulate@{T\-Mretriangulate}!region.c@{region.\-c}}
+\subsubsection[{T\-Mretriangulate}]{\setlength{\rightskip}{0pt plus 5cm}long T\-Mretriangulate (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf element\-\_\-t} $\ast$}]{element\-Ptr, }
+\item[{{\bf region\-\_\-t} $\ast$}]{region\-Ptr, }
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{M\-A\-P\-\_\-\-T $\ast$}]{edge\-Map\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8c_ad4b1f1f56943e4622f08b8a434aafe33}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8c_ad4b1f1f56943e4622f08b8a434aafe33_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{region_8c_ad4b1f1f56943e4622f08b8a434aafe33_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{region_8c_a35b8fd382a9b7c4500410e98db4a5c2b}{\index{region.\-c@{region.\-c}!element\-\_\-list\-Compare@{element\-\_\-list\-Compare}}
+\index{element\-\_\-list\-Compare@{element\-\_\-list\-Compare}!region.c@{region.\-c}}
+\subsubsection[{element\-\_\-list\-Compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} region\-\_\-elementlistcompare\& element\-\_\-list\-Compare}}\label{region_8c_a35b8fd382a9b7c4500410e98db4a5c2b}
+\hypertarget{region_8c_a4ded98c4834c98f5e91b738f712ded59}{\index{region.\-c@{region.\-c}!element\-\_\-list\-Compare\-Edge@{element\-\_\-list\-Compare\-Edge}}
+\index{element\-\_\-list\-Compare\-Edge@{element\-\_\-list\-Compare\-Edge}!region.c@{region.\-c}}
+\subsubsection[{element\-\_\-list\-Compare\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} region\-\_\-listcompareedge\& element\-\_\-list\-Compare\-Edge}}\label{region_8c_a4ded98c4834c98f5e91b738f712ded59}

@@ -1,0 +1,79 @@
+\hypertarget{structstm_1_1qtable__t}{\section{stm\-:\-:qtable\-\_\-t Struct Reference}
+\label{structstm_1_1qtable__t}\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$policies.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:qtable\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{structstm_1_1qtable__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1qtable__t_acc286af6b0bd3277f22d6eec1f54e0cd}{qtable\-\_\-t} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structstm_1_1qtable__t_a6cb50666a64febf79d4d3ec5ca70c67a}{alg\-\_\-name}
+\item 
+\hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} \hyperlink{structstm_1_1qtable__t_a6980b10f0672b612b6d52556d3649fbf}{p}
+\item 
+int \hyperlink{structstm_1_1qtable__t_a3c0bb02f0188050de2b91629d9b1674a}{txn\-\_\-ratio}
+\item 
+int \hyperlink{structstm_1_1qtable__t_a90c4ee712992870b04c4506869e0a1ea}{pct\-\_\-ro}
+\item 
+int \hyperlink{structstm_1_1qtable__t_a6639131b696719510cb2c1d313a3f4cb}{thr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is for storing our C\-B\-R-\/style qtable
+
+The qtable tells us for a particular workload characteristic, what algorithm did best at each thread count. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1qtable__t_acc286af6b0bd3277f22d6eec1f54e0cd}{\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}!qtable\-\_\-t@{qtable\-\_\-t}}
+\index{qtable\-\_\-t@{qtable\-\_\-t}!stm::qtable_t@{stm\-::qtable\-\_\-t}}
+\subsubsection[{qtable\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::qtable\-\_\-t\-::qtable\-\_\-t (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1qtable__t_acc286af6b0bd3277f22d6eec1f54e0cd}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1qtable__t_a6cb50666a64febf79d4d3ec5ca70c67a}{\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}!alg\-\_\-name@{alg\-\_\-name}}
+\index{alg\-\_\-name@{alg\-\_\-name}!stm::qtable_t@{stm\-::qtable\-\_\-t}}
+\subsubsection[{alg\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::qtable\-\_\-t\-::alg\-\_\-name}}\label{structstm_1_1qtable__t_a6cb50666a64febf79d4d3ec5ca70c67a}
+Selection Fields
+
+N\-B\-: These fields are for choosing the output\-: For a given behavior, choose the algorithm that maximizes throughput. \hypertarget{structstm_1_1qtable__t_a6980b10f0672b612b6d52556d3649fbf}{\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}!p@{p}}
+\index{p@{p}!stm::qtable_t@{stm\-::qtable\-\_\-t}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dynprof\-\_\-t} stm\-::qtable\-\_\-t\-::p}}\label{structstm_1_1qtable__t_a6980b10f0672b612b6d52556d3649fbf}
+Transaction Behavior Summary
+
+N\-B\-: The profile holds a characterization of the transactions of the workload, with regard to reads and writes, and the time spent on a transaction. Depending on which variant of Profile\-App was used to create this profile, it will either hold average values, or max values.
+
+N\-B\-: We assume that a summary of transactions in the single-\/thread execution is appropriate for the behavior of transactions in a multithreaded execution. \hypertarget{structstm_1_1qtable__t_a90c4ee712992870b04c4506869e0a1ea}{\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}!pct\-\_\-ro@{pct\-\_\-ro}}
+\index{pct\-\_\-ro@{pct\-\_\-ro}!stm::qtable_t@{stm\-::qtable\-\_\-t}}
+\subsubsection[{pct\-\_\-ro}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::qtable\-\_\-t\-::pct\-\_\-ro}}\label{structstm_1_1qtable__t_a90c4ee712992870b04c4506869e0a1ea}
+The percentage of transactions that are Read-\/\-Only \hypertarget{structstm_1_1qtable__t_a6639131b696719510cb2c1d313a3f4cb}{\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}!thr@{thr}}
+\index{thr@{thr}!stm::qtable_t@{stm\-::qtable\-\_\-t}}
+\subsubsection[{thr}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::qtable\-\_\-t\-::thr}}\label{structstm_1_1qtable__t_a6639131b696719510cb2c1d313a3f4cb}
+\hypertarget{structstm_1_1qtable__t_a3c0bb02f0188050de2b91629d9b1674a}{\index{stm\-::qtable\-\_\-t@{stm\-::qtable\-\_\-t}!txn\-\_\-ratio@{txn\-\_\-ratio}}
+\index{txn\-\_\-ratio@{txn\-\_\-ratio}!stm::qtable_t@{stm\-::qtable\-\_\-t}}
+\subsubsection[{txn\-\_\-ratio}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::qtable\-\_\-t\-::txn\-\_\-ratio}}\label{structstm_1_1qtable__t_a3c0bb02f0188050de2b91629d9b1674a}
+Workload Behavior Summary The ratio of transactional work to nontransactional work 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/policies/\hyperlink{policies_8hpp}{policies.\-hpp}\end{DoxyCompactItemize}

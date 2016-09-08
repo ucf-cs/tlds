@@ -1,0 +1,41 @@
+\hypertarget{structstm_1_1orec__t}{\section{stm\-:\-:orec\-\_\-t Struct Reference}
+\label{structstm_1_1orec__t}\index{stm\-::orec\-\_\-t@{stm\-::orec\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$metadata.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:orec\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{structstm_1_1orec__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile \hyperlink{unionstm_1_1id__version__t}{id\-\_\-version\-\_\-t} \hyperlink{structstm_1_1orec__t_a51e0b43d140f014b61f0d7445603b499}{v}
+\item 
+volatile uintptr\-\_\-t \hyperlink{structstm_1_1orec__t_a78fd1223b5c4b0d1ec0ae06da1ff2453}{p}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+When we acquire an orec, we may ultimately need to reset it to its old value (if we abort). Saving the old value with the orec is an easy way to support this need without having exta logging in the descriptor. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1orec__t_a78fd1223b5c4b0d1ec0ae06da1ff2453}{\index{stm\-::orec\-\_\-t@{stm\-::orec\-\_\-t}!p@{p}}
+\index{p@{p}!stm::orec_t@{stm\-::orec\-\_\-t}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}volatile uintptr\-\_\-t stm\-::orec\-\_\-t\-::p}}\label{structstm_1_1orec__t_a78fd1223b5c4b0d1ec0ae06da1ff2453}
+\hypertarget{structstm_1_1orec__t_a51e0b43d140f014b61f0d7445603b499}{\index{stm\-::orec\-\_\-t@{stm\-::orec\-\_\-t}!v@{v}}
+\index{v@{v}!stm::orec_t@{stm\-::orec\-\_\-t}}
+\subsubsection[{v}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf id\-\_\-version\-\_\-t} stm\-::orec\-\_\-t\-::v}}\label{structstm_1_1orec__t_a51e0b43d140f014b61f0d7445603b499}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{metadata_8hpp}{metadata.\-hpp}\end{DoxyCompactItemize}

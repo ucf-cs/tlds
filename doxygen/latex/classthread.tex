@@ -1,0 +1,149 @@
+\hypertarget{classthread}{\section{thread Class Reference}
+\label{classthread}\index{thread@{thread}}
+}
+
+
+{\ttfamily \#include $<$my\-\_\-thread.\-hpp$>$}
+
+
+
+Collaboration diagram for thread\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classthread__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classthread_a275b656d36e4f9f7a84e2ae3e6f42c10}{enter\-\_\-transaction} ()
+\item 
+void \hyperlink{classthread_a9c79b7165547b8f4c71e5798d3a1dcbb}{leave\-\_\-transaction} ()
+\item 
+bool \hyperlink{classthread_a9278ee63c0cb030fe1d0a9e94182eac6}{in\-\_\-transaction} ()
+\item 
+\hyperlink{classthread_ac6be14cb7697377971d2ca750430778a}{thread} (\hyperlink{classrunnable}{runnable} $\ast$f)
+\item 
+\hyperlink{classthread_a89227b1aa26caf81b01feb85c011e624}{thread} ()
+\item 
+\hyperlink{common_8hpp_aad0b6a771c65df7f474192857172ee3e}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E} void \hyperlink{classthread_ac78f7f3177a45bcca542c836476353ad}{erase\-\_\-buffered\-\_\-output} ()
+\item 
+void \hyperlink{classthread_a7fad6d0b13a7235fabaf4d7de023a409}{dump\-\_\-buffered\-\_\-output} ()
+\item 
+\hyperlink{classthread_a117e0892c1d1a90bece03424311676f6}{$\sim$thread} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+stringstream \hyperlink{classthread_a96a5f4b8956359ad5840c7178c4ca32e}{vout}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-t \hyperlink{classthread_aa59a950277a15e2662021b3fe6cd3df6}{my\-\_\-pthread}
+\item 
+\hyperlink{classrunnable}{runnable} $\ast$ \hyperlink{classthread_a1cfb7ceefe6a1e6ca21bab30145668a0}{my\-\_\-runnable}
+\item 
+int \hyperlink{classthread_a322a7b4d5150e631784b84bc200b0e11}{transaction\-\_\-count}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{classthread_a91d61cfabf61446ae3d24e21a825f854}{call\-\_\-runnable} (void $\ast$f)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classthread_ac6be14cb7697377971d2ca750430778a}{\index{thread@{thread}!thread@{thread}}
+\index{thread@{thread}!thread@{thread}}
+\subsubsection[{thread}]{\setlength{\rightskip}{0pt plus 5cm}thread\-::thread (
+\begin{DoxyParamCaption}
+\item[{{\bf runnable} $\ast$}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_ac6be14cb7697377971d2ca750430778a}
+\hypertarget{classthread_a89227b1aa26caf81b01feb85c011e624}{\index{thread@{thread}!thread@{thread}}
+\index{thread@{thread}!thread@{thread}}
+\subsubsection[{thread}]{\setlength{\rightskip}{0pt plus 5cm}thread\-::thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_a89227b1aa26caf81b01feb85c011e624}
+\hypertarget{classthread_a117e0892c1d1a90bece03424311676f6}{\index{thread@{thread}!$\sim$thread@{$\sim$thread}}
+\index{$\sim$thread@{$\sim$thread}!thread@{thread}}
+\subsubsection[{$\sim$thread}]{\setlength{\rightskip}{0pt plus 5cm}thread\-::$\sim$thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_a117e0892c1d1a90bece03424311676f6}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classthread_a7fad6d0b13a7235fabaf4d7de023a409}{\index{thread@{thread}!dump\-\_\-buffered\-\_\-output@{dump\-\_\-buffered\-\_\-output}}
+\index{dump\-\_\-buffered\-\_\-output@{dump\-\_\-buffered\-\_\-output}!thread@{thread}}
+\subsubsection[{dump\-\_\-buffered\-\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-::dump\-\_\-buffered\-\_\-output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_a7fad6d0b13a7235fabaf4d7de023a409}
+\hypertarget{classthread_a275b656d36e4f9f7a84e2ae3e6f42c10}{\index{thread@{thread}!enter\-\_\-transaction@{enter\-\_\-transaction}}
+\index{enter\-\_\-transaction@{enter\-\_\-transaction}!thread@{thread}}
+\subsubsection[{enter\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-::enter\-\_\-transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_a275b656d36e4f9f7a84e2ae3e6f42c10}
+\hypertarget{classthread_ac78f7f3177a45bcca542c836476353ad}{\index{thread@{thread}!erase\-\_\-buffered\-\_\-output@{erase\-\_\-buffered\-\_\-output}}
+\index{erase\-\_\-buffered\-\_\-output@{erase\-\_\-buffered\-\_\-output}!thread@{thread}}
+\subsubsection[{erase\-\_\-buffered\-\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E} void thread\-::erase\-\_\-buffered\-\_\-output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_ac78f7f3177a45bcca542c836476353ad}
+\hypertarget{classthread_a9278ee63c0cb030fe1d0a9e94182eac6}{\index{thread@{thread}!in\-\_\-transaction@{in\-\_\-transaction}}
+\index{in\-\_\-transaction@{in\-\_\-transaction}!thread@{thread}}
+\subsubsection[{in\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}bool thread\-::in\-\_\-transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_a9278ee63c0cb030fe1d0a9e94182eac6}
+\hypertarget{classthread_a9c79b7165547b8f4c71e5798d3a1dcbb}{\index{thread@{thread}!leave\-\_\-transaction@{leave\-\_\-transaction}}
+\index{leave\-\_\-transaction@{leave\-\_\-transaction}!thread@{thread}}
+\subsubsection[{leave\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-::leave\-\_\-transaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classthread_a9c79b7165547b8f4c71e5798d3a1dcbb}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classthread_a91d61cfabf61446ae3d24e21a825f854}{\index{thread@{thread}!call\-\_\-runnable@{call\-\_\-runnable}}
+\index{call\-\_\-runnable@{call\-\_\-runnable}!thread@{thread}}
+\subsubsection[{call\-\_\-runnable}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ call\-\_\-runnable (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classthread_a91d61cfabf61446ae3d24e21a825f854}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Member Data Documentation}
+\hypertarget{classthread_aa59a950277a15e2662021b3fe6cd3df6}{\index{thread@{thread}!my\-\_\-pthread@{my\-\_\-pthread}}
+\index{my\-\_\-pthread@{my\-\_\-pthread}!thread@{thread}}
+\subsubsection[{my\-\_\-pthread}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t thread\-::my\-\_\-pthread\hspace{0.3cm}{\ttfamily [private]}}}\label{classthread_aa59a950277a15e2662021b3fe6cd3df6}
+\hypertarget{classthread_a1cfb7ceefe6a1e6ca21bab30145668a0}{\index{thread@{thread}!my\-\_\-runnable@{my\-\_\-runnable}}
+\index{my\-\_\-runnable@{my\-\_\-runnable}!thread@{thread}}
+\subsubsection[{my\-\_\-runnable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf runnable}$\ast$ thread\-::my\-\_\-runnable\hspace{0.3cm}{\ttfamily [private]}}}\label{classthread_a1cfb7ceefe6a1e6ca21bab30145668a0}
+\hypertarget{classthread_a322a7b4d5150e631784b84bc200b0e11}{\index{thread@{thread}!transaction\-\_\-count@{transaction\-\_\-count}}
+\index{transaction\-\_\-count@{transaction\-\_\-count}!thread@{thread}}
+\subsubsection[{transaction\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}int thread\-::transaction\-\_\-count\hspace{0.3cm}{\ttfamily [private]}}}\label{classthread_a322a7b4d5150e631784b84bc200b0e11}
+\hypertarget{classthread_a96a5f4b8956359ad5840c7178c4ca32e}{\index{thread@{thread}!vout@{vout}}
+\index{vout@{vout}!thread@{thread}}
+\subsubsection[{vout}]{\setlength{\rightskip}{0pt plus 5cm}stringstream thread\-::vout}}\label{classthread_a96a5f4b8956359ad5840c7178c4ca32e}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{my__thread_8hpp}{my\-\_\-thread.\-hpp}\end{DoxyCompactItemize}

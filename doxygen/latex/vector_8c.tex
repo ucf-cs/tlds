@@ -1,0 +1,278 @@
+\hypertarget{vector_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/vector.c File Reference}
+\label{vector_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/vector.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/vector.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for vector.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$ \hyperlink{vector_8c_ad0293c3f6bcd3112d0294b4bc6f99647}{vector\-\_\-alloc} (long init\-Capacity)
+\item 
+\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$ \hyperlink{vector_8c_a9f38d30a2071c43689abeb3173c1dd64}{Pvector\-\_\-alloc} (long init\-Capacity)
+\item 
+void \hyperlink{vector_8c_aed7f3fe585748794ca18f6c957733e40}{vector\-\_\-free} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr)
+\item 
+void \hyperlink{vector_8c_aa14f92ce4965c3e8b09ea5b6367caaca}{Pvector\-\_\-free} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr)
+\item 
+void $\ast$ \hyperlink{vector_8c_a043c4e94efce1c5a44095eb9388ba5e7}{vector\-\_\-at} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr, long i)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{vector_8c_a644473da71660c373cbfb134d83b37bf}{vector\-\_\-push\-Back} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{vector_8c_a5a6666707f422c4bd1438cb36fd789fb}{Pvector\-\_\-push\-Back} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr, void $\ast$data\-Ptr)
+\item 
+void $\ast$ \hyperlink{vector_8c_a495a53394100ca6ded0aacb29893b2d1}{vector\-\_\-pop\-Back} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr)
+\item 
+long \hyperlink{vector_8c_a158656a347e208114bcd945b91cfd87a}{vector\-\_\-get\-Size} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr)
+\item 
+void \hyperlink{vector_8c_ac38a38534f4bbf4a29e4cdebede8cd9d}{vector\-\_\-clear} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr)
+\item 
+void \hyperlink{vector_8c_a058c0986d7b6ec20a2e67e9ae7612744}{vector\-\_\-sort} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$vector\-Ptr, int($\ast$compare)(const void $\ast$, const void $\ast$))
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{vector_8c_ac600a587704d6277a6117628ec5f9fe5}{vector\-\_\-copy} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$dst\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$src\-Vector\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{vector_8c_a301e0770ee49da6d186308a33925acc8}{Pvector\-\_\-copy} (\hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$dst\-Vector\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$src\-Vector\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{vector_8c_a9f38d30a2071c43689abeb3173c1dd64}{\index{vector.\-c@{vector.\-c}!Pvector\-\_\-alloc@{Pvector\-\_\-alloc}}
+\index{Pvector\-\_\-alloc@{Pvector\-\_\-alloc}!vector.c@{vector.\-c}}
+\subsubsection[{Pvector\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-t}$\ast$ Pvector\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{init\-Capacity}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a9f38d30a2071c43689abeb3173c1dd64}
+\hypertarget{vector_8c_a301e0770ee49da6d186308a33925acc8}{\index{vector.\-c@{vector.\-c}!Pvector\-\_\-copy@{Pvector\-\_\-copy}}
+\index{Pvector\-\_\-copy@{Pvector\-\_\-copy}!vector.c@{vector.\-c}}
+\subsubsection[{Pvector\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} Pvector\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{dst\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{src\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a301e0770ee49da6d186308a33925acc8}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_a301e0770ee49da6d186308a33925acc8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_aa14f92ce4965c3e8b09ea5b6367caaca}{\index{vector.\-c@{vector.\-c}!Pvector\-\_\-free@{Pvector\-\_\-free}}
+\index{Pvector\-\_\-free@{Pvector\-\_\-free}!vector.c@{vector.\-c}}
+\subsubsection[{Pvector\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pvector\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_aa14f92ce4965c3e8b09ea5b6367caaca}
+\hypertarget{vector_8c_a5a6666707f422c4bd1438cb36fd789fb}{\index{vector.\-c@{vector.\-c}!Pvector\-\_\-push\-Back@{Pvector\-\_\-push\-Back}}
+\index{Pvector\-\_\-push\-Back@{Pvector\-\_\-push\-Back}!vector.c@{vector.\-c}}
+\subsubsection[{Pvector\-\_\-push\-Back}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} Pvector\-\_\-push\-Back (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a5a6666707f422c4bd1438cb36fd789fb}
+\hypertarget{vector_8c_ad0293c3f6bcd3112d0294b4bc6f99647}{\index{vector.\-c@{vector.\-c}!vector\-\_\-alloc@{vector\-\_\-alloc}}
+\index{vector\-\_\-alloc@{vector\-\_\-alloc}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-t}$\ast$ vector\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{init\-Capacity}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_ad0293c3f6bcd3112d0294b4bc6f99647}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_ad0293c3f6bcd3112d0294b4bc6f99647_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_a043c4e94efce1c5a44095eb9388ba5e7}{\index{vector.\-c@{vector.\-c}!vector\-\_\-at@{vector\-\_\-at}}
+\index{vector\-\_\-at@{vector\-\_\-at}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-at}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ vector\-\_\-at (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr, }
+\item[{long}]{i}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a043c4e94efce1c5a44095eb9388ba5e7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_a043c4e94efce1c5a44095eb9388ba5e7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_ac38a38534f4bbf4a29e4cdebede8cd9d}{\index{vector.\-c@{vector.\-c}!vector\-\_\-clear@{vector\-\_\-clear}}
+\index{vector\-\_\-clear@{vector\-\_\-clear}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void vector\-\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_ac38a38534f4bbf4a29e4cdebede8cd9d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_ac38a38534f4bbf4a29e4cdebede8cd9d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_ac600a587704d6277a6117628ec5f9fe5}{\index{vector.\-c@{vector.\-c}!vector\-\_\-copy@{vector\-\_\-copy}}
+\index{vector\-\_\-copy@{vector\-\_\-copy}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} vector\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{dst\-Vector\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{src\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_ac600a587704d6277a6117628ec5f9fe5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_ac600a587704d6277a6117628ec5f9fe5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_ac600a587704d6277a6117628ec5f9fe5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_aed7f3fe585748794ca18f6c957733e40}{\index{vector.\-c@{vector.\-c}!vector\-\_\-free@{vector\-\_\-free}}
+\index{vector\-\_\-free@{vector\-\_\-free}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void vector\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_aed7f3fe585748794ca18f6c957733e40}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_aed7f3fe585748794ca18f6c957733e40_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_a158656a347e208114bcd945b91cfd87a}{\index{vector.\-c@{vector.\-c}!vector\-\_\-get\-Size@{vector\-\_\-get\-Size}}
+\index{vector\-\_\-get\-Size@{vector\-\_\-get\-Size}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}long vector\-\_\-get\-Size (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a158656a347e208114bcd945b91cfd87a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_a158656a347e208114bcd945b91cfd87a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_a495a53394100ca6ded0aacb29893b2d1}{\index{vector.\-c@{vector.\-c}!vector\-\_\-pop\-Back@{vector\-\_\-pop\-Back}}
+\index{vector\-\_\-pop\-Back@{vector\-\_\-pop\-Back}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-pop\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ vector\-\_\-pop\-Back (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a495a53394100ca6ded0aacb29893b2d1}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_a495a53394100ca6ded0aacb29893b2d1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_a644473da71660c373cbfb134d83b37bf}{\index{vector.\-c@{vector.\-c}!vector\-\_\-push\-Back@{vector\-\_\-push\-Back}}
+\index{vector\-\_\-push\-Back@{vector\-\_\-push\-Back}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-push\-Back}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} vector\-\_\-push\-Back (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a644473da71660c373cbfb134d83b37bf}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_a644473da71660c373cbfb134d83b37bf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vector_8c_a058c0986d7b6ec20a2e67e9ae7612744}{\index{vector.\-c@{vector.\-c}!vector\-\_\-sort@{vector\-\_\-sort}}
+\index{vector\-\_\-sort@{vector\-\_\-sort}!vector.c@{vector.\-c}}
+\subsubsection[{vector\-\_\-sort}]{\setlength{\rightskip}{0pt plus 5cm}void vector\-\_\-sort (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-t} $\ast$}]{vector\-Ptr, }
+\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{compare}
+\end{DoxyParamCaption}
+)}}\label{vector_8c_a058c0986d7b6ec20a2e67e9ae7612744}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8c_a058c0986d7b6ec20a2e67e9ae7612744_icgraph}
+\end{center}
+\end{figure}
+
+

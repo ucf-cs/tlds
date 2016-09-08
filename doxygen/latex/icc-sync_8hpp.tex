@@ -1,0 +1,125 @@
+\hypertarget{icc-sync_8hpp}{\section{rstm/rstm-\/dev/include/common/icc-\/sync.hpp File Reference}
+\label{icc-sync_8hpp}\index{rstm/rstm-\/dev/include/common/icc-\/sync.\-hpp@{rstm/rstm-\/dev/include/common/icc-\/sync.\-hpp}}
+}
+{\ttfamily \#include $<$cstddef$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+Include dependency graph for icc-\/sync.hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{icc-sync_8hpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, N $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_01W_00_011_01_4}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_01W_00_012_01_4}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, 2 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_01W_00_014_01_4}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, W, 4 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_014_00_018_01_4}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 4, 8 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_018_01_4}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 8 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SYNC_3_01T_00_018_00_0116_01_4}{stm\-::iccsync\-::\-S\-Y\-N\-C$<$ T, 8, 16 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER}{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER_3_01T_00_01T_00_011_01_4}{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, T, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER_3_01T_00_01S_00_010_01_4}{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, 0 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER}{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_3_01T_00_01T_00_011_01_4}{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, T, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_3_01T_00_01S_00_011_01_4}{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, 1 $>$}
+\item 
+struct \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_3_01T_00_01S_00_010_01_4}{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, 0 $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\item 
+\hyperlink{namespacestm_1_1iccsync}{stm\-::iccsync}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{icc-sync_8hpp_a3de7c4e7434d2028f0b1bdbe835ce3cb}{\-\_\-\-\_\-sync\-\_\-synchronize}()~asm volatile(\char`\"{}mfence\char`\"{}\-:::\char`\"{}\hyperlink{structmemory}{memory}\char`\"{})
+\item 
+\#define \hyperlink{icc-sync_8hpp_a106c3cb3f76c1c645b6ff66652034ebe}{\-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, f, t)~\hyperlink{namespacestm_1_1iccsync_ae9b8fb58e501278819d7083a0b8802f0}{stm\-::iccsync\-::bool\-\_\-compare\-\_\-and\-\_\-swap}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, f, t)
+\item 
+\#define \hyperlink{icc-sync_8hpp_a4c1e77c3050c1a0c3b61187aa6ddb996}{\-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, f, t)~\hyperlink{namespacestm_1_1iccsync_afa85ce51e68f13c37b0240e7bc662c31}{stm\-::iccsync\-::val\-\_\-compare\-\_\-and\-\_\-swap}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, f, t)
+\item 
+\#define \hyperlink{icc-sync_8hpp_a6e96cfd398d8ef26762d0b774afb84c3}{\-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, v)~\hyperlink{namespacestm_1_1iccsync_a9b09f35a68551cff0b8cbbd3cc4424ef}{stm\-::iccsync\-::lock\-\_\-test\-\_\-and\-\_\-set}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, v)
+\item 
+\#define \hyperlink{icc-sync_8hpp_a6b733bdf11f24c72e9c1cedd35534d6e}{\-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, a)~\hyperlink{namespacestm_1_1iccsync_ac92b0d2a99b157c716d8f842fe8233ed}{stm\-::iccsync\-::fetch\-\_\-and\-\_\-add}(\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, a)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\T \hyperlink{namespacestm_1_1iccsync_a9b09f35a68551cff0b8cbbd3cc4424ef}{stm\-::iccsync\-::lock\-\_\-test\-\_\-and\-\_\-set} (volatile T $\ast$address, S value)
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\bool \hyperlink{namespacestm_1_1iccsync_ae9b8fb58e501278819d7083a0b8802f0}{stm\-::iccsync\-::bool\-\_\-compare\-\_\-and\-\_\-swap} (volatile T $\ast$address, S from, S to)
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\T \hyperlink{namespacestm_1_1iccsync_afa85ce51e68f13c37b0240e7bc662c31}{stm\-::iccsync\-::val\-\_\-compare\-\_\-and\-\_\-swap} (volatile T $\ast$address, S from, S to)
+\item 
+{\footnotesize template$<$typename T , typename S $>$ }\\T \hyperlink{namespacestm_1_1iccsync_ac92b0d2a99b157c716d8f842fe8233ed}{stm\-::iccsync\-::fetch\-\_\-and\-\_\-add} (volatile T $\ast$address, S value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{icc-sync_8hpp_a106c3cb3f76c1c645b6ff66652034ebe}{\index{icc-\/sync.\-hpp@{icc-\/sync.\-hpp}!\-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap@{\-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap}}
+\index{\-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap@{\-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap}!icc-sync.hpp@{icc-\/sync.\-hpp}}
+\subsubsection[{\-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-sync\-\_\-bool\-\_\-compare\-\_\-and\-\_\-swap(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf p}, }
+\item[{}]{f, }
+\item[{}]{t}
+\end{DoxyParamCaption}
+)~{\bf stm\-::iccsync\-::bool\-\_\-compare\-\_\-and\-\_\-swap}({\bf p}, f, t)}}\label{icc-sync_8hpp_a106c3cb3f76c1c645b6ff66652034ebe}
+\hypertarget{icc-sync_8hpp_a6b733bdf11f24c72e9c1cedd35534d6e}{\index{icc-\/sync.\-hpp@{icc-\/sync.\-hpp}!\-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add@{\-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add}}
+\index{\-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add@{\-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add}!icc-sync.hpp@{icc-\/sync.\-hpp}}
+\subsubsection[{\-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-sync\-\_\-fetch\-\_\-and\-\_\-add(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf p}, }
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~{\bf stm\-::iccsync\-::fetch\-\_\-and\-\_\-add}({\bf p}, a)}}\label{icc-sync_8hpp_a6b733bdf11f24c72e9c1cedd35534d6e}
+\hypertarget{icc-sync_8hpp_a6e96cfd398d8ef26762d0b774afb84c3}{\index{icc-\/sync.\-hpp@{icc-\/sync.\-hpp}!\-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set@{\-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set}}
+\index{\-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set@{\-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set}!icc-sync.hpp@{icc-\/sync.\-hpp}}
+\subsubsection[{\-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-sync\-\_\-lock\-\_\-test\-\_\-and\-\_\-set(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf p}, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~{\bf stm\-::iccsync\-::lock\-\_\-test\-\_\-and\-\_\-set}({\bf p}, v)}}\label{icc-sync_8hpp_a6e96cfd398d8ef26762d0b774afb84c3}
+\hypertarget{icc-sync_8hpp_a3de7c4e7434d2028f0b1bdbe835ce3cb}{\index{icc-\/sync.\-hpp@{icc-\/sync.\-hpp}!\-\_\-\-\_\-sync\-\_\-synchronize@{\-\_\-\-\_\-sync\-\_\-synchronize}}
+\index{\-\_\-\-\_\-sync\-\_\-synchronize@{\-\_\-\-\_\-sync\-\_\-synchronize}!icc-sync.hpp@{icc-\/sync.\-hpp}}
+\subsubsection[{\-\_\-\-\_\-sync\-\_\-synchronize}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-sync\-\_\-synchronize(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~asm volatile(\char`\"{}mfence\char`\"{}\-:::\char`\"{}{\bf memory}\char`\"{})}}\label{icc-sync_8hpp_a3de7c4e7434d2028f0b1bdbe835ce3cb}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information The icc stm compiler is based on I\-C\-C 11.\-0, which has fake support for \-\_\-\-\_\-sync builtins. It knows what they are, and emits \-\_\-\-\_\-sync\-\_\-...\-\_\-\-N symbols for them, but does not implement them, even when given a -\/march=i686 or greater.
+
+\href{http://origin-software.intel.com/en-us/forums/showthread.php?t=71183}{\tt http\-://origin-\/software.\-intel.\-com/en-\/us/forums/showthread.\-php?t=71183}
+
+The version 4 compiler that we used is still based on 11.\-0 (610), and has the same limitation. We provide our own support in this file. We're going to do some basic metaprogramming to emulate the interface that we expect from the \-\_\-\-\_\-sync builtins, i.\-e., if there is a correct \-\_\-\-\_\-sync for the type, then we'll use it. Ultimately, what this file provides is a set of 5 macros that look, feel, and smell just like the \-\_\-\-\_\-sync builtins. Here are the macros, the implementations follow. \hypertarget{icc-sync_8hpp_a4c1e77c3050c1a0c3b61187aa6ddb996}{\index{icc-\/sync.\-hpp@{icc-\/sync.\-hpp}!\-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap@{\-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap}}
+\index{\-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap@{\-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap}!icc-sync.hpp@{icc-\/sync.\-hpp}}
+\subsubsection[{\-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-sync\-\_\-val\-\_\-compare\-\_\-and\-\_\-swap(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf p}, }
+\item[{}]{f, }
+\item[{}]{t}
+\end{DoxyParamCaption}
+)~{\bf stm\-::iccsync\-::val\-\_\-compare\-\_\-and\-\_\-swap}({\bf p}, f, t)}}\label{icc-sync_8hpp_a4c1e77c3050c1a0c3b61187aa6ddb996}

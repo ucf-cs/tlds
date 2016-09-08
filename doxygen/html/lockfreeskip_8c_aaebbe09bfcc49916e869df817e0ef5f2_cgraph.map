@@ -1,0 +1,9 @@
+<map id="alloc_node" name="alloc_node">
+<area shape="rect" id="node2" href="$lockfreeskip_8c.html#ab6919257456cff4d47684cdfd3bc5a3c" title="get_level" alt="" coords="144,5,219,32"/>
+<area shape="rect" id="node3" href="$gc_8c.html#a5c5981457deeeefd60df569f6265f59c" title="fr_gc_alloc" alt="" coords="139,56,224,83"/>
+<area shape="rect" id="node4" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="790,81,925,108"/>
+<area shape="rect" id="node5" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="273,81,389,108"/>
+<area shape="rect" id="node6" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="437,132,560,159"/>
+<area shape="rect" id="node7" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="609,132,741,159"/>
+<area shape="rect" id="node8" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="790,132,925,159"/>
+</map>

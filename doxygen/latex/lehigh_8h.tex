@@ -1,0 +1,41 @@
+\hypertarget{lehigh_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/lehigh.h File Reference}
+\label{lehigh_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/lehigh.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/lehigh.\-h}}
+}
+{\ttfamily \#include \char`\"{}pair.\-h\char`\"{}}\\*
+Include dependency graph for lehigh.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{lehigh_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lehigh_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcomparator}{comparator}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structcomparator}{comparator} \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{\index{lehigh.\-h@{lehigh.\-h}!comparator\-\_\-t@{comparator\-\_\-t}}
+\index{comparator\-\_\-t@{comparator\-\_\-t}!lehigh.h@{lehigh.\-h}}
+\subsubsection[{comparator\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf comparator}  {\bf comparator\-\_\-t}}}\label{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information S\-T\-A\-M\-P does some odd things with function pointers, which makes g++ unhappy and makes it very hard to reason about the correctness of code. The most offensive is that S\-T\-A\-M\-P may coerce a function pointer for a 3-\/argument comparison function into a 2-\/argument comparison function.
+
+We avoid this situation by saying that rather than store a function pointer within a collection's root node, we'll store a pointer to a struct, where the struct has two function pointers\-: one for transactional code, one for nontransactional code, with 3 and 2 parameters, respectively. This adds a level of indirection (though only once per collection traversal, if we are careful), but increases safety and allows better reasoning. 

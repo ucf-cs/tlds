@@ -1,0 +1,8 @@
+<map id="addReservation" name="addReservation">
+<area shape="rect" id="node2" href="$manager_8h.html#a78e78023c1c3a054597653fb173969c2" title="manager_addCar" alt="" coords="182,5,303,32"/>
+<area shape="rect" id="node3" href="$manager_8h.html#af9a4a440671743e0d54902a17dd7aae3" title="manager_deleteCar" alt="" coords="175,56,310,83"/>
+<area shape="rect" id="node4" href="$manager_8h.html#a2f220671c72a4cfe8d56c504aec414e1" title="manager_addRoom" alt="" coords="175,107,310,133"/>
+<area shape="rect" id="node5" href="$manager_8h.html#aae2b09a37dbb33acdd1b8903ec9d44d3" title="manager_deleteRoom" alt="" coords="168,157,317,184"/>
+<area shape="rect" id="node6" href="$manager_8h.html#a3583ce7ed59bcd040ec35f37e2deec30" title="manager_addFlight" alt="" coords="177,208,309,235"/>
+<area shape="rect" id="node7" href="$manager_8h.html#a871d7cb7cbfe1c1968fe43c7c5973df5" title="manager_deleteFlight" alt="" coords="169,259,316,285"/>
+</map>

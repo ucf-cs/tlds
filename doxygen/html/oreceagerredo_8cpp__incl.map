@@ -1,0 +1,20 @@
+<map id="rstm/rstm&#45;dev/libstm/algs/oreceagerredo.cpp" name="rstm/rstm&#45;dev/libstm/algs/oreceagerredo.cpp">
+<area shape="rect" id="node2" href="$profiling_8hpp.html" title="../profiling.hpp" alt="" coords="528,171,632,197"/>
+<area shape="rect" id="node29" href="$algs_8hpp.html" title="algs.hpp" alt="" coords="690,96,760,123"/>
+<area shape="rect" id="node30" href="$RedoRAWUtils_8hpp.html" title="RedoRAWUtils.hpp" alt="" coords="1397,171,1533,197"/>
+<area shape="rect" id="node5" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="716,320,836,347"/>
+<area shape="rect" id="node25" href="$policies_8hpp.html" title="./policies/policies.hpp" alt="" coords="316,245,463,272"/>
+<area shape="rect" id="node6" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="705,395,857,421"/>
+<area shape="rect" id="node8" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="43,544,175,571"/>
+<area shape="rect" id="node13" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="1035,395,1207,421"/>
+<area shape="rect" id="node14" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="402,469,528,496"/>
+<area shape="rect" id="node19" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="867,544,991,571"/>
+<area shape="rect" id="node21" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="1164,469,1289,496"/>
+<area shape="rect" id="node23" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="863,469,989,496"/>
+<area shape="rect" id="node24" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="554,395,680,421"/>
+<area shape="rect" id="node9" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="27,619,175,645"/>
+<area shape="rect" id="node15" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="653,544,787,571"/>
+<area shape="rect" id="node18" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="302,619,420,645"/>
+<area shape="rect" id="node22" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="1205,544,1320,571"/>
+<area shape="rect" id="node28" href="$lib__globals_8hpp.html" title="stm/lib_globals.hpp" alt="" coords="191,395,325,421"/>
+</map>

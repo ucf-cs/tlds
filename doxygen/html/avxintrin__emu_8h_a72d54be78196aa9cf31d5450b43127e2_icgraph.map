@@ -1,0 +1,12 @@
+<map id="__emu_set_m128i" name="__emu_set_m128i">
+<area shape="rect" id="node2" href="$avxintrin__emu_8h.html#a97fa941f227d0e8993f99f7b2a1bd8d4" title="__emu_mm256_setzero\l_si256" alt="" coords="194,5,355,46"/>
+<area shape="rect" id="node3" href="$avxintrin__emu_8h.html#a3efd51959d9b3b6785995025a0ef15f7" title="__emu_mm256_set_epi8" alt="" coords="191,71,358,97"/>
+<area shape="rect" id="node4" href="$avxintrin__emu_8h.html#ab53d100a9a3d6e533db9ddbe4f127a9d" title="__emu_mm256_set_epi16" alt="" coords="187,121,362,148"/>
+<area shape="rect" id="node5" href="$avxintrin__emu_8h.html#ad5314b2ecc47ad60a779298c4b398d32" title="__emu_mm256_set_epi32" alt="" coords="187,172,362,199"/>
+<area shape="rect" id="node6" href="$avxintrin__emu_8h.html#ae5e5f37733e6bc90c1822d2f0a490d4b" title="__emu_mm256_set_epi64x" alt="" coords="184,223,365,249"/>
+<area shape="rect" id="node7" href="$avxintrin__emu_8h.html#a4c854c1a51882fe78952cac4fd54598a" title="__emu_mm256_setr_epi8" alt="" coords="189,273,360,300"/>
+<area shape="rect" id="node8" href="$avxintrin__emu_8h.html#aeb52d4f0bda1b46255b0d21aaca4dc84" title="__emu_mm256_setr_epi16" alt="" coords="185,324,364,351"/>
+<area shape="rect" id="node9" href="$avxintrin__emu_8h.html#a5b6abbbbe44923f935b5a595053d2122" title="__emu_mm256_setr_epi32" alt="" coords="185,375,364,401"/>
+<area shape="rect" id="node10" href="$avxintrin__emu_8h.html#a9afba76ec83b96fe6da4012741919d93" title="__emu_mm256_setr_epi64x" alt="" coords="182,425,367,452"/>
+<area shape="rect" id="node11" href="$avxintrin__emu_8h.html#a53189472c24925e5048a572c3fc25a95" title="__emu_mm256_castsi128\l_si256" alt="" coords="187,477,362,518"/>
+</map>

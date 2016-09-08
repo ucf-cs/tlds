@@ -1,0 +1,20 @@
+\hypertarget{namespaceanonymous__namespace_02swiss_8cpp_03}{\section{anonymous\-\_\-namespace\{swiss.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02swiss_8cpp_03}\index{anonymous\-\_\-namespace\{swiss.\-cpp\}@{anonymous\-\_\-namespace\{swiss.\-cpp\}}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02swiss_8cpp_03_1_1Swiss}{Swiss}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a good-\/faith implementation of Swiss\-T\-M.
+
+What that means, precisely, has to do with how we translate the Swiss\-T\-M algorithm to allow /algorithmic/ comparisons with Orec\-Eager and L\-L\-T. Specifically, we decided in the past that Orec\-Eager and L\-L\-T would not use any of the clever 'lock is a pointer into my writeset' tricks that were proposed in the Tiny\-S\-T\-M paper, and so we don't use those tricks here, either. The cost is minimal (actually, with the R\-S\-T\-M Write\-Set hash, the tricks are typically not profitable anyway), but it is worth stating, up front, that we do not adhere to this design point.
+
+Additionally, orec management differs slightly here from in Orec\-Eager and L\-L\-T. In those systems, we use \char`\"{}2-\/word\char`\"{} orecs, where the acquirer writes the old orec value in the second word after acquiring the first word. This halves the cost of logging, as the list of held locks only gives orec addresses, not the old values. However, in Swiss\-T\-M, there is a tradeoff where on one hand, having rlocks separate from wlocks can decrease cache misses for read-\/only transactions, but on the other hand doing so doubles logging overhead for read locking by writers at commit time. It would be odd to use the 2-\/word orecs for read locks and not for write locks, but a more efficient technique is to use the second word of 2-\/word orecs as the rlock, and then use traditional 2-\/word lock logging, where the old lock value is also stored.
+
+Other changes are typically small. The biggest deals with adding detection of remote aborts, which wasn't discussed in the paper.
+
+N\-B\-: we could factor some C\-M code out of the R\-O codepath. We could also make the phase2 switch cause a thread to use different function pointers. 

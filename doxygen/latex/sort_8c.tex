@@ -1,0 +1,128 @@
+\hypertarget{sort_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/sort.c File Reference}
+\label{sort_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/sort.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/sort.\-c}}
+}
+{\ttfamily \#include \char`\"{}sort.\-h\char`\"{}}\\*
+Include dependency graph for sort.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{sort_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sort_8c_a3c6c5726eec5dc99f3179ef050f30f0f}{C\-U\-T\-O\-F\-F}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{sort_8c_aaae1bf5410bea6e21292230c3430f8bf}{swap} (char $\ast$a, char $\ast$b, unsigned width)
+\item 
+static void \hyperlink{sort_8c_af576a7c65a3126954fbaf81d536c139b}{shortsort} (char $\ast$lo, char $\ast$hi, unsigned width, int($\ast$cmp)(const void $\ast$p1, const void $\ast$p2, long n, long offset), long n, long offset)
+\item 
+void \hyperlink{sort_8c_ac873f547b666f32e2c1b2a75a46e54a2}{sort} (void $\ast$base, unsigned num, unsigned width, int($\ast$cmp)(const void $\ast$p1, const void $\ast$p2, long n, long offset), long n, long offset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sort_8c_a3c6c5726eec5dc99f3179ef050f30f0f}{\index{sort.\-c@{sort.\-c}!C\-U\-T\-O\-F\-F@{C\-U\-T\-O\-F\-F}}
+\index{C\-U\-T\-O\-F\-F@{C\-U\-T\-O\-F\-F}!sort.c@{sort.\-c}}
+\subsubsection[{C\-U\-T\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-U\-T\-O\-F\-F~8}}\label{sort_8c_a3c6c5726eec5dc99f3179ef050f30f0f}
+
+
+\subsection{Function Documentation}
+\hypertarget{sort_8c_af576a7c65a3126954fbaf81d536c139b}{\index{sort.\-c@{sort.\-c}!shortsort@{shortsort}}
+\index{shortsort@{shortsort}!sort.c@{sort.\-c}}
+\subsubsection[{shortsort}]{\setlength{\rightskip}{0pt plus 5cm}static void shortsort (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{lo, }
+\item[{char $\ast$}]{hi, }
+\item[{unsigned}]{width, }
+\item[{int($\ast$)(const void $\ast$p1, const void $\ast$p2, long n, long offset)}]{cmp, }
+\item[{long}]{n, }
+\item[{long}]{offset}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{sort_8c_af576a7c65a3126954fbaf81d536c139b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{sort_8c_af576a7c65a3126954fbaf81d536c139b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sort_8c_af576a7c65a3126954fbaf81d536c139b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sort_8c_ac873f547b666f32e2c1b2a75a46e54a2}{\index{sort.\-c@{sort.\-c}!sort@{sort}}
+\index{sort@{sort}!sort.c@{sort.\-c}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}void sort (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{base, }
+\item[{unsigned}]{num, }
+\item[{unsigned}]{width, }
+\item[{int($\ast$)(const void $\ast$p1, const void $\ast$p2, long n, long offset)}]{cmp, }
+\item[{long}]{n, }
+\item[{long}]{offset}
+\end{DoxyParamCaption}
+)}}\label{sort_8c_ac873f547b666f32e2c1b2a75a46e54a2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{sort_8c_ac873f547b666f32e2c1b2a75a46e54a2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sort_8c_ac873f547b666f32e2c1b2a75a46e54a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sort_8c_aaae1bf5410bea6e21292230c3430f8bf}{\index{sort.\-c@{sort.\-c}!swap@{swap}}
+\index{swap@{swap}!sort.c@{sort.\-c}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}static void swap (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{a, }
+\item[{char $\ast$}]{b, }
+\item[{unsigned}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{sort_8c_aaae1bf5410bea6e21292230c3430f8bf}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sort_8c_aaae1bf5410bea6e21292230c3430f8bf_icgraph}
+\end{center}
+\end{figure}
+
+

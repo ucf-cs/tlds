@@ -1,0 +1,112 @@
+\hypertarget{classUI}{\section{U\-I Class Reference}
+\label{classUI}\index{U\-I@{U\-I}}
+}
+
+
+Inheritance diagram for U\-I\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classUI__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for U\-I\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUI__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classUI_ac914f62de725a340392e01027daf6c92}{update\-Time} (long elapsed\-Time)
+\item 
+\hyperlink{classUI_a38385bac9498fca02075c540c94dfb1b}{U\-I} (Root\-Pane\-Container pane, int pixels, int hesitation, Buffered\-Reader inp)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \hyperlink{classCoordinator}{Coordinator} \hyperlink{classUI_ae995cfefdd6a9abe14d92da9eb82a0e5}{c}
+\item 
+final \hyperlink{classSurface}{Surface} \hyperlink{classUI_a906f7250b5e2e31ee5c5db17514b6d4e}{t}
+\item 
+final J\-Root\-Pane \hyperlink{classUI_a9164dec043cc2849bad9e01de7919ce8}{root}
+\item 
+int \hyperlink{classUI_a016b1d8d5b1bdc3391322c0472b2b565}{state} = \hyperlink{classUI_a48163c6e2e10d9b13ddf30b12d262dd7}{stopped}
+\item 
+final J\-Label \hyperlink{classUI_aeeaff5b19707911ca9d97f526db6f077}{time\-Label} = new J\-Label(\char`\"{}time\-: 0\char`\"{})
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classUI_afb0f2cb14286204c475dc199d4ed79ba}{external\-Border} = 6
+\item 
+static final int \hyperlink{classUI_a48163c6e2e10d9b13ddf30b12d262dd7}{stopped} = 0
+\item 
+static final int \hyperlink{classUI_af5e146150e3739db87e209d6d77a5199}{running} = 1
+\item 
+static final int \hyperlink{classUI_ade79dbf5da2369fd6a7f4862d9e8a41f}{paused} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classUI_a38385bac9498fca02075c540c94dfb1b}{\index{U\-I@{U\-I}!U\-I@{U\-I}}
+\index{U\-I@{U\-I}!UI@{U\-I}}
+\subsubsection[{U\-I}]{\setlength{\rightskip}{0pt plus 5cm}U\-I.\-U\-I (
+\begin{DoxyParamCaption}
+\item[{Root\-Pane\-Container}]{pane, }
+\item[{int}]{pixels, }
+\item[{int}]{hesitation, }
+\item[{Buffered\-Reader}]{inp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classUI_a38385bac9498fca02075c540c94dfb1b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classUI_ac914f62de725a340392e01027daf6c92}{\index{U\-I@{U\-I}!update\-Time@{update\-Time}}
+\index{update\-Time@{update\-Time}!UI@{U\-I}}
+\subsubsection[{update\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void U\-I.\-update\-Time (
+\begin{DoxyParamCaption}
+\item[{long}]{elapsed\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classUI_ac914f62de725a340392e01027daf6c92}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classUI_ae995cfefdd6a9abe14d92da9eb82a0e5}{\index{U\-I@{U\-I}!c@{c}}
+\index{c@{c}!UI@{U\-I}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Coordinator} U\-I.\-c\hspace{0.3cm}{\ttfamily [private]}}}\label{classUI_ae995cfefdd6a9abe14d92da9eb82a0e5}
+\hypertarget{classUI_afb0f2cb14286204c475dc199d4ed79ba}{\index{U\-I@{U\-I}!external\-Border@{external\-Border}}
+\index{external\-Border@{external\-Border}!UI@{U\-I}}
+\subsubsection[{external\-Border}]{\setlength{\rightskip}{0pt plus 5cm}final int U\-I.\-external\-Border = 6\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classUI_afb0f2cb14286204c475dc199d4ed79ba}
+\hypertarget{classUI_ade79dbf5da2369fd6a7f4862d9e8a41f}{\index{U\-I@{U\-I}!paused@{paused}}
+\index{paused@{paused}!UI@{U\-I}}
+\subsubsection[{paused}]{\setlength{\rightskip}{0pt plus 5cm}final int U\-I.\-paused = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classUI_ade79dbf5da2369fd6a7f4862d9e8a41f}
+\hypertarget{classUI_a9164dec043cc2849bad9e01de7919ce8}{\index{U\-I@{U\-I}!root@{root}}
+\index{root@{root}!UI@{U\-I}}
+\subsubsection[{root}]{\setlength{\rightskip}{0pt plus 5cm}final J\-Root\-Pane U\-I.\-root\hspace{0.3cm}{\ttfamily [private]}}}\label{classUI_a9164dec043cc2849bad9e01de7919ce8}
+\hypertarget{classUI_af5e146150e3739db87e209d6d77a5199}{\index{U\-I@{U\-I}!running@{running}}
+\index{running@{running}!UI@{U\-I}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}final int U\-I.\-running = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classUI_af5e146150e3739db87e209d6d77a5199}
+\hypertarget{classUI_a016b1d8d5b1bdc3391322c0472b2b565}{\index{U\-I@{U\-I}!state@{state}}
+\index{state@{state}!UI@{U\-I}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}int U\-I.\-state = {\bf stopped}\hspace{0.3cm}{\ttfamily [private]}}}\label{classUI_a016b1d8d5b1bdc3391322c0472b2b565}
+\hypertarget{classUI_a48163c6e2e10d9b13ddf30b12d262dd7}{\index{U\-I@{U\-I}!stopped@{stopped}}
+\index{stopped@{stopped}!UI@{U\-I}}
+\subsubsection[{stopped}]{\setlength{\rightskip}{0pt plus 5cm}final int U\-I.\-stopped = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classUI_a48163c6e2e10d9b13ddf30b12d262dd7}
+\hypertarget{classUI_a906f7250b5e2e31ee5c5db17514b6d4e}{\index{U\-I@{U\-I}!t@{t}}
+\index{t@{t}!UI@{U\-I}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Surface} U\-I.\-t\hspace{0.3cm}{\ttfamily [private]}}}\label{classUI_a906f7250b5e2e31ee5c5db17514b6d4e}
+\hypertarget{classUI_aeeaff5b19707911ca9d97f526db6f077}{\index{U\-I@{U\-I}!time\-Label@{time\-Label}}
+\index{time\-Label@{time\-Label}!UI@{U\-I}}
+\subsubsection[{time\-Label}]{\setlength{\rightskip}{0pt plus 5cm}final J\-Label U\-I.\-time\-Label = new J\-Label(\char`\"{}time\-: 0\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}}\label{classUI_aeeaff5b19707911ca9d97f526db6f077}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{Display_8java}{Display.\-java}\end{DoxyCompactItemize}

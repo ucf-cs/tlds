@@ -1,0 +1,7 @@
+<map id="arg" name="arg">
+<area shape="rect" id="node2" href="$structstream.html" title="{stream\n||}" alt="" coords="227,317,289,395"/>
+<area shape="rect" id="node3" href="$structvector.html" title="{vector\n||}" alt="" coords="221,176,278,253"/>
+<area shape="rect" id="node8" href="$structqueue.html" title="{queue\n||}" alt="" coords="403,176,459,253"/>
+<area shape="rect" id="node6" href="$structrandom.html" title="{random\n||}" alt="" coords="125,176,190,253"/>
+<area shape="rect" id="node9" href="$structdecoder.html" title="{decoder\n||}" alt="" coords="608,317,675,395"/>
+</map>

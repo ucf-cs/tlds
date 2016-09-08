@@ -1,0 +1,152 @@
+\hypertarget{classconcurrent__queue}{\section{concurrent\-\_\-queue$<$ T $>$ Class Template Reference}
+\label{classconcurrent__queue}\index{concurrent\-\_\-queue$<$ T $>$@{concurrent\-\_\-queue$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$queues.\-hpp$>$}
+
+
+
+Inheritance diagram for concurrent\-\_\-queue$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classconcurrent__queue__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for concurrent\-\_\-queue$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classconcurrent__queue__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classconcurrent__queue_a8c549b70d8e6f899b9b55c6f8eacce22}{enqueue} (T item, const int tid)
+\item 
+virtual T \hyperlink{classconcurrent__queue_a3ae2645ff7b16a7a317c1cff6142a9db}{dequeue} (const int tid)
+\item 
+\hyperlink{classconcurrent__queue_a3d9b58f8a227b27b6103342ab3995d75}{concurrent\-\_\-queue} (const int tid)
+\item 
+virtual \hyperlink{classconcurrent__queue_a7f5dd1d84bdf863f47b6e402ca4829c5}{$\sim$concurrent\-\_\-queue} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classconcurrent__queue_ac9b6d3dc847aacc7460f17505c6fb9bd}{operator new} (const size\-\_\-t size)
+\item 
+static void \hyperlink{classconcurrent__queue_a9e7f6867e078909c37d00439c3a20214}{operator delete} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr})
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classconcurrent__queue_a35812a51f3fdf946b81b1692b211b920}{concurrent\-\_\-queue} (const \hyperlink{classconcurrent__queue}{concurrent\-\_\-queue} \&)
+\item 
+\hyperlink{classconcurrent__queue}{concurrent\-\_\-queue} \& \hyperlink{classconcurrent__queue_a2f9c408b25336e29e14bb22bee41f4a9}{operator=} (const \hyperlink{classconcurrent__queue}{concurrent\-\_\-queue} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classconcurrent__queue_a35812a51f3fdf946b81b1692b211b920}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!concurrent\-\_\-queue@{concurrent\-\_\-queue}}
+\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{concurrent\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf concurrent\-\_\-queue}$<$ T $>$\-::{\bf concurrent\-\_\-queue} (
+\begin{DoxyParamCaption}
+\item[{const {\bf concurrent\-\_\-queue}$<$ T $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classconcurrent__queue_a35812a51f3fdf946b81b1692b211b920}
+\hypertarget{classconcurrent__queue_a3d9b58f8a227b27b6103342ab3995d75}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!concurrent\-\_\-queue@{concurrent\-\_\-queue}}
+\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{concurrent\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf concurrent\-\_\-queue}$<$ T $>$\-::{\bf concurrent\-\_\-queue} (
+\begin{DoxyParamCaption}
+\item[{const int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconcurrent__queue_a3d9b58f8a227b27b6103342ab3995d75}
+\hypertarget{classconcurrent__queue_a7f5dd1d84bdf863f47b6e402ca4829c5}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!$\sim$concurrent\-\_\-queue@{$\sim$concurrent\-\_\-queue}}
+\index{$\sim$concurrent\-\_\-queue@{$\sim$concurrent\-\_\-queue}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{$\sim$concurrent\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ virtual {\bf concurrent\-\_\-queue}$<$ T $>$\-::$\sim${\bf concurrent\-\_\-queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classconcurrent__queue_a7f5dd1d84bdf863f47b6e402ca4829c5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classconcurrent__queue_a3ae2645ff7b16a7a317c1cff6142a9db}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{dequeue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ virtual T {\bf concurrent\-\_\-queue}$<$ T $>$\-::dequeue (
+\begin{DoxyParamCaption}
+\item[{const int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classconcurrent__queue_a3ae2645ff7b16a7a317c1cff6142a9db}
+
+
+Implements \hyperlink{classsimple__queue_a188f0dadcf5d27606c5af74ad062f47f}{simple\-\_\-queue$<$ T $>$}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classconcurrent__queue_a3ae2645ff7b16a7a317c1cff6142a9db_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classconcurrent__queue_a8c549b70d8e6f899b9b55c6f8eacce22}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{enqueue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ virtual void {\bf concurrent\-\_\-queue}$<$ T $>$\-::enqueue (
+\begin{DoxyParamCaption}
+\item[{T}]{item, }
+\item[{const int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classconcurrent__queue_a8c549b70d8e6f899b9b55c6f8eacce22}
+
+
+Implements \hyperlink{classsimple__queue_a189cc4bc19b3a8c84fba3bdea89c75c1}{simple\-\_\-queue$<$ T $>$}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classconcurrent__queue_a8c549b70d8e6f899b9b55c6f8eacce22_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classconcurrent__queue_a9e7f6867e078909c37d00439c3a20214}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{operator delete}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static void {\bf concurrent\-\_\-queue}$<$ T $>$\-::operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classconcurrent__queue_a9e7f6867e078909c37d00439c3a20214}
+\hypertarget{classconcurrent__queue_ac9b6d3dc847aacc7460f17505c6fb9bd}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!operator new@{operator new}}
+\index{operator new@{operator new}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{operator new}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static void$\ast$ {\bf concurrent\-\_\-queue}$<$ T $>$\-::operator new (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classconcurrent__queue_ac9b6d3dc847aacc7460f17505c6fb9bd}
+\hypertarget{classconcurrent__queue_a2f9c408b25336e29e14bb22bee41f4a9}{\index{concurrent\-\_\-queue@{concurrent\-\_\-queue}!operator=@{operator=}}
+\index{operator=@{operator=}!concurrent_queue@{concurrent\-\_\-queue}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf concurrent\-\_\-queue}\& {\bf concurrent\-\_\-queue}$<$ T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf concurrent\-\_\-queue}$<$ T $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classconcurrent__queue_a2f9c408b25336e29e14bb22bee41f4a9}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{queues_8hpp}{queues.\-hpp}\end{DoxyCompactItemize}

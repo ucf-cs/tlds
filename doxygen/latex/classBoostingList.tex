@@ -1,0 +1,339 @@
+\hypertarget{classBoostingList}{\section{Boosting\-List Class Reference}
+\label{classBoostingList}\index{Boosting\-List@{Boosting\-List}}
+}
+
+
+{\ttfamily \#include $<$boostinglist.\-h$>$}
+
+
+
+Collaboration diagram for Boosting\-List\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structBoostingList_1_1Operation}{Operation}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}{Return\-Code} \{ \hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97aac1960f3674b94b1c1eeed892292aca31}{O\-K} = 0, 
+\hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97aabce3ccb23056e3e2c72add59309c1d4d}{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}, 
+\hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97aa9cb78d0fc6f0581698b7220a64ee83e3}{O\-P\-\_\-\-F\-A\-I\-L}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoostingList_a08f1377e4f6884462825a06dccf32113}{$\sim$\-Boosting\-List} ()
+\item 
+void \hyperlink{classBoostingList_af7c649904a89588638500e381411ca0a}{Init} ()
+\item 
+void \hyperlink{classBoostingList_a180ef6457c6af66f499061846690a9ac}{Uninit} ()
+\item 
+\hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}{Return\-Code} \hyperlink{classBoostingList_a16bf3043fb4368961fffc400cef1953d}{Insert} (uint32\-\_\-t key)
+\item 
+\hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}{Return\-Code} \hyperlink{classBoostingList_ad0ab949b2089c509eef7e21357080ae0}{Delete} (uint32\-\_\-t key)
+\item 
+\hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}{Return\-Code} \hyperlink{classBoostingList_a9b9a0ffe922bfb9af08196219105424f}{Find} (uint32\-\_\-t key)
+\item 
+void \hyperlink{classBoostingList_add73a97e46b96edaf01a3de3b185fd53}{On\-Abort} (\hyperlink{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}{Return\-Code} \hyperlink{stmskip_8cc_a339672ff94e6199019102f50d317c3d7}{ret})
+\item 
+void \hyperlink{classBoostingList_a18e4a2f06898eb275acaae233da9e5b3}{On\-Commit} ()
+\item 
+void \hyperlink{classBoostingList_a2ad6950bb2e21931e056240abd22fcce}{Print} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1}{Op\-Type} \{ \hyperlink{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1ab23f0ef1da0239f6a46a60baf184f447}{F\-I\-N\-D} = 0, 
+\hyperlink{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1a98c46fd10933eeff93a5826c9e721466}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1a5f21478a8a6823d3e395dd054724409e}{D\-E\-L\-E\-T\-E}
+ \}
+\item 
+typedef std\-::vector$<$ \hyperlink{structBoostingList_1_1Operation}{Operation} $>$ \hyperlink{classBoostingList_aff446bc12b9d63259726601a952d8479}{Log\-Type}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoostingList_a311091c9feae89d6c7a7c1c01cb7502a}{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E} (uint32\-\_\-t g\-\_\-count=0;uint32\-\_\-t g\-\_\-count\-\_\-ins=0;uint32\-\_\-t g\-\_\-count\-\_\-del=0;uint32\-\_\-t g\-\_\-count\-\_\-fnd=0;) uint32\-\_\-t \hyperlink{transskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{g\-\_\-count\-\_\-commit}=0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLockfreeList}{Lockfree\-List} \hyperlink{classBoostingList_a2050d7b396704887ab33cdeabaa48dae}{m\-\_\-list}
+\item 
+\hyperlink{classLockKey}{Lock\-Key} \hyperlink{classBoostingList_a6f740d1ae0796e5189304db843a51f65}{m\-\_\-lock}
+\item 
+uint32\-\_\-t \hyperlink{classBoostingList_a1959338dbec4dff7dde70241c1b55178}{g\-\_\-count\-\_\-abort} = 0
+\item 
+uint32\-\_\-t \hyperlink{classBoostingList_ab25416a1dae12a3674ebbf6195182675}{g\-\_\-count\-\_\-fake\-\_\-abort} = 0
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-thread \hyperlink{classBoostingList_aff446bc12b9d63259726601a952d8479}{Log\-Type} $\ast$ \hyperlink{classBoostingList_a53dd78138a275866cd2586ed933af9d4}{m\-\_\-log}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classBoostingList_aff446bc12b9d63259726601a952d8479}{\index{Boosting\-List@{Boosting\-List}!Log\-Type@{Log\-Type}}
+\index{Log\-Type@{Log\-Type}!BoostingList@{Boosting\-List}}
+\subsubsection[{Log\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf Operation}$>$ {\bf Boosting\-List\-::\-Log\-Type}\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingList_aff446bc12b9d63259726601a952d8479}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1}{\index{Boosting\-List@{Boosting\-List}!Op\-Type@{Op\-Type}}
+\index{Op\-Type@{Op\-Type}!BoostingList@{Boosting\-List}}
+\subsubsection[{Op\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Boosting\-List\-::\-Op\-Type}\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\-I\-N\-D@{F\-I\-N\-D}!Boosting\-List@{Boosting\-List}}\index{Boosting\-List@{Boosting\-List}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1ab23f0ef1da0239f6a46a60baf184f447}{F\-I\-N\-D}\label{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1ab23f0ef1da0239f6a46a60baf184f447}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!Boosting\-List@{Boosting\-List}}\index{Boosting\-List@{Boosting\-List}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1a98c46fd10933eeff93a5826c9e721466}{I\-N\-S\-E\-R\-T}\label{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1a98c46fd10933eeff93a5826c9e721466}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!Boosting\-List@{Boosting\-List}}\index{Boosting\-List@{Boosting\-List}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1a5f21478a8a6823d3e395dd054724409e}{D\-E\-L\-E\-T\-E}\label{classBoostingList_aa6ead29373e5c60d7a87ffdc67e2abe1a5f21478a8a6823d3e395dd054724409e}
+}]\end{description}
+\end{Desc}
+\hypertarget{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}{\index{Boosting\-List@{Boosting\-List}!Return\-Code@{Return\-Code}}
+\index{Return\-Code@{Return\-Code}!BoostingList@{Boosting\-List}}
+\subsubsection[{Return\-Code}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Boosting\-List\-::\-Return\-Code}}}\label{classBoostingList_abcaa163088b2562f0704b16a56a4a97a}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{O\-K@{O\-K}!Boosting\-List@{Boosting\-List}}\index{Boosting\-List@{Boosting\-List}!O\-K@{O\-K}}\item[{\em 
+\hypertarget{classBoostingList_abcaa163088b2562f0704b16a56a4a97aac1960f3674b94b1c1eeed892292aca31}{O\-K}\label{classBoostingList_abcaa163088b2562f0704b16a56a4a97aac1960f3674b94b1c1eeed892292aca31}
+}]\index{L\-O\-C\-K\-\_\-\-F\-A\-I\-L@{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}!Boosting\-List@{Boosting\-List}}\index{Boosting\-List@{Boosting\-List}!L\-O\-C\-K\-\_\-\-F\-A\-I\-L@{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}}\item[{\em 
+\hypertarget{classBoostingList_abcaa163088b2562f0704b16a56a4a97aabce3ccb23056e3e2c72add59309c1d4d}{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}\label{classBoostingList_abcaa163088b2562f0704b16a56a4a97aabce3ccb23056e3e2c72add59309c1d4d}
+}]\index{O\-P\-\_\-\-F\-A\-I\-L@{O\-P\-\_\-\-F\-A\-I\-L}!Boosting\-List@{Boosting\-List}}\index{Boosting\-List@{Boosting\-List}!O\-P\-\_\-\-F\-A\-I\-L@{O\-P\-\_\-\-F\-A\-I\-L}}\item[{\em 
+\hypertarget{classBoostingList_abcaa163088b2562f0704b16a56a4a97aa9cb78d0fc6f0581698b7220a64ee83e3}{O\-P\-\_\-\-F\-A\-I\-L}\label{classBoostingList_abcaa163088b2562f0704b16a56a4a97aa9cb78d0fc6f0581698b7220a64ee83e3}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBoostingList_a08f1377e4f6884462825a06dccf32113}{\index{Boosting\-List@{Boosting\-List}!$\sim$\-Boosting\-List@{$\sim$\-Boosting\-List}}
+\index{$\sim$\-Boosting\-List@{$\sim$\-Boosting\-List}!BoostingList@{Boosting\-List}}
+\subsubsection[{$\sim$\-Boosting\-List}]{\setlength{\rightskip}{0pt plus 5cm}Boosting\-List\-::$\sim$\-Boosting\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_a08f1377e4f6884462825a06dccf32113}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList_a08f1377e4f6884462825a06dccf32113_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBoostingList_a311091c9feae89d6c7a7c1c01cb7502a}{\index{Boosting\-List@{Boosting\-List}!A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E@{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E@{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}!BoostingList@{Boosting\-List}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}Boosting\-List\-::\-A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{g\-\_\-count = {\ttfamily 0;uint32\-\_\-t~g\-\_\-count\-\_\-ins=0;uint32\-\_\-t~g\-\_\-count\-\_\-del=0;uint32\-\_\-t~g\-\_\-count\-\_\-fnd=0;}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classBoostingList_a311091c9feae89d6c7a7c1c01cb7502a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList_a311091c9feae89d6c7a7c1c01cb7502a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_ad0ab949b2089c509eef7e21357080ae0}{\index{Boosting\-List@{Boosting\-List}!Delete@{Delete}}
+\index{Delete@{Delete}!BoostingList@{Boosting\-List}}
+\subsubsection[{Delete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boosting\-List\-::\-Return\-Code} Boosting\-List\-::\-Delete (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_ad0ab949b2089c509eef7e21357080ae0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList_ad0ab949b2089c509eef7e21357080ae0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_a9b9a0ffe922bfb9af08196219105424f}{\index{Boosting\-List@{Boosting\-List}!Find@{Find}}
+\index{Find@{Find}!BoostingList@{Boosting\-List}}
+\subsubsection[{Find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boosting\-List\-::\-Return\-Code} Boosting\-List\-::\-Find (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_a9b9a0ffe922bfb9af08196219105424f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList_a9b9a0ffe922bfb9af08196219105424f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_af7c649904a89588638500e381411ca0a}{\index{Boosting\-List@{Boosting\-List}!Init@{Init}}
+\index{Init@{Init}!BoostingList@{Boosting\-List}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-List\-::\-Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_af7c649904a89588638500e381411ca0a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{classBoostingList_af7c649904a89588638500e381411ca0a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_a16bf3043fb4368961fffc400cef1953d}{\index{Boosting\-List@{Boosting\-List}!Insert@{Insert}}
+\index{Insert@{Insert}!BoostingList@{Boosting\-List}}
+\subsubsection[{Insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boosting\-List\-::\-Return\-Code} Boosting\-List\-::\-Insert (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_a16bf3043fb4368961fffc400cef1953d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList_a16bf3043fb4368961fffc400cef1953d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_add73a97e46b96edaf01a3de3b185fd53}{\index{Boosting\-List@{Boosting\-List}!On\-Abort@{On\-Abort}}
+\index{On\-Abort@{On\-Abort}!BoostingList@{Boosting\-List}}
+\subsubsection[{On\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-List\-::\-On\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Return\-Code}}]{ret}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_add73a97e46b96edaf01a3de3b185fd53}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingList_add73a97e46b96edaf01a3de3b185fd53_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_a18e4a2f06898eb275acaae233da9e5b3}{\index{Boosting\-List@{Boosting\-List}!On\-Commit@{On\-Commit}}
+\index{On\-Commit@{On\-Commit}!BoostingList@{Boosting\-List}}
+\subsubsection[{On\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-List\-::\-On\-Commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_a18e4a2f06898eb275acaae233da9e5b3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classBoostingList_a18e4a2f06898eb275acaae233da9e5b3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_a2ad6950bb2e21931e056240abd22fcce}{\index{Boosting\-List@{Boosting\-List}!Print@{Print}}
+\index{Print@{Print}!BoostingList@{Boosting\-List}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-List\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_a2ad6950bb2e21931e056240abd22fcce}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classBoostingList_a2ad6950bb2e21931e056240abd22fcce_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingList_a180ef6457c6af66f499061846690a9ac}{\index{Boosting\-List@{Boosting\-List}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!BoostingList@{Boosting\-List}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-List\-::\-Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingList_a180ef6457c6af66f499061846690a9ac}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classBoostingList_a180ef6457c6af66f499061846690a9ac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBoostingList_a1959338dbec4dff7dde70241c1b55178}{\index{Boosting\-List@{Boosting\-List}!g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}}
+\index{g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}!BoostingList@{Boosting\-List}}
+\subsubsection[{g\-\_\-count\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Boosting\-List\-::g\-\_\-count\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingList_a1959338dbec4dff7dde70241c1b55178}
+\hypertarget{classBoostingList_ab25416a1dae12a3674ebbf6195182675}{\index{Boosting\-List@{Boosting\-List}!g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}}
+\index{g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}!BoostingList@{Boosting\-List}}
+\subsubsection[{g\-\_\-count\-\_\-fake\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Boosting\-List\-::g\-\_\-count\-\_\-fake\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingList_ab25416a1dae12a3674ebbf6195182675}
+\hypertarget{classBoostingList_a2050d7b396704887ab33cdeabaa48dae}{\index{Boosting\-List@{Boosting\-List}!m\-\_\-list@{m\-\_\-list}}
+\index{m\-\_\-list@{m\-\_\-list}!BoostingList@{Boosting\-List}}
+\subsubsection[{m\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lockfree\-List} Boosting\-List\-::m\-\_\-list\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingList_a2050d7b396704887ab33cdeabaa48dae}
+\hypertarget{classBoostingList_a6f740d1ae0796e5189304db843a51f65}{\index{Boosting\-List@{Boosting\-List}!m\-\_\-lock@{m\-\_\-lock}}
+\index{m\-\_\-lock@{m\-\_\-lock}!BoostingList@{Boosting\-List}}
+\subsubsection[{m\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lock\-Key} Boosting\-List\-::m\-\_\-lock\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingList_a6f740d1ae0796e5189304db843a51f65}
+\hypertarget{classBoostingList_a53dd78138a275866cd2586ed933af9d4}{\index{Boosting\-List@{Boosting\-List}!m\-\_\-log@{m\-\_\-log}}
+\index{m\-\_\-log@{m\-\_\-log}!BoostingList@{Boosting\-List}}
+\subsubsection[{m\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-thread {\bf Boosting\-List\-::\-Log\-Type} $\ast$ Boosting\-List\-::m\-\_\-log\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classBoostingList_a53dd78138a275866cd2586ed933af9d4}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+boosting/list/\hyperlink{boostinglist_8h}{boostinglist.\-h}\item 
+boosting/list/\hyperlink{boostinglist_8cc}{boostinglist.\-cc}\end{DoxyCompactItemize}

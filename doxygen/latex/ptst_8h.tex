@@ -1,0 +1,158 @@
+\hypertarget{ptst_8h}{\section{common/fraser/ptst.h File Reference}
+\label{ptst_8h}\index{common/fraser/ptst.\-h@{common/fraser/ptst.\-h}}
+}
+{\ttfamily \#include \char`\"{}gc.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+Include dependency graph for ptst.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{ptst_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structptst__st}{ptst\-\_\-st}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ptst_8h_aa2d4230d283918d7bf957214684dae94}{fr\-\_\-critical\-\_\-exit}(\-\_\-p)~\hyperlink{gc_8h_a769164af51b73c8b4df6868cbea07c90}{fr\-\_\-gc\-\_\-exit}(\-\_\-p)
+\item 
+\#define \hyperlink{ptst_8h_ae5746ea9cd7b2be1e7a8794d306acb92}{ptst\-\_\-first}()~(\hyperlink{ptst_8h_ab63d5ac44367ff1f451b16c7bd111efe}{ptst\-\_\-list})
+\item 
+\#define \hyperlink{ptst_8h_a92c57fe51f7091fe91c9b7a860a4a620}{ptst\-\_\-next}(\-\_\-p)~((\-\_\-p)-\/$>$next)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structptst__st}{ptst\-\_\-st} \hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$ \hyperlink{ptst_8h_a9f490f3eb71074b856eb2206f97c6cb1}{fr\-\_\-critical\-\_\-enter} (void)
+\item 
+void \hyperlink{ptst_8h_a1871243b5465e5a17a02e631887ef9c2}{fr\-\_\-init\-\_\-ptst\-\_\-subsystem} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-key\-\_\-t \hyperlink{ptst_8h_a0629b49e301d26658167ff4a7a447340}{ptst\-\_\-key}
+\item 
+\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$ \hyperlink{ptst_8h_ab63d5ac44367ff1f451b16c7bd111efe}{ptst\-\_\-list}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ptst_8h_aa2d4230d283918d7bf957214684dae94}{\index{ptst.\-h@{ptst.\-h}!fr\-\_\-critical\-\_\-exit@{fr\-\_\-critical\-\_\-exit}}
+\index{fr\-\_\-critical\-\_\-exit@{fr\-\_\-critical\-\_\-exit}!ptst.h@{ptst.\-h}}
+\subsubsection[{fr\-\_\-critical\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}\#define fr\-\_\-critical\-\_\-exit(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~{\bf fr\-\_\-gc\-\_\-exit}(\-\_\-p)}}\label{ptst_8h_aa2d4230d283918d7bf957214684dae94}
+\hypertarget{ptst_8h_ae5746ea9cd7b2be1e7a8794d306acb92}{\index{ptst.\-h@{ptst.\-h}!ptst\-\_\-first@{ptst\-\_\-first}}
+\index{ptst\-\_\-first@{ptst\-\_\-first}!ptst.h@{ptst.\-h}}
+\subsubsection[{ptst\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}\#define ptst\-\_\-first(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~({\bf ptst\-\_\-list})}}\label{ptst_8h_ae5746ea9cd7b2be1e7a8794d306acb92}
+\hypertarget{ptst_8h_a92c57fe51f7091fe91c9b7a860a4a620}{\index{ptst.\-h@{ptst.\-h}!ptst\-\_\-next@{ptst\-\_\-next}}
+\index{ptst\-\_\-next@{ptst\-\_\-next}!ptst.h@{ptst.\-h}}
+\subsubsection[{ptst\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}\#define ptst\-\_\-next(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((\-\_\-p)-\/$>$next)}}\label{ptst_8h_a92c57fe51f7091fe91c9b7a860a4a620}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{\index{ptst.\-h@{ptst.\-h}!ptst\-\_\-t@{ptst\-\_\-t}}
+\index{ptst\-\_\-t@{ptst\-\_\-t}!ptst.h@{ptst.\-h}}
+\subsubsection[{ptst\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ptst\-\_\-st} {\bf ptst\-\_\-t}}}\label{ptst_8h_a1c1965dad228ac64fc833c78267fc595}
+
+
+\subsection{Function Documentation}
+\hypertarget{ptst_8h_a9f490f3eb71074b856eb2206f97c6cb1}{\index{ptst.\-h@{ptst.\-h}!fr\-\_\-critical\-\_\-enter@{fr\-\_\-critical\-\_\-enter}}
+\index{fr\-\_\-critical\-\_\-enter@{fr\-\_\-critical\-\_\-enter}!ptst.h@{ptst.\-h}}
+\subsubsection[{fr\-\_\-critical\-\_\-enter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptst\-\_\-t}$\ast$ fr\-\_\-critical\-\_\-enter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ptst_8h_a9f490f3eb71074b856eb2206f97c6cb1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8h_a9f490f3eb71074b856eb2206f97c6cb1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8h_a9f490f3eb71074b856eb2206f97c6cb1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ptst_8h_a1871243b5465e5a17a02e631887ef9c2}{\index{ptst.\-h@{ptst.\-h}!fr\-\_\-init\-\_\-ptst\-\_\-subsystem@{fr\-\_\-init\-\_\-ptst\-\_\-subsystem}}
+\index{fr\-\_\-init\-\_\-ptst\-\_\-subsystem@{fr\-\_\-init\-\_\-ptst\-\_\-subsystem}!ptst.h@{ptst.\-h}}
+\subsubsection[{fr\-\_\-init\-\_\-ptst\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-init\-\_\-ptst\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ptst_8h_a1871243b5465e5a17a02e631887ef9c2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{ptst_8h_a1871243b5465e5a17a02e631887ef9c2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8h_a1871243b5465e5a17a02e631887ef9c2_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{ptst_8h_a0629b49e301d26658167ff4a7a447340}{\index{ptst.\-h@{ptst.\-h}!ptst\-\_\-key@{ptst\-\_\-key}}
+\index{ptst\-\_\-key@{ptst\-\_\-key}!ptst.h@{ptst.\-h}}
+\subsubsection[{ptst\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-key\-\_\-t ptst\-\_\-key}}\label{ptst_8h_a0629b49e301d26658167ff4a7a447340}
+\hypertarget{ptst_8h_ab63d5ac44367ff1f451b16c7bd111efe}{\index{ptst.\-h@{ptst.\-h}!ptst\-\_\-list@{ptst\-\_\-list}}
+\index{ptst\-\_\-list@{ptst\-\_\-list}!ptst.h@{ptst.\-h}}
+\subsubsection[{ptst\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptst\-\_\-t}$\ast$ ptst\-\_\-list}}\label{ptst_8h_ab63d5ac44367ff1f451b16c7bd111efe}

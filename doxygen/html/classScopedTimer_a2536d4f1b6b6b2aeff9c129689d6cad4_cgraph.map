@@ -1,0 +1,5 @@
+<map id="ScopedTimer::ScopedTimer" name="ScopedTimer::ScopedTimer">
+<area shape="rect" id="node2" href="$classTimer.html#a4e607b129b392c11adddd9641a320436" title="Timer::Start" alt="" coords="237,31,328,57"/>
+<area shape="rect" id="node3" href="$classTime.html#ad5144f12e23805225735ab695f38f069" title="Time::GetCpuTime" alt="" coords="377,5,511,32"/>
+<area shape="rect" id="node4" href="$classTime.html#a508ab252117d5c378fcc33d0644d56d0" title="Time::GetWallTime" alt="" coords="377,56,511,83"/>
+</map>

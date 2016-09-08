@@ -1,0 +1,6 @@
+<map id="stm::PostRollback" name="stm::PostRollback">
+<area shape="rect" id="node2" href="$classstm_1_1WBMMPolicy.html#a659b1e52e3946a9a45fc3abf31dc8800" title="stm::WBMMPolicy::onTxAbort" alt="" coords="184,56,384,83"/>
+<area shape="rect" id="node3" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="433,5,586,32"/>
+<area shape="rect" id="node4" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="438,56,581,83"/>
+<area shape="rect" id="node5" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="434,107,585,133"/>
+</map>

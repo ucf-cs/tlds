@@ -1,0 +1,5 @@
+<map id="addCustomer" name="addCustomer">
+<area shape="rect" id="node2" href="$manager_8c.html#a065147f4828a2f8104c450af70f20371" title="manager_addCustomer_seq" alt="" coords="155,5,341,32"/>
+<area shape="rect" id="node3" href="$customer_8c.html#a977a1905b51f19c2b024776bcad52548" title="customer_alloc_seq" alt="" coords="389,5,528,32"/>
+<area shape="rect" id="node4" href="$list_8c.html#acff01c26015a0263b94839e622c17d66" title="Plist_alloc" alt="" coords="576,5,659,32"/>
+</map>

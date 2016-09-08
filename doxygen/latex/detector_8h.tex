@@ -1,0 +1,234 @@
+\hypertarget{detector_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/intruder/detector.h File Reference}
+\label{detector_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/detector.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/detector.\-h}}
+}
+{\ttfamily \#include \char`\"{}error.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preprocessor.\-h\char`\"{}}\\*
+Include dependency graph for detector.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{detector_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{detector_8h_af194dd88305c6dbb7e138e612737b354}{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C}()~\hyperlink{detector_8h_a5807d0ff2f3170e1ede98b6090b1c7c5}{Pdetector\-\_\-alloc}()
+\item 
+\#define \hyperlink{detector_8h_a58101b5da07db79bd068596f90b607ab}{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E}(d)~\hyperlink{detector_8h_abe2cdb71ef819ae90545e2049c4975b1}{Pdetector\-\_\-free}(d)
+\item 
+\#define \hyperlink{detector_8h_a75655871ec4bfcff106b6a97f684db29}{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}(d, s)~\hyperlink{detector_8h_a0e2d49f3be877ddc0e8e5e10313247b9}{detector\-\_\-process}(d, s)
+\item 
+\#define \hyperlink{detector_8h_a79eedf4c04d9df28cb9931ca363f527c}{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R}(d, s)~\hyperlink{detector_8h_a1aa3dd602c84838ef074f8e46aa09989}{detector\-\_\-add\-Preprocessor}(d, s)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structdetector}{detector} \hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t} $\ast$ \hyperlink{detector_8h_a6b004a6f665b307d4c15f042806e4fc0}{detector\-\_\-alloc} ()
+\item 
+\hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t} $\ast$ \hyperlink{detector_8h_a5807d0ff2f3170e1ede98b6090b1c7c5}{Pdetector\-\_\-alloc} ()
+\item 
+void \hyperlink{detector_8h_abc14a4e3abf6f6281e30d0459fadcfa2}{detector\-\_\-free} (\hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t} $\ast$detector\-Ptr)
+\item 
+void \hyperlink{detector_8h_abe2cdb71ef819ae90545e2049c4975b1}{Pdetector\-\_\-free} (\hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t} $\ast$detector\-Ptr)
+\item 
+void \hyperlink{detector_8h_a1aa3dd602c84838ef074f8e46aa09989}{detector\-\_\-add\-Preprocessor} (\hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t} $\ast$detector\-Ptr, \hyperlink{preprocessor_8h_a386f5c2e2406f1d9d140dd666beeefea}{preprocessor\-\_\-t} \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+\hyperlink{error_8h_aee2eebeab7eb8cadf7e38b56c4428cac}{int\-\_\-error\-\_\-t} \hyperlink{detector_8h_a0e2d49f3be877ddc0e8e5e10313247b9}{detector\-\_\-process} (\hyperlink{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{detector\-\_\-t} $\ast$detector\-Ptr, char $\ast$str)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{detector_8h_a79eedf4c04d9df28cb9931ca363f527c}{\index{detector.\-h@{detector.\-h}!P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R}}
+\index{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R}!detector.h@{detector.\-h}}
+\subsubsection[{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-D\-D\-P\-R\-E\-P\-R\-O\-C\-E\-S\-S\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf detector\-\_\-add\-Preprocessor}(d, s)}}\label{detector_8h_a79eedf4c04d9df28cb9931ca363f527c}
+\hypertarget{detector_8h_af194dd88305c6dbb7e138e612737b354}{\index{detector.\-h@{detector.\-h}!P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C}}
+\index{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C}!detector.h@{detector.\-h}}
+\subsubsection[{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Pdetector\-\_\-alloc}()}}\label{detector_8h_af194dd88305c6dbb7e138e612737b354}
+\hypertarget{detector_8h_a58101b5da07db79bd068596f90b607ab}{\index{detector.\-h@{detector.\-h}!P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E}}
+\index{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E}!detector.h@{detector.\-h}}
+\subsubsection[{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~{\bf Pdetector\-\_\-free}(d)}}\label{detector_8h_a58101b5da07db79bd068596f90b607ab}
+\hypertarget{detector_8h_a75655871ec4bfcff106b6a97f684db29}{\index{detector.\-h@{detector.\-h}!P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}}
+\index{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S@{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}!detector.h@{detector.\-h}}
+\subsubsection[{P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-D\-E\-T\-E\-C\-T\-O\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf detector\-\_\-process}(d, s)}}\label{detector_8h_a75655871ec4bfcff106b6a97f684db29}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}{\index{detector.\-h@{detector.\-h}!detector\-\_\-t@{detector\-\_\-t}}
+\index{detector\-\_\-t@{detector\-\_\-t}!detector.h@{detector.\-h}}
+\subsubsection[{detector\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf detector} {\bf detector\-\_\-t}}}\label{detector_8h_abde5e494e3fe49793a5729dff7f03aa4}
+
+
+\subsection{Function Documentation}
+\hypertarget{detector_8h_a1aa3dd602c84838ef074f8e46aa09989}{\index{detector.\-h@{detector.\-h}!detector\-\_\-add\-Preprocessor@{detector\-\_\-add\-Preprocessor}}
+\index{detector\-\_\-add\-Preprocessor@{detector\-\_\-add\-Preprocessor}!detector.h@{detector.\-h}}
+\subsubsection[{detector\-\_\-add\-Preprocessor}]{\setlength{\rightskip}{0pt plus 5cm}void detector\-\_\-add\-Preprocessor (
+\begin{DoxyParamCaption}
+\item[{{\bf detector\-\_\-t} $\ast$}]{detector\-Ptr, }
+\item[{{\bf preprocessor\-\_\-t}}]{p}
+\end{DoxyParamCaption}
+)}}\label{detector_8h_a1aa3dd602c84838ef074f8e46aa09989}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{detector_8h_a1aa3dd602c84838ef074f8e46aa09989_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_a1aa3dd602c84838ef074f8e46aa09989_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{detector_8h_a6b004a6f665b307d4c15f042806e4fc0}{\index{detector.\-h@{detector.\-h}!detector\-\_\-alloc@{detector\-\_\-alloc}}
+\index{detector\-\_\-alloc@{detector\-\_\-alloc}!detector.h@{detector.\-h}}
+\subsubsection[{detector\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf detector\-\_\-t}$\ast$ detector\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{detector_8h_a6b004a6f665b307d4c15f042806e4fc0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_a6b004a6f665b307d4c15f042806e4fc0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_a6b004a6f665b307d4c15f042806e4fc0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{detector_8h_abc14a4e3abf6f6281e30d0459fadcfa2}{\index{detector.\-h@{detector.\-h}!detector\-\_\-free@{detector\-\_\-free}}
+\index{detector\-\_\-free@{detector\-\_\-free}!detector.h@{detector.\-h}}
+\subsubsection[{detector\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void detector\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf detector\-\_\-t} $\ast$}]{detector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{detector_8h_abc14a4e3abf6f6281e30d0459fadcfa2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_abc14a4e3abf6f6281e30d0459fadcfa2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_abc14a4e3abf6f6281e30d0459fadcfa2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{detector_8h_a0e2d49f3be877ddc0e8e5e10313247b9}{\index{detector.\-h@{detector.\-h}!detector\-\_\-process@{detector\-\_\-process}}
+\index{detector\-\_\-process@{detector\-\_\-process}!detector.h@{detector.\-h}}
+\subsubsection[{detector\-\_\-process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int\-\_\-error\-\_\-t} detector\-\_\-process (
+\begin{DoxyParamCaption}
+\item[{{\bf detector\-\_\-t} $\ast$}]{detector\-Ptr, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{detector_8h_a0e2d49f3be877ddc0e8e5e10313247b9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_a0e2d49f3be877ddc0e8e5e10313247b9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detector_8h_a0e2d49f3be877ddc0e8e5e10313247b9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{detector_8h_a5807d0ff2f3170e1ede98b6090b1c7c5}{\index{detector.\-h@{detector.\-h}!Pdetector\-\_\-alloc@{Pdetector\-\_\-alloc}}
+\index{Pdetector\-\_\-alloc@{Pdetector\-\_\-alloc}!detector.h@{detector.\-h}}
+\subsubsection[{Pdetector\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf detector\-\_\-t}$\ast$ Pdetector\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{detector_8h_a5807d0ff2f3170e1ede98b6090b1c7c5}
+\hypertarget{detector_8h_abe2cdb71ef819ae90545e2049c4975b1}{\index{detector.\-h@{detector.\-h}!Pdetector\-\_\-free@{Pdetector\-\_\-free}}
+\index{Pdetector\-\_\-free@{Pdetector\-\_\-free}!detector.h@{detector.\-h}}
+\subsubsection[{Pdetector\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pdetector\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf detector\-\_\-t} $\ast$}]{detector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{detector_8h_abe2cdb71ef819ae90545e2049c4975b1}

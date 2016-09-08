@@ -1,0 +1,402 @@
+\hypertarget{structstm_1_1TxThread}{\section{stm\-:\-:Tx\-Thread Struct Reference}
+\label{structstm_1_1TxThread}\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}}
+}
+
+
+{\ttfamily \#include $<$txthread.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Tx\-Thread\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1TxThread__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1TxThread_a34dd6a094b9e5acb32947ca18961c85d}{thread\-\_\-shutdown} ()
+\item 
+static void \hyperlink{structstm_1_1TxThread_a4e78a4f0dcb5010456aa031d3fda70ac}{thread\-\_\-init} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a7dcef0ff441ee308959e70313622f1ca}{id}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a1fa5c40b4b2ce82ad3f31c6a48b51472}{nesting\-\_\-depth}
+\item 
+\hyperlink{classstm_1_1WBMMPolicy}{W\-B\-M\-M\-Policy} \hyperlink{structstm_1_1TxThread_a7c2db35e64ece71ff1622c863fef9b25}{allocator}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a069d677bd932889c7abec4f684d984e4}{num\-\_\-commits}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_af77ac9d0a0e20e012bfaca3a883f9d5b}{num\-\_\-aborts}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_af5fc22390df66268ad23d701153e40f2}{num\-\_\-restarts}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a43b41a7888b7ba9d2acd18127422c036}{num\-\_\-ro}
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$volatile \hyperlink{structstm_1_1TxThread_a3b88d6c91b301b5d4ff8c3ac826018ac}{scope}
+\item 
+uintptr\-\_\-t \hyperlink{structstm_1_1TxThread_a6fe8a3d6580bcbb43f2ddad98130f542}{start\-\_\-time}
+\item 
+uintptr\-\_\-t \hyperlink{structstm_1_1TxThread_af3302e5a541e22a3af3176c01f60ffc3}{end\-\_\-time}
+\item 
+uintptr\-\_\-t \hyperlink{structstm_1_1TxThread_aa2a246af5aece9c002ca5968505a9d6f}{ts\-\_\-cache}
+\item 
+bool \hyperlink{structstm_1_1TxThread_aa9915dd0831b64f59ef287810312787b}{tml\-Has\-Lock}
+\item 
+\hyperlink{classstm_1_1UndoLog}{Undo\-Log} \hyperlink{structstm_1_1TxThread_afddcc03d014798b970c8a18f5c94588d}{undo\-\_\-log}
+\item 
+\hyperlink{structstm_1_1ValueList}{Value\-List} \hyperlink{structstm_1_1TxThread_ab0a99f4dabcc76bb13511826b5ca17b0}{vlist}
+\item 
+\hyperlink{classstm_1_1WriteSet}{Write\-Set} \hyperlink{structstm_1_1TxThread_ab70bb974af78d5b89b57f08c93ec43ef}{writes}
+\item 
+\hyperlink{namespacestm_aa243a42287cc0cf0fdf20fb4cddd4d02}{Orec\-List} \hyperlink{structstm_1_1TxThread_a106ca6665274ceba7c7bb7060c2fda2c}{r\-\_\-orecs}
+\item 
+\hyperlink{namespacestm_aa243a42287cc0cf0fdf20fb4cddd4d02}{Orec\-List} \hyperlink{structstm_1_1TxThread_a83485cddd74d36bff2ba5d6d9918294f}{locks}
+\item 
+\hyperlink{unionstm_1_1id__version__t}{id\-\_\-version\-\_\-t} \hyperlink{structstm_1_1TxThread_a96c17feddd724a22b5325baf164b8c67}{my\-\_\-lock}
+\item 
+\hyperlink{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{filter\-\_\-t} $\ast$ \hyperlink{structstm_1_1TxThread_a5b48bc27f158b85229862ac5a1e2b279}{wf}
+\item 
+\hyperlink{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{filter\-\_\-t} $\ast$ \hyperlink{structstm_1_1TxThread_adb9f300da6d86cb64e6ad9fce5914064}{rf}
+\item 
+volatile uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a20965fc8236c00039cf8a0dcf7a1e5c2}{prio}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_ac683f54db970f8875e4342f96ccb60ed}{consec\-\_\-aborts}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a064c765ca8b6f1c796a63fff1c6c6b0a}{seed}
+\item 
+\hyperlink{namespacestm_afad5b3d1a775f6e65cd1e675ba984839}{R\-Rec\-List} \hyperlink{structstm_1_1TxThread_a3d54907d29dc4464d710a213c5a1068b}{my\-R\-Recs}
+\item 
+intptr\-\_\-t \hyperlink{structstm_1_1TxThread_a4399908cf54e49c35f1db573dcc86916}{order}
+\item 
+volatile uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a99a90e03e47b9ccd838ecb4b183a3896}{alive}
+\item 
+\hyperlink{namespacestm_adde267538d3124b2b405e5bc9d1135f4}{Byte\-Lock\-List} \hyperlink{structstm_1_1TxThread_a5d3cd9e76333bff740ff86f4538d0ed5}{r\-\_\-bytelocks}
+\item 
+\hyperlink{namespacestm_adde267538d3124b2b405e5bc9d1135f4}{Byte\-Lock\-List} \hyperlink{structstm_1_1TxThread_afbc2426149ce9ae27669c064e964af7f}{w\-\_\-bytelocks}
+\item 
+\hyperlink{namespacestm_ab4b8c3282dc3d14aded2b969e07b5213}{Bit\-Lock\-List} \hyperlink{structstm_1_1TxThread_a40a78913ff1b668fc9200fc89cb12bbd}{r\-\_\-bitlocks}
+\item 
+\hyperlink{namespacestm_ab4b8c3282dc3d14aded2b969e07b5213}{Bit\-Lock\-List} \hyperlink{structstm_1_1TxThread_aa1e85036502f836c839c955492d032d8}{w\-\_\-bitlocks}
+\item 
+\hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$ \hyperlink{structstm_1_1TxThread_ad69c93d85ee12c06ee29626425111e09}{my\-\_\-mcslock}
+\item 
+uintptr\-\_\-t \hyperlink{structstm_1_1TxThread_a9a38bf30ab011a2ae45c14ae3cfa6c97}{valid\-\_\-ts}
+\item 
+uintptr\-\_\-t \hyperlink{structstm_1_1TxThread_af932ae4f9276e60c0ecfbb6de19c9d44}{cm\-\_\-ts}
+\item 
+\hyperlink{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{filter\-\_\-t} $\ast$ \hyperlink{structstm_1_1TxThread_a98cf1b91ba5771dfa98132a2c5486ec6}{cf}
+\item 
+\hyperlink{namespacestm_a5a70108dbd954a2634cf59d668ea8241}{Nanorec\-List} \hyperlink{structstm_1_1TxThread_a21ab6ca34667f25408cd8b81bd9b6be0}{nanorecs}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_a02b7659acba4caf37d775c436fe691ad}{consec\-\_\-commits}
+\item 
+\hyperlink{namespacestm_a1a3981a9b82aa51afd56d191ca1e3984}{toxic\-\_\-t} \hyperlink{structstm_1_1TxThread_a985c061817534ccbab8a89ca0a34a52f}{abort\-\_\-hist}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1TxThread_ade9057c9a92ce6b644aea8719c932de6}{begin\-\_\-wait}
+\item 
+bool \hyperlink{structstm_1_1TxThread_af4130eccc384e6c423fd29797c4a8aba}{strong\-\_\-\-H\-G}
+\item 
+bool \hyperlink{structstm_1_1TxThread_a4745b95b7c25487afc954076556842df}{irrevocable}
+\item 
+uint64\-\_\-t \hyperlink{structstm_1_1TxThread_a18178949e3e83c05ac7250a34f0a3c3b}{end\-\_\-txn\-\_\-time}
+\item 
+uint64\-\_\-t \hyperlink{structstm_1_1TxThread_ad217a99774ad79e3d581b008ef067991}{total\-\_\-nontxn\-\_\-time}
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ \hyperlink{structstm_1_1TxThread_a98f7df70804772d4205354933bd76b25}{tmcommit} )(\hyperlink{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(,))
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void $\ast$($\ast$ \hyperlink{structstm_1_1TxThread_ae294456a4d6150a2e14ccedaaf9cf0bb}{tmread} )(\hyperlink{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,))
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ \hyperlink{structstm_1_1TxThread_ac250db343a00b5b76d56202e2d95ab84}{tmwrite} )(\hyperlink{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,))
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} bool($\ast$volatile \hyperlink{structstm_1_1TxThread_a4822898342c30b679a25a8a2dd46c747}{tmbegin} )(\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$) = \hyperlink{namespacestm_a74784f193abf87bd1c6f688d6b25cacd}{begin\-\_\-\-C\-G\-L}
+\item 
+static \hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$($\ast$ \hyperlink{structstm_1_1TxThread_a81a345efa23f5511ed79cb41e03445b6}{tmrollback} )(\hyperlink{include_2stm_2macros_8hpp_a1c36a48149c84f90d5bca01019950ca9}{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}(,,,))
+\item 
+static \hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} void($\ast$ \hyperlink{structstm_1_1TxThread_a5ca3c353e5b0e305d841b48aceb4de2f}{tmabort} )(\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static bool($\ast$ \hyperlink{structstm_1_1TxThread_a1052fca6b76285b98233a67f9a865775}{tmirrevoc} )(\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,)) = N\-U\-L\-L
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1TxThread_a27aa264d621bb5d008571c6aab47a9ba}{Tx\-Thread} ()
+\item 
+\hyperlink{structstm_1_1TxThread_a28a46b3697018d74c52a306b9177f416}{$\sim$\-Tx\-Thread} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{structstm_1_1TxThread}{Tx\-Thread} struct holds all of the metadata that a thread needs in order to use any of the S\-T\-M algorithms we support. In the past, this class also had all global S\-T\-M metadata as static fields, and had lots of methods to support the various S\-T\-M implementations. This proved to be too cumbersome for some compilers, so we now use this simpler interface. This file can be included in application code without pulling in an obscene amount of S\-T\-M-\/related function definitions.
+
+Unfortunately, we still have to pull in \hyperlink{metadata_8hpp}{metadata.\-hpp} \-:(
+
+N\-B\-: the order of fields has not been rigorously studied. It is very likely that a better order would improve performance. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1TxThread_a27aa264d621bb5d008571c6aab47a9ba}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!Tx\-Thread@{Tx\-Thread}}
+\index{Tx\-Thread@{Tx\-Thread}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{Tx\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Tx\-Thread\-::\-Tx\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{structstm_1_1TxThread_a27aa264d621bb5d008571c6aab47a9ba}
+Constructor sets up the lists and vars 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1TxThread_a27aa264d621bb5d008571c6aab47a9ba_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1TxThread_a27aa264d621bb5d008571c6aab47a9ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1TxThread_a28a46b3697018d74c52a306b9177f416}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!$\sim$\-Tx\-Thread@{$\sim$\-Tx\-Thread}}
+\index{$\sim$\-Tx\-Thread@{$\sim$\-Tx\-Thread}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{$\sim$\-Tx\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Tx\-Thread\-::$\sim$\-Tx\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{structstm_1_1TxThread_a28a46b3697018d74c52a306b9177f416}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1TxThread_a4e78a4f0dcb5010456aa031d3fda70ac}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!thread\-\_\-init@{thread\-\_\-init}}
+\index{thread\-\_\-init@{thread\-\_\-init}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{thread\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Tx\-Thread\-::thread\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1TxThread_a4e78a4f0dcb5010456aa031d3fda70ac}
+the init factory. Construction of \hyperlink{structstm_1_1TxThread}{Tx\-Thread} objects is only possible through this function. Note, too, that destruction is forbidden. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1TxThread_a4e78a4f0dcb5010456aa031d3fda70ac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1TxThread_a4e78a4f0dcb5010456aa031d3fda70ac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1TxThread_a34dd6a094b9e5acb32947ca18961c85d}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!thread\-\_\-shutdown@{thread\-\_\-shutdown}}
+\index{thread\-\_\-shutdown@{thread\-\_\-shutdown}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{thread\-\_\-shutdown}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Tx\-Thread\-::thread\-\_\-shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1TxThread_a34dd6a094b9e5acb32947ca18961c85d}
+for shutting down threads. Currently a no-\/op. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1TxThread_a34dd6a094b9e5acb32947ca18961c85d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1TxThread_a985c061817534ccbab8a89ca0a34a52f}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!abort\-\_\-hist@{abort\-\_\-hist}}
+\index{abort\-\_\-hist@{abort\-\_\-hist}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{abort\-\_\-hist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf toxic\-\_\-t} stm\-::\-Tx\-Thread\-::abort\-\_\-hist}}\label{structstm_1_1TxThread_a985c061817534ccbab8a89ca0a34a52f}
+\hypertarget{structstm_1_1TxThread_a99a90e03e47b9ccd838ecb4b183a3896}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!alive@{alive}}
+\index{alive@{alive}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{alive}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\-\_\-t stm\-::\-Tx\-Thread\-::alive}}\label{structstm_1_1TxThread_a99a90e03e47b9ccd838ecb4b183a3896}
+\hypertarget{structstm_1_1TxThread_a7c2db35e64ece71ff1622c863fef9b25}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!allocator@{allocator}}
+\index{allocator@{allocator}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\-B\-M\-M\-Policy} stm\-::\-Tx\-Thread\-::allocator}}\label{structstm_1_1TxThread_a7c2db35e64ece71ff1622c863fef9b25}
+\hypertarget{structstm_1_1TxThread_ade9057c9a92ce6b644aea8719c932de6}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!begin\-\_\-wait@{begin\-\_\-wait}}
+\index{begin\-\_\-wait@{begin\-\_\-wait}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{begin\-\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::begin\-\_\-wait}}\label{structstm_1_1TxThread_ade9057c9a92ce6b644aea8719c932de6}
+\hypertarget{structstm_1_1TxThread_a98cf1b91ba5771dfa98132a2c5486ec6}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!cf@{cf}}
+\index{cf@{cf}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{cf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf filter\-\_\-t}$\ast$ stm\-::\-Tx\-Thread\-::cf}}\label{structstm_1_1TxThread_a98cf1b91ba5771dfa98132a2c5486ec6}
+\hypertarget{structstm_1_1TxThread_af932ae4f9276e60c0ecfbb6de19c9d44}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!cm\-\_\-ts@{cm\-\_\-ts}}
+\index{cm\-\_\-ts@{cm\-\_\-ts}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{cm\-\_\-ts}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Tx\-Thread\-::cm\-\_\-ts}}\label{structstm_1_1TxThread_af932ae4f9276e60c0ecfbb6de19c9d44}
+\hypertarget{structstm_1_1TxThread_ac683f54db970f8875e4342f96ccb60ed}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!consec\-\_\-aborts@{consec\-\_\-aborts}}
+\index{consec\-\_\-aborts@{consec\-\_\-aborts}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{consec\-\_\-aborts}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::consec\-\_\-aborts}}\label{structstm_1_1TxThread_ac683f54db970f8875e4342f96ccb60ed}
+\hypertarget{structstm_1_1TxThread_a02b7659acba4caf37d775c436fe691ad}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!consec\-\_\-commits@{consec\-\_\-commits}}
+\index{consec\-\_\-commits@{consec\-\_\-commits}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{consec\-\_\-commits}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::consec\-\_\-commits}}\label{structstm_1_1TxThread_a02b7659acba4caf37d775c436fe691ad}
+\hypertarget{structstm_1_1TxThread_af3302e5a541e22a3af3176c01f60ffc3}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!end\-\_\-time@{end\-\_\-time}}
+\index{end\-\_\-time@{end\-\_\-time}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{end\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Tx\-Thread\-::end\-\_\-time}}\label{structstm_1_1TxThread_af3302e5a541e22a3af3176c01f60ffc3}
+\hypertarget{structstm_1_1TxThread_a18178949e3e83c05ac7250a34f0a3c3b}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!end\-\_\-txn\-\_\-time@{end\-\_\-txn\-\_\-time}}
+\index{end\-\_\-txn\-\_\-time@{end\-\_\-txn\-\_\-time}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{end\-\_\-txn\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t stm\-::\-Tx\-Thread\-::end\-\_\-txn\-\_\-time}}\label{structstm_1_1TxThread_a18178949e3e83c05ac7250a34f0a3c3b}
+\hypertarget{structstm_1_1TxThread_a7dcef0ff441ee308959e70313622f1ca}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!id@{id}}
+\index{id@{id}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::id}}\label{structstm_1_1TxThread_a7dcef0ff441ee308959e70313622f1ca}
+\hypertarget{structstm_1_1TxThread_a4745b95b7c25487afc954076556842df}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!irrevocable@{irrevocable}}
+\index{irrevocable@{irrevocable}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{irrevocable}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Tx\-Thread\-::irrevocable}}\label{structstm_1_1TxThread_a4745b95b7c25487afc954076556842df}
+\hypertarget{structstm_1_1TxThread_a83485cddd74d36bff2ba5d6d9918294f}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!locks@{locks}}
+\index{locks@{locks}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{locks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orec\-List} stm\-::\-Tx\-Thread\-::locks}}\label{structstm_1_1TxThread_a83485cddd74d36bff2ba5d6d9918294f}
+\hypertarget{structstm_1_1TxThread_a96c17feddd724a22b5325baf164b8c67}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!my\-\_\-lock@{my\-\_\-lock}}
+\index{my\-\_\-lock@{my\-\_\-lock}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{my\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf id\-\_\-version\-\_\-t} stm\-::\-Tx\-Thread\-::my\-\_\-lock}}\label{structstm_1_1TxThread_a96c17feddd724a22b5325baf164b8c67}
+\hypertarget{structstm_1_1TxThread_ad69c93d85ee12c06ee29626425111e09}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!my\-\_\-mcslock@{my\-\_\-mcslock}}
+\index{my\-\_\-mcslock@{my\-\_\-mcslock}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{my\-\_\-mcslock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mcs\-\_\-qnode\-\_\-t}$\ast$ stm\-::\-Tx\-Thread\-::my\-\_\-mcslock}}\label{structstm_1_1TxThread_ad69c93d85ee12c06ee29626425111e09}
+\hypertarget{structstm_1_1TxThread_a3d54907d29dc4464d710a213c5a1068b}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!my\-R\-Recs@{my\-R\-Recs}}
+\index{my\-R\-Recs@{my\-R\-Recs}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{my\-R\-Recs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-Rec\-List} stm\-::\-Tx\-Thread\-::my\-R\-Recs}}\label{structstm_1_1TxThread_a3d54907d29dc4464d710a213c5a1068b}
+\hypertarget{structstm_1_1TxThread_a21ab6ca34667f25408cd8b81bd9b6be0}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!nanorecs@{nanorecs}}
+\index{nanorecs@{nanorecs}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{nanorecs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nanorec\-List} stm\-::\-Tx\-Thread\-::nanorecs}}\label{structstm_1_1TxThread_a21ab6ca34667f25408cd8b81bd9b6be0}
+\hypertarget{structstm_1_1TxThread_a1fa5c40b4b2ce82ad3f31c6a48b51472}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!nesting\-\_\-depth@{nesting\-\_\-depth}}
+\index{nesting\-\_\-depth@{nesting\-\_\-depth}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{nesting\-\_\-depth}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::nesting\-\_\-depth}}\label{structstm_1_1TxThread_a1fa5c40b4b2ce82ad3f31c6a48b51472}
+\hypertarget{structstm_1_1TxThread_af77ac9d0a0e20e012bfaca3a883f9d5b}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!num\-\_\-aborts@{num\-\_\-aborts}}
+\index{num\-\_\-aborts@{num\-\_\-aborts}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{num\-\_\-aborts}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::num\-\_\-aborts}}\label{structstm_1_1TxThread_af77ac9d0a0e20e012bfaca3a883f9d5b}
+\hypertarget{structstm_1_1TxThread_a069d677bd932889c7abec4f684d984e4}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!num\-\_\-commits@{num\-\_\-commits}}
+\index{num\-\_\-commits@{num\-\_\-commits}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{num\-\_\-commits}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::num\-\_\-commits}}\label{structstm_1_1TxThread_a069d677bd932889c7abec4f684d984e4}
+\hypertarget{structstm_1_1TxThread_af5fc22390df66268ad23d701153e40f2}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!num\-\_\-restarts@{num\-\_\-restarts}}
+\index{num\-\_\-restarts@{num\-\_\-restarts}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{num\-\_\-restarts}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::num\-\_\-restarts}}\label{structstm_1_1TxThread_af5fc22390df66268ad23d701153e40f2}
+\hypertarget{structstm_1_1TxThread_a43b41a7888b7ba9d2acd18127422c036}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!num\-\_\-ro@{num\-\_\-ro}}
+\index{num\-\_\-ro@{num\-\_\-ro}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{num\-\_\-ro}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::num\-\_\-ro}}\label{structstm_1_1TxThread_a43b41a7888b7ba9d2acd18127422c036}
+\hypertarget{structstm_1_1TxThread_a4399908cf54e49c35f1db573dcc86916}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!order@{order}}
+\index{order@{order}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{order}]{\setlength{\rightskip}{0pt plus 5cm}intptr\-\_\-t stm\-::\-Tx\-Thread\-::order}}\label{structstm_1_1TxThread_a4399908cf54e49c35f1db573dcc86916}
+\hypertarget{structstm_1_1TxThread_a20965fc8236c00039cf8a0dcf7a1e5c2}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!prio@{prio}}
+\index{prio@{prio}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{prio}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\-\_\-t stm\-::\-Tx\-Thread\-::prio}}\label{structstm_1_1TxThread_a20965fc8236c00039cf8a0dcf7a1e5c2}
+\hypertarget{structstm_1_1TxThread_a40a78913ff1b668fc9200fc89cb12bbd}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!r\-\_\-bitlocks@{r\-\_\-bitlocks}}
+\index{r\-\_\-bitlocks@{r\-\_\-bitlocks}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{r\-\_\-bitlocks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bit\-Lock\-List} stm\-::\-Tx\-Thread\-::r\-\_\-bitlocks}}\label{structstm_1_1TxThread_a40a78913ff1b668fc9200fc89cb12bbd}
+\hypertarget{structstm_1_1TxThread_a5d3cd9e76333bff740ff86f4538d0ed5}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!r\-\_\-bytelocks@{r\-\_\-bytelocks}}
+\index{r\-\_\-bytelocks@{r\-\_\-bytelocks}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{r\-\_\-bytelocks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\-Lock\-List} stm\-::\-Tx\-Thread\-::r\-\_\-bytelocks}}\label{structstm_1_1TxThread_a5d3cd9e76333bff740ff86f4538d0ed5}
+\hypertarget{structstm_1_1TxThread_a106ca6665274ceba7c7bb7060c2fda2c}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!r\-\_\-orecs@{r\-\_\-orecs}}
+\index{r\-\_\-orecs@{r\-\_\-orecs}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{r\-\_\-orecs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orec\-List} stm\-::\-Tx\-Thread\-::r\-\_\-orecs}}\label{structstm_1_1TxThread_a106ca6665274ceba7c7bb7060c2fda2c}
+\hypertarget{structstm_1_1TxThread_adb9f300da6d86cb64e6ad9fce5914064}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!rf@{rf}}
+\index{rf@{rf}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{rf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf filter\-\_\-t}$\ast$ stm\-::\-Tx\-Thread\-::rf}}\label{structstm_1_1TxThread_adb9f300da6d86cb64e6ad9fce5914064}
+\hypertarget{structstm_1_1TxThread_a3b88d6c91b301b5d4ff8c3ac826018ac}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!scope@{scope}}
+\index{scope@{scope}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{scope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scope\-\_\-t}$\ast$ volatile stm\-::\-Tx\-Thread\-::scope}}\label{structstm_1_1TxThread_a3b88d6c91b301b5d4ff8c3ac826018ac}
+\hypertarget{structstm_1_1TxThread_a064c765ca8b6f1c796a63fff1c6c6b0a}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!seed@{seed}}
+\index{seed@{seed}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{seed}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::\-Tx\-Thread\-::seed}}\label{structstm_1_1TxThread_a064c765ca8b6f1c796a63fff1c6c6b0a}
+\hypertarget{structstm_1_1TxThread_a6fe8a3d6580bcbb43f2ddad98130f542}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!start\-\_\-time@{start\-\_\-time}}
+\index{start\-\_\-time@{start\-\_\-time}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{start\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Tx\-Thread\-::start\-\_\-time}}\label{structstm_1_1TxThread_a6fe8a3d6580bcbb43f2ddad98130f542}
+\hypertarget{structstm_1_1TxThread_af4130eccc384e6c423fd29797c4a8aba}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!strong\-\_\-\-H\-G@{strong\-\_\-\-H\-G}}
+\index{strong\-\_\-\-H\-G@{strong\-\_\-\-H\-G}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{strong\-\_\-\-H\-G}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Tx\-Thread\-::strong\-\_\-\-H\-G}}\label{structstm_1_1TxThread_af4130eccc384e6c423fd29797c4a8aba}
+\hypertarget{structstm_1_1TxThread_a5ca3c353e5b0e305d841b48aceb4de2f}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmabort@{tmabort}}
+\index{tmabort@{tmabort}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmabort}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\-O\-R\-E\-T\-U\-R\-N} void($\ast$ stm\-::\-Tx\-Thread\-::tmabort)({\bf Tx\-Thread} $\ast$)=default\-\_\-abort\-\_\-handler\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [default]}}}\label{structstm_1_1TxThread_a5ca3c353e5b0e305d841b48aceb4de2f}
+The function for aborting a transaction. The \char`\"{}tmabort\char`\"{} function is designed as a configurable function pointer so that an A\-P\-I environment like the itm shim can override the conflict abort behavior of the system. tmabort is configured using sys\-\_\-init.
+
+Some advanced A\-P\-Is may not want a N\-O\-R\-E\-T\-U\-R\-N abort function, but the stm library at the moment only handles this option. \hypertarget{structstm_1_1TxThread_a4822898342c30b679a25a8a2dd46c747}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmbegin@{tmbegin}}
+\index{tmbegin@{tmbegin}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmbegin}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}($\ast$) volatile stm\-::\-Tx\-Thread\-::tmbegin({\bf Tx\-Thread} $\ast$) = {\bf begin\-\_\-\-C\-G\-L}\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1TxThread_a4822898342c30b679a25a8a2dd46c747}
+The read/write/commit instrumentation is reached via per-\/thread function pointers, which can be exchanged easily during execution.
+
+The begin function is not a per-\/thread pointer, and thus we can use it for synchronization. This necessitates it being volatile.
+
+The other function pointers can be overwritten by remote threads, but that the synchronization when using the \hyperlink{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{begin()} function avoids the need for those pointers to be volatile. The global pointer for starting transactions. The return value should be true if the transaction was started as irrevocable, the caller can use this return to execute completely uninstrumented code if it's available.
+
+The begin function pointer. Note that we need tmbegin to equal begin\-\_\-cgl initially, since \char`\"{}0\char`\"{} is the default algorithm \hypertarget{structstm_1_1TxThread_a98f7df70804772d4205354933bd76b25}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmcommit@{tmcommit}}
+\index{tmcommit@{tmcommit}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmcommit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ stm\-::\-Tx\-Thread\-::tmcommit)({\bf S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(,))}}\label{structstm_1_1TxThread_a98f7df70804772d4205354933bd76b25}
+\hypertarget{structstm_1_1TxThread_a1052fca6b76285b98233a67f9a865775}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmirrevoc@{tmirrevoc}}
+\index{tmirrevoc@{tmirrevoc}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmirrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool($\ast$ stm\-::\-Tx\-Thread\-::tmirrevoc)({\bf S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,)) = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1TxThread_a1052fca6b76285b98233a67f9a865775}
+\hypertarget{structstm_1_1TxThread_aa9915dd0831b64f59ef287810312787b}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tml\-Has\-Lock@{tml\-Has\-Lock}}
+\index{tml\-Has\-Lock@{tml\-Has\-Lock}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tml\-Has\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Tx\-Thread\-::tml\-Has\-Lock}}\label{structstm_1_1TxThread_aa9915dd0831b64f59ef287810312787b}
+\hypertarget{structstm_1_1TxThread_ae294456a4d6150a2e14ccedaaf9cf0bb}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmread@{tmread}}
+\index{tmread@{tmread}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void$\ast$($\ast$ stm\-::\-Tx\-Thread\-::tmread)({\bf S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,))}}\label{structstm_1_1TxThread_ae294456a4d6150a2e14ccedaaf9cf0bb}
+\hypertarget{structstm_1_1TxThread_a81a345efa23f5511ed79cb41e03445b6}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmrollback@{tmrollback}}
+\index{tmrollback@{tmrollback}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmrollback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scope\-\_\-t} $\ast$($\ast$ stm\-::\-Tx\-Thread\-::tmrollback)({\bf S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}(,,,))\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1TxThread_a81a345efa23f5511ed79cb41e03445b6}
+Some A\-P\-Is, in particular the itm A\-P\-I at the moment, want to be able to rollback the top level of nesting without actually unwinding the stack. Rollback behavior changes per-\/implementation (some, such as C\-G\-L, can't rollback) so we add it here.
+
+The tmrollback, tmabort, and tmirrevoc pointers \hypertarget{structstm_1_1TxThread_ac250db343a00b5b76d56202e2d95ab84}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!tmwrite@{tmwrite}}
+\index{tmwrite@{tmwrite}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{tmwrite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ stm\-::\-Tx\-Thread\-::tmwrite)({\bf S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,))}}\label{structstm_1_1TxThread_ac250db343a00b5b76d56202e2d95ab84}
+\hypertarget{structstm_1_1TxThread_ad217a99774ad79e3d581b008ef067991}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!total\-\_\-nontxn\-\_\-time@{total\-\_\-nontxn\-\_\-time}}
+\index{total\-\_\-nontxn\-\_\-time@{total\-\_\-nontxn\-\_\-time}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{total\-\_\-nontxn\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t stm\-::\-Tx\-Thread\-::total\-\_\-nontxn\-\_\-time}}\label{structstm_1_1TxThread_ad217a99774ad79e3d581b008ef067991}
+\hypertarget{structstm_1_1TxThread_aa2a246af5aece9c002ca5968505a9d6f}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!ts\-\_\-cache@{ts\-\_\-cache}}
+\index{ts\-\_\-cache@{ts\-\_\-cache}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{ts\-\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Tx\-Thread\-::ts\-\_\-cache}}\label{structstm_1_1TxThread_aa2a246af5aece9c002ca5968505a9d6f}
+\hypertarget{structstm_1_1TxThread_afddcc03d014798b970c8a18f5c94588d}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!undo\-\_\-log@{undo\-\_\-log}}
+\index{undo\-\_\-log@{undo\-\_\-log}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{undo\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Undo\-Log} stm\-::\-Tx\-Thread\-::undo\-\_\-log}}\label{structstm_1_1TxThread_afddcc03d014798b970c8a18f5c94588d}
+\hypertarget{structstm_1_1TxThread_a9a38bf30ab011a2ae45c14ae3cfa6c97}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!valid\-\_\-ts@{valid\-\_\-ts}}
+\index{valid\-\_\-ts@{valid\-\_\-ts}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{valid\-\_\-ts}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Tx\-Thread\-::valid\-\_\-ts}}\label{structstm_1_1TxThread_a9a38bf30ab011a2ae45c14ae3cfa6c97}
+\hypertarget{structstm_1_1TxThread_ab0a99f4dabcc76bb13511826b5ca17b0}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!vlist@{vlist}}
+\index{vlist@{vlist}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{vlist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Value\-List} stm\-::\-Tx\-Thread\-::vlist}}\label{structstm_1_1TxThread_ab0a99f4dabcc76bb13511826b5ca17b0}
+\hypertarget{structstm_1_1TxThread_aa1e85036502f836c839c955492d032d8}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!w\-\_\-bitlocks@{w\-\_\-bitlocks}}
+\index{w\-\_\-bitlocks@{w\-\_\-bitlocks}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{w\-\_\-bitlocks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bit\-Lock\-List} stm\-::\-Tx\-Thread\-::w\-\_\-bitlocks}}\label{structstm_1_1TxThread_aa1e85036502f836c839c955492d032d8}
+\hypertarget{structstm_1_1TxThread_afbc2426149ce9ae27669c064e964af7f}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!w\-\_\-bytelocks@{w\-\_\-bytelocks}}
+\index{w\-\_\-bytelocks@{w\-\_\-bytelocks}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{w\-\_\-bytelocks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\-Lock\-List} stm\-::\-Tx\-Thread\-::w\-\_\-bytelocks}}\label{structstm_1_1TxThread_afbc2426149ce9ae27669c064e964af7f}
+\hypertarget{structstm_1_1TxThread_a5b48bc27f158b85229862ac5a1e2b279}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!wf@{wf}}
+\index{wf@{wf}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{wf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf filter\-\_\-t}$\ast$ stm\-::\-Tx\-Thread\-::wf}}\label{structstm_1_1TxThread_a5b48bc27f158b85229862ac5a1e2b279}
+\hypertarget{structstm_1_1TxThread_ab70bb974af78d5b89b57f08c93ec43ef}{\index{stm\-::\-Tx\-Thread@{stm\-::\-Tx\-Thread}!writes@{writes}}
+\index{writes@{writes}!stm::TxThread@{stm\-::\-Tx\-Thread}}
+\subsubsection[{writes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Write\-Set} stm\-::\-Tx\-Thread\-::writes}}\label{structstm_1_1TxThread_ab70bb974af78d5b89b57f08c93ec43ef}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{txthread_8hpp}{txthread.\-hpp}\item 
+rstm/rstm-\/dev/libstm/\hyperlink{txthread_8cpp}{txthread.\-cpp}\end{DoxyCompactItemize}

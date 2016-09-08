@@ -1,0 +1,15 @@
+<map id="itm2stm::BlockReader" name="itm2stm::BlockReader">
+<area shape="rect" id="node2" href="$structstm_1_1TxThread.html" title="{stm::TxThread\n|+ num_ro\l+ consec_aborts\l|+ thread_shutdown()\l+ thread_init()\l# TxThread()\l# ~TxThread()\l}" alt="" coords="2072,957,2212,1093"/>
+<area shape="rect" id="node3" href="$classstm_1_1WriteSet.html" title="{stm::WriteSet\n||+ WriteSet()\l+ ~WriteSet()\l+ find()\l+ rollback()\l+ writeback()\l+ insert()\l+ size()\l+ reset()\l+ begin()\l+ end()\l&#45; hash()\l&#45; doubleIndexLength()\l&#45; rebuild()\l&#45; resize()\l&#45; reset_internal()\l}" alt="" coords="103,581,250,864"/>
+<area shape="rect" id="node4" href="$structstm_1_1WriteSet_1_1index__t.html" title="{stm::WriteSet::index_t\n||+ index_t()\l}" alt="" coords="214,235,367,312"/>
+<area shape="rect" id="node32" href="$structstm_1_1limbo__t.html" title="{stm::limbo_t\n||+ limbo_t()\l}" alt="" coords="558,235,652,312"/>
+<area shape="rect" id="node10" href="$structmcs__qnode__t.html" title="{mcs_qnode_t\n||}" alt="" coords="1734,684,1834,761"/>
+<area shape="rect" id="node14" href="$classstm_1_1BitFilter.html" title="{stm::BitFilter\&lt; BITS \&gt;\n||+ BitFilter()\l+ add()\l+ atomic_add()\l+ lookup()\l+ unionwith()\l+ clear()\l+ fastcopy()\l+ intersect()\l&#45; TM_ALIGN()\l&#45; hash()\l}" alt="" coords="736,618,886,827"/>
+<area shape="rect" id="node22" href="$unionstm_1_1id__version__t.html" title="{stm::id_version_t\n||}" alt="" coords="1030,684,1152,761"/>
+<area shape="rect" id="node31" href="$classstm_1_1WBMMPolicy.html" title="{stm::WBMMPolicy\n||+ WBMMPolicy()\l+ setID()\l+ txAlloc()\l+ txFree()\l+ onTxBegin()\l+ onTxAbort()\l+ onTxCommit()\l&#45; schedForReclaim()\l&#45; handle_full_prelimbo()\l}" alt="" coords="542,625,698,820"/>
+<area shape="rect" id="node24" href="$classstm_1_1UndoLog.html" title="{stm::UndoLog\n||+ UndoLog()\l+ undo()\l}" alt="" coords="3103,677,3207,769"/>
+<area shape="rect" id="node25" href="$classstm_1_1MiniVector.html" title="{stm::MiniVector\&lt; UndoLog\lEntry \&gt;\n||+ MiniVector()\l+ ~MiniVector()\l+ reset()\l+ insert()\l+ size()\l+ begin()\l+ end()\l&#45; expand()\l}" alt="" coords="3122,176,3300,371"/>
+<area shape="rect" id="node37" href="$classstm_1_1MiniVector.html" title="{stm::MiniVector\&lt; ValueList\lEntry \&gt;\n||+ MiniVector()\l+ ~MiniVector()\l+ reset()\l+ insert()\l+ size()\l+ begin()\l+ end()\l&#45; expand()\l}" alt="" coords="2917,176,3096,371"/>
+<area shape="rect" id="node34" href="$structstm_1_1toxic__nop__t.html" title="{stm::toxic_nop_t\n||+ onCommit()\l+ dump()\l+ onHGCommit()\l+ onHGAbort()\l}" alt="" coords="3780,662,3903,783"/>
+<area shape="rect" id="node36" href="$structstm_1_1ValueList.html" title="{stm::ValueList\n||+ ValueList()\l}" alt="" coords="2972,684,3079,761"/>
+</map>

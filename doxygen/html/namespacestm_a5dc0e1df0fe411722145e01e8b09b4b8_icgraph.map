@@ -1,0 +1,40 @@
+<map id="stm::begin" name="stm::begin">
+<area shape="rect" id="node2" href="$structitm2stm_1_1Scope_1_1LoggedWord.html#ae9e8ba50b0407ec0c10c299d4422a9b7" title="itm2stm::Scope::LoggedWord\l::clip" alt="" coords="141,5,336,46"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a3481259fea7ebeebd977ce02fb4689a9" title="stm::initTM\&lt; BitEager \&gt;" alt="" coords="157,71,320,97"/>
+<area shape="rect" id="node4" href="$namespacestm.html#af335dc712a8de275f9717b777ed3ca66" title="stm::initTM\&lt; BitEagerRedo \&gt;" alt="" coords="142,121,335,148"/>
+<area shape="rect" id="node5" href="$namespacestm.html#a5e270495fc7574dcdcc888b7d417f2ef" title="stm::initTM\&lt; BitLazy \&gt;" alt="" coords="161,172,317,199"/>
+<area shape="rect" id="node6" href="$namespacestm.html#ae4cf55c68816202f94849ee8d185898c" title="stm::initTM\&lt; ByEAR \&gt;" alt="" coords="161,223,317,249"/>
+<area shape="rect" id="node7" href="$namespacestm.html#a8eb056d129b487626f62873c35b1b1fb" title="stm::initTM\&lt; ByteEager \&gt;" alt="" coords="152,273,325,300"/>
+<area shape="rect" id="node8" href="$namespacestm.html#a190221d732834ffba64bba1c53b1e4d0" title="stm::initTM\&lt; ByteEagerRedo \&gt;" alt="" coords="137,324,341,351"/>
+<area shape="rect" id="node9" href="$namespacestm.html#a7e9eb77806c370789fa8eec66c6bfbd3" title="stm::initTM\&lt; ByteLazy \&gt;" alt="" coords="155,375,322,401"/>
+<area shape="rect" id="node10" href="$namespacestm.html#a9d3bc686df5785ef565f8c670551db80" title="stm::initTM\&lt; CToken \&gt;" alt="" coords="159,425,318,452"/>
+<area shape="rect" id="node11" href="$namespacestm.html#ad516a34d475efb5484e27b3d3a6dbc98" title="stm::initTM\&lt; CTokenTurbo \&gt;" alt="" coords="143,476,334,503"/>
+<area shape="rect" id="node12" href="$namespacestm.html#a5cc1979e19b1da973e23e167983fe46c" title="stm::initTM\&lt; LLT \&gt;" alt="" coords="171,527,306,553"/>
+<area shape="rect" id="node13" href="$namespacestm.html#a6c7909b6fe245dbee6d5212415e2e4d3" title="stm::initTM\&lt; MCS \&gt;" alt="" coords="167,577,310,604"/>
+<area shape="rect" id="node14" href="$namespacestm.html#a048c0cf84afefca94431bf35517d2d85" title="stm::initTM\&lt; Nano \&gt;" alt="" coords="167,628,310,655"/>
+<area shape="rect" id="node15" href="$namespacestm.html#a263b456462a520d1969be26c7cde1663" title="stm::initTM\&lt; NOrecPrio \&gt;" alt="" coords="152,679,325,705"/>
+<area shape="rect" id="node16" href="$namespacestm.html#a97bce9d90c3aabe3329b9315b2f8d812" title="stm::initTM\&lt; OrecALA \&gt;" alt="" coords="156,729,321,756"/>
+<area shape="rect" id="node17" href="$namespacestm.html#a821e79dd62d4436b681023ce4f4db81e" title="stm::initTM\&lt; OrecEagerRedo \&gt;" alt="" coords="136,780,341,807"/>
+<area shape="rect" id="node18" href="$namespacestm.html#afb07a46977fb63fefd7b7f3424468a2f" title="stm::initTM\&lt; OrecELA \&gt;" alt="" coords="156,831,321,857"/>
+<area shape="rect" id="node19" href="$namespacestm.html#a4adfe88a9d7c7a206f2b6d3e95c49956" title="stm::initTM\&lt; OrecFair \&gt;" alt="" coords="157,881,320,908"/>
+<area shape="rect" id="node20" href="$namespacestm.html#a5f4cbdf79b26d6d7be483c3c769c2743" title="stm::initTM\&lt; Pipeline \&gt;" alt="" coords="159,932,318,959"/>
+<area shape="rect" id="node21" href="$namespacestm.html#abc9d9099f5a0e2f15e64773fe3b9469d" title="stm::initTM\&lt; ProfileTM \&gt;" alt="" coords="155,983,323,1009"/>
+<area shape="rect" id="node22" href="$namespacestm.html#add7df907bed3087f50e92a994637cb69" title="stm::initTM\&lt; RingALA \&gt;" alt="" coords="157,1033,321,1060"/>
+<area shape="rect" id="node23" href="$namespacestm.html#a13421a95b8ec1225735c513f5bbef241" title="stm::initTM\&lt; RingSW \&gt;" alt="" coords="158,1084,319,1111"/>
+<area shape="rect" id="node24" href="$namespacestm.html#a02782a7198a1edebbcd545924d2ca25f" title="stm::initTM\&lt; Serial \&gt;" alt="" coords="166,1135,311,1161"/>
+<area shape="rect" id="node25" href="$namespacestm.html#a8efa5265650472f1904c9aa89da09e69" title="stm::initTM\&lt; Swiss \&gt;" alt="" coords="165,1185,313,1212"/>
+<area shape="rect" id="node26" href="$namespacestm.html#af9008f38389991f51f8a771deac32ff9" title="stm::initTM\&lt; Ticket \&gt;" alt="" coords="165,1236,313,1263"/>
+<area shape="rect" id="node27" href="$namespacestm.html#a5c87bab8661e45cc64df382969f3bd2b" title="stm::initTM\&lt; TLI \&gt;" alt="" coords="173,1287,304,1313"/>
+<area shape="rect" id="node28" href="$namespacestm.html#a37f85872162e9d5fcc4708c29f302750" title="stm::initTM\&lt; TML \&gt;" alt="" coords="169,1337,308,1364"/>
+<area shape="rect" id="node29" href="$namespacestm.html#a30d2c00ca20421fe4c6aa5bd73cc75b2" title="stm::initTM\&lt; TMLLazy \&gt;" alt="" coords="155,1388,322,1415"/>
+<area shape="rect" id="node30" href="$structstm_1_1TxThread.html#a27aa264d621bb5d008571c6aab47a9ba" title="stm::TxThread::TxThread" alt="" coords="153,1439,324,1465"/>
+<area shape="rect" id="node38" href="$namespacestm.html#a945573c8ffc100f3908f1373d12ebffd" title="stm::set_policy" alt="" coords="183,1489,294,1516"/>
+<area shape="rect" id="node31" href="$structstm_1_1TxThread.html#a4e78a4f0dcb5010456aa031d3fda70ac" title="stm::TxThread::thread_init" alt="" coords="390,1439,565,1465"/>
+<area shape="rect" id="node32" href="$namespacestm.html#a3de69c665250e84ef5238477ae8524b0" title="stm::thread_init" alt="" coords="631,1413,743,1440"/>
+<area shape="rect" id="node35" href="$libitm_8h.html#a5edce724a00eff63931f07466901ef7d" title="_ITM_getTransaction" alt="" coords="614,1464,759,1491"/>
+<area shape="rect" id="node33" href="$stamp_8hpp.html#a7672bd41fd85f42a21e565c37108b09a" title="tm_main_startup" alt="" coords="822,1363,941,1389"/>
+<area shape="rect" id="node34" href="$stamp_8hpp.html#a4f805a0e1a5d6f581e1d4dafbc83fdf0" title="tm_start" alt="" coords="846,1413,917,1440"/>
+<area shape="rect" id="node36" href="$libitm-5_81_005_8cpp.html#a5cde4a3f0f8e98db7d17e4a6ed3859ca" title="_ITM_initializeThread" alt="" coords="808,1464,955,1491"/>
+<area shape="rect" id="node37" href="$libitm-5_81_005_8cpp.html#ae97451d0a7481e2ad0e2b0c4196d5117" title="_ITM_initializeProcess" alt="" coords="1003,1464,1157,1491"/>
+<area shape="rect" id="node39" href="$namespacestm.html#aac29e08fdc4a251a12088bd799e7a4f4" title="stm::sys_init" alt="" coords="429,1489,526,1516"/>
+</map>

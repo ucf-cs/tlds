@@ -1,0 +1,360 @@
+\hypertarget{classBoostingSkip}{\section{Boosting\-Skip Class Reference}
+\label{classBoostingSkip}\index{Boosting\-Skip@{Boosting\-Skip}}
+}
+
+
+{\ttfamily \#include $<$boostingskip.\-h$>$}
+
+
+
+Collaboration diagram for Boosting\-Skip\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structBoostingSkip_1_1Operation}{Operation}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}{Return\-Code} \{ \hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789eab72a501a61cbc451f76dd0136ae857d4}{O\-K} = 0, 
+\hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789eab075c498ecbcc1a87bd709e75402395f}{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}, 
+\hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789ea2f7890f6a7a9c87e2edca71371c230b4}{O\-P\-\_\-\-F\-A\-I\-L}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoostingSkip_a72c8865501cc633f3a3476379246f4e1}{Boosting\-Skip} ()
+\item 
+\hyperlink{classBoostingSkip_a91f70e1d59757dc0159146a342bf945d}{$\sim$\-Boosting\-Skip} ()
+\item 
+void \hyperlink{classBoostingSkip_a10ef6f93a2e0d7c84d8fc59fc767efb1}{Init} ()
+\item 
+void \hyperlink{classBoostingSkip_a1b3599db6fc691173c18efcf5dde67b3}{Uninit} ()
+\item 
+\hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}{Return\-Code} \hyperlink{classBoostingSkip_ae0ddab9bd1e3d1972fc8bcaa74a9ed81}{Insert} (uint32\-\_\-t key)
+\item 
+\hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}{Return\-Code} \hyperlink{classBoostingSkip_ab1f1f0ba800de912c42ec328767c4685}{Delete} (uint32\-\_\-t key)
+\item 
+\hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}{Return\-Code} \hyperlink{classBoostingSkip_a8a58f9a9cba8a359cbbba216342ce0bd}{Find} (uint32\-\_\-t key)
+\item 
+void \hyperlink{classBoostingSkip_ac9bf8693a172f366ae733c5a78804071}{On\-Abort} (\hyperlink{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}{Return\-Code} \hyperlink{stmskip_8cc_a339672ff94e6199019102f50d317c3d7}{ret})
+\item 
+void \hyperlink{classBoostingSkip_a11e9245271ac6c84d37854be867e8f6b}{On\-Commit} ()
+\item 
+void \hyperlink{classBoostingSkip_a22e900668d5482f1b2631339893e8976}{Print} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18}{Op\-Type} \{ \hyperlink{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18a3592c4ffeee59af5e99a529f2a0df6c4}{F\-I\-N\-D} = 0, 
+\hyperlink{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18a5e3ffae31e178cc970f9d93a81db79ec}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18aa750f9c5848395b0e1d5e44e3deee4ea}{D\-E\-L\-E\-T\-E}
+ \}
+\item 
+typedef std\-::vector$<$ \hyperlink{structBoostingSkip_1_1Operation}{Operation} $>$ \hyperlink{classBoostingSkip_adde173207d30984e65e1d63fa25df19e}{Log\-Type}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoostingSkip_a813ed469c437974f310cfacbe450717a}{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E} (uint32\-\_\-t g\-\_\-count=0;uint32\-\_\-t g\-\_\-count\-\_\-ins=0;uint32\-\_\-t g\-\_\-count\-\_\-del=0;uint32\-\_\-t g\-\_\-count\-\_\-fnd=0;) uint32\-\_\-t \hyperlink{transskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{g\-\_\-count\-\_\-commit}=0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lockfreeskip_8c_a7b8979016b36903500570689693e2d6e}{boost\-\_\-skip} $\ast$ \hyperlink{classBoostingSkip_a900906c2e377dd0687acce9946c449db}{m\-\_\-list}
+\item 
+\hyperlink{classLockKey}{Lock\-Key} \hyperlink{classBoostingSkip_af69c8fcaf2f40ff82432e9d35f9dd28a}{m\-\_\-lock}
+\item 
+uint32\-\_\-t \hyperlink{classBoostingSkip_a17bca8f2a8c84c6c1b5e1ffba1c56aa9}{g\-\_\-count\-\_\-abort} = 0
+\item 
+uint32\-\_\-t \hyperlink{classBoostingSkip_a46890100a3061a09a075cbccf10b1e86}{g\-\_\-count\-\_\-fake\-\_\-abort} = 0
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-thread \hyperlink{classBoostingSkip_adde173207d30984e65e1d63fa25df19e}{Log\-Type} $\ast$ \hyperlink{classBoostingSkip_a4a144bee7a632c2f4819fdd944273833}{m\-\_\-log}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classBoostingSkip_adde173207d30984e65e1d63fa25df19e}{\index{Boosting\-Skip@{Boosting\-Skip}!Log\-Type@{Log\-Type}}
+\index{Log\-Type@{Log\-Type}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Log\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf Operation}$>$ {\bf Boosting\-Skip\-::\-Log\-Type}\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingSkip_adde173207d30984e65e1d63fa25df19e}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18}{\index{Boosting\-Skip@{Boosting\-Skip}!Op\-Type@{Op\-Type}}
+\index{Op\-Type@{Op\-Type}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Op\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Boosting\-Skip\-::\-Op\-Type}\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\-I\-N\-D@{F\-I\-N\-D}!Boosting\-Skip@{Boosting\-Skip}}\index{Boosting\-Skip@{Boosting\-Skip}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18a3592c4ffeee59af5e99a529f2a0df6c4}{F\-I\-N\-D}\label{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18a3592c4ffeee59af5e99a529f2a0df6c4}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!Boosting\-Skip@{Boosting\-Skip}}\index{Boosting\-Skip@{Boosting\-Skip}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18a5e3ffae31e178cc970f9d93a81db79ec}{I\-N\-S\-E\-R\-T}\label{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18a5e3ffae31e178cc970f9d93a81db79ec}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!Boosting\-Skip@{Boosting\-Skip}}\index{Boosting\-Skip@{Boosting\-Skip}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18aa750f9c5848395b0e1d5e44e3deee4ea}{D\-E\-L\-E\-T\-E}\label{classBoostingSkip_a94ac47696f600bb1e667324e51ba2d18aa750f9c5848395b0e1d5e44e3deee4ea}
+}]\end{description}
+\end{Desc}
+\hypertarget{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}{\index{Boosting\-Skip@{Boosting\-Skip}!Return\-Code@{Return\-Code}}
+\index{Return\-Code@{Return\-Code}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Return\-Code}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Boosting\-Skip\-::\-Return\-Code}}}\label{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789e}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{O\-K@{O\-K}!Boosting\-Skip@{Boosting\-Skip}}\index{Boosting\-Skip@{Boosting\-Skip}!O\-K@{O\-K}}\item[{\em 
+\hypertarget{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789eab72a501a61cbc451f76dd0136ae857d4}{O\-K}\label{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789eab72a501a61cbc451f76dd0136ae857d4}
+}]\index{L\-O\-C\-K\-\_\-\-F\-A\-I\-L@{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}!Boosting\-Skip@{Boosting\-Skip}}\index{Boosting\-Skip@{Boosting\-Skip}!L\-O\-C\-K\-\_\-\-F\-A\-I\-L@{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}}\item[{\em 
+\hypertarget{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789eab075c498ecbcc1a87bd709e75402395f}{L\-O\-C\-K\-\_\-\-F\-A\-I\-L}\label{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789eab075c498ecbcc1a87bd709e75402395f}
+}]\index{O\-P\-\_\-\-F\-A\-I\-L@{O\-P\-\_\-\-F\-A\-I\-L}!Boosting\-Skip@{Boosting\-Skip}}\index{Boosting\-Skip@{Boosting\-Skip}!O\-P\-\_\-\-F\-A\-I\-L@{O\-P\-\_\-\-F\-A\-I\-L}}\item[{\em 
+\hypertarget{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789ea2f7890f6a7a9c87e2edca71371c230b4}{O\-P\-\_\-\-F\-A\-I\-L}\label{classBoostingSkip_a85dbc5bd5f06d670bc16da63477b789ea2f7890f6a7a9c87e2edca71371c230b4}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBoostingSkip_a72c8865501cc633f3a3476379246f4e1}{\index{Boosting\-Skip@{Boosting\-Skip}!Boosting\-Skip@{Boosting\-Skip}}
+\index{Boosting\-Skip@{Boosting\-Skip}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Boosting\-Skip}]{\setlength{\rightskip}{0pt plus 5cm}Boosting\-Skip\-::\-Boosting\-Skip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a72c8865501cc633f3a3476379246f4e1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_a72c8865501cc633f3a3476379246f4e1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_a91f70e1d59757dc0159146a342bf945d}{\index{Boosting\-Skip@{Boosting\-Skip}!$\sim$\-Boosting\-Skip@{$\sim$\-Boosting\-Skip}}
+\index{$\sim$\-Boosting\-Skip@{$\sim$\-Boosting\-Skip}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{$\sim$\-Boosting\-Skip}]{\setlength{\rightskip}{0pt plus 5cm}Boosting\-Skip\-::$\sim$\-Boosting\-Skip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a91f70e1d59757dc0159146a342bf945d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_a91f70e1d59757dc0159146a342bf945d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBoostingSkip_a813ed469c437974f310cfacbe450717a}{\index{Boosting\-Skip@{Boosting\-Skip}!A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E@{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E@{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}Boosting\-Skip\-::\-A\-S\-S\-E\-R\-T\-\_\-\-C\-O\-D\-E (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{g\-\_\-count = {\ttfamily 0;uint32\-\_\-t~g\-\_\-count\-\_\-ins=0;uint32\-\_\-t~g\-\_\-count\-\_\-del=0;uint32\-\_\-t~g\-\_\-count\-\_\-fnd=0;}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classBoostingSkip_a813ed469c437974f310cfacbe450717a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_a813ed469c437974f310cfacbe450717a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_ab1f1f0ba800de912c42ec328767c4685}{\index{Boosting\-Skip@{Boosting\-Skip}!Delete@{Delete}}
+\index{Delete@{Delete}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Delete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boosting\-Skip\-::\-Return\-Code} Boosting\-Skip\-::\-Delete (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_ab1f1f0ba800de912c42ec328767c4685}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_ab1f1f0ba800de912c42ec328767c4685_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_a8a58f9a9cba8a359cbbba216342ce0bd}{\index{Boosting\-Skip@{Boosting\-Skip}!Find@{Find}}
+\index{Find@{Find}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boosting\-Skip\-::\-Return\-Code} Boosting\-Skip\-::\-Find (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a8a58f9a9cba8a359cbbba216342ce0bd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_a8a58f9a9cba8a359cbbba216342ce0bd_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_a10ef6f93a2e0d7c84d8fc59fc767efb1}{\index{Boosting\-Skip@{Boosting\-Skip}!Init@{Init}}
+\index{Init@{Init}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-Skip\-::\-Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a10ef6f93a2e0d7c84d8fc59fc767efb1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{classBoostingSkip_a10ef6f93a2e0d7c84d8fc59fc767efb1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_ae0ddab9bd1e3d1972fc8bcaa74a9ed81}{\index{Boosting\-Skip@{Boosting\-Skip}!Insert@{Insert}}
+\index{Insert@{Insert}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boosting\-Skip\-::\-Return\-Code} Boosting\-Skip\-::\-Insert (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_ae0ddab9bd1e3d1972fc8bcaa74a9ed81}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_ae0ddab9bd1e3d1972fc8bcaa74a9ed81_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_ac9bf8693a172f366ae733c5a78804071}{\index{Boosting\-Skip@{Boosting\-Skip}!On\-Abort@{On\-Abort}}
+\index{On\-Abort@{On\-Abort}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{On\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-Skip\-::\-On\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Return\-Code}}]{ret}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_ac9bf8693a172f366ae733c5a78804071}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_ac9bf8693a172f366ae733c5a78804071_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_a11e9245271ac6c84d37854be867e8f6b}{\index{Boosting\-Skip@{Boosting\-Skip}!On\-Commit@{On\-Commit}}
+\index{On\-Commit@{On\-Commit}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{On\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-Skip\-::\-On\-Commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a11e9245271ac6c84d37854be867e8f6b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classBoostingSkip_a11e9245271ac6c84d37854be867e8f6b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_a22e900668d5482f1b2631339893e8976}{\index{Boosting\-Skip@{Boosting\-Skip}!Print@{Print}}
+\index{Print@{Print}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-Skip\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a22e900668d5482f1b2631339893e8976}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBoostingSkip_a22e900668d5482f1b2631339893e8976_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classBoostingSkip_a1b3599db6fc691173c18efcf5dde67b3}{\index{Boosting\-Skip@{Boosting\-Skip}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}void Boosting\-Skip\-::\-Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoostingSkip_a1b3599db6fc691173c18efcf5dde67b3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classBoostingSkip_a1b3599db6fc691173c18efcf5dde67b3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBoostingSkip_a17bca8f2a8c84c6c1b5e1ffba1c56aa9}{\index{Boosting\-Skip@{Boosting\-Skip}!g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}}
+\index{g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{g\-\_\-count\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Boosting\-Skip\-::g\-\_\-count\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingSkip_a17bca8f2a8c84c6c1b5e1ffba1c56aa9}
+\hypertarget{classBoostingSkip_a46890100a3061a09a075cbccf10b1e86}{\index{Boosting\-Skip@{Boosting\-Skip}!g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}}
+\index{g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{g\-\_\-count\-\_\-fake\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Boosting\-Skip\-::g\-\_\-count\-\_\-fake\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingSkip_a46890100a3061a09a075cbccf10b1e86}
+\hypertarget{classBoostingSkip_a900906c2e377dd0687acce9946c449db}{\index{Boosting\-Skip@{Boosting\-Skip}!m\-\_\-list@{m\-\_\-list}}
+\index{m\-\_\-list@{m\-\_\-list}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{m\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf boost\-\_\-skip}$\ast$ Boosting\-Skip\-::m\-\_\-list\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingSkip_a900906c2e377dd0687acce9946c449db}
+\hypertarget{classBoostingSkip_af69c8fcaf2f40ff82432e9d35f9dd28a}{\index{Boosting\-Skip@{Boosting\-Skip}!m\-\_\-lock@{m\-\_\-lock}}
+\index{m\-\_\-lock@{m\-\_\-lock}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{m\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lock\-Key} Boosting\-Skip\-::m\-\_\-lock\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoostingSkip_af69c8fcaf2f40ff82432e9d35f9dd28a}
+\hypertarget{classBoostingSkip_a4a144bee7a632c2f4819fdd944273833}{\index{Boosting\-Skip@{Boosting\-Skip}!m\-\_\-log@{m\-\_\-log}}
+\index{m\-\_\-log@{m\-\_\-log}!BoostingSkip@{Boosting\-Skip}}
+\subsubsection[{m\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-thread {\bf Boosting\-Skip\-::\-Log\-Type} $\ast$ Boosting\-Skip\-::m\-\_\-log\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classBoostingSkip_a4a144bee7a632c2f4819fdd944273833}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+boosting/skiplist/\hyperlink{boostingskip_8h}{boostingskip.\-h}\item 
+boosting/skiplist/\hyperlink{boostingskip_8cc}{boostingskip.\-cc}\end{DoxyCompactItemize}

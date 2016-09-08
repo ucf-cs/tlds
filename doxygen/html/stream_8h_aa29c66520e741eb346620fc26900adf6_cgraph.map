@@ -1,0 +1,6 @@
+<map id="stream_alloc" name="stream_alloc">
+<area shape="rect" id="node2" href="$random_8c.html#a492ffea554d80a899bcd43afdf4a53c4" title="random_alloc" alt="" coords="149,5,248,32"/>
+<area shape="rect" id="node4" href="$vector_8c.html#ad0293c3f6bcd3112d0294b4bc6f99647" title="vector_alloc" alt="" coords="153,56,245,83"/>
+<area shape="rect" id="node5" href="$queue_8c.html#a7890a8cd62c016abd5b45fa6b0edde1f" title="queue_alloc" alt="" coords="153,107,244,133"/>
+<area shape="rect" id="node3" href="$mt19937ar_8c.html#aba3fcf9d2e0c0d1db5b8b63af90eb51c" title="init_genrand" alt="" coords="297,5,389,32"/>
+</map>

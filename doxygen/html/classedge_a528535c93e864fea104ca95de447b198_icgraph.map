@@ -1,0 +1,23 @@
+<map id="edge::index_of" name="edge::index_of">
+<area shape="rect" id="node2" href="$dwyer_8cpp.html#ac5af40cdd517beac7515468404be6c72" title="stitch" alt="" coords="598,107,653,133"/>
+<area shape="rect" id="node7" href="$classedge.html#a17a50641ad92dce62c3c8db8bf528ddc" title="edge::destroy" alt="" coords="176,157,277,184"/>
+<area shape="rect" id="node8" href="$classedge.html#aad0f6a205dbe62d5f1bc564cb66cd9e8" title="edge::reconsider" alt="" coords="566,309,685,336"/>
+<area shape="rect" id="node10" href="$structpv__side.html#ab6c6440d122035bd15a096d96350ce77" title="pv_side::find_candidate" alt="" coords="350,107,509,133"/>
+<area shape="rect" id="node11" href="$classedge.html#af10ccfbaccf5198c07291317d70772fa" title="edge::initialize_end" alt="" coords="160,309,293,336"/>
+<area shape="rect" id="node13" href="$side_8hpp.html#a776e2bbd3e9b5647bf6a31b982de0c1e" title="hull_edge" alt="" coords="188,259,265,285"/>
+<area shape="rect" id="node14" href="$structpv__side.html#a163c81bef5a8989bb0f307e7ce72f555" title="pv_side::initialize" alt="" coords="368,208,491,235"/>
+<area shape="rect" id="node15" href="$structtx__side.html#a59cf1514971e06c31653bf4314126e13" title="tx_side::initialize" alt="" coords="167,461,286,488"/>
+<area shape="rect" id="node17" href="$structpv__side.html#aeefb5cadc78fb95fa4e145a757a68b72" title="pv_side::update" alt="" coords="568,563,683,589"/>
+<area shape="rect" id="node19" href="$structpv__side.html#a58d4b8e4888146331f3af5a3a6a0eaa6" title="pv_side::move" alt="" coords="376,5,483,32"/>
+<area shape="rect" id="node20" href="$structtx__side.html#aa7e85a0d9e28480d7b7eab8033c31a2a" title="tx_side::move" alt="" coords="175,512,279,539"/>
+<area shape="rect" id="node21" href="$structpv__side.html#ab982252ee33bd8b4d6609f35506fe898" title="pv_side::conditional_move" alt="" coords="341,411,517,437"/>
+<area shape="rect" id="node3" href="$dwyer_8hpp.html#af02e2aa3c0f40c330c2d1bc03ad9438a" title="dwyer_solve" alt="" coords="753,157,847,184"/>
+<area shape="rect" id="node4" href="$mesh_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="925,157,976,184"/>
+<area shape="rect" id="node5" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="915,385,986,412"/>
+<area shape="rect" id="node6" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="1035,385,1159,412"/>
+<area shape="rect" id="node9" href="$worker_8cpp.html#aaaf358d95d261241cf6073eaf7de2a94" title="reconsider_edge" alt="" coords="741,309,859,336"/>
+<area shape="rect" id="node12" href="$classedge.html#a7e12d7aa8446beb4e11910ebcb442de2" title="edge::edge" alt="" coords="386,309,473,336"/>
+<area shape="rect" id="node16" href="$worker_8cpp.html#a94abc2b5cb09b8d750cfebf482ba43e6" title="synchronized_baste" alt="" coords="360,461,499,488"/>
+<area shape="rect" id="node18" href="$structpv__side.html#a5db6958f81fc211625a2337acc8fb72e" title="pv_side::reinitialize" alt="" coords="733,563,867,589"/>
+<area shape="rect" id="node22" href="$worker_8cpp.html#a0ee361de59493315020dd5c9296667a0" title="baste" alt="" coords="598,411,653,437"/>
+</map>

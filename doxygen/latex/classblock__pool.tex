@@ -1,0 +1,221 @@
+\hypertarget{classblock__pool}{\section{block\-\_\-pool$<$ T $>$ Class Template Reference}
+\label{classblock__pool}\index{block\-\_\-pool$<$ T $>$@{block\-\_\-pool$<$ T $>$}}
+}
+
+
+Collaboration diagram for block\-\_\-pool$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblock__pool__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structblock__pool_1_1block__head__node__t}{block\-\_\-head\-\_\-node\-\_\-t}
+\item 
+struct \hyperlink{structblock__pool_1_1shared__block__t}{shared\-\_\-block\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classblock__pool_a58c25f81f270170734166adaabda60fe}{block\-\_\-pool} (int \-\_\-numthreads)
+\item 
+void $\ast$ \hyperlink{classblock__pool_aca619f55ca59af84a180cecdf5dfdb95}{alloc\-\_\-block} (int tid)
+\item 
+void \hyperlink{classblock__pool_aaabfd73a9589b2d5d024161f3df1a11e}{free\-\_\-block} (void $\ast$\hyperlink{structblock}{block}, int tid)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classblock__pool_a08b4e73a9dfc28489c291966d74138ae}{operator new} (size\-\_\-t size)
+\item 
+static void \hyperlink{classblock__pool_adc061bb0288867e16891ce4eeeb4aa4f}{operator delete} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr})
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\struct \\*
+\hyperlink{structblock__pool_1_1block__head__node__t}{block\-\_\-pool\-::block\-\_\-head\-\_\-node\-\_\-t} \hyperlink{classblock__pool_aaf3250113e082fccf73953fbf31292ea}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((aligned(\hyperlink{platform_8hpp_a4538b5ec4a295a2b8a52560e61575041}{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S})))
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structblock__pool_1_1shared__block__t}{shared\-\_\-block\-\_\-t} $\ast$ \hyperlink{classblock__pool_a1af804f5ae32798163e68dca39418c77}{make\-\_\-shared\-\_\-block\-\_\-t} (void $\ast$\hyperlink{structblock}{block})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{unioncounted__ptr}{counted\-\_\-ptr} $\ast$ \hyperlink{classblock__pool_af780642743ad9cc26764304a8d1c4d62}{global\-\_\-pool}
+\item 
+\hyperlink{structblock__pool_1_1block__head__node__t}{block\-\_\-head\-\_\-node\-\_\-t} $\ast$ \hyperlink{classblock__pool_a2889af47f657f2b2281c1fdbaaa8016a}{head\-\_\-nodes}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned long \hyperlink{classblock__pool_aeb02a4c80a65b806e3fadcba29f07262}{G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E} = 8
+\item 
+static const int \hyperlink{classblock__pool_adb521b667646ec43c3b6a28c8102976d}{blocksize} = sizeof(\hyperlink{structblock__pool_1_1shared__block__t}{shared\-\_\-block\-\_\-t})
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classblock__pool_a58c25f81f270170734166adaabda60fe}{\index{block\-\_\-pool@{block\-\_\-pool}!block\-\_\-pool@{block\-\_\-pool}}
+\index{block\-\_\-pool@{block\-\_\-pool}!block_pool@{block\-\_\-pool}}
+\subsubsection[{block\-\_\-pool}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf block\-\_\-pool}$<$ T $>$\-::{\bf block\-\_\-pool} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-\_\-numthreads}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classblock__pool_a58c25f81f270170734166adaabda60fe}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classblock__pool_aaf3250113e082fccf73953fbf31292ea}{\index{block\-\_\-pool@{block\-\_\-pool}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!block_pool@{block\-\_\-pool}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename T $>$ struct {\bf block\-\_\-pool\-::block\-\_\-head\-\_\-node\-\_\-t} {\bf block\-\_\-pool}$<$ T $>$\-::\-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(aligned({\bf C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}))}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classblock__pool_aaf3250113e082fccf73953fbf31292ea}
+\hypertarget{classblock__pool_aca619f55ca59af84a180cecdf5dfdb95}{\index{block\-\_\-pool@{block\-\_\-pool}!alloc\-\_\-block@{alloc\-\_\-block}}
+\index{alloc\-\_\-block@{alloc\-\_\-block}!block_pool@{block\-\_\-pool}}
+\subsubsection[{alloc\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void$\ast$ {\bf block\-\_\-pool}$<$ T $>$\-::alloc\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classblock__pool_aca619f55ca59af84a180cecdf5dfdb95}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classblock__pool_aca619f55ca59af84a180cecdf5dfdb95_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblock__pool_aca619f55ca59af84a180cecdf5dfdb95_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classblock__pool_aaabfd73a9589b2d5d024161f3df1a11e}{\index{block\-\_\-pool@{block\-\_\-pool}!free\-\_\-block@{free\-\_\-block}}
+\index{free\-\_\-block@{free\-\_\-block}!block_pool@{block\-\_\-pool}}
+\subsubsection[{free\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf block\-\_\-pool}$<$ T $>$\-::free\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{block, }
+\item[{int}]{tid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classblock__pool_aaabfd73a9589b2d5d024161f3df1a11e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblock__pool_aaabfd73a9589b2d5d024161f3df1a11e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblock__pool_aaabfd73a9589b2d5d024161f3df1a11e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classblock__pool_a1af804f5ae32798163e68dca39418c77}{\index{block\-\_\-pool@{block\-\_\-pool}!make\-\_\-shared\-\_\-block\-\_\-t@{make\-\_\-shared\-\_\-block\-\_\-t}}
+\index{make\-\_\-shared\-\_\-block\-\_\-t@{make\-\_\-shared\-\_\-block\-\_\-t}!block_pool@{block\-\_\-pool}}
+\subsubsection[{make\-\_\-shared\-\_\-block\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static {\bf shared\-\_\-block\-\_\-t}$\ast$ {\bf block\-\_\-pool}$<$ T $>$\-::make\-\_\-shared\-\_\-block\-\_\-t (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{block}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}}\label{classblock__pool_a1af804f5ae32798163e68dca39418c77}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblock__pool_a1af804f5ae32798163e68dca39418c77_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classblock__pool_adc061bb0288867e16891ce4eeeb4aa4f}{\index{block\-\_\-pool@{block\-\_\-pool}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!block_pool@{block\-\_\-pool}}
+\subsubsection[{operator delete}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static void {\bf block\-\_\-pool}$<$ T $>$\-::operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classblock__pool_adc061bb0288867e16891ce4eeeb4aa4f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{classblock__pool_adc061bb0288867e16891ce4eeeb4aa4f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classblock__pool_a08b4e73a9dfc28489c291966d74138ae}{\index{block\-\_\-pool@{block\-\_\-pool}!operator new@{operator new}}
+\index{operator new@{operator new}!block_pool@{block\-\_\-pool}}
+\subsubsection[{operator new}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static void$\ast$ {\bf block\-\_\-pool}$<$ T $>$\-::operator new (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classblock__pool_a08b4e73a9dfc28489c291966d74138ae}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classblock__pool_a08b4e73a9dfc28489c291966d74138ae_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classblock__pool_adb521b667646ec43c3b6a28c8102976d}{\index{block\-\_\-pool@{block\-\_\-pool}!blocksize@{blocksize}}
+\index{blocksize@{blocksize}!block_pool@{block\-\_\-pool}}
+\subsubsection[{blocksize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const int {\bf block\-\_\-pool}$<$ T $>$\-::blocksize = sizeof({\bf shared\-\_\-block\-\_\-t})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classblock__pool_adb521b667646ec43c3b6a28c8102976d}
+\hypertarget{classblock__pool_af780642743ad9cc26764304a8d1c4d62}{\index{block\-\_\-pool@{block\-\_\-pool}!global\-\_\-pool@{global\-\_\-pool}}
+\index{global\-\_\-pool@{global\-\_\-pool}!block_pool@{block\-\_\-pool}}
+\subsubsection[{global\-\_\-pool}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf counted\-\_\-ptr}$\ast$ {\bf block\-\_\-pool}$<$ T $>$\-::global\-\_\-pool\hspace{0.3cm}{\ttfamily [private]}}}\label{classblock__pool_af780642743ad9cc26764304a8d1c4d62}
+\hypertarget{classblock__pool_aeb02a4c80a65b806e3fadcba29f07262}{\index{block\-\_\-pool@{block\-\_\-pool}!G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E@{G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}}
+\index{G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E@{G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}!block_pool@{block\-\_\-pool}}
+\subsubsection[{G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const unsigned long {\bf block\-\_\-pool}$<$ T $>$\-::G\-R\-O\-U\-P\-\_\-\-S\-I\-Z\-E = 8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classblock__pool_aeb02a4c80a65b806e3fadcba29f07262}
+\hypertarget{classblock__pool_a2889af47f657f2b2281c1fdbaaa8016a}{\index{block\-\_\-pool@{block\-\_\-pool}!head\-\_\-nodes@{head\-\_\-nodes}}
+\index{head\-\_\-nodes@{head\-\_\-nodes}!block_pool@{block\-\_\-pool}}
+\subsubsection[{head\-\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf block\-\_\-head\-\_\-node\-\_\-t}$\ast$ {\bf block\-\_\-pool}$<$ T $>$\-::head\-\_\-nodes\hspace{0.3cm}{\ttfamily [private]}}}\label{classblock__pool_a2889af47f657f2b2281c1fdbaaa8016a}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{queues_8cpp}{queues.\-cpp}\end{DoxyCompactItemize}

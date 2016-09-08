@@ -1,0 +1,93 @@
+\hypertarget{structcomparator}{\section{comparator Struct Reference}
+\label{structcomparator}\index{comparator@{comparator}}
+}
+
+
+{\ttfamily \#include $<$lehigh.\-h$>$}
+
+
+
+Collaboration diagram for comparator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{structcomparator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structcomparator_a2a0d7d7bbb180cfb5d45f3dbe68e5d4d}{comparator} (long int($\ast$c1)(const void $\ast$, const void $\ast$), \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long int($\ast$c2)(\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$, const void $\ast$))
+\item 
+\hyperlink{structcomparator_a4ed4fd30220f5f4638052c79b53fd14c}{comparator} (long int($\ast$c1)(const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$, const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$), \hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long int($\ast$c2)(\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$, const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$))
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>long int($\ast$ \hyperlink{structcomparator_a04331fe4e35ed246b440524c309b9cab}{compare\_notm} )(const void $\ast$, const void $\ast$)\\
+\>long int($\ast$ \hyperlink{structcomparator_a3712f9c1314343454595ff27c4723207}{compare\_pair\_notm} )(const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\_t} $\ast$, const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\_t} $\ast$)\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{TM\_CALLABLE} long int($\ast$ \hyperlink{structcomparator_a272b38f55e10cd75a0c919a66706c8fc}{compare\_tm} )(\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{TM\_ARGDECL} const void \\
+\>\>$\ast$, const void $\ast$)\\
+\>\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{TM\_CALLABLE} long int($\ast$ \hyperlink{structcomparator_a5f55648532ae36dc726ded03479d7eb9}{compare\_pair\_tm} )(\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{TM\_ARGDECL} const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\_t} \\
+\>\>$\ast$, const \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\_t} $\ast$)\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information S\-T\-A\-M\-P does some odd things with function pointers, which makes g++ unhappy and makes it very hard to reason about the correctness of code. The most offensive is that S\-T\-A\-M\-P may coerce a function pointer for a 3-\/argument comparison function into a 2-\/argument comparison function.
+
+We avoid this situation by saying that rather than store a function pointer within a collection's root node, we'll store a pointer to a struct, where the struct has two function pointers\-: one for transactional code, one for nontransactional code, with 3 and 2 parameters, respectively. This adds a level of indirection (though only once per collection traversal, if we are careful), but increases safety and allows better reasoning. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structcomparator_a2a0d7d7bbb180cfb5d45f3dbe68e5d4d}{\index{comparator@{comparator}!comparator@{comparator}}
+\index{comparator@{comparator}!comparator@{comparator}}
+\subsubsection[{comparator}]{\setlength{\rightskip}{0pt plus 5cm}comparator\-::comparator (
+\begin{DoxyParamCaption}
+\item[{long int($\ast$)(const void $\ast$, const void $\ast$)}]{c1, }
+\item[{{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long int($\ast$)({\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$, const void $\ast$)}]{c2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structcomparator_a2a0d7d7bbb180cfb5d45f3dbe68e5d4d}
+\hypertarget{structcomparator_a4ed4fd30220f5f4638052c79b53fd14c}{\index{comparator@{comparator}!comparator@{comparator}}
+\index{comparator@{comparator}!comparator@{comparator}}
+\subsubsection[{comparator}]{\setlength{\rightskip}{0pt plus 5cm}comparator\-::comparator (
+\begin{DoxyParamCaption}
+\item[{long int($\ast$)(const {\bf pair\-\_\-t} $\ast$, const {\bf pair\-\_\-t} $\ast$)}]{c1, }
+\item[{{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long int($\ast$)({\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const {\bf pair\-\_\-t} $\ast$, const {\bf pair\-\_\-t} $\ast$)}]{c2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structcomparator_a4ed4fd30220f5f4638052c79b53fd14c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structcomparator_ad9c40f2f283a03e40454da138fb34dde}{\subsubsection[{"@21}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structcomparator_ad9c40f2f283a03e40454da138fb34dde}
+\hypertarget{structcomparator_a9fb6bf4f7a356f852bb761a86b00217b}{\subsubsection[{"@23}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structcomparator_a9fb6bf4f7a356f852bb761a86b00217b}
+\hypertarget{structcomparator_a04331fe4e35ed246b440524c309b9cab}{\index{comparator@{comparator}!compare\-\_\-notm@{compare\-\_\-notm}}
+\index{compare\-\_\-notm@{compare\-\_\-notm}!comparator@{comparator}}
+\subsubsection[{compare\-\_\-notm}]{\setlength{\rightskip}{0pt plus 5cm}long int($\ast$ comparator\-::compare\-\_\-notm)(const void $\ast$, const void $\ast$)}}\label{structcomparator_a04331fe4e35ed246b440524c309b9cab}
+\hypertarget{structcomparator_a3712f9c1314343454595ff27c4723207}{\index{comparator@{comparator}!compare\-\_\-pair\-\_\-notm@{compare\-\_\-pair\-\_\-notm}}
+\index{compare\-\_\-pair\-\_\-notm@{compare\-\_\-pair\-\_\-notm}!comparator@{comparator}}
+\subsubsection[{compare\-\_\-pair\-\_\-notm}]{\setlength{\rightskip}{0pt plus 5cm}long int($\ast$ comparator\-::compare\-\_\-pair\-\_\-notm)(const {\bf pair\-\_\-t} $\ast$, const {\bf pair\-\_\-t} $\ast$)}}\label{structcomparator_a3712f9c1314343454595ff27c4723207}
+\hypertarget{structcomparator_a5f55648532ae36dc726ded03479d7eb9}{\index{comparator@{comparator}!compare\-\_\-pair\-\_\-tm@{compare\-\_\-pair\-\_\-tm}}
+\index{compare\-\_\-pair\-\_\-tm@{compare\-\_\-pair\-\_\-tm}!comparator@{comparator}}
+\subsubsection[{compare\-\_\-pair\-\_\-tm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long int($\ast$ comparator\-::compare\-\_\-pair\-\_\-tm)({\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const {\bf pair\-\_\-t} $\ast$, const {\bf pair\-\_\-t} $\ast$)}}\label{structcomparator_a5f55648532ae36dc726ded03479d7eb9}
+\hypertarget{structcomparator_a272b38f55e10cd75a0c919a66706c8fc}{\index{comparator@{comparator}!compare\-\_\-tm@{compare\-\_\-tm}}
+\index{compare\-\_\-tm@{compare\-\_\-tm}!comparator@{comparator}}
+\subsubsection[{compare\-\_\-tm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long int($\ast$ comparator\-::compare\-\_\-tm)({\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} const void $\ast$, const void $\ast$)}}\label{structcomparator_a272b38f55e10cd75a0c919a66706c8fc}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/\hyperlink{lehigh_8h}{lehigh.\-h}\end{DoxyCompactItemize}

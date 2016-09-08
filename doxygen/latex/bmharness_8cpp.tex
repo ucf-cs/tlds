@@ -1,0 +1,90 @@
+\hypertarget{bmharness_8cpp}{\section{rstm/rstm-\/dev/bench/bmharness.cpp File Reference}
+\label{bmharness_8cpp}\index{rstm/rstm-\/dev/bench/bmharness.\-cpp@{rstm/rstm-\/dev/bench/bmharness.\-cpp}}
+}
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$api/api.\-hpp$>$}\\*
+{\ttfamily \#include $<$common/platform.\-hpp$>$}\\*
+{\ttfamily \#include $<$common/locks.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}bmconfig.\-hpp\char`\"{}}\\*
+Include dependency graph for bmharness.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03}{anonymous\-\_\-namespace\{bmharness.\-cpp\}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bmharness_8cpp_a0f34934d4e0725e32dfdc13eadf97b99}{B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structConfig}{Config} C\-F\-G \hyperlink{bmharness_8cpp_a06d40fff9d280d0c7cd5d0234b1cb37b}{T\-M\-\_\-\-A\-L\-I\-G\-N} (64)
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_a2a8d55c1ea2dc5801342821a8d01f224}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::dump\-\_\-csv} ()
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_aa32e918fdf95644d2bde2bc98148180b}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::usage} ()
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_ae311ed7903214e2716e5be5647da1147}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::parseargs} (int argc, char $\ast$$\ast$argv)
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_a462b57784abacad16826f81937a24106}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::nontxnwork} ()
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_a02bc3cad3eee0bfe5281b1a3a24cc784}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::catch\-\_\-\-S\-I\-G\-A\-L\-R\-M} (int)
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_ac2f3da62721969da434141bf2282eab0}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::barrier} (uint32\-\_\-t which)
+\item 
+void \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_a3a26cd6fa1dad4dd21a46c88c2a02817}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::run} (uintptr\-\_\-t id)
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} void $\ast$ \hyperlink{namespaceanonymous__namespace_02bmharness_8cpp_03_a5275c4f9613d117686614bfbf705ab2b}{anonymous\-\_\-namespace\{bmharness.\-cpp\}\-::run\-\_\-wrapper} (void $\ast$i)
+\item 
+int \hyperlink{bmharness_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bmharness_8cpp_a0f34934d4e0725e32dfdc13eadf97b99}{\index{bmharness.\-cpp@{bmharness.\-cpp}!B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-@{B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-}}
+\index{B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-@{B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-}!bmharness.cpp@{bmharness.\-cpp}}
+\subsubsection[{B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-M\-H\-A\-R\-N\-E\-S\-S\-\_\-\-H\-P\-P\-\_\-\-\_\-}}\label{bmharness_8cpp_a0f34934d4e0725e32dfdc13eadf97b99}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Function Documentation}
+\hypertarget{bmharness_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{bmharness.\-cpp@{bmharness.\-cpp}!main@{main}}
+\index{main@{main}!bmharness.cpp@{bmharness.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+Main routine\-: parse args, set up the T\-M system, prep the benchmark, run the experiments, verify results, print results, and shut down the system 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8cpp_a06d40fff9d280d0c7cd5d0234b1cb37b}{\index{bmharness.\-cpp@{bmharness.\-cpp}!T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}}
+\index{T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}!bmharness.cpp@{bmharness.\-cpp}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Config} C\-F\-G T\-M\-\_\-\-A\-L\-I\-G\-N (
+\begin{DoxyParamCaption}
+\item[{64}]{}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8cpp_a06d40fff9d280d0c7cd5d0234b1cb37b}

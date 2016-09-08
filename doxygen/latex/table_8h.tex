@@ -1,0 +1,184 @@
+\hypertarget{table_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/genome/table.h File Reference}
+\label{table_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/table.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/table.\-h}}
+}
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for table.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{table_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtable}{table}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{table_8h_a26dc354ed146359f77bca32774c776d3}{T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T}(t, h, d)~\hyperlink{table_8h_afb2a48b78bdcda6d8d340ec3beb02e83}{T\-Mtable\-\_\-insert}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  t, h, d)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtable}{table} \hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$ \hyperlink{table_8h_a2fc6637e05cc972581e5f4d0b9ae85af}{table\-\_\-alloc} (long num\-Bucket, \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{table_8h_a0cbbed1b3290a9074b455925972f670d}{table\-\_\-insert} (\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} hash, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{table_8h_afb2a48b78bdcda6d8d340ec3beb02e83}{T\-Mtable\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} hash, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{table_8h_a107c408953d09606276157cef79af7d4}{table\-\_\-remove} (\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} hash, void $\ast$data\-Ptr)
+\item 
+void \hyperlink{table_8h_af9cb7f7def0d60f8188ba78e02f5c59a}{table\-\_\-free} (\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{table_8h_a26dc354ed146359f77bca32774c776d3}{\index{table.\-h@{table.\-h}!T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T@{T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T}}
+\index{T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T@{T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T}!table.h@{table.\-h}}
+\subsubsection[{T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-T\-A\-B\-L\-E\-\_\-\-I\-N\-S\-E\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{t, }
+\item[{}]{h, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~{\bf T\-Mtable\-\_\-insert}({\bf T\-M\-\_\-\-A\-R\-G}  t, h, d)}}\label{table_8h_a26dc354ed146359f77bca32774c776d3}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{table_8h_aa56ca1db81617008d1449296b01f0db7}{\index{table.\-h@{table.\-h}!table\-\_\-t@{table\-\_\-t}}
+\index{table\-\_\-t@{table\-\_\-t}!table.h@{table.\-h}}
+\subsubsection[{table\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf table}  {\bf table\-\_\-t}}}\label{table_8h_aa56ca1db81617008d1449296b01f0db7}
+
+
+\subsection{Function Documentation}
+\hypertarget{table_8h_a2fc6637e05cc972581e5f4d0b9ae85af}{\index{table.\-h@{table.\-h}!table\-\_\-alloc@{table\-\_\-alloc}}
+\index{table\-\_\-alloc@{table\-\_\-alloc}!table.h@{table.\-h}}
+\subsubsection[{table\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf table\-\_\-t}$\ast$ table\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Bucket, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare}
+\end{DoxyParamCaption}
+)}}\label{table_8h_a2fc6637e05cc972581e5f4d0b9ae85af}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{table_8h_a2fc6637e05cc972581e5f4d0b9ae85af_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{table_8h_a2fc6637e05cc972581e5f4d0b9ae85af_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8h_af9cb7f7def0d60f8188ba78e02f5c59a}{\index{table.\-h@{table.\-h}!table\-\_\-free@{table\-\_\-free}}
+\index{table\-\_\-free@{table\-\_\-free}!table.h@{table.\-h}}
+\subsubsection[{table\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void table\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf table\-\_\-t} $\ast$}]{table\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8h_af9cb7f7def0d60f8188ba78e02f5c59a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_af9cb7f7def0d60f8188ba78e02f5c59a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{table_8h_af9cb7f7def0d60f8188ba78e02f5c59a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8h_a0cbbed1b3290a9074b455925972f670d}{\index{table.\-h@{table.\-h}!table\-\_\-insert@{table\-\_\-insert}}
+\index{table\-\_\-insert@{table\-\_\-insert}!table.h@{table.\-h}}
+\subsubsection[{table\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} table\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf table\-\_\-t} $\ast$}]{table\-Ptr, }
+\item[{{\bf ulong\-\_\-t}}]{hash, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8h_a0cbbed1b3290a9074b455925972f670d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a0cbbed1b3290a9074b455925972f670d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8h_a107c408953d09606276157cef79af7d4}{\index{table.\-h@{table.\-h}!table\-\_\-remove@{table\-\_\-remove}}
+\index{table\-\_\-remove@{table\-\_\-remove}!table.h@{table.\-h}}
+\subsubsection[{table\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} table\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf table\-\_\-t} $\ast$}]{table\-Ptr, }
+\item[{{\bf ulong\-\_\-t}}]{hash, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8h_a107c408953d09606276157cef79af7d4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a107c408953d09606276157cef79af7d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8h_afb2a48b78bdcda6d8d340ec3beb02e83}{\index{table.\-h@{table.\-h}!T\-Mtable\-\_\-insert@{T\-Mtable\-\_\-insert}}
+\index{T\-Mtable\-\_\-insert@{T\-Mtable\-\_\-insert}!table.h@{table.\-h}}
+\subsubsection[{T\-Mtable\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mtable\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf table\-\_\-t} $\ast$}]{table\-Ptr, }
+\item[{{\bf ulong\-\_\-t}}]{hash, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8h_afb2a48b78bdcda6d8d340ec3beb02e83}

@@ -1,0 +1,269 @@
+\hypertarget{namespaceitm2stm}{\section{itm2stm Namespace Reference}
+\label{namespaceitm2stm}\index{itm2stm@{itm2stm}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structitm2stm_1_1Aligned}{Aligned}
+\item 
+struct \hyperlink{structitm2stm_1_1BlockReader}{Block\-Reader}
+\item 
+struct \hyperlink{structitm2stm_1_1BlockWriter}{Block\-Writer}
+\item 
+class \hyperlink{classitm2stm_1_1Checkpoint}{Checkpoint}
+\item 
+class \hyperlink{classitm2stm_1_1Scope}{Scope}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{namespaceitm2stm_a60fadbf1779483f2446ab9e30aa1f713}{block\-\_\-write} (\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread} \&, void $\ast$target, const void $\ast$source, size\-\_\-t bytes) \hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((nonnull))
+\item 
+size\-\_\-t \hyperlink{namespaceitm2stm_ab76a65e75d1318bd4c1e4dab11096446}{block\-\_\-read} (\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread} \&, void $\ast$target, const void $\ast$source, size\-\_\-t bytes) \hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((nonnull))
+\item 
+void \hyperlink{namespaceitm2stm_ad658616dcf595ab736e02f0f4f274f67}{block\-\_\-set} (\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread} \&, void $\ast$target, uint8\-\_\-t c, size\-\_\-t bytes) \hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((nonnull))
+\item 
+void $\ast$ \hyperlink{namespaceitm2stm_aed4f4d7200a5ff399b09aad2038e2469}{new\-\_\-wrapper} (size\-\_\-t sz) asm(\char`\"{}\-\_\-\-Znwj.\-\_\-\$\-T\-X\-N\char`\"{})
+\item 
+void \hyperlink{namespaceitm2stm_ae5823a99476da1284952a94f795c8a88}{delete\-\_\-wrapper} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr}) asm(\char`\"{}\-\_\-\-Zdl\-Pv.\-\_\-\$\-T\-X\-N\char`\"{})
+\item 
+void $\ast$ \hyperlink{namespaceitm2stm_a1d7d549547990a85a10a6a21d5b86e9a}{malloc\-\_\-wrapper} (size\-\_\-t sz) asm(\char`\"{}malloc.\-\_\-\$\-T\-X\-N\char`\"{})
+\item 
+void \hyperlink{namespaceitm2stm_afb85155fcabb8af0b40dc1e7b54703fb}{free\-\_\-wrapper} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr}) asm(\char`\"{}free.\-\_\-\$\-T\-X\-N\char`\"{})
+\item 
+size\-\_\-t \hyperlink{namespaceitm2stm_aa9908b113027ae21130750939980ee0b}{offset\-\_\-of} (const void $\ast$const address)
+\item 
+void $\ast$$\ast$ \hyperlink{namespaceitm2stm_a6c0f462e6a92340d0aaff5050c4a6ed6}{base\-\_\-of} (const void $\ast$const address)
+\item 
+void \hyperlink{namespaceitm2stm_a334b9615cac957b9ce7a4743beaaaf53}{add\-\_\-bytes} (const void $\ast$\&address, size\-\_\-t bytes)
+\item 
+void \hyperlink{namespaceitm2stm_a1af29eeeb5839a27d75426db18c6c1c1}{add\-\_\-bytes} (void $\ast$\&address, size\-\_\-t bytes)
+\item 
+uintptr\-\_\-t \hyperlink{namespaceitm2stm_a7bfcca557e548ad294de7fe74eb4cdf6}{make\-\_\-mask} (size\-\_\-t i, size\-\_\-t j)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Function Documentation}
+\hypertarget{namespaceitm2stm_a334b9615cac957b9ce7a4743beaaaf53}{\index{itm2stm@{itm2stm}!add\-\_\-bytes@{add\-\_\-bytes}}
+\index{add\-\_\-bytes@{add\-\_\-bytes}!itm2stm@{itm2stm}}
+\subsubsection[{add\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::add\-\_\-bytes (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$\&}]{address, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceitm2stm_a334b9615cac957b9ce7a4743beaaaf53}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_a334b9615cac957b9ce7a4743beaaaf53_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceitm2stm_a1af29eeeb5839a27d75426db18c6c1c1}{\index{itm2stm@{itm2stm}!add\-\_\-bytes@{add\-\_\-bytes}}
+\index{add\-\_\-bytes@{add\-\_\-bytes}!itm2stm@{itm2stm}}
+\subsubsection[{add\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::add\-\_\-bytes (
+\begin{DoxyParamCaption}
+\item[{void $\ast$\&}]{address, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceitm2stm_a1af29eeeb5839a27d75426db18c6c1c1}
+\hypertarget{namespaceitm2stm_a6c0f462e6a92340d0aaff5050c4a6ed6}{\index{itm2stm@{itm2stm}!base\-\_\-of@{base\-\_\-of}}
+\index{base\-\_\-of@{base\-\_\-of}!itm2stm@{itm2stm}}
+\subsubsection[{base\-\_\-of}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ itm2stm\-::base\-\_\-of (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$const}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceitm2stm_a6c0f462e6a92340d0aaff5050c4a6ed6}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_a6c0f462e6a92340d0aaff5050c4a6ed6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceitm2stm_ab76a65e75d1318bd4c1e4dab11096446}{\index{itm2stm@{itm2stm}!block\-\_\-read@{block\-\_\-read}}
+\index{block\-\_\-read@{block\-\_\-read}!itm2stm@{itm2stm}}
+\subsubsection[{block\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t itm2stm\-::block\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-::\-Tx\-Thread} \&}]{tx, }
+\item[{void $\ast$}]{target, }
+\item[{const void $\ast$}]{source, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_ab76a65e75d1318bd4c1e4dab11096446}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_ab76a65e75d1318bd4c1e4dab11096446_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceitm2stm_ab76a65e75d1318bd4c1e4dab11096446_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceitm2stm_ad658616dcf595ab736e02f0f4f274f67}{\index{itm2stm@{itm2stm}!block\-\_\-set@{block\-\_\-set}}
+\index{block\-\_\-set@{block\-\_\-set}!itm2stm@{itm2stm}}
+\subsubsection[{block\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::block\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-::\-Tx\-Thread} \&}]{tx, }
+\item[{void $\ast$}]{target, }
+\item[{uint8\-\_\-t}]{c, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_ad658616dcf595ab736e02f0f4f274f67}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_ad658616dcf595ab736e02f0f4f274f67_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{namespaceitm2stm_ad658616dcf595ab736e02f0f4f274f67_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceitm2stm_a60fadbf1779483f2446ab9e30aa1f713}{\index{itm2stm@{itm2stm}!block\-\_\-write@{block\-\_\-write}}
+\index{block\-\_\-write@{block\-\_\-write}!itm2stm@{itm2stm}}
+\subsubsection[{block\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t itm2stm\-::block\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-::\-Tx\-Thread} \&}]{tx, }
+\item[{void $\ast$}]{target, }
+\item[{const void $\ast$}]{source, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_a60fadbf1779483f2446ab9e30aa1f713}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_a60fadbf1779483f2446ab9e30aa1f713_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{namespaceitm2stm_a60fadbf1779483f2446ab9e30aa1f713_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceitm2stm_ae5823a99476da1284952a94f795c8a88}{\index{itm2stm@{itm2stm}!delete\-\_\-wrapper@{delete\-\_\-wrapper}}
+\index{delete\-\_\-wrapper@{delete\-\_\-wrapper}!itm2stm@{itm2stm}}
+\subsubsection[{delete\-\_\-wrapper}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::delete\-\_\-wrapper (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_ae5823a99476da1284952a94f795c8a88}
+\hypertarget{namespaceitm2stm_afb85155fcabb8af0b40dc1e7b54703fb}{\index{itm2stm@{itm2stm}!free\-\_\-wrapper@{free\-\_\-wrapper}}
+\index{free\-\_\-wrapper@{free\-\_\-wrapper}!itm2stm@{itm2stm}}
+\subsubsection[{free\-\_\-wrapper}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::free\-\_\-wrapper (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_afb85155fcabb8af0b40dc1e7b54703fb}
+\hypertarget{namespaceitm2stm_a7bfcca557e548ad294de7fe74eb4cdf6}{\index{itm2stm@{itm2stm}!make\-\_\-mask@{make\-\_\-mask}}
+\index{make\-\_\-mask@{make\-\_\-mask}!itm2stm@{itm2stm}}
+\subsubsection[{make\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t itm2stm\-::make\-\_\-mask (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{i, }
+\item[{size\-\_\-t}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceitm2stm_a7bfcca557e548ad294de7fe74eb4cdf6}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_a7bfcca557e548ad294de7fe74eb4cdf6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceitm2stm_a1d7d549547990a85a10a6a21d5b86e9a}{\index{itm2stm@{itm2stm}!malloc\-\_\-wrapper@{malloc\-\_\-wrapper}}
+\index{malloc\-\_\-wrapper@{malloc\-\_\-wrapper}!itm2stm@{itm2stm}}
+\subsubsection[{malloc\-\_\-wrapper}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ itm2stm\-::malloc\-\_\-wrapper (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{sz}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_a1d7d549547990a85a10a6a21d5b86e9a}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information \hypertarget{namespaceitm2stm_aed4f4d7200a5ff399b09aad2038e2469}{\index{itm2stm@{itm2stm}!new\-\_\-wrapper@{new\-\_\-wrapper}}
+\index{new\-\_\-wrapper@{new\-\_\-wrapper}!itm2stm@{itm2stm}}
+\subsubsection[{new\-\_\-wrapper}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ itm2stm\-::new\-\_\-wrapper (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{sz}
+\end{DoxyParamCaption}
+)}}\label{namespaceitm2stm_aed4f4d7200a5ff399b09aad2038e2469}
+\hypertarget{namespaceitm2stm_aa9908b113027ae21130750939980ee0b}{\index{itm2stm@{itm2stm}!offset\-\_\-of@{offset\-\_\-of}}
+\index{offset\-\_\-of@{offset\-\_\-of}!itm2stm@{itm2stm}}
+\subsubsection[{offset\-\_\-of}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t itm2stm\-::offset\-\_\-of (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$const}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceitm2stm_aa9908b113027ae21130750939980ee0b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceitm2stm_aa9908b113027ae21130750939980ee0b_icgraph}
+\end{center}
+\end{figure}
+
+

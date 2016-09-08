@@ -1,0 +1,10 @@
+<map id="fr_gc_add_allocator" name="fr_gc_add_allocator">
+<area shape="rect" id="node2" href="$lockfreeskip_8h.html#a843161a44f973a3538e402c608c23671" title="init_boostskip_subsystem" alt="" coords="189,5,363,32"/>
+<area shape="rect" id="node4" href="$stm__fraser_8c.html#a949151d8bcac092e7cb4bd782059c194" title="new_stm" alt="" coords="239,56,313,83"/>
+<area shape="rect" id="node7" href="$stm__fraser_8c.html#a7b76b85023f5a028abad5e822391f95a" title="_init_stm_subsystem" alt="" coords="203,107,349,133"/>
+<area shape="rect" id="node8" href="$transskip_8h.html#a45613be712b23cdba5b2f588f2c2e244" title="init_transskip_subsystem" alt="" coords="191,157,361,184"/>
+<area shape="rect" id="node3" href="$classBoostingSkip.html#a72c8865501cc633f3a3476379246f4e1" title="BoostingSkip::BoostingSkip" alt="" coords="411,5,595,32"/>
+<area shape="rect" id="node5" href="$stmskip_8h.html#aedbfc8f18bee8e611ee20d17feb55f98" title="init_stmskip_subsystem" alt="" coords="421,77,584,104"/>
+<area shape="rect" id="node6" href="$classSetAdaptor_3_01stm__skip_01_4.html#acfb0c3f8dd7da801bdafb4ff1de8ba3e" title="SetAdaptor\&lt; stm_skip\l \&gt;::SetAdaptor" alt="" coords="643,70,795,111"/>
+<area shape="rect" id="node9" href="$classSetAdaptor_3_01trans__skip_01_4.html#a70793ce56d0b35ad32b8fdf9723e3fed" title="SetAdaptor\&lt; trans_skip\l \&gt;::SetAdaptor" alt="" coords="423,150,582,191"/>
+</map>

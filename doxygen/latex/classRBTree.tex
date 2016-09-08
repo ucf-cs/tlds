@@ -1,0 +1,304 @@
+\hypertarget{classRBTree}{\section{R\-B\-Tree Class Reference}
+\label{classRBTree}\index{R\-B\-Tree@{R\-B\-Tree}}
+}
+
+
+{\ttfamily \#include $<$Tree.\-hpp$>$}
+
+
+
+Collaboration diagram for R\-B\-Tree\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classRBTree__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRBTree_a19921f34f32f777bb3c4b85d4ff1d9de}{R\-B\-Tree} ()
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{classRBTree_ac08a215acdc2f4ccecebaafbbe1dce41}{lookup} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classRBTree_abbb72e04b9cc677051094c3839ca09ab}{insert} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classRBTree_a98d0db9e5d36729c5b35b2a40e959856}{remove} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classRBTree_afbd6f00d7eab72aaaf6d2a0a6074ba36}{modify} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+bool \hyperlink{classRBTree_abb5ba484adb7e85adc371565c64c87fc}{is\-Sane} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$ \hyperlink{classRBTree_a925ac29b01acd36d02015a0588a2f076}{sentinel}
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classRBTree_ad97759567366df7c32635987b1c1cf3f}{Color} \{ \hyperlink{classRBTree_ad97759567366df7c32635987b1c1cf3faeba8d385c6aba6ed845392e9155f4f3b}{R\-E\-D}, 
+\hyperlink{classRBTree_ad97759567366df7c32635987b1c1cf3fa4f983a00dbc34921b98ad8f47c8ed5b5}{B\-L\-A\-C\-K}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classRBTree_af39dd046b37c778075465a6aab1a651b}{black\-Height} (const \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$x)
+\item 
+static bool \hyperlink{classRBTree_a1801138c09038db3b50b15047a2ca661}{red\-Violation} (const \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$p\-\_\-r, const \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$x)
+\item 
+static bool \hyperlink{classRBTree_a95f426ead99aebb5add85206e36f694e}{valid\-Parents} (const \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, int x\-I\-D, const \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$x)
+\item 
+static bool \hyperlink{classRBTree_a277a28c2007dd04dda0971a577e6e9ae}{in\-Order} (const \hyperlink{structRBTree_1_1RBNode}{R\-B\-Node} $\ast$x, int lower\-Bound, int upper\-Bound)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classRBTree_ad97759567366df7c32635987b1c1cf3f}{\index{R\-B\-Tree@{R\-B\-Tree}!Color@{Color}}
+\index{Color@{Color}!RBTree@{R\-B\-Tree}}
+\subsubsection[{Color}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf R\-B\-Tree\-::\-Color}\hspace{0.3cm}{\ttfamily [private]}}}\label{classRBTree_ad97759567366df7c32635987b1c1cf3f}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{R\-E\-D@{R\-E\-D}!R\-B\-Tree@{R\-B\-Tree}}\index{R\-B\-Tree@{R\-B\-Tree}!R\-E\-D@{R\-E\-D}}\item[{\em 
+\hypertarget{classRBTree_ad97759567366df7c32635987b1c1cf3faeba8d385c6aba6ed845392e9155f4f3b}{R\-E\-D}\label{classRBTree_ad97759567366df7c32635987b1c1cf3faeba8d385c6aba6ed845392e9155f4f3b}
+}]\index{B\-L\-A\-C\-K@{B\-L\-A\-C\-K}!R\-B\-Tree@{R\-B\-Tree}}\index{R\-B\-Tree@{R\-B\-Tree}!B\-L\-A\-C\-K@{B\-L\-A\-C\-K}}\item[{\em 
+\hypertarget{classRBTree_ad97759567366df7c32635987b1c1cf3fa4f983a00dbc34921b98ad8f47c8ed5b5}{B\-L\-A\-C\-K}\label{classRBTree_ad97759567366df7c32635987b1c1cf3fa4f983a00dbc34921b98ad8f47c8ed5b5}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRBTree_a19921f34f32f777bb3c4b85d4ff1d9de}{\index{R\-B\-Tree@{R\-B\-Tree}!R\-B\-Tree@{R\-B\-Tree}}
+\index{R\-B\-Tree@{R\-B\-Tree}!RBTree@{R\-B\-Tree}}
+\subsubsection[{R\-B\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}R\-B\-Tree\-::\-R\-B\-Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRBTree_a19921f34f32f777bb3c4b85d4ff1d9de}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRBTree_af39dd046b37c778075465a6aab1a651b}{\index{R\-B\-Tree@{R\-B\-Tree}!black\-Height@{black\-Height}}
+\index{black\-Height@{black\-Height}!RBTree@{R\-B\-Tree}}
+\subsubsection[{black\-Height}]{\setlength{\rightskip}{0pt plus 5cm}int R\-B\-Tree\-::black\-Height (
+\begin{DoxyParamCaption}
+\item[{const {\bf R\-B\-Node} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classRBTree_af39dd046b37c778075465a6aab1a651b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRBTree_af39dd046b37c778075465a6aab1a651b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_a277a28c2007dd04dda0971a577e6e9ae}{\index{R\-B\-Tree@{R\-B\-Tree}!in\-Order@{in\-Order}}
+\index{in\-Order@{in\-Order}!RBTree@{R\-B\-Tree}}
+\subsubsection[{in\-Order}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-B\-Tree\-::in\-Order (
+\begin{DoxyParamCaption}
+\item[{const {\bf R\-B\-Node} $\ast$}]{x, }
+\item[{int}]{lower\-Bound, }
+\item[{int}]{upper\-Bound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classRBTree_a277a28c2007dd04dda0971a577e6e9ae}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRBTree_a277a28c2007dd04dda0971a577e6e9ae_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_abbb72e04b9cc677051094c3839ca09ab}{\index{R\-B\-Tree@{R\-B\-Tree}!insert@{insert}}
+\index{insert@{insert}!RBTree@{R\-B\-Tree}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void R\-B\-Tree\-::insert (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classRBTree_abbb72e04b9cc677051094c3839ca09ab}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRBTree_abbb72e04b9cc677051094c3839ca09ab_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_abb5ba484adb7e85adc371565c64c87fc}{\index{R\-B\-Tree@{R\-B\-Tree}!is\-Sane@{is\-Sane}}
+\index{is\-Sane@{is\-Sane}!RBTree@{R\-B\-Tree}}
+\subsubsection[{is\-Sane}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-B\-Tree\-::is\-Sane (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classRBTree_abb5ba484adb7e85adc371565c64c87fc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classRBTree_abb5ba484adb7e85adc371565c64c87fc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{classRBTree_abb5ba484adb7e85adc371565c64c87fc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_ac08a215acdc2f4ccecebaafbbe1dce41}{\index{R\-B\-Tree@{R\-B\-Tree}!lookup@{lookup}}
+\index{lookup@{lookup}!RBTree@{R\-B\-Tree}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-B\-Tree\-::lookup (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+) const}}\label{classRBTree_ac08a215acdc2f4ccecebaafbbe1dce41}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRBTree_ac08a215acdc2f4ccecebaafbbe1dce41_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_afbd6f00d7eab72aaaf6d2a0a6074ba36}{\index{R\-B\-Tree@{R\-B\-Tree}!modify@{modify}}
+\index{modify@{modify}!RBTree@{R\-B\-Tree}}
+\subsubsection[{modify}]{\setlength{\rightskip}{0pt plus 5cm}void R\-B\-Tree\-::modify (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classRBTree_afbd6f00d7eab72aaaf6d2a0a6074ba36}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classRBTree_afbd6f00d7eab72aaaf6d2a0a6074ba36_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classRBTree_afbd6f00d7eab72aaaf6d2a0a6074ba36_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_a1801138c09038db3b50b15047a2ca661}{\index{R\-B\-Tree@{R\-B\-Tree}!red\-Violation@{red\-Violation}}
+\index{red\-Violation@{red\-Violation}!RBTree@{R\-B\-Tree}}
+\subsubsection[{red\-Violation}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-B\-Tree\-::red\-Violation (
+\begin{DoxyParamCaption}
+\item[{const {\bf R\-B\-Node} $\ast$}]{p\-\_\-r, }
+\item[{const {\bf R\-B\-Node} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classRBTree_a1801138c09038db3b50b15047a2ca661}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRBTree_a1801138c09038db3b50b15047a2ca661_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_a98d0db9e5d36729c5b35b2a40e959856}{\index{R\-B\-Tree@{R\-B\-Tree}!remove@{remove}}
+\index{remove@{remove}!RBTree@{R\-B\-Tree}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void R\-B\-Tree\-::remove (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classRBTree_a98d0db9e5d36729c5b35b2a40e959856}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{classRBTree_a98d0db9e5d36729c5b35b2a40e959856_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classRBTree_a95f426ead99aebb5add85206e36f694e}{\index{R\-B\-Tree@{R\-B\-Tree}!valid\-Parents@{valid\-Parents}}
+\index{valid\-Parents@{valid\-Parents}!RBTree@{R\-B\-Tree}}
+\subsubsection[{valid\-Parents}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-B\-Tree\-::valid\-Parents (
+\begin{DoxyParamCaption}
+\item[{const {\bf R\-B\-Node} $\ast$}]{p, }
+\item[{int}]{x\-I\-D, }
+\item[{const {\bf R\-B\-Node} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classRBTree_a95f426ead99aebb5add85206e36f694e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRBTree_a95f426ead99aebb5add85206e36f694e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classRBTree_a925ac29b01acd36d02015a0588a2f076}{\index{R\-B\-Tree@{R\-B\-Tree}!sentinel@{sentinel}}
+\index{sentinel@{sentinel}!RBTree@{R\-B\-Tree}}
+\subsubsection[{sentinel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-B\-Node}$\ast$ R\-B\-Tree\-::sentinel}}\label{classRBTree_a925ac29b01acd36d02015a0588a2f076}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/bench/\hyperlink{Tree_8hpp}{Tree.\-hpp}\end{DoxyCompactItemize}

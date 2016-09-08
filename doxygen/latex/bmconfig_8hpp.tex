@@ -1,0 +1,165 @@
+\hypertarget{bmconfig_8hpp}{\section{rstm/rstm-\/dev/bench/bmconfig.hpp File Reference}
+\label{bmconfig_8hpp}\index{rstm/rstm-\/dev/bench/bmconfig.\-hpp@{rstm/rstm-\/dev/bench/bmconfig.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+Include dependency graph for bmconfig.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{bmconfig_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmconfig_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structConfig}{Config}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structConfig}{Config} C\-F\-G \hyperlink{bmconfig_8hpp_a06d40fff9d280d0c7cd5d0234b1cb37b}{T\-M\-\_\-\-A\-L\-I\-G\-N} (64)
+\item 
+void \hyperlink{bmconfig_8hpp_a3adf213f254e3746cbce57cc95dfb687}{bench\-\_\-init} ()
+\item 
+void \hyperlink{bmconfig_8hpp_aedada04ef88f522227f8f6fca993e08c}{bench\-\_\-test} (uintptr\-\_\-t, uint32\-\_\-t $\ast$)
+\item 
+bool \hyperlink{bmconfig_8hpp_a0c66bb3c4c93ab03eced3cb6a617c884}{bench\-\_\-verify} ()
+\item 
+void \hyperlink{bmconfig_8hpp_a5b32c4b74f369683b46a67dd7e50ff3e}{bench\-\_\-reparse} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{bmconfig_8hpp_a3adf213f254e3746cbce57cc95dfb687}{\index{bmconfig.\-hpp@{bmconfig.\-hpp}!bench\-\_\-init@{bench\-\_\-init}}
+\index{bench\-\_\-init@{bench\-\_\-init}!bmconfig.hpp@{bmconfig.\-hpp}}
+\subsubsection[{bench\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bmconfig_8hpp_a3adf213f254e3746cbce57cc95dfb687}
+B\-E\-N\-C\-H\-M\-A\-R\-K\-S I\-M\-P\-L\-E\-M\-E\-N\-T T\-H\-E F\-O\-L\-L\-O\-W\-I\-N\-G F\-U\-N\-C\-T\-I\-O\-N\-S
+
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmconfig_8hpp_a3adf213f254e3746cbce57cc95dfb687_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{bmconfig_8hpp_a3adf213f254e3746cbce57cc95dfb687_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmconfig_8hpp_a5b32c4b74f369683b46a67dd7e50ff3e}{\index{bmconfig.\-hpp@{bmconfig.\-hpp}!bench\-\_\-reparse@{bench\-\_\-reparse}}
+\index{bench\-\_\-reparse@{bench\-\_\-reparse}!bmconfig.hpp@{bmconfig.\-hpp}}
+\subsubsection[{bench\-\_\-reparse}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-reparse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bmconfig_8hpp_a5b32c4b74f369683b46a67dd7e50ff3e}
+Step 4\-: Include the code that has the \hyperlink{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{main()} function, and the code for creating threads and calling the three above-\/named functions. Don't forget to provide an arg reparser. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{bmconfig_8hpp_a5b32c4b74f369683b46a67dd7e50ff3e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmconfig_8hpp_aedada04ef88f522227f8f6fca993e08c}{\index{bmconfig.\-hpp@{bmconfig.\-hpp}!bench\-\_\-test@{bench\-\_\-test}}
+\index{bench\-\_\-test@{bench\-\_\-test}!bmconfig.hpp@{bmconfig.\-hpp}}
+\subsubsection[{bench\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{id, }
+\item[{uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{bmconfig_8hpp_aedada04ef88f522227f8f6fca993e08c}
+Run a bunch of transactions that should cause conflicts threads either increment from front to back or from back to front, based on I\-D. This creates lots of conflicts 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{bmconfig_8hpp_aedada04ef88f522227f8f6fca993e08c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmconfig_8hpp_aedada04ef88f522227f8f6fca993e08c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmconfig_8hpp_a0c66bb3c4c93ab03eced3cb6a617c884}{\index{bmconfig.\-hpp@{bmconfig.\-hpp}!bench\-\_\-verify@{bench\-\_\-verify}}
+\index{bench\-\_\-verify@{bench\-\_\-verify}!bmconfig.hpp@{bmconfig.\-hpp}}
+\subsubsection[{bench\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}bool bench\-\_\-verify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bmconfig_8hpp_a0c66bb3c4c93ab03eced3cb6a617c884}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmconfig_8hpp_a0c66bb3c4c93ab03eced3cb6a617c884_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{bmconfig_8hpp_a0c66bb3c4c93ab03eced3cb6a617c884_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmconfig_8hpp_a06d40fff9d280d0c7cd5d0234b1cb37b}{\index{bmconfig.\-hpp@{bmconfig.\-hpp}!T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}}
+\index{T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}!bmconfig.hpp@{bmconfig.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Config} C\-F\-G T\-M\-\_\-\-A\-L\-I\-G\-N (
+\begin{DoxyParamCaption}
+\item[{64}]{}
+\end{DoxyParamCaption}
+)}}\label{bmconfig_8hpp_a06d40fff9d280d0c7cd5d0234b1cb37b}

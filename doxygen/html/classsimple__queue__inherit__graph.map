@@ -1,0 +1,5 @@
+<map id="simple_queue&lt; T &gt;" name="simple_queue&lt; T &gt;">
+<area shape="rect" id="node2" href="$classconcurrent__queue.html" title="{concurrent_queue\&lt; T \&gt;\n||+ enqueue()\l+ dequeue()\l+ concurrent_queue()\l+ ~concurrent_queue()\l+ operator new()\l+ operator delete()\l&#45; concurrent_queue()\l&#45; operator=()\l}" alt="" coords="5,177,163,357"/>
+<area shape="rect" id="node3" href="$classsequential__queue.html" title="{sequential_queue\&lt; T \&gt;\n|&#45; queue_impl\l|+ enqueue()\l+ dequeue()\l+ ~sequential_queue()\l}" alt="" coords="187,213,340,320"/>
+<area shape="rect" id="node4" href="$classsimple__queue.html" title="{simple_queue\&lt; edge * \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="365,213,528,320"/>
+</map>

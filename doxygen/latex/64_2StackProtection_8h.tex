@@ -1,0 +1,50 @@
+\hypertarget{64_2StackProtection_8h}{\section{rstm/rstm-\/dev/libitm2stm/arch/x86\-\_\-64/\-Stack\-Protection.h File Reference}
+\label{64_2StackProtection_8h}\index{rstm/rstm-\/dev/libitm2stm/arch/x86\-\_\-64/\-Stack\-Protection.\-h@{rstm/rstm-\/dev/libitm2stm/arch/x86\-\_\-64/\-Stack\-Protection.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{64_2StackProtection_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{64_2StackProtection_8h_ac2e0cfbf9fd0525ab56779522f6b5241}{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}(\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})~((void$\ast$$\ast$)\-\_\-\-\_\-builtin\-\_\-frame\-\_\-address(0) + 2 + ((\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N} -\/ 6) $>$= 0) ? \-: 0)
+\item 
+\#define \hyperlink{64_2StackProtection_8h_add61845f431f1221aa23868e813d412c}{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T}(\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})~((void$\ast$$\ast$)\-\_\-\-\_\-builtin\-\_\-frame\-\_\-address(0) + 2 + ((\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N} -\/ 6) $>$= 0) ? \-: 0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{64_2StackProtection_8h_add61845f431f1221aa23868e813d412c}{\index{64/\-Stack\-Protection.\-h@{64/\-Stack\-Protection.\-h}!C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T@{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T@{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T}!64/StackProtection.h@{64/\-Stack\-Protection.\-h}}
+\subsubsection[{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf N}}
+\end{DoxyParamCaption}
+)~((void$\ast$$\ast$)\-\_\-\-\_\-builtin\-\_\-frame\-\_\-address(0) + 2 + (({\bf N} -\/ 6) $>$= 0) ? \-: 0)}}\label{64_2StackProtection_8h_add61845f431f1221aa23868e813d412c}
+This macro is meant to compute the first stack address that it is safe to write to during rollback or commit. Essentially, it forms the second half of a \mbox{[}T\-O\-P\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K, E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K) range for filtering writes. It is calling-\/convention and architecture specific.
+
+The \char`\"{}+ 2\char`\"{} protects the two words corresponding to the saved caller's frame address and the return address.
+
+The 6 is because I believe that 6 parameters are passed in registers (at least 6 of the kinds of parameters we're concerned with in \hyperlink{namespaceitm2stm}{itm2stm}).
+
+This particular version is for the default calling convention. \hypertarget{64_2StackProtection_8h_ac2e0cfbf9fd0525ab56779522f6b5241}{\index{64/\-Stack\-Protection.\-h@{64/\-Stack\-Protection.\-h}!C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L@{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}}
+\index{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L@{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}!64/StackProtection.h@{64/\-Stack\-Protection.\-h}}
+\subsubsection[{C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-M\-P\-U\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D\-\_\-\-S\-T\-A\-C\-K\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf N}}
+\end{DoxyParamCaption}
+)~((void$\ast$$\ast$)\-\_\-\-\_\-builtin\-\_\-frame\-\_\-address(0) + 2 + (({\bf N} -\/ 6) $>$= 0) ? \-: 0)}}\label{64_2StackProtection_8h_ac2e0cfbf9fd0525ab56779522f6b5241}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information\-This macro is meant to compute the first stack address that it is safe to write to during rollback or commit. Essentially, it forms the second half of a \mbox{[}T\-O\-P\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K, E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K) range for filtering writes. It is calling-\/convention and architecture specific.
+
+The \char`\"{}+ 2\char`\"{} protects the two words corresponding to the saved caller's frame address and the return address.
+
+The 6 is because I believe that 6 parameters are passed in registers (at least 6 of the kinds of parameters we're concerned with in \hyperlink{namespaceitm2stm}{itm2stm}).
+
+This particular version is for I\-T\-M's calling convention, which I {\itshape think} is equivalent to the default calling convention in x86\-\_\-64. 

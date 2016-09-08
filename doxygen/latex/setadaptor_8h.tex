@@ -1,0 +1,111 @@
+\hypertarget{setadaptor_8h}{\section{bench/setadaptor.h File Reference}
+\label{setadaptor_8h}\index{bench/setadaptor.\-h@{bench/setadaptor.\-h}}
+}
+{\ttfamily \#include \char`\"{}translink/list/translist.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}translink/skiplist/transskip.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rstm/list/rstmlist.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}boosting/list/boostinglist.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}boosting/skiplist/boostingskip.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/allocator.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ostm/skiplist/stmskip.\-h\char`\"{}}\\*
+Include dependency graph for setadaptor.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{setadaptor_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{setadaptor_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structSetOperator}{Set\-Operator}
+\item 
+class \hyperlink{classSetAdaptor}{Set\-Adaptor$<$ T $>$}
+\item 
+class \hyperlink{classSetAdaptor_3_01TransList_01_4}{Set\-Adaptor$<$ Trans\-List $>$}
+\item 
+class \hyperlink{classSetAdaptor_3_01trans__skip_01_4}{Set\-Adaptor$<$ trans\-\_\-skip $>$}
+\item 
+class \hyperlink{classSetAdaptor_3_01RSTMList_01_4}{Set\-Adaptor$<$ R\-S\-T\-M\-List $>$}
+\item 
+class \hyperlink{classSetAdaptor_3_01stm__skip_01_4}{Set\-Adaptor$<$ stm\-\_\-skip $>$}
+\item 
+class \hyperlink{classSetAdaptor_3_01BoostingList_01_4}{Set\-Adaptor$<$ Boosting\-List $>$}
+\item 
+class \hyperlink{classSetAdaptor_3_01BoostingSkip_01_4}{Set\-Adaptor$<$ Boosting\-Skip $>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::vector$<$ \hyperlink{structSetOperator}{Set\-Operator} $>$ \hyperlink{setadaptor_8h_a7af6ba4d94b446744e0e49accfb08e24}{Set\-Op\-Array}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0}{Set\-Op\-Type} \{ \\*
+\hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D} = 0, 
+\hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}, 
+\hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D} = 0, 
+\\*
+\hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}
+ \}
+\item 
+enum \hyperlink{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18}{Set\-Op\-Status} \{ \hyperlink{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a5810f7a85a06138a19e6f548273a6927}{L\-I\-V\-E} = 0, 
+\hyperlink{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a9b6890d649a5ed95ee892f10e432e6ac}{C\-O\-M\-M\-I\-T\-T\-E\-D}, 
+\hyperlink{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a3ae09818606786b529d9ca89180fa29a}{A\-B\-O\-R\-T\-E\-D}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{setadaptor_8h_a7af6ba4d94b446744e0e49accfb08e24}{\index{setadaptor.\-h@{setadaptor.\-h}!Set\-Op\-Array@{Set\-Op\-Array}}
+\index{Set\-Op\-Array@{Set\-Op\-Array}!setadaptor.h@{setadaptor.\-h}}
+\subsubsection[{Set\-Op\-Array}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf Set\-Operator}$>$ {\bf Set\-Op\-Array}}}\label{setadaptor_8h_a7af6ba4d94b446744e0e49accfb08e24}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18}{\index{setadaptor.\-h@{setadaptor.\-h}!Set\-Op\-Status@{Set\-Op\-Status}}
+\index{Set\-Op\-Status@{Set\-Op\-Status}!setadaptor.h@{setadaptor.\-h}}
+\subsubsection[{Set\-Op\-Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Set\-Op\-Status}}}\label{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{L\-I\-V\-E@{L\-I\-V\-E}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!L\-I\-V\-E@{L\-I\-V\-E}}\item[{\em 
+\hypertarget{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a5810f7a85a06138a19e6f548273a6927}{L\-I\-V\-E}\label{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a5810f7a85a06138a19e6f548273a6927}
+}]\index{C\-O\-M\-M\-I\-T\-T\-E\-D@{C\-O\-M\-M\-I\-T\-T\-E\-D}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!C\-O\-M\-M\-I\-T\-T\-E\-D@{C\-O\-M\-M\-I\-T\-T\-E\-D}}\item[{\em 
+\hypertarget{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a9b6890d649a5ed95ee892f10e432e6ac}{C\-O\-M\-M\-I\-T\-T\-E\-D}\label{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a9b6890d649a5ed95ee892f10e432e6ac}
+}]\index{A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}}\item[{\em 
+\hypertarget{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a3ae09818606786b529d9ca89180fa29a}{A\-B\-O\-R\-T\-E\-D}\label{setadaptor_8h_a6b2d43e05850464daaa49c72d7642d18a3ae09818606786b529d9ca89180fa29a}
+}]\end{description}
+\end{Desc}
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0}{\index{setadaptor.\-h@{setadaptor.\-h}!Set\-Op\-Type@{Set\-Op\-Type}}
+\index{Set\-Op\-Type@{Set\-Op\-Type}!setadaptor.h@{setadaptor.\-h}}
+\subsubsection[{Set\-Op\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Set\-Op\-Type}}}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\-I\-N\-D@{F\-I\-N\-D}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}
+}]\index{F\-I\-N\-D@{F\-I\-N\-D}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!setadaptor.\-h@{setadaptor.\-h}}\index{setadaptor.\-h@{setadaptor.\-h}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}\label{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}
+}]\end{description}
+\end{Desc}

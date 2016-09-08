@@ -1,0 +1,83 @@
+\hypertarget{structstm_1_1WordLoggingUndoLogEntry}{\section{stm\-:\-:Word\-Logging\-Undo\-Log\-Entry Struct Reference}
+\label{structstm_1_1WordLoggingUndoLogEntry}\index{stm\-::\-Word\-Logging\-Undo\-Log\-Entry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}}
+}
+
+
+{\ttfamily \#include $<$Undo\-Log.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Word\-Logging\-Undo\-Log\-Entry\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{structstm_1_1WordLoggingUndoLogEntry__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1WordLoggingUndoLogEntry_a4a320a4b126844f0be3273bb00306f94}{Word\-Logging\-Undo\-Log\-Entry} (void $\ast$$\ast$\hyperlink{structstm_1_1WordLoggingUndoLogEntry_a5317c0c928e583bb016149d19cc65443}{addr}, void $\ast$\hyperlink{structstm_1_1WordLoggingUndoLogEntry_aa023a8d6d15f6b109aef96ac78a03469}{val})
+\item 
+void \hyperlink{structstm_1_1WordLoggingUndoLogEntry_ae9911b2f06d641f18f9df1a594d0ccd2}{undo} () const 
+\item 
+bool \hyperlink{structstm_1_1WordLoggingUndoLogEntry_a45e2a6bef5264ee30caef1f01376a8c7}{filter} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$$\ast$ \hyperlink{structstm_1_1WordLoggingUndoLogEntry_a5317c0c928e583bb016149d19cc65443}{addr}
+\item 
+void $\ast$ \hyperlink{structstm_1_1WordLoggingUndoLogEntry_aa023a8d6d15f6b109aef96ac78a03469}{val}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The undo log entry is the type stored in the undo log. If we're byte-\/logging then it has a mask, otherwise it's just an address-\/value pair. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1WordLoggingUndoLogEntry_a4a320a4b126844f0be3273bb00306f94}{\index{stm\-::\-Word\-Logging\-Undo\-Log\-Entry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}!Word\-Logging\-Undo\-Log\-Entry@{Word\-Logging\-Undo\-Log\-Entry}}
+\index{Word\-Logging\-Undo\-Log\-Entry@{Word\-Logging\-Undo\-Log\-Entry}!stm::WordLoggingUndoLogEntry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{Word\-Logging\-Undo\-Log\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Word\-Logging\-Undo\-Log\-Entry\-::\-Word\-Logging\-Undo\-Log\-Entry (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{addr, }
+\item[{void $\ast$}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingUndoLogEntry_a4a320a4b126844f0be3273bb00306f94}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1WordLoggingUndoLogEntry_a45e2a6bef5264ee30caef1f01376a8c7}{\index{stm\-::\-Word\-Logging\-Undo\-Log\-Entry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}!filter@{filter}}
+\index{filter@{filter}!stm::WordLoggingUndoLogEntry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Word\-Logging\-Undo\-Log\-Entry\-::filter (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingUndoLogEntry_a45e2a6bef5264ee30caef1f01376a8c7}
+Called in order to find out if the logged word falls within the address range. This is used to both filter out undo operations to the protected stack, and the exception object.
+
+Note that while the wordlog can {\itshape only} be completely filtered out, we don't have support for partial filtering here. This is almost certainly ok, since the stack is word aligned, and an exception object is probably aligned as well, and at least a word large.
+
+The bytelog version /can/ be partially filtered, which is just a masking operation. \hypertarget{structstm_1_1WordLoggingUndoLogEntry_ae9911b2f06d641f18f9df1a594d0ccd2}{\index{stm\-::\-Word\-Logging\-Undo\-Log\-Entry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}!undo@{undo}}
+\index{undo@{undo}!stm::WordLoggingUndoLogEntry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{undo}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Word\-Logging\-Undo\-Log\-Entry\-::undo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingUndoLogEntry_ae9911b2f06d641f18f9df1a594d0ccd2}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1WordLoggingUndoLogEntry_a5317c0c928e583bb016149d19cc65443}{\index{stm\-::\-Word\-Logging\-Undo\-Log\-Entry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}!addr@{addr}}
+\index{addr@{addr}!stm::WordLoggingUndoLogEntry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ stm\-::\-Word\-Logging\-Undo\-Log\-Entry\-::addr}}\label{structstm_1_1WordLoggingUndoLogEntry_a5317c0c928e583bb016149d19cc65443}
+\hypertarget{structstm_1_1WordLoggingUndoLogEntry_aa023a8d6d15f6b109aef96ac78a03469}{\index{stm\-::\-Word\-Logging\-Undo\-Log\-Entry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}!val@{val}}
+\index{val@{val}!stm::WordLoggingUndoLogEntry@{stm\-::\-Word\-Logging\-Undo\-Log\-Entry}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-Word\-Logging\-Undo\-Log\-Entry\-::val}}\label{structstm_1_1WordLoggingUndoLogEntry_aa023a8d6d15f6b109aef96ac78a03469}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{UndoLog_8hpp}{Undo\-Log.\-hpp}\end{DoxyCompactItemize}

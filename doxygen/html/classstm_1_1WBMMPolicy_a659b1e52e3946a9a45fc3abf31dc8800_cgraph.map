@@ -1,0 +1,5 @@
+<map id="stm::WBMMPolicy::onTxAbort" name="stm::WBMMPolicy::onTxAbort">
+<area shape="rect" id="node2" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="254,5,407,32"/>
+<area shape="rect" id="node3" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="259,56,402,83"/>
+<area shape="rect" id="node4" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="255,107,406,133"/>
+</map>

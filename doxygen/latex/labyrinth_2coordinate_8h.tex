@@ -1,0 +1,141 @@
+\hypertarget{labyrinth_2coordinate_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/labyrinth/coordinate.h File Reference}
+\label{labyrinth_2coordinate_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/coordinate.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/coordinate.\-h}}
+}
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for coordinate.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{labyrinth_2coordinate_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{labyrinth_2coordinate_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcoordinate}{coordinate}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structcoordinate}{coordinate} \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$ \hyperlink{labyrinth_2coordinate_8h_a212dbffda57d2267bc073b32d858ab8c}{coordinate\-\_\-alloc} (long x, long y, long z)
+\item 
+void \hyperlink{labyrinth_2coordinate_8h_a9377d7e72170426cfcefbbf99952f0bd}{coordinate\-\_\-free} (\hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$coordinate\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{labyrinth_2coordinate_8h_a06f74d29487653869e897e7293c5786a}{coordinate\-\_\-is\-Equal} (\hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$a\-Ptr, \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$b\-Ptr)
+\item 
+long \hyperlink{labyrinth_2coordinate_8h_a47ffb115afe3e1926f5883cbca9afadb}{coordinate\-\_\-compare\-Pair} (const void $\ast$a\-Ptr, const void $\ast$b\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{labyrinth_2coordinate_8h_a2a971bd9b6b4c575addf38aefd94f47f}{coordinate\-\_\-are\-Adjacent} (\hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$a\-Ptr, \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$b\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{\index{labyrinth/coordinate.\-h@{labyrinth/coordinate.\-h}!coordinate\-\_\-t@{coordinate\-\_\-t}}
+\index{coordinate\-\_\-t@{coordinate\-\_\-t}!labyrinth/coordinate.h@{labyrinth/coordinate.\-h}}
+\subsubsection[{coordinate\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf coordinate}  {\bf coordinate\-\_\-t}}}\label{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}
+
+
+\subsection{Function Documentation}
+\hypertarget{labyrinth_2coordinate_8h_a212dbffda57d2267bc073b32d858ab8c}{\index{labyrinth/coordinate.\-h@{labyrinth/coordinate.\-h}!coordinate\-\_\-alloc@{coordinate\-\_\-alloc}}
+\index{coordinate\-\_\-alloc@{coordinate\-\_\-alloc}!labyrinth/coordinate.h@{labyrinth/coordinate.\-h}}
+\subsubsection[{coordinate\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf coordinate\-\_\-t}$\ast$ coordinate\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z}
+\end{DoxyParamCaption}
+)}}\label{labyrinth_2coordinate_8h_a212dbffda57d2267bc073b32d858ab8c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{labyrinth_2coordinate_8h_a212dbffda57d2267bc073b32d858ab8c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{labyrinth_2coordinate_8h_a2a971bd9b6b4c575addf38aefd94f47f}{\index{labyrinth/coordinate.\-h@{labyrinth/coordinate.\-h}!coordinate\-\_\-are\-Adjacent@{coordinate\-\_\-are\-Adjacent}}
+\index{coordinate\-\_\-are\-Adjacent@{coordinate\-\_\-are\-Adjacent}!labyrinth/coordinate.h@{labyrinth/coordinate.\-h}}
+\subsubsection[{coordinate\-\_\-are\-Adjacent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} coordinate\-\_\-are\-Adjacent (
+\begin{DoxyParamCaption}
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{a\-Ptr, }
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{labyrinth_2coordinate_8h_a2a971bd9b6b4c575addf38aefd94f47f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{labyrinth_2coordinate_8h_a2a971bd9b6b4c575addf38aefd94f47f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{labyrinth_2coordinate_8h_a47ffb115afe3e1926f5883cbca9afadb}{\index{labyrinth/coordinate.\-h@{labyrinth/coordinate.\-h}!coordinate\-\_\-compare\-Pair@{coordinate\-\_\-compare\-Pair}}
+\index{coordinate\-\_\-compare\-Pair@{coordinate\-\_\-compare\-Pair}!labyrinth/coordinate.h@{labyrinth/coordinate.\-h}}
+\subsubsection[{coordinate\-\_\-compare\-Pair}]{\setlength{\rightskip}{0pt plus 5cm}long coordinate\-\_\-compare\-Pair (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{a\-Ptr, }
+\item[{const void $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{labyrinth_2coordinate_8h_a47ffb115afe3e1926f5883cbca9afadb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{labyrinth_2coordinate_8h_a47ffb115afe3e1926f5883cbca9afadb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{labyrinth_2coordinate_8h_a9377d7e72170426cfcefbbf99952f0bd}{\index{labyrinth/coordinate.\-h@{labyrinth/coordinate.\-h}!coordinate\-\_\-free@{coordinate\-\_\-free}}
+\index{coordinate\-\_\-free@{coordinate\-\_\-free}!labyrinth/coordinate.h@{labyrinth/coordinate.\-h}}
+\subsubsection[{coordinate\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void coordinate\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{coordinate\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{labyrinth_2coordinate_8h_a9377d7e72170426cfcefbbf99952f0bd}
+\hypertarget{labyrinth_2coordinate_8h_a06f74d29487653869e897e7293c5786a}{\index{labyrinth/coordinate.\-h@{labyrinth/coordinate.\-h}!coordinate\-\_\-is\-Equal@{coordinate\-\_\-is\-Equal}}
+\index{coordinate\-\_\-is\-Equal@{coordinate\-\_\-is\-Equal}!labyrinth/coordinate.h@{labyrinth/coordinate.\-h}}
+\subsubsection[{coordinate\-\_\-is\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} coordinate\-\_\-is\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{a\-Ptr, }
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{labyrinth_2coordinate_8h_a06f74d29487653869e897e7293c5786a}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{labyrinth_2coordinate_8h_a06f74d29487653869e897e7293c5786a_icgraph}
+\end{center}
+\end{figure}
+
+

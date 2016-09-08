@@ -1,0 +1,288 @@
+\hypertarget{classstm_1_1WBMMPolicy}{\section{stm\-:\-:W\-B\-M\-M\-Policy Class Reference}
+\label{classstm_1_1WBMMPolicy}\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}}
+}
+
+
+{\ttfamily \#include $<$W\-B\-M\-M\-Policy.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:W\-B\-M\-M\-Policy\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstm_1_1WBMMPolicy_a7c1d86570793282ba51d64603c6506ce}{W\-B\-M\-M\-Policy} ()
+\item 
+void \hyperlink{classstm_1_1WBMMPolicy_a60d6f8a5ff5993738e6efce27a7dd698}{set\-I\-D} (uint32\-\_\-t id)
+\item 
+void $\ast$ \hyperlink{classstm_1_1WBMMPolicy_ac481b44aa708acbe85586077c3237f11}{tx\-Alloc} (size\-\_\-t const \&size)
+\item 
+void \hyperlink{classstm_1_1WBMMPolicy_ac79df99314937719eafbf91649c464fd}{tx\-Free} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr})
+\item 
+void \hyperlink{classstm_1_1WBMMPolicy_a66451953ff2a0179699108a0e0b1cba3}{on\-Tx\-Begin} ()
+\item 
+void \hyperlink{classstm_1_1WBMMPolicy_a659b1e52e3946a9a45fc3abf31dc8800}{on\-Tx\-Abort} ()
+\item 
+void \hyperlink{classstm_1_1WBMMPolicy_af174b70b9898c8d900a5a2604cfadc7c}{on\-Tx\-Commit} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstm_1_1WBMMPolicy_aa2aa233946e7b6b1d35b184503b8c9f9}{sched\-For\-Reclaim} (void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr})
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} void \hyperlink{classstm_1_1WBMMPolicy_a80a035e5b8f805d49606613b869ddd3c}{handle\-\_\-full\-\_\-prelimbo} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile uintptr\-\_\-t $\ast$ \hyperlink{classstm_1_1WBMMPolicy_a803a32139ca7a6e1144c8758f6607189}{my\-\_\-ts}
+\item 
+\hyperlink{structstm_1_1limbo__t}{limbo\-\_\-t} $\ast$ \hyperlink{classstm_1_1WBMMPolicy_a78b17de0b63e9b212d112c90da9694de}{prelimbo}
+\item 
+\hyperlink{structstm_1_1limbo__t}{limbo\-\_\-t} $\ast$ \hyperlink{classstm_1_1WBMMPolicy_a0cf9e5b57ea9e60678c86b2183e796ff}{limbo}
+\item 
+\hyperlink{namespacestm_a1f450babd9df052917264e0e0705e90b}{Address\-List} \hyperlink{classstm_1_1WBMMPolicy_a4ead96a9d3a33ea2c60a6802b92d8556}{frees}
+\item 
+\hyperlink{namespacestm_a1f450babd9df052917264e0e0705e90b}{Address\-List} \hyperlink{classstm_1_1WBMMPolicy_a7ccd2760f4092231d9b774fa41b5e8e1}{allocs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classstm_1_1WBMMPolicy}{W\-B\-M\-M\-Policy}
+\begin{DoxyItemize}
+\item log allocs and frees from within a transaction
+\item on abort, free any allocs
+\item on commit, replay any frees
+\item use epochs to prevent reclamation during a doomed transaction's execution 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classstm_1_1WBMMPolicy_a7c1d86570793282ba51d64603c6506ce}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!W\-B\-M\-M\-Policy@{W\-B\-M\-M\-Policy}}
+\index{W\-B\-M\-M\-Policy@{W\-B\-M\-M\-Policy}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{W\-B\-M\-M\-Policy}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-W\-B\-M\-M\-Policy\-::\-W\-B\-M\-M\-Policy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_a7c1d86570793282ba51d64603c6506ce}
+Constructing the Deferred\-Reclamation\-M\-M\-Policy is very easy Null out the timestamp for a particular thread. We only call this at initialization. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classstm_1_1WBMMPolicy_a80a035e5b8f805d49606613b869ddd3c}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!handle\-\_\-full\-\_\-prelimbo@{handle\-\_\-full\-\_\-prelimbo}}
+\index{handle\-\_\-full\-\_\-prelimbo@{handle\-\_\-full\-\_\-prelimbo}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{handle\-\_\-full\-\_\-prelimbo}]{\setlength{\rightskip}{0pt plus 5cm}void W\-B\-M\-M\-Policy\-::handle\-\_\-full\-\_\-prelimbo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_a80a035e5b8f805d49606613b869ddd3c}
+This code is the cornerstone of the \hyperlink{classstm_1_1WBMMPolicy}{W\-B\-M\-M\-Policy}. We buffer lots of frees onto a prelimbo list, and then, at some point, we must give that list a timestamp and tuck it away until the timestamp expires. This is how we do it. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_a80a035e5b8f805d49606613b869ddd3c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_a80a035e5b8f805d49606613b869ddd3c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1WBMMPolicy_a659b1e52e3946a9a45fc3abf31dc8800}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!on\-Tx\-Abort@{on\-Tx\-Abort}}
+\index{on\-Tx\-Abort@{on\-Tx\-Abort}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{on\-Tx\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-W\-B\-M\-M\-Policy\-::on\-Tx\-Abort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_a659b1e52e3946a9a45fc3abf31dc8800}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_a659b1e52e3946a9a45fc3abf31dc8800_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_a659b1e52e3946a9a45fc3abf31dc8800_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1WBMMPolicy_a66451953ff2a0179699108a0e0b1cba3}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!on\-Tx\-Begin@{on\-Tx\-Begin}}
+\index{on\-Tx\-Begin@{on\-Tx\-Begin}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{on\-Tx\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-W\-B\-M\-M\-Policy\-::on\-Tx\-Begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_a66451953ff2a0179699108a0e0b1cba3}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_a66451953ff2a0179699108a0e0b1cba3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1WBMMPolicy_af174b70b9898c8d900a5a2604cfadc7c}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!on\-Tx\-Commit@{on\-Tx\-Commit}}
+\index{on\-Tx\-Commit@{on\-Tx\-Commit}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{on\-Tx\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-W\-B\-M\-M\-Policy\-::on\-Tx\-Commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_af174b70b9898c8d900a5a2604cfadc7c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_af174b70b9898c8d900a5a2604cfadc7c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_af174b70b9898c8d900a5a2604cfadc7c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1WBMMPolicy_aa2aa233946e7b6b1d35b184503b8c9f9}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!sched\-For\-Reclaim@{sched\-For\-Reclaim}}
+\index{sched\-For\-Reclaim@{sched\-For\-Reclaim}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{sched\-For\-Reclaim}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-W\-B\-M\-M\-Policy\-::sched\-For\-Reclaim (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_aa2aa233946e7b6b1d35b184503b8c9f9}
+Schedule a pointer for reclamation. Reclamation will not happen until enough time has passed. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_aa2aa233946e7b6b1d35b184503b8c9f9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_aa2aa233946e7b6b1d35b184503b8c9f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1WBMMPolicy_a60d6f8a5ff5993738e6efce27a7dd698}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!set\-I\-D@{set\-I\-D}}
+\index{set\-I\-D@{set\-I\-D}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{set\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-W\-B\-M\-M\-Policy\-::set\-I\-D (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_a60d6f8a5ff5993738e6efce27a7dd698}
+Since a \hyperlink{structstm_1_1TxThread}{Tx\-Thread} constructs its allocator before it gets its id, we need the \hyperlink{structstm_1_1TxThread}{Tx\-Thread} to inform the allocator of its id from within the constructor, via this method. \hypertarget{classstm_1_1WBMMPolicy_ac481b44aa708acbe85586077c3237f11}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!tx\-Alloc@{tx\-Alloc}}
+\index{tx\-Alloc@{tx\-Alloc}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{tx\-Alloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-W\-B\-M\-M\-Policy\-::tx\-Alloc (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t const \&}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_ac481b44aa708acbe85586077c3237f11}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_ac481b44aa708acbe85586077c3237f11_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classstm_1_1WBMMPolicy_ac79df99314937719eafbf91649c464fd}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!tx\-Free@{tx\-Free}}
+\index{tx\-Free@{tx\-Free}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{tx\-Free}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-W\-B\-M\-M\-Policy\-::tx\-Free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1WBMMPolicy_ac79df99314937719eafbf91649c464fd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classstm_1_1WBMMPolicy_ac79df99314937719eafbf91649c464fd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classstm_1_1WBMMPolicy_a7ccd2760f4092231d9b774fa41b5e8e1}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!allocs@{allocs}}
+\index{allocs@{allocs}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{allocs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Address\-List} stm\-::\-W\-B\-M\-M\-Policy\-::allocs\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_a7ccd2760f4092231d9b774fa41b5e8e1}
+\hypertarget{classstm_1_1WBMMPolicy_a4ead96a9d3a33ea2c60a6802b92d8556}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!frees@{frees}}
+\index{frees@{frees}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{frees}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Address\-List} stm\-::\-W\-B\-M\-M\-Policy\-::frees\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_a4ead96a9d3a33ea2c60a6802b92d8556}
+\hypertarget{classstm_1_1WBMMPolicy_a0cf9e5b57ea9e60678c86b2183e796ff}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!limbo@{limbo}}
+\index{limbo@{limbo}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{limbo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf limbo\-\_\-t}$\ast$ stm\-::\-W\-B\-M\-M\-Policy\-::limbo\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_a0cf9e5b57ea9e60678c86b2183e796ff}
+\hypertarget{classstm_1_1WBMMPolicy_a803a32139ca7a6e1144c8758f6607189}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!my\-\_\-ts@{my\-\_\-ts}}
+\index{my\-\_\-ts@{my\-\_\-ts}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{my\-\_\-ts}]{\setlength{\rightskip}{0pt plus 5cm}volatile uintptr\-\_\-t$\ast$ stm\-::\-W\-B\-M\-M\-Policy\-::my\-\_\-ts\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_a803a32139ca7a6e1144c8758f6607189}
+\hypertarget{classstm_1_1WBMMPolicy_a78b17de0b63e9b212d112c90da9694de}{\index{stm\-::\-W\-B\-M\-M\-Policy@{stm\-::\-W\-B\-M\-M\-Policy}!prelimbo@{prelimbo}}
+\index{prelimbo@{prelimbo}!stm::WBMMPolicy@{stm\-::\-W\-B\-M\-M\-Policy}}
+\subsubsection[{prelimbo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf limbo\-\_\-t}$\ast$ stm\-::\-W\-B\-M\-M\-Policy\-::prelimbo\hspace{0.3cm}{\ttfamily [private]}}}\label{classstm_1_1WBMMPolicy_a78b17de0b63e9b212d112c90da9694de}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{WBMMPolicy_8hpp}{W\-B\-M\-M\-Policy.\-hpp}\item 
+rstm/rstm-\/dev/libstm/\hyperlink{WBMMPolicy_8cpp}{W\-B\-M\-M\-Policy.\-cpp}\end{DoxyCompactItemize}

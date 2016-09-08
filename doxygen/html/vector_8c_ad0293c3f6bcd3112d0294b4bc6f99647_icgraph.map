@@ -1,0 +1,23 @@
+<map id="vector_alloc" name="vector_alloc">
+<area shape="rect" id="node2" href="$adtree_8c.html#a8f884de8d63d0f3e4ed222e2773a0970" title="allocNode" alt="" coords="164,56,244,83"/>
+<area shape="rect" id="node7" href="$data_8h.html#a0f45b98c6cac17904d9daf25fbdc1dc9" title="data_generate" alt="" coords="309,157,413,184"/>
+<area shape="rect" id="node8" href="$learner_8h.html#a643517a90c64064dfb94cb9cb8d6eddf" title="learner_score" alt="" coords="311,259,411,285"/>
+<area shape="rect" id="node12" href="$net_8h.html#a0e1584818d0f7bb3619e74222bc3f918" title="net_alloc" alt="" coords="167,208,241,235"/>
+<area shape="rect" id="node14" href="$segments_8h.html#a002cee3fe004e15d93de32cce21e7c95" title="segments_alloc" alt="" coords="147,309,261,336"/>
+<area shape="rect" id="node16" href="$detector_8h.html#a6b004a6f665b307d4c15f042806e4fc0" title="detector_alloc" alt="" coords="310,411,413,437"/>
+<area shape="rect" id="node18" href="$intruder_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="656,436,712,463"/>
+<area shape="rect" id="node19" href="$dictionary_8h.html#aaa33d443a04012470ce383597e3e45e1" title="dictionary_alloc" alt="" coords="148,461,260,488"/>
+<area shape="rect" id="node20" href="$stream_8h.html#aa29c66520e741eb346620fc26900adf6" title="stream_alloc" alt="" coords="473,512,569,539"/>
+<area shape="rect" id="node21" href="$maze_8h.html#aa3aa9180f10aa9397ef1096806431345" title="maze_alloc" alt="" coords="160,563,248,589"/>
+<area shape="rect" id="node3" href="$adtree_8c.html#a2524e945b88ac537d3646587638ecc12" title="makeNode" alt="" coords="319,31,404,57"/>
+<area shape="rect" id="node4" href="$adtree_8c.html#a62e4644f699e4c7a4fa7b1c42489ca0e" title="makeVary" alt="" coords="481,5,562,32"/>
+<area shape="rect" id="node5" href="$adtree_8h.html#a46c5e833c1bac78330c62d54d924f065" title="adtree_make" alt="" coords="787,56,885,83"/>
+<area shape="rect" id="node6" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="933,183,989,209"/>
+<area shape="rect" id="node9" href="$bayes_8c.html#aa39a74293929705f5dfd47a76641d12a" title="score" alt="" coords="494,259,549,285"/>
+<area shape="rect" id="node10" href="$learner_8c.html#a5a45fbc491ab273140631145a6e82e54" title="createTaskList" alt="" coords="630,259,738,285"/>
+<area shape="rect" id="node11" href="$learner_8h.html#a23d451d4d355a14fa7c9735304ba4d95" title="learner_run" alt="" coords="793,259,879,285"/>
+<area shape="rect" id="node13" href="$learner_8h.html#aea1955f8471f02d66c6a39136d621f5b" title="learner_alloc" alt="" coords="314,208,409,235"/>
+<area shape="rect" id="node15" href="$genome_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="333,309,389,336"/>
+<area shape="rect" id="node17" href="$stream_8h.html#a1edfb122c99ded84c9f8239b62ed56c8" title="stream_generate" alt="" coords="462,411,581,437"/>
+<area shape="rect" id="node22" href="$labyrinth_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="333,563,389,589"/>
+</map>

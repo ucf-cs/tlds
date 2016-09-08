@@ -1,0 +1,9 @@
+<map id="BoostingList::OnAbort" name="BoostingList::OnAbort">
+<area shape="rect" id="node2" href="$classLockfreeList.html#a8177923608d471f9fddab408d7217994" title="LockfreeList::Insert" alt="" coords="207,5,342,32"/>
+<area shape="rect" id="node6" href="$classLockfreeList.html#a8be9fbf09485d88165f5a3ff614bb121" title="LockfreeList::Delete" alt="" coords="205,56,344,83"/>
+<area shape="rect" id="node8" href="$classLockKey.html#acb4b0e1caa6571dae666f3bcbb367df0" title="LockKey::Unlock" alt="" coords="213,107,336,133"/>
+<area shape="rect" id="node3" href="$classLockfreeList.html#ad06b1c38c8c92b50e29876fe8d1738c3" title="LockfreeList::LocatePred" alt="" coords="393,5,559,32"/>
+<area shape="rect" id="node4" href="$lockfreelist_8cc.html#af3132c9d8404c5dc002b587f7318bdab" title="is_marked_ref" alt="" coords="620,5,724,32"/>
+<area shape="rect" id="node5" href="$lockfreelist_8cc.html#ae7e018e2dc9f9f93414a68f3e0bbd14c" title="get_unmarked_ref" alt="" coords="609,56,735,83"/>
+<area shape="rect" id="node7" href="$lockfreelist_8cc.html#ab5987734a79eab6f7785885ac14c1285" title="get_marked_ref" alt="" coords="420,107,532,133"/>
+</map>

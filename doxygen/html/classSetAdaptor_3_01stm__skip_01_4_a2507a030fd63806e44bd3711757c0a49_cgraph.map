@@ -1,0 +1,16 @@
+<map id="SetAdaptor&lt; stm_skip &gt;::~SetAdaptor" name="SetAdaptor&lt; stm_skip &gt;::~SetAdaptor">
+<area shape="rect" id="node2" href="$stmskip_8cc.html#a35710eb6d2d01ed318faa7820460ec2e" title="destory_stmskip_subsystem" alt="" coords="205,233,395,260"/>
+<area shape="rect" id="node3" href="$ptst_8c.html#a9f490f3eb71074b856eb2206f97c6cb1" title="fr_critical_enter" alt="" coords="443,183,554,209"/>
+<area shape="rect" id="node13" href="$stm_8h.html#a11462d544b66c8e0e0324e88dd32650d" title="free_stm" alt="" coords="462,233,535,260"/>
+<area shape="rect" id="node15" href="$stmskip_8cc.html#a5db6833ad98c08797c5dffd75d264833" title="fr_critical_exit" alt="" coords="447,284,550,311"/>
+<area shape="rect" id="node4" href="$gc_8c.html#aa06f5acb271ed4c9afcc728f3ceae52f" title="fr_gc_init" alt="" coords="644,81,719,108"/>
+<area shape="rect" id="node11" href="$gc_8c.html#a1b011e952f943e62b80e39768305d3fb" title="fr_gc_enter" alt="" coords="823,196,910,223"/>
+<area shape="rect" id="node5" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="1155,81,1287,108"/>
+<area shape="rect" id="node8" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="809,107,925,133"/>
+<area shape="rect" id="node10" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="974,5,1106,32"/>
+<area shape="rect" id="node6" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="1337,157,1471,184"/>
+<area shape="rect" id="node7" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="1337,81,1471,108"/>
+<area shape="rect" id="node9" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="979,107,1101,133"/>
+<area shape="rect" id="node12" href="$gc_8c.html#a8c8094a35212fa8ed75ed9a4a38c7b9c" title="gc_reclaim" alt="" coords="997,208,1083,235"/>
+<area shape="rect" id="node14" href="$gc_8c.html#a771b27352be09100c9ba0d70b3ea6be7" title="fr_gc_remove_allocator" alt="" coords="603,233,760,260"/>
+</map>

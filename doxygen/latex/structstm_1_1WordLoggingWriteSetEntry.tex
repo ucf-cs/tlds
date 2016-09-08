@@ -1,0 +1,124 @@
+\hypertarget{structstm_1_1WordLoggingWriteSetEntry}{\section{stm\-:\-:Word\-Logging\-Write\-Set\-Entry Struct Reference}
+\label{structstm_1_1WordLoggingWriteSetEntry}\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+}
+
+
+{\ttfamily \#include $<$Write\-Set.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Word\-Logging\-Write\-Set\-Entry\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{structstm_1_1WordLoggingWriteSetEntry__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1WordLoggingWriteSetEntry_aafb8d936edd5c4553c640288adff67aa}{Word\-Logging\-Write\-Set\-Entry} (void $\ast$$\ast$paddr, void $\ast$pval)
+\item 
+void \hyperlink{structstm_1_1WordLoggingWriteSetEntry_ad25a91c48b04b5468b8c531852a8c8cb}{update} (const \hyperlink{structstm_1_1WordLoggingWriteSetEntry}{Word\-Logging\-Write\-Set\-Entry} \&rhs)
+\item 
+bool \hyperlink{structstm_1_1WordLoggingWriteSetEntry_ad4f2d8c2d109a81a6eaddd58a0341fef}{filter} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\item 
+void \hyperlink{structstm_1_1WordLoggingWriteSetEntry_a4b364b08c9dd468cb76b4a6cc99a97f4}{writeback} () const 
+\item 
+void \hyperlink{structstm_1_1WordLoggingWriteSetEntry_a20a5c10674dd8076eb47b1de667c3103}{rollback} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$$\ast$ \hyperlink{structstm_1_1WordLoggingWriteSetEntry_acc06b16d9ca580dc91e03d658e05d05d}{addr}
+\item 
+void $\ast$ \hyperlink{structstm_1_1WordLoggingWriteSetEntry_a6f319c5758cc820fb62749bbef45697c}{val}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classstm_1_1WriteSet}{Write\-Set} implementation is heavily influenced by the configuration parameters, S\-T\-M\-\_\-\-W\-S\-\_\-(W\-O\-R\-D/\-B\-Y\-T\-E)L\-O\-G, S\-T\-M\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K, and S\-T\-M\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W. This means that much of this file is ifdeffed accordingly. The log entry type when we're word-\/logging is pretty trivial, and just logs address/value pairs. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1WordLoggingWriteSetEntry_aafb8d936edd5c4553c640288adff67aa}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!Word\-Logging\-Write\-Set\-Entry@{Word\-Logging\-Write\-Set\-Entry}}
+\index{Word\-Logging\-Write\-Set\-Entry@{Word\-Logging\-Write\-Set\-Entry}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{Word\-Logging\-Write\-Set\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::\-Word\-Logging\-Write\-Set\-Entry (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{paddr, }
+\item[{void $\ast$}]{pval}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingWriteSetEntry_aafb8d936edd5c4553c640288adff67aa}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1WordLoggingWriteSetEntry_ad4f2d8c2d109a81a6eaddd58a0341fef}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!filter@{filter}}
+\index{filter@{filter}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::filter (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingWriteSetEntry_ad4f2d8c2d109a81a6eaddd58a0341fef}
+Check to see if the entry is completely contained within the given address range. We have some preconditions here w.\-r.\-t. alignment and size of the range. It has to be at least word aligned and word sized. This is currently only used with stack addresses, so we don't include asserts because we don't want to pay for them in the common case writeback loop. \hypertarget{structstm_1_1WordLoggingWriteSetEntry_a20a5c10674dd8076eb47b1de667c3103}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!rollback@{rollback}}
+\index{rollback@{rollback}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{rollback}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::rollback (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingWriteSetEntry_a20a5c10674dd8076eb47b1de667c3103}
+Called during rollback if there is an exception object that we need to perform writes to. The address range is the range of addresses that we're looking for. If this log entry is contained in the range, we perform the writeback.
+
+N\-B\-: We're assuming a pretty well defined address range, in terms of size and alignment here, because the word-\/based writeset can only handle word-\/sized data. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1WordLoggingWriteSetEntry_a20a5c10674dd8076eb47b1de667c3103_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1WordLoggingWriteSetEntry_ad25a91c48b04b5468b8c531852a8c8cb}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!update@{update}}
+\index{update@{update}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::update (
+\begin{DoxyParamCaption}
+\item[{const {\bf Word\-Logging\-Write\-Set\-Entry} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingWriteSetEntry_ad25a91c48b04b5468b8c531852a8c8cb}
+Called when we are W\-A\-W an address, and we want to coalesce the write. Trivial for the word-\/based writeset, but complicated for the byte-\/based version. \hypertarget{structstm_1_1WordLoggingWriteSetEntry_a4b364b08c9dd468cb76b4a6cc99a97f4}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!writeback@{writeback}}
+\index{writeback@{writeback}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{writeback}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::writeback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1WordLoggingWriteSetEntry_a4b364b08c9dd468cb76b4a6cc99a97f4}
+Called during writeback to actually perform the logged write. This is trivial for the word-\/based set, but the byte-\/based set is more complicated. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1WordLoggingWriteSetEntry_a4b364b08c9dd468cb76b4a6cc99a97f4_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1WordLoggingWriteSetEntry_acc06b16d9ca580dc91e03d658e05d05d}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!addr@{addr}}
+\index{addr@{addr}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::addr}}\label{structstm_1_1WordLoggingWriteSetEntry_acc06b16d9ca580dc91e03d658e05d05d}
+\hypertarget{structstm_1_1WordLoggingWriteSetEntry_a6f319c5758cc820fb62749bbef45697c}{\index{stm\-::\-Word\-Logging\-Write\-Set\-Entry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}!val@{val}}
+\index{val@{val}!stm::WordLoggingWriteSetEntry@{stm\-::\-Word\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-Word\-Logging\-Write\-Set\-Entry\-::val}}\label{structstm_1_1WordLoggingWriteSetEntry_a6f319c5758cc820fb62749bbef45697c}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{WriteSet_8hpp}{Write\-Set.\-hpp}\end{DoxyCompactItemize}

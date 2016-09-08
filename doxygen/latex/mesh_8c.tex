@@ -1,0 +1,372 @@
+\hypertarget{mesh_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/yada/mesh.c File Reference}
+\label{mesh_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/mesh.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/mesh.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}element.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}set.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+Include dependency graph for mesh.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmesh}{mesh}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$ \hyperlink{mesh_8c_a8a3880badf1fc87c04f37b9ec617faca}{mesh\-\_\-alloc} ()
+\item 
+void \hyperlink{mesh_8c_a29408e8c070d214b85b6f1ad20461f45}{mesh\-\_\-free} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr)
+\item 
+void \hyperlink{mesh_8c_aad7f19da2c7732d977e683849a724e5f}{mesh\-\_\-insert} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$element\-Ptr, M\-A\-P\-\_\-\-T $\ast$edge\-Map\-Ptr)
+\item 
+void \hyperlink{mesh_8c_ad9e9e0acedab6a52a2e2cc16817972e3}{T\-Mmesh\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$element\-Ptr, M\-A\-P\-\_\-\-T $\ast$edge\-Map\-Ptr)
+\item 
+void \hyperlink{mesh_8c_ae0376440233c179503292734d249dd84}{T\-Mmesh\-\_\-remove} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$element\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{mesh_8c_a85686e2f5e23426ba7a3ab6a535adaf4}{T\-Mmesh\-\_\-insert\-Boundary} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{element_8h_aedb20c9c3aef6f612ef2df5780639744}{edge\-\_\-t} $\ast$boundary\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{mesh_8c_a01da30eb7e499ba0f8b59e39ddfbae8e}{T\-Mmesh\-\_\-remove\-Boundary} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{element_8h_aedb20c9c3aef6f612ef2df5780639744}{edge\-\_\-t} $\ast$boundary\-Ptr)
+\item 
+static void \hyperlink{mesh_8c_a0351e3ec738e05a319ead0e2e44353d0}{create\-Element} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{labyrinth_2coordinate_8h_ab8828f39e3b8bce05f072dc54206a25c}{coordinate\-\_\-t} $\ast$coordinates, long num\-Coordinate, M\-A\-P\-\_\-\-T $\ast$edge\-Map\-Ptr)
+\item 
+long \hyperlink{mesh_8c_a0ee17a9bc1b62a498c98f8e0dc41d902}{mesh\-\_\-read} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, char $\ast$file\-Name\-Prefix)
+\item 
+\hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$ \hyperlink{mesh_8c_afa7cddeb9ce37a42bd6a6bb2a5569c59}{mesh\-\_\-get\-Bad} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr)
+\item 
+void \hyperlink{mesh_8c_a17f3aa242586586649a810a5cb91584c}{mesh\-\_\-shuffle\-Bad} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{mesh_8c_afb91c14cea2629ce82a85ab0f37da14b}{mesh\-\_\-check} (\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr, long expected\-Num\-Element)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} mesh\-\_\-listcompareedge \& \hyperlink{mesh_8c_a519fe745b862a1724fff81342c184200}{element\-\_\-list\-Compare\-Edge}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mesh_8c_a0351e3ec738e05a319ead0e2e44353d0}{\index{mesh.\-c@{mesh.\-c}!create\-Element@{create\-Element}}
+\index{create\-Element@{create\-Element}!mesh.c@{mesh.\-c}}
+\subsubsection[{create\-Element}]{\setlength{\rightskip}{0pt plus 5cm}static void create\-Element (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf coordinate\-\_\-t} $\ast$}]{coordinates, }
+\item[{long}]{num\-Coordinate, }
+\item[{M\-A\-P\-\_\-\-T $\ast$}]{edge\-Map\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{mesh_8c_a0351e3ec738e05a319ead0e2e44353d0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_a0351e3ec738e05a319ead0e2e44353d0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{mesh_8c_a0351e3ec738e05a319ead0e2e44353d0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_a8a3880badf1fc87c04f37b9ec617faca}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-alloc@{mesh\-\_\-alloc}}
+\index{mesh\-\_\-alloc@{mesh\-\_\-alloc}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\-\_\-t}$\ast$ mesh\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_a8a3880badf1fc87c04f37b9ec617faca}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{mesh_8c_a8a3880badf1fc87c04f37b9ec617faca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{mesh_8c_a8a3880badf1fc87c04f37b9ec617faca_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_afb91c14cea2629ce82a85ab0f37da14b}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-check@{mesh\-\_\-check}}
+\index{mesh\-\_\-check@{mesh\-\_\-check}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} mesh\-\_\-check (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{long}]{expected\-Num\-Element}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_afb91c14cea2629ce82a85ab0f37da14b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_afb91c14cea2629ce82a85ab0f37da14b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{mesh_8c_afb91c14cea2629ce82a85ab0f37da14b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_a29408e8c070d214b85b6f1ad20461f45}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-free@{mesh\-\_\-free}}
+\index{mesh\-\_\-free@{mesh\-\_\-free}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_a29408e8c070d214b85b6f1ad20461f45}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{mesh_8c_a29408e8c070d214b85b6f1ad20461f45_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_afa7cddeb9ce37a42bd6a6bb2a5569c59}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-get\-Bad@{mesh\-\_\-get\-Bad}}
+\index{mesh\-\_\-get\-Bad@{mesh\-\_\-get\-Bad}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-get\-Bad}]{\setlength{\rightskip}{0pt plus 5cm}{\bf element\-\_\-t}$\ast$ mesh\-\_\-get\-Bad (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_afa7cddeb9ce37a42bd6a6bb2a5569c59}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{mesh_8c_afa7cddeb9ce37a42bd6a6bb2a5569c59_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{mesh_8c_afa7cddeb9ce37a42bd6a6bb2a5569c59_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_aad7f19da2c7732d977e683849a724e5f}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-insert@{mesh\-\_\-insert}}
+\index{mesh\-\_\-insert@{mesh\-\_\-insert}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf element\-\_\-t} $\ast$}]{element\-Ptr, }
+\item[{M\-A\-P\-\_\-\-T $\ast$}]{edge\-Map\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_aad7f19da2c7732d977e683849a724e5f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_aad7f19da2c7732d977e683849a724e5f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_aad7f19da2c7732d977e683849a724e5f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_a0ee17a9bc1b62a498c98f8e0dc41d902}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-read@{mesh\-\_\-read}}
+\index{mesh\-\_\-read@{mesh\-\_\-read}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}long mesh\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{char $\ast$}]{file\-Name\-Prefix}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_a0ee17a9bc1b62a498c98f8e0dc41d902}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_a0ee17a9bc1b62a498c98f8e0dc41d902_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{mesh_8c_a0ee17a9bc1b62a498c98f8e0dc41d902_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_a17f3aa242586586649a810a5cb91584c}{\index{mesh.\-c@{mesh.\-c}!mesh\-\_\-shuffle\-Bad@{mesh\-\_\-shuffle\-Bad}}
+\index{mesh\-\_\-shuffle\-Bad@{mesh\-\_\-shuffle\-Bad}!mesh.c@{mesh.\-c}}
+\subsubsection[{mesh\-\_\-shuffle\-Bad}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-shuffle\-Bad (
+\begin{DoxyParamCaption}
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_a17f3aa242586586649a810a5cb91584c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_a17f3aa242586586649a810a5cb91584c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_a17f3aa242586586649a810a5cb91584c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_ad9e9e0acedab6a52a2e2cc16817972e3}{\index{mesh.\-c@{mesh.\-c}!T\-Mmesh\-\_\-insert@{T\-Mmesh\-\_\-insert}}
+\index{T\-Mmesh\-\_\-insert@{T\-Mmesh\-\_\-insert}!mesh.c@{mesh.\-c}}
+\subsubsection[{T\-Mmesh\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mmesh\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf element\-\_\-t} $\ast$}]{element\-Ptr, }
+\item[{M\-A\-P\-\_\-\-T $\ast$}]{edge\-Map\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_ad9e9e0acedab6a52a2e2cc16817972e3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{mesh_8c_ad9e9e0acedab6a52a2e2cc16817972e3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_a85686e2f5e23426ba7a3ab6a535adaf4}{\index{mesh.\-c@{mesh.\-c}!T\-Mmesh\-\_\-insert\-Boundary@{T\-Mmesh\-\_\-insert\-Boundary}}
+\index{T\-Mmesh\-\_\-insert\-Boundary@{T\-Mmesh\-\_\-insert\-Boundary}!mesh.c@{mesh.\-c}}
+\subsubsection[{T\-Mmesh\-\_\-insert\-Boundary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mmesh\-\_\-insert\-Boundary (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf edge\-\_\-t} $\ast$}]{boundary\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_a85686e2f5e23426ba7a3ab6a535adaf4}
+\hypertarget{mesh_8c_ae0376440233c179503292734d249dd84}{\index{mesh.\-c@{mesh.\-c}!T\-Mmesh\-\_\-remove@{T\-Mmesh\-\_\-remove}}
+\index{T\-Mmesh\-\_\-remove@{T\-Mmesh\-\_\-remove}!mesh.c@{mesh.\-c}}
+\subsubsection[{T\-Mmesh\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mmesh\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf element\-\_\-t} $\ast$}]{element\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_ae0376440233c179503292734d249dd84}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8c_ae0376440233c179503292734d249dd84_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8c_a01da30eb7e499ba0f8b59e39ddfbae8e}{\index{mesh.\-c@{mesh.\-c}!T\-Mmesh\-\_\-remove\-Boundary@{T\-Mmesh\-\_\-remove\-Boundary}}
+\index{T\-Mmesh\-\_\-remove\-Boundary@{T\-Mmesh\-\_\-remove\-Boundary}!mesh.c@{mesh.\-c}}
+\subsubsection[{T\-Mmesh\-\_\-remove\-Boundary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mmesh\-\_\-remove\-Boundary (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr, }
+\item[{{\bf edge\-\_\-t} $\ast$}]{boundary\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{mesh_8c_a01da30eb7e499ba0f8b59e39ddfbae8e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{mesh_8c_a519fe745b862a1724fff81342c184200}{\index{mesh.\-c@{mesh.\-c}!element\-\_\-list\-Compare\-Edge@{element\-\_\-list\-Compare\-Edge}}
+\index{element\-\_\-list\-Compare\-Edge@{element\-\_\-list\-Compare\-Edge}!mesh.c@{mesh.\-c}}
+\subsubsection[{element\-\_\-list\-Compare\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} mesh\-\_\-listcompareedge\& element\-\_\-list\-Compare\-Edge}}\label{mesh_8c_a519fe745b862a1724fff81342c184200}

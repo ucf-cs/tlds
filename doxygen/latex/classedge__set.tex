@@ -1,0 +1,218 @@
+\hypertarget{classedge__set}{\section{edge\-\_\-set Class Reference}
+\label{classedge__set}\index{edge\-\_\-set@{edge\-\_\-set}}
+}
+
+
+{\ttfamily \#include $<$edge\-\_\-set.\-hpp$>$}
+
+
+
+Collaboration diagram for edge\-\_\-set\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classedge__set__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void \hyperlink{classedge__set_a412368ce88c3703ba3160a84c85a7ba9}{insert} (\hyperlink{classedge}{edge} $\ast$e)
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void \hyperlink{classedge__set_a4cd26bf920c05e300c6856848870aeb9}{erase} (\hyperlink{classedge}{edge} $\ast$e)
+\item 
+bool \hyperlink{classedge__set_a6c7d0d9c29b7d8422942bd40e038d590}{contains} (\hyperlink{classedge}{edge} $\ast$e) const 
+\item 
+void \hyperlink{classedge__set_aad055d2afc3506ec7b62e2a42414dc04}{print\-\_\-all} () const 
+\item 
+\hyperlink{classedge__set_ae1ed923da6246a7e70030404e4c8af2d}{edge\-\_\-set} ()
+\item 
+void \hyperlink{classedge__set_a7fad8e778b5c76c07472464eb95cba82}{help\-\_\-initialize} (int col)
+\item 
+\hyperlink{classedge__set_ad26a9ebf7424e70d566b92fc07139c94}{$\sim$edge\-\_\-set} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{classtm__hash__set}{tm\-\_\-hash\-\_\-set}$<$ \hyperlink{classedge}{edge} $\ast$ $>$ \hyperlink{classedge__set_a73211eddc41cffe43f31f9d5924c8843}{segment\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classedge__set_a73211eddc41cffe43f31f9d5924c8843}{segment\-\_\-t} $\ast$$\ast$ \hyperlink{classedge__set_a27bd0bf58ec76f7b3b1390c6fe8fe809}{segments}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classedge__set_a73211eddc41cffe43f31f9d5924c8843}{\index{edge\-\_\-set@{edge\-\_\-set}!segment\-\_\-t@{segment\-\_\-t}}
+\index{segment\-\_\-t@{segment\-\_\-t}!edge_set@{edge\-\_\-set}}
+\subsubsection[{segment\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf tm\-\_\-hash\-\_\-set}$<${\bf edge}$\ast$$>$ {\bf edge\-\_\-set\-::segment\-\_\-t}\hspace{0.3cm}{\ttfamily [private]}}}\label{classedge__set_a73211eddc41cffe43f31f9d5924c8843}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classedge__set_ae1ed923da6246a7e70030404e4c8af2d}{\index{edge\-\_\-set@{edge\-\_\-set}!edge\-\_\-set@{edge\-\_\-set}}
+\index{edge\-\_\-set@{edge\-\_\-set}!edge_set@{edge\-\_\-set}}
+\subsubsection[{edge\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}edge\-\_\-set\-::edge\-\_\-set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classedge__set_ae1ed923da6246a7e70030404e4c8af2d}
+\hypertarget{classedge__set_ad26a9ebf7424e70d566b92fc07139c94}{\index{edge\-\_\-set@{edge\-\_\-set}!$\sim$edge\-\_\-set@{$\sim$edge\-\_\-set}}
+\index{$\sim$edge\-\_\-set@{$\sim$edge\-\_\-set}!edge_set@{edge\-\_\-set}}
+\subsubsection[{$\sim$edge\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}edge\-\_\-set\-::$\sim$edge\-\_\-set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classedge__set_ad26a9ebf7424e70d566b92fc07139c94}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classedge__set_a6c7d0d9c29b7d8422942bd40e038d590}{\index{edge\-\_\-set@{edge\-\_\-set}!contains@{contains}}
+\index{contains@{contains}!edge_set@{edge\-\_\-set}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}bool edge\-\_\-set\-::contains (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{e}
+\end{DoxyParamCaption}
+) const}}\label{classedge__set_a6c7d0d9c29b7d8422942bd40e038d590}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classedge__set_a6c7d0d9c29b7d8422942bd40e038d590_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classedge__set_a4cd26bf920c05e300c6856848870aeb9}{\index{edge\-\_\-set@{edge\-\_\-set}!erase@{erase}}
+\index{erase@{erase}!edge_set@{edge\-\_\-set}}
+\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}void edge\-\_\-set\-::erase (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{classedge__set_a4cd26bf920c05e300c6856848870aeb9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classedge__set_a4cd26bf920c05e300c6856848870aeb9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classedge__set_a4cd26bf920c05e300c6856848870aeb9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classedge__set_a7fad8e778b5c76c07472464eb95cba82}{\index{edge\-\_\-set@{edge\-\_\-set}!help\-\_\-initialize@{help\-\_\-initialize}}
+\index{help\-\_\-initialize@{help\-\_\-initialize}!edge_set@{edge\-\_\-set}}
+\subsubsection[{help\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}void edge\-\_\-set\-::help\-\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{col}
+\end{DoxyParamCaption}
+)}}\label{classedge__set_a7fad8e778b5c76c07472464eb95cba82}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classedge__set_a7fad8e778b5c76c07472464eb95cba82_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classedge__set_a412368ce88c3703ba3160a84c85a7ba9}{\index{edge\-\_\-set@{edge\-\_\-set}!insert@{insert}}
+\index{insert@{insert}!edge_set@{edge\-\_\-set}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void edge\-\_\-set\-::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{classedge__set_a412368ce88c3703ba3160a84c85a7ba9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classedge__set_a412368ce88c3703ba3160a84c85a7ba9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classedge__set_a412368ce88c3703ba3160a84c85a7ba9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classedge__set_aad055d2afc3506ec7b62e2a42414dc04}{\index{edge\-\_\-set@{edge\-\_\-set}!print\-\_\-all@{print\-\_\-all}}
+\index{print\-\_\-all@{print\-\_\-all}!edge_set@{edge\-\_\-set}}
+\subsubsection[{print\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}void edge\-\_\-set\-::print\-\_\-all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classedge__set_aad055d2afc3506ec7b62e2a42414dc04}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classedge__set_aad055d2afc3506ec7b62e2a42414dc04_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classedge__set_aad055d2afc3506ec7b62e2a42414dc04_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classedge__set_a27bd0bf58ec76f7b3b1390c6fe8fe809}{\index{edge\-\_\-set@{edge\-\_\-set}!segments@{segments}}
+\index{segments@{segments}!edge_set@{edge\-\_\-set}}
+\subsubsection[{segments}]{\setlength{\rightskip}{0pt plus 5cm}{\bf segment\-\_\-t}$\ast$$\ast$ edge\-\_\-set\-::segments\hspace{0.3cm}{\ttfamily [private]}}}\label{classedge__set_a27bd0bf58ec76f7b3b1390c6fe8fe809}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{edge__set_8hpp}{edge\-\_\-set.\-hpp}\item 
+rstm/rstm-\/dev/mesh/\hyperlink{edge__set_8cpp}{edge\-\_\-set.\-cpp}\end{DoxyCompactItemize}

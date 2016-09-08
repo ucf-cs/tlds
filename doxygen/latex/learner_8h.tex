@@ -1,0 +1,195 @@
+\hypertarget{learner_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/learner.h File Reference}
+\label{learner_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/learner.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/learner.\-h}}
+}
+{\ttfamily \#include \char`\"{}adtree.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}net.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}query.\-h\char`\"{}}\\*
+Include dependency graph for learner.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlearner}{learner}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{learner_8h_af89f60b07247176687889ade776c8e10}{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E}~(64)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structlearner__task}{learner\-\_\-task} \hyperlink{learner_8h_a388a4b573490ce9e0436ce81867cbd38}{learner\-\_\-task\-\_\-t}
+\item 
+typedef struct \hyperlink{structlearner}{learner} \hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$ \hyperlink{learner_8h_aea1955f8471f02d66c6a39136d621f5b}{learner\-\_\-alloc} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr, \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, long num\-Thread)
+\item 
+void \hyperlink{learner_8h_abf2edbd2546d2d60274a331e41eb5147}{learner\-\_\-free} (\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$learner\-Ptr)
+\item 
+void \hyperlink{learner_8h_a23d451d4d355a14fa7c9735304ba4d95}{learner\-\_\-run} (\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$learner\-Ptr)
+\item 
+float \hyperlink{learner_8h_a643517a90c64064dfb94cb9cb8d6eddf}{learner\-\_\-score} (\hyperlink{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{learner\-\_\-t} $\ast$learner\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{learner_8h_af89f60b07247176687889ade776c8e10}{\index{learner.\-h@{learner.\-h}!C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E@{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E}}
+\index{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E@{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E}!learner.h@{learner.\-h}}
+\subsubsection[{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E~(64)}}\label{learner_8h_af89f60b07247176687889ade776c8e10}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{learner_8h_a348f51bb60a71c0fa288fb99d7945057}{\index{learner.\-h@{learner.\-h}!learner\-\_\-t@{learner\-\_\-t}}
+\index{learner\-\_\-t@{learner\-\_\-t}!learner.h@{learner.\-h}}
+\subsubsection[{learner\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf learner}  {\bf learner\-\_\-t}}}\label{learner_8h_a348f51bb60a71c0fa288fb99d7945057}
+\hypertarget{learner_8h_a388a4b573490ce9e0436ce81867cbd38}{\index{learner.\-h@{learner.\-h}!learner\-\_\-task\-\_\-t@{learner\-\_\-task\-\_\-t}}
+\index{learner\-\_\-task\-\_\-t@{learner\-\_\-task\-\_\-t}!learner.h@{learner.\-h}}
+\subsubsection[{learner\-\_\-task\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf learner\-\_\-task} {\bf learner\-\_\-task\-\_\-t}}}\label{learner_8h_a388a4b573490ce9e0436ce81867cbd38}
+
+
+\subsection{Function Documentation}
+\hypertarget{learner_8h_aea1955f8471f02d66c6a39136d621f5b}{\index{learner.\-h@{learner.\-h}!learner\-\_\-alloc@{learner\-\_\-alloc}}
+\index{learner\-\_\-alloc@{learner\-\_\-alloc}!learner.h@{learner.\-h}}
+\subsubsection[{learner\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf learner\-\_\-t}$\ast$ learner\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr, }
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{long}]{num\-Thread}
+\end{DoxyParamCaption}
+)}}\label{learner_8h_aea1955f8471f02d66c6a39136d621f5b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_aea1955f8471f02d66c6a39136d621f5b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_aea1955f8471f02d66c6a39136d621f5b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8h_abf2edbd2546d2d60274a331e41eb5147}{\index{learner.\-h@{learner.\-h}!learner\-\_\-free@{learner\-\_\-free}}
+\index{learner\-\_\-free@{learner\-\_\-free}!learner.h@{learner.\-h}}
+\subsubsection[{learner\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void learner\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf learner\-\_\-t} $\ast$}]{learner\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8h_abf2edbd2546d2d60274a331e41eb5147}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_abf2edbd2546d2d60274a331e41eb5147_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_abf2edbd2546d2d60274a331e41eb5147_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8h_a23d451d4d355a14fa7c9735304ba4d95}{\index{learner.\-h@{learner.\-h}!learner\-\_\-run@{learner\-\_\-run}}
+\index{learner\-\_\-run@{learner\-\_\-run}!learner.h@{learner.\-h}}
+\subsubsection[{learner\-\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}void learner\-\_\-run (
+\begin{DoxyParamCaption}
+\item[{{\bf learner\-\_\-t} $\ast$}]{learner\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8h_a23d451d4d355a14fa7c9735304ba4d95}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_a23d451d4d355a14fa7c9735304ba4d95_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{learner_8h_a23d451d4d355a14fa7c9735304ba4d95_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{learner_8h_a643517a90c64064dfb94cb9cb8d6eddf}{\index{learner.\-h@{learner.\-h}!learner\-\_\-score@{learner\-\_\-score}}
+\index{learner\-\_\-score@{learner\-\_\-score}!learner.h@{learner.\-h}}
+\subsubsection[{learner\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}float learner\-\_\-score (
+\begin{DoxyParamCaption}
+\item[{{\bf learner\-\_\-t} $\ast$}]{learner\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{learner_8h_a643517a90c64064dfb94cb9cb8d6eddf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_a643517a90c64064dfb94cb9cb8d6eddf_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{learner_8h_a643517a90c64064dfb94cb9cb8d6eddf_icgraph}
+\end{center}
+\end{figure}
+
+

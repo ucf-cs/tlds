@@ -1,0 +1,2642 @@
+\hypertarget{namespacestm}{\section{stm Namespace Reference}
+\label{namespacestm}\index{stm@{stm}}
+}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm_1_1iccsync}{iccsync}
+\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1Object}{Object}
+\item 
+struct \hyperlink{structstm_1_1DISPATCH}{D\-I\-S\-P\-A\-T\-C\-H}
+\item 
+class \hyperlink{classstm_1_1BitFilter}{Bit\-Filter}
+\item 
+union \hyperlink{unionstm_1_1id__version__t}{id\-\_\-version\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1orec__t}{orec\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1nanorec__t}{nanorec\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1bytelock__t}{bytelock\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1rrec__t}{rrec\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1bitlock__t}{bitlock\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1toxic__histogram__t}{toxic\-\_\-histogram\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1toxic__nop__t}{toxic\-\_\-nop\-\_\-t}
+\item 
+class \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}
+\item 
+struct \hyperlink{structstm_1_1TxThread}{Tx\-Thread}
+\item 
+struct \hyperlink{structstm_1_1WordLoggingUndoLogEntry}{Word\-Logging\-Undo\-Log\-Entry}
+\item 
+struct \hyperlink{structstm_1_1ByteLoggingUndoLogEntry}{Byte\-Logging\-Undo\-Log\-Entry}
+\item 
+class \hyperlink{classstm_1_1UndoLog}{Undo\-Log}
+\item 
+class \hyperlink{classstm_1_1WordLoggingValueListEntry}{Word\-Logging\-Value\-List\-Entry}
+\item 
+class \hyperlink{classstm_1_1ByteLoggingValueListEntry}{Byte\-Logging\-Value\-List\-Entry}
+\item 
+struct \hyperlink{structstm_1_1ValueList}{Value\-List}
+\item 
+struct \hyperlink{structstm_1_1limbo__t}{limbo\-\_\-t}
+\item 
+class \hyperlink{classstm_1_1WBMMPolicy}{W\-B\-M\-M\-Policy}
+\item 
+struct \hyperlink{structstm_1_1WordLoggingWriteSetEntry}{Word\-Logging\-Write\-Set\-Entry}
+\item 
+struct \hyperlink{structstm_1_1ByteLoggingWriteSetEntry}{Byte\-Logging\-Write\-Set\-Entry}
+\item 
+class \hyperlink{classstm_1_1WriteSet}{Write\-Set}
+\item 
+struct \hyperlink{structstm_1_1alg__t}{alg\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1BackoffCM}{Backoff\-C\-M}
+\item 
+struct \hyperlink{structstm_1_1HyperAggressiveCM}{Hyper\-Aggressive\-C\-M}
+\item 
+struct \hyperlink{structstm_1_1FCM}{F\-C\-M}
+\item 
+struct \hyperlink{structstm_1_1StrongHourglassCM}{Strong\-Hourglass\-C\-M}
+\item 
+struct \hyperlink{structstm_1_1HourglassCM}{Hourglass\-C\-M}
+\item 
+struct \hyperlink{structstm_1_1HourglassBackoffCM}{Hourglass\-Backoff\-C\-M}
+\item 
+struct \hyperlink{structstm_1_1pol__t}{pol\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1behavior__t}{behavior\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1qtable__t}{qtable\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1AbortWaitTrigger}{Abort\-Wait\-Trigger}
+\item 
+struct \hyperlink{structstm_1_1EmptyTrigger}{Empty\-Trigger}
+\item 
+struct \hyperlink{structstm_1_1CommitTrigger}{Commit\-Trigger}
+\item 
+struct \hyperlink{structstm_1_1MetaInitializer}{Meta\-Initializer}
+\item 
+struct \hyperlink{structstm_1_1MetaInitializer_3_01ALG__MAX_01_4}{Meta\-Initializer$<$ A\-L\-G\-\_\-\-M\-A\-X $>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{namespacestm_a8c4b0bd094cade5163014a1f0a17d4cd}{Abort\-Handler} )(\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+typedef void \hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t}
+\item 
+typedef \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1orec__t}{orec\-\_\-t} $\ast$ $>$ \hyperlink{namespacestm_aa243a42287cc0cf0fdf20fb4cddd4d02}{Orec\-List}
+\item 
+typedef \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1rrec__t}{rrec\-\_\-t} $\ast$ $>$ \hyperlink{namespacestm_afad5b3d1a775f6e65cd1e675ba984839}{R\-Rec\-List}
+\item 
+typedef \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1bytelock__t}{bytelock\-\_\-t} $\ast$ $>$ \hyperlink{namespacestm_adde267538d3124b2b405e5bc9d1135f4}{Byte\-Lock\-List}
+\item 
+typedef \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1bitlock__t}{bitlock\-\_\-t} $\ast$ $>$ \hyperlink{namespacestm_ab4b8c3282dc3d14aded2b969e07b5213}{Bit\-Lock\-List}
+\item 
+typedef \hyperlink{classstm_1_1BitFilter}{Bit\-Filter}$<$ 1024 $>$ \hyperlink{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{filter\-\_\-t}
+\item 
+typedef \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1nanorec__t}{nanorec\-\_\-t} $>$ \hyperlink{namespacestm_a5a70108dbd954a2634cf59d668ea8241}{Nanorec\-List}
+\item 
+typedef \hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ void $\ast$ $>$ \hyperlink{namespacestm_a1f450babd9df052917264e0e0705e90b}{Address\-List}
+\item 
+typedef \hyperlink{structstm_1_1toxic__nop__t}{toxic\-\_\-nop\-\_\-t} \hyperlink{namespacestm_a1a3981a9b82aa51afd56d191ca1e3984}{toxic\-\_\-t}
+\item 
+typedef \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void $\ast$($\ast$ \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{Read\-Barrier} )(\hyperlink{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,))
+\item 
+typedef \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{Write\-Barrier} )(\hyperlink{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,))
+\item 
+typedef \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{Commit\-Barrier} )(\hyperlink{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(,))
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacestm_ad75547cc23d4014783868b799d740145}{A\-L\-G\-S} \{ \\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a675f3b39efd86983a102f172f46cdc84}{C\-G\-L} = 0, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a5ad095d426d300a189561d95966ccd99}{Ticket}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a9799c84fcadcaeaed9bf64bbe5042fa3}{T\-M\-L}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aa81da945f46106b6a7b23de4422f53d6}{Ring\-S\-W}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a363dcacee89911268737825ed8933c61}{Orec\-A\-L\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145acdee336ae380e66b2fa911035c56344d}{Orec\-E\-L\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7d8a5103ddb4cd49199cfb6405eb0159}{T\-M\-L\-Lazy}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abb11ecde2280ca9defc8fe22778d9457}{N\-Orec\-Prio}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a62af7646bf32ca2ceb5e1bf50d9eedb4}{Orec\-Fair}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae7eebbedede9e8921b8159ba7ab92b48}{C\-Token}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a04a6fafc926585db8069d8de87eab5e0}{C\-Token\-Turbo}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a924e7c702aa11ad7c9981958bc9477a8}{Pipeline}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a475cbda5bdb7ecb6b031d2bd9e989bcf}{Bit\-Lazy}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abdf4dafd5a2beffbc571cfe40fc21c56}{L\-L\-T}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aa111fa5c172f28fdb66b45de35df568e}{T\-L\-I}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a406de428d372a6101065c5586af86100}{Byte\-Eager}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a5e0c4df7937f96fce647c2445b28cf16}{M\-C\-S}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac9a7bdcea0d608f315b21eb17da835b8}{Serial}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac6790adc59da09be49dc5bc7a0f6d508}{Bit\-Eager}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aad1eea8e3827068fe3eee543d75da8b5}{Byte\-Lazy}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae0388604d99fcbe10045d51cb6371abd}{By\-E\-A\-R}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7f5fd59369fddfa3c0e5caab9a16eb76}{Orec\-Eager\-Redo}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abed8f16fe1c08081c73d2f783992d172}{Byte\-Eager\-Redo}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ab2d5f8d2dd98046b822ef8cb94a7a02c}{Bit\-Eager\-Redo}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abc773c76ac2d7aa99e2d9961863bc029}{Ring\-A\-L\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a96dfd65ebc77976afa3c824c439fdb50}{Nano}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145acaaff909a085b4e39196b00512c04b71}{Swiss}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aeb3ee66e4dfe3a3f581d0b67e13f02b4}{By\-E\-A\-U}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a20385b257d797b39b6c3733e8a927e2a}{By\-E\-A\-U\-F\-C\-M}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a46f2ceaa20ed04b68789e0a84eebdabe}{By\-E\-A\-U\-H\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a4f387d53a061aabdd8d3cee8417c4975}{By\-E\-A\-U\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a3c2112f76a36366b49634c92b81a2af9}{Or\-E\-A\-U}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a37a730e371595917820202c1c24c1405}{Or\-E\-A\-U\-F\-C\-M}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ade76e171cd83b848c65807e3f2877a17}{Or\-E\-A\-U\-H\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a1e318e4628ff40872c4735384813da1e}{Or\-E\-A\-U\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145af45d567b53be3f43fa622fa4acec7469}{Orec\-Eager}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a73d6f35cde808a68ac2bfb7e50ff938e}{Orec\-Eager\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a68d8ed7bd8c026c3f527b70b89e90671}{Orec\-Eager\-Backoff}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abcd4db1f50bd8f6fc44ed4977da0346d}{Orec\-Eager\-H\-B}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a0260e027cdf5da03688d8f52e424aa2c}{Orec\-Lazy}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae753c643ecdbf464c575a05beddc7f2f}{Orec\-Lazy\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a05d3f2b0b2a35d258304197f4ae3b554}{Orec\-Lazy\-Backoff}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae91d0788a4ee3c20a0526d120f72d1f2}{Orec\-Lazy\-H\-B}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aefcd72d51be4ac5fa48359c5656bd6b9}{N\-Orec}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a92c8a3800760b319d7f208d796cde8a8}{N\-Orec\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a6fd409ae7e92c7ff3516416621257265}{N\-Orec\-Backoff}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7428b7322325893892f8600bb89a0f94}{N\-Orec\-H\-B}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae53e186eb0d96942d6a31cf756e199ec}{Profile\-T\-M}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac73c083e2ef3a57a9a67840033e76044}{Profile\-App\-Avg}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a948565b4c6ec1e7c01b488547a32fcad}{Profile\-App\-Max}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a9c09be1c8e5f99a3dcb3bd4266069c42}{Profile\-App\-All}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a466ea15eb4c3d10520bd729f59123097}{A\-L\-G\-\_\-\-M\-A\-X}
+ \}
+\item 
+enum \hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493}{P\-O\-L\-S} \{ \\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af00d76b2e9570c9ef71fb59bbff6b3d3}{Single}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a96f3581ddaae6418a394fc270057e005}{P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5fbccff2a7f8301aa2364704541da649}{E}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a20042be93e440ec38c8d74f645b25ea8}{E\-R}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493adbfb4e354fc128dfe6c7334ff08ac558}{R}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493afe98ca998e91d9883900ccc2579411cb}{X}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aee65cfe9901d210de837cbb1f243cf5a}{C\-B\-R\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a876c8a530cb793b2acd9d30c42a991f9}{C\-B\-R\-\_\-\-Read}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a84543cc00203169452a705770cc8d6b4}{C\-B\-R\-\_\-\-Write}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa5811bdeb030f29963e5423f5121ba4e}{C\-B\-R\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a8e768ff49c3143004726d68ada5936ba}{C\-B\-R\-\_\-\-R\-W}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a43bf92d9361dd7de388df69779b458f4}{C\-B\-R\-\_\-\-R\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a2cb2e5e6b3f044931be9781fd2c79a2f}{C\-B\-R\-\_\-\-R\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a9134216f95da9c5c7849249bbd5b62f8}{C\-B\-R\-\_\-\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae1dbf21e41fb8372766523d3f0e688ce}{C\-B\-R\-\_\-\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a094e12c62e309f2e570b8959d593d5e8}{C\-B\-R\-\_\-\-Time\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac6415b359d0dc955c70c67bcc5402606}{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493afa709945322d7ea48e851b0de26c5c34}{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aca5947c981294f35a2d961a197a0dc1f}{C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af801e9827272485287bff05341e616b8}{C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a89b74f4a4c7545721046c423a7df1916}{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493acbb2745792185384618cd5f53c504679}{C\-B\-R\-\_\-\-Txn\-Ratio}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab13ff4d0f101aa2b4fe5cd5e7149a18f}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5e3f60d689489c25ccd05fb76816753d}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3f241476ddf4da1dc2d8194c554e01fc}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae86936227191c732ccec32fcba58c414}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac15bb8ce5873c11067ad826df68d156e}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab6d6ce02597f0f8b6893da6a09762599}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3dca4058ca95a62397e9615854e392f7}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af3e389d67745aaf8609d8cffc0e6f3a6}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a004e80d5506fed5d3b5781be1dd3b7e7}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493af60bda5479cef87cc48befe9628efd13}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a26a5548e99bb334be9053f9b3c9e52b7}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa40e7559e06316c0e8b327418b48a68f}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a779665fdec869cf0000966bb51ae85f4}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a70013125e0613a74c89b4f99f55747b8}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time}, 
+\\*
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493a6d9d1d0725de77bf02e0265cf934033c}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time}, 
+\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae9cfae39bec896ef08d7792295866d60}{P\-O\-L\-\_\-\-M\-A\-X}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacestm_a945573c8ffc100f3908f1373d12ebffd}{set\-\_\-policy} (const char $\ast$)
+\item 
+const char $\ast$ \hyperlink{namespacestm_ae189ae33f77d3feb28d2f2776156a10e}{get\-\_\-algname} ()
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{begin} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$s, uint32\-\_\-t)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{namespacestm_a94dbca4907e005c8c803e452b123903f}{commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} \hyperlink{namespacestm_a51b2c0958e7709b39500d037648c461b}{U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E} (const char $\ast$)
+\item 
+void $\ast$ \hyperlink{namespacestm_a74d23d2fb8a8e63642bdd14bd4941f7a}{tx\-\_\-alloc} (size\-\_\-t size)
+\item 
+void \hyperlink{namespacestm_aaf0d2ecece13eb0926a4b59b49cfb8cd}{tx\-\_\-free} (void $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\item 
+void \hyperlink{namespacestm_a72477788735f5e06365f341d2f09d3cb}{sys\-\_\-init} (void($\ast$abort\-\_\-handler)(\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)=N\-U\-L\-L)
+\item 
+void \hyperlink{namespacestm_a2eba242629a31539bd21eed09aa926c6}{sys\-\_\-shutdown} ()
+\item 
+void \hyperlink{namespacestm_a3de69c665250e84ef5238477ae8524b0}{thread\-\_\-init} ()
+\item 
+void \hyperlink{namespacestm_a2a46964337523dddb35f77c89cb0b9f4}{thread\-\_\-shutdown} ()
+\item 
+bool \hyperlink{namespacestm_a1f53cda33965f891e41b86a99b2424a2}{become\-\_\-irrevoc} (\hyperlink{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(void $\ast$$\ast$top\-\_\-of\-\_\-stack))
+\item 
+void \hyperlink{namespacestm_ab344bb49ceb6098cdc32aba5d36e76f3}{restart} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacestm_a38b27de6fa528286c9099d08193aaab9}{stm\-\_\-read} (T $\ast$addr, \hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{classthread}{thread})
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacestm_a5a362b61a07175408ecf4b50f208c59f}{stm\-\_\-write} (T $\ast$addr, T val, \hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{classthread}{thread})
+\item 
+void \hyperlink{namespacestm_a74e50d0b6225aa25d0d3c3d6083a1609}{sys\-\_\-init} (\hyperlink{namespacestm_a8c4b0bd094cade5163014a1f0a17d4cd}{Abort\-Handler} conflict\-\_\-abort)
+\item 
+bool \hyperlink{namespacestm_ad6da235deafa9e47d4103080ae0bcdb5}{is\-\_\-irrevoc} (const \hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&)
+\item 
+void \hyperlink{namespacestm_a58896d2f55a47543f798e330bc13799f}{become\-\_\-irrevoc} ()
+\item 
+\hyperlink{namespacestm_ab0e4e167c63aa7e98507bbeb744cf50f}{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$) Self
+\item 
+\hyperlink{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{filter\-\_\-t} ring\-\_\-wf\mbox{[}\hyperlink{namespacestm_aff01348819bdc4955bee1bfbecd22c1a}{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S}\mbox{]} \hyperlink{namespacestm_a637ea4515e2e4f7feb9e4ad31c3dea05}{T\-M\-\_\-\-A\-L\-I\-G\-N} (16)
+\item 
+int \hyperlink{namespacestm_ab7e623982dc0a84b9d3d4b53a4e7962e}{stm\-\_\-name\-\_\-map} (const char $\ast$phasename)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{structstm_1_1orec__t}{orec\-\_\-t} $\ast$ \hyperlink{namespacestm_a059f2742566005f0d199d47a4f3131d2}{get\-\_\-orec} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{structstm_1_1orec__t}{orec\-\_\-t} $\ast$ \hyperlink{namespacestm_ac8e54342cd61b4426d70bff9a726d6c8}{get\-\_\-nanorec} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{structstm_1_1rrec__t}{rrec\-\_\-t} $\ast$ \hyperlink{namespacestm_a6cfd9a7082b443f355ecd09cb09c4752}{get\-\_\-rrec} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{structstm_1_1bytelock__t}{bytelock\-\_\-t} $\ast$ \hyperlink{namespacestm_a149c0523622ed7c657ed050cb12a9511}{get\-\_\-bytelock} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} \hyperlink{structstm_1_1bitlock__t}{bitlock\-\_\-t} $\ast$ \hyperlink{namespacestm_a78aa4b1c9b53b6ff311d77d3118fec23}{get\-\_\-bitlock} (void $\ast$addr)
+\item 
+{\footnotesize template$<$int I$>$ }\\void \hyperlink{namespacestm_abb2124c312981d2c1beeca03d28934b0}{init\-T\-M} ()
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{namespacestm_af27d33b081d718c75a64717907e3dbd4}{exp\-\_\-backoff} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} bool \hyperlink{namespacestm_a74784f193abf87bd1c6f688d6b25cacd}{begin\-\_\-\-C\-G\-L} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+void \hyperlink{namespacestm_aaaa08c01741f1eba381fd4a279df12b1}{On\-Read\-Write\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{Read\-Barrier} read\-\_\-ro, \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{Write\-Barrier} write\-\_\-ro, \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{Commit\-Barrier} commit\-\_\-ro)
+\item 
+void \hyperlink{namespacestm_ae985543dca9a983eefa517b3cec6ca95}{On\-Read\-Write\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a00287c50a719dcda144cc1cbc9e9ae4b}{On\-Read\-Only\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_ab817bbaf25e6eb6466682982ac4f623f}{On\-C\-G\-L\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a8b8f510beed1c9e35b1468cf6d9e3616}{On\-Read\-Only\-C\-G\-L\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_adf44a5de6f249cb9c4181a6bd3163638}{On\-First\-Write} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{Read\-Barrier} read\-\_\-rw, \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{Write\-Barrier} write\-\_\-rw, \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{Commit\-Barrier} commit\-\_\-rw)
+\item 
+void \hyperlink{namespacestm_a3240a1a3d22a030fc4e26fad68ad9ec7}{Pre\-Rollback} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$ \hyperlink{namespacestm_ab1ed02e28e6963306b89990522792bb0}{Post\-Rollback} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{Read\-Barrier} read\-\_\-ro, \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{Write\-Barrier} write\-\_\-ro, \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{Commit\-Barrier} commit\-\_\-ro)
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$ \hyperlink{namespacestm_a4ccedba6cad535a1120ec0245f5282f8}{Post\-Rollback} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$ \hyperlink{namespacestm_a102ef2437a8acd5cd91f32764a317639}{Post\-Rollback\-No\-Trigger} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{stm\-::\-Read\-Barrier} r, \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{stm\-::\-Write\-Barrier} w, \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{stm\-::\-Commit\-Barrier} c)
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{scope\-\_\-t} $\ast$ \hyperlink{namespacestm_a6c5f7b165eafa6b8932bc7904f0bc8a2}{Post\-Rollback\-No\-Trigger} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a9506ca168bd37fecc44feddbfe8c6233}{Go\-Turbo} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{Read\-Barrier} r, \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{Write\-Barrier} w, \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{Commit\-Barrier} c)
+\item 
+bool \hyperlink{namespacestm_a6dac45d3016212cca24831c1bff9ec19}{Check\-Turbo\-Mode} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{Read\-Barrier} read\-\_\-turbo)
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a3481259fea7ebeebd977ce02fb4689a9}{init\-T\-M$<$ Bit\-Eager $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_af335dc712a8de275f9717b777ed3ca66}{init\-T\-M$<$ Bit\-Eager\-Redo $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a5e270495fc7574dcdcc888b7d417f2ef}{init\-T\-M$<$ Bit\-Lazy $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_ae4cf55c68816202f94849ee8d185898c}{init\-T\-M$<$ By\-E\-A\-R $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a8eb056d129b487626f62873c35b1b1fb}{init\-T\-M$<$ Byte\-Eager $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a190221d732834ffba64bba1c53b1e4d0}{init\-T\-M$<$ Byte\-Eager\-Redo $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a7e9eb77806c370789fa8eec66c6bfbd3}{init\-T\-M$<$ Byte\-Lazy $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a976f5145078328564e9e05c97bce777e}{init\-T\-M$<$ C\-G\-L $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a9d3bc686df5785ef565f8c670551db80}{init\-T\-M$<$ C\-Token $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_ad516a34d475efb5484e27b3d3a6dbc98}{init\-T\-M$<$ C\-Token\-Turbo $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a5cc1979e19b1da973e23e167983fe46c}{init\-T\-M$<$ L\-L\-T $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a6c7909b6fe245dbee6d5212415e2e4d3}{init\-T\-M$<$ M\-C\-S $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a048c0cf84afefca94431bf35517d2d85}{init\-T\-M$<$ Nano $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a263b456462a520d1969be26c7cde1663}{init\-T\-M$<$ N\-Orec\-Prio $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a97bce9d90c3aabe3329b9315b2f8d812}{init\-T\-M$<$ Orec\-A\-L\-A $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a821e79dd62d4436b681023ce4f4db81e}{init\-T\-M$<$ Orec\-Eager\-Redo $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_afb07a46977fb63fefd7b7f3424468a2f}{init\-T\-M$<$ Orec\-E\-L\-A $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a4adfe88a9d7c7a206f2b6d3e95c49956}{init\-T\-M$<$ Orec\-Fair $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a5f4cbdf79b26d6d7be483c3c769c2743}{init\-T\-M$<$ Pipeline $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_abc9d9099f5a0e2f15e64773fe3b9469d}{init\-T\-M$<$ Profile\-T\-M $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_add7df907bed3087f50e92a994637cb69}{init\-T\-M$<$ Ring\-A\-L\-A $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a13421a95b8ec1225735c513f5bbef241}{init\-T\-M$<$ Ring\-S\-W $>$} ()
+\item 
+void \hyperlink{namespacestm_aa45892452daca17e27d9f8efe8e4e52f}{serial\-\_\-irrevoc\-\_\-override} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a02782a7198a1edebbcd545924d2ca25f}{init\-T\-M$<$ Serial $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a8efa5265650472f1904c9aa89da09e69}{init\-T\-M$<$ Swiss $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_af9008f38389991f51f8a771deac32ff9}{init\-T\-M$<$ Ticket $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a5c87bab8661e45cc64df382969f3bd2b}{init\-T\-M$<$ T\-L\-I $>$} ()
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a37f85872162e9d5fcc4708c29f302750}{init\-T\-M$<$ T\-M\-L $>$} ()
+\item 
+void \hyperlink{namespacestm_a0c55198314099976b8a37acfebba7a35}{afterread\-\_\-\-T\-M\-L} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a9ece0c6a6fb686620010cd55d080e74e}{beforewrite\-\_\-\-T\-M\-L} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+{\footnotesize template$<$$>$ }\\void \hyperlink{namespacestm_a30d2c00ca20421fe4c6aa5bd73cc75b2}{init\-T\-M$<$ T\-M\-L\-Lazy $>$} ()
+\item 
+void \hyperlink{namespacestm_a103d1928b37a80dd6c538aeab4b1624d}{install\-\_\-algorithm\-\_\-local} (int new\-\_\-alg, \hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a0af46d85108438d0b413d5c5d380d03f}{install\-\_\-algorithm} (int new\-\_\-alg, \hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_aa80b25b7fbf60cf912475203a5ba2d0c}{become\-\_\-irrevoc} (\hyperlink{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(void $\ast$$\ast$upper\-\_\-stack\-\_\-bound))
+\item 
+bool \hyperlink{namespacestm_a347d5009be494e8595a8933c49a342b4}{begin\-\_\-blocker} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_aa0b1d39423394b3e447d37ac36e9fde3}{init\-\_\-pol\-\_\-cbr} ()
+\item 
+void \hyperlink{namespacestm_ab5a1851d6381fc50697f662635db22ea}{init\-\_\-pol\-\_\-static} ()
+\item 
+int \hyperlink{namespacestm_a67c0991ee0ce05d2dc2015dff47a584e}{pol\-\_\-name\-\_\-map} (const char $\ast$phasename)
+\item 
+void \hyperlink{namespacestm_a6aa5d9dc2e638d0df9771d39cd3b87ef}{init\-\_\-adapt\-\_\-pol} (uint32\-\_\-t Policy\-I\-D, int32\-\_\-t startmode, int32\-\_\-t abort\-Thresh, int32\-\_\-t wait\-Thresh, bool is\-Dynamic, bool is\-C\-B\-R, bool is\-Commit\-Profile, uint32\-\_\-t \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}($\ast$decider)(), const char $\ast$name)
+\item 
+void \hyperlink{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b}{pol\-\_\-init} (const char $\ast$mode)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} unsigned long long \hyperlink{namespacestm_a18a81b01de87995b54cd855bb6eeaae7}{get\-\_\-nontxtime} ()
+\item 
+void \hyperlink{namespacestm_a87a28ba567cb694e4251e884f3ae77ae}{init\-\_\-adapt\-\_\-pol} (uint32\-\_\-t Policy\-I\-D, int32\-\_\-t startmode, int32\-\_\-t abort\-Thresh, int32\-\_\-t wait\-Thresh, bool is\-Dynamic, bool is\-C\-B\-R, bool is\-Commit\-Profile, uint32\-\_\-t($\ast$decider)() \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}, const char $\ast$name)
+\item 
+void \hyperlink{namespacestm_ad9c526edd45fa3fe417fc3b8ee75467a}{profile\-\_\-oncomplete} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a7691058d97dd9bb3444ab2200a90e54b}{trigger\-\_\-common} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_aac29e08fdc4a251a12088bd799e7a4f4}{sys\-\_\-init} (\hyperlink{namespacestm_a8c4b0bd094cade5163014a1f0a17d4cd}{stm\-::\-Abort\-Handler} conflict\-\_\-abort\-\_\-handler)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_ac554ffc5ca7bee783d48142f1a0ff82b}{threadcount} = \{0\}
+\item 
+\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$ \hyperlink{namespacestm_ab2acabe9f596fb07413e3a12fa14d570}{threads} \mbox{[}\hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]} = \{0\}
+\item 
+static const unsigned \hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S} = 256
+\item 
+union \hyperlink{unionstm_1_1id__version__t}{stm\-::id\-\_\-version\-\_\-t} \hyperlink{namespacestm_ae247420ad0ba562827c2cbf18530c271}{T\-M\-\_\-\-A\-L\-I\-G\-N}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a8c60f91e3fafc640e3805be4fc4aa121}{trans\-\_\-nums} \mbox{[}\hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]} = \{\{0\}\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a8a8c42099bd04d1e89140ee02702f6e0}{timestamp} = \{0\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a8d8dfb6b2b3438e3e104d5acbfbd7e71}{timestamp\-\_\-max} = \{0\}
+\item 
+\hyperlink{structstm_1_1orec__t}{orec\-\_\-t} \hyperlink{namespacestm_a59c4d1983c5d8a6640537726c4e8aed4}{orecs} \mbox{[}\hyperlink{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S}\mbox{]} = \{\{\{\{0\}\}\}\}
+\item 
+\hyperlink{structstm_1_1orec__t}{orec\-\_\-t} \hyperlink{namespacestm_a677ac5f80d97329f2058a0aca0bfb295}{nanorecs} \mbox{[}\hyperlink{namespacestm_aff01348819bdc4955bee1bfbecd22c1a}{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S}\mbox{]} = \{\{\{\{0\}\}\}\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a17c110bd329d81ba81aef7210954a72d}{last\-\_\-complete} = \{0\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_ab0d9633930ec8c8921b11c64bf9cb890}{last\-\_\-init} = \{0\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a487249084a21cda5f208d7a25b3c385e}{prio\-Tx\-Count} = \{0\}
+\item 
+\hyperlink{structstm_1_1rrec__t}{rrec\-\_\-t} \hyperlink{namespacestm_a025af84316e5fb6b9033dec86640f912}{rrecs} \mbox{[}\hyperlink{namespacestm_ac811b3e7503fcf79d860e5a9f997f673}{R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T}\mbox{]} = \{\{\{0\}\}\}
+\item 
+\hyperlink{structstm_1_1bytelock__t}{bytelock\-\_\-t} \hyperlink{namespacestm_abea1740c6c56b45f46aa26a594caadb6}{bytelocks} \mbox{[}\hyperlink{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S}\mbox{]} = \{\{0\}\}
+\item 
+\hyperlink{structstm_1_1bitlock__t}{bitlock\-\_\-t} \hyperlink{namespacestm_a5984f2381f2e7e81b5e647d6e7f9ebe3}{bitlocks} \mbox{[}\hyperlink{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S}\mbox{]} = \{\{0\}\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a162bd0b45643942e59ea68af00fec992}{epochs} \mbox{[}\hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]} = \{\{0\}\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a82e6b09074d58a249ff29b161be62ab6}{greedy\-\_\-ts} = \{0\}
+\item 
+\hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$ \hyperlink{namespacestm_a61e4fdd8145b69c03eab91bdeddb0293}{mcslock} = N\-U\-L\-L
+\item 
+\hyperlink{structticket__lock__t}{ticket\-\_\-lock\-\_\-t} \hyperlink{namespacestm_af262f754120f34d53b7aff4f3ee4e447}{ticketlock} = \{0\}
+\item 
+\hyperlink{structstm_1_1pad__word__t}{pad\-\_\-word\-\_\-t} \hyperlink{namespacestm_a05cd8e71fbf5f13425c1c6db187bb583}{fcm\-\_\-timestamp} = \{0\}
+\item 
+\hyperlink{structstm_1_1alg__t}{alg\-\_\-t} \hyperlink{namespacestm_af0a1336341054a7273c3d732d248f7fc}{stms} \mbox{[}\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a466ea15eb4c3d10520bd729f59123097}{A\-L\-G\-\_\-\-M\-A\-X}\mbox{]}
+\item 
+\hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} $\ast$ \hyperlink{namespacestm_a067ff48e3e80f9f2ee75df5b1156827b}{app\-\_\-profiles} = N\-U\-L\-L
+\item 
+uint32\-\_\-t \hyperlink{namespacestm_a3b7951049cf91d2e3d63444f6aa31b31}{profile\-\_\-txns} = 1
+\item 
+\hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} $\ast$ \hyperlink{namespacestm_a0c5d34db2778717a0766a164ccf9b40f}{profiles} = N\-U\-L\-L
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S} = 1048576
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_aff01348819bdc4955bee1bfbecd22c1a}{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S} = 1024
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a803f7da233820c0cb019e9916ac87207}{K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R} = 16
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a5db105c525a0fc1848a80d674c441052}{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N} = 4
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a998e4e0c954ef37eefab31f44ff016d7}{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X} = 16
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ac811b3e7503fcf79d860e5a9f997f673}{R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T} = 1048576
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ac13bcf2e446994b6bc58c29f207b61ab}{W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E} = 16
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ad8467c8fd66bee04be744334bc17b75e}{E\-P\-O\-C\-H\-\_\-\-M\-A\-X} = I\-N\-T\-\_\-\-M\-A\-X
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_adf9ac55b7a24ef9715c8e425928b580b}{A\-C\-T\-I\-V\-E} = 0
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_aac91219d15a450587c7cbb52db4b13fd}{A\-B\-O\-R\-T\-E\-D} = 1
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a08d03c541bfa9d260904138ed0ccda6b}{S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2} = 10
+\item 
+\hyperlink{structstm_1_1pol__t}{pol\-\_\-t} \hyperlink{namespacestm_a533577214af07c44f099eb536d8dece7}{pols} \mbox{[}\hyperlink{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae9cfae39bec896ef08d7792295866d60}{P\-O\-L\-\_\-\-M\-A\-X}\mbox{]}
+\item 
+\hyperlink{structstm_1_1behavior__t}{behavior\-\_\-t} \hyperlink{namespacestm_ab5f6db774c01e9a0e2aec0173d0481b1}{curr\-\_\-policy}
+\item 
+\hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1qtable__t}{qtable\-\_\-t} $>$ $\ast$ \hyperlink{namespacestm_a93eff2ad5eaf4e9c0661b0214c35bd1b}{qtbl} \mbox{[}\hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}+1\mbox{]} = \{N\-U\-L\-L\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This file presents a simple library A\-P\-I for using R\-S\-T\-M without compiler support. The A\-P\-I consists of the following\-:
+
+T\-M\-\_\-\-A\-L\-L\-O\-C \-: Allocate memory inside a transaction T\-M\-\_\-\-F\-R\-E\-E \-: Deallocate memory inside a transaction T\-M\-\_\-\-S\-Y\-S\-\_\-\-I\-N\-I\-T \-: Initialize the S\-T\-M library T\-M\-\_\-\-S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N \-: Shut down the S\-T\-M library T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T \-: Initialize a thread before using T\-M T\-M\-\_\-\-T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N \-: Shut down a thread \hyperlink{library_8hpp_ad9ca1f96933ab26056b7bf40f6d0b982}{T\-M\-\_\-\-S\-E\-T\-\_\-\-P\-O\-L\-I\-C\-Y(\-P)} \-: Change the S\-T\-M algorithm on the fly \hyperlink{library_8hpp_ab6de3b726da330cbf6350d08a48ec2a2}{T\-M\-\_\-\-B\-E\-C\-O\-M\-E\-\_\-\-I\-R\-R\-E\-V\-O\-C()} \-: Become irrevocable or abort \hyperlink{library_8hpp_a976eeec02c2b700b8d954159e26e57d1}{T\-M\-\_\-\-R\-E\-A\-D(var)} \-: Read from shared memory from a txn \hyperlink{library_8hpp_aad8767849818c377a9ac7d5c842dd2d8}{T\-M\-\_\-\-W\-R\-I\-T\-E(var, val)} \-: Write to shared memory from a txn \hyperlink{tm_8h_a7f26ce9bbeeebe09f8fca438a08f82c4}{T\-M\-\_\-\-B\-E\-G\-I\-N(type)} \-: Start a transaction... use 'atomic' as type T\-M\-\_\-\-E\-N\-D \-: End a transaction
+
+Custom Features\-:
+
+\hyperlink{namespacestm_ab344bb49ceb6098cdc32aba5d36e76f3}{stm\-::restart()} \-: Self-\/abort and immediately retry a txn T\-M\-\_\-\-B\-E\-G\-I\-N\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N \-: For fast initialization T\-M\-\_\-\-E\-N\-D\-\_\-\-F\-A\-S\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-A\-T\-I\-O\-N \-: For fast initialization \hyperlink{library_8hpp_a46b38feceaf4dcbd5dc88c33377c86c7}{T\-M\-\_\-\-G\-E\-T\-\_\-\-A\-L\-G\-N\-A\-M\-E()} \-: Get the current algorithm name
+
+Compiler Compatibility\-::\-Transaction Descriptor Management\-:
+
+\hyperlink{cxxtm_8hpp_a1ca5f081233a99e3039682fa6e3d907c}{T\-M\-\_\-\-G\-E\-T\-\_\-\-T\-H\-R\-E\-A\-D()} \-: for getting the thread's descriptor, if needed T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E \-: for passing descriptors to transactional functions T\-M\-\_\-\-A\-R\-G \-: (same) T\-M\-\_\-\-P\-A\-R\-A\-M \-: (same) T\-M\-\_\-\-P\-A\-R\-A\-M\-\_\-\-A\-L\-O\-N\-E \-: (same)
+
+Compiler Compatibility\-::\-Annotations (unused in library)\-:
+
+T\-M\-\_\-\-W\-A\-I\-V\-E\-R \-: mark a block that does not get T\-M instrumentation T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E \-: mark a function as being callable by T\-M
+
+Now we can make simple macros for reading and writing shared memory, by using templates to dispatch to the right code\-:
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information In the L\-I\-B\-R\-A\-R\-Y api, the transformation of reads and writes of addresses into correctly formed calls to the tmread and tmwrite functions is achieved through a set of templates. The role of the templates is to allow a single library call to be transformed into the right instructions to read at any supported size/type, even though the library itself only provides word-\/level read/write functions.
+
+This file presents those templates, to reduce clutter in the main \hyperlink{library_8hpp}{library.\-hpp} file.
+
+This file should be included in the middle of the library file. It has no includes of its own.
+
+Also, B\-E W\-A\-R\-N\-E\-D\-: this implementation of the library A\-P\-I allows \char`\"{}granular
+lost updates\char`\"{}. If transaction A writes a single char, and thread B writes an adjacent char, then B's write could be lost.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information In this file, we declare functions and variables that need to be visible to many parts of the S\-T\-M library, but that do not need to be visible to application code.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information The global metadata types used by our S\-T\-M implementations are defined in this file, along with many of the types used by the \hyperlink{structstm_1_1TxThread}{Tx\-Thread} object of logging the progress of a transaction.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information A simple vector-\/like templated collection object. The main difference from the S\-T\-L vector is that we can force uncommon code (such as resize) to be a function call by putting instantiations of the expand() method into their own .o file.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information Definitions for a common environment for all our S\-T\-M implementations. The \hyperlink{structstm_1_1TxThread}{Tx\-Thread} object holds all the metadata that a thread needs.
+
+In addition, this file declares the thread-\/local pointer that a thread can use to access its \hyperlink{structstm_1_1TxThread}{Tx\-Thread} object.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information Implement an undo log so that we can centralize all logic for stack-\/filtering and abort/throw behavior in in-\/place update S\-T\-Ms An undo log is a pretty simple structure. We never need to search it, so its only purpose is to store stuff and write stuff out when we abort. It's split out into its own class in order to deal with the configuration-\/based behavior that we need it to observe, like byte-\/accesses, stack protection, etc.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information We use the \hyperlink{structstm_1_1ValueList}{Value\-List} class to log address/value pairs for our value-\/based-\/validation implementations---N\-Orec and N\-Orec\-Prio currently. We generally log things at word granularity, and during validation we check to see if any of the bits in the word has changed since the word was originally read. If they have, then we have a conflict.
+
+This word-\/granularity continues to be correct when we have enabled byte logging (because we're building for C++ T\-M compatibility), but it introduces the possibility of byte-\/level false conflicts. One of V\-B\-V's advantages is that there are no false conflicts. In order to preserve this behavior, we offer the user the option to use the byte-\/mask (which is already enabled for byte logging) to do byte-\/granularity validation. The disadvantage to this technique is that the read log entry size is increased by the size of the stored mask (we could optimize for 64-\/bit Linux and pack the mask into an unused part of the logged address, but we don't yet have this capability).
+
+This file implements the value log given the current configuration settings in stm/config.\-h
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information In order to get allocation and deallocation to work correctly inside of a speculative transactional region, we need to be sure that a doomed transaction cannot access memory that has been returned to the O\-S.
+
+\hyperlink{classstm_1_1WBMMPolicy}{W\-B\-M\-M\-Policy} is R\-S\-T\-M's variant of epoch-\/based reclamation. It is similar to proposals by \mbox{[}Fraser Ph\-D 2003\mbox{]} and \mbox{[}Hudson I\-S\-M\-M 2006\mbox{]}.
+
+Note that this file has real code in it, and that code gets inlined into many places. It's not pretty, and we may eventually want to reduce the footprint of this file on the rest of the project.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information The R\-S\-T\-M backends that use redo logs all rely on this datastructure, which provides O(1) clear, insert, and lookup by maintaining a hashed index into a vector.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This file declares global metadata that is used by all S\-T\-M algorithms, along with some accessor functions
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information In order to support inlining of T\-M\-L instrumentation, we must make some metadata and implementation code visible in this file. It is provided below\-:
+
+Define the C\-M policies that can be plugged into our framework. For the time being, these only make sense in the context of attacker-\/wins conflict management
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This file implements the code for switching installing an algorithm.
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This code handles the profiling mechanism. It consists of three parts\-:
+
+
+\begin{DoxyItemize}
+\item The code for requesting that a bunch of profiles are collected
+\item The code for calling a policy after the profiles are collected, and using that result to change the algorithm
+\item The code that is called on every commit/abort by any transaction, to determine when a request should be initiated 
+\end{DoxyItemize}
+
+\subsection{Typedef Documentation}
+\hypertarget{namespacestm_a8c4b0bd094cade5163014a1f0a17d4cd}{\index{stm@{stm}!Abort\-Handler@{Abort\-Handler}}
+\index{Abort\-Handler@{Abort\-Handler}!stm@{stm}}
+\subsubsection[{Abort\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ stm\-::\-Abort\-Handler)({\bf Tx\-Thread} $\ast$)}}\label{namespacestm_a8c4b0bd094cade5163014a1f0a17d4cd}
+\hypertarget{namespacestm_a1f450babd9df052917264e0e0705e90b}{\index{stm@{stm}!Address\-List@{Address\-List}}
+\index{Address\-List@{Address\-List}!stm@{stm}}
+\subsubsection[{Address\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Mini\-Vector}$<$void$\ast$$>$ stm\-::\-Address\-List}}\label{namespacestm_a1f450babd9df052917264e0e0705e90b}
+\hypertarget{namespacestm_ab4b8c3282dc3d14aded2b969e07b5213}{\index{stm@{stm}!Bit\-Lock\-List@{Bit\-Lock\-List}}
+\index{Bit\-Lock\-List@{Bit\-Lock\-List}!stm@{stm}}
+\subsubsection[{Bit\-Lock\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Mini\-Vector}$<${\bf bitlock\-\_\-t}$\ast$$>$ stm\-::\-Bit\-Lock\-List}}\label{namespacestm_ab4b8c3282dc3d14aded2b969e07b5213}
+\hypertarget{namespacestm_adde267538d3124b2b405e5bc9d1135f4}{\index{stm@{stm}!Byte\-Lock\-List@{Byte\-Lock\-List}}
+\index{Byte\-Lock\-List@{Byte\-Lock\-List}!stm@{stm}}
+\subsubsection[{Byte\-Lock\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Mini\-Vector}$<${\bf bytelock\-\_\-t}$\ast$$>$ stm\-::\-Byte\-Lock\-List}}\label{namespacestm_adde267538d3124b2b405e5bc9d1135f4}
+\hypertarget{namespacestm_a16e5b681852106be63d320e490c05165}{\index{stm@{stm}!Commit\-Barrier@{Commit\-Barrier}}
+\index{Commit\-Barrier@{Commit\-Barrier}!stm@{stm}}
+\subsubsection[{Commit\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ stm\-::\-Commit\-Barrier)({\bf S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(,))}}\label{namespacestm_a16e5b681852106be63d320e490c05165}
+\hypertarget{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{\index{stm@{stm}!filter\-\_\-t@{filter\-\_\-t}}
+\index{filter\-\_\-t@{filter\-\_\-t}!stm@{stm}}
+\subsubsection[{filter\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Bit\-Filter}$<$1024$>$ stm\-::filter\-\_\-t}}\label{namespacestm_a34196fa5dc72823aaaa307a6e353704e}
+\hypertarget{namespacestm_a5a70108dbd954a2634cf59d668ea8241}{\index{stm@{stm}!Nanorec\-List@{Nanorec\-List}}
+\index{Nanorec\-List@{Nanorec\-List}!stm@{stm}}
+\subsubsection[{Nanorec\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Mini\-Vector}$<${\bf nanorec\-\_\-t}$>$ stm\-::\-Nanorec\-List}}\label{namespacestm_a5a70108dbd954a2634cf59d668ea8241}
+\hypertarget{namespacestm_aa243a42287cc0cf0fdf20fb4cddd4d02}{\index{stm@{stm}!Orec\-List@{Orec\-List}}
+\index{Orec\-List@{Orec\-List}!stm@{stm}}
+\subsubsection[{Orec\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Mini\-Vector}$<${\bf orec\-\_\-t}$\ast$$>$ stm\-::\-Orec\-List}}\label{namespacestm_aa243a42287cc0cf0fdf20fb4cddd4d02}
+Common Type\-Defs \hypertarget{namespacestm_a656ebc647a656fffc1ff640cb818c669}{\index{stm@{stm}!Read\-Barrier@{Read\-Barrier}}
+\index{Read\-Barrier@{Read\-Barrier}!stm@{stm}}
+\subsubsection[{Read\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void$\ast$($\ast$ stm\-::\-Read\-Barrier)({\bf S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,))}}\label{namespacestm_a656ebc647a656fffc1ff640cb818c669}
+\hypertarget{namespacestm_afad5b3d1a775f6e65cd1e675ba984839}{\index{stm@{stm}!R\-Rec\-List@{R\-Rec\-List}}
+\index{R\-Rec\-List@{R\-Rec\-List}!stm@{stm}}
+\subsubsection[{R\-Rec\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Mini\-Vector}$<${\bf rrec\-\_\-t}$\ast$$>$ stm\-::\-R\-Rec\-List}}\label{namespacestm_afad5b3d1a775f6e65cd1e675ba984839}
+\hypertarget{namespacestm_a91badf88c88aacc831b01a315435a255}{\index{stm@{stm}!scope\-\_\-t@{scope\-\_\-t}}
+\index{scope\-\_\-t@{scope\-\_\-t}!stm@{stm}}
+\subsubsection[{scope\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void stm\-::scope\-\_\-t}}\label{namespacestm_a91badf88c88aacc831b01a315435a255}
+A scope\-\_\-t is an opaque type used by an A\-P\-I to unwind. \hypertarget{namespacestm_a1a3981a9b82aa51afd56d191ca1e3984}{\index{stm@{stm}!toxic\-\_\-t@{toxic\-\_\-t}}
+\index{toxic\-\_\-t@{toxic\-\_\-t}!stm@{stm}}
+\subsubsection[{toxic\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf toxic\-\_\-nop\-\_\-t} stm\-::toxic\-\_\-t}}\label{namespacestm_a1a3981a9b82aa51afd56d191ca1e3984}
+\hypertarget{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{\index{stm@{stm}!Write\-Barrier@{Write\-Barrier}}
+\index{Write\-Barrier@{Write\-Barrier}!stm@{stm}}
+\subsubsection[{Write\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ stm\-::\-Write\-Barrier)({\bf S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,))}}\label{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145}{\index{stm@{stm}!A\-L\-G\-S@{A\-L\-G\-S}}
+\index{A\-L\-G\-S@{A\-L\-G\-S}!stm@{stm}}
+\subsubsection[{A\-L\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}enum stm\-::\-A\-L\-G\-S}}\label{namespacestm_ad75547cc23d4014783868b799d740145}
+The A\-L\-G\-S enum lists every S\-T\-M algorithm we have \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{C\-G\-L@{C\-G\-L}!stm@{stm}}\index{stm@{stm}!C\-G\-L@{C\-G\-L}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a675f3b39efd86983a102f172f46cdc84}{C\-G\-L}\label{namespacestm_ad75547cc23d4014783868b799d740145a675f3b39efd86983a102f172f46cdc84}
+}]\index{Ticket@{Ticket}!stm@{stm}}\index{stm@{stm}!Ticket@{Ticket}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a5ad095d426d300a189561d95966ccd99}{Ticket}\label{namespacestm_ad75547cc23d4014783868b799d740145a5ad095d426d300a189561d95966ccd99}
+}]\index{T\-M\-L@{T\-M\-L}!stm@{stm}}\index{stm@{stm}!T\-M\-L@{T\-M\-L}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a9799c84fcadcaeaed9bf64bbe5042fa3}{T\-M\-L}\label{namespacestm_ad75547cc23d4014783868b799d740145a9799c84fcadcaeaed9bf64bbe5042fa3}
+}]\index{Ring\-S\-W@{Ring\-S\-W}!stm@{stm}}\index{stm@{stm}!Ring\-S\-W@{Ring\-S\-W}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145aa81da945f46106b6a7b23de4422f53d6}{Ring\-S\-W}\label{namespacestm_ad75547cc23d4014783868b799d740145aa81da945f46106b6a7b23de4422f53d6}
+}]\index{Orec\-A\-L\-A@{Orec\-A\-L\-A}!stm@{stm}}\index{stm@{stm}!Orec\-A\-L\-A@{Orec\-A\-L\-A}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a363dcacee89911268737825ed8933c61}{Orec\-A\-L\-A}\label{namespacestm_ad75547cc23d4014783868b799d740145a363dcacee89911268737825ed8933c61}
+}]\index{Orec\-E\-L\-A@{Orec\-E\-L\-A}!stm@{stm}}\index{stm@{stm}!Orec\-E\-L\-A@{Orec\-E\-L\-A}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145acdee336ae380e66b2fa911035c56344d}{Orec\-E\-L\-A}\label{namespacestm_ad75547cc23d4014783868b799d740145acdee336ae380e66b2fa911035c56344d}
+}]\index{T\-M\-L\-Lazy@{T\-M\-L\-Lazy}!stm@{stm}}\index{stm@{stm}!T\-M\-L\-Lazy@{T\-M\-L\-Lazy}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a7d8a5103ddb4cd49199cfb6405eb0159}{T\-M\-L\-Lazy}\label{namespacestm_ad75547cc23d4014783868b799d740145a7d8a5103ddb4cd49199cfb6405eb0159}
+}]\index{N\-Orec\-Prio@{N\-Orec\-Prio}!stm@{stm}}\index{stm@{stm}!N\-Orec\-Prio@{N\-Orec\-Prio}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145abb11ecde2280ca9defc8fe22778d9457}{N\-Orec\-Prio}\label{namespacestm_ad75547cc23d4014783868b799d740145abb11ecde2280ca9defc8fe22778d9457}
+}]\index{Orec\-Fair@{Orec\-Fair}!stm@{stm}}\index{stm@{stm}!Orec\-Fair@{Orec\-Fair}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a62af7646bf32ca2ceb5e1bf50d9eedb4}{Orec\-Fair}\label{namespacestm_ad75547cc23d4014783868b799d740145a62af7646bf32ca2ceb5e1bf50d9eedb4}
+}]\index{C\-Token@{C\-Token}!stm@{stm}}\index{stm@{stm}!C\-Token@{C\-Token}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ae7eebbedede9e8921b8159ba7ab92b48}{C\-Token}\label{namespacestm_ad75547cc23d4014783868b799d740145ae7eebbedede9e8921b8159ba7ab92b48}
+}]\index{C\-Token\-Turbo@{C\-Token\-Turbo}!stm@{stm}}\index{stm@{stm}!C\-Token\-Turbo@{C\-Token\-Turbo}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a04a6fafc926585db8069d8de87eab5e0}{C\-Token\-Turbo}\label{namespacestm_ad75547cc23d4014783868b799d740145a04a6fafc926585db8069d8de87eab5e0}
+}]\index{Pipeline@{Pipeline}!stm@{stm}}\index{stm@{stm}!Pipeline@{Pipeline}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a924e7c702aa11ad7c9981958bc9477a8}{Pipeline}\label{namespacestm_ad75547cc23d4014783868b799d740145a924e7c702aa11ad7c9981958bc9477a8}
+}]\index{Bit\-Lazy@{Bit\-Lazy}!stm@{stm}}\index{stm@{stm}!Bit\-Lazy@{Bit\-Lazy}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a475cbda5bdb7ecb6b031d2bd9e989bcf}{Bit\-Lazy}\label{namespacestm_ad75547cc23d4014783868b799d740145a475cbda5bdb7ecb6b031d2bd9e989bcf}
+}]\index{L\-L\-T@{L\-L\-T}!stm@{stm}}\index{stm@{stm}!L\-L\-T@{L\-L\-T}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145abdf4dafd5a2beffbc571cfe40fc21c56}{L\-L\-T}\label{namespacestm_ad75547cc23d4014783868b799d740145abdf4dafd5a2beffbc571cfe40fc21c56}
+}]\index{T\-L\-I@{T\-L\-I}!stm@{stm}}\index{stm@{stm}!T\-L\-I@{T\-L\-I}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145aa111fa5c172f28fdb66b45de35df568e}{T\-L\-I}\label{namespacestm_ad75547cc23d4014783868b799d740145aa111fa5c172f28fdb66b45de35df568e}
+}]\index{Byte\-Eager@{Byte\-Eager}!stm@{stm}}\index{stm@{stm}!Byte\-Eager@{Byte\-Eager}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a406de428d372a6101065c5586af86100}{Byte\-Eager}\label{namespacestm_ad75547cc23d4014783868b799d740145a406de428d372a6101065c5586af86100}
+}]\index{M\-C\-S@{M\-C\-S}!stm@{stm}}\index{stm@{stm}!M\-C\-S@{M\-C\-S}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a5e0c4df7937f96fce647c2445b28cf16}{M\-C\-S}\label{namespacestm_ad75547cc23d4014783868b799d740145a5e0c4df7937f96fce647c2445b28cf16}
+}]\index{Serial@{Serial}!stm@{stm}}\index{stm@{stm}!Serial@{Serial}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ac9a7bdcea0d608f315b21eb17da835b8}{Serial}\label{namespacestm_ad75547cc23d4014783868b799d740145ac9a7bdcea0d608f315b21eb17da835b8}
+}]\index{Bit\-Eager@{Bit\-Eager}!stm@{stm}}\index{stm@{stm}!Bit\-Eager@{Bit\-Eager}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ac6790adc59da09be49dc5bc7a0f6d508}{Bit\-Eager}\label{namespacestm_ad75547cc23d4014783868b799d740145ac6790adc59da09be49dc5bc7a0f6d508}
+}]\index{Byte\-Lazy@{Byte\-Lazy}!stm@{stm}}\index{stm@{stm}!Byte\-Lazy@{Byte\-Lazy}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145aad1eea8e3827068fe3eee543d75da8b5}{Byte\-Lazy}\label{namespacestm_ad75547cc23d4014783868b799d740145aad1eea8e3827068fe3eee543d75da8b5}
+}]\index{By\-E\-A\-R@{By\-E\-A\-R}!stm@{stm}}\index{stm@{stm}!By\-E\-A\-R@{By\-E\-A\-R}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ae0388604d99fcbe10045d51cb6371abd}{By\-E\-A\-R}\label{namespacestm_ad75547cc23d4014783868b799d740145ae0388604d99fcbe10045d51cb6371abd}
+}]\index{Orec\-Eager\-Redo@{Orec\-Eager\-Redo}!stm@{stm}}\index{stm@{stm}!Orec\-Eager\-Redo@{Orec\-Eager\-Redo}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a7f5fd59369fddfa3c0e5caab9a16eb76}{Orec\-Eager\-Redo}\label{namespacestm_ad75547cc23d4014783868b799d740145a7f5fd59369fddfa3c0e5caab9a16eb76}
+}]\index{Byte\-Eager\-Redo@{Byte\-Eager\-Redo}!stm@{stm}}\index{stm@{stm}!Byte\-Eager\-Redo@{Byte\-Eager\-Redo}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145abed8f16fe1c08081c73d2f783992d172}{Byte\-Eager\-Redo}\label{namespacestm_ad75547cc23d4014783868b799d740145abed8f16fe1c08081c73d2f783992d172}
+}]\index{Bit\-Eager\-Redo@{Bit\-Eager\-Redo}!stm@{stm}}\index{stm@{stm}!Bit\-Eager\-Redo@{Bit\-Eager\-Redo}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ab2d5f8d2dd98046b822ef8cb94a7a02c}{Bit\-Eager\-Redo}\label{namespacestm_ad75547cc23d4014783868b799d740145ab2d5f8d2dd98046b822ef8cb94a7a02c}
+}]\index{Ring\-A\-L\-A@{Ring\-A\-L\-A}!stm@{stm}}\index{stm@{stm}!Ring\-A\-L\-A@{Ring\-A\-L\-A}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145abc773c76ac2d7aa99e2d9961863bc029}{Ring\-A\-L\-A}\label{namespacestm_ad75547cc23d4014783868b799d740145abc773c76ac2d7aa99e2d9961863bc029}
+}]\index{Nano@{Nano}!stm@{stm}}\index{stm@{stm}!Nano@{Nano}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a96dfd65ebc77976afa3c824c439fdb50}{Nano}\label{namespacestm_ad75547cc23d4014783868b799d740145a96dfd65ebc77976afa3c824c439fdb50}
+}]\index{Swiss@{Swiss}!stm@{stm}}\index{stm@{stm}!Swiss@{Swiss}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145acaaff909a085b4e39196b00512c04b71}{Swiss}\label{namespacestm_ad75547cc23d4014783868b799d740145acaaff909a085b4e39196b00512c04b71}
+}]\index{By\-E\-A\-U@{By\-E\-A\-U}!stm@{stm}}\index{stm@{stm}!By\-E\-A\-U@{By\-E\-A\-U}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145aeb3ee66e4dfe3a3f581d0b67e13f02b4}{By\-E\-A\-U}\label{namespacestm_ad75547cc23d4014783868b799d740145aeb3ee66e4dfe3a3f581d0b67e13f02b4}
+}]\index{By\-E\-A\-U\-F\-C\-M@{By\-E\-A\-U\-F\-C\-M}!stm@{stm}}\index{stm@{stm}!By\-E\-A\-U\-F\-C\-M@{By\-E\-A\-U\-F\-C\-M}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a20385b257d797b39b6c3733e8a927e2a}{By\-E\-A\-U\-F\-C\-M}\label{namespacestm_ad75547cc23d4014783868b799d740145a20385b257d797b39b6c3733e8a927e2a}
+}]\index{By\-E\-A\-U\-H\-A@{By\-E\-A\-U\-H\-A}!stm@{stm}}\index{stm@{stm}!By\-E\-A\-U\-H\-A@{By\-E\-A\-U\-H\-A}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a46f2ceaa20ed04b68789e0a84eebdabe}{By\-E\-A\-U\-H\-A}\label{namespacestm_ad75547cc23d4014783868b799d740145a46f2ceaa20ed04b68789e0a84eebdabe}
+}]\index{By\-E\-A\-U\-Hour@{By\-E\-A\-U\-Hour}!stm@{stm}}\index{stm@{stm}!By\-E\-A\-U\-Hour@{By\-E\-A\-U\-Hour}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a4f387d53a061aabdd8d3cee8417c4975}{By\-E\-A\-U\-Hour}\label{namespacestm_ad75547cc23d4014783868b799d740145a4f387d53a061aabdd8d3cee8417c4975}
+}]\index{Or\-E\-A\-U@{Or\-E\-A\-U}!stm@{stm}}\index{stm@{stm}!Or\-E\-A\-U@{Or\-E\-A\-U}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a3c2112f76a36366b49634c92b81a2af9}{Or\-E\-A\-U}\label{namespacestm_ad75547cc23d4014783868b799d740145a3c2112f76a36366b49634c92b81a2af9}
+}]\index{Or\-E\-A\-U\-F\-C\-M@{Or\-E\-A\-U\-F\-C\-M}!stm@{stm}}\index{stm@{stm}!Or\-E\-A\-U\-F\-C\-M@{Or\-E\-A\-U\-F\-C\-M}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a37a730e371595917820202c1c24c1405}{Or\-E\-A\-U\-F\-C\-M}\label{namespacestm_ad75547cc23d4014783868b799d740145a37a730e371595917820202c1c24c1405}
+}]\index{Or\-E\-A\-U\-H\-A@{Or\-E\-A\-U\-H\-A}!stm@{stm}}\index{stm@{stm}!Or\-E\-A\-U\-H\-A@{Or\-E\-A\-U\-H\-A}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ade76e171cd83b848c65807e3f2877a17}{Or\-E\-A\-U\-H\-A}\label{namespacestm_ad75547cc23d4014783868b799d740145ade76e171cd83b848c65807e3f2877a17}
+}]\index{Or\-E\-A\-U\-Hour@{Or\-E\-A\-U\-Hour}!stm@{stm}}\index{stm@{stm}!Or\-E\-A\-U\-Hour@{Or\-E\-A\-U\-Hour}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a1e318e4628ff40872c4735384813da1e}{Or\-E\-A\-U\-Hour}\label{namespacestm_ad75547cc23d4014783868b799d740145a1e318e4628ff40872c4735384813da1e}
+}]\index{Orec\-Eager@{Orec\-Eager}!stm@{stm}}\index{stm@{stm}!Orec\-Eager@{Orec\-Eager}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145af45d567b53be3f43fa622fa4acec7469}{Orec\-Eager}\label{namespacestm_ad75547cc23d4014783868b799d740145af45d567b53be3f43fa622fa4acec7469}
+}]\index{Orec\-Eager\-Hour@{Orec\-Eager\-Hour}!stm@{stm}}\index{stm@{stm}!Orec\-Eager\-Hour@{Orec\-Eager\-Hour}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a73d6f35cde808a68ac2bfb7e50ff938e}{Orec\-Eager\-Hour}\label{namespacestm_ad75547cc23d4014783868b799d740145a73d6f35cde808a68ac2bfb7e50ff938e}
+}]\index{Orec\-Eager\-Backoff@{Orec\-Eager\-Backoff}!stm@{stm}}\index{stm@{stm}!Orec\-Eager\-Backoff@{Orec\-Eager\-Backoff}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a68d8ed7bd8c026c3f527b70b89e90671}{Orec\-Eager\-Backoff}\label{namespacestm_ad75547cc23d4014783868b799d740145a68d8ed7bd8c026c3f527b70b89e90671}
+}]\index{Orec\-Eager\-H\-B@{Orec\-Eager\-H\-B}!stm@{stm}}\index{stm@{stm}!Orec\-Eager\-H\-B@{Orec\-Eager\-H\-B}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145abcd4db1f50bd8f6fc44ed4977da0346d}{Orec\-Eager\-H\-B}\label{namespacestm_ad75547cc23d4014783868b799d740145abcd4db1f50bd8f6fc44ed4977da0346d}
+}]\index{Orec\-Lazy@{Orec\-Lazy}!stm@{stm}}\index{stm@{stm}!Orec\-Lazy@{Orec\-Lazy}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a0260e027cdf5da03688d8f52e424aa2c}{Orec\-Lazy}\label{namespacestm_ad75547cc23d4014783868b799d740145a0260e027cdf5da03688d8f52e424aa2c}
+}]\index{Orec\-Lazy\-Hour@{Orec\-Lazy\-Hour}!stm@{stm}}\index{stm@{stm}!Orec\-Lazy\-Hour@{Orec\-Lazy\-Hour}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ae753c643ecdbf464c575a05beddc7f2f}{Orec\-Lazy\-Hour}\label{namespacestm_ad75547cc23d4014783868b799d740145ae753c643ecdbf464c575a05beddc7f2f}
+}]\index{Orec\-Lazy\-Backoff@{Orec\-Lazy\-Backoff}!stm@{stm}}\index{stm@{stm}!Orec\-Lazy\-Backoff@{Orec\-Lazy\-Backoff}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a05d3f2b0b2a35d258304197f4ae3b554}{Orec\-Lazy\-Backoff}\label{namespacestm_ad75547cc23d4014783868b799d740145a05d3f2b0b2a35d258304197f4ae3b554}
+}]\index{Orec\-Lazy\-H\-B@{Orec\-Lazy\-H\-B}!stm@{stm}}\index{stm@{stm}!Orec\-Lazy\-H\-B@{Orec\-Lazy\-H\-B}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ae91d0788a4ee3c20a0526d120f72d1f2}{Orec\-Lazy\-H\-B}\label{namespacestm_ad75547cc23d4014783868b799d740145ae91d0788a4ee3c20a0526d120f72d1f2}
+}]\index{N\-Orec@{N\-Orec}!stm@{stm}}\index{stm@{stm}!N\-Orec@{N\-Orec}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145aefcd72d51be4ac5fa48359c5656bd6b9}{N\-Orec}\label{namespacestm_ad75547cc23d4014783868b799d740145aefcd72d51be4ac5fa48359c5656bd6b9}
+}]\index{N\-Orec\-Hour@{N\-Orec\-Hour}!stm@{stm}}\index{stm@{stm}!N\-Orec\-Hour@{N\-Orec\-Hour}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a92c8a3800760b319d7f208d796cde8a8}{N\-Orec\-Hour}\label{namespacestm_ad75547cc23d4014783868b799d740145a92c8a3800760b319d7f208d796cde8a8}
+}]\index{N\-Orec\-Backoff@{N\-Orec\-Backoff}!stm@{stm}}\index{stm@{stm}!N\-Orec\-Backoff@{N\-Orec\-Backoff}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a6fd409ae7e92c7ff3516416621257265}{N\-Orec\-Backoff}\label{namespacestm_ad75547cc23d4014783868b799d740145a6fd409ae7e92c7ff3516416621257265}
+}]\index{N\-Orec\-H\-B@{N\-Orec\-H\-B}!stm@{stm}}\index{stm@{stm}!N\-Orec\-H\-B@{N\-Orec\-H\-B}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a7428b7322325893892f8600bb89a0f94}{N\-Orec\-H\-B}\label{namespacestm_ad75547cc23d4014783868b799d740145a7428b7322325893892f8600bb89a0f94}
+}]\index{Profile\-T\-M@{Profile\-T\-M}!stm@{stm}}\index{stm@{stm}!Profile\-T\-M@{Profile\-T\-M}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ae53e186eb0d96942d6a31cf756e199ec}{Profile\-T\-M}\label{namespacestm_ad75547cc23d4014783868b799d740145ae53e186eb0d96942d6a31cf756e199ec}
+}]\index{Profile\-App\-Avg@{Profile\-App\-Avg}!stm@{stm}}\index{stm@{stm}!Profile\-App\-Avg@{Profile\-App\-Avg}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145ac73c083e2ef3a57a9a67840033e76044}{Profile\-App\-Avg}\label{namespacestm_ad75547cc23d4014783868b799d740145ac73c083e2ef3a57a9a67840033e76044}
+}]\index{Profile\-App\-Max@{Profile\-App\-Max}!stm@{stm}}\index{stm@{stm}!Profile\-App\-Max@{Profile\-App\-Max}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a948565b4c6ec1e7c01b488547a32fcad}{Profile\-App\-Max}\label{namespacestm_ad75547cc23d4014783868b799d740145a948565b4c6ec1e7c01b488547a32fcad}
+}]\index{Profile\-App\-All@{Profile\-App\-All}!stm@{stm}}\index{stm@{stm}!Profile\-App\-All@{Profile\-App\-All}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a9c09be1c8e5f99a3dcb3bd4266069c42}{Profile\-App\-All}\label{namespacestm_ad75547cc23d4014783868b799d740145a9c09be1c8e5f99a3dcb3bd4266069c42}
+}]\index{A\-L\-G\-\_\-\-M\-A\-X@{A\-L\-G\-\_\-\-M\-A\-X}!stm@{stm}}\index{stm@{stm}!A\-L\-G\-\_\-\-M\-A\-X@{A\-L\-G\-\_\-\-M\-A\-X}}\item[{\em 
+\hypertarget{namespacestm_ad75547cc23d4014783868b799d740145a466ea15eb4c3d10520bd729f59123097}{A\-L\-G\-\_\-\-M\-A\-X}\label{namespacestm_ad75547cc23d4014783868b799d740145a466ea15eb4c3d10520bd729f59123097}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493}{\index{stm@{stm}!P\-O\-L\-S@{P\-O\-L\-S}}
+\index{P\-O\-L\-S@{P\-O\-L\-S}!stm@{stm}}
+\subsubsection[{P\-O\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}enum stm\-::\-P\-O\-L\-S}}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493}
+The P\-O\-L\-S enum lists every adaptive policy we have \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Single@{Single}!stm@{stm}}\index{stm@{stm}!Single@{Single}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493af00d76b2e9570c9ef71fb59bbff6b3d3}{Single}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493af00d76b2e9570c9ef71fb59bbff6b3d3}
+}]\index{P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E@{P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E}!stm@{stm}}\index{stm@{stm}!P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E@{P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a96f3581ddaae6418a394fc270057e005}{P\-R\-O\-F\-I\-L\-E\-\_\-\-N\-O\-C\-H\-A\-N\-G\-E}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a96f3581ddaae6418a394fc270057e005}
+}]\index{E@{E}!stm@{stm}}\index{stm@{stm}!E@{E}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5fbccff2a7f8301aa2364704541da649}{E}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5fbccff2a7f8301aa2364704541da649}
+}]\index{E\-R@{E\-R}!stm@{stm}}\index{stm@{stm}!E\-R@{E\-R}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a20042be93e440ec38c8d74f645b25ea8}{E\-R}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a20042be93e440ec38c8d74f645b25ea8}
+}]\index{R@{R}!stm@{stm}}\index{stm@{stm}!R@{R}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493adbfb4e354fc128dfe6c7334ff08ac558}{R}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493adbfb4e354fc128dfe6c7334ff08ac558}
+}]\index{X@{X}!stm@{stm}}\index{stm@{stm}!X@{X}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493afe98ca998e91d9883900ccc2579411cb}{X}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493afe98ca998e91d9883900ccc2579411cb}
+}]\index{C\-B\-R\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493aee65cfe9901d210de837cbb1f243cf5a}{C\-B\-R\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493aee65cfe9901d210de837cbb1f243cf5a}
+}]\index{C\-B\-R\-\_\-\-Read@{C\-B\-R\-\_\-\-Read}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Read@{C\-B\-R\-\_\-\-Read}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a876c8a530cb793b2acd9d30c42a991f9}{C\-B\-R\-\_\-\-Read}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a876c8a530cb793b2acd9d30c42a991f9}
+}]\index{C\-B\-R\-\_\-\-Write@{C\-B\-R\-\_\-\-Write}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Write@{C\-B\-R\-\_\-\-Write}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a84543cc00203169452a705770cc8d6b4}{C\-B\-R\-\_\-\-Write}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a84543cc00203169452a705770cc8d6b4}
+}]\index{C\-B\-R\-\_\-\-Time@{C\-B\-R\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Time@{C\-B\-R\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa5811bdeb030f29963e5423f5121ba4e}{C\-B\-R\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa5811bdeb030f29963e5423f5121ba4e}
+}]\index{C\-B\-R\-\_\-\-R\-W@{C\-B\-R\-\_\-\-R\-W}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-W@{C\-B\-R\-\_\-\-R\-W}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a8e768ff49c3143004726d68ada5936ba}{C\-B\-R\-\_\-\-R\-W}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a8e768ff49c3143004726d68ada5936ba}
+}]\index{C\-B\-R\-\_\-\-R\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a43bf92d9361dd7de388df69779b458f4}{C\-B\-R\-\_\-\-R\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a43bf92d9361dd7de388df69779b458f4}
+}]\index{C\-B\-R\-\_\-\-R\-\_\-\-Time@{C\-B\-R\-\_\-\-R\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-\_\-\-Time@{C\-B\-R\-\_\-\-R\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a2cb2e5e6b3f044931be9781fd2c79a2f}{C\-B\-R\-\_\-\-R\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a2cb2e5e6b3f044931be9781fd2c79a2f}
+}]\index{C\-B\-R\-\_\-\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-W\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-W\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a9134216f95da9c5c7849249bbd5b62f8}{C\-B\-R\-\_\-\-W\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a9134216f95da9c5c7849249bbd5b62f8}
+}]\index{C\-B\-R\-\_\-\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-W\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-W\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae1dbf21e41fb8372766523d3f0e688ce}{C\-B\-R\-\_\-\-W\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae1dbf21e41fb8372766523d3f0e688ce}
+}]\index{C\-B\-R\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Time\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Time\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a094e12c62e309f2e570b8959d593d5e8}{C\-B\-R\-\_\-\-Time\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a094e12c62e309f2e570b8959d593d5e8}
+}]\index{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac6415b359d0dc955c70c67bcc5402606}{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac6415b359d0dc955c70c67bcc5402606}
+}]\index{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493afa709945322d7ea48e851b0de26c5c34}{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493afa709945322d7ea48e851b0de26c5c34}
+}]\index{C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493aca5947c981294f35a2d961a197a0dc1f}{C\-B\-R\-\_\-\-R\-\_\-\-Time\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493aca5947c981294f35a2d961a197a0dc1f}
+}]\index{C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493af801e9827272485287bff05341e616b8}{C\-B\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493af801e9827272485287bff05341e616b8}
+}]\index{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O@{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a89b74f4a4c7545721046c423a7df1916}{C\-B\-R\-\_\-\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a89b74f4a4c7545721046c423a7df1916}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio@{C\-B\-R\-\_\-\-Txn\-Ratio}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio@{C\-B\-R\-\_\-\-Txn\-Ratio}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493acbb2745792185384618cd5f53c504679}{C\-B\-R\-\_\-\-Txn\-Ratio}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493acbb2745792185384618cd5f53c504679}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab13ff4d0f101aa2b4fe5cd5e7149a18f}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab13ff4d0f101aa2b4fe5cd5e7149a18f}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5e3f60d689489c25ccd05fb76816753d}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a5e3f60d689489c25ccd05fb76816753d}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3f241476ddf4da1dc2d8194c554e01fc}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3f241476ddf4da1dc2d8194c554e01fc}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae86936227191c732ccec32fcba58c414}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae86936227191c732ccec32fcba58c414}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac15bb8ce5873c11067ad826df68d156e}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ac15bb8ce5873c11067ad826df68d156e}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab6d6ce02597f0f8b6893da6a09762599}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ab6d6ce02597f0f8b6893da6a09762599}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3dca4058ca95a62397e9615854e392f7}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a3dca4058ca95a62397e9615854e392f7}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493af3e389d67745aaf8609d8cffc0e6f3a6}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493af3e389d67745aaf8609d8cffc0e6f3a6}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a004e80d5506fed5d3b5781be1dd3b7e7}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a004e80d5506fed5d3b5781be1dd3b7e7}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493af60bda5479cef87cc48befe9628efd13}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493af60bda5479cef87cc48befe9628efd13}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a26a5548e99bb334be9053f9b3c9e52b7}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a26a5548e99bb334be9053f9b3c9e52b7}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa40e7559e06316c0e8b327418b48a68f}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493aa40e7559e06316c0e8b327418b48a68f}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a779665fdec869cf0000966bb51ae85f4}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a779665fdec869cf0000966bb51ae85f4}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a70013125e0613a74c89b4f99f55747b8}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a70013125e0613a74c89b4f99f55747b8}
+}]\index{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time}!stm@{stm}}\index{stm@{stm}!C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time@{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493a6d9d1d0725de77bf02e0265cf934033c}{C\-B\-R\-\_\-\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493a6d9d1d0725de77bf02e0265cf934033c}
+}]\index{P\-O\-L\-\_\-\-M\-A\-X@{P\-O\-L\-\_\-\-M\-A\-X}!stm@{stm}}\index{stm@{stm}!P\-O\-L\-\_\-\-M\-A\-X@{P\-O\-L\-\_\-\-M\-A\-X}}\item[{\em 
+\hypertarget{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae9cfae39bec896ef08d7792295866d60}{P\-O\-L\-\_\-\-M\-A\-X}\label{namespacestm_a4fbece2613ac8fc61e22d91bac698493ae9cfae39bec896ef08d7792295866d60}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacestm_a0c55198314099976b8a37acfebba7a35}{\index{stm@{stm}!afterread\-\_\-\-T\-M\-L@{afterread\-\_\-\-T\-M\-L}}
+\index{afterread\-\_\-\-T\-M\-L@{afterread\-\_\-\-T\-M\-L}!stm@{stm}}
+\subsubsection[{afterread\-\_\-\-T\-M\-L}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::afterread\-\_\-\-T\-M\-L (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a0c55198314099976b8a37acfebba7a35}
+T\-M\-L requires this to be called after every read \hypertarget{namespacestm_a58896d2f55a47543f798e330bc13799f}{\index{stm@{stm}!become\-\_\-irrevoc@{become\-\_\-irrevoc}}
+\index{become\-\_\-irrevoc@{become\-\_\-irrevoc}!stm@{stm}}
+\subsubsection[{become\-\_\-irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::become\-\_\-irrevoc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a58896d2f55a47543f798e330bc13799f}
+\hypertarget{namespacestm_aa80b25b7fbf60cf912475203a5ba2d0c}{\index{stm@{stm}!become\-\_\-irrevoc@{become\-\_\-irrevoc}}
+\index{become\-\_\-irrevoc@{become\-\_\-irrevoc}!stm@{stm}}
+\subsubsection[{become\-\_\-irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::become\-\_\-irrevoc (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(void $\ast$$\ast$upper\-\_\-stack\-\_\-bound)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_aa80b25b7fbf60cf912475203a5ba2d0c}
+Try to become irrevocable, inflight. This happens via mode switching. If the inflight irrevocability fails, we fall-\/back to an abort-\/and-\/restart-\/as-\/irrevocable scheme, based on the understanding that the begin\-\_\-blocker tmbegin barrier will configure us as irrevocable and let us through if we have our irrevocable flag set. In addition to letting us through, it will set our barrier pointers to be the irrevocable barriers---it has to be done here because the rollback that the abort triggers will reset anything we try and set here. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_aa80b25b7fbf60cf912475203a5ba2d0c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a1f53cda33965f891e41b86a99b2424a2}{\index{stm@{stm}!become\-\_\-irrevoc@{become\-\_\-irrevoc}}
+\index{become\-\_\-irrevoc@{become\-\_\-irrevoc}!stm@{stm}}
+\subsubsection[{become\-\_\-irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::become\-\_\-irrevoc (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(void $\ast$$\ast$top\-\_\-of\-\_\-stack)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a1f53cda33965f891e41b86a99b2424a2}
+Try to become irrevocable. Call this from within a transaction. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a1f53cda33965f891e41b86a99b2424a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a9ece0c6a6fb686620010cd55d080e74e}{\index{stm@{stm}!beforewrite\-\_\-\-T\-M\-L@{beforewrite\-\_\-\-T\-M\-L}}
+\index{beforewrite\-\_\-\-T\-M\-L@{beforewrite\-\_\-\-T\-M\-L}!stm@{stm}}
+\subsubsection[{beforewrite\-\_\-\-T\-M\-L}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::beforewrite\-\_\-\-T\-M\-L (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a9ece0c6a6fb686620010cd55d080e74e}
+T\-M\-L requires this to be called before every write 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespacestm_a9ece0c6a6fb686620010cd55d080e74e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{\index{stm@{stm}!begin@{begin}}
+\index{begin@{begin}!stm@{stm}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void stm\-::begin (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{scope\-\_\-t $\ast$}]{s, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}
+Code to start a transaction. We assume the caller already performed a setjmp, and is passing a valid setjmp buffer to this function.
+
+The code to begin a transaction {\itshape could} all live on the far side of a function pointer. By putting some of the code into this inlined function, we can\-:
+
+(a) avoid overhead under subsumption nesting and (b) avoid code duplication or M\-A\-C\-R\-O nastiness 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a347d5009be494e8595a8933c49a342b4}{\index{stm@{stm}!begin\-\_\-blocker@{begin\-\_\-blocker}}
+\index{begin\-\_\-blocker@{begin\-\_\-blocker}!stm@{stm}}
+\subsubsection[{begin\-\_\-blocker}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::begin\-\_\-blocker (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a347d5009be494e8595a8933c49a342b4}
+Custom begin method that blocks the starting thread, in order to get rendezvous correct during mode switching and G\-R\-L irrevocability. It doubles as an irrevocability mechanism for implementations where we don't have (or can't write) an in-\/flight irrevocability mechanism.
+
+custom begin method that blocks the starting thread, in order to get rendezvous correct during mode switching and G\-R\-L irrevocability (implemented in \hyperlink{irrevocability_8cpp}{irrevocability.\-cpp} because it uses some static functions declared there) 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a347d5009be494e8595a8933c49a342b4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a347d5009be494e8595a8933c49a342b4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a74784f193abf87bd1c6f688d6b25cacd}{\index{stm@{stm}!begin\-\_\-\-C\-G\-L@{begin\-\_\-\-C\-G\-L}}
+\index{begin\-\_\-\-C\-G\-L@{begin\-\_\-\-C\-G\-L}!stm@{stm}}
+\subsubsection[{begin\-\_\-\-C\-G\-L}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::begin\-\_\-\-C\-G\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a74784f193abf87bd1c6f688d6b25cacd}
+C\-G\-L begin\-:
+
+We grab the lock, but we count how long we had to spin, so that we can possibly adapt after releasing the lock.
+
+This is external and declared in \hyperlink{algs_8hpp}{algs.\-hpp} so that we can access it as a default in places. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a74784f193abf87bd1c6f688d6b25cacd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{namespacestm_a74784f193abf87bd1c6f688d6b25cacd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a6dac45d3016212cca24831c1bff9ec19}{\index{stm@{stm}!Check\-Turbo\-Mode@{Check\-Turbo\-Mode}}
+\index{Check\-Turbo\-Mode@{Check\-Turbo\-Mode}!stm@{stm}}
+\subsubsection[{Check\-Turbo\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Check\-Turbo\-Mode (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{Read\-Barrier}]{read\-\_\-turbo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a6dac45d3016212cca24831c1bff9ec19}
+\hypertarget{namespacestm_a94dbca4907e005c8c803e452b123903f}{\index{stm@{stm}!commit@{commit}}
+\index{commit@{commit}!stm@{stm}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void stm\-::commit (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a94dbca4907e005c8c803e452b123903f}
+Code to commit a transaction. As in \hyperlink{namespacestm_a5dc0e1df0fe411722145e01e8b09b4b8}{begin()}, we are using forced inlining to save a little bit of overhead for subsumption nesting, and to prevent code duplication. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{namespacestm_a94dbca4907e005c8c803e452b123903f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_af27d33b081d718c75a64717907e3dbd4}{\index{stm@{stm}!exp\-\_\-backoff@{exp\-\_\-backoff}}
+\index{exp\-\_\-backoff@{exp\-\_\-backoff}!stm@{stm}}
+\subsubsection[{exp\-\_\-backoff}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void stm\-::exp\-\_\-backoff (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_af27d33b081d718c75a64717907e3dbd4}
+A simple implementation of randomized exponential backoff.
+
+N\-B\-: This uses get\-Elapsed\-Time, which is slow compared to a granularity of 64 nops. However, we can't switch to tick(), because sometimes two successive tick() calls return the same value? 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{namespacestm_af27d33b081d718c75a64717907e3dbd4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{namespacestm_af27d33b081d718c75a64717907e3dbd4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ae189ae33f77d3feb28d2f2776156a10e}{\index{stm@{stm}!get\-\_\-algname@{get\-\_\-algname}}
+\index{get\-\_\-algname@{get\-\_\-algname}!stm@{stm}}
+\subsubsection[{get\-\_\-algname}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ stm\-::get\-\_\-algname (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ae189ae33f77d3feb28d2f2776156a10e}
+Return the name of the algorithm with which the library was configured \hypertarget{namespacestm_a78aa4b1c9b53b6ff311d77d3118fec23}{\index{stm@{stm}!get\-\_\-bitlock@{get\-\_\-bitlock}}
+\index{get\-\_\-bitlock@{get\-\_\-bitlock}!stm@{stm}}
+\subsubsection[{get\-\_\-bitlock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf bitlock\-\_\-t}$\ast$ stm\-::get\-\_\-bitlock (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a78aa4b1c9b53b6ff311d77d3118fec23}
+Map addresses to bitlock table entries \hypertarget{namespacestm_a149c0523622ed7c657ed050cb12a9511}{\index{stm@{stm}!get\-\_\-bytelock@{get\-\_\-bytelock}}
+\index{get\-\_\-bytelock@{get\-\_\-bytelock}!stm@{stm}}
+\subsubsection[{get\-\_\-bytelock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf bytelock\-\_\-t}$\ast$ stm\-::get\-\_\-bytelock (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a149c0523622ed7c657ed050cb12a9511}
+Map addresses to bytelock table entries \hypertarget{namespacestm_ac8e54342cd61b4426d70bff9a726d6c8}{\index{stm@{stm}!get\-\_\-nanorec@{get\-\_\-nanorec}}
+\index{get\-\_\-nanorec@{get\-\_\-nanorec}!stm@{stm}}
+\subsubsection[{get\-\_\-nanorec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf orec\-\_\-t}$\ast$ stm\-::get\-\_\-nanorec (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_ac8e54342cd61b4426d70bff9a726d6c8}
+Map addresses to nanorec table entries \hypertarget{namespacestm_a18a81b01de87995b54cd855bb6eeaae7}{\index{stm@{stm}!get\-\_\-nontxtime@{get\-\_\-nontxtime}}
+\index{get\-\_\-nontxtime@{get\-\_\-nontxtime}!stm@{stm}}
+\subsubsection[{get\-\_\-nontxtime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} unsigned long long stm\-::get\-\_\-nontxtime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a18a81b01de87995b54cd855bb6eeaae7}
+Helper function. This is a terrible thing, and one we must get rid of, especially since we are calling it far more often than we should! 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a18a81b01de87995b54cd855bb6eeaae7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a059f2742566005f0d199d47a4f3131d2}{\index{stm@{stm}!get\-\_\-orec@{get\-\_\-orec}}
+\index{get\-\_\-orec@{get\-\_\-orec}!stm@{stm}}
+\subsubsection[{get\-\_\-orec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf orec\-\_\-t}$\ast$ stm\-::get\-\_\-orec (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a059f2742566005f0d199d47a4f3131d2}
+These simple functions are used for common operations on the global metadata arrays Map addresses to orec table entries 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a059f2742566005f0d199d47a4f3131d2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a6cfd9a7082b443f355ecd09cb09c4752}{\index{stm@{stm}!get\-\_\-rrec@{get\-\_\-rrec}}
+\index{get\-\_\-rrec@{get\-\_\-rrec}!stm@{stm}}
+\subsubsection[{get\-\_\-rrec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} {\bf rrec\-\_\-t}$\ast$ stm\-::get\-\_\-rrec (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a6cfd9a7082b443f355ecd09cb09c4752}
+Map addresses to rrec table entries \hypertarget{namespacestm_a9506ca168bd37fecc44feddbfe8c6233}{\index{stm@{stm}!Go\-Turbo@{Go\-Turbo}}
+\index{Go\-Turbo@{Go\-Turbo}!stm@{stm}}
+\subsubsection[{Go\-Turbo}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Go\-Turbo (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{Read\-Barrier}]{r, }
+\item[{Write\-Barrier}]{w, }
+\item[{Commit\-Barrier}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a9506ca168bd37fecc44feddbfe8c6233}
+\hypertarget{namespacestm_a6aa5d9dc2e638d0df9771d39cd3b87ef}{\index{stm@{stm}!init\-\_\-adapt\-\_\-pol@{init\-\_\-adapt\-\_\-pol}}
+\index{init\-\_\-adapt\-\_\-pol@{init\-\_\-adapt\-\_\-pol}!stm@{stm}}
+\subsubsection[{init\-\_\-adapt\-\_\-pol}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::init\-\_\-adapt\-\_\-pol (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{Policy\-I\-D, }
+\item[{int32\-\_\-t}]{startmode, }
+\item[{int32\-\_\-t}]{abort\-Thresh, }
+\item[{int32\-\_\-t}]{wait\-Thresh, }
+\item[{bool}]{is\-Dynamic, }
+\item[{bool}]{is\-C\-B\-R, }
+\item[{bool}]{is\-Commit\-Profile, }
+\item[{uint32\-\_\-t {\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}($\ast$)()}]{decider, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a6aa5d9dc2e638d0df9771d39cd3b87ef}
+This helper function lets us easily configure our S\-T\-M adaptivity policies. The idea is that an adaptive policy can get most of its configuration from the info in its starting state, and the rest of the information is easy to provide 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a6aa5d9dc2e638d0df9771d39cd3b87ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a87a28ba567cb694e4251e884f3ae77ae}{\index{stm@{stm}!init\-\_\-adapt\-\_\-pol@{init\-\_\-adapt\-\_\-pol}}
+\index{init\-\_\-adapt\-\_\-pol@{init\-\_\-adapt\-\_\-pol}!stm@{stm}}
+\subsubsection[{init\-\_\-adapt\-\_\-pol}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::init\-\_\-adapt\-\_\-pol (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{Policy\-I\-D, }
+\item[{int32\-\_\-t}]{startmode, }
+\item[{int32\-\_\-t}]{abort\-Thresh, }
+\item[{int32\-\_\-t}]{wait\-Thresh, }
+\item[{bool}]{is\-Dynamic, }
+\item[{bool}]{is\-C\-B\-R, }
+\item[{bool}]{is\-Commit\-Profile, }
+\item[{uint32\-\_\-t($\ast$)() {\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}}]{decider, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a87a28ba567cb694e4251e884f3ae77ae}
+\hypertarget{namespacestm_aa0b1d39423394b3e447d37ac36e9fde3}{\index{stm@{stm}!init\-\_\-pol\-\_\-cbr@{init\-\_\-pol\-\_\-cbr}}
+\index{init\-\_\-pol\-\_\-cbr@{init\-\_\-pol\-\_\-cbr}!stm@{stm}}
+\subsubsection[{init\-\_\-pol\-\_\-cbr}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::init\-\_\-pol\-\_\-cbr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_aa0b1d39423394b3e447d37ac36e9fde3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_aa0b1d39423394b3e447d37ac36e9fde3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_aa0b1d39423394b3e447d37ac36e9fde3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ab5a1851d6381fc50697f662635db22ea}{\index{stm@{stm}!init\-\_\-pol\-\_\-static@{init\-\_\-pol\-\_\-static}}
+\index{init\-\_\-pol\-\_\-static@{init\-\_\-pol\-\_\-static}!stm@{stm}}
+\subsubsection[{init\-\_\-pol\-\_\-static}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::init\-\_\-pol\-\_\-static (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ab5a1851d6381fc50697f662635db22ea}
+To avoid excessive declarations in internal.\-hpp, we use this function to initialize all the policies declared in this file 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{namespacestm_ab5a1851d6381fc50697f662635db22ea_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ab5a1851d6381fc50697f662635db22ea_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_abb2124c312981d2c1beeca03d28934b0}{\index{stm@{stm}!init\-T\-M@{init\-T\-M}}
+\index{init\-T\-M@{init\-T\-M}!stm@{stm}}
+\subsubsection[{init\-T\-M}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int I$>$ void stm\-::init\-T\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_abb2124c312981d2c1beeca03d28934b0}
+We don't want to have to declare an init function for each of the S\-T\-M algorithms that exist, because there are very many of them and they vary dynamically. Instead, we have a templated init function in namespace stm, and we instantiate it once per algorithm, in the algorithm's .cpp, using the A\-L\-G\-S enum. Then we can just call the templated functions from this code, and the linker will find the corresponding instantiation. \hypertarget{namespacestm_a3481259fea7ebeebd977ce02fb4689a9}{\index{stm@{stm}!init\-T\-M$<$ Bit\-Eager $>$@{init\-T\-M$<$ Bit\-Eager $>$}}
+\index{init\-T\-M$<$ Bit\-Eager $>$@{init\-T\-M$<$ Bit\-Eager $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Bit\-Eager $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Bit\-Eager} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a3481259fea7ebeebd977ce02fb4689a9}
+Bit\-Eager initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a3481259fea7ebeebd977ce02fb4689a9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_af335dc712a8de275f9717b777ed3ca66}{\index{stm@{stm}!init\-T\-M$<$ Bit\-Eager\-Redo $>$@{init\-T\-M$<$ Bit\-Eager\-Redo $>$}}
+\index{init\-T\-M$<$ Bit\-Eager\-Redo $>$@{init\-T\-M$<$ Bit\-Eager\-Redo $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Bit\-Eager\-Redo $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Bit\-Eager\-Redo} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_af335dc712a8de275f9717b777ed3ca66}
+Bit\-Eager\-Redo initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_af335dc712a8de275f9717b777ed3ca66_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a5e270495fc7574dcdcc888b7d417f2ef}{\index{stm@{stm}!init\-T\-M$<$ Bit\-Lazy $>$@{init\-T\-M$<$ Bit\-Lazy $>$}}
+\index{init\-T\-M$<$ Bit\-Lazy $>$@{init\-T\-M$<$ Bit\-Lazy $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Bit\-Lazy $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Bit\-Lazy} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a5e270495fc7574dcdcc888b7d417f2ef}
+Bit\-Lazy initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a5e270495fc7574dcdcc888b7d417f2ef_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ae4cf55c68816202f94849ee8d185898c}{\index{stm@{stm}!init\-T\-M$<$ By\-E\-A\-R $>$@{init\-T\-M$<$ By\-E\-A\-R $>$}}
+\index{init\-T\-M$<$ By\-E\-A\-R $>$@{init\-T\-M$<$ By\-E\-A\-R $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ By\-E\-A\-R $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf By\-E\-A\-R} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ae4cf55c68816202f94849ee8d185898c}
+By\-E\-A\-R initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ae4cf55c68816202f94849ee8d185898c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a8eb056d129b487626f62873c35b1b1fb}{\index{stm@{stm}!init\-T\-M$<$ Byte\-Eager $>$@{init\-T\-M$<$ Byte\-Eager $>$}}
+\index{init\-T\-M$<$ Byte\-Eager $>$@{init\-T\-M$<$ Byte\-Eager $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Byte\-Eager $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Byte\-Eager} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a8eb056d129b487626f62873c35b1b1fb}
+Byte\-Eager initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a8eb056d129b487626f62873c35b1b1fb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a190221d732834ffba64bba1c53b1e4d0}{\index{stm@{stm}!init\-T\-M$<$ Byte\-Eager\-Redo $>$@{init\-T\-M$<$ Byte\-Eager\-Redo $>$}}
+\index{init\-T\-M$<$ Byte\-Eager\-Redo $>$@{init\-T\-M$<$ Byte\-Eager\-Redo $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Byte\-Eager\-Redo $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Byte\-Eager\-Redo} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a190221d732834ffba64bba1c53b1e4d0}
+Byte\-Eager\-Redo initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a190221d732834ffba64bba1c53b1e4d0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a7e9eb77806c370789fa8eec66c6bfbd3}{\index{stm@{stm}!init\-T\-M$<$ Byte\-Lazy $>$@{init\-T\-M$<$ Byte\-Lazy $>$}}
+\index{init\-T\-M$<$ Byte\-Lazy $>$@{init\-T\-M$<$ Byte\-Lazy $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Byte\-Lazy $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Byte\-Lazy} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a7e9eb77806c370789fa8eec66c6bfbd3}
+Byte\-Lazy initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a7e9eb77806c370789fa8eec66c6bfbd3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a976f5145078328564e9e05c97bce777e}{\index{stm@{stm}!init\-T\-M$<$ C\-G\-L $>$@{init\-T\-M$<$ C\-G\-L $>$}}
+\index{init\-T\-M$<$ C\-G\-L $>$@{init\-T\-M$<$ C\-G\-L $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ C\-G\-L $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf C\-G\-L} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a976f5145078328564e9e05c97bce777e}
+C\-G\-L initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a976f5145078328564e9e05c97bce777e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a9d3bc686df5785ef565f8c670551db80}{\index{stm@{stm}!init\-T\-M$<$ C\-Token $>$@{init\-T\-M$<$ C\-Token $>$}}
+\index{init\-T\-M$<$ C\-Token $>$@{init\-T\-M$<$ C\-Token $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ C\-Token $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf C\-Token} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a9d3bc686df5785ef565f8c670551db80}
+C\-Token initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a9d3bc686df5785ef565f8c670551db80_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ad516a34d475efb5484e27b3d3a6dbc98}{\index{stm@{stm}!init\-T\-M$<$ C\-Token\-Turbo $>$@{init\-T\-M$<$ C\-Token\-Turbo $>$}}
+\index{init\-T\-M$<$ C\-Token\-Turbo $>$@{init\-T\-M$<$ C\-Token\-Turbo $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ C\-Token\-Turbo $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf C\-Token\-Turbo} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ad516a34d475efb5484e27b3d3a6dbc98}
+C\-Token\-Turbo initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ad516a34d475efb5484e27b3d3a6dbc98_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a5cc1979e19b1da973e23e167983fe46c}{\index{stm@{stm}!init\-T\-M$<$ L\-L\-T $>$@{init\-T\-M$<$ L\-L\-T $>$}}
+\index{init\-T\-M$<$ L\-L\-T $>$@{init\-T\-M$<$ L\-L\-T $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ L\-L\-T $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf L\-L\-T} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a5cc1979e19b1da973e23e167983fe46c}
+L\-L\-T initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{namespacestm_a5cc1979e19b1da973e23e167983fe46c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a6c7909b6fe245dbee6d5212415e2e4d3}{\index{stm@{stm}!init\-T\-M$<$ M\-C\-S $>$@{init\-T\-M$<$ M\-C\-S $>$}}
+\index{init\-T\-M$<$ M\-C\-S $>$@{init\-T\-M$<$ M\-C\-S $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ M\-C\-S $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf M\-C\-S} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a6c7909b6fe245dbee6d5212415e2e4d3}
+M\-C\-S initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a6c7909b6fe245dbee6d5212415e2e4d3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a048c0cf84afefca94431bf35517d2d85}{\index{stm@{stm}!init\-T\-M$<$ Nano $>$@{init\-T\-M$<$ Nano $>$}}
+\index{init\-T\-M$<$ Nano $>$@{init\-T\-M$<$ Nano $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Nano $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Nano} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a048c0cf84afefca94431bf35517d2d85}
+Nano initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a048c0cf84afefca94431bf35517d2d85_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a263b456462a520d1969be26c7cde1663}{\index{stm@{stm}!init\-T\-M$<$ N\-Orec\-Prio $>$@{init\-T\-M$<$ N\-Orec\-Prio $>$}}
+\index{init\-T\-M$<$ N\-Orec\-Prio $>$@{init\-T\-M$<$ N\-Orec\-Prio $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ N\-Orec\-Prio $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf N\-Orec\-Prio} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a263b456462a520d1969be26c7cde1663}
+N\-Orec\-Prio initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a263b456462a520d1969be26c7cde1663_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a97bce9d90c3aabe3329b9315b2f8d812}{\index{stm@{stm}!init\-T\-M$<$ Orec\-A\-L\-A $>$@{init\-T\-M$<$ Orec\-A\-L\-A $>$}}
+\index{init\-T\-M$<$ Orec\-A\-L\-A $>$@{init\-T\-M$<$ Orec\-A\-L\-A $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Orec\-A\-L\-A $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Orec\-A\-L\-A} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a97bce9d90c3aabe3329b9315b2f8d812}
+Orec\-A\-L\-A initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a97bce9d90c3aabe3329b9315b2f8d812_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a821e79dd62d4436b681023ce4f4db81e}{\index{stm@{stm}!init\-T\-M$<$ Orec\-Eager\-Redo $>$@{init\-T\-M$<$ Orec\-Eager\-Redo $>$}}
+\index{init\-T\-M$<$ Orec\-Eager\-Redo $>$@{init\-T\-M$<$ Orec\-Eager\-Redo $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Orec\-Eager\-Redo $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Orec\-Eager\-Redo} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a821e79dd62d4436b681023ce4f4db81e}
+Orec\-Eager\-Redo initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a821e79dd62d4436b681023ce4f4db81e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_afb07a46977fb63fefd7b7f3424468a2f}{\index{stm@{stm}!init\-T\-M$<$ Orec\-E\-L\-A $>$@{init\-T\-M$<$ Orec\-E\-L\-A $>$}}
+\index{init\-T\-M$<$ Orec\-E\-L\-A $>$@{init\-T\-M$<$ Orec\-E\-L\-A $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Orec\-E\-L\-A $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Orec\-E\-L\-A} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_afb07a46977fb63fefd7b7f3424468a2f}
+Orec\-E\-L\-A initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_afb07a46977fb63fefd7b7f3424468a2f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a4adfe88a9d7c7a206f2b6d3e95c49956}{\index{stm@{stm}!init\-T\-M$<$ Orec\-Fair $>$@{init\-T\-M$<$ Orec\-Fair $>$}}
+\index{init\-T\-M$<$ Orec\-Fair $>$@{init\-T\-M$<$ Orec\-Fair $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Orec\-Fair $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Orec\-Fair} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a4adfe88a9d7c7a206f2b6d3e95c49956}
+Orec\-Fair initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a4adfe88a9d7c7a206f2b6d3e95c49956_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a5f4cbdf79b26d6d7be483c3c769c2743}{\index{stm@{stm}!init\-T\-M$<$ Pipeline $>$@{init\-T\-M$<$ Pipeline $>$}}
+\index{init\-T\-M$<$ Pipeline $>$@{init\-T\-M$<$ Pipeline $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Pipeline $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Pipeline} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a5f4cbdf79b26d6d7be483c3c769c2743}
+Pipeline initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a5f4cbdf79b26d6d7be483c3c769c2743_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_abc9d9099f5a0e2f15e64773fe3b9469d}{\index{stm@{stm}!init\-T\-M$<$ Profile\-T\-M $>$@{init\-T\-M$<$ Profile\-T\-M $>$}}
+\index{init\-T\-M$<$ Profile\-T\-M $>$@{init\-T\-M$<$ Profile\-T\-M $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Profile\-T\-M $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Profile\-T\-M} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_abc9d9099f5a0e2f15e64773fe3b9469d}
+Profile\-T\-M initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_abc9d9099f5a0e2f15e64773fe3b9469d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_add7df907bed3087f50e92a994637cb69}{\index{stm@{stm}!init\-T\-M$<$ Ring\-A\-L\-A $>$@{init\-T\-M$<$ Ring\-A\-L\-A $>$}}
+\index{init\-T\-M$<$ Ring\-A\-L\-A $>$@{init\-T\-M$<$ Ring\-A\-L\-A $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Ring\-A\-L\-A $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Ring\-A\-L\-A} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_add7df907bed3087f50e92a994637cb69}
+Ring\-A\-L\-A initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_add7df907bed3087f50e92a994637cb69_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a13421a95b8ec1225735c513f5bbef241}{\index{stm@{stm}!init\-T\-M$<$ Ring\-S\-W $>$@{init\-T\-M$<$ Ring\-S\-W $>$}}
+\index{init\-T\-M$<$ Ring\-S\-W $>$@{init\-T\-M$<$ Ring\-S\-W $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Ring\-S\-W $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Ring\-S\-W} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a13421a95b8ec1225735c513f5bbef241}
+Ring\-S\-W initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a13421a95b8ec1225735c513f5bbef241_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a02782a7198a1edebbcd545924d2ca25f}{\index{stm@{stm}!init\-T\-M$<$ Serial $>$@{init\-T\-M$<$ Serial $>$}}
+\index{init\-T\-M$<$ Serial $>$@{init\-T\-M$<$ Serial $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Serial $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Serial} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a02782a7198a1edebbcd545924d2ca25f}
+Serial initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a02782a7198a1edebbcd545924d2ca25f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a8efa5265650472f1904c9aa89da09e69}{\index{stm@{stm}!init\-T\-M$<$ Swiss $>$@{init\-T\-M$<$ Swiss $>$}}
+\index{init\-T\-M$<$ Swiss $>$@{init\-T\-M$<$ Swiss $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Swiss $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Swiss} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a8efa5265650472f1904c9aa89da09e69}
+Every S\-T\-M must provide an 'initialize' function that specifies how the algorithm is to be used when adaptivity is off.
+
+Some of this is a bit ugly right now, but when we fix the way adaptive policies work it will clean itself. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a8efa5265650472f1904c9aa89da09e69_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_af9008f38389991f51f8a771deac32ff9}{\index{stm@{stm}!init\-T\-M$<$ Ticket $>$@{init\-T\-M$<$ Ticket $>$}}
+\index{init\-T\-M$<$ Ticket $>$@{init\-T\-M$<$ Ticket $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ Ticket $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf Ticket} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_af9008f38389991f51f8a771deac32ff9}
+Ticket initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_af9008f38389991f51f8a771deac32ff9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a5c87bab8661e45cc64df382969f3bd2b}{\index{stm@{stm}!init\-T\-M$<$ T\-L\-I $>$@{init\-T\-M$<$ T\-L\-I $>$}}
+\index{init\-T\-M$<$ T\-L\-I $>$@{init\-T\-M$<$ T\-L\-I $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ T\-L\-I $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf T\-L\-I} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a5c87bab8661e45cc64df382969f3bd2b}
+T\-L\-I initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{namespacestm_a5c87bab8661e45cc64df382969f3bd2b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a37f85872162e9d5fcc4708c29f302750}{\index{stm@{stm}!init\-T\-M$<$ T\-M\-L $>$@{init\-T\-M$<$ T\-M\-L $>$}}
+\index{init\-T\-M$<$ T\-M\-L $>$@{init\-T\-M$<$ T\-M\-L $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ T\-M\-L $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf T\-M\-L} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a37f85872162e9d5fcc4708c29f302750}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{namespacestm_a37f85872162e9d5fcc4708c29f302750_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a30d2c00ca20421fe4c6aa5bd73cc75b2}{\index{stm@{stm}!init\-T\-M$<$ T\-M\-L\-Lazy $>$@{init\-T\-M$<$ T\-M\-L\-Lazy $>$}}
+\index{init\-T\-M$<$ T\-M\-L\-Lazy $>$@{init\-T\-M$<$ T\-M\-L\-Lazy $>$}!stm@{stm}}
+\subsubsection[{init\-T\-M$<$ T\-M\-L\-Lazy $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ void {\bf stm\-::init\-T\-M}$<$ {\bf T\-M\-L\-Lazy} $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a30d2c00ca20421fe4c6aa5bd73cc75b2}
+T\-M\-L\-Lazy initialization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a30d2c00ca20421fe4c6aa5bd73cc75b2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a0af46d85108438d0b413d5c5d380d03f}{\index{stm@{stm}!install\-\_\-algorithm@{install\-\_\-algorithm}}
+\index{install\-\_\-algorithm@{install\-\_\-algorithm}!stm@{stm}}
+\subsubsection[{install\-\_\-algorithm}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::install\-\_\-algorithm (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-\_\-alg, }
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a0af46d85108438d0b413d5c5d380d03f}
+Switch all threads to use a new S\-T\-M algorithm.
+
+Logically, there is an invariant that nobody is in a transaction. This is not easy to define, though, because a thread may call this with a non-\/null scope, which is our \char`\"{}in transaction\char`\"{} flag. In practice, such a thread is calling install\-\_\-algorithm from the end of either its abort or commit code, so it is 'not in a transaction'
+
+Another, and more important invariant, is that the caller must have personally installed begin\-\_\-blocker. There are three reasons to install begin\-\_\-blocker\-: irrevocability, thread creation, and mode switching. Each of those actions, independently, can only be done by one thread at a time. Furthermore, no two of those actions can be done simultaneously. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a0af46d85108438d0b413d5c5d380d03f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a103d1928b37a80dd6c538aeab4b1624d}{\index{stm@{stm}!install\-\_\-algorithm\-\_\-local@{install\-\_\-algorithm\-\_\-local}}
+\index{install\-\_\-algorithm\-\_\-local@{install\-\_\-algorithm\-\_\-local}!stm@{stm}}
+\subsubsection[{install\-\_\-algorithm\-\_\-local}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::install\-\_\-algorithm\-\_\-local (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-\_\-alg, }
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a103d1928b37a80dd6c538aeab4b1624d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a103d1928b37a80dd6c538aeab4b1624d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ad6da235deafa9e47d4103080ae0bcdb5}{\index{stm@{stm}!is\-\_\-irrevoc@{is\-\_\-irrevoc}}
+\index{is\-\_\-irrevoc@{is\-\_\-irrevoc}!stm@{stm}}
+\subsubsection[{is\-\_\-irrevoc}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::is\-\_\-irrevoc (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tx\-Thread} \&}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ad6da235deafa9e47d4103080ae0bcdb5}
+True if the current algorithm is irrevocable. \hypertarget{namespacestm_ab817bbaf25e6eb6466682982ac4f623f}{\index{stm@{stm}!On\-C\-G\-L\-Commit@{On\-C\-G\-L\-Commit}}
+\index{On\-C\-G\-L\-Commit@{On\-C\-G\-L\-Commit}!stm@{stm}}
+\subsubsection[{On\-C\-G\-L\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-On\-C\-G\-L\-Commit (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_ab817bbaf25e6eb6466682982ac4f623f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ab817bbaf25e6eb6466682982ac4f623f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_adf44a5de6f249cb9c4181a6bd3163638}{\index{stm@{stm}!On\-First\-Write@{On\-First\-Write}}
+\index{On\-First\-Write@{On\-First\-Write}!stm@{stm}}
+\subsubsection[{On\-First\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-On\-First\-Write (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{Read\-Barrier}]{read\-\_\-rw, }
+\item[{Write\-Barrier}]{write\-\_\-rw, }
+\item[{Commit\-Barrier}]{commit\-\_\-rw}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_adf44a5de6f249cb9c4181a6bd3163638}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{namespacestm_adf44a5de6f249cb9c4181a6bd3163638_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a8b8f510beed1c9e35b1468cf6d9e3616}{\index{stm@{stm}!On\-Read\-Only\-C\-G\-L\-Commit@{On\-Read\-Only\-C\-G\-L\-Commit}}
+\index{On\-Read\-Only\-C\-G\-L\-Commit@{On\-Read\-Only\-C\-G\-L\-Commit}!stm@{stm}}
+\subsubsection[{On\-Read\-Only\-C\-G\-L\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-On\-Read\-Only\-C\-G\-L\-Commit (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a8b8f510beed1c9e35b1468cf6d9e3616}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a8b8f510beed1c9e35b1468cf6d9e3616_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a00287c50a719dcda144cc1cbc9e9ae4b}{\index{stm@{stm}!On\-Read\-Only\-Commit@{On\-Read\-Only\-Commit}}
+\index{On\-Read\-Only\-Commit@{On\-Read\-Only\-Commit}!stm@{stm}}
+\subsubsection[{On\-Read\-Only\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-On\-Read\-Only\-Commit (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a00287c50a719dcda144cc1cbc9e9ae4b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a00287c50a719dcda144cc1cbc9e9ae4b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a00287c50a719dcda144cc1cbc9e9ae4b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_aaaa08c01741f1eba381fd4a279df12b1}{\index{stm@{stm}!On\-Read\-Write\-Commit@{On\-Read\-Write\-Commit}}
+\index{On\-Read\-Write\-Commit@{On\-Read\-Write\-Commit}!stm@{stm}}
+\subsubsection[{On\-Read\-Write\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-On\-Read\-Write\-Commit (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{Read\-Barrier}]{read\-\_\-ro, }
+\item[{Write\-Barrier}]{write\-\_\-ro, }
+\item[{Commit\-Barrier}]{commit\-\_\-ro}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_aaaa08c01741f1eba381fd4a279df12b1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_aaaa08c01741f1eba381fd4a279df12b1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_aaaa08c01741f1eba381fd4a279df12b1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ae985543dca9a983eefa517b3cec6ca95}{\index{stm@{stm}!On\-Read\-Write\-Commit@{On\-Read\-Write\-Commit}}
+\index{On\-Read\-Write\-Commit@{On\-Read\-Write\-Commit}!stm@{stm}}
+\subsubsection[{On\-Read\-Write\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-On\-Read\-Write\-Commit (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_ae985543dca9a983eefa517b3cec6ca95}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ae985543dca9a983eefa517b3cec6ca95_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b}{\index{stm@{stm}!pol\-\_\-init@{pol\-\_\-init}}
+\index{pol\-\_\-init@{pol\-\_\-init}!stm@{stm}}
+\subsubsection[{pol\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::pol\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mode}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a67c0991ee0ce05d2dc2015dff47a584e}{\index{stm@{stm}!pol\-\_\-name\-\_\-map@{pol\-\_\-name\-\_\-map}}
+\index{pol\-\_\-name\-\_\-map@{pol\-\_\-name\-\_\-map}!stm@{stm}}
+\subsubsection[{pol\-\_\-name\-\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::pol\-\_\-name\-\_\-map (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{phasename}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a67c0991ee0ce05d2dc2015dff47a584e}
+Just like stm\-\_\-name\-\_\-map, we sometimes need to turn a policy name into its corresponding enum value 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a67c0991ee0ce05d2dc2015dff47a584e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ab1ed02e28e6963306b89990522792bb0}{\index{stm@{stm}!Post\-Rollback@{Post\-Rollback}}
+\index{Post\-Rollback@{Post\-Rollback}!stm@{stm}}
+\subsubsection[{Post\-Rollback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scope\-\_\-t}$\ast$ stm\-::\-Post\-Rollback (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{Read\-Barrier}]{read\-\_\-ro, }
+\item[{Write\-Barrier}]{write\-\_\-ro, }
+\item[{Commit\-Barrier}]{commit\-\_\-ro}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_ab1ed02e28e6963306b89990522792bb0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ab1ed02e28e6963306b89990522792bb0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespacestm_ab1ed02e28e6963306b89990522792bb0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a4ccedba6cad535a1120ec0245f5282f8}{\index{stm@{stm}!Post\-Rollback@{Post\-Rollback}}
+\index{Post\-Rollback@{Post\-Rollback}!stm@{stm}}
+\subsubsection[{Post\-Rollback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scope\-\_\-t}$\ast$ stm\-::\-Post\-Rollback (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a4ccedba6cad535a1120ec0245f5282f8}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a4ccedba6cad535a1120ec0245f5282f8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a102ef2437a8acd5cd91f32764a317639}{\index{stm@{stm}!Post\-Rollback\-No\-Trigger@{Post\-Rollback\-No\-Trigger}}
+\index{Post\-Rollback\-No\-Trigger@{Post\-Rollback\-No\-Trigger}!stm@{stm}}
+\subsubsection[{Post\-Rollback\-No\-Trigger}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scope\-\_\-t}$\ast$ stm\-::\-Post\-Rollback\-No\-Trigger (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx, }
+\item[{{\bf stm\-::\-Read\-Barrier}}]{r, }
+\item[{{\bf stm\-::\-Write\-Barrier}}]{w, }
+\item[{{\bf stm\-::\-Commit\-Barrier}}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a102ef2437a8acd5cd91f32764a317639}
+Custom Post\-Rollback code for Profile\-T\-M. If a transaction other than the last in the profile set aborts, we roll it back using this function, which does everything the prior Post\-Rollback did except for calling the \char`\"{}\-Trigger\-::on\-Abort()\char`\"{} method. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a102ef2437a8acd5cd91f32764a317639_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a6c5f7b165eafa6b8932bc7904f0bc8a2}{\index{stm@{stm}!Post\-Rollback\-No\-Trigger@{Post\-Rollback\-No\-Trigger}}
+\index{Post\-Rollback\-No\-Trigger@{Post\-Rollback\-No\-Trigger}!stm@{stm}}
+\subsubsection[{Post\-Rollback\-No\-Trigger}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scope\-\_\-t}$\ast$ stm\-::\-Post\-Rollback\-No\-Trigger (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a6c5f7b165eafa6b8932bc7904f0bc8a2}
+Custom Post\-Rollback code for Profile\-T\-M. If the last transaction in the profile set aborts, it will call profile\-\_\-oncomplete before calling this. That means that it will adapt /out of/ Profile\-T\-M, which in turn means that we cannot reset the pointers on abort. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a6c5f7b165eafa6b8932bc7904f0bc8a2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a3240a1a3d22a030fc4e26fad68ad9ec7}{\index{stm@{stm}!Pre\-Rollback@{Pre\-Rollback}}
+\index{Pre\-Rollback@{Pre\-Rollback}!stm@{stm}}
+\subsubsection[{Pre\-Rollback}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Pre\-Rollback (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a3240a1a3d22a030fc4e26fad68ad9ec7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{namespacestm_a3240a1a3d22a030fc4e26fad68ad9ec7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ad9c526edd45fa3fe417fc3b8ee75467a}{\index{stm@{stm}!profile\-\_\-oncomplete@{profile\-\_\-oncomplete}}
+\index{profile\-\_\-oncomplete@{profile\-\_\-oncomplete}!stm@{stm}}
+\subsubsection[{profile\-\_\-oncomplete}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::profile\-\_\-oncomplete (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ad9c526edd45fa3fe417fc3b8ee75467a}
+When a Profile\-T\-M transaction commits, we end up in this code, which calls the current policy's 'decider' to pick the new algorithm, and then sets up metadata and makes the switch. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ad9c526edd45fa3fe417fc3b8ee75467a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ab344bb49ceb6098cdc32aba5d36e76f3}{\index{stm@{stm}!restart@{restart}}
+\index{restart@{restart}!stm@{stm}}
+\subsubsection[{restart}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::restart (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ab344bb49ceb6098cdc32aba5d36e76f3}
+Abort the current transaction and restart immediately.
+
+Simplified support for self-\/abort \hypertarget{namespacestm_aa45892452daca17e27d9f8efe8e4e52f}{\index{stm@{stm}!serial\-\_\-irrevoc\-\_\-override@{serial\-\_\-irrevoc\-\_\-override}}
+\index{serial\-\_\-irrevoc\-\_\-override@{serial\-\_\-irrevoc\-\_\-override}!stm@{stm}}
+\subsubsection[{serial\-\_\-irrevoc\-\_\-override}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::serial\-\_\-irrevoc\-\_\-override (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_aa45892452daca17e27d9f8efe8e4e52f}
+As mentioned above, Serial needs a custom override to work with irrevocability.
+
+The 'Serial' algorithm requires a custom override for irrevocability, which we implement here. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{namespacestm_aa45892452daca17e27d9f8efe8e4e52f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{namespacestm_aa45892452daca17e27d9f8efe8e4e52f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a945573c8ffc100f3908f1373d12ebffd}{\index{stm@{stm}!set\-\_\-policy@{set\-\_\-policy}}
+\index{set\-\_\-policy@{set\-\_\-policy}!stm@{stm}}
+\subsubsection[{set\-\_\-policy}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::set\-\_\-policy (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{phasename}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a945573c8ffc100f3908f1373d12ebffd}
+Set the current S\-T\-M algorithm/policy. This should be called at the beginning of each program phase
+
+for parsing input to determine the valid algorithms for a phase of execution.
+
+Setting a policy is a lot like changing algorithms, but requires a little bit of custom synchronization 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a945573c8ffc100f3908f1373d12ebffd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{namespacestm_a945573c8ffc100f3908f1373d12ebffd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ab7e623982dc0a84b9d3d4b53a4e7962e}{\index{stm@{stm}!stm\-\_\-name\-\_\-map@{stm\-\_\-name\-\_\-map}}
+\index{stm\-\_\-name\-\_\-map@{stm\-\_\-name\-\_\-map}!stm@{stm}}
+\subsubsection[{stm\-\_\-name\-\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t stm\-::stm\-\_\-name\-\_\-map (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{phasename}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ab7e623982dc0a84b9d3d4b53a4e7962e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_ab7e623982dc0a84b9d3d4b53a4e7962e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a38b27de6fa528286c9099d08193aaab9}{\index{stm@{stm}!stm\-\_\-read@{stm\-\_\-read}}
+\index{stm\-\_\-read@{stm\-\_\-read}!stm@{stm}}
+\subsubsection[{stm\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T stm\-::stm\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{addr, }
+\item[{Tx\-Thread $\ast$}]{thread}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a38b27de6fa528286c9099d08193aaab9}
+\hypertarget{namespacestm_a5a362b61a07175408ecf4b50f208c59f}{\index{stm@{stm}!stm\-\_\-write@{stm\-\_\-write}}
+\index{stm\-\_\-write@{stm\-\_\-write}!stm@{stm}}
+\subsubsection[{stm\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void stm\-::stm\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{addr, }
+\item[{T}]{val, }
+\item[{Tx\-Thread $\ast$}]{thread}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a5a362b61a07175408ecf4b50f208c59f}
+\hypertarget{namespacestm_a74e50d0b6225aa25d0d3c3d6083a1609}{\index{stm@{stm}!sys\-\_\-init@{sys\-\_\-init}}
+\index{sys\-\_\-init@{sys\-\_\-init}!stm@{stm}}
+\subsubsection[{sys\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::sys\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{Abort\-Handler}]{conflict\-\_\-abort}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a74e50d0b6225aa25d0d3c3d6083a1609}
+\hypertarget{namespacestm_a72477788735f5e06365f341d2f09d3cb}{\index{stm@{stm}!sys\-\_\-init@{sys\-\_\-init}}
+\index{sys\-\_\-init@{sys\-\_\-init}!stm@{stm}}
+\subsubsection[{sys\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::sys\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(Tx\-Thread $\ast$)}]{abort\-\_\-handler = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a72477788735f5e06365f341d2f09d3cb}
+Here we declare the rest of the api to the S\-T\-M library Initialize the library (call before doing any per-\/thread initialization)
+
+We rely on the default setjmp/longjmp abort handling when using the library A\-P\-I. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{namespacestm_a72477788735f5e06365f341d2f09d3cb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_aac29e08fdc4a251a12088bd799e7a4f4}{\index{stm@{stm}!sys\-\_\-init@{sys\-\_\-init}}
+\index{sys\-\_\-init@{sys\-\_\-init}!stm@{stm}}
+\subsubsection[{sys\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::sys\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-::\-Abort\-Handler}}]{conflict\-\_\-abort\-\_\-handler}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_aac29e08fdc4a251a12088bd799e7a4f4}
+Initialize the T\-M system. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_aac29e08fdc4a251a12088bd799e7a4f4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a2eba242629a31539bd21eed09aa926c6}{\index{stm@{stm}!sys\-\_\-shutdown@{sys\-\_\-shutdown}}
+\index{sys\-\_\-shutdown@{sys\-\_\-shutdown}!stm@{stm}}
+\subsubsection[{sys\-\_\-shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::sys\-\_\-shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a2eba242629a31539bd21eed09aa926c6}
+Shut down the library. This just dumps some statistics.
+
+When the transactional system gets shut down, we call this to dump stats 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{namespacestm_a2eba242629a31539bd21eed09aa926c6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{namespacestm_a2eba242629a31539bd21eed09aa926c6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a3de69c665250e84ef5238477ae8524b0}{\index{stm@{stm}!thread\-\_\-init@{thread\-\_\-init}}
+\index{thread\-\_\-init@{thread\-\_\-init}!stm@{stm}}
+\subsubsection[{thread\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::thread\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a3de69c665250e84ef5238477ae8524b0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a3de69c665250e84ef5238477ae8524b0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{namespacestm_a3de69c665250e84ef5238477ae8524b0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_ab0e4e167c63aa7e98507bbeb744cf50f}{\index{stm@{stm}!T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}}
+\index{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}!stm@{stm}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{Tx\-Thread $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_ab0e4e167c63aa7e98507bbeb744cf50f}
+\hypertarget{namespacestm_a2a46964337523dddb35f77c89cb0b9f4}{\index{stm@{stm}!thread\-\_\-shutdown@{thread\-\_\-shutdown}}
+\index{thread\-\_\-shutdown@{thread\-\_\-shutdown}!stm@{stm}}
+\subsubsection[{thread\-\_\-shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::thread\-\_\-shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a2a46964337523dddb35f77c89cb0b9f4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{namespacestm_a2a46964337523dddb35f77c89cb0b9f4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a637ea4515e2e4f7feb9e4ad31c3dea05}{\index{stm@{stm}!T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}}
+\index{T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}!stm@{stm}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}{\bf filter\-\_\-t} ring\-\_\-wf \mbox{[}{\bf R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S}\mbox{]} stm\-::\-T\-M\-\_\-\-A\-L\-I\-G\-N (
+\begin{DoxyParamCaption}
+\item[{16}]{}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a637ea4515e2e4f7feb9e4ad31c3dea05}
+\hypertarget{namespacestm_a7691058d97dd9bb3444ab2200a90e54b}{\index{stm@{stm}!trigger\-\_\-common@{trigger\-\_\-common}}
+\index{trigger\-\_\-common@{trigger\-\_\-common}!stm@{stm}}
+\subsubsection[{trigger\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::trigger\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a7691058d97dd9bb3444ab2200a90e54b}
+This is the code for deciding whether to adapt or not. It's a little bit messy because we want to limit what gets inlined. part 1\-: the thing that never gets inlined, and only gets called if we are definitely going to adapt 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a7691058d97dd9bb3444ab2200a90e54b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a7691058d97dd9bb3444ab2200a90e54b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a74d23d2fb8a8e63642bdd14bd4941f7a}{\index{stm@{stm}!tx\-\_\-alloc@{tx\-\_\-alloc}}
+\index{tx\-\_\-alloc@{tx\-\_\-alloc}!stm@{stm}}
+\subsubsection[{tx\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::tx\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_a74d23d2fb8a8e63642bdd14bd4941f7a}
+This portion of the A\-P\-I addresses allocation. We provide tx-\/safe malloc and free calls, which also work from nontransactional contexts. get a chunk of memory that will be automatically reclaimed if the caller is a transaction that ultimately aborts 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{namespacestm_a74d23d2fb8a8e63642bdd14bd4941f7a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_aaf0d2ecece13eb0926a4b59b49cfb8cd}{\index{stm@{stm}!tx\-\_\-free@{tx\-\_\-free}}
+\index{tx\-\_\-free@{tx\-\_\-free}!stm@{stm}}
+\subsubsection[{tx\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::tx\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacestm_aaf0d2ecece13eb0926a4b59b49cfb8cd}
+Free some memory. If the caller is a transaction that ultimately aborts, the free will not happen. If the caller is a transaction that commits, the free will happen at commit time. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{namespacestm_aaf0d2ecece13eb0926a4b59b49cfb8cd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacestm_a51b2c0958e7709b39500d037648c461b}{\index{stm@{stm}!U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E@{U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E}}
+\index{U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E@{U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E}!stm@{stm}}
+\subsubsection[{U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{namespacestm_a51b2c0958e7709b39500d037648c461b}
+The S\-T\-M system provides a message that exits the program (preferable to 'assert(false)'). We use this in the A\-P\-I too, so it needs to be visible here 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacestm_a51b2c0958e7709b39500d037648c461b_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacestm_aac91219d15a450587c7cbb52db4b13fd}{\index{stm@{stm}!A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}}
+\index{A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}!stm@{stm}}
+\subsubsection[{A\-B\-O\-R\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-A\-B\-O\-R\-T\-E\-D = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_aac91219d15a450587c7cbb52db4b13fd}
+\hypertarget{namespacestm_adf9ac55b7a24ef9715c8e425928b580b}{\index{stm@{stm}!A\-C\-T\-I\-V\-E@{A\-C\-T\-I\-V\-E}}
+\index{A\-C\-T\-I\-V\-E@{A\-C\-T\-I\-V\-E}!stm@{stm}}
+\subsubsection[{A\-C\-T\-I\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-A\-C\-T\-I\-V\-E = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_adf9ac55b7a24ef9715c8e425928b580b}
+\hypertarget{namespacestm_a067ff48e3e80f9f2ee75df5b1156827b}{\index{stm@{stm}!app\-\_\-profiles@{app\-\_\-profiles}}
+\index{app\-\_\-profiles@{app\-\_\-profiles}!stm@{stm}}
+\subsubsection[{app\-\_\-profiles}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dynprof\-\_\-t} $\ast$ stm\-::app\-\_\-profiles = N\-U\-L\-L}}\label{namespacestm_a067ff48e3e80f9f2ee75df5b1156827b}
+\hypertarget{namespacestm_a998e4e0c954ef37eefab31f44ff016d7}{\index{stm@{stm}!B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X@{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X}}
+\index{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X@{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X}!stm@{stm}}
+\subsubsection[{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X = 16\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_a998e4e0c954ef37eefab31f44ff016d7}
+\hypertarget{namespacestm_a5db105c525a0fc1848a80d674c441052}{\index{stm@{stm}!B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N@{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N}}
+\index{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N@{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N}!stm@{stm}}
+\subsubsection[{B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N = 4\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_a5db105c525a0fc1848a80d674c441052}
+\hypertarget{namespacestm_a5984f2381f2e7e81b5e647d6e7f9ebe3}{\index{stm@{stm}!bitlocks@{bitlocks}}
+\index{bitlocks@{bitlocks}!stm@{stm}}
+\subsubsection[{bitlocks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bitlock\-\_\-t} stm\-::bitlocks = \{\{0\}\}}}\label{namespacestm_a5984f2381f2e7e81b5e647d6e7f9ebe3}
+\hypertarget{namespacestm_abea1740c6c56b45f46aa26a594caadb6}{\index{stm@{stm}!bytelocks@{bytelocks}}
+\index{bytelocks@{bytelocks}!stm@{stm}}
+\subsubsection[{bytelocks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bytelock\-\_\-t} stm\-::bytelocks = \{\{0\}\}}}\label{namespacestm_abea1740c6c56b45f46aa26a594caadb6}
+\hypertarget{namespacestm_ab5f6db774c01e9a0e2aec0173d0481b1}{\index{stm@{stm}!curr\-\_\-policy@{curr\-\_\-policy}}
+\index{curr\-\_\-policy@{curr\-\_\-policy}!stm@{stm}}
+\subsubsection[{curr\-\_\-policy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf behavior\-\_\-t} stm\-::curr\-\_\-policy}}\label{namespacestm_ab5f6db774c01e9a0e2aec0173d0481b1}
+\hypertarget{namespacestm_ad8467c8fd66bee04be744334bc17b75e}{\index{stm@{stm}!E\-P\-O\-C\-H\-\_\-\-M\-A\-X@{E\-P\-O\-C\-H\-\_\-\-M\-A\-X}}
+\index{E\-P\-O\-C\-H\-\_\-\-M\-A\-X@{E\-P\-O\-C\-H\-\_\-\-M\-A\-X}!stm@{stm}}
+\subsubsection[{E\-P\-O\-C\-H\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-E\-P\-O\-C\-H\-\_\-\-M\-A\-X = I\-N\-T\-\_\-\-M\-A\-X\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_ad8467c8fd66bee04be744334bc17b75e}
+\hypertarget{namespacestm_a162bd0b45643942e59ea68af00fec992}{\index{stm@{stm}!epochs@{epochs}}
+\index{epochs@{epochs}!stm@{stm}}
+\subsubsection[{epochs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::epochs = \{\{0\}\}}}\label{namespacestm_a162bd0b45643942e59ea68af00fec992}
+\hypertarget{namespacestm_a05cd8e71fbf5f13425c1c6db187bb583}{\index{stm@{stm}!fcm\-\_\-timestamp@{fcm\-\_\-timestamp}}
+\index{fcm\-\_\-timestamp@{fcm\-\_\-timestamp}!stm@{stm}}
+\subsubsection[{fcm\-\_\-timestamp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::fcm\-\_\-timestamp = \{0\}}}\label{namespacestm_a05cd8e71fbf5f13425c1c6db187bb583}
+\hypertarget{namespacestm_a82e6b09074d58a249ff29b161be62ab6}{\index{stm@{stm}!greedy\-\_\-ts@{greedy\-\_\-ts}}
+\index{greedy\-\_\-ts@{greedy\-\_\-ts}!stm@{stm}}
+\subsubsection[{greedy\-\_\-ts}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::greedy\-\_\-ts = \{0\}}}\label{namespacestm_a82e6b09074d58a249ff29b161be62ab6}
+\hypertarget{namespacestm_a803f7da233820c0cb019e9916ac87207}{\index{stm@{stm}!K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R@{K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R}}
+\index{K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R@{K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R}!stm@{stm}}
+\subsubsection[{K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R = 16\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_a803f7da233820c0cb019e9916ac87207}
+\hypertarget{namespacestm_a17c110bd329d81ba81aef7210954a72d}{\index{stm@{stm}!last\-\_\-complete@{last\-\_\-complete}}
+\index{last\-\_\-complete@{last\-\_\-complete}!stm@{stm}}
+\subsubsection[{last\-\_\-complete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::last\-\_\-complete = \{0\}}}\label{namespacestm_a17c110bd329d81ba81aef7210954a72d}
+\hypertarget{namespacestm_ab0d9633930ec8c8921b11c64bf9cb890}{\index{stm@{stm}!last\-\_\-init@{last\-\_\-init}}
+\index{last\-\_\-init@{last\-\_\-init}!stm@{stm}}
+\subsubsection[{last\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::last\-\_\-init = \{0\}}}\label{namespacestm_ab0d9633930ec8c8921b11c64bf9cb890}
+\hypertarget{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{\index{stm@{stm}!M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S@{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}}
+\index{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S@{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}!stm@{stm}}
+\subsubsection[{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned stm\-::\-M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S = 256\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}
+Many of our data structures benefit from having a cap on the number of threads. Here we set that cap at 256 \hypertarget{namespacestm_a61e4fdd8145b69c03eab91bdeddb0293}{\index{stm@{stm}!mcslock@{mcslock}}
+\index{mcslock@{mcslock}!stm@{stm}}
+\subsubsection[{mcslock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mcs\-\_\-qnode\-\_\-t} $\ast$ stm\-::mcslock = N\-U\-L\-L}}\label{namespacestm_a61e4fdd8145b69c03eab91bdeddb0293}
+\hypertarget{namespacestm_a677ac5f80d97329f2058a0aca0bfb295}{\index{stm@{stm}!nanorecs@{nanorecs}}
+\index{nanorecs@{nanorecs}!stm@{stm}}
+\subsubsection[{nanorecs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf orec\-\_\-t} stm\-::nanorecs = \{\{\{\{0\}\}\}\}}}\label{namespacestm_a677ac5f80d97329f2058a0aca0bfb295}
+\hypertarget{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}{\index{stm@{stm}!N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S@{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S}}
+\index{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S@{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S}!stm@{stm}}
+\subsubsection[{N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S = 1048576\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}
+These constants are used throughout the S\-T\-M implementations \hypertarget{namespacestm_a59c4d1983c5d8a6640537726c4e8aed4}{\index{stm@{stm}!orecs@{orecs}}
+\index{orecs@{orecs}!stm@{stm}}
+\subsubsection[{orecs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf orec\-\_\-t} stm\-::orecs = \{\{\{\{0\}\}\}\}}}\label{namespacestm_a59c4d1983c5d8a6640537726c4e8aed4}
+\hypertarget{namespacestm_a533577214af07c44f099eb536d8dece7}{\index{stm@{stm}!pols@{pols}}
+\index{pols@{pols}!stm@{stm}}
+\subsubsection[{pols}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pol\-\_\-t} stm\-::pols}}\label{namespacestm_a533577214af07c44f099eb536d8dece7}
+Store the S\-T\-M algorithms and adaptivity policies, so we can select one at will. The selected one is in curr\-\_\-policy.
+
+These globals are used by our adaptivity policies \hypertarget{namespacestm_a487249084a21cda5f208d7a25b3c385e}{\index{stm@{stm}!prio\-Tx\-Count@{prio\-Tx\-Count}}
+\index{prio\-Tx\-Count@{prio\-Tx\-Count}!stm@{stm}}
+\subsubsection[{prio\-Tx\-Count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::prio\-Tx\-Count = \{0\}}}\label{namespacestm_a487249084a21cda5f208d7a25b3c385e}
+\hypertarget{namespacestm_a3b7951049cf91d2e3d63444f6aa31b31}{\index{stm@{stm}!profile\-\_\-txns@{profile\-\_\-txns}}
+\index{profile\-\_\-txns@{profile\-\_\-txns}!stm@{stm}}
+\subsubsection[{profile\-\_\-txns}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::profile\-\_\-txns = 1}}\label{namespacestm_a3b7951049cf91d2e3d63444f6aa31b31}
+\hypertarget{namespacestm_a0c5d34db2778717a0766a164ccf9b40f}{\index{stm@{stm}!profiles@{profiles}}
+\index{profiles@{profiles}!stm@{stm}}
+\subsubsection[{profiles}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dynprof\-\_\-t} $\ast$ stm\-::profiles = N\-U\-L\-L}}\label{namespacestm_a0c5d34db2778717a0766a164ccf9b40f}
+\hypertarget{namespacestm_a93eff2ad5eaf4e9c0661b0214c35bd1b}{\index{stm@{stm}!qtbl@{qtbl}}
+\index{qtbl@{qtbl}!stm@{stm}}
+\subsubsection[{qtbl}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mini\-Vector}$<$ {\bf qtable\-\_\-t} $>$ $\ast$ stm\-::qtbl = \{N\-U\-L\-L\}}}\label{namespacestm_a93eff2ad5eaf4e9c0661b0214c35bd1b}
+\hypertarget{namespacestm_aff01348819bdc4955bee1bfbecd22c1a}{\index{stm@{stm}!R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S@{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S}}
+\index{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S@{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S}!stm@{stm}}
+\subsubsection[{R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S = 1024\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_aff01348819bdc4955bee1bfbecd22c1a}
+\hypertarget{namespacestm_ac811b3e7503fcf79d860e5a9f997f673}{\index{stm@{stm}!R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T@{R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T}}
+\index{R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T@{R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T}!stm@{stm}}
+\subsubsection[{R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T = 1048576\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_ac811b3e7503fcf79d860e5a9f997f673}
+\hypertarget{namespacestm_a025af84316e5fb6b9033dec86640f912}{\index{stm@{stm}!rrecs@{rrecs}}
+\index{rrecs@{rrecs}!stm@{stm}}
+\subsubsection[{rrecs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rrec\-\_\-t} stm\-::rrecs = \{\{\{0\}\}\}}}\label{namespacestm_a025af84316e5fb6b9033dec86640f912}
+\hypertarget{namespacestm_af0a1336341054a7273c3d732d248f7fc}{\index{stm@{stm}!stms@{stms}}
+\index{stms@{stms}!stm@{stm}}
+\subsubsection[{stms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf alg\-\_\-t} stm\-::stms}}\label{namespacestm_af0a1336341054a7273c3d732d248f7fc}
+These describe all our S\-T\-M algorithms and adaptivity policies \hypertarget{namespacestm_a08d03c541bfa9d260904138ed0ccda6b}{\index{stm@{stm}!S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2@{S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2}}
+\index{S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2@{S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2}!stm@{stm}}
+\subsubsection[{S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2 = 10\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_a08d03c541bfa9d260904138ed0ccda6b}
+\hypertarget{namespacestm_ac554ffc5ca7bee783d48142f1a0ff82b}{\index{stm@{stm}!threadcount@{threadcount}}
+\index{threadcount@{threadcount}!stm@{stm}}
+\subsubsection[{threadcount}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::threadcount = \{0\}}}\label{namespacestm_ac554ffc5ca7bee783d48142f1a0ff82b}
+\hypertarget{namespacestm_ab2acabe9f596fb07413e3a12fa14d570}{\index{stm@{stm}!threads@{threads}}
+\index{threads@{threads}!stm@{stm}}
+\subsubsection[{threads}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tx\-Thread} $\ast$ stm\-::threads = \{0\}}}\label{namespacestm_ab2acabe9f596fb07413e3a12fa14d570}
+\hypertarget{namespacestm_af262f754120f34d53b7aff4f3ee4e447}{\index{stm@{stm}!ticketlock@{ticketlock}}
+\index{ticketlock@{ticketlock}!stm@{stm}}
+\subsubsection[{ticketlock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ticket\-\_\-lock\-\_\-t} stm\-::ticketlock = \{0\}}}\label{namespacestm_af262f754120f34d53b7aff4f3ee4e447}
+\hypertarget{namespacestm_a8a8c42099bd04d1e89140ee02702f6e0}{\index{stm@{stm}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!stm@{stm}}
+\subsubsection[{timestamp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::timestamp = \{0\}}}\label{namespacestm_a8a8c42099bd04d1e89140ee02702f6e0}
+This is the Orec Timestamp, the N\-Orec/\-T\-M\-L seqlock, the C\-G\-L lock, and the Ring\-S\-W ring index
+
+These global fields are used for concurrency control and conflict detection in our S\-T\-M systems \hypertarget{namespacestm_a8d8dfb6b2b3438e3e104d5acbfbd7e71}{\index{stm@{stm}!timestamp\-\_\-max@{timestamp\-\_\-max}}
+\index{timestamp\-\_\-max@{timestamp\-\_\-max}!stm@{stm}}
+\subsubsection[{timestamp\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::timestamp\-\_\-max = \{0\}}}\label{namespacestm_a8d8dfb6b2b3438e3e104d5acbfbd7e71}
+Sometimes we use the Timestamp not as a counter, but as a bool. If we want to switch back to using it as a counter, we need to know what the old value was. This holds the old value.
+
+This is only used within S\-T\-M implementations, to log and recover the value \hypertarget{namespacestm_ae247420ad0ba562827c2cbf18530c271}{\index{stm@{stm}!T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}}
+\index{T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}!stm@{stm}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}union {\bf stm\-::id\-\_\-version\-\_\-t}  stm\-::\-T\-M\-\_\-\-A\-L\-I\-G\-N}}\label{namespacestm_ae247420ad0ba562827c2cbf18530c271}
+\hypertarget{namespacestm_a8c60f91e3fafc640e3805be4fc4aa121}{\index{stm@{stm}!trans\-\_\-nums@{trans\-\_\-nums}}
+\index{trans\-\_\-nums@{trans\-\_\-nums}!stm@{stm}}
+\subsubsection[{trans\-\_\-nums}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pad\-\_\-word\-\_\-t} stm\-::trans\-\_\-nums = \{\{0\}\}}}\label{namespacestm_a8c60f91e3fafc640e3805be4fc4aa121}
+\hypertarget{namespacestm_ac13bcf2e446994b6bc58c29f207b61ab}{\index{stm@{stm}!W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}}
+\index{W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}!stm@{stm}}
+\subsubsection[{W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E = 16\hspace{0.3cm}{\ttfamily [static]}}}\label{namespacestm_ac13bcf2e446994b6bc58c29f207b61ab}

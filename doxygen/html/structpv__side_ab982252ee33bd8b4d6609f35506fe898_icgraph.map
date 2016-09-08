@@ -1,0 +1,5 @@
+<map id="pv_side::conditional_move" name="pv_side::conditional_move">
+<area shape="rect" id="node2" href="$worker_8cpp.html#a0ee361de59493315020dd5c9296667a0" title="baste" alt="" coords="230,5,285,32"/>
+<area shape="rect" id="node3" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="334,5,405,32"/>
+<area shape="rect" id="node4" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="454,5,578,32"/>
+</map>

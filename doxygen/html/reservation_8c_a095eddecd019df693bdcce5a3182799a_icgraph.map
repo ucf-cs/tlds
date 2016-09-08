@@ -1,0 +1,9 @@
+<map id="reservation_addToTotal_seq" name="reservation_addToTotal_seq">
+<area shape="rect" id="node2" href="$manager_8c.html#a5f407c87365596a5d4085c9d53982a91" title="addReservation_seq" alt="" coords="240,56,381,83"/>
+<area shape="rect" id="node3" href="$manager_8h.html#a94381eb4ecbd2f329b82a81ce41a6660" title="manager_addCar_seq" alt="" coords="436,5,585,32"/>
+<area shape="rect" id="node7" href="$manager_8h.html#ab0cf9fc86c671a8ffb79a52c010d1a22" title="manager_addRoom_seq" alt="" coords="429,56,592,83"/>
+<area shape="rect" id="node8" href="$manager_8h.html#a321dab2c4cf363c833a84aeeb51f3b0c" title="manager_addFlight_seq" alt="" coords="431,107,591,133"/>
+<area shape="rect" id="node4" href="$vacation_8c.html#a50cbd725eec0f7508965d533f2dadf44" title="initializeManager" alt="" coords="641,31,759,57"/>
+<area shape="rect" id="node6" href="$vacation_8c.html#a788803b8aaa6ed92eb1ca5cb47cad275" title="checkTables" alt="" coords="652,81,748,108"/>
+<area shape="rect" id="node5" href="$vacation_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="808,56,864,83"/>
+</map>

@@ -1,0 +1,310 @@
+\hypertarget{classTimer}{\section{Timer Class Reference}
+\label{classTimer}\index{Timer@{Timer}}
+}
+
+
+{\ttfamily \#include $<$timehelper.\-h$>$}
+
+
+
+Inheritance diagram for Timer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classTimer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Timer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classTimer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTimer_a5f16e8da27d2a5a5242dead46de05d97}{Timer} ()
+\item 
+virtual \hyperlink{classTimer_a14fa469c4c295c5fa6e66a4ad1092146}{$\sim$\-Timer} ()
+\item 
+void \hyperlink{classTimer_a4e607b129b392c11adddd9641a320436}{Start} ()
+\item 
+void \hyperlink{classTimer_a6379e797f968aaee6ac3bb12dc6b81c5}{Stop} ()
+\item 
+void \hyperlink{classTimer_ad3b4e386f8ebb885fa2ef6fcac8d9ca3}{Resume} ()
+\item 
+double \hyperlink{classTimer_a587790d9ce5c034e9b36984813e1e605}{Elapsed\-Cpu} () const 
+\item 
+double \hyperlink{classTimer_a4c1956ab933185eb2c64168ff8805c8e}{Elapsed\-Wall} () const 
+\item 
+std\-::string \hyperlink{classTimer_a4849689a80aff58f35edd5f7a818add2}{To\-String} () const 
+\item 
+std\-::string \hyperlink{classTimer_a795b041a2b7a515e0f03fabbfa253393}{To\-Second} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classTimer_ae072fa4d42cb04afff3d4250d8de03ab}{m\-\_\-cpu\-Start}
+\item 
+double \hyperlink{classTimer_ac521ba372c283e38c382254b3e23063f}{m\-\_\-wall\-Start}
+\item 
+double \hyperlink{classTimer_a2a4f00e691d0f32fb46309837f66642d}{m\-\_\-cpu\-Elapse}
+\item 
+double \hyperlink{classTimer_a1690291df791cbb10d4f88e3a4e9b721}{m\-\_\-wall\-Elapse}
+\item 
+bool \hyperlink{classTimer_ade39ad67f4ecaad82572e8796a92704d}{m\-\_\-stopped}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTimer_a5f16e8da27d2a5a5242dead46de05d97}{\index{Timer@{Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!Timer@{Timer}}
+\subsubsection[{Timer}]{\setlength{\rightskip}{0pt plus 5cm}Timer\-::\-Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTimer_a5f16e8da27d2a5a5242dead46de05d97}
+\hypertarget{classTimer_a14fa469c4c295c5fa6e66a4ad1092146}{\index{Timer@{Timer}!$\sim$\-Timer@{$\sim$\-Timer}}
+\index{$\sim$\-Timer@{$\sim$\-Timer}!Timer@{Timer}}
+\subsubsection[{$\sim$\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}Timer\-::$\sim$\-Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTimer_a14fa469c4c295c5fa6e66a4ad1092146}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTimer_a587790d9ce5c034e9b36984813e1e605}{\index{Timer@{Timer}!Elapsed\-Cpu@{Elapsed\-Cpu}}
+\index{Elapsed\-Cpu@{Elapsed\-Cpu}!Timer@{Timer}}
+\subsubsection[{Elapsed\-Cpu}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::\-Elapsed\-Cpu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classTimer_a587790d9ce5c034e9b36984813e1e605}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classTimer_a587790d9ce5c034e9b36984813e1e605_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimer_a587790d9ce5c034e9b36984813e1e605_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTimer_a4c1956ab933185eb2c64168ff8805c8e}{\index{Timer@{Timer}!Elapsed\-Wall@{Elapsed\-Wall}}
+\index{Elapsed\-Wall@{Elapsed\-Wall}!Timer@{Timer}}
+\subsubsection[{Elapsed\-Wall}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::\-Elapsed\-Wall (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classTimer_a4c1956ab933185eb2c64168ff8805c8e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{classTimer_a4c1956ab933185eb2c64168ff8805c8e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimer_a4c1956ab933185eb2c64168ff8805c8e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTimer_ad3b4e386f8ebb885fa2ef6fcac8d9ca3}{\index{Timer@{Timer}!Resume@{Resume}}
+\index{Resume@{Resume}!Timer@{Timer}}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::\-Resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTimer_ad3b4e386f8ebb885fa2ef6fcac8d9ca3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{classTimer_ad3b4e386f8ebb885fa2ef6fcac8d9ca3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTimer_a4e607b129b392c11adddd9641a320436}{\index{Timer@{Timer}!Start@{Start}}
+\index{Start@{Start}!Timer@{Timer}}
+\subsubsection[{Start}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::\-Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTimer_a4e607b129b392c11adddd9641a320436}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{classTimer_a4e607b129b392c11adddd9641a320436_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classTimer_a4e607b129b392c11adddd9641a320436_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTimer_a6379e797f968aaee6ac3bb12dc6b81c5}{\index{Timer@{Timer}!Stop@{Stop}}
+\index{Stop@{Stop}!Timer@{Timer}}
+\subsubsection[{Stop}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::\-Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTimer_a6379e797f968aaee6ac3bb12dc6b81c5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{classTimer_a6379e797f968aaee6ac3bb12dc6b81c5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classTimer_a6379e797f968aaee6ac3bb12dc6b81c5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTimer_a795b041a2b7a515e0f03fabbfa253393}{\index{Timer@{Timer}!To\-Second@{To\-Second}}
+\index{To\-Second@{To\-Second}!Timer@{Timer}}
+\subsubsection[{To\-Second}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Timer\-::\-To\-Second (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classTimer_a795b041a2b7a515e0f03fabbfa253393}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimer_a795b041a2b7a515e0f03fabbfa253393_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimer_a795b041a2b7a515e0f03fabbfa253393_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classTimer_a4849689a80aff58f35edd5f7a818add2}{\index{Timer@{Timer}!To\-String@{To\-String}}
+\index{To\-String@{To\-String}!Timer@{Timer}}
+\subsubsection[{To\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Timer\-::\-To\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classTimer_a4849689a80aff58f35edd5f7a818add2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimer_a4849689a80aff58f35edd5f7a818add2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classTimer_a4849689a80aff58f35edd5f7a818add2_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTimer_a2a4f00e691d0f32fb46309837f66642d}{\index{Timer@{Timer}!m\-\_\-cpu\-Elapse@{m\-\_\-cpu\-Elapse}}
+\index{m\-\_\-cpu\-Elapse@{m\-\_\-cpu\-Elapse}!Timer@{Timer}}
+\subsubsection[{m\-\_\-cpu\-Elapse}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::m\-\_\-cpu\-Elapse\hspace{0.3cm}{\ttfamily [private]}}}\label{classTimer_a2a4f00e691d0f32fb46309837f66642d}
+\hypertarget{classTimer_ae072fa4d42cb04afff3d4250d8de03ab}{\index{Timer@{Timer}!m\-\_\-cpu\-Start@{m\-\_\-cpu\-Start}}
+\index{m\-\_\-cpu\-Start@{m\-\_\-cpu\-Start}!Timer@{Timer}}
+\subsubsection[{m\-\_\-cpu\-Start}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::m\-\_\-cpu\-Start\hspace{0.3cm}{\ttfamily [private]}}}\label{classTimer_ae072fa4d42cb04afff3d4250d8de03ab}
+\hypertarget{classTimer_ade39ad67f4ecaad82572e8796a92704d}{\index{Timer@{Timer}!m\-\_\-stopped@{m\-\_\-stopped}}
+\index{m\-\_\-stopped@{m\-\_\-stopped}!Timer@{Timer}}
+\subsubsection[{m\-\_\-stopped}]{\setlength{\rightskip}{0pt plus 5cm}bool Timer\-::m\-\_\-stopped\hspace{0.3cm}{\ttfamily [private]}}}\label{classTimer_ade39ad67f4ecaad82572e8796a92704d}
+\hypertarget{classTimer_a1690291df791cbb10d4f88e3a4e9b721}{\index{Timer@{Timer}!m\-\_\-wall\-Elapse@{m\-\_\-wall\-Elapse}}
+\index{m\-\_\-wall\-Elapse@{m\-\_\-wall\-Elapse}!Timer@{Timer}}
+\subsubsection[{m\-\_\-wall\-Elapse}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::m\-\_\-wall\-Elapse\hspace{0.3cm}{\ttfamily [private]}}}\label{classTimer_a1690291df791cbb10d4f88e3a4e9b721}
+\hypertarget{classTimer_ac521ba372c283e38c382254b3e23063f}{\index{Timer@{Timer}!m\-\_\-wall\-Start@{m\-\_\-wall\-Start}}
+\index{m\-\_\-wall\-Start@{m\-\_\-wall\-Start}!Timer@{Timer}}
+\subsubsection[{m\-\_\-wall\-Start}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::m\-\_\-wall\-Start\hspace{0.3cm}{\ttfamily [private]}}}\label{classTimer_ac521ba372c283e38c382254b3e23063f}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+common/\hyperlink{timehelper_8h}{timehelper.\-h}\item 
+common/\hyperlink{timehelper_8cc}{timehelper.\-cc}\end{DoxyCompactItemize}

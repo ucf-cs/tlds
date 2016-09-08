@@ -1,0 +1,78 @@
+\hypertarget{classstm_1_1UndoLog}{\section{stm\-:\-:Undo\-Log Class Reference}
+\label{classstm_1_1UndoLog}\index{stm\-::\-Undo\-Log@{stm\-::\-Undo\-Log}}
+}
+
+
+{\ttfamily \#include $<$Undo\-Log.\-hpp$>$}
+
+
+
+Inheritance diagram for stm\-:\-:Undo\-Log\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classstm_1_1UndoLog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for stm\-:\-:Undo\-Log\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classstm_1_1UndoLog__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstm_1_1UndoLog_afce5c05c8cbc99f99feac8e0aa6f506c}{Undo\-Log} (const uintptr\-\_\-t cap)
+\item 
+void \hyperlink{classstm_1_1UndoLog_aea232bbba4e66c65d726d66ff437f2f7}{undo} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Macros for hiding the W\-S\-\_\-(W\-O\-R\-D/\-B\-Y\-T\-E)M\-A\-S\-K A\-P\-I differences. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classstm_1_1UndoLog_afce5c05c8cbc99f99feac8e0aa6f506c}{\index{stm\-::\-Undo\-Log@{stm\-::\-Undo\-Log}!Undo\-Log@{Undo\-Log}}
+\index{Undo\-Log@{Undo\-Log}!stm::UndoLog@{stm\-::\-Undo\-Log}}
+\subsubsection[{Undo\-Log}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Undo\-Log\-::\-Undo\-Log (
+\begin{DoxyParamCaption}
+\item[{const uintptr\-\_\-t}]{cap}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstm_1_1UndoLog_afce5c05c8cbc99f99feac8e0aa6f506c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classstm_1_1UndoLog_aea232bbba4e66c65d726d66ff437f2f7}{\index{stm\-::\-Undo\-Log@{stm\-::\-Undo\-Log}!undo@{undo}}
+\index{undo@{undo}!stm::UndoLog@{stm\-::\-Undo\-Log}}
+\subsubsection[{undo}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Undo\-Log\-::undo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classstm_1_1UndoLog_aea232bbba4e66c65d726d66ff437f2f7}
+A utility for undo-\/log implementations that undoes all of the accesses in a write log except for those that took place to an exception object that is being thrown-\/on-\/abort. This is mainly to support the \hyperlink{namespaceitm2stm}{itm2stm} shim at the moment, since baseline stm doesn't have abort-\/on-\/throw capabilities.
+
+Deal with the actual rollback of log entries, which depends on the S\-T\-M\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W and S\-T\-M\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K configuration, as well as on the type of write logging we're doing. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{classstm_1_1UndoLog_aea232bbba4e66c65d726d66ff437f2f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{UndoLog_8hpp}{Undo\-Log.\-hpp}\item 
+rstm/rstm-\/dev/libstm/\hyperlink{types_8cpp}{types.\-cpp}\end{DoxyCompactItemize}

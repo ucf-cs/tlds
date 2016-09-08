@@ -1,0 +1,172 @@
+\hypertarget{random_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/random.c File Reference}
+\label{random_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/random.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/random.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}mt19937ar.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for random.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{random_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$ \hyperlink{random_8c_a492ffea554d80a899bcd43afdf4a53c4}{random\-\_\-alloc} (void)
+\item 
+\hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$ \hyperlink{random_8c_aaf4ec44afae7de1dda649b996bfbee9e}{Prandom\-\_\-alloc} (void)
+\item 
+void \hyperlink{random_8c_a0c229220c85a7223d42ab697628d1f95}{random\-\_\-free} (\hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\item 
+void \hyperlink{random_8c_a64d899bb4c137344353c4e0d17bbc61f}{Prandom\-\_\-free} (\hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\item 
+void \hyperlink{random_8c_a4863f841babe7ce3664a4e4bed6180ab}{random\-\_\-seed} (\hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr, unsigned long \hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed})
+\item 
+unsigned long \hyperlink{random_8c_a733bbcfd7d850fa4596d834489b83178}{random\-\_\-generate} (\hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{random_8c_aaf4ec44afae7de1dda649b996bfbee9e}{\index{random.\-c@{random.\-c}!Prandom\-\_\-alloc@{Prandom\-\_\-alloc}}
+\index{Prandom\-\_\-alloc@{Prandom\-\_\-alloc}!random.c@{random.\-c}}
+\subsubsection[{Prandom\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf random\-\_\-t}$\ast$ Prandom\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{random_8c_aaf4ec44afae7de1dda649b996bfbee9e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{random_8c_aaf4ec44afae7de1dda649b996bfbee9e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{random_8c_a64d899bb4c137344353c4e0d17bbc61f}{\index{random.\-c@{random.\-c}!Prandom\-\_\-free@{Prandom\-\_\-free}}
+\index{Prandom\-\_\-free@{Prandom\-\_\-free}!random.c@{random.\-c}}
+\subsubsection[{Prandom\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Prandom\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{random_8c_a64d899bb4c137344353c4e0d17bbc61f}
+\hypertarget{random_8c_a492ffea554d80a899bcd43afdf4a53c4}{\index{random.\-c@{random.\-c}!random\-\_\-alloc@{random\-\_\-alloc}}
+\index{random\-\_\-alloc@{random\-\_\-alloc}!random.c@{random.\-c}}
+\subsubsection[{random\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf random\-\_\-t}$\ast$ random\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{random_8c_a492ffea554d80a899bcd43afdf4a53c4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{random_8c_a492ffea554d80a899bcd43afdf4a53c4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8c_a492ffea554d80a899bcd43afdf4a53c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{random_8c_a0c229220c85a7223d42ab697628d1f95}{\index{random.\-c@{random.\-c}!random\-\_\-free@{random\-\_\-free}}
+\index{random\-\_\-free@{random\-\_\-free}!random.c@{random.\-c}}
+\subsubsection[{random\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void random\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{random_8c_a0c229220c85a7223d42ab697628d1f95}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8c_a0c229220c85a7223d42ab697628d1f95_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{random_8c_a733bbcfd7d850fa4596d834489b83178}{\index{random.\-c@{random.\-c}!random\-\_\-generate@{random\-\_\-generate}}
+\index{random\-\_\-generate@{random\-\_\-generate}!random.c@{random.\-c}}
+\subsubsection[{random\-\_\-generate}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long random\-\_\-generate (
+\begin{DoxyParamCaption}
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{random_8c_a733bbcfd7d850fa4596d834489b83178}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8c_a733bbcfd7d850fa4596d834489b83178_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8c_a733bbcfd7d850fa4596d834489b83178_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{random_8c_a4863f841babe7ce3664a4e4bed6180ab}{\index{random.\-c@{random.\-c}!random\-\_\-seed@{random\-\_\-seed}}
+\index{random\-\_\-seed@{random\-\_\-seed}!random.c@{random.\-c}}
+\subsubsection[{random\-\_\-seed}]{\setlength{\rightskip}{0pt plus 5cm}void random\-\_\-seed (
+\begin{DoxyParamCaption}
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr, }
+\item[{unsigned long}]{seed}
+\end{DoxyParamCaption}
+)}}\label{random_8c_a4863f841babe7ce3664a4e4bed6180ab}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{random_8c_a4863f841babe7ce3664a4e4bed6180ab_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8c_a4863f841babe7ce3664a4e4bed6180ab_icgraph}
+\end{center}
+\end{figure}
+
+

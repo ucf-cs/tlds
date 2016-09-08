@@ -1,0 +1,5 @@
+<map id="block_pool&lt; T &gt;" name="block_pool&lt; T &gt;">
+<area shape="rect" id="node2" href="$unioncounted__ptr.html" title="{counted_ptr\n||}" alt="" coords="100,325,191,403"/>
+<area shape="rect" id="node7" href="$structblock__pool_1_1block__head__node__t.html" title="{block_pool\&lt; T \&gt;::block\l_head_node_t\n||}" alt="" coords="360,318,513,410"/>
+<area shape="rect" id="node8" href="$structblock__pool_1_1shared__block__t.html" title="{block_pool\&lt; T \&gt;::shared\l_block_t\n||}" alt="" coords="356,147,519,239"/>
+</map>

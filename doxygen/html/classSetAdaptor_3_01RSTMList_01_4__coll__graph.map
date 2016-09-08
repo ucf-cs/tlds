@@ -1,0 +1,4 @@
+<map id="SetAdaptor&lt; RSTMList &gt;" name="SetAdaptor&lt; RSTMList &gt;">
+<area shape="rect" id="node3" href="$classRSTMList.html" title="{RSTMList\n||+ RSTMList()\l+ lookup()\l+ insert()\l+ remove()\l+ isSane()\l+ extendedSanityCheck()\l+ findmax()\l+ findmin()\l+ overwrite()\l}" alt="" coords="104,304,275,499"/>
+<area shape="rect" id="node4" href="$structRSTMList_1_1Node.html" title="{RSTMList::Node\n||+ Node()\l+ Node()\l}" alt="" coords="129,147,249,239"/>
+</map>

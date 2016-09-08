@@ -1,0 +1,8 @@
+<map id="edge::edge" name="edge::edge">
+<area shape="rect" id="node2" href="$classedge.html#af10ccfbaccf5198c07291317d70772fa" title="edge::initialize_end" alt="" coords="141,5,275,32"/>
+<area shape="rect" id="node4" href="$classedge__set.html#a412368ce88c3703ba3160a84c85a7ba9" title="edge_set::insert" alt="" coords="151,56,265,83"/>
+<area shape="rect" id="node3" href="$classedge.html#a528535c93e864fea104ca95de447b198" title="edge::index_of" alt="" coords="323,5,429,32"/>
+<area shape="rect" id="node5" href="$edge__set_8cpp.html#a04afedf3efb1930b4069d80cd6122ca9" title="segment" alt="" coords="340,56,412,83"/>
+<area shape="rect" id="node7" href="$classedge.html#a67b4470d9fae58c63a3a63765880cf58" title="edge::print" alt="" coords="335,107,417,133"/>
+<area shape="rect" id="node6" href="$point_8hpp.html#ac3affcd51103a7fafe2143a933683b30" title="bucket" alt="" coords="477,56,539,83"/>
+</map>

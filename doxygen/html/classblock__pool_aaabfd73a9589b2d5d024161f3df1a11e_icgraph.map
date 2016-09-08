@@ -1,0 +1,4 @@
+<map id="block_pool::free_block" name="block_pool::free_block">
+<area shape="rect" id="node2" href="$classMS__queue.html#a78a5210001367491d3184c55a7788cdb" title="MS_queue::dequeue" alt="" coords="205,5,347,32"/>
+<area shape="rect" id="node3" href="$classconcurrent__queue.html#a3ae2645ff7b16a7a317c1cff6142a9db" title="concurrent_queue::dequeue" alt="" coords="395,5,578,32"/>
+</map>

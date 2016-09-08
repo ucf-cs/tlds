@@ -1,0 +1,191 @@
+\hypertarget{classSurface}{\section{Surface Class Reference}
+\label{classSurface}\index{Surface@{Surface}}
+}
+
+
+Inheritance diagram for Surface\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classSurface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Surface\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSurface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classSurface_1_1edge}{edge}
+\item 
+class \hyperlink{classSurface_1_1Worker}{Worker}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSurface_adcda395ddcb459d3e5d0815c7eca902d}{paint\-Component} (Graphics g)
+\item 
+\hyperlink{classSurface_a779253a13324a9c8d9e9b8e54dfc5f3c}{Surface} (\hyperlink{classCoordinator}{Coordinator} C, \hyperlink{classUI}{U\-I} U, int pixels, Buffered\-Reader stdin)
+\item 
+void \hyperlink{classSurface_a40c36f263f4055a7cca51e9b9ac39b51}{triangulate} ()
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Set$<$ \hyperlink{classSurface_1_1edge}{edge} $>$ \hyperlink{classSurface_a14b4d5e0d634c3d8ddbcedce30a5ac29}{edges}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSurface_ac1c9537b447ac8e2bc0bccdef09dc748}{x\-Position} (int x)
+\item 
+int \hyperlink{classSurface_a1ef57990c20521aa95c0e75067c4c0c0}{y\-Position} (int y)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \hyperlink{classCoordinator}{Coordinator} \hyperlink{classSurface_a3d62a7cdb6e1828d358841fc635100e8}{c}
+\item 
+final \hyperlink{classUI}{U\-I} \hyperlink{classSurface_a59bf754a4bdcadeebe487d67ad6862cb}{u}
+\item 
+Buffered\-Reader \hyperlink{classSurface_a69cbcb8bd0149f5bdad90eb7a490c02d}{inp}
+\item 
+int \hyperlink{classSurface_adc95f7323a8ae6abca20ada97bcf992b}{min\-X}
+\item 
+int \hyperlink{classSurface_a48444332ae91b09d9629f71ce6a3b323}{max\-X}
+\item 
+int \hyperlink{classSurface_ac1367f57883962977a2459af53ca8821}{min\-Y}
+\item 
+int \hyperlink{classSurface_a9201381dc1016d9671a39d2e9f332b38}{max\-Y}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classSurface_a484eb0caa3698d2aa98b8a4113f408e5}{width}
+\item 
+static int \hyperlink{classSurface_ac7967deb54e276c07a00504f5259f325}{height}
+\item 
+static final int \hyperlink{classSurface_ab1db9b83208286d2e4e1b90d4b360a6c}{dotsize} = 6
+\item 
+static final int \hyperlink{classSurface_a35cca0a13938241e64e777cbaedc009d}{border} = \hyperlink{classSurface_ab1db9b83208286d2e4e1b90d4b360a6c}{dotsize}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSurface_a779253a13324a9c8d9e9b8e54dfc5f3c}{\index{Surface@{Surface}!Surface@{Surface}}
+\index{Surface@{Surface}!Surface@{Surface}}
+\subsubsection[{Surface}]{\setlength{\rightskip}{0pt plus 5cm}Surface.\-Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf Coordinator}}]{C, }
+\item[{{\bf U\-I}}]{U, }
+\item[{int}]{pixels, }
+\item[{Buffered\-Reader}]{stdin}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSurface_a779253a13324a9c8d9e9b8e54dfc5f3c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSurface_adcda395ddcb459d3e5d0815c7eca902d}{\index{Surface@{Surface}!paint\-Component@{paint\-Component}}
+\index{paint\-Component@{paint\-Component}!Surface@{Surface}}
+\subsubsection[{paint\-Component}]{\setlength{\rightskip}{0pt plus 5cm}void Surface.\-paint\-Component (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSurface_adcda395ddcb459d3e5d0815c7eca902d}
+\hypertarget{classSurface_a40c36f263f4055a7cca51e9b9ac39b51}{\index{Surface@{Surface}!triangulate@{triangulate}}
+\index{triangulate@{triangulate}!Surface@{Surface}}
+\subsubsection[{triangulate}]{\setlength{\rightskip}{0pt plus 5cm}void Surface.\-triangulate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSurface_a40c36f263f4055a7cca51e9b9ac39b51}
+\hypertarget{classSurface_ac1c9537b447ac8e2bc0bccdef09dc748}{\index{Surface@{Surface}!x\-Position@{x\-Position}}
+\index{x\-Position@{x\-Position}!Surface@{Surface}}
+\subsubsection[{x\-Position}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-x\-Position (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classSurface_ac1c9537b447ac8e2bc0bccdef09dc748}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classSurface_ac1c9537b447ac8e2bc0bccdef09dc748_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSurface_a1ef57990c20521aa95c0e75067c4c0c0}{\index{Surface@{Surface}!y\-Position@{y\-Position}}
+\index{y\-Position@{y\-Position}!Surface@{Surface}}
+\subsubsection[{y\-Position}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-y\-Position (
+\begin{DoxyParamCaption}
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classSurface_a1ef57990c20521aa95c0e75067c4c0c0}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classSurface_a1ef57990c20521aa95c0e75067c4c0c0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSurface_a35cca0a13938241e64e777cbaedc009d}{\index{Surface@{Surface}!border@{border}}
+\index{border@{border}!Surface@{Surface}}
+\subsubsection[{border}]{\setlength{\rightskip}{0pt plus 5cm}final int Surface.\-border = {\bf dotsize}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classSurface_a35cca0a13938241e64e777cbaedc009d}
+\hypertarget{classSurface_a3d62a7cdb6e1828d358841fc635100e8}{\index{Surface@{Surface}!c@{c}}
+\index{c@{c}!Surface@{Surface}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Coordinator} Surface.\-c\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_a3d62a7cdb6e1828d358841fc635100e8}
+\hypertarget{classSurface_ab1db9b83208286d2e4e1b90d4b360a6c}{\index{Surface@{Surface}!dotsize@{dotsize}}
+\index{dotsize@{dotsize}!Surface@{Surface}}
+\subsubsection[{dotsize}]{\setlength{\rightskip}{0pt plus 5cm}final int Surface.\-dotsize = 6\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classSurface_ab1db9b83208286d2e4e1b90d4b360a6c}
+\hypertarget{classSurface_a14b4d5e0d634c3d8ddbcedce30a5ac29}{\index{Surface@{Surface}!edges@{edges}}
+\index{edges@{edges}!Surface@{Surface}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}Set$<${\bf edge}$>$ Surface.\-edges\hspace{0.3cm}{\ttfamily [package]}}}\label{classSurface_a14b4d5e0d634c3d8ddbcedce30a5ac29}
+\hypertarget{classSurface_ac7967deb54e276c07a00504f5259f325}{\index{Surface@{Surface}!height@{height}}
+\index{height@{height}!Surface@{Surface}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-height\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classSurface_ac7967deb54e276c07a00504f5259f325}
+\hypertarget{classSurface_a69cbcb8bd0149f5bdad90eb7a490c02d}{\index{Surface@{Surface}!inp@{inp}}
+\index{inp@{inp}!Surface@{Surface}}
+\subsubsection[{inp}]{\setlength{\rightskip}{0pt plus 5cm}Buffered\-Reader Surface.\-inp\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_a69cbcb8bd0149f5bdad90eb7a490c02d}
+\hypertarget{classSurface_a48444332ae91b09d9629f71ce6a3b323}{\index{Surface@{Surface}!max\-X@{max\-X}}
+\index{max\-X@{max\-X}!Surface@{Surface}}
+\subsubsection[{max\-X}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-max\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_a48444332ae91b09d9629f71ce6a3b323}
+\hypertarget{classSurface_a9201381dc1016d9671a39d2e9f332b38}{\index{Surface@{Surface}!max\-Y@{max\-Y}}
+\index{max\-Y@{max\-Y}!Surface@{Surface}}
+\subsubsection[{max\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-max\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_a9201381dc1016d9671a39d2e9f332b38}
+\hypertarget{classSurface_adc95f7323a8ae6abca20ada97bcf992b}{\index{Surface@{Surface}!min\-X@{min\-X}}
+\index{min\-X@{min\-X}!Surface@{Surface}}
+\subsubsection[{min\-X}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-min\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_adc95f7323a8ae6abca20ada97bcf992b}
+\hypertarget{classSurface_ac1367f57883962977a2459af53ca8821}{\index{Surface@{Surface}!min\-Y@{min\-Y}}
+\index{min\-Y@{min\-Y}!Surface@{Surface}}
+\subsubsection[{min\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-min\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_ac1367f57883962977a2459af53ca8821}
+\hypertarget{classSurface_a59bf754a4bdcadeebe487d67ad6862cb}{\index{Surface@{Surface}!u@{u}}
+\index{u@{u}!Surface@{Surface}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf U\-I} Surface.\-u\hspace{0.3cm}{\ttfamily [private]}}}\label{classSurface_a59bf754a4bdcadeebe487d67ad6862cb}
+\hypertarget{classSurface_a484eb0caa3698d2aa98b8a4113f408e5}{\index{Surface@{Surface}!width@{width}}
+\index{width@{width}!Surface@{Surface}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int Surface.\-width\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classSurface_a484eb0caa3698d2aa98b8a4113f408e5}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{Display_8java}{Display.\-java}\end{DoxyCompactItemize}

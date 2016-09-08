@@ -1,0 +1,44 @@
+\hypertarget{libitm-5_88_8cpp}{\section{rstm/rstm-\/dev/libitm2stm/libitm-\/5.8.cpp File Reference}
+\label{libitm-5_88_8cpp}\index{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-8.\-cpp@{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-8.\-cpp}}
+}
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include \char`\"{}libitm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Transaction.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Scope.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Stack\-Protection.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/txthread.\-hpp\char`\"{}}\\*
+Include dependency graph for libitm-\/5.8.cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_88_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{libitm-5_88_8cpp_a6de38352f37475854431a0525bf7d13b}{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, \hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33}{\-\_\-\-I\-T\-M\-\_\-abort\-Reason} why, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+void \hyperlink{libitm-5_88_8cpp_a2f53a3f31121b66a0ea19acd4095dfa6}{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{libitm-5_88_8cpp_a6de38352f37475854431a0525bf7d13b}{\index{libitm-\/5.\-8.\-cpp@{libitm-\/5.\-8.\-cpp}!\-\_\-\-I\-T\-M\-\_\-abort\-Transaction@{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction@{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction}!libitm-5.8.cpp@{libitm-\/5.\-8.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-abort\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-abort\-Reason}}]{why, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_88_8cpp_a6de38352f37475854431a0525bf7d13b}
+\hypertarget{libitm-5_88_8cpp_a2f53a3f31121b66a0ea19acd4095dfa6}{\index{libitm-\/5.\-8.\-cpp@{libitm-\/5.\-8.\-cpp}!\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction@{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction@{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction}!libitm-5.8.cpp@{libitm-\/5.\-8.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-rollback\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_88_8cpp_a2f53a3f31121b66a0ea19acd4095dfa6}

@@ -1,0 +1,168 @@
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry}{\section{stm\-:\-:Byte\-Logging\-Write\-Set\-Entry Struct Reference}
+\label{structstm_1_1ByteLoggingWriteSetEntry}\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+}
+
+
+{\ttfamily \#include $<$Write\-Set.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Byte\-Logging\-Write\-Set\-Entry\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingWriteSetEntry__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1ByteLoggingWriteSetEntry_aa8765f8ceb760044167dec726bfb627b}{Byte\-Logging\-Write\-Set\-Entry} (void $\ast$$\ast$paddr, void $\ast$pval, uintptr\-\_\-t pmask)
+\item 
+void \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_ab84cdd6ad2389feb1c1db539b70d20d0}{update} (const \hyperlink{structstm_1_1ByteLoggingWriteSetEntry}{Byte\-Logging\-Write\-Set\-Entry} \&rhs)
+\item 
+bool \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_a19a286d251238425dd8f758f3c0b57eb}{filter} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\item 
+void \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_aa106b80568ffae20531ef50e0f586fe6}{writeback} () const 
+\item 
+void \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_a678f504f874f22425ab2bdd4486dddd3}{rollback} (void $\ast$$\ast$lower, void $\ast$$\ast$upper)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>void $\ast$$\ast$ \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_aa3ecfa56c0fd3095755a31c95ff65fb8}{addr}\\
+\>uint8\_t $\ast$ \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_a6530d68791fa8f1b587e66f916fe8113}{byte\_addr}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>void $\ast$ \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_ae5246177179e5ec224f6af8d123980c2}{val}\\
+\>uint8\_t \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_a40f023cbd1895383090a36aed674c991}{byte\_val} \mbox{[}sizeof(void $\ast$)\mbox{]}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uintptr\_t \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_a3bea52141880d7ff6f03c498ed7d0a47}{mask}\\
+\>uint8\_t \hyperlink{structstm_1_1ByteLoggingWriteSetEntry_a569ce98c81a55ed39f2408bce9734bbf}{byte\_mask} \mbox{[}sizeof(void $\ast$)\mbox{]}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The log entry for byte logging is complicated by
+
+1) the fact that we store a bitmask 2) that we need to treat the address/value/mask instance variables as both word types, and byte types.
+
+We do this with unions, which makes the use of these easier since it reduces the huge number of casts we perform otherwise.
+
+Union naming is important, since the outside world only directly deals with the word-\/sized fields. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_aa8765f8ceb760044167dec726bfb627b}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!Byte\-Logging\-Write\-Set\-Entry@{Byte\-Logging\-Write\-Set\-Entry}}
+\index{Byte\-Logging\-Write\-Set\-Entry@{Byte\-Logging\-Write\-Set\-Entry}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{Byte\-Logging\-Write\-Set\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::\-Byte\-Logging\-Write\-Set\-Entry (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{paddr, }
+\item[{void $\ast$}]{pval, }
+\item[{uintptr\-\_\-t}]{pmask}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_aa8765f8ceb760044167dec726bfb627b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a19a286d251238425dd8f758f3c0b57eb}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!filter@{filter}}
+\index{filter@{filter}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::filter (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_a19a286d251238425dd8f758f3c0b57eb}
+Check to see if the entry is completely contained within the given address range. We have some preconditions here w.\-r.\-t. alignment and size of the range. It has to be at least word aligned and word sized. This is currently only used with stack addresses, so we don't include asserts because we don't want to pay for them in the common case writeback loop.
+
+The byte-\/logging writeset can actually accommodate awkward intersections here using the mask, but we're not going to worry about that given the expected size/alignment of the range. \hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a678f504f874f22425ab2bdd4486dddd3}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!rollback@{rollback}}
+\index{rollback@{rollback}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{rollback}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::rollback (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{lower, }
+\item[{void $\ast$$\ast$}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_a678f504f874f22425ab2bdd4486dddd3}
+Called during the rollback loop in order to write out buffered writes to an exception object (represented by the address range). We don't assume anything about the alignment or size of the exception object. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingWriteSetEntry_a678f504f874f22425ab2bdd4486dddd3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_ab84cdd6ad2389feb1c1db539b70d20d0}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!update@{update}}
+\index{update@{update}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::update (
+\begin{DoxyParamCaption}
+\item[{const {\bf Byte\-Logging\-Write\-Set\-Entry} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_ab84cdd6ad2389feb1c1db539b70d20d0}
+Called when we are W\-A\-W an address, and we want to coalesce the write. Trivial for the word-\/based writeset, but complicated for the byte-\/based version.
+
+The new value is the bytes from the incoming log injected into the existing value, we mask out the bytes we want from the incoming word, mask the existing word, and union them. \hypertarget{structstm_1_1ByteLoggingWriteSetEntry_aa106b80568ffae20531ef50e0f586fe6}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!writeback@{writeback}}
+\index{writeback@{writeback}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{writeback}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::writeback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_aa106b80568ffae20531ef50e0f586fe6}
+If we're byte-\/logging, we'll write out each byte individually when we're not writing a whole word. This turns all subword writes into byte writes, so we lose the original atomicity of (say) half-\/word writes in the original source. This isn't a correctness problem because of our transactional synchronization, but could be a performance problem if the system depends on sub-\/word writes for performance. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1ByteLoggingWriteSetEntry_aa106b80568ffae20531ef50e0f586fe6_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_aac5ab0b89cfc1af63e6321c116c660a8}{\subsubsection[{"@10}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structstm_1_1ByteLoggingWriteSetEntry_aac5ab0b89cfc1af63e6321c116c660a8}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a34ef106524477581d8b32934ee394e19}{\subsubsection[{"@12}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structstm_1_1ByteLoggingWriteSetEntry_a34ef106524477581d8b32934ee394e19}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a94e94030b0d59ccb9e0badd443d0663b}{\subsubsection[{"@14}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structstm_1_1ByteLoggingWriteSetEntry_a94e94030b0d59ccb9e0badd443d0663b}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_aa3ecfa56c0fd3095755a31c95ff65fb8}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!addr@{addr}}
+\index{addr@{addr}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::addr}}\label{structstm_1_1ByteLoggingWriteSetEntry_aa3ecfa56c0fd3095755a31c95ff65fb8}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a6530d68791fa8f1b587e66f916fe8113}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!byte\-\_\-addr@{byte\-\_\-addr}}
+\index{byte\-\_\-addr@{byte\-\_\-addr}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{byte\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::byte\-\_\-addr}}\label{structstm_1_1ByteLoggingWriteSetEntry_a6530d68791fa8f1b587e66f916fe8113}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a569ce98c81a55ed39f2408bce9734bbf}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!byte\-\_\-mask@{byte\-\_\-mask}}
+\index{byte\-\_\-mask@{byte\-\_\-mask}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{byte\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::byte\-\_\-mask\mbox{[}sizeof(void $\ast$)\mbox{]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_a569ce98c81a55ed39f2408bce9734bbf}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a40f023cbd1895383090a36aed674c991}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!byte\-\_\-val@{byte\-\_\-val}}
+\index{byte\-\_\-val@{byte\-\_\-val}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{byte\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::byte\-\_\-val\mbox{[}sizeof(void $\ast$)\mbox{]}}}\label{structstm_1_1ByteLoggingWriteSetEntry_a40f023cbd1895383090a36aed674c991}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_a3bea52141880d7ff6f03c498ed7d0a47}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!mask@{mask}}
+\index{mask@{mask}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{mask}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::mask}}\label{structstm_1_1ByteLoggingWriteSetEntry_a3bea52141880d7ff6f03c498ed7d0a47}
+\hypertarget{structstm_1_1ByteLoggingWriteSetEntry_ae5246177179e5ec224f6af8d123980c2}{\index{stm\-::\-Byte\-Logging\-Write\-Set\-Entry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}!val@{val}}
+\index{val@{val}!stm::ByteLoggingWriteSetEntry@{stm\-::\-Byte\-Logging\-Write\-Set\-Entry}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stm\-::\-Byte\-Logging\-Write\-Set\-Entry\-::val}}\label{structstm_1_1ByteLoggingWriteSetEntry_ae5246177179e5ec224f6af8d123980c2}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{WriteSet_8hpp}{Write\-Set.\-hpp}\end{DoxyCompactItemize}

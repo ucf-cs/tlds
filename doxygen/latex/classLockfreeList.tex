@@ -1,0 +1,259 @@
+\hypertarget{classLockfreeList}{\section{Lockfree\-List Class Reference}
+\label{classLockfreeList}\index{Lockfree\-List@{Lockfree\-List}}
+}
+
+
+{\ttfamily \#include $<$lockfreelist.\-h$>$}
+
+
+
+Collaboration diagram for Lockfree\-List\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classLockfreeList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structLockfreeList_1_1Node}{Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLockfreeList_a4e085e078f3754523dc9db091180126b}{Lockfree\-List} ()
+\item 
+\hyperlink{classLockfreeList_aed286204e99c8ba76697234249be1707}{$\sim$\-Lockfree\-List} ()
+\item 
+bool \hyperlink{classLockfreeList_a7d38019611926c6dde4c2b2a85e0d68a}{Find} (uint32\-\_\-t key)
+\item 
+bool \hyperlink{classLockfreeList_a8177923608d471f9fddab408d7217994}{Insert} (uint32\-\_\-t key)
+\item 
+bool \hyperlink{classLockfreeList_a8be9fbf09485d88165f5a3ff614bb121}{Delete} (uint32\-\_\-t key)
+\item 
+int \hyperlink{classLockfreeList_a86185dd4f9a662d83792eb5bd80f6968}{Size} ()
+\item 
+void \hyperlink{classLockfreeList_a49a330294125943db10ab3789548d3a6}{Print} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLockfreeList_1_1Node}{Node} $\ast$ \hyperlink{classLockfreeList_ad06b1c38c8c92b50e29876fe8d1738c3}{Locate\-Pred} (uint32\-\_\-t key, \hyperlink{structLockfreeList_1_1Node}{Node} $\ast$$\ast$left\-\_\-node)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLockfreeList_1_1Node}{Node} $\ast$ \hyperlink{classLockfreeList_a1039f9c5ce94463555ec3c96080ad344}{m\-\_\-head}
+\item 
+\hyperlink{structLockfreeList_1_1Node}{Node} $\ast$ \hyperlink{classLockfreeList_a9965c7959a27ff3decb833f6b4c85bf4}{m\-\_\-tail}
+\item 
+\hyperlink{structLockfreeList_1_1Node}{Node} $\ast$$\ast$ \hyperlink{classLockfreeList_af8e0b9af4426caadf57a71a76f49dcdf}{mem}
+\item 
+uint32\-\_\-t \hyperlink{classLockfreeList_a78e6c8b4f10d02a43b6a4c75e383496a}{memptr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLockfreeList_a4e085e078f3754523dc9db091180126b}{\index{Lockfree\-List@{Lockfree\-List}!Lockfree\-List@{Lockfree\-List}}
+\index{Lockfree\-List@{Lockfree\-List}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Lockfree\-List}]{\setlength{\rightskip}{0pt plus 5cm}Lockfree\-List\-::\-Lockfree\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_a4e085e078f3754523dc9db091180126b}
+\hypertarget{classLockfreeList_aed286204e99c8ba76697234249be1707}{\index{Lockfree\-List@{Lockfree\-List}!$\sim$\-Lockfree\-List@{$\sim$\-Lockfree\-List}}
+\index{$\sim$\-Lockfree\-List@{$\sim$\-Lockfree\-List}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{$\sim$\-Lockfree\-List}]{\setlength{\rightskip}{0pt plus 5cm}Lockfree\-List\-::$\sim$\-Lockfree\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_aed286204e99c8ba76697234249be1707}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLockfreeList_a8be9fbf09485d88165f5a3ff614bb121}{\index{Lockfree\-List@{Lockfree\-List}!Delete@{Delete}}
+\index{Delete@{Delete}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Delete}]{\setlength{\rightskip}{0pt plus 5cm}bool Lockfree\-List\-::\-Delete (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_a8be9fbf09485d88165f5a3ff614bb121}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLockfreeList_a8be9fbf09485d88165f5a3ff614bb121_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classLockfreeList_a8be9fbf09485d88165f5a3ff614bb121_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockfreeList_a7d38019611926c6dde4c2b2a85e0d68a}{\index{Lockfree\-List@{Lockfree\-List}!Find@{Find}}
+\index{Find@{Find}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Find}]{\setlength{\rightskip}{0pt plus 5cm}bool Lockfree\-List\-::\-Find (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_a7d38019611926c6dde4c2b2a85e0d68a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLockfreeList_a7d38019611926c6dde4c2b2a85e0d68a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classLockfreeList_a7d38019611926c6dde4c2b2a85e0d68a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockfreeList_a8177923608d471f9fddab408d7217994}{\index{Lockfree\-List@{Lockfree\-List}!Insert@{Insert}}
+\index{Insert@{Insert}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Insert}]{\setlength{\rightskip}{0pt plus 5cm}bool Lockfree\-List\-::\-Insert (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_a8177923608d471f9fddab408d7217994}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLockfreeList_a8177923608d471f9fddab408d7217994_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classLockfreeList_a8177923608d471f9fddab408d7217994_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockfreeList_ad06b1c38c8c92b50e29876fe8d1738c3}{\index{Lockfree\-List@{Lockfree\-List}!Locate\-Pred@{Locate\-Pred}}
+\index{Locate\-Pred@{Locate\-Pred}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Locate\-Pred}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lockfree\-List\-::\-Node} $\ast$ Lockfree\-List\-::\-Locate\-Pred (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key, }
+\item[{{\bf Node} $\ast$$\ast$}]{left\-\_\-node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockfreeList_ad06b1c38c8c92b50e29876fe8d1738c3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{classLockfreeList_ad06b1c38c8c92b50e29876fe8d1738c3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLockfreeList_ad06b1c38c8c92b50e29876fe8d1738c3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockfreeList_a49a330294125943db10ab3789548d3a6}{\index{Lockfree\-List@{Lockfree\-List}!Print@{Print}}
+\index{Print@{Print}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void Lockfree\-List\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_a49a330294125943db10ab3789548d3a6}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classLockfreeList_a49a330294125943db10ab3789548d3a6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockfreeList_a86185dd4f9a662d83792eb5bd80f6968}{\index{Lockfree\-List@{Lockfree\-List}!Size@{Size}}
+\index{Size@{Size}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{Size}]{\setlength{\rightskip}{0pt plus 5cm}int Lockfree\-List\-::\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLockfreeList_a86185dd4f9a662d83792eb5bd80f6968}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classLockfreeList_a86185dd4f9a662d83792eb5bd80f6968_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classLockfreeList_a1039f9c5ce94463555ec3c96080ad344}{\index{Lockfree\-List@{Lockfree\-List}!m\-\_\-head@{m\-\_\-head}}
+\index{m\-\_\-head@{m\-\_\-head}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{m\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ Lockfree\-List\-::m\-\_\-head\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockfreeList_a1039f9c5ce94463555ec3c96080ad344}
+\hypertarget{classLockfreeList_a9965c7959a27ff3decb833f6b4c85bf4}{\index{Lockfree\-List@{Lockfree\-List}!m\-\_\-tail@{m\-\_\-tail}}
+\index{m\-\_\-tail@{m\-\_\-tail}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{m\-\_\-tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ Lockfree\-List\-::m\-\_\-tail\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockfreeList_a9965c7959a27ff3decb833f6b4c85bf4}
+\hypertarget{classLockfreeList_af8e0b9af4426caadf57a71a76f49dcdf}{\index{Lockfree\-List@{Lockfree\-List}!mem@{mem}}
+\index{mem@{mem}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{mem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$$\ast$ Lockfree\-List\-::mem\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockfreeList_af8e0b9af4426caadf57a71a76f49dcdf}
+\hypertarget{classLockfreeList_a78e6c8b4f10d02a43b6a4c75e383496a}{\index{Lockfree\-List@{Lockfree\-List}!memptr@{memptr}}
+\index{memptr@{memptr}!LockfreeList@{Lockfree\-List}}
+\subsubsection[{memptr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t Lockfree\-List\-::memptr\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockfreeList_a78e6c8b4f10d02a43b6a4c75e383496a}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+boosting/list/\hyperlink{lockfreelist_8h}{lockfreelist.\-h}\item 
+boosting/list/\hyperlink{lockfreelist_8cc}{lockfreelist.\-cc}\end{DoxyCompactItemize}

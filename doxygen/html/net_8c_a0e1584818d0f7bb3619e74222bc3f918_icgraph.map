@@ -1,0 +1,9 @@
+<map id="net_alloc" name="net_alloc">
+<area shape="rect" id="node2" href="$data_8h.html#a0f45b98c6cac17904d9daf25fbdc1dc9" title="data_generate" alt="" coords="272,5,376,32"/>
+<area shape="rect" id="node4" href="$learner_8h.html#aea1955f8471f02d66c6a39136d621f5b" title="learner_alloc" alt="" coords="129,56,223,83"/>
+<area shape="rect" id="node3" href="$bayes_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="717,107,773,133"/>
+<area shape="rect" id="node5" href="$bayes_8c.html#aa39a74293929705f5dfd47a76641d12a" title="score" alt="" coords="297,157,351,184"/>
+<area shape="rect" id="node6" href="$learner_8c.html#a5a45fbc491ab273140631145a6e82e54" title="createTaskList" alt="" coords="425,157,533,184"/>
+<area shape="rect" id="node8" href="$learner_8h.html#a643517a90c64064dfb94cb9cb8d6eddf" title="learner_score" alt="" coords="429,208,529,235"/>
+<area shape="rect" id="node7" href="$learner_8h.html#a23d451d4d355a14fa7c9735304ba4d95" title="learner_run" alt="" coords="582,157,669,184"/>
+</map>

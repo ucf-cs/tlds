@@ -1,0 +1,25 @@
+<map id="tm_main_startup" name="tm_main_startup">
+<area shape="rect" id="node2" href="$namespacestm.html#a72477788735f5e06365f341d2f09d3cb" title="stm::sys_init" alt="" coords="181,143,278,169"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a3de69c665250e84ef5238477ae8524b0" title="stm::thread_init" alt="" coords="173,193,285,220"/>
+<area shape="rect" id="node4" href="$structstm_1_1TxThread.html#a4e78a4f0dcb5010456aa031d3fda70ac" title="stm::TxThread::thread_init" alt="" coords="334,193,509,220"/>
+<area shape="rect" id="node5" href="$structstm_1_1TxThread.html#a27aa264d621bb5d008571c6aab47a9ba" title="stm::TxThread::TxThread" alt="" coords="557,193,728,220"/>
+<area shape="rect" id="node6" href="$namespacestm.html#a5dc0e1df0fe411722145e01e8b09b4b8" title="stm::begin" alt="" coords="808,117,891,144"/>
+<area shape="rect" id="node7" href="$namespacestm.html#a347d5009be494e8595a8933c49a342b4" title="stm::begin_blocker" alt="" coords="783,168,915,195"/>
+<area shape="rect" id="node23" href="$locks_8hpp.html#a67493dc021b0db009a9603ea55d18c59" title="spin64" alt="" coords="1025,219,1085,245"/>
+<area shape="rect" id="node24" href="$namespacestm.html#a103d1928b37a80dd6c538aeab4b1624d" title="stm::install_algorithm\l_local" alt="" coords="776,270,923,311"/>
+<area shape="rect" id="node8" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#a5f2e3da55eda99c9e30b6314c36ed8b2" title="anonymous_namespace\l\{irrevocability::cpp\}\l::set_irrevocable_barriers" alt="" coords="971,139,1139,195"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#af9e6aae425588bac29be16e10b91cd4c" title="anonymous_namespace\l\{irrevocability::cpp\}\l::commit_irrevocable" alt="" coords="1187,59,1349,115"/>
+<area shape="rect" id="node20" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#adfdb44f5b204ddd367543d1e3a5465fc" title="anonymous_namespace\l\{irrevocability::cpp\}\l::rollback_irrevocable" alt="" coords="1187,139,1349,195"/>
+<area shape="rect" id="node22" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#ac71fd4f2ae60b1814ccaedea40d424a2" title="anonymous_namespace\l\{irrevocability::cpp\}\l::abort_irrevocable" alt="" coords="1187,219,1349,275"/>
+<area shape="rect" id="node10" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#ab42770392de26e3b0bc1ffbe2f7932b8" title="anonymous_namespace\l\{irrevocability::cpp\}\l::unset_irrevocable_barriers" alt="" coords="1398,31,1581,87"/>
+<area shape="rect" id="node11" href="$namespacestm.html#a00287c50a719dcda144cc1cbc9e9ae4b" title="stm::OnReadOnlyCommit" alt="" coords="1403,111,1576,137"/>
+<area shape="rect" id="node12" href="$classstm_1_1WBMMPolicy.html#af174b70b9898c8d900a5a2604cfadc7c" title="stm::WBMMPolicy::onTxCommit" alt="" coords="1630,85,1845,112"/>
+<area shape="rect" id="node19" href="$structstm_1_1toxic__nop__t.html#a1c92cb621137c523ad38b9c252b4da06" title="stm::toxic_nop_t::onCommit" alt="" coords="1644,136,1831,163"/>
+<area shape="rect" id="node13" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="1914,5,2067,32"/>
+<area shape="rect" id="node14" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="1919,56,2062,83"/>
+<area shape="rect" id="node15" href="$classstm_1_1WBMMPolicy.html#aa2aa233946e7b6b1d35b184503b8c9f9" title="stm::WBMMPolicy::schedFor\lReclaim" alt="" coords="1893,107,2088,149"/>
+<area shape="rect" id="node18" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="1915,173,2066,200"/>
+<area shape="rect" id="node16" href="$classstm_1_1WBMMPolicy.html#a80a035e5b8f805d49606613b869ddd3c" title="stm::WBMMPolicy::handle\l_full_prelimbo" alt="" coords="2136,107,2315,149"/>
+<area shape="rect" id="node17" href="$namespaceanonymous__namespace_02WBMMPolicy_8cpp_03.html#a030c6e9142fd49127ce70ad9b1af5e79" title="anonymous_namespace\l\{WBMMPolicy::cpp\}::is\l_strictly_older" alt="" coords="2363,100,2525,156"/>
+<area shape="rect" id="node21" href="$namespacestm.html#a51b2c0958e7709b39500d037648c461b" title="stm::UNRECOVERABLE" alt="" coords="1403,183,1576,209"/>
+</map>

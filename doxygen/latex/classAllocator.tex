@@ -1,0 +1,144 @@
+\hypertarget{classAllocator}{\section{Allocator$<$ Data\-Type $>$ Class Template Reference}
+\label{classAllocator}\index{Allocator$<$ Data\-Type $>$@{Allocator$<$ Data\-Type $>$}}
+}
+
+
+{\ttfamily \#include $<$allocator.\-h$>$}
+
+
+
+Inheritance diagram for Allocator$<$ Data\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAllocator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Allocator$<$ Data\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classAllocator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAllocator_a7ffd15c2cebf761a173307aa89517d01}{Allocator} (uint64\-\_\-t total\-Bytes, uint64\-\_\-t thread\-Count, uint64\-\_\-t type\-Size)
+\item 
+\hyperlink{classAllocator_a64cef0c8851f0b794ef310beccb0f436}{$\sim$\-Allocator} ()
+\item 
+void \hyperlink{classAllocator_aa469d492c52035a021a9e863560cfe39}{Init} ()
+\item 
+void \hyperlink{classAllocator_a739d7203efcace30033322b180906c08}{Uninit} ()
+\item 
+Data\-Type $\ast$ \hyperlink{classAllocator_ab991ae25a95eb984d8ef4e2d12db6178}{Alloc} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{classAllocator_abb29c2eec72c880e29f9d74dfd4a763c}{m\-\_\-pool}
+\item 
+uint64\-\_\-t \hyperlink{classAllocator_aea41e7ddad87fc724440019ca0065949}{m\-\_\-total\-Bytes}
+\item 
+uint64\-\_\-t \hyperlink{classAllocator_a56b1f47232f76bed6e1971119e9e6425}{m\-\_\-thread\-Count}
+\item 
+uint64\-\_\-t \hyperlink{classAllocator_a81d11637a666e7f3822ac78fa43d1b88}{m\-\_\-ticket}
+\item 
+uint64\-\_\-t \hyperlink{classAllocator_a569f32c5cfab86005b7a40ae966d3f5c}{m\-\_\-type\-Size}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-thread char $\ast$ \hyperlink{classAllocator_a470c76fbdd00585861285728a1d67144}{m\-\_\-base}
+\item 
+static \-\_\-\-\_\-thread uint64\-\_\-t \hyperlink{classAllocator_abae17a424e857c97b3ab19e91f27b632}{m\-\_\-free\-Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAllocator_a7ffd15c2cebf761a173307aa89517d01}{\index{Allocator@{Allocator}!Allocator@{Allocator}}
+\index{Allocator@{Allocator}!Allocator@{Allocator}}
+\subsubsection[{Allocator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ {\bf Allocator}$<$ Data\-Type $>$\-::{\bf Allocator} (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{total\-Bytes, }
+\item[{uint64\-\_\-t}]{thread\-Count, }
+\item[{uint64\-\_\-t}]{type\-Size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a7ffd15c2cebf761a173307aa89517d01}
+\hypertarget{classAllocator_a64cef0c8851f0b794ef310beccb0f436}{\index{Allocator@{Allocator}!$\sim$\-Allocator@{$\sim$\-Allocator}}
+\index{$\sim$\-Allocator@{$\sim$\-Allocator}!Allocator@{Allocator}}
+\subsubsection[{$\sim$\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ {\bf Allocator}$<$ Data\-Type $>$\-::$\sim${\bf Allocator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a64cef0c8851f0b794ef310beccb0f436}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAllocator_ab991ae25a95eb984d8ef4e2d12db6178}{\index{Allocator@{Allocator}!Alloc@{Alloc}}
+\index{Alloc@{Alloc}!Allocator@{Allocator}}
+\subsubsection[{Alloc}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ Data\-Type$\ast$ {\bf Allocator}$<$ Data\-Type $>$\-::Alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_ab991ae25a95eb984d8ef4e2d12db6178}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAllocator_ab991ae25a95eb984d8ef4e2d12db6178_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classAllocator_aa469d492c52035a021a9e863560cfe39}{\index{Allocator@{Allocator}!Init@{Init}}
+\index{Init@{Init}!Allocator@{Allocator}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ void {\bf Allocator}$<$ Data\-Type $>$\-::Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_aa469d492c52035a021a9e863560cfe39}
+\hypertarget{classAllocator_a739d7203efcace30033322b180906c08}{\index{Allocator@{Allocator}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Allocator@{Allocator}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ void {\bf Allocator}$<$ Data\-Type $>$\-::Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a739d7203efcace30033322b180906c08}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classAllocator_a470c76fbdd00585861285728a1d67144}{\index{Allocator@{Allocator}!m\-\_\-base@{m\-\_\-base}}
+\index{m\-\_\-base@{m\-\_\-base}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-base}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ \-\_\-\-\_\-thread char $\ast$ {\bf Allocator}$<$ T $>$\-::m\-\_\-base\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classAllocator_a470c76fbdd00585861285728a1d67144}
+\hypertarget{classAllocator_abae17a424e857c97b3ab19e91f27b632}{\index{Allocator@{Allocator}!m\-\_\-free\-Index@{m\-\_\-free\-Index}}
+\index{m\-\_\-free\-Index@{m\-\_\-free\-Index}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-free\-Index}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ \-\_\-\-\_\-thread uint64\-\_\-t {\bf Allocator}$<$ T $>$\-::m\-\_\-free\-Index\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classAllocator_abae17a424e857c97b3ab19e91f27b632}
+\hypertarget{classAllocator_abb29c2eec72c880e29f9d74dfd4a763c}{\index{Allocator@{Allocator}!m\-\_\-pool@{m\-\_\-pool}}
+\index{m\-\_\-pool@{m\-\_\-pool}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-pool}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ char$\ast$ {\bf Allocator}$<$ Data\-Type $>$\-::m\-\_\-pool\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_abb29c2eec72c880e29f9d74dfd4a763c}
+\hypertarget{classAllocator_a56b1f47232f76bed6e1971119e9e6425}{\index{Allocator@{Allocator}!m\-\_\-thread\-Count@{m\-\_\-thread\-Count}}
+\index{m\-\_\-thread\-Count@{m\-\_\-thread\-Count}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-thread\-Count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ uint64\-\_\-t {\bf Allocator}$<$ Data\-Type $>$\-::m\-\_\-thread\-Count\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a56b1f47232f76bed6e1971119e9e6425}
+\hypertarget{classAllocator_a81d11637a666e7f3822ac78fa43d1b88}{\index{Allocator@{Allocator}!m\-\_\-ticket@{m\-\_\-ticket}}
+\index{m\-\_\-ticket@{m\-\_\-ticket}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-ticket}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ uint64\-\_\-t {\bf Allocator}$<$ Data\-Type $>$\-::m\-\_\-ticket\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a81d11637a666e7f3822ac78fa43d1b88}
+\hypertarget{classAllocator_aea41e7ddad87fc724440019ca0065949}{\index{Allocator@{Allocator}!m\-\_\-total\-Bytes@{m\-\_\-total\-Bytes}}
+\index{m\-\_\-total\-Bytes@{m\-\_\-total\-Bytes}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-total\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ uint64\-\_\-t {\bf Allocator}$<$ Data\-Type $>$\-::m\-\_\-total\-Bytes\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_aea41e7ddad87fc724440019ca0065949}
+\hypertarget{classAllocator_a569f32c5cfab86005b7a40ae966d3f5c}{\index{Allocator@{Allocator}!m\-\_\-type\-Size@{m\-\_\-type\-Size}}
+\index{m\-\_\-type\-Size@{m\-\_\-type\-Size}!Allocator@{Allocator}}
+\subsubsection[{m\-\_\-type\-Size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Data\-Type$>$ uint64\-\_\-t {\bf Allocator}$<$ Data\-Type $>$\-::m\-\_\-type\-Size\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a569f32c5cfab86005b7a40ae966d3f5c}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+common/\hyperlink{allocator_8h}{allocator.\-h}\end{DoxyCompactItemize}

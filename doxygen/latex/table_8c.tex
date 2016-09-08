@@ -1,0 +1,146 @@
+\hypertarget{table_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/genome/table.c File Reference}
+\label{table_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/table.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/table.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}table.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for table.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{table_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$ \hyperlink{table_8c_a2fc6637e05cc972581e5f4d0b9ae85af}{table\-\_\-alloc} (long num\-Bucket, \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{table_8c_a0cbbed1b3290a9074b455925972f670d}{table\-\_\-insert} (\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} hash, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{table_8c_afb2a48b78bdcda6d8d340ec3beb02e83}{T\-Mtable\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} hash, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{table_8c_a107c408953d09606276157cef79af7d4}{table\-\_\-remove} (\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} hash, void $\ast$data\-Ptr)
+\item 
+void \hyperlink{table_8c_af9cb7f7def0d60f8188ba78e02f5c59a}{table\-\_\-free} (\hyperlink{table_8h_aa56ca1db81617008d1449296b01f0db7}{table\-\_\-t} $\ast$table\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{table_8c_a2fc6637e05cc972581e5f4d0b9ae85af}{\index{table.\-c@{table.\-c}!table\-\_\-alloc@{table\-\_\-alloc}}
+\index{table\-\_\-alloc@{table\-\_\-alloc}!table.c@{table.\-c}}
+\subsubsection[{table\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf table\-\_\-t}$\ast$ table\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Bucket, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare}
+\end{DoxyParamCaption}
+)}}\label{table_8c_a2fc6637e05cc972581e5f4d0b9ae85af}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{table_8c_a2fc6637e05cc972581e5f4d0b9ae85af_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{table_8c_a2fc6637e05cc972581e5f4d0b9ae85af_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8c_af9cb7f7def0d60f8188ba78e02f5c59a}{\index{table.\-c@{table.\-c}!table\-\_\-free@{table\-\_\-free}}
+\index{table\-\_\-free@{table\-\_\-free}!table.c@{table.\-c}}
+\subsubsection[{table\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void table\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf table\-\_\-t} $\ast$}]{table\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8c_af9cb7f7def0d60f8188ba78e02f5c59a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8c_af9cb7f7def0d60f8188ba78e02f5c59a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{table_8c_af9cb7f7def0d60f8188ba78e02f5c59a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8c_a0cbbed1b3290a9074b455925972f670d}{\index{table.\-c@{table.\-c}!table\-\_\-insert@{table\-\_\-insert}}
+\index{table\-\_\-insert@{table\-\_\-insert}!table.c@{table.\-c}}
+\subsubsection[{table\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} table\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf table\-\_\-t} $\ast$}]{table\-Ptr, }
+\item[{{\bf ulong\-\_\-t}}]{hash, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8c_a0cbbed1b3290a9074b455925972f670d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8c_a0cbbed1b3290a9074b455925972f670d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8c_a107c408953d09606276157cef79af7d4}{\index{table.\-c@{table.\-c}!table\-\_\-remove@{table\-\_\-remove}}
+\index{table\-\_\-remove@{table\-\_\-remove}!table.c@{table.\-c}}
+\subsubsection[{table\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} table\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf table\-\_\-t} $\ast$}]{table\-Ptr, }
+\item[{{\bf ulong\-\_\-t}}]{hash, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8c_a107c408953d09606276157cef79af7d4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8c_a107c408953d09606276157cef79af7d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{table_8c_afb2a48b78bdcda6d8d340ec3beb02e83}{\index{table.\-c@{table.\-c}!T\-Mtable\-\_\-insert@{T\-Mtable\-\_\-insert}}
+\index{T\-Mtable\-\_\-insert@{T\-Mtable\-\_\-insert}!table.c@{table.\-c}}
+\subsubsection[{T\-Mtable\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mtable\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf table\-\_\-t} $\ast$}]{table\-Ptr, }
+\item[{{\bf ulong\-\_\-t}}]{hash, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{table_8c_afb2a48b78bdcda6d8d340ec3beb02e83}

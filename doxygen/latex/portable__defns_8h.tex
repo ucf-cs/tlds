@@ -1,0 +1,189 @@
+\hypertarget{portable__defns_8h}{\section{common/fraser/portable\-\_\-defns.h File Reference}
+\label{portable__defns_8h}\index{common/fraser/portable\-\_\-defns.\-h@{common/fraser/portable\-\_\-defns.\-h}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+Include dependency graph for portable\-\_\-defns.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{portable__defns_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{portable__defns_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}~128 /$\ast$ Nobody will ever have more! $\ast$/
+\item 
+\#define \hyperlink{portable__defns_8h_aec798343dd2470fd42244a4e89d34500}{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}()~\hyperlink{intel__defns_8h_a2a76b5f7f4a703efcd60c5dc44c33096}{R\-M\-B}()
+\item 
+\#define \hyperlink{portable__defns_8h_a7a9a123ebc3b3158281ea49d7dd3aa7f}{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}()~\hyperlink{intel__defns_8h_a6fb172006c8452cf2dcdbfc23d48cbbe}{W\-M\-B}()
+\item 
+\#define \hyperlink{portable__defns_8h_adbac340cdfc6e376bc85324285627cc6}{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}()~\hyperlink{intel__defns_8h_afaf21b9482166902c8854dfc2ab665e0}{M\-B}()
+\item 
+\#define \hyperlink{portable__defns_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
+\item 
+\#define \hyperlink{portable__defns_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
+\item 
+\#define \hyperlink{portable__defns_8h_a63234a1978fd2801c797472f1451acb6}{A\-D\-D\-\_\-\-T\-O}(\-\_\-v, \-\_\-x)
+\item 
+\#define \hyperlink{portable__defns_8h_a64c1947a41a81f84f1fcd4c28eda9dd9}{C\-A\-C\-H\-E\-\_\-\-P\-A\-D}(\-\_\-n)~char \-\_\-\-\_\-pad \#\# \-\_\-n \mbox{[}\hyperlink{grid_8c_ab711bbb41cecee65bf4515d78f323628}{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\item 
+\#define \hyperlink{portable__defns_8h_a8eb9dc2cc69a793ba6301b7e18aefbe3}{A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C}(\-\_\-s)
+\item 
+\#define \hyperlink{portable__defns_8h_a2496989b85a0bb7a19233ce0ee8c8bfa}{get\-\_\-marked\-\_\-ref}(\-\_\-p)~((void $\ast$)(((unsigned long)(\-\_\-p)) $\vert$ 1))
+\item 
+\#define \hyperlink{portable__defns_8h_a63ec1b864c39d68e20a10422539f5a4b}{get\-\_\-unmarked\-\_\-ref}(\-\_\-p)~((void $\ast$)(((unsigned long)(\-\_\-p)) \& $\sim$1))
+\item 
+\#define \hyperlink{portable__defns_8h_ac4bc0895e9e08500fa68d84a8e6000ff}{is\-\_\-marked\-\_\-ref}(\-\_\-p)~(((unsigned long)(\-\_\-p)) \& 1)
+\item 
+\#define \hyperlink{portable__defns_8h_a69feb1a53f01a8ce664e55251622144c}{R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D}(\-\_\-x, \-\_\-f)~((\-\_\-x) = (\-\_\-f))
+\item 
+\#define \hyperlink{portable__defns_8h_a122648bd0bbf9a5d5bd84a9e5c652e24}{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B}()~((void)0)
+\item 
+\#define \hyperlink{portable__defns_8h_aea5b8f6057dfca7d8059dad18957adec}{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B}()~((void)0)
+\item 
+\#define \hyperlink{portable__defns_8h_ae9688df2baf15df0e17d00dda7dcdb8b}{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B}()~((void)0)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned long \hyperlink{portable__defns_8h_a97cf622f62f3e27797846e0f6ea81db2}{int\-\_\-addr\-\_\-t}
+\item 
+typedef int \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{portable__defns_8h_a63234a1978fd2801c797472f1451acb6}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!A\-D\-D\-\_\-\-T\-O@{A\-D\-D\-\_\-\-T\-O}}
+\index{A\-D\-D\-\_\-\-T\-O@{A\-D\-D\-\_\-\-T\-O}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{A\-D\-D\-\_\-\-T\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-D\-\_\-\-T\-O(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-v, }
+\item[{}]{\-\_\-x}
+\end{DoxyParamCaption}
+)}}\label{portable__defns_8h_a63234a1978fd2801c797472f1451acb6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                    \(\backslash\)
+    int \_\_val = (\_v), \_\_newval;                                         \(\backslash\)
+    while ( (\_\_newval = \hyperlink{intel__defns_8h_a8e552a503fdc2df51afdebeaba7d2dbf}{CASIO}(&(\_v),\_\_val,\_\_val+(\_x))) != \_\_val )       \(\backslash\)
+        \_\_val = \_\_newval;                                               \(\backslash\)
+\} \textcolor{keywordflow}{while} ( 0 )
+\end{DoxyCode}
+\hypertarget{portable__defns_8h_a8eb9dc2cc69a793ba6301b7e18aefbe3}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C@{A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C}}
+\index{A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C@{A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-I\-G\-N\-E\-D\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-s}
+\end{DoxyParamCaption}
+)}}\label{portable__defns_8h_a8eb9dc2cc69a793ba6301b7e18aefbe3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\textcolor{keywordtype}{void} *)(((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})malloc((\_s)+\hyperlink{grid_8c_ab711bbb41cecee65bf4515d78f323628}{CACHE\_LINE\_SIZE}*2) +  \(\backslash\)
+        \hyperlink{grid_8c_ab711bbb41cecee65bf4515d78f323628}{CACHE\_LINE\_SIZE} - 1) & ~(\hyperlink{grid_8c_ab711bbb41cecee65bf4515d78f323628}{CACHE\_LINE\_SIZE}-1)))
+\end{DoxyCode}
+\hypertarget{portable__defns_8h_a64c1947a41a81f84f1fcd4c28eda9dd9}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!C\-A\-C\-H\-E\-\_\-\-P\-A\-D@{C\-A\-C\-H\-E\-\_\-\-P\-A\-D}}
+\index{C\-A\-C\-H\-E\-\_\-\-P\-A\-D@{C\-A\-C\-H\-E\-\_\-\-P\-A\-D}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{C\-A\-C\-H\-E\-\_\-\-P\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-C\-H\-E\-\_\-\-P\-A\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-n}
+\end{DoxyParamCaption}
+)~char \-\_\-\-\_\-pad \#\# \-\_\-n \mbox{[}{\bf C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{portable__defns_8h_a64c1947a41a81f84f1fcd4c28eda9dd9}
+\hypertarget{portable__defns_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{portable__defns_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{portable__defns_8h_a2496989b85a0bb7a19233ce0ee8c8bfa}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!get\-\_\-marked\-\_\-ref@{get\-\_\-marked\-\_\-ref}}
+\index{get\-\_\-marked\-\_\-ref@{get\-\_\-marked\-\_\-ref}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{get\-\_\-marked\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}\#define get\-\_\-marked\-\_\-ref(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((void $\ast$)(((unsigned long)(\-\_\-p)) $\vert$ 1))}}\label{portable__defns_8h_a2496989b85a0bb7a19233ce0ee8c8bfa}
+\hypertarget{portable__defns_8h_a63ec1b864c39d68e20a10422539f5a4b}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!get\-\_\-unmarked\-\_\-ref@{get\-\_\-unmarked\-\_\-ref}}
+\index{get\-\_\-unmarked\-\_\-ref@{get\-\_\-unmarked\-\_\-ref}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{get\-\_\-unmarked\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}\#define get\-\_\-unmarked\-\_\-ref(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((void $\ast$)(((unsigned long)(\-\_\-p)) \& $\sim$1))}}\label{portable__defns_8h_a63ec1b864c39d68e20a10422539f5a4b}
+\hypertarget{portable__defns_8h_ac4bc0895e9e08500fa68d84a8e6000ff}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!is\-\_\-marked\-\_\-ref@{is\-\_\-marked\-\_\-ref}}
+\index{is\-\_\-marked\-\_\-ref@{is\-\_\-marked\-\_\-ref}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{is\-\_\-marked\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}\#define is\-\_\-marked\-\_\-ref(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(((unsigned long)(\-\_\-p)) \& 1)}}\label{portable__defns_8h_ac4bc0895e9e08500fa68d84a8e6000ff}
+\hypertarget{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S@{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}}
+\index{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S@{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S~128 /$\ast$ Nobody will ever have more! $\ast$/}}\label{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}
+\hypertarget{portable__defns_8h_adbac340cdfc6e376bc85324285627cc6}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}}
+\index{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf M\-B}()}}\label{portable__defns_8h_adbac340cdfc6e376bc85324285627cc6}
+\hypertarget{portable__defns_8h_a69feb1a53f01a8ce664e55251622144c}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D@{R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D}}
+\index{R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D@{R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-F\-I\-E\-L\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-x, }
+\item[{}]{\-\_\-f}
+\end{DoxyParamCaption}
+)~((\-\_\-x) = (\-\_\-f))}}\label{portable__defns_8h_a69feb1a53f01a8ce664e55251622144c}
+\hypertarget{portable__defns_8h_aec798343dd2470fd42244a4e89d34500}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}}
+\index{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf R\-M\-B}()}}\label{portable__defns_8h_aec798343dd2470fd42244a4e89d34500}
+\hypertarget{portable__defns_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{portable__defns_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+\hypertarget{portable__defns_8h_ae9688df2baf15df0e17d00dda7dcdb8b}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B@{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B}}
+\index{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B@{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-M\-B(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~((void)0)}}\label{portable__defns_8h_ae9688df2baf15df0e17d00dda7dcdb8b}
+\hypertarget{portable__defns_8h_a122648bd0bbf9a5d5bd84a9e5c652e24}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B@{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B}}
+\index{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B@{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-R\-M\-B(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~((void)0)}}\label{portable__defns_8h_a122648bd0bbf9a5d5bd84a9e5c652e24}
+\hypertarget{portable__defns_8h_aea5b8f6057dfca7d8059dad18957adec}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B@{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B}}
+\index{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B@{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-E\-A\-K\-\_\-\-D\-E\-P\-\_\-\-O\-R\-D\-E\-R\-\_\-\-W\-M\-B(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~((void)0)}}\label{portable__defns_8h_aea5b8f6057dfca7d8059dad18957adec}
+\hypertarget{portable__defns_8h_a7a9a123ebc3b3158281ea49d7dd3aa7f}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}}
+\index{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S@{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-M\-B\-\_\-\-N\-E\-A\-R\-\_\-\-C\-A\-S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf W\-M\-B}()}}\label{portable__defns_8h_a7a9a123ebc3b3158281ea49d7dd3aa7f}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{portable__defns_8h_a812d16e5494522586b3784e55d479912}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!bool\-\_\-t@{bool\-\_\-t}}
+\index{bool\-\_\-t@{bool\-\_\-t}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{bool\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf bool\-\_\-t}}}\label{portable__defns_8h_a812d16e5494522586b3784e55d479912}
+\hypertarget{portable__defns_8h_a97cf622f62f3e27797846e0f6ea81db2}{\index{portable\-\_\-defns.\-h@{portable\-\_\-defns.\-h}!int\-\_\-addr\-\_\-t@{int\-\_\-addr\-\_\-t}}
+\index{int\-\_\-addr\-\_\-t@{int\-\_\-addr\-\_\-t}!portable_defns.h@{portable\-\_\-defns.\-h}}
+\subsubsection[{int\-\_\-addr\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf int\-\_\-addr\-\_\-t}}}\label{portable__defns_8h_a97cf622f62f3e27797846e0f6ea81db2}

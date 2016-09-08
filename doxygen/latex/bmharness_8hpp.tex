@@ -1,0 +1,275 @@
+\hypertarget{bmharness_8hpp}{\section{rstm/rstm-\/dev/bench/bmharness.hpp File Reference}
+\label{bmharness_8hpp}\index{rstm/rstm-\/dev/bench/bmharness.\-hpp@{rstm/rstm-\/dev/bench/bmharness.\-hpp}}
+}
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$api/api.\-hpp$>$}\\*
+{\ttfamily \#include $<$common/platform.\-hpp$>$}\\*
+{\ttfamily \#include $<$common/locks.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}bmconfig.\-hpp\char`\"{}}\\*
+Include dependency graph for bmharness.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structConfig}{Config} C\-F\-G \hyperlink{bmharness_8hpp_a06d40fff9d280d0c7cd5d0234b1cb37b}{T\-M\-\_\-\-A\-L\-I\-G\-N} (64)
+\item 
+void \hyperlink{bmharness_8hpp_a74491ac8bb04dd258e1f45a86cf6cf15}{dump\-\_\-csv} ()
+\item 
+void \hyperlink{bmharness_8hpp_a2ef30c42cbc289d899a8be5d2d8f77d0}{usage} ()
+\item 
+void \hyperlink{bmharness_8hpp_aae8d2ff403b9b752be5c25a60dec949e}{parseargs} (int argc, char $\ast$$\ast$argv)
+\item 
+void \hyperlink{bmharness_8hpp_a38d101d612bbe49f2c6a7d0ef71fd77a}{nontxnwork} ()
+\item 
+void \hyperlink{bmharness_8hpp_ae6106f619996ed036c23b6bccc798f33}{catch\-\_\-\-S\-I\-G\-A\-L\-R\-M} (int)
+\item 
+void \hyperlink{bmharness_8hpp_a02b05a605f4bd514db3ba9879a5d3cd6}{barrier} (uint32\-\_\-t which)
+\item 
+void \hyperlink{bmharness_8hpp_a77dcb24f238716e611145fc73d32456b}{run} (uintptr\-\_\-t id)
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} void $\ast$ \hyperlink{bmharness_8hpp_a7bb06afcedce38a875b0efb94038104e}{run\-\_\-wrapper} (void $\ast$i)
+\item 
+int \hyperlink{bmharness_8hpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{bmharness_8hpp_a02b05a605f4bd514db3ba9879a5d3cd6}{\index{bmharness.\-hpp@{bmharness.\-hpp}!barrier@{barrier}}
+\index{barrier@{barrier}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{barrier}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf barrier} (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{which}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a02b05a605f4bd514db3ba9879a5d3cd6}
+Support a few lightweight barriers 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp_a02b05a605f4bd514db3ba9879a5d3cd6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_ae6106f619996ed036c23b6bccc798f33}{\index{bmharness.\-hpp@{bmharness.\-hpp}!catch\-\_\-\-S\-I\-G\-A\-L\-R\-M@{catch\-\_\-\-S\-I\-G\-A\-L\-R\-M}}
+\index{catch\-\_\-\-S\-I\-G\-A\-L\-R\-M@{catch\-\_\-\-S\-I\-G\-A\-L\-R\-M}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{catch\-\_\-\-S\-I\-G\-A\-L\-R\-M}]{\setlength{\rightskip}{0pt plus 5cm}void catch\-\_\-\-S\-I\-G\-A\-L\-R\-M (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_ae6106f619996ed036c23b6bccc798f33}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp_ae6106f619996ed036c23b6bccc798f33_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_a74491ac8bb04dd258e1f45a86cf6cf15}{\index{bmharness.\-hpp@{bmharness.\-hpp}!dump\-\_\-csv@{dump\-\_\-csv}}
+\index{dump\-\_\-csv@{dump\-\_\-csv}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{dump\-\_\-csv}]{\setlength{\rightskip}{0pt plus 5cm}void dump\-\_\-csv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a74491ac8bb04dd258e1f45a86cf6cf15}
+Print benchmark configuration output 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{bmharness_8hpp_a74491ac8bb04dd258e1f45a86cf6cf15_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{bmharness.\-hpp@{bmharness.\-hpp}!main@{main}}
+\index{main@{main}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a3c04138a5bfe5d72780bb7e82a18e627}
+Main routine\-: parse args, set up the T\-M system, prep the benchmark, run the experiments, verify results, print results, and shut down the system 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_a38d101d612bbe49f2c6a7d0ef71fd77a}{\index{bmharness.\-hpp@{bmharness.\-hpp}!nontxnwork@{nontxnwork}}
+\index{nontxnwork@{nontxnwork}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{nontxnwork}]{\setlength{\rightskip}{0pt plus 5cm}void nontxnwork (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a38d101d612bbe49f2c6a7d0ef71fd77a}
+Run some nops between transactions, to simulate some time being spent on computation 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{bmharness_8hpp_a38d101d612bbe49f2c6a7d0ef71fd77a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp_a38d101d612bbe49f2c6a7d0ef71fd77a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_aae8d2ff403b9b752be5c25a60dec949e}{\index{bmharness.\-hpp@{bmharness.\-hpp}!parseargs@{parseargs}}
+\index{parseargs@{parseargs}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{parseargs}]{\setlength{\rightskip}{0pt plus 5cm}void parseargs (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_aae8d2ff403b9b752be5c25a60dec949e}
+Parse command line arguments 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{bmharness_8hpp_aae8d2ff403b9b752be5c25a60dec949e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{bmharness_8hpp_aae8d2ff403b9b752be5c25a60dec949e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_a77dcb24f238716e611145fc73d32456b}{\index{bmharness.\-hpp@{bmharness.\-hpp}!run@{run}}
+\index{run@{run}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void run (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{id}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a77dcb24f238716e611145fc73d32456b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{bmharness_8hpp_a77dcb24f238716e611145fc73d32456b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{bmharness_8hpp_a77dcb24f238716e611145fc73d32456b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_a7bb06afcedce38a875b0efb94038104e}{\index{bmharness.\-hpp@{bmharness.\-hpp}!run\-\_\-wrapper@{run\-\_\-wrapper}}
+\index{run\-\_\-wrapper@{run\-\_\-wrapper}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{run\-\_\-wrapper}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\-O\-I\-N\-L\-I\-N\-E} void$\ast$ run\-\_\-wrapper (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{i}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a7bb06afcedce38a875b0efb94038104e}
+pthread wrapper for running the experiments
+
+N\-B\-: noinline prevents this from getting inlined into main (and prevents run from being inlined there as well. This eliminates an \-\_\-\-I\-T\-M\-\_\-initialize\-Process ordering problem if there's a transaction lexically scoped inside of main. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp_a7bb06afcedce38a875b0efb94038104e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{bmharness_8hpp_a7bb06afcedce38a875b0efb94038104e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{bmharness_8hpp_a06d40fff9d280d0c7cd5d0234b1cb37b}{\index{bmharness.\-hpp@{bmharness.\-hpp}!T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}}
+\index{T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Config} C\-F\-G T\-M\-\_\-\-A\-L\-I\-G\-N (
+\begin{DoxyParamCaption}
+\item[{64}]{}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a06d40fff9d280d0c7cd5d0234b1cb37b}
+\hypertarget{bmharness_8hpp_a2ef30c42cbc289d899a8be5d2d8f77d0}{\index{bmharness.\-hpp@{bmharness.\-hpp}!usage@{usage}}
+\index{usage@{usage}!bmharness.hpp@{bmharness.\-hpp}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}void usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bmharness_8hpp_a2ef30c42cbc289d899a8be5d2d8f77d0}
+Print usage 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bmharness_8hpp_a2ef30c42cbc289d899a8be5d2d8f77d0_icgraph}
+\end{center}
+\end{figure}
+
+

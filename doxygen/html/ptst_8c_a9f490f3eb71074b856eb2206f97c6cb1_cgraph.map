@@ -1,0 +1,11 @@
+<map id="fr_critical_enter" name="fr_critical_enter">
+<area shape="rect" id="node2" href="$gc_8c.html#aa06f5acb271ed4c9afcc728f3ceae52f" title="fr_gc_init" alt="" coords="172,81,247,108"/>
+<area shape="rect" id="node9" href="$gc_8c.html#a1b011e952f943e62b80e39768305d3fb" title="fr_gc_enter" alt="" coords="166,144,253,171"/>
+<area shape="rect" id="node3" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="654,81,786,108"/>
+<area shape="rect" id="node6" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="310,107,426,133"/>
+<area shape="rect" id="node8" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="302,5,434,32"/>
+<area shape="rect" id="node4" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="835,157,970,184"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="835,81,970,108"/>
+<area shape="rect" id="node7" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="483,107,605,133"/>
+<area shape="rect" id="node10" href="$gc_8c.html#a8c8094a35212fa8ed75ed9a4a38c7b9c" title="gc_reclaim" alt="" coords="501,208,587,235"/>
+</map>

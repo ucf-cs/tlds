@@ -1,0 +1,6 @@
+<map id="stm::init_adapt_pol" name="stm::init_adapt_pol">
+<area shape="rect" id="node2" href="$namespacestm.html#aa0b1d39423394b3e447d37ac36e9fde3" title="stm::init_pol_cbr" alt="" coords="194,5,313,32"/>
+<area shape="rect" id="node5" href="$namespacestm.html#ab5a1851d6381fc50697f662635db22ea" title="stm::init_pol_static" alt="" coords="187,56,319,83"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a4d7a6395ef81ca8e19fa2168d69e219b" title="stm::pol_init" alt="" coords="368,31,461,57"/>
+<area shape="rect" id="node4" href="$namespacestm.html#aac29e08fdc4a251a12088bd799e7a4f4" title="stm::sys_init" alt="" coords="510,31,607,57"/>
+</map>

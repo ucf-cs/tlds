@@ -1,0 +1,13 @@
+<map id="stm::install_algorithm" name="stm::install_algorithm">
+<area shape="rect" id="node2" href="$namespaceanonymous__namespace_02profiling_8cpp_03.html#ad2de7e300bb6e53bf611aaf35c46d80b" title="anonymous_namespace\l\{profiling::cpp\}::collect\l_profiles" alt="" coords="200,23,363,79"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02profiling_8cpp_03.html#ac7a6d6bebec6c014c2d09c19efb4390c" title="anonymous_namespace\l\{profiling::cpp\}::change\l_algorithm" alt="" coords="200,103,363,159"/>
+<area shape="rect" id="node10" href="$namespacestm.html#ad9c526edd45fa3fe417fc3b8ee75467a" title="stm::profile_oncomplete" alt="" coords="201,183,362,209"/>
+<area shape="rect" id="node11" href="$namespacestm.html#a945573c8ffc100f3908f1373d12ebffd" title="stm::set_policy" alt="" coords="226,233,337,260"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a7691058d97dd9bb3444ab2200a90e54b" title="stm::trigger_common" alt="" coords="411,77,557,104"/>
+<area shape="rect" id="node4" href="$structstm_1_1AbortWaitTrigger.html#a569a71f4008818dba88b07dd6757e33f" title="stm::AbortWaitTrigger\l::onCommitLock" alt="" coords="606,5,757,46"/>
+<area shape="rect" id="node5" href="$structstm_1_1AbortWaitTrigger.html#afb8db71071daad0585654b95ff8edd04" title="stm::AbortWaitTrigger\l::onAbort" alt="" coords="606,70,757,111"/>
+<area shape="rect" id="node7" href="$structstm_1_1CommitTrigger.html#acdf3280966d01d057c2efc8ff1792aab" title="stm::CommitTrigger\l::onCommitSTM" alt="" coords="612,135,751,177"/>
+<area shape="rect" id="node6" href="$structstm_1_1CommitTrigger.html#aee144a92ac151fa1aae6942b04f68685" title="stm::CommitTrigger\l::onAbort" alt="" coords="805,70,944,111"/>
+<area shape="rect" id="node8" href="$structstm_1_1CommitTrigger.html#a4d706454d226b9100a972d36bb3be88e" title="stm::CommitTrigger\l::onCommitLock" alt="" coords="805,135,944,177"/>
+<area shape="rect" id="node12" href="$namespacestm.html#aac29e08fdc4a251a12088bd799e7a4f4" title="stm::sys_init" alt="" coords="435,233,533,260"/>
+</map>

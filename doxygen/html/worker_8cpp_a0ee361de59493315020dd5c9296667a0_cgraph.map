@@ -1,0 +1,8 @@
+<map id="baste" name="baste">
+<area shape="rect" id="node2" href="$structpv__side.html#ab982252ee33bd8b4d6609f35506fe898" title="pv_side::conditional_move" alt="" coords="109,56,285,83"/>
+<area shape="rect" id="node7" href="$classsimple__queue.html#a189cc4bc19b3a8c84fba3bdea89c75c1" title="simple_queue::enqueue" alt="" coords="118,107,277,133"/>
+<area shape="rect" id="node3" href="$point_8hpp.html#aa9b83c6c0cd506e8f62420ce41d7c5ac" title="closest_seam" alt="" coords="335,5,438,32"/>
+<area shape="rect" id="node5" href="$point_8cpp.html#ae77890a7cdbacaf1b115d396c571bfda" title="extern_angle" alt="" coords="339,56,435,83"/>
+<area shape="rect" id="node6" href="$classedge.html#a528535c93e864fea104ca95de447b198" title="edge::index_of" alt="" coords="333,107,440,133"/>
+<area shape="rect" id="node4" href="$point_8hpp.html#ac3affcd51103a7fafe2143a933683b30" title="bucket" alt="" coords="488,5,549,32"/>
+</map>

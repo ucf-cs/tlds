@@ -1,0 +1,394 @@
+\hypertarget{classitm2stm_1_1Scope}{\section{itm2stm\-:\-:Scope Class Reference}
+\label{classitm2stm_1_1Scope}\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}}
+}
+
+
+{\ttfamily \#include $<$Scope.\-h$>$}
+
+
+
+Inheritance diagram for itm2stm\-:\-:Scope\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classitm2stm_1_1Scope__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for itm2stm\-:\-:Scope\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structitm2stm_1_1Scope_1_1Callback}{Callback}
+\item 
+struct \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord}{Logged\-Word}
+\item 
+struct \hyperlink{structitm2stm_1_1Scope_1_1ThrownObject}{Thrown\-Object}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classitm2stm_1_1Scope_a4ab68c623441fe7379f2c1b337369b8a}{Scope} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} \&)
+\item 
+\hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} \hyperlink{classitm2stm_1_1Scope_a8966636a58bede610733df011aae9132}{get\-Id} () const 
+\item 
+uint32\-\_\-t \hyperlink{classitm2stm_1_1Scope_ae5870653f4f1b00e86032032c9afb1de}{get\-Flags} () const 
+\item 
+bool \hyperlink{classitm2stm_1_1Scope_afb29bce9f1b2dfc7592786573b8ddd3a}{is\-Exception\-Block} () const 
+\begin{DoxyCompactList}\small\item\em Used by the Transaction's rollback functionality. \end{DoxyCompactList}\item 
+void \hyperlink{classitm2stm_1_1Scope_a8c2257d0193bdc65db0ec6fa73404de6}{set\-Aborted} (bool val)
+\item 
+bool \hyperlink{classitm2stm_1_1Scope_aafa0881cc120ecc8e83b3444ef751c8b}{get\-Aborted} () const 
+\item 
+\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} \& \hyperlink{classitm2stm_1_1Scope_a857bd1a6cf706416b370194501800e87}{get\-Owner} () const 
+\item 
+void \hyperlink{classitm2stm_1_1Scope_a6cabd0217e36366f00b0ace465208dd2}{enter} (\hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} id, uint32\-\_\-t flags)
+\item 
+std\-::pair$<$ void $\ast$$\ast$, size\-\_\-t $>$ \& \hyperlink{classitm2stm_1_1Scope_a850c41bcea34d0371b60246cc34e7299}{rollback} (void $\ast$$\ast$protected\-\_\-stack)
+\item 
+void \hyperlink{classitm2stm_1_1Scope_a8ce7c5d27b9252af8eda2a01f04edd5e}{commit} ()
+\item 
+void \hyperlink{classitm2stm_1_1Scope_afbc2b2576f638b875816ea0b39344b1e}{set\-Thrown\-Object} (void $\ast$$\ast$addr, size\-\_\-t length)
+\begin{DoxyCompactList}\small\item\em Self explanatory, precondition thrown\-\_\-.\-address == N\-U\-L\-L. \end{DoxyCompactList}\item 
+void \hyperlink{classitm2stm_1_1Scope_a4b6cc59b6b0c5918cf7e82ce745287d6}{clear\-Thrown\-Object} ()
+\item 
+void \hyperlink{classitm2stm_1_1Scope_af2e6f7435e470f0e82a13908a2e4113e}{log} (void $\ast$$\ast$addr, void $\ast$value, size\-\_\-t bytes)
+\item 
+void \hyperlink{classitm2stm_1_1Scope_af4d325f50736edd8194852a467787dc4}{register\-On\-Commit} (\hyperlink{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function} f, void $\ast$\hyperlink{structarg}{arg})
+\begin{DoxyCompactList}\small\item\em Registration handler is trivial so we inline it. \end{DoxyCompactList}\item 
+void \hyperlink{classitm2stm_1_1Scope_a45610a8d68227869b060f4f2f08ca3bf}{register\-On\-Abort} (\hyperlink{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function} f, void $\ast$\hyperlink{structarg}{arg})
+\begin{DoxyCompactList}\small\item\em Registration handler is trivial so we inline it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::vector$<$ \hyperlink{structitm2stm_1_1Scope_1_1Callback}{Callback}\\*
+$<$ \hyperlink{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function} $>$ $>$ \hyperlink{classitm2stm_1_1Scope_af1a9d57c58c4dddb4f5d95f769e749d9}{Rollback\-List}
+\item 
+typedef std\-::vector$<$ \hyperlink{structitm2stm_1_1Scope_1_1Callback}{Callback}\\*
+$<$ \hyperlink{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function} $>$ $>$ \hyperlink{classitm2stm_1_1Scope_ae7aad983e4d918844dae194d2eb98421}{Commit\-List}
+\item 
+typedef std\-::vector$<$ \hyperlink{structitm2stm_1_1Scope_1_1LoggedWord}{Logged\-Word} $>$ \hyperlink{classitm2stm_1_1Scope_ab1ab8ebc4445367bfdccc48aa487cfab}{Undo\-List}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename F $>$ }\\static \hyperlink{structitm2stm_1_1Scope_1_1Callback}{Callback}$<$ F $>$ \hyperlink{classitm2stm_1_1Scope_a222730c2d972ee62aeaa2b4c9f1c3f2b}{make\-\_\-callback} (F f, void $\ast$\hyperlink{structarg}{arg})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classitm2stm_1_1Scope_aca000eb926a24898bd118d93e1a8171d}{aborted\-\_\-}
+\item 
+uint32\-\_\-t \hyperlink{classitm2stm_1_1Scope_a68dec682e6641327b42bfdd99018e1cb}{flags\-\_\-}
+\item 
+\hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} \hyperlink{classitm2stm_1_1Scope_a54acb98c029fcf6167f5fe38f6f66f61}{id\-\_\-}
+\item 
+\hyperlink{structitm2stm_1_1Scope_1_1ThrownObject}{Thrown\-Object} \hyperlink{classitm2stm_1_1Scope_aa151fee486e7441ea64049ce8f3e0cd0}{thrown\-\_\-}
+\item 
+\hyperlink{classitm2stm_1_1Scope_af1a9d57c58c4dddb4f5d95f769e749d9}{Rollback\-List} \hyperlink{classitm2stm_1_1Scope_afe42acedeb03836068606c006c4e792f}{do\-\_\-on\-\_\-rollback\-\_\-}
+\item 
+\hyperlink{classitm2stm_1_1Scope_ab1ab8ebc4445367bfdccc48aa487cfab}{Undo\-List} \hyperlink{classitm2stm_1_1Scope_a866d461e70348a0db9b46627ec81bf8e}{undo\-\_\-on\-\_\-rollback\-\_\-}
+\item 
+\hyperlink{classitm2stm_1_1Scope_ae7aad983e4d918844dae194d2eb98421}{Commit\-List} \hyperlink{classitm2stm_1_1Scope_a0fe1c2471d6885006110a6d2f48f93d0}{do\-\_\-on\-\_\-commit\-\_\-}
+\item 
+\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} \& \hyperlink{classitm2stm_1_1Scope_abbfd6d926da8e64737daa37efccb43bf}{owner\-\_\-}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A \hyperlink{classitm2stm_1_1Scope}{Scope} maintains the data associated with a nested transaction. This includes the transaction's checkpoint, the flags that it began with, a flag that tells us if it has been aborted (an A\-B\-I-\/required behavior), an address range used to register a thrown exception, lists of user-\/registered on\-Undo and on\-Commit handlers, and a list of logged values.
+
+The runtime can commit a scope, rollback a scope, and restore the scope's checkpoint (which performs a longjmp). 
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classitm2stm_1_1Scope_ae7aad983e4d918844dae194d2eb98421}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!Commit\-List@{Commit\-List}}
+\index{Commit\-List@{Commit\-List}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{Commit\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf Callback}$<${\bf \-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}$>$ $>$ {\bf itm2stm\-::\-Scope\-::\-Commit\-List}\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_ae7aad983e4d918844dae194d2eb98421}
+\hypertarget{classitm2stm_1_1Scope_af1a9d57c58c4dddb4f5d95f769e749d9}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!Rollback\-List@{Rollback\-List}}
+\index{Rollback\-List@{Rollback\-List}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{Rollback\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf Callback}$<${\bf \-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}$>$ $>$ {\bf itm2stm\-::\-Scope\-::\-Rollback\-List}\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_af1a9d57c58c4dddb4f5d95f769e749d9}
+We expect these features to be used uncommonly, thus we're happy just to store them as vectors. Should this become a bottleneck, particularly calls to \char`\"{}clear\char`\"{} them, we could go with something more optimized like an \hyperlink{classstm_1_1MiniVector}{stm\-::\-Mini\-Vector}. \hypertarget{classitm2stm_1_1Scope_ab1ab8ebc4445367bfdccc48aa487cfab}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!Undo\-List@{Undo\-List}}
+\index{Undo\-List@{Undo\-List}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{Undo\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf Logged\-Word}$>$ {\bf itm2stm\-::\-Scope\-::\-Undo\-List}\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_ab1ab8ebc4445367bfdccc48aa487cfab}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classitm2stm_1_1Scope_a4ab68c623441fe7379f2c1b337369b8a}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!Scope@{Scope}}
+\index{Scope@{Scope}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{Scope}]{\setlength{\rightskip}{0pt plus 5cm}Scope\-::\-Scope (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} \&}]{owner}
+\end{DoxyParamCaption}
+)}}\label{classitm2stm_1_1Scope_a4ab68c623441fe7379f2c1b337369b8a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classitm2stm_1_1Scope_a4b6cc59b6b0c5918cf7e82ce745287d6}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!clear\-Thrown\-Object@{clear\-Thrown\-Object}}
+\index{clear\-Thrown\-Object@{clear\-Thrown\-Object}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{clear\-Thrown\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Scope\-::clear\-Thrown\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classitm2stm_1_1Scope_a4b6cc59b6b0c5918cf7e82ce745287d6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_a4b6cc59b6b0c5918cf7e82ce745287d6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_a4b6cc59b6b0c5918cf7e82ce745287d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_a8ce7c5d27b9252af8eda2a01f04edd5e}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!commit@{commit}}
+\index{commit@{commit}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::\-Scope\-::commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_a8ce7c5d27b9252af8eda2a01f04edd5e}
+Called to commit a scope. Inlined because we care about commit performance. \hypertarget{classitm2stm_1_1Scope_a6cabd0217e36366f00b0ace465208dd2}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!enter@{enter}}
+\index{enter@{enter}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{enter}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::\-Scope\-::enter (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}}]{id, }
+\item[{uint32\-\_\-t}]{flags}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_a6cabd0217e36366f00b0ace465208dd2}
+Called every time that a transaction begins (includes outer transactions and nested transactions, on their first entry and on every restart). After this call the scope must be entirely clean and ready to go. We inline this because it is important for performance in a number of places. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_a6cabd0217e36366f00b0ace465208dd2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_aafa0881cc120ecc8e83b3444ef751c8b}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!get\-Aborted@{get\-Aborted}}
+\index{get\-Aborted@{get\-Aborted}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{get\-Aborted}]{\setlength{\rightskip}{0pt plus 5cm}bool itm2stm\-::\-Scope\-::get\-Aborted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_aafa0881cc120ecc8e83b3444ef751c8b}
+\hypertarget{classitm2stm_1_1Scope_ae5870653f4f1b00e86032032c9afb1de}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!get\-Flags@{get\-Flags}}
+\index{get\-Flags@{get\-Flags}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{get\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t itm2stm\-::\-Scope\-::get\-Flags (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_ae5870653f4f1b00e86032032c9afb1de}
+Used by the Transaction during a restart, to simplify re-\/calling \hyperlink{classitm2stm_1_1Scope_a6cabd0217e36366f00b0ace465208dd2}{Scope\-::enter} during Transaction\-::restart. \hypertarget{classitm2stm_1_1Scope_a8966636a58bede610733df011aae9132}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!get\-Id@{get\-Id}}
+\index{get\-Id@{get\-Id}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} itm2stm\-::\-Scope\-::get\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_a8966636a58bede610733df011aae9132}
+Read access to the \hyperlink{classitm2stm_1_1Scope}{Scope}'s id. The id is set during the \hyperlink{classitm2stm_1_1Scope_a6cabd0217e36366f00b0ace465208dd2}{Scope\-::enter} call from a parameter. \hypertarget{classitm2stm_1_1Scope_a857bd1a6cf706416b370194501800e87}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!get\-Owner@{get\-Owner}}
+\index{get\-Owner@{get\-Owner}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{get\-Owner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction}\& itm2stm\-::\-Scope\-::get\-Owner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_a857bd1a6cf706416b370194501800e87}
+Used from the libstm conflict abort handler (itm2stm-\/5.\-7.\-cpp\-:\hyperlink{structstm_1_1TxThread_a5ca3c353e5b0e305d841b48aceb4de2f}{stm\-::\-Tx\-Thread\-::tmabort}). 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_a857bd1a6cf706416b370194501800e87_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_afb29bce9f1b2dfc7592786573b8ddd3a}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!is\-Exception\-Block@{is\-Exception\-Block}}
+\index{is\-Exception\-Block@{is\-Exception\-Block}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{is\-Exception\-Block}]{\setlength{\rightskip}{0pt plus 5cm}bool itm2stm\-::\-Scope\-::is\-Exception\-Block (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_afb29bce9f1b2dfc7592786573b8ddd3a}
+
+
+Used by the Transaction's rollback functionality. 
+
+\hypertarget{classitm2stm_1_1Scope_af2e6f7435e470f0e82a13908a2e4113e}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!log@{log}}
+\index{log@{log}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::\-Scope\-::log (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{addr, }
+\item[{void $\ast$}]{value, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_af2e6f7435e470f0e82a13908a2e4113e}
+This is called from the logging functions (\-\_\-\-I\-T\-M\-\_\-\-L$\ast$) which do all of the heavy lifting. All the scope has to do is save the data being passed. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classitm2stm_1_1Scope_af2e6f7435e470f0e82a13908a2e4113e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_a222730c2d972ee62aeaa2b4c9f1c3f2b}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!make\-\_\-callback@{make\-\_\-callback}}
+\index{make\-\_\-callback@{make\-\_\-callback}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{make\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ static {\bf Callback}$<$F$>$ itm2stm\-::\-Scope\-::make\-\_\-callback (
+\begin{DoxyParamCaption}
+\item[{F}]{f, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}}\label{classitm2stm_1_1Scope_a222730c2d972ee62aeaa2b4c9f1c3f2b}
+Standard metaprogramming type-\/dispatcher picks up the necessary type from the parameter (see std\-::make\-\_\-pair); 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_a222730c2d972ee62aeaa2b4c9f1c3f2b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_a45610a8d68227869b060f4f2f08ca3bf}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!register\-On\-Abort@{register\-On\-Abort}}
+\index{register\-On\-Abort@{register\-On\-Abort}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{register\-On\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::\-Scope\-::register\-On\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}}]{f, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_a45610a8d68227869b060f4f2f08ca3bf}
+
+
+Registration handler is trivial so we inline it. 
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_a45610a8d68227869b060f4f2f08ca3bf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_af4d325f50736edd8194852a467787dc4}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!register\-On\-Commit@{register\-On\-Commit}}
+\index{register\-On\-Commit@{register\-On\-Commit}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{register\-On\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::\-Scope\-::register\-On\-Commit (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}}]{f, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_af4d325f50736edd8194852a467787dc4}
+
+
+Registration handler is trivial so we inline it. 
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classitm2stm_1_1Scope_af4d325f50736edd8194852a467787dc4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classitm2stm_1_1Scope_a850c41bcea34d0371b60246cc34e7299}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!rollback@{rollback}}
+\index{rollback@{rollback}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{rollback}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$ void $\ast$$\ast$, size\-\_\-t $>$ \& Scope\-::rollback (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{protected\-\_\-stack}
+\end{DoxyParamCaption}
+)}}\label{classitm2stm_1_1Scope_a850c41bcea34d0371b60246cc34e7299}
+Called when a transaction is either aborted or restarted. From the scope's perspective there isn't any difference between these two operations. We don't really care about rollback performance so this is outlined. The return value is a pair indicating a range of addresses that should not be rolled back by the library---this corresponds with a registered thrown object, but there isn't any reason to expose the \hyperlink{structitm2stm_1_1Scope_1_1ThrownObject}{Thrown\-Object} type externally. If there was no thrown object then the returned value will be the pair (N\-U\-L\-L, 0).
+
+The stack maintains an undo log in support of the \-\_\-\-I\-T\-M\-\_\-\-L$\ast$ calls. We need to make sure not to clobber the protected stack during rollback, hence the protected\-\_\-stack address parameter. \hypertarget{classitm2stm_1_1Scope_a8c2257d0193bdc65db0ec6fa73404de6}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!set\-Aborted@{set\-Aborted}}
+\index{set\-Aborted@{set\-Aborted}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{set\-Aborted}]{\setlength{\rightskip}{0pt plus 5cm}void itm2stm\-::\-Scope\-::set\-Aborted (
+\begin{DoxyParamCaption}
+\item[{bool}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classitm2stm_1_1Scope_a8c2257d0193bdc65db0ec6fa73404de6}
+Read/write accessors for the aborted flag. The write accessor is only used by the Transaction during rollback when it finds that it must mark the \char`\"{}outermost\char`\"{} scope as aborted, before the outermost scope gets completely rolled back. This is an I\-T\-M-\/\-A\-B\-I required behavior. \hypertarget{classitm2stm_1_1Scope_afbc2b2576f638b875816ea0b39344b1e}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!set\-Thrown\-Object@{set\-Thrown\-Object}}
+\index{set\-Thrown\-Object@{set\-Thrown\-Object}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{set\-Thrown\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Scope\-::set\-Thrown\-Object (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{addr, }
+\item[{size\-\_\-t}]{length}
+\end{DoxyParamCaption}
+)}}\label{classitm2stm_1_1Scope_afbc2b2576f638b875816ea0b39344b1e}
+
+
+Self explanatory, precondition thrown\-\_\-.\-address == N\-U\-L\-L. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classitm2stm_1_1Scope_aca000eb926a24898bd118d93e1a8171d}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!aborted\-\_\-@{aborted\-\_\-}}
+\index{aborted\-\_\-@{aborted\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{aborted\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool itm2stm\-::\-Scope\-::aborted\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_aca000eb926a24898bd118d93e1a8171d}
+\hypertarget{classitm2stm_1_1Scope_a0fe1c2471d6885006110a6d2f48f93d0}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!do\-\_\-on\-\_\-commit\-\_\-@{do\-\_\-on\-\_\-commit\-\_\-}}
+\index{do\-\_\-on\-\_\-commit\-\_\-@{do\-\_\-on\-\_\-commit\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{do\-\_\-on\-\_\-commit\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Commit\-List} itm2stm\-::\-Scope\-::do\-\_\-on\-\_\-commit\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_a0fe1c2471d6885006110a6d2f48f93d0}
+\hypertarget{classitm2stm_1_1Scope_afe42acedeb03836068606c006c4e792f}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!do\-\_\-on\-\_\-rollback\-\_\-@{do\-\_\-on\-\_\-rollback\-\_\-}}
+\index{do\-\_\-on\-\_\-rollback\-\_\-@{do\-\_\-on\-\_\-rollback\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{do\-\_\-on\-\_\-rollback\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rollback\-List} itm2stm\-::\-Scope\-::do\-\_\-on\-\_\-rollback\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_afe42acedeb03836068606c006c4e792f}
+\hypertarget{classitm2stm_1_1Scope_a68dec682e6641327b42bfdd99018e1cb}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!flags\-\_\-@{flags\-\_\-}}
+\index{flags\-\_\-@{flags\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{flags\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t itm2stm\-::\-Scope\-::flags\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_a68dec682e6641327b42bfdd99018e1cb}
+\hypertarget{classitm2stm_1_1Scope_a54acb98c029fcf6167f5fe38f6f66f61}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!id\-\_\-@{id\-\_\-}}
+\index{id\-\_\-@{id\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{id\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} itm2stm\-::\-Scope\-::id\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_a54acb98c029fcf6167f5fe38f6f66f61}
+\hypertarget{classitm2stm_1_1Scope_abbfd6d926da8e64737daa37efccb43bf}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!owner\-\_\-@{owner\-\_\-}}
+\index{owner\-\_\-@{owner\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{owner\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction}\& itm2stm\-::\-Scope\-::owner\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_abbfd6d926da8e64737daa37efccb43bf}
+\hypertarget{classitm2stm_1_1Scope_aa151fee486e7441ea64049ce8f3e0cd0}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!thrown\-\_\-@{thrown\-\_\-}}
+\index{thrown\-\_\-@{thrown\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{thrown\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Thrown\-Object} itm2stm\-::\-Scope\-::thrown\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_aa151fee486e7441ea64049ce8f3e0cd0}
+\hypertarget{classitm2stm_1_1Scope_a866d461e70348a0db9b46627ec81bf8e}{\index{itm2stm\-::\-Scope@{itm2stm\-::\-Scope}!undo\-\_\-on\-\_\-rollback\-\_\-@{undo\-\_\-on\-\_\-rollback\-\_\-}}
+\index{undo\-\_\-on\-\_\-rollback\-\_\-@{undo\-\_\-on\-\_\-rollback\-\_\-}!itm2stm::Scope@{itm2stm\-::\-Scope}}
+\subsubsection[{undo\-\_\-on\-\_\-rollback\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Undo\-List} itm2stm\-::\-Scope\-::undo\-\_\-on\-\_\-rollback\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classitm2stm_1_1Scope_a866d461e70348a0db9b46627ec81bf8e}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libitm2stm/\hyperlink{Scope_8h}{Scope.\-h}\item 
+rstm/rstm-\/dev/libitm2stm/\hyperlink{Scope_8cpp}{Scope.\-cpp}\end{DoxyCompactItemize}

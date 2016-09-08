@@ -1,0 +1,6 @@
+<map id="pv_side::conditional_move" name="pv_side::conditional_move">
+<area shape="rect" id="node2" href="$point_8hpp.html#aa9b83c6c0cd506e8f62420ce41d7c5ac" title="closest_seam" alt="" coords="231,5,334,32"/>
+<area shape="rect" id="node4" href="$point_8cpp.html#ae77890a7cdbacaf1b115d396c571bfda" title="extern_angle" alt="" coords="235,56,331,83"/>
+<area shape="rect" id="node5" href="$classedge.html#a528535c93e864fea104ca95de447b198" title="edge::index_of" alt="" coords="229,107,336,133"/>
+<area shape="rect" id="node3" href="$point_8hpp.html#ac3affcd51103a7fafe2143a933683b30" title="bucket" alt="" coords="384,5,445,32"/>
+</map>

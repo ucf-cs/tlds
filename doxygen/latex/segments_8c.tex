@@ -1,0 +1,127 @@
+\hypertarget{segments_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/genome/segments.c File Reference}
+\label{segments_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/segments.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/segments.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}gene.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}segments.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for segments.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{segments_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{segments_8h_a6b833f170e932d51264176fcd9dd0bed}{segments\-\_\-t} $\ast$ \hyperlink{segments_8c_a002cee3fe004e15d93de32cce21e7c95}{segments\-\_\-alloc} (long length, long min\-Num)
+\item 
+void \hyperlink{segments_8c_a447ba041737a6059920bc67b6006e33f}{segments\-\_\-create} (\hyperlink{segments_8h_a6b833f170e932d51264176fcd9dd0bed}{segments\-\_\-t} $\ast$segments\-Ptr, \hyperlink{gene_8h_acd511f09e09e988dcf40f3b516bff373}{gene\-\_\-t} $\ast$gene\-Ptr, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\item 
+void \hyperlink{segments_8c_aa231689207e35775d9f1760129e4e86f}{segments\-\_\-free} (\hyperlink{segments_8h_a6b833f170e932d51264176fcd9dd0bed}{segments\-\_\-t} $\ast$segments\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{segments_8c_a002cee3fe004e15d93de32cce21e7c95}{\index{segments.\-c@{segments.\-c}!segments\-\_\-alloc@{segments\-\_\-alloc}}
+\index{segments\-\_\-alloc@{segments\-\_\-alloc}!segments.c@{segments.\-c}}
+\subsubsection[{segments\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf segments\-\_\-t}$\ast$ segments\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{length, }
+\item[{long}]{min\-Num}
+\end{DoxyParamCaption}
+)}}\label{segments_8c_a002cee3fe004e15d93de32cce21e7c95}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{segments_8c_a002cee3fe004e15d93de32cce21e7c95_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{segments_8c_a002cee3fe004e15d93de32cce21e7c95_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{segments_8c_a447ba041737a6059920bc67b6006e33f}{\index{segments.\-c@{segments.\-c}!segments\-\_\-create@{segments\-\_\-create}}
+\index{segments\-\_\-create@{segments\-\_\-create}!segments.c@{segments.\-c}}
+\subsubsection[{segments\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}void segments\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{{\bf segments\-\_\-t} $\ast$}]{segments\-Ptr, }
+\item[{{\bf gene\-\_\-t} $\ast$}]{gene\-Ptr, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{segments_8c_a447ba041737a6059920bc67b6006e33f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{segments_8c_a447ba041737a6059920bc67b6006e33f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{segments_8c_a447ba041737a6059920bc67b6006e33f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{segments_8c_aa231689207e35775d9f1760129e4e86f}{\index{segments.\-c@{segments.\-c}!segments\-\_\-free@{segments\-\_\-free}}
+\index{segments\-\_\-free@{segments\-\_\-free}!segments.c@{segments.\-c}}
+\subsubsection[{segments\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void segments\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf segments\-\_\-t} $\ast$}]{segments\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{segments_8c_aa231689207e35775d9f1760129e4e86f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{segments_8c_aa231689207e35775d9f1760129e4e86f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{segments_8c_aa231689207e35775d9f1760129e4e86f_icgraph}
+\end{center}
+\end{figure}
+
+

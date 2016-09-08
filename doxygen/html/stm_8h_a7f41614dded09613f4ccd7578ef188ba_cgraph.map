@@ -1,0 +1,8 @@
+<map id="new_stm_blk" name="new_stm_blk">
+<area shape="rect" id="node2" href="$gc_8c.html#a5c5981457deeeefd60df569f6265f59c" title="fr_gc_alloc" alt="" coords="152,5,237,32"/>
+<area shape="rect" id="node3" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="803,31,938,57"/>
+<area shape="rect" id="node4" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="286,31,402,57"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="451,81,573,108"/>
+<area shape="rect" id="node6" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="622,81,754,108"/>
+<area shape="rect" id="node7" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="803,81,938,108"/>
+</map>

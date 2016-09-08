@@ -1,0 +1,92 @@
+\hypertarget{counted__ptr_8hpp}{\section{rstm/rstm-\/dev/mesh/counted\-\_\-ptr.hpp File Reference}
+\label{counted__ptr_8hpp}\index{rstm/rstm-\/dev/mesh/counted\-\_\-ptr.\-hpp@{rstm/rstm-\/dev/mesh/counted\-\_\-ptr.\-hpp}}
+}
+{\ttfamily \#include \char`\"{}common/platform.\-hpp\char`\"{}}\\*
+Include dependency graph for counted\-\_\-ptr.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{counted__ptr_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{counted__ptr_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unioncounted__ptr}{counted\-\_\-ptr}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unioncounted__ptr}{counted\-\_\-ptr} \hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((aligned(8)))
+\item 
+static bool \hyperlink{counted__ptr_8hpp_afe676f4f56a242fe38f903b9aa874de0}{cp\-\_\-cas} (volatile unsigned long long $\ast$addr, void $\ast$expected\-\_\-ptr, unsigned long expected\-\_\-sn, void $\ast$new\-\_\-ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>void $\ast$volatile \hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr}\\
+\>volatile unsigned long \hyperlink{counted__ptr_8hpp_a7e7e18bad2f47fa308c4349fbd843761}{sn}\\
+\} \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}\\
+
+\end{tabbing}\item 
+volatile unsigned long long \hyperlink{counted__ptr_8hpp_afae71fe06d5ae3534709ff1f966b1c89}{all}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\index{counted\-\_\-ptr.\-hpp@{counted\-\_\-ptr.\-hpp}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!counted_ptr.hpp@{counted\-\_\-ptr.\-hpp}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}union {\bf counted\-\_\-ptr} \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(aligned(8))}]{}
+\end{DoxyParamCaption}
+)}}\label{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}
+\hypertarget{counted__ptr_8hpp_afe676f4f56a242fe38f903b9aa874de0}{\index{counted\-\_\-ptr.\-hpp@{counted\-\_\-ptr.\-hpp}!cp\-\_\-cas@{cp\-\_\-cas}}
+\index{cp\-\_\-cas@{cp\-\_\-cas}!counted_ptr.hpp@{counted\-\_\-ptr.\-hpp}}
+\subsubsection[{cp\-\_\-cas}]{\setlength{\rightskip}{0pt plus 5cm}static bool cp\-\_\-cas (
+\begin{DoxyParamCaption}
+\item[{volatile unsigned long long $\ast$}]{addr, }
+\item[{void $\ast$}]{expected\-\_\-ptr, }
+\item[{unsigned long}]{expected\-\_\-sn, }
+\item[{void $\ast$}]{new\-\_\-ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{counted__ptr_8hpp_afe676f4f56a242fe38f903b9aa874de0}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{counted__ptr_8hpp_afe676f4f56a242fe38f903b9aa874de0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{counted__ptr_8hpp_afae71fe06d5ae3534709ff1f966b1c89}{\index{counted\-\_\-ptr.\-hpp@{counted\-\_\-ptr.\-hpp}!all@{all}}
+\index{all@{all}!counted_ptr.hpp@{counted\-\_\-ptr.\-hpp}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long long all}}\label{counted__ptr_8hpp_afae71fe06d5ae3534709ff1f966b1c89}
+\hypertarget{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{\index{counted\-\_\-ptr.\-hpp@{counted\-\_\-ptr.\-hpp}!p@{p}}
+\index{p@{p}!counted_ptr.hpp@{counted\-\_\-ptr.\-hpp}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   p}}\label{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}
+\hypertarget{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{\index{counted\-\_\-ptr.\-hpp@{counted\-\_\-ptr.\-hpp}!ptr@{ptr}}
+\index{ptr@{ptr}!counted_ptr.hpp@{counted\-\_\-ptr.\-hpp}}
+\subsubsection[{ptr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ volatile ptr}}\label{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}
+\hypertarget{counted__ptr_8hpp_a7e7e18bad2f47fa308c4349fbd843761}{\index{counted\-\_\-ptr.\-hpp@{counted\-\_\-ptr.\-hpp}!sn@{sn}}
+\index{sn@{sn}!counted_ptr.hpp@{counted\-\_\-ptr.\-hpp}}
+\subsubsection[{sn}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long sn}}\label{counted__ptr_8hpp_a7e7e18bad2f47fa308c4349fbd843761}

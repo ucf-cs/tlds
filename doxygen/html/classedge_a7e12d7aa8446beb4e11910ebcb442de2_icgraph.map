@@ -1,0 +1,6 @@
+<map id="edge::edge" name="edge::edge">
+<area shape="rect" id="node2" href="$classedge.html#aad0f6a205dbe62d5f1bc564cb66cd9e8" title="edge::reconsider" alt="" coords="142,31,261,57"/>
+<area shape="rect" id="node3" href="$worker_8cpp.html#aaaf358d95d261241cf6073eaf7de2a94" title="reconsider_edge" alt="" coords="309,5,427,32"/>
+<area shape="rect" id="node4" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="475,31,546,57"/>
+<area shape="rect" id="node5" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="595,31,719,57"/>
+</map>

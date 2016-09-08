@@ -1,0 +1,5 @@
+<map id="tatas_acquire_slowpath" name="tatas_acquire_slowpath">
+<area shape="rect" id="node2" href="$locks_8hpp.html#a0947d93866d35f8a9febdc3928bf7276" title="tatas_acquire" alt="" coords="214,5,314,32"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a74784f193abf87bd1c6f688d6b25cacd" title="stm::begin_CGL" alt="" coords="363,5,480,32"/>
+<area shape="rect" id="node4" href="$namespacestm.html#a976f5145078328564e9e05c97bce777e" title="stm::initTM\&lt; CGL \&gt;" alt="" coords="528,5,667,32"/>
+</map>

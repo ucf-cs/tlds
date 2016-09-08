@@ -1,0 +1,4 @@
+<map id="barrier::wait" name="barrier::wait">
+<area shape="rect" id="node2" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="145,5,215,32"/>
+<area shape="rect" id="node3" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="265,5,389,32"/>
+</map>

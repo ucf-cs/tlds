@@ -1,0 +1,214 @@
+\hypertarget{locks_8hpp}{\section{rstm/rstm-\/dev/include/common/locks.hpp File Reference}
+\label{locks_8hpp}\index{rstm/rstm-\/dev/include/common/locks.\-hpp@{rstm/rstm-\/dev/include/common/locks.\-hpp}}
+}
+{\ttfamily \#include \char`\"{}common/platform.\-hpp\char`\"{}}\\*
+Include dependency graph for locks.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structticket__lock__t}{ticket\-\_\-lock\-\_\-t}
+\item 
+struct \hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{locks_8hpp_a7c1f6880dcbcf7ed04e7d1009a0385c0}{M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F}~524288
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef volatile uintptr\-\_\-t \hyperlink{locks_8hpp_a1b72111af89efffaa1b943f26e4179f8}{tatas\-\_\-lock\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{locks_8hpp_a67493dc021b0db009a9603ea55d18c59}{spin64} ()
+\item 
+void \hyperlink{locks_8hpp_af5ba9b667099d9a2ff30ad4439e502a5}{backoff} (int $\ast$b)
+\item 
+int \hyperlink{locks_8hpp_a61d1a83c5eb0a8300dce2fbb225b078c}{tatas\-\_\-acquire\-\_\-slowpath} (\hyperlink{locks_8hpp_a1b72111af89efffaa1b943f26e4179f8}{tatas\-\_\-lock\-\_\-t} $\ast$lock)
+\item 
+int \hyperlink{locks_8hpp_a0947d93866d35f8a9febdc3928bf7276}{tatas\-\_\-acquire} (\hyperlink{locks_8hpp_a1b72111af89efffaa1b943f26e4179f8}{tatas\-\_\-lock\-\_\-t} $\ast$lock)
+\item 
+void \hyperlink{locks_8hpp_ab58463956cae712feec61eee5a44f24e}{tatas\-\_\-release} (\hyperlink{locks_8hpp_a1b72111af89efffaa1b943f26e4179f8}{tatas\-\_\-lock\-\_\-t} $\ast$lock)
+\item 
+int \hyperlink{locks_8hpp_a81ed545001f4610f3d3534c693505864}{ticket\-\_\-acquire} (\hyperlink{structticket__lock__t}{ticket\-\_\-lock\-\_\-t} $\ast$lock)
+\item 
+void \hyperlink{locks_8hpp_a0565bf81bac4172a33e685d9fdb7e087}{ticket\-\_\-release} (\hyperlink{structticket__lock__t}{ticket\-\_\-lock\-\_\-t} $\ast$lock)
+\item 
+int \hyperlink{locks_8hpp_aa801a334aaba30dba4af8a7aa39f8e90}{mcs\-\_\-acquire} (\hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$$\ast$lock, \hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$mine)
+\item 
+void \hyperlink{locks_8hpp_a1bd66239fc345f6ca243184bd46d6749}{mcs\-\_\-release} (\hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$$\ast$lock, \hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$mine)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{locks_8hpp_a7c1f6880dcbcf7ed04e7d1009a0385c0}{\index{locks.\-hpp@{locks.\-hpp}!M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F@{M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F}}
+\index{M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F@{M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-T\-A\-T\-A\-S\-\_\-\-B\-A\-C\-K\-O\-F\-F~524288}}\label{locks_8hpp_a7c1f6880dcbcf7ed04e7d1009a0385c0}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information Given all the atomic operations we defined in \hyperlink{platform_8hpp}{platform.\-hpp}, we can now declare the lock types that we need for implementing some single-\/lock based S\-T\-Ms. Tune backoff parameters
+
+N\-B\-: At some point (probably mid 2010), these values were experimentally verified to provide good performance for some workload using T\-A\-T\-A\-S locks. Whether they are good values anymore is an open question. 
+
+\subsection{Typedef Documentation}
+\hypertarget{locks_8hpp_a1b72111af89efffaa1b943f26e4179f8}{\index{locks.\-hpp@{locks.\-hpp}!tatas\-\_\-lock\-\_\-t@{tatas\-\_\-lock\-\_\-t}}
+\index{tatas\-\_\-lock\-\_\-t@{tatas\-\_\-lock\-\_\-t}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{tatas\-\_\-lock\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef volatile uintptr\-\_\-t {\bf tatas\-\_\-lock\-\_\-t}}}\label{locks_8hpp_a1b72111af89efffaa1b943f26e4179f8}
+
+
+\subsection{Function Documentation}
+\hypertarget{locks_8hpp_af5ba9b667099d9a2ff30ad4439e502a5}{\index{locks.\-hpp@{locks.\-hpp}!backoff@{backoff}}
+\index{backoff@{backoff}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{backoff}]{\setlength{\rightskip}{0pt plus 5cm}void backoff (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_af5ba9b667099d9a2ff30ad4439e502a5}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp_af5ba9b667099d9a2ff30ad4439e502a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{locks_8hpp_aa801a334aaba30dba4af8a7aa39f8e90}{\index{locks.\-hpp@{locks.\-hpp}!mcs\-\_\-acquire@{mcs\-\_\-acquire}}
+\index{mcs\-\_\-acquire@{mcs\-\_\-acquire}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{mcs\-\_\-acquire}]{\setlength{\rightskip}{0pt plus 5cm}int mcs\-\_\-acquire (
+\begin{DoxyParamCaption}
+\item[{{\bf mcs\-\_\-qnode\-\_\-t} $\ast$$\ast$}]{lock, }
+\item[{{\bf mcs\-\_\-qnode\-\_\-t} $\ast$}]{mine}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_aa801a334aaba30dba4af8a7aa39f8e90}
+M\-C\-S acquire. We count how long we spin, in order to detect very long delays \hypertarget{locks_8hpp_a1bd66239fc345f6ca243184bd46d6749}{\index{locks.\-hpp@{locks.\-hpp}!mcs\-\_\-release@{mcs\-\_\-release}}
+\index{mcs\-\_\-release@{mcs\-\_\-release}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{mcs\-\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}void mcs\-\_\-release (
+\begin{DoxyParamCaption}
+\item[{{\bf mcs\-\_\-qnode\-\_\-t} $\ast$$\ast$}]{lock, }
+\item[{{\bf mcs\-\_\-qnode\-\_\-t} $\ast$}]{mine}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_a1bd66239fc345f6ca243184bd46d6749}
+\hypertarget{locks_8hpp_a67493dc021b0db009a9603ea55d18c59}{\index{locks.\-hpp@{locks.\-hpp}!spin64@{spin64}}
+\index{spin64@{spin64}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{spin64}]{\setlength{\rightskip}{0pt plus 5cm}void spin64 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_a67493dc021b0db009a9603ea55d18c59}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp_a67493dc021b0db009a9603ea55d18c59_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{locks_8hpp_a0947d93866d35f8a9febdc3928bf7276}{\index{locks.\-hpp@{locks.\-hpp}!tatas\-\_\-acquire@{tatas\-\_\-acquire}}
+\index{tatas\-\_\-acquire@{tatas\-\_\-acquire}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{tatas\-\_\-acquire}]{\setlength{\rightskip}{0pt plus 5cm}int tatas\-\_\-acquire (
+\begin{DoxyParamCaption}
+\item[{{\bf tatas\-\_\-lock\-\_\-t} $\ast$}]{lock}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_a0947d93866d35f8a9febdc3928bf7276}
+Fastpath T\-A\-T\-A\-S acquire. The return value is how long we spent spinning 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp_a0947d93866d35f8a9febdc3928bf7276_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp_a0947d93866d35f8a9febdc3928bf7276_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{locks_8hpp_a61d1a83c5eb0a8300dce2fbb225b078c}{\index{locks.\-hpp@{locks.\-hpp}!tatas\-\_\-acquire\-\_\-slowpath@{tatas\-\_\-acquire\-\_\-slowpath}}
+\index{tatas\-\_\-acquire\-\_\-slowpath@{tatas\-\_\-acquire\-\_\-slowpath}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{tatas\-\_\-acquire\-\_\-slowpath}]{\setlength{\rightskip}{0pt plus 5cm}int tatas\-\_\-acquire\-\_\-slowpath (
+\begin{DoxyParamCaption}
+\item[{{\bf tatas\-\_\-lock\-\_\-t} $\ast$}]{lock}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_a61d1a83c5eb0a8300dce2fbb225b078c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{locks_8hpp_a61d1a83c5eb0a8300dce2fbb225b078c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{locks_8hpp_a61d1a83c5eb0a8300dce2fbb225b078c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{locks_8hpp_ab58463956cae712feec61eee5a44f24e}{\index{locks.\-hpp@{locks.\-hpp}!tatas\-\_\-release@{tatas\-\_\-release}}
+\index{tatas\-\_\-release@{tatas\-\_\-release}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{tatas\-\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}void tatas\-\_\-release (
+\begin{DoxyParamCaption}
+\item[{{\bf tatas\-\_\-lock\-\_\-t} $\ast$}]{lock}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_ab58463956cae712feec61eee5a44f24e}
+\hypertarget{locks_8hpp_a81ed545001f4610f3d3534c693505864}{\index{locks.\-hpp@{locks.\-hpp}!ticket\-\_\-acquire@{ticket\-\_\-acquire}}
+\index{ticket\-\_\-acquire@{ticket\-\_\-acquire}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{ticket\-\_\-acquire}]{\setlength{\rightskip}{0pt plus 5cm}int ticket\-\_\-acquire (
+\begin{DoxyParamCaption}
+\item[{{\bf ticket\-\_\-lock\-\_\-t} $\ast$}]{lock}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_a81ed545001f4610f3d3534c693505864}
+Acquisition of a ticket lock entails an increment, then a spin. We use a counter to measure how long we spend spinning, in case that information is useful to adaptive S\-T\-M mechanisms. \hypertarget{locks_8hpp_a0565bf81bac4172a33e685d9fdb7e087}{\index{locks.\-hpp@{locks.\-hpp}!ticket\-\_\-release@{ticket\-\_\-release}}
+\index{ticket\-\_\-release@{ticket\-\_\-release}!locks.hpp@{locks.\-hpp}}
+\subsubsection[{ticket\-\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}void ticket\-\_\-release (
+\begin{DoxyParamCaption}
+\item[{{\bf ticket\-\_\-lock\-\_\-t} $\ast$}]{lock}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{locks_8hpp_a0565bf81bac4172a33e685d9fdb7e087}

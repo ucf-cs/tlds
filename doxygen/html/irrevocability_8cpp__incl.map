@@ -1,0 +1,20 @@
+<map id="rstm/rstm&#45;dev/libstm/irrevocability.cpp" name="rstm/rstm&#45;dev/libstm/irrevocability.cpp">
+<area shape="rect" id="node2" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="79,693,227,720"/>
+<area shape="rect" id="node7" href="$lib__globals_8hpp.html" title="stm/lib_globals.hpp" alt="" coords="177,395,311,421"/>
+<area shape="rect" id="node14" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="1255,619,1371,645"/>
+<area shape="rect" id="node15" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="681,395,801,421"/>
+<area shape="rect" id="node25" href="$policies_8hpp.html" title="policies/policies.hpp" alt="" coords="377,320,516,347"/>
+<area shape="rect" id="node28" href="$algs_8hpp.html" title="algs/algs.hpp" alt="" coords="647,171,745,197"/>
+<area shape="rect" id="node30" href="$tml__inline_8hpp.html" title="algs/tml_inline.hpp" alt="" coords="540,96,669,123"/>
+<area shape="rect" id="node8" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="499,544,625,571"/>
+<area shape="rect" id="node9" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="763,619,897,645"/>
+<area shape="rect" id="node13" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="317,693,435,720"/>
+<area shape="rect" id="node16" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="1142,469,1295,496"/>
+<area shape="rect" id="node18" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="303,619,435,645"/>
+<area shape="rect" id="node19" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="642,469,813,496"/>
+<area shape="rect" id="node20" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="991,619,1115,645"/>
+<area shape="rect" id="node22" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="891,544,1016,571"/>
+<area shape="rect" id="node23" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="1091,544,1217,571"/>
+<area shape="rect" id="node24" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="838,469,964,496"/>
+<area shape="rect" id="node29" href="$profiling_8hpp.html" title="../profiling.hpp" alt="" coords="733,245,837,272"/>
+</map>

@@ -1,0 +1,98 @@
+\hypertarget{namespaceanonymous__namespace_02static_8cpp_03}{\section{anonymous\-\_\-namespace\{static.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02static_8cpp_03}\index{anonymous\-\_\-namespace\{static.\-cpp\}@{anonymous\-\_\-namespace\{static.\-cpp\}}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02static_8cpp_03_a356adb65bf55070273b42e289177d08a}{pol\-\_\-\-E\-R} ()
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02static_8cpp_03_ae9990f5d808082c67e85dd51b5679732}{pol\-\_\-\-E} ()
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02static_8cpp_03_aa824c84a6c1fe13a580dace00ad444c8}{pol\-\_\-\-R} ()
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02static_8cpp_03_ae7874d79d4bed12301c4b8cfa73510ab}{pol\-\_\-\-X} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Here we define the static adaptivity policies. These do not use profiles, so they are very simple.
+
+N\-B\-: these are interesting from a historical perspective, in that they were part of \mbox{[}Spear S\-P\-A\-A 2011\mbox{]}. However, subsequent work has shown that adapting on the basis of pathology avoidance (e.\-g., consecutive aborts) is not a good strategy on its own, because of the possibility of Toxic Transactions \mbox{[}Liu Transact 2011\mbox{]}. 
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02static_8cpp_03_ae9990f5d808082c67e85dd51b5679732}{\index{anonymous\-\_\-namespace\{static.\-cpp\}@{anonymous\-\_\-namespace\{static.\-cpp\}}!pol\-\_\-\-E@{pol\-\_\-\-E}}
+\index{pol\-\_\-\-E@{pol\-\_\-\-E}!anonymous_namespace{static.cpp}@{anonymous\-\_\-namespace\{static.\-cpp\}}}
+\subsubsection[{pol\-\_\-\-E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t anonymous\-\_\-namespace\{static.\-cpp\}\-::pol\-\_\-\-E (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02static_8cpp_03_ae9990f5d808082c67e85dd51b5679732}
+This policy is suitable for workloads that need E\-L\-A semantics, but that don't need self-\/abort. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02static_8cpp_03_ae9990f5d808082c67e85dd51b5679732_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02static_8cpp_03_a356adb65bf55070273b42e289177d08a}{\index{anonymous\-\_\-namespace\{static.\-cpp\}@{anonymous\-\_\-namespace\{static.\-cpp\}}!pol\-\_\-\-E\-R@{pol\-\_\-\-E\-R}}
+\index{pol\-\_\-\-E\-R@{pol\-\_\-\-E\-R}!anonymous_namespace{static.cpp}@{anonymous\-\_\-namespace\{static.\-cpp\}}}
+\subsubsection[{pol\-\_\-\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t anonymous\-\_\-namespace\{static.\-cpp\}\-::pol\-\_\-\-E\-R (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02static_8cpp_03_a356adb65bf55070273b42e289177d08a}
+This policy is suitable for workloads that need E\-L\-A semantics and support for self-\/abort. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02static_8cpp_03_a356adb65bf55070273b42e289177d08a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02static_8cpp_03_aa824c84a6c1fe13a580dace00ad444c8}{\index{anonymous\-\_\-namespace\{static.\-cpp\}@{anonymous\-\_\-namespace\{static.\-cpp\}}!pol\-\_\-\-R@{pol\-\_\-\-R}}
+\index{pol\-\_\-\-R@{pol\-\_\-\-R}!anonymous_namespace{static.cpp}@{anonymous\-\_\-namespace\{static.\-cpp\}}}
+\subsubsection[{pol\-\_\-\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t anonymous\-\_\-namespace\{static.\-cpp\}\-::pol\-\_\-\-R (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02static_8cpp_03_aa824c84a6c1fe13a580dace00ad444c8}
+This policy is suitable for workloads that don't need strong semantics but do need self-\/abort. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02static_8cpp_03_aa824c84a6c1fe13a580dace00ad444c8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02static_8cpp_03_ae7874d79d4bed12301c4b8cfa73510ab}{\index{anonymous\-\_\-namespace\{static.\-cpp\}@{anonymous\-\_\-namespace\{static.\-cpp\}}!pol\-\_\-\-X@{pol\-\_\-\-X}}
+\index{pol\-\_\-\-X@{pol\-\_\-\-X}!anonymous_namespace{static.cpp}@{anonymous\-\_\-namespace\{static.\-cpp\}}}
+\subsubsection[{pol\-\_\-\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t anonymous\-\_\-namespace\{static.\-cpp\}\-::pol\-\_\-\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02static_8cpp_03_ae7874d79d4bed12301c4b8cfa73510ab}
+This policy is suitable for workloads that don't need strong semantics and also don't need support for self-\/abort. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02static_8cpp_03_ae7874d79d4bed12301c4b8cfa73510ab_icgraph}
+\end{center}
+\end{figure}
+
+

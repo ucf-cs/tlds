@@ -1,0 +1,6 @@
+<map id="addReservation_seq" name="addReservation_seq">
+<area shape="rect" id="node2" href="$reservation_8c.html#a5a7178e63efa3d32eb1eb43f9d95b758" title="reservation_alloc_seq" alt="" coords="217,5,365,32"/>
+<area shape="rect" id="node4" href="$reservation_8c.html#a095eddecd019df693bdcce5a3182799a" title="reservation_addToTotal_seq" alt="" coords="197,56,384,83"/>
+<area shape="rect" id="node5" href="$reservation_8c.html#af0f4e11ded3a9cc6d745ad63cc433f10" title="reservation_updatePrice_seq" alt="" coords="195,107,386,133"/>
+<area shape="rect" id="node3" href="$reservation_8c.html#a00e6e3fa05212396ac8ee5bc91602c30" title="checkReservation_seq" alt="" coords="435,56,589,83"/>
+</map>

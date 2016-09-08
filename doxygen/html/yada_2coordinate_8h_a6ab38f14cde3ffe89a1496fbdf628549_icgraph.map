@@ -1,0 +1,22 @@
+<map id="coordinate_compare" name="coordinate_compare">
+<area shape="rect" id="node2" href="$element_8c.html#ac0e5e56e092166a5407cbd8df8d566cc" title="minimizeCoordinates" alt="" coords="381,144,525,171"/>
+<area shape="rect" id="node9" href="$element_8c.html#a32284f030a82851bfa5e95cb61901fea" title="setEdge" alt="" coords="219,93,290,120"/>
+<area shape="rect" id="node11" href="$element_8h.html#a8ea6d0a63503993bdc0c47cd0aaf93ec" title="element_compare" alt="" coords="192,43,317,69"/>
+<area shape="rect" id="node15" href="$element_8c.html#a21515ada340745fee3b5d1646303f545" title="compareEdge" alt="" coords="203,245,306,272"/>
+<area shape="rect" id="node3" href="$element_8h.html#a1a00d843176baba36fcdf77c6c37d6f8" title="element_alloc" alt="" coords="630,132,733,159"/>
+<area shape="rect" id="node7" href="$element_8h.html#a99bb9348e9a8bb0c04c3bd29fc21e177" title="Pelement_alloc" alt="" coords="626,183,737,209"/>
+<area shape="rect" id="node8" href="$element_8h.html#adc5c9c33f02a9b69f04dc85448a8140b" title="TMelement_alloc" alt="" coords="621,81,742,108"/>
+<area shape="rect" id="node4" href="$mesh_8c.html#a0351e3ec738e05a319ead0e2e44353d0" title="createElement" alt="" coords="845,132,952,159"/>
+<area shape="rect" id="node5" href="$mesh_8h.html#a0ee17a9bc1b62a498c98f8e0dc41d902" title="mesh_read" alt="" coords="1029,132,1115,159"/>
+<area shape="rect" id="node6" href="$yada_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="1168,95,1224,121"/>
+<area shape="rect" id="node10" href="$element_8c.html#ad41119d6e3f2c2b16323533b941cabee" title="initEdges" alt="" coords="415,93,491,120"/>
+<area shape="rect" id="node12" href="$element_8h.html#aa6688e0935ddeadcc33e9cf640849331" title="element_listCompare" alt="" coords="381,43,526,69"/>
+<area shape="rect" id="node13" href="$element_8h.html#a1eab731611c38d22d97a2cfd07d67943" title="element_mapCompare" alt="" coords="822,5,975,32"/>
+<area shape="rect" id="node14" href="$mesh_8h.html#afb91c14cea2629ce82a85ab0f37da14b" title="mesh_check" alt="" coords="1024,56,1120,83"/>
+<area shape="rect" id="node16" href="$element_8h.html#a588d4ca6da23d3dce3d59ca866cba1bc" title="element_listCompareEdge" alt="" coords="366,347,541,373"/>
+<area shape="rect" id="node17" href="$element_8h.html#a99db94e6b202e7437ad150951338bf27" title="element_mapCompareEdge" alt="" coords="590,245,773,272"/>
+<area shape="rect" id="node19" href="$element_8h.html#acd742b04c1b9ca3c1a64efaf6378436d" title="element_getCommonEdge" alt="" coords="365,195,541,221"/>
+<area shape="rect" id="node20" href="$element_8h.html#a57d3912e33cfd693159936a127754cd6" title="element_getNewPoint" alt="" coords="378,296,529,323"/>
+<area shape="rect" id="node18" href="$region_8h.html#a74d9ac41436518894e8e1bd6564ebf42" title="TMregion_refine" alt="" coords="841,277,956,304"/>
+<area shape="rect" id="node21" href="$region_8c.html#ad4b1f1f56943e4622f08b8a434aafe33" title="TMretriangulate" alt="" coords="625,296,737,323"/>
+</map>

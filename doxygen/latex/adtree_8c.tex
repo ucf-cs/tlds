@@ -1,0 +1,399 @@
+\hypertarget{adtree_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/adtree.c File Reference}
+\label{adtree_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/adtree.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/adtree.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}adtree.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}query.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for adtree.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{adtree\-\_\-node\-\_\-t} $\ast$ \hyperlink{adtree_8c_a8f884de8d63d0f3e4ed222e2773a0970}{alloc\-Node} (long index)
+\item 
+void \hyperlink{adtree_8c_ad9b6b64c00bb7c7dc73009a46d71b248}{free\-Node} (\hyperlink{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{adtree\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+\hyperlink{adtree_8h_a37532d8c999860973387f9d2c8ce3c24}{adtree\-\_\-vary\-\_\-t} $\ast$ \hyperlink{adtree_8c_afde96b3edfe3ae6a37a146dbe843b65e}{alloc\-Vary} (long index)
+\item 
+void \hyperlink{adtree_8c_a6e4ff138b3790d06b52779a85e9a7799}{free\-Vary} (\hyperlink{adtree_8h_a37532d8c999860973387f9d2c8ce3c24}{adtree\-\_\-vary\-\_\-t} $\ast$vary\-Ptr)
+\item 
+\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$ \hyperlink{adtree_8c_a83025088480eae030c245c40e7ccafdb}{adtree\-\_\-alloc} ()
+\item 
+static void \hyperlink{adtree_8c_a7f395111277b5b02624744c6b92f4cf4}{free\-Nodes} (\hyperlink{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{adtree\-\_\-node\-\_\-t} $\ast$node\-Ptr)
+\item 
+void \hyperlink{adtree_8c_a9cba9e5120be281ebb063760aa19ced9}{adtree\-\_\-free} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr)
+\item 
+static \hyperlink{adtree_8h_a37532d8c999860973387f9d2c8ce3c24}{adtree\-\_\-vary\-\_\-t} $\ast$ \hyperlink{adtree_8c_a62e4644f699e4c7a4fa7b1c42489ca0e}{make\-Vary} (long parent\-Index, long index, long \hyperlink{avltree_8c_aef0786e63ba14dfdb6d8632333208422}{start}, long num\-Record, \hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr)
+\item 
+static \hyperlink{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{adtree\-\_\-node\-\_\-t} $\ast$ \hyperlink{adtree_8c_a2524e945b88ac537d3646587638ecc12}{make\-Node} (long parent\-Index, long index, long \hyperlink{avltree_8c_aef0786e63ba14dfdb6d8632333208422}{start}, long num\-Record, \hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr)
+\item 
+void \hyperlink{adtree_8c_a46c5e833c1bac78330c62d54d924f065}{adtree\-\_\-make} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr)
+\item 
+static long \hyperlink{adtree_8c_a8d3ad641fa20a5b10eeb67ba1c0cd7a7}{get\-Count} (\hyperlink{adtree_8h_a320946afe6df18cfa6bed04e16c49662}{adtree\-\_\-node\-\_\-t} $\ast$node\-Ptr, long i, long q, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr, long last\-Query\-Index, \hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr)
+\item 
+long \hyperlink{adtree_8c_a378e9c0c9fae060a6a0d9ccdef934643}{adtree\-\_\-get\-Count} (\hyperlink{adtree_8h_a2cef7aefcfb5056b04dc3dc5640243ed}{adtree\-\_\-t} $\ast$adtree\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$query\-Vector\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{adtree_8c_a83025088480eae030c245c40e7ccafdb}{\index{adtree.\-c@{adtree.\-c}!adtree\-\_\-alloc@{adtree\-\_\-alloc}}
+\index{adtree\-\_\-alloc@{adtree\-\_\-alloc}!adtree.c@{adtree.\-c}}
+\subsubsection[{adtree\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf adtree\-\_\-t}$\ast$ adtree\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_a83025088480eae030c245c40e7ccafdb}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{adtree_8c_a83025088480eae030c245c40e7ccafdb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a9cba9e5120be281ebb063760aa19ced9}{\index{adtree.\-c@{adtree.\-c}!adtree\-\_\-free@{adtree\-\_\-free}}
+\index{adtree\-\_\-free@{adtree\-\_\-free}!adtree.c@{adtree.\-c}}
+\subsubsection[{adtree\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void adtree\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_a9cba9e5120be281ebb063760aa19ced9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a9cba9e5120be281ebb063760aa19ced9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{adtree_8c_a9cba9e5120be281ebb063760aa19ced9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a378e9c0c9fae060a6a0d9ccdef934643}{\index{adtree.\-c@{adtree.\-c}!adtree\-\_\-get\-Count@{adtree\-\_\-get\-Count}}
+\index{adtree\-\_\-get\-Count@{adtree\-\_\-get\-Count}!adtree.c@{adtree.\-c}}
+\subsubsection[{adtree\-\_\-get\-Count}]{\setlength{\rightskip}{0pt plus 5cm}long adtree\-\_\-get\-Count (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_a378e9c0c9fae060a6a0d9ccdef934643}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a378e9c0c9fae060a6a0d9ccdef934643_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a378e9c0c9fae060a6a0d9ccdef934643_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a46c5e833c1bac78330c62d54d924f065}{\index{adtree.\-c@{adtree.\-c}!adtree\-\_\-make@{adtree\-\_\-make}}
+\index{adtree\-\_\-make@{adtree\-\_\-make}!adtree.c@{adtree.\-c}}
+\subsubsection[{adtree\-\_\-make}]{\setlength{\rightskip}{0pt plus 5cm}void adtree\-\_\-make (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr, }
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_a46c5e833c1bac78330c62d54d924f065}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a46c5e833c1bac78330c62d54d924f065_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{adtree_8c_a46c5e833c1bac78330c62d54d924f065_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a8f884de8d63d0f3e4ed222e2773a0970}{\index{adtree.\-c@{adtree.\-c}!alloc\-Node@{alloc\-Node}}
+\index{alloc\-Node@{alloc\-Node}!adtree.c@{adtree.\-c}}
+\subsubsection[{alloc\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf adtree\-\_\-node\-\_\-t}$\ast$ alloc\-Node (
+\begin{DoxyParamCaption}
+\item[{long}]{index}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_a8f884de8d63d0f3e4ed222e2773a0970}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{adtree_8c_a8f884de8d63d0f3e4ed222e2773a0970_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a8f884de8d63d0f3e4ed222e2773a0970_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_afde96b3edfe3ae6a37a146dbe843b65e}{\index{adtree.\-c@{adtree.\-c}!alloc\-Vary@{alloc\-Vary}}
+\index{alloc\-Vary@{alloc\-Vary}!adtree.c@{adtree.\-c}}
+\subsubsection[{alloc\-Vary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf adtree\-\_\-vary\-\_\-t}$\ast$ alloc\-Vary (
+\begin{DoxyParamCaption}
+\item[{long}]{index}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_afde96b3edfe3ae6a37a146dbe843b65e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_afde96b3edfe3ae6a37a146dbe843b65e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_ad9b6b64c00bb7c7dc73009a46d71b248}{\index{adtree.\-c@{adtree.\-c}!free\-Node@{free\-Node}}
+\index{free\-Node@{free\-Node}!adtree.c@{adtree.\-c}}
+\subsubsection[{free\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_ad9b6b64c00bb7c7dc73009a46d71b248}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{adtree_8c_ad9b6b64c00bb7c7dc73009a46d71b248_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_ad9b6b64c00bb7c7dc73009a46d71b248_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a7f395111277b5b02624744c6b92f4cf4}{\index{adtree.\-c@{adtree.\-c}!free\-Nodes@{free\-Nodes}}
+\index{free\-Nodes@{free\-Nodes}!adtree.c@{adtree.\-c}}
+\subsubsection[{free\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Nodes (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{adtree_8c_a7f395111277b5b02624744c6b92f4cf4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a7f395111277b5b02624744c6b92f4cf4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{adtree_8c_a7f395111277b5b02624744c6b92f4cf4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a6e4ff138b3790d06b52779a85e9a7799}{\index{adtree.\-c@{adtree.\-c}!free\-Vary@{free\-Vary}}
+\index{free\-Vary@{free\-Vary}!adtree.c@{adtree.\-c}}
+\subsubsection[{free\-Vary}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Vary (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-vary\-\_\-t} $\ast$}]{vary\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{adtree_8c_a6e4ff138b3790d06b52779a85e9a7799}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a6e4ff138b3790d06b52779a85e9a7799_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a8d3ad641fa20a5b10eeb67ba1c0cd7a7}{\index{adtree.\-c@{adtree.\-c}!get\-Count@{get\-Count}}
+\index{get\-Count@{get\-Count}!adtree.c@{adtree.\-c}}
+\subsubsection[{get\-Count}]{\setlength{\rightskip}{0pt plus 5cm}static long get\-Count (
+\begin{DoxyParamCaption}
+\item[{{\bf adtree\-\_\-node\-\_\-t} $\ast$}]{node\-Ptr, }
+\item[{long}]{i, }
+\item[{long}]{q, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{query\-Vector\-Ptr, }
+\item[{long}]{last\-Query\-Index, }
+\item[{{\bf adtree\-\_\-t} $\ast$}]{adtree\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{adtree_8c_a8d3ad641fa20a5b10eeb67ba1c0cd7a7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a8d3ad641fa20a5b10eeb67ba1c0cd7a7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a8d3ad641fa20a5b10eeb67ba1c0cd7a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a2524e945b88ac537d3646587638ecc12}{\index{adtree.\-c@{adtree.\-c}!make\-Node@{make\-Node}}
+\index{make\-Node@{make\-Node}!adtree.c@{adtree.\-c}}
+\subsubsection[{make\-Node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf adtree\-\_\-node\-\_\-t} $\ast$ make\-Node (
+\begin{DoxyParamCaption}
+\item[{long}]{parent\-Index, }
+\item[{long}]{index, }
+\item[{long}]{start, }
+\item[{long}]{num\-Record, }
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{adtree_8c_a2524e945b88ac537d3646587638ecc12}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a2524e945b88ac537d3646587638ecc12_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{adtree_8c_a2524e945b88ac537d3646587638ecc12_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{adtree_8c_a62e4644f699e4c7a4fa7b1c42489ca0e}{\index{adtree.\-c@{adtree.\-c}!make\-Vary@{make\-Vary}}
+\index{make\-Vary@{make\-Vary}!adtree.c@{adtree.\-c}}
+\subsubsection[{make\-Vary}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf adtree\-\_\-vary\-\_\-t} $\ast$ make\-Vary (
+\begin{DoxyParamCaption}
+\item[{long}]{parent\-Index, }
+\item[{long}]{index, }
+\item[{long}]{start, }
+\item[{long}]{num\-Record, }
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{adtree_8c_a62e4644f699e4c7a4fa7b1c42489ca0e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a62e4644f699e4c7a4fa7b1c42489ca0e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adtree_8c_a62e4644f699e4c7a4fa7b1c42489ca0e_icgraph}
+\end{center}
+\end{figure}
+
+

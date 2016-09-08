@@ -1,0 +1,8 @@
+<map id="transskip_delete" name="transskip_delete">
+<area shape="rect" id="node2" href="$transskip_8cc.html#a4ae3b77271a6617ab4b15183a6ca9601" title="help_ops" alt="" coords="171,113,245,140"/>
+<area shape="rect" id="node3" href="$transskip_8cc.html#a0d6d503fca08ea29d18df6b11d5fbcc0" title="FinishPendingTxn" alt="" coords="294,164,421,191"/>
+<area shape="rect" id="node6" href="$transskip_8h.html#ab9c29316cb91737b6c383818ff700dd0" title="execute_ops" alt="" coords="309,12,405,39"/>
+<area shape="rect" id="node4" href="$transskip_8cc.html#a977b7a640f81eb02b78ee08376387721" title="transskip_insert" alt="" coords="492,81,607,108"/>
+<area shape="rect" id="node5" href="$transskip_8cc.html#ae89a19c5e265e1f4988a8df74d9d27f7" title="transskip_find" alt="" coords="498,153,601,180"/>
+<area shape="rect" id="node7" href="$classSetAdaptor_3_01trans__skip_01_4.html#a7a710fc23fd33466e92b1d06ad2e5869" title="SetAdaptor\&lt; trans_skip\l \&gt;::ExecuteOps" alt="" coords="470,5,629,46"/>
+</map>

@@ -1,0 +1,41 @@
+\hypertarget{structstm_1_1bitlock__t}{\section{stm\-:\-:bitlock\-\_\-t Struct Reference}
+\label{structstm_1_1bitlock__t}\index{stm\-::bitlock\-\_\-t@{stm\-::bitlock\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$metadata.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:bitlock\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{structstm_1_1bitlock__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile uintptr\-\_\-t \hyperlink{structstm_1_1bitlock__t_a9998628fab8ea8149e6e3b257cee4c9e}{owner}
+\item 
+\hyperlink{structstm_1_1rrec__t}{rrec\-\_\-t} \hyperlink{structstm_1_1bitlock__t_ae76a58d0e8960026d49917e1e8f901e8}{readers}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+If we want to do an S\-T\-M with R\-S\-T\-M-\/style visible readers, this lets us have an owner and a bunch of readers in a single struct, instead of via separate orec and rrec tables. Note that these data structures do not have nice alignment 
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1bitlock__t_a9998628fab8ea8149e6e3b257cee4c9e}{\index{stm\-::bitlock\-\_\-t@{stm\-::bitlock\-\_\-t}!owner@{owner}}
+\index{owner@{owner}!stm::bitlock_t@{stm\-::bitlock\-\_\-t}}
+\subsubsection[{owner}]{\setlength{\rightskip}{0pt plus 5cm}volatile uintptr\-\_\-t stm\-::bitlock\-\_\-t\-::owner}}\label{structstm_1_1bitlock__t_a9998628fab8ea8149e6e3b257cee4c9e}
+\hypertarget{structstm_1_1bitlock__t_ae76a58d0e8960026d49917e1e8f901e8}{\index{stm\-::bitlock\-\_\-t@{stm\-::bitlock\-\_\-t}!readers@{readers}}
+\index{readers@{readers}!stm::bitlock_t@{stm\-::bitlock\-\_\-t}}
+\subsubsection[{readers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rrec\-\_\-t} stm\-::bitlock\-\_\-t\-::readers}}\label{structstm_1_1bitlock__t_ae76a58d0e8960026d49917e1e8f901e8}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{metadata_8hpp}{metadata.\-hpp}\end{DoxyCompactItemize}

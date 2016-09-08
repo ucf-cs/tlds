@@ -1,0 +1,81 @@
+\hypertarget{metadata_8hpp}{\section{rstm/rstm-\/dev/include/stm/metadata.hpp File Reference}
+\label{metadata_8hpp}\index{rstm/rstm-\/dev/include/stm/metadata.\-hpp@{rstm/rstm-\/dev/include/stm/metadata.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}stm/\-Mini\-Vector.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/\-Bit\-Filter.\-hpp\char`\"{}}\\*
+Include dependency graph for metadata.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{metadata_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{metadata_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionstm_1_1id__version__t}{stm\-::id\-\_\-version\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1orec__t}{stm\-::orec\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1nanorec__t}{stm\-::nanorec\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1bytelock__t}{stm\-::bytelock\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1pad__word__t}{stm\-::pad\-\_\-word\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1rrec__t}{stm\-::rrec\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1bitlock__t}{stm\-::bitlock\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1toxic__histogram__t}{stm\-::toxic\-\_\-histogram\-\_\-t}
+\item 
+struct \hyperlink{structstm_1_1toxic__nop__t}{stm\-::toxic\-\_\-nop\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{stm\-::scope\-\_\-t}
+\item 
+typedef Mini\-Vector$<$ orec\-\_\-t $\ast$ $>$ \hyperlink{namespacestm_aa243a42287cc0cf0fdf20fb4cddd4d02}{stm\-::\-Orec\-List}
+\item 
+typedef Mini\-Vector$<$ rrec\-\_\-t $\ast$ $>$ \hyperlink{namespacestm_afad5b3d1a775f6e65cd1e675ba984839}{stm\-::\-R\-Rec\-List}
+\item 
+typedef Mini\-Vector$<$ bytelock\-\_\-t $\ast$ $>$ \hyperlink{namespacestm_adde267538d3124b2b405e5bc9d1135f4}{stm\-::\-Byte\-Lock\-List}
+\item 
+typedef Mini\-Vector$<$ bitlock\-\_\-t $\ast$ $>$ \hyperlink{namespacestm_ab4b8c3282dc3d14aded2b969e07b5213}{stm\-::\-Bit\-Lock\-List}
+\item 
+typedef Bit\-Filter$<$ 1024 $>$ \hyperlink{namespacestm_a34196fa5dc72823aaaa307a6e353704e}{stm\-::filter\-\_\-t}
+\item 
+typedef Mini\-Vector$<$ nanorec\-\_\-t $>$ \hyperlink{namespacestm_a5a70108dbd954a2634cf59d668ea8241}{stm\-::\-Nanorec\-List}
+\item 
+typedef Mini\-Vector$<$ void $\ast$ $>$ \hyperlink{namespacestm_a1f450babd9df052917264e0e0705e90b}{stm\-::\-Address\-List}
+\item 
+typedef toxic\-\_\-nop\-\_\-t \hyperlink{namespacestm_a1a3981a9b82aa51afd56d191ca1e3984}{stm\-::toxic\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} \hyperlink{namespacestm_a51b2c0958e7709b39500d037648c461b}{stm\-::\-U\-N\-R\-E\-C\-O\-V\-E\-R\-A\-B\-L\-E} (const char $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned \hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{stm\-::\-M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S} = 256
+\item 
+union \hyperlink{unionstm_1_1id__version__t}{stm\-::id\-\_\-version\-\_\-t} \hyperlink{namespacestm_ae247420ad0ba562827c2cbf18530c271}{stm\-::\-T\-M\-\_\-\-A\-L\-I\-G\-N}
+\end{DoxyCompactItemize}

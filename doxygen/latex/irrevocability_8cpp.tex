@@ -1,0 +1,51 @@
+\hypertarget{irrevocability_8cpp}{\section{rstm/rstm-\/dev/libstm/irrevocability.cpp File Reference}
+\label{irrevocability_8cpp}\index{rstm/rstm-\/dev/libstm/irrevocability.\-cpp@{rstm/rstm-\/dev/libstm/irrevocability.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}common/platform.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/lib\-\_\-globals.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/macros.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/txthread.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}policies/policies.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs/algs.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs/tml\-\_\-inline.\-hpp\char`\"{}}\\*
+Include dependency graph for irrevocability.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{irrevocability_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac71fd4f2ae60b1814ccaedea40d424a2}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::abort\-\_\-irrevocable} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{stm\-::scope\-\_\-t} $\ast$ \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_adfdb44f5b204ddd367543d1e3a5465fc}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::rollback\-\_\-irrevocable} (\hyperlink{include_2stm_2macros_8hpp_a1c36a48149c84f90d5bca01019950ca9}{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}(,,,))
+\item 
+void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_ab42770392de26e3b0bc1ffbe2f7932b8}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::unset\-\_\-irrevocable\-\_\-barriers} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_af9e6aae425588bac29be16e10b91cd4c}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::commit\-\_\-irrevocable} (\hyperlink{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx},))
+\item 
+void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_a5f2e3da55eda99c9e30b6314c36ed8b2}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::set\-\_\-irrevocable\-\_\-barriers} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_aa45892452daca17e27d9f8efe8e4e52f}{stm\-::serial\-\_\-irrevoc\-\_\-override} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_aa80b25b7fbf60cf912475203a5ba2d0c}{stm\-::become\-\_\-irrevoc} (\hyperlink{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(void $\ast$$\ast$upper\-\_\-stack\-\_\-bound))
+\item 
+bool \hyperlink{namespacestm_ad6da235deafa9e47d4103080ae0bcdb5}{stm\-::is\-\_\-irrevoc} (const \hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&)
+\item 
+bool \hyperlink{namespacestm_a347d5009be494e8595a8933c49a342b4}{stm\-::begin\-\_\-blocker} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Abort\-Handler \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac93d4712c00e7ccb77270953062faa28}{anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::old\-\_\-abort\-\_\-handler} = N\-U\-L\-L
+\end{DoxyCompactItemize}

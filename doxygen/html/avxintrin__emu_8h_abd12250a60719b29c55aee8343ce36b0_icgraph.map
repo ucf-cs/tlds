@@ -1,0 +1,5 @@
+<map id="__EMU_M256_ALIGN" name="__EMU_M256_ALIGN">
+<area shape="rect" id="node2" href="$avxintrin__emu_8h.html#aadc6e64f5fd7be7e2c7d179f2c96d90c" title="__emu_mm_permutevar_ps" alt="" coords="206,5,389,32"/>
+<area shape="rect" id="node3" href="$avxintrin__emu_8h.html#a165bf9cc754a9c1cd2ba4f2fb9b50e62" title="__emu_mm_permutevar_pd" alt="" coords="206,56,389,83"/>
+<area shape="rect" id="node4" href="$avxintrin__emu_8h.html#a0a9c7f141ab59efa50cf7b5957eb8b71" title="__emu_mm_permute_pd" alt="" coords="215,107,380,133"/>
+</map>

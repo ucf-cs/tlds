@@ -1,0 +1,221 @@
+\hypertarget{classtm__hash__set}{\section{tm\-\_\-hash\-\_\-set$<$ T $>$ Class Template Reference}
+\label{classtm__hash__set}\index{tm\-\_\-hash\-\_\-set$<$ T $>$@{tm\-\_\-hash\-\_\-set$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$tm\-\_\-hash\-\_\-set.\-hpp$>$}
+
+
+
+Inheritance diagram for tm\-\_\-hash\-\_\-set$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classtm__hash__set__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tm\-\_\-hash\-\_\-set$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classtm__hash__set__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void \hyperlink{classtm__hash__set_ae953be9e3f84496324247d026973977e}{insert} (const T item)
+\item 
+virtual \hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void \hyperlink{classtm__hash__set_a1509ba92e7be69a82bb43d2198119b08}{remove} (const T item)
+\item 
+virtual bool \hyperlink{classtm__hash__set_a8951d8abc33cec22051de7168a84ee3e}{lookup} (const T item)
+\item 
+virtual void \hyperlink{classtm__hash__set_a8ae116cb73411f6179cecc03ad3f6f50}{apply\-\_\-to\-\_\-all} (void($\ast$f)(T item))
+\item 
+\hyperlink{classtm__hash__set_abe2f2105cf2f4afbc44f861c8b48cdbf}{tm\-\_\-hash\-\_\-set} (int capacity)
+\item 
+virtual \hyperlink{classtm__hash__set_a83556069a6e3da6da9955ad25d4c7fba}{$\sim$tm\-\_\-hash\-\_\-set} ()
+\item 
+void \hyperlink{classtm__hash__set_afb1d25abd0ab870bb94ca41133a64e1c}{print\-\_\-stats} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtm__hash__set_a1da9b8652e62e4c89728f32c67eb6ad0}{tm\-\_\-hash\-\_\-set} (const \hyperlink{classtm__hash__set}{tm\-\_\-hash\-\_\-set} \&)
+\item 
+\hyperlink{classtm__hash__set}{tm\-\_\-hash\-\_\-set} \& \hyperlink{classtm__hash__set_aa1bca20dff8fcb350602bf41d823a620}{operator=} (const \hyperlink{classtm__hash__set}{tm\-\_\-hash\-\_\-set} \&)
+\item 
+\hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} unsigned long \hyperlink{classtm__hash__set_af47f2a70fe6da64578c23fa42fa33ca5}{hash} (T item)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtm__list__set}{tm\-\_\-list\-\_\-set}$<$ T $>$ $\ast$$\ast$ \hyperlink{classtm__hash__set_a636e29c090577e85953d1a45dc353567}{bucket}
+\item 
+int \hyperlink{classtm__hash__set_a5cd1ca63b5defd3cae98ec2a3ff7f521}{num\-\_\-buckets}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class tm\-\_\-hash\-\_\-set$<$ T $>$}
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtm__hash__set_a1da9b8652e62e4c89728f32c67eb6ad0}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}}
+\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{tm\-\_\-hash\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::{\bf tm\-\_\-hash\-\_\-set} (
+\begin{DoxyParamCaption}
+\item[{const {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__hash__set_a1da9b8652e62e4c89728f32c67eb6ad0}
+\hypertarget{classtm__hash__set_abe2f2105cf2f4afbc44f861c8b48cdbf}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}}
+\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{tm\-\_\-hash\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::{\bf tm\-\_\-hash\-\_\-set} (
+\begin{DoxyParamCaption}
+\item[{int}]{capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classtm__hash__set_abe2f2105cf2f4afbc44f861c8b48cdbf}
+\hypertarget{classtm__hash__set_a83556069a6e3da6da9955ad25d4c7fba}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!$\sim$tm\-\_\-hash\-\_\-set@{$\sim$tm\-\_\-hash\-\_\-set}}
+\index{$\sim$tm\-\_\-hash\-\_\-set@{$\sim$tm\-\_\-hash\-\_\-set}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{$\sim$tm\-\_\-hash\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::$\sim${\bf tm\-\_\-hash\-\_\-set} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__hash__set_a83556069a6e3da6da9955ad25d4c7fba}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtm__hash__set_a8ae116cb73411f6179cecc03ad3f6f50}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!apply\-\_\-to\-\_\-all@{apply\-\_\-to\-\_\-all}}
+\index{apply\-\_\-to\-\_\-all@{apply\-\_\-to\-\_\-all}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{apply\-\_\-to\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual void {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::apply\-\_\-to\-\_\-all (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(T item)}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__hash__set_a8ae116cb73411f6179cecc03ad3f6f50}
+
+
+Implements \hyperlink{classtm__set_a046e1d0e431a29f1c162a0aacd14ef2b}{tm\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__hash__set_af47f2a70fe6da64578c23fa42fa33ca5}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!hash@{hash}}
+\index{hash@{hash}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{hash}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} unsigned long {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::hash (
+\begin{DoxyParamCaption}
+\item[{T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classtm__hash__set_af47f2a70fe6da64578c23fa42fa33ca5}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classtm__hash__set_af47f2a70fe6da64578c23fa42fa33ca5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classtm__hash__set_ae953be9e3f84496324247d026973977e}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!insert@{insert}}
+\index{insert@{insert}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__hash__set_ae953be9e3f84496324247d026973977e}
+
+
+Implements \hyperlink{classtm__set_a8956169e12ecb29a1b5888634f034b50}{tm\-\_\-set$<$ T $>$}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{classtm__hash__set_ae953be9e3f84496324247d026973977e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classtm__hash__set_a8951d8abc33cec22051de7168a84ee3e}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!lookup@{lookup}}
+\index{lookup@{lookup}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual bool {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::lookup (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__hash__set_a8951d8abc33cec22051de7168a84ee3e}
+
+
+Implements \hyperlink{classtm__set_a64e229588adaaf5108b9db56a1fcf55f}{tm\-\_\-set$<$ T $>$}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classtm__hash__set_a8951d8abc33cec22051de7168a84ee3e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classtm__hash__set_aa1bca20dff8fcb350602bf41d823a620}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!operator=@{operator=}}
+\index{operator=@{operator=}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-hash\-\_\-set}\& {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__hash__set_aa1bca20dff8fcb350602bf41d823a620}
+\hypertarget{classtm__hash__set_afb1d25abd0ab870bb94ca41133a64e1c}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!print\-\_\-stats@{print\-\_\-stats}}
+\index{print\-\_\-stats@{print\-\_\-stats}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{print\-\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::print\-\_\-stats (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classtm__hash__set_afb1d25abd0ab870bb94ca41133a64e1c}
+\hypertarget{classtm__hash__set_a1509ba92e7be69a82bb43d2198119b08}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!remove@{remove}}
+\index{remove@{remove}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E} void {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__hash__set_a1509ba92e7be69a82bb43d2198119b08}
+
+
+Implements \hyperlink{classtm__set_a45a928f648e51c4ea1c181db71efadf0}{tm\-\_\-set$<$ T $>$}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classtm__hash__set_a1509ba92e7be69a82bb43d2198119b08_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classtm__hash__set_a636e29c090577e85953d1a45dc353567}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!bucket@{bucket}}
+\index{bucket@{bucket}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{bucket}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf tm\-\_\-list\-\_\-set}$<$T$>$$\ast$$\ast$ {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::bucket\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__hash__set_a636e29c090577e85953d1a45dc353567}
+\hypertarget{classtm__hash__set_a5cd1ca63b5defd3cae98ec2a3ff7f521}{\index{tm\-\_\-hash\-\_\-set@{tm\-\_\-hash\-\_\-set}!num\-\_\-buckets@{num\-\_\-buckets}}
+\index{num\-\_\-buckets@{num\-\_\-buckets}!tm_hash_set@{tm\-\_\-hash\-\_\-set}}
+\subsubsection[{num\-\_\-buckets}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf tm\-\_\-hash\-\_\-set}$<$ T $>$\-::num\-\_\-buckets\hspace{0.3cm}{\ttfamily [private]}}}\label{classtm__hash__set_a5cd1ca63b5defd3cae98ec2a3ff7f521}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{tm__hash__set_8hpp}{tm\-\_\-hash\-\_\-set.\-hpp}\end{DoxyCompactItemize}

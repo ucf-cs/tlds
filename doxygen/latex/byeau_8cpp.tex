@@ -1,0 +1,76 @@
+\hypertarget{byeau_8cpp}{\section{rstm/rstm-\/dev/libstm/algs/byeau.cpp File Reference}
+\label{byeau_8cpp}\index{rstm/rstm-\/dev/libstm/algs/byeau.\-cpp@{rstm/rstm-\/dev/libstm/algs/byeau.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}../profiling.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../cm.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs.\-hpp\char`\"{}}\\*
+Include dependency graph for byeau.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{byeau_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02byeau_8cpp_03_1_1ByEAU__Generic}{anonymous\-\_\-namespace\{byeau.\-cpp\}\-::\-By\-E\-A\-U\-\_\-\-Generic$<$ C\-M $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02byeau_8cpp_03}{anonymous\-\_\-namespace\{byeau.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{byeau_8cpp_a7d49248735cb86012fc04fad03af2a14}{T\-X\-\_\-\-A\-C\-T\-I\-V\-E}~0
+\item 
+\#define \hyperlink{byeau_8cpp_af59e388bbac2d514dc51cdf1cae5e799}{T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D}~1
+\item 
+\#define \hyperlink{byeau_8cpp_aea4f4f884d5056d00816b1a5437b95a2}{F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U}(M\-A\-C\-R\-O)
+\item 
+\#define \hyperlink{byeau_8cpp_ad565a4be29a8fc7435af9d6a5f23506f}{I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U}(I\-D, C\-M)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{byeau_8cpp_aea4f4f884d5056d00816b1a5437b95a2}{\index{byeau.\-cpp@{byeau.\-cpp}!F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U@{F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U}}
+\index{F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U@{F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U}!byeau.cpp@{byeau.\-cpp}}
+\subsubsection[{F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-R\-E\-A\-C\-H\-\_\-\-B\-Y\-E\-A\-U(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-C\-R\-O}
+\end{DoxyParamCaption}
+)}}\label{byeau_8cpp_aea4f4f884d5056d00816b1a5437b95a2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aeb3ee66e4dfe3a3f581d0b67e13f02b4}{ByEAU}, BackoffCM)                     \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a46f2ceaa20ed04b68789e0a84eebdabe}{ByEAUHA}, HyperAggressiveCM)           \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a20385b257d797b39b6c3733e8a927e2a}{ByEAUFCM}, FCM)                        \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a4f387d53a061aabdd8d3cee8417c4975}{ByEAUHour}, HourglassCM)
+\end{DoxyCode}
+\hypertarget{byeau_8cpp_ad565a4be29a8fc7435af9d6a5f23506f}{\index{byeau.\-cpp@{byeau.\-cpp}!I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U@{I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U}}
+\index{I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U@{I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U}!byeau.cpp@{byeau.\-cpp}}
+\subsubsection[{I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-\_\-\-B\-Y\-E\-A\-U(
+\begin{DoxyParamCaption}
+\item[{}]{I\-D, }
+\item[{}]{C\-M}
+\end{DoxyParamCaption}
+)}}\label{byeau_8cpp_ad565a4be29a8fc7435af9d6a5f23506f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <>                                 \(\backslash\)
+    void initTM<ID>() \{                         \(\backslash\)
+        ByEAU\_Generic<CM>::Initialize(ID, #ID); \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{byeau_8cpp_af59e388bbac2d514dc51cdf1cae5e799}{\index{byeau.\-cpp@{byeau.\-cpp}!T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D@{T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D}}
+\index{T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D@{T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D}!byeau.cpp@{byeau.\-cpp}}
+\subsubsection[{T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-A\-B\-O\-R\-T\-E\-D~1}}\label{byeau_8cpp_af59e388bbac2d514dc51cdf1cae5e799}
+\hypertarget{byeau_8cpp_a7d49248735cb86012fc04fad03af2a14}{\index{byeau.\-cpp@{byeau.\-cpp}!T\-X\-\_\-\-A\-C\-T\-I\-V\-E@{T\-X\-\_\-\-A\-C\-T\-I\-V\-E}}
+\index{T\-X\-\_\-\-A\-C\-T\-I\-V\-E@{T\-X\-\_\-\-A\-C\-T\-I\-V\-E}!byeau.cpp@{byeau.\-cpp}}
+\subsubsection[{T\-X\-\_\-\-A\-C\-T\-I\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-A\-C\-T\-I\-V\-E~0}}\label{byeau_8cpp_a7d49248735cb86012fc04fad03af2a14}
+Supporting \#defines for tracking thread liveness/deadness 

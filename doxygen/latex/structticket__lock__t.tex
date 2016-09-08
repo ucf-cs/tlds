@@ -1,0 +1,41 @@
+\hypertarget{structticket__lock__t}{\section{ticket\-\_\-lock\-\_\-t Struct Reference}
+\label{structticket__lock__t}\index{ticket\-\_\-lock\-\_\-t@{ticket\-\_\-lock\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$locks.\-hpp$>$}
+
+
+
+Collaboration diagram for ticket\-\_\-lock\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{structticket__lock__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile uintptr\-\_\-t \hyperlink{structticket__lock__t_a7bdc2eff47cf30738409cacb9431ce23}{next\-\_\-ticket}
+\item 
+volatile uintptr\-\_\-t \hyperlink{structticket__lock__t_a4204094477dcb3a7c481bf83e4b8975c}{now\-\_\-serving}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ticket lock\-: this is the easiest implementation possible, but might not be the most optimal w.\-r.\-t. cache misses 
+
+\subsection{Member Data Documentation}
+\hypertarget{structticket__lock__t_a7bdc2eff47cf30738409cacb9431ce23}{\index{ticket\-\_\-lock\-\_\-t@{ticket\-\_\-lock\-\_\-t}!next\-\_\-ticket@{next\-\_\-ticket}}
+\index{next\-\_\-ticket@{next\-\_\-ticket}!ticket_lock_t@{ticket\-\_\-lock\-\_\-t}}
+\subsubsection[{next\-\_\-ticket}]{\setlength{\rightskip}{0pt plus 5cm}volatile uintptr\-\_\-t ticket\-\_\-lock\-\_\-t\-::next\-\_\-ticket}}\label{structticket__lock__t_a7bdc2eff47cf30738409cacb9431ce23}
+\hypertarget{structticket__lock__t_a4204094477dcb3a7c481bf83e4b8975c}{\index{ticket\-\_\-lock\-\_\-t@{ticket\-\_\-lock\-\_\-t}!now\-\_\-serving@{now\-\_\-serving}}
+\index{now\-\_\-serving@{now\-\_\-serving}!ticket_lock_t@{ticket\-\_\-lock\-\_\-t}}
+\subsubsection[{now\-\_\-serving}]{\setlength{\rightskip}{0pt plus 5cm}volatile uintptr\-\_\-t ticket\-\_\-lock\-\_\-t\-::now\-\_\-serving}}\label{structticket__lock__t_a4204094477dcb3a7c481bf83e4b8975c}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/common/\hyperlink{locks_8hpp}{locks.\-hpp}\end{DoxyCompactItemize}

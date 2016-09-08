@@ -1,0 +1,585 @@
+\hypertarget{hashtable_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/hashtable.c File Reference}
+\label{hashtable_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/hashtable.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/hashtable.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}hashtable.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pair.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for hashtable.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{hashtable_8c_ac23a9b18d52323f7e7f4885bf179b1bc}{hashtable\-\_\-iter\-\_\-reset} (\hyperlink{hashtable_8h_a50bc48f5d12d4ed94c5aa0addd7e7818}{hashtable\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+void \hyperlink{hashtable_8c_a0b37dcf05721562e99c743ce848a8af6}{T\-Mhashtable\-\_\-iter\-\_\-reset} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a50bc48f5d12d4ed94c5aa0addd7e7818}{hashtable\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a4a5f9a97ed938fa3d71c11e90c6ed0d5}{hashtable\-\_\-iter\-\_\-has\-Next} (\hyperlink{hashtable_8h_a50bc48f5d12d4ed94c5aa0addd7e7818}{hashtable\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a30c52c7226658f4873bc4883d6b23d75}{T\-Mhashtable\-\_\-iter\-\_\-has\-Next} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a50bc48f5d12d4ed94c5aa0addd7e7818}{hashtable\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+void $\ast$ \hyperlink{hashtable_8c_aee2f6ad7b00bda025374cf2664376a03}{hashtable\-\_\-iter\-\_\-next} (\hyperlink{hashtable_8h_a50bc48f5d12d4ed94c5aa0addd7e7818}{hashtable\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+void $\ast$ \hyperlink{hashtable_8c_aa637bdf6f687b48488af4b6fb7b34600}{T\-Mhashtable\-\_\-iter\-\_\-next} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a50bc48f5d12d4ed94c5aa0addd7e7818}{hashtable\-\_\-iter\-\_\-t} $\ast$it\-Ptr, \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+static \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$$\ast$ \hyperlink{hashtable_8c_a45593e850734e8054df44299e0d7826c}{alloc\-Buckets} (long num\-Bucket, \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare\-Pairs)
+\item 
+static \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$$\ast$ \hyperlink{hashtable_8c_ad6325f281d36d291b143ea77de0c50aa}{T\-Malloc\-Buckets} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long num\-Bucket, \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare\-Pairs)
+\item 
+\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$ \hyperlink{hashtable_8c_aea4bab05eb6f8a5ceb5692278bb9a4e8}{hashtable\-\_\-alloc} (long init\-Num\-Bucket, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t}($\ast$hash)(const void $\ast$), \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare\-Pairs, long resize\-Ratio, long growth\-Factor)
+\item 
+\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$ \hyperlink{hashtable_8c_aac0b99437cd237e85613e10b99e818f9}{T\-Mhashtable\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long init\-Num\-Bucket, \hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t}($\ast$hash)(const void $\ast$), \hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} $\ast$compare\-Pairs, long resize\-Ratio, long growth\-Factor)
+\item 
+static void \hyperlink{hashtable_8c_a666b4d62a09333d1509c0006406e04eb}{free\-Buckets} (\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$$\ast$buckets, long num\-Bucket)
+\item 
+static void \hyperlink{hashtable_8c_a6fa8bfdf3d30dbcaea37330e0b90d043}{T\-Mfree\-Buckets} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$$\ast$buckets, long num\-Bucket)
+\item 
+void \hyperlink{hashtable_8c_adbe81c626dcd4bad0549a43f405922f1}{hashtable\-\_\-free} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+void \hyperlink{hashtable_8c_a7bec5b50c750fc5e86a88feda9e5de25}{T\-Mhashtable\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a03111120d14efe635c5446596c27bb03}{hashtable\-\_\-is\-Empty} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a0497ae4259867649920e37691b414440}{T\-Mhashtable\-\_\-is\-Empty} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+long \hyperlink{hashtable_8c_a66bb664c0a55f58c1376c877ba555955}{hashtable\-\_\-get\-Size} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+long \hyperlink{hashtable_8c_ad868897adad15b306d91ee485aafb83c}{T\-Mhashtable\-\_\-get\-Size} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_ac641ace1e3d79ee78d271d999df92db9}{hashtable\-\_\-contains\-Key} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a5148754f6ff8c1515adbaa2ec43f4e0a}{T\-Mhashtable\-\_\-contains\-Key} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr)
+\item 
+void $\ast$ \hyperlink{hashtable_8c_a686d66befe855b80c215e27cb2e9343e}{hashtable\-\_\-find} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr)
+\item 
+void $\ast$ \hyperlink{hashtable_8c_a4ffa5195bd0c3d795139d3442dab3bbf}{T\-Mhashtable\-\_\-find} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a76f7704c9b87a69d6a94a01f06a65185}{hashtable\-\_\-insert} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a646ce3d72f8fd939a25a9cd806c4f712}{T\-Mhashtable\-\_\-insert} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr, void $\ast$data\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a1097b4c3a3d33b866a55e103f49dee7b}{hashtable\-\_\-remove} (\hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{hashtable_8c_a7e473540537740949190538446215b2b}{T\-Mhashtable\-\_\-remove} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{hashtable_8h_a07e36569668e35018fe256a44252be1c}{hashtable\-\_\-t} $\ast$hashtable\-Ptr, void $\ast$key\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{hashtable_8c_a45593e850734e8054df44299e0d7826c}{\index{hashtable.\-c@{hashtable.\-c}!alloc\-Buckets@{alloc\-Buckets}}
+\index{alloc\-Buckets@{alloc\-Buckets}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{alloc\-Buckets}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf list\-\_\-t}$\ast$$\ast$ alloc\-Buckets (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Bucket, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare\-Pairs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{hashtable_8c_a45593e850734e8054df44299e0d7826c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a45593e850734e8054df44299e0d7826c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a45593e850734e8054df44299e0d7826c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a666b4d62a09333d1509c0006406e04eb}{\index{hashtable.\-c@{hashtable.\-c}!free\-Buckets@{free\-Buckets}}
+\index{free\-Buckets@{free\-Buckets}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{free\-Buckets}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Buckets (
+\begin{DoxyParamCaption}
+\item[{{\bf list\-\_\-t} $\ast$$\ast$}]{buckets, }
+\item[{long}]{num\-Bucket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{hashtable_8c_a666b4d62a09333d1509c0006406e04eb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a666b4d62a09333d1509c0006406e04eb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a666b4d62a09333d1509c0006406e04eb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_aea4bab05eb6f8a5ceb5692278bb9a4e8}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-alloc@{hashtable\-\_\-alloc}}
+\index{hashtable\-\_\-alloc@{hashtable\-\_\-alloc}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hashtable\-\_\-t}$\ast$ hashtable\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{init\-Num\-Bucket, }
+\item[{{\bf ulong\-\_\-t}($\ast$)(const void $\ast$)}]{hash, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare\-Pairs, }
+\item[{long}]{resize\-Ratio, }
+\item[{long}]{growth\-Factor}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_aea4bab05eb6f8a5ceb5692278bb9a4e8}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_aea4bab05eb6f8a5ceb5692278bb9a4e8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_aea4bab05eb6f8a5ceb5692278bb9a4e8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_ac641ace1e3d79ee78d271d999df92db9}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-contains\-Key@{hashtable\-\_\-contains\-Key}}
+\index{hashtable\-\_\-contains\-Key@{hashtable\-\_\-contains\-Key}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-contains\-Key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} hashtable\-\_\-contains\-Key (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_ac641ace1e3d79ee78d271d999df92db9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_ac641ace1e3d79ee78d271d999df92db9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a686d66befe855b80c215e27cb2e9343e}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-find@{hashtable\-\_\-find}}
+\index{hashtable\-\_\-find@{hashtable\-\_\-find}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ hashtable\-\_\-find (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a686d66befe855b80c215e27cb2e9343e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a686d66befe855b80c215e27cb2e9343e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_adbe81c626dcd4bad0549a43f405922f1}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-free@{hashtable\-\_\-free}}
+\index{hashtable\-\_\-free@{hashtable\-\_\-free}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void hashtable\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_adbe81c626dcd4bad0549a43f405922f1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_adbe81c626dcd4bad0549a43f405922f1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_adbe81c626dcd4bad0549a43f405922f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a66bb664c0a55f58c1376c877ba555955}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-get\-Size@{hashtable\-\_\-get\-Size}}
+\index{hashtable\-\_\-get\-Size@{hashtable\-\_\-get\-Size}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}long hashtable\-\_\-get\-Size (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a66bb664c0a55f58c1376c877ba555955}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{hashtable_8c_a66bb664c0a55f58c1376c877ba555955_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a66bb664c0a55f58c1376c877ba555955_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a76f7704c9b87a69d6a94a01f06a65185}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-insert@{hashtable\-\_\-insert}}
+\index{hashtable\-\_\-insert@{hashtable\-\_\-insert}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} hashtable\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a76f7704c9b87a69d6a94a01f06a65185}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a76f7704c9b87a69d6a94a01f06a65185_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a03111120d14efe635c5446596c27bb03}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-is\-Empty@{hashtable\-\_\-is\-Empty}}
+\index{hashtable\-\_\-is\-Empty@{hashtable\-\_\-is\-Empty}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} hashtable\-\_\-is\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a03111120d14efe635c5446596c27bb03}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{hashtable_8c_a03111120d14efe635c5446596c27bb03_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a4a5f9a97ed938fa3d71c11e90c6ed0d5}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-iter\-\_\-has\-Next@{hashtable\-\_\-iter\-\_\-has\-Next}}
+\index{hashtable\-\_\-iter\-\_\-has\-Next@{hashtable\-\_\-iter\-\_\-has\-Next}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-iter\-\_\-has\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} hashtable\-\_\-iter\-\_\-has\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a4a5f9a97ed938fa3d71c11e90c6ed0d5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{hashtable_8c_a4a5f9a97ed938fa3d71c11e90c6ed0d5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_aee2f6ad7b00bda025374cf2664376a03}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-iter\-\_\-next@{hashtable\-\_\-iter\-\_\-next}}
+\index{hashtable\-\_\-iter\-\_\-next@{hashtable\-\_\-iter\-\_\-next}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ hashtable\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_aee2f6ad7b00bda025374cf2664376a03}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{hashtable_8c_aee2f6ad7b00bda025374cf2664376a03_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_ac23a9b18d52323f7e7f4885bf179b1bc}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-iter\-\_\-reset@{hashtable\-\_\-iter\-\_\-reset}}
+\index{hashtable\-\_\-iter\-\_\-reset@{hashtable\-\_\-iter\-\_\-reset}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-iter\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void hashtable\-\_\-iter\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_ac23a9b18d52323f7e7f4885bf179b1bc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{hashtable_8c_ac23a9b18d52323f7e7f4885bf179b1bc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a1097b4c3a3d33b866a55e103f49dee7b}{\index{hashtable.\-c@{hashtable.\-c}!hashtable\-\_\-remove@{hashtable\-\_\-remove}}
+\index{hashtable\-\_\-remove@{hashtable\-\_\-remove}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{hashtable\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} hashtable\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a1097b4c3a3d33b866a55e103f49dee7b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_a1097b4c3a3d33b866a55e103f49dee7b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_ad6325f281d36d291b143ea77de0c50aa}{\index{hashtable.\-c@{hashtable.\-c}!T\-Malloc\-Buckets@{T\-Malloc\-Buckets}}
+\index{T\-Malloc\-Buckets@{T\-Malloc\-Buckets}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Malloc\-Buckets}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf list\-\_\-t}$\ast$$\ast$ T\-Malloc\-Buckets (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{num\-Bucket, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare\-Pairs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{hashtable_8c_ad6325f281d36d291b143ea77de0c50aa}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{hashtable_8c_ad6325f281d36d291b143ea77de0c50aa_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{hashtable_8c_ad6325f281d36d291b143ea77de0c50aa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a6fa8bfdf3d30dbcaea37330e0b90d043}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mfree\-Buckets@{T\-Mfree\-Buckets}}
+\index{T\-Mfree\-Buckets@{T\-Mfree\-Buckets}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mfree\-Buckets}]{\setlength{\rightskip}{0pt plus 5cm}static void T\-Mfree\-Buckets (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf list\-\_\-t} $\ast$$\ast$}]{buckets, }
+\item[{long}]{num\-Bucket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{hashtable_8c_a6fa8bfdf3d30dbcaea37330e0b90d043}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{hashtable_8c_a6fa8bfdf3d30dbcaea37330e0b90d043_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_aac0b99437cd237e85613e10b99e818f9}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-alloc@{T\-Mhashtable\-\_\-alloc}}
+\index{T\-Mhashtable\-\_\-alloc@{T\-Mhashtable\-\_\-alloc}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hashtable\-\_\-t}$\ast$ T\-Mhashtable\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{init\-Num\-Bucket, }
+\item[{{\bf ulong\-\_\-t}($\ast$)(const void $\ast$)}]{hash, }
+\item[{{\bf comparator\-\_\-t} $\ast$}]{compare\-Pairs, }
+\item[{long}]{resize\-Ratio, }
+\item[{long}]{growth\-Factor}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_aac0b99437cd237e85613e10b99e818f9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashtable_8c_aac0b99437cd237e85613e10b99e818f9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a5148754f6ff8c1515adbaa2ec43f4e0a}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-contains\-Key@{T\-Mhashtable\-\_\-contains\-Key}}
+\index{T\-Mhashtable\-\_\-contains\-Key@{T\-Mhashtable\-\_\-contains\-Key}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-contains\-Key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mhashtable\-\_\-contains\-Key (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a5148754f6ff8c1515adbaa2ec43f4e0a}
+\hypertarget{hashtable_8c_a4ffa5195bd0c3d795139d3442dab3bbf}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-find@{T\-Mhashtable\-\_\-find}}
+\index{T\-Mhashtable\-\_\-find@{T\-Mhashtable\-\_\-find}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\-Mhashtable\-\_\-find (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a4ffa5195bd0c3d795139d3442dab3bbf}
+\hypertarget{hashtable_8c_a7bec5b50c750fc5e86a88feda9e5de25}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-free@{T\-Mhashtable\-\_\-free}}
+\index{T\-Mhashtable\-\_\-free@{T\-Mhashtable\-\_\-free}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mhashtable\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a7bec5b50c750fc5e86a88feda9e5de25}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{hashtable_8c_a7bec5b50c750fc5e86a88feda9e5de25_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_ad868897adad15b306d91ee485aafb83c}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-get\-Size@{T\-Mhashtable\-\_\-get\-Size}}
+\index{T\-Mhashtable\-\_\-get\-Size@{T\-Mhashtable\-\_\-get\-Size}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}long T\-Mhashtable\-\_\-get\-Size (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_ad868897adad15b306d91ee485aafb83c}
+\hypertarget{hashtable_8c_a646ce3d72f8fd939a25a9cd806c4f712}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-insert@{T\-Mhashtable\-\_\-insert}}
+\index{T\-Mhashtable\-\_\-insert@{T\-Mhashtable\-\_\-insert}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mhashtable\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr, }
+\item[{void $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a646ce3d72f8fd939a25a9cd806c4f712}
+\hypertarget{hashtable_8c_a0497ae4259867649920e37691b414440}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-is\-Empty@{T\-Mhashtable\-\_\-is\-Empty}}
+\index{T\-Mhashtable\-\_\-is\-Empty@{T\-Mhashtable\-\_\-is\-Empty}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mhashtable\-\_\-is\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a0497ae4259867649920e37691b414440}
+\hypertarget{hashtable_8c_a30c52c7226658f4873bc4883d6b23d75}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-iter\-\_\-has\-Next@{T\-Mhashtable\-\_\-iter\-\_\-has\-Next}}
+\index{T\-Mhashtable\-\_\-iter\-\_\-has\-Next@{T\-Mhashtable\-\_\-iter\-\_\-has\-Next}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-iter\-\_\-has\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mhashtable\-\_\-iter\-\_\-has\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a30c52c7226658f4873bc4883d6b23d75}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{hashtable_8c_a30c52c7226658f4873bc4883d6b23d75_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_aa637bdf6f687b48488af4b6fb7b34600}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-iter\-\_\-next@{T\-Mhashtable\-\_\-iter\-\_\-next}}
+\index{T\-Mhashtable\-\_\-iter\-\_\-next@{T\-Mhashtable\-\_\-iter\-\_\-next}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\-Mhashtable\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_aa637bdf6f687b48488af4b6fb7b34600}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{hashtable_8c_aa637bdf6f687b48488af4b6fb7b34600_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hashtable_8c_a0b37dcf05721562e99c743ce848a8af6}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-iter\-\_\-reset@{T\-Mhashtable\-\_\-iter\-\_\-reset}}
+\index{T\-Mhashtable\-\_\-iter\-\_\-reset@{T\-Mhashtable\-\_\-iter\-\_\-reset}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-iter\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mhashtable\-\_\-iter\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-iter\-\_\-t} $\ast$}]{it\-Ptr, }
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a0b37dcf05721562e99c743ce848a8af6}
+\hypertarget{hashtable_8c_a7e473540537740949190538446215b2b}{\index{hashtable.\-c@{hashtable.\-c}!T\-Mhashtable\-\_\-remove@{T\-Mhashtable\-\_\-remove}}
+\index{T\-Mhashtable\-\_\-remove@{T\-Mhashtable\-\_\-remove}!hashtable.c@{hashtable.\-c}}
+\subsubsection[{T\-Mhashtable\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mhashtable\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf hashtable\-\_\-t} $\ast$}]{hashtable\-Ptr, }
+\item[{void $\ast$}]{key\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{hashtable_8c_a7e473540537740949190538446215b2b}

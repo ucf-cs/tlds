@@ -1,0 +1,37 @@
+<map id="stm::WBMMPolicy::handle_full_prelimbo" name="stm::WBMMPolicy::handle_full_prelimbo">
+<area shape="rect" id="node2" href="$classstm_1_1WBMMPolicy.html#aa2aa233946e7b6b1d35b184503b8c9f9" title="stm::WBMMPolicy::schedFor\lReclaim" alt="" coords="232,183,427,225"/>
+<area shape="rect" id="node3" href="$classstm_1_1WBMMPolicy.html#af174b70b9898c8d900a5a2604cfadc7c" title="stm::WBMMPolicy::onTxCommit" alt="" coords="475,191,690,217"/>
+<area shape="rect" id="node4" href="$namespacestm.html#aaaa08c01741f1eba381fd4a279df12b1" title="stm::OnReadWriteCommit" alt="" coords="750,100,927,127"/>
+<area shape="rect" id="node7" href="$namespacestm.html#a00287c50a719dcda144cc1cbc9e9ae4b" title="stm::OnReadOnlyCommit" alt="" coords="752,165,925,192"/>
+<area shape="rect" id="node35" href="$namespacestm.html#ab817bbaf25e6eb6466682982ac4f623f" title="stm::OnCGLCommit" alt="" coords="767,216,910,243"/>
+<area shape="rect" id="node36" href="$namespacestm.html#a8b8f510beed1c9e35b1468cf6d9e3616" title="stm::OnReadOnlyCGLCommit" alt="" coords="739,267,939,293"/>
+<area shape="rect" id="node5" href="$structanonymous__namespace_02norec_8cpp_03_1_1NOrec__Generic.html#a83dc52e814ca00e9e7c6eab4109ddb2b" title="anonymous_namespace\l\{norec::cpp\}::NOrec\l_Generic::commit" alt="" coords="987,85,1149,141"/>
+<area shape="rect" id="node6" href="$structanonymous__namespace_02norec_8cpp_03_1_1NOrec__Generic.html#a89e410296c817d520b2a2293d05b7796" title="anonymous_namespace\l\{norec::cpp\}::NOrec\l_Generic::commit_rw" alt="" coords="987,5,1149,61"/>
+<area shape="rect" id="node8" href="$structanonymous__namespace_02norec_8cpp_03_1_1NOrec__Generic.html#ac3b3171ff722c159df0e01e01bd9e262" title="anonymous_namespace\l\{norec::cpp\}::NOrec\l_Generic::commit_ro" alt="" coords="987,165,1149,221"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#af9e6aae425588bac29be16e10b91cd4c" title="anonymous_namespace\l\{irrevocability::cpp\}\l::commit_irrevocable" alt="" coords="987,245,1149,301"/>
+<area shape="rect" id="node10" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#a5f2e3da55eda99c9e30b6314c36ed8b2" title="anonymous_namespace\l\{irrevocability::cpp\}\l::set_irrevocable_barriers" alt="" coords="1197,245,1365,301"/>
+<area shape="rect" id="node11" href="$namespacestm.html#aa80b25b7fbf60cf912475203a5ba2d0c" title="stm::become_irrevoc" alt="" coords="1616,123,1760,149"/>
+<area shape="rect" id="node12" href="$namespacestm.html#a347d5009be494e8595a8933c49a342b4" title="stm::begin_blocker" alt="" coords="1414,335,1546,361"/>
+<area shape="rect" id="node13" href="$structstm_1_1StrongHourglassCM.html#a558fad680abe604244a1c247b0667af8" title="stm::StrongHourglassCM\l::onBegin" alt="" coords="1603,174,1773,215"/>
+<area shape="rect" id="node14" href="$structstm_1_1HourglassCM.html#a0e93052d8f3cffebfc3cf74c7fd155ae" title="stm::HourglassCM::onBegin" alt="" coords="1595,240,1781,267"/>
+<area shape="rect" id="node15" href="$structstm_1_1HourglassBackoffCM.html#a92de4e5a4cb98e10206f885550f72086" title="stm::HourglassBackoffCM\l::onBegin" alt="" coords="1599,291,1777,333"/>
+<area shape="rect" id="node16" href="$namespaceanonymous__namespace_02profiling_8cpp_03.html#ad2de7e300bb6e53bf611aaf35c46d80b" title="anonymous_namespace\l\{profiling::cpp\}::collect\l_profiles" alt="" coords="1607,356,1769,412"/>
+<area shape="rect" id="node23" href="$namespaceanonymous__namespace_02profiling_8cpp_03.html#ac7a6d6bebec6c014c2d09c19efb4390c" title="anonymous_namespace\l\{profiling::cpp\}::change\l_algorithm" alt="" coords="1607,436,1769,492"/>
+<area shape="rect" id="node24" href="$namespacestm.html#ad9c526edd45fa3fe417fc3b8ee75467a" title="stm::profile_oncomplete" alt="" coords="1607,516,1769,543"/>
+<area shape="rect" id="node25" href="$structstm_1_1TxThread.html#a27aa264d621bb5d008571c6aab47a9ba" title="stm::TxThread::TxThread" alt="" coords="1603,567,1773,593"/>
+<area shape="rect" id="node33" href="$namespacestm.html#a945573c8ffc100f3908f1373d12ebffd" title="stm::set_policy" alt="" coords="1633,617,1743,644"/>
+<area shape="rect" id="node17" href="$namespacestm.html#a7691058d97dd9bb3444ab2200a90e54b" title="stm::trigger_common" alt="" coords="1845,381,1990,408"/>
+<area shape="rect" id="node18" href="$structstm_1_1AbortWaitTrigger.html#a569a71f4008818dba88b07dd6757e33f" title="stm::AbortWaitTrigger\l::onCommitLock" alt="" coords="2054,309,2205,350"/>
+<area shape="rect" id="node19" href="$structstm_1_1AbortWaitTrigger.html#afb8db71071daad0585654b95ff8edd04" title="stm::AbortWaitTrigger\l::onAbort" alt="" coords="2054,374,2205,415"/>
+<area shape="rect" id="node21" href="$structstm_1_1CommitTrigger.html#acdf3280966d01d057c2efc8ff1792aab" title="stm::CommitTrigger\l::onCommitSTM" alt="" coords="2060,439,2199,481"/>
+<area shape="rect" id="node20" href="$structstm_1_1CommitTrigger.html#aee144a92ac151fa1aae6942b04f68685" title="stm::CommitTrigger\l::onAbort" alt="" coords="2257,374,2396,415"/>
+<area shape="rect" id="node22" href="$structstm_1_1CommitTrigger.html#a4d706454d226b9100a972d36bb3be88e" title="stm::CommitTrigger\l::onCommitLock" alt="" coords="2257,439,2396,481"/>
+<area shape="rect" id="node26" href="$structstm_1_1TxThread.html#a4e78a4f0dcb5010456aa031d3fda70ac" title="stm::TxThread::thread_init" alt="" coords="1830,567,2005,593"/>
+<area shape="rect" id="node27" href="$namespacestm.html#a3de69c665250e84ef5238477ae8524b0" title="stm::thread_init" alt="" coords="2073,561,2185,588"/>
+<area shape="rect" id="node30" href="$libitm_8h.html#a5edce724a00eff63931f07466901ef7d" title="_ITM_getTransaction" alt="" coords="2057,612,2202,639"/>
+<area shape="rect" id="node28" href="$stamp_8hpp.html#a7672bd41fd85f42a21e565c37108b09a" title="tm_main_startup" alt="" coords="2267,511,2386,537"/>
+<area shape="rect" id="node29" href="$stamp_8hpp.html#a4f805a0e1a5d6f581e1d4dafbc83fdf0" title="tm_start" alt="" coords="2291,561,2362,588"/>
+<area shape="rect" id="node31" href="$libitm-5_81_005_8cpp.html#a5cde4a3f0f8e98db7d17e4a6ed3859ca" title="_ITM_initializeThread" alt="" coords="2253,612,2400,639"/>
+<area shape="rect" id="node32" href="$libitm-5_81_005_8cpp.html#ae97451d0a7481e2ad0e2b0c4196d5117" title="_ITM_initializeProcess" alt="" coords="2448,612,2603,639"/>
+<area shape="rect" id="node34" href="$namespacestm.html#aac29e08fdc4a251a12088bd799e7a4f4" title="stm::sys_init" alt="" coords="1869,617,1966,644"/>
+</map>

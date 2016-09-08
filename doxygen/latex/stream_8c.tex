@@ -1,0 +1,227 @@
+\hypertarget{stream_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/intruder/stream.c File Reference}
+\label{stream_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/stream.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/stream.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}detector.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dictionary.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}packet.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stream.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for stream.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstream}{stream}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stream_8h_aa1f49f637a7bd758e258151ea80f58f7}{stream\-\_\-t} $\ast$ \hyperlink{stream_8c_aa29c66520e741eb346620fc26900adf6}{stream\-\_\-alloc} (long percent\-Attack)
+\item 
+void \hyperlink{stream_8c_aa44fed3820404d205e0ad5248cd33c56}{stream\-\_\-free} (\hyperlink{stream_8h_aa1f49f637a7bd758e258151ea80f58f7}{stream\-\_\-t} $\ast$stream\-Ptr)
+\item 
+static void \hyperlink{stream_8c_a393f7c73a9711227990d5867e9e6edd8}{split\-Into\-Packets} (char $\ast$str, long flow\-Id, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$alloc\-Vector\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$packet\-Queue\-Ptr)
+\item 
+long \hyperlink{stream_8c_a1edfb122c99ded84c9f8239b62ed56c8}{stream\-\_\-generate} (\hyperlink{stream_8h_aa1f49f637a7bd758e258151ea80f58f7}{stream\-\_\-t} $\ast$stream\-Ptr, \hyperlink{dictionary_8h_a372959a54aef1af6aef8c730cf051701}{dictionary\-\_\-t} $\ast$dictionary\-Ptr, long num\-Flow, long \hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed}, long max\-Length)
+\item 
+char $\ast$ \hyperlink{stream_8c_a4f1067c8bf35df47ccd52ac05821d6ae}{stream\-\_\-get\-Packet} (\hyperlink{stream_8h_aa1f49f637a7bd758e258151ea80f58f7}{stream\-\_\-t} $\ast$stream\-Ptr)
+\item 
+char $\ast$ \hyperlink{stream_8c_a3e30461bda0f0cc60980e56d8634ccf8}{T\-Mstream\-\_\-get\-Packet} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{stream_8h_aa1f49f637a7bd758e258151ea80f58f7}{stream\-\_\-t} $\ast$stream\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{stream_8c_a18fb7a247516b152c9f3ee0c4de8a070}{stream\-\_\-is\-Attack} (\hyperlink{stream_8h_aa1f49f637a7bd758e258151ea80f58f7}{stream\-\_\-t} $\ast$stream\-Ptr, long flow\-Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{stream_8c_a393f7c73a9711227990d5867e9e6edd8}{\index{stream.\-c@{stream.\-c}!split\-Into\-Packets@{split\-Into\-Packets}}
+\index{split\-Into\-Packets@{split\-Into\-Packets}!stream.c@{stream.\-c}}
+\subsubsection[{split\-Into\-Packets}]{\setlength{\rightskip}{0pt plus 5cm}static void split\-Into\-Packets (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{long}]{flow\-Id, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{alloc\-Vector\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{packet\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stream_8c_a393f7c73a9711227990d5867e9e6edd8}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream_8c_a393f7c73a9711227990d5867e9e6edd8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream_8c_a393f7c73a9711227990d5867e9e6edd8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stream_8c_aa29c66520e741eb346620fc26900adf6}{\index{stream.\-c@{stream.\-c}!stream\-\_\-alloc@{stream\-\_\-alloc}}
+\index{stream\-\_\-alloc@{stream\-\_\-alloc}!stream.c@{stream.\-c}}
+\subsubsection[{stream\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stream\-\_\-t}$\ast$ stream\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{percent\-Attack}
+\end{DoxyParamCaption}
+)}}\label{stream_8c_aa29c66520e741eb346620fc26900adf6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream_8c_aa29c66520e741eb346620fc26900adf6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{stream_8c_aa29c66520e741eb346620fc26900adf6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stream_8c_aa44fed3820404d205e0ad5248cd33c56}{\index{stream.\-c@{stream.\-c}!stream\-\_\-free@{stream\-\_\-free}}
+\index{stream\-\_\-free@{stream\-\_\-free}!stream.c@{stream.\-c}}
+\subsubsection[{stream\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void stream\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf stream\-\_\-t} $\ast$}]{stream\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{stream_8c_aa44fed3820404d205e0ad5248cd33c56}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{stream_8c_aa44fed3820404d205e0ad5248cd33c56_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{stream_8c_aa44fed3820404d205e0ad5248cd33c56_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stream_8c_a1edfb122c99ded84c9f8239b62ed56c8}{\index{stream.\-c@{stream.\-c}!stream\-\_\-generate@{stream\-\_\-generate}}
+\index{stream\-\_\-generate@{stream\-\_\-generate}!stream.c@{stream.\-c}}
+\subsubsection[{stream\-\_\-generate}]{\setlength{\rightskip}{0pt plus 5cm}long stream\-\_\-generate (
+\begin{DoxyParamCaption}
+\item[{{\bf stream\-\_\-t} $\ast$}]{stream\-Ptr, }
+\item[{{\bf dictionary\-\_\-t} $\ast$}]{dictionary\-Ptr, }
+\item[{long}]{num\-Flow, }
+\item[{long}]{seed, }
+\item[{long}]{max\-Length}
+\end{DoxyParamCaption}
+)}}\label{stream_8c_a1edfb122c99ded84c9f8239b62ed56c8}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream_8c_a1edfb122c99ded84c9f8239b62ed56c8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{stream_8c_a1edfb122c99ded84c9f8239b62ed56c8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stream_8c_a4f1067c8bf35df47ccd52ac05821d6ae}{\index{stream.\-c@{stream.\-c}!stream\-\_\-get\-Packet@{stream\-\_\-get\-Packet}}
+\index{stream\-\_\-get\-Packet@{stream\-\_\-get\-Packet}!stream.c@{stream.\-c}}
+\subsubsection[{stream\-\_\-get\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ stream\-\_\-get\-Packet (
+\begin{DoxyParamCaption}
+\item[{{\bf stream\-\_\-t} $\ast$}]{stream\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{stream_8c_a4f1067c8bf35df47ccd52ac05821d6ae}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{stream_8c_a4f1067c8bf35df47ccd52ac05821d6ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stream_8c_a18fb7a247516b152c9f3ee0c4de8a070}{\index{stream.\-c@{stream.\-c}!stream\-\_\-is\-Attack@{stream\-\_\-is\-Attack}}
+\index{stream\-\_\-is\-Attack@{stream\-\_\-is\-Attack}!stream.c@{stream.\-c}}
+\subsubsection[{stream\-\_\-is\-Attack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} stream\-\_\-is\-Attack (
+\begin{DoxyParamCaption}
+\item[{{\bf stream\-\_\-t} $\ast$}]{stream\-Ptr, }
+\item[{long}]{flow\-Id}
+\end{DoxyParamCaption}
+)}}\label{stream_8c_a18fb7a247516b152c9f3ee0c4de8a070}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{stream_8c_a18fb7a247516b152c9f3ee0c4de8a070_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stream_8c_a3e30461bda0f0cc60980e56d8634ccf8}{\index{stream.\-c@{stream.\-c}!T\-Mstream\-\_\-get\-Packet@{T\-Mstream\-\_\-get\-Packet}}
+\index{T\-Mstream\-\_\-get\-Packet@{T\-Mstream\-\_\-get\-Packet}!stream.c@{stream.\-c}}
+\subsubsection[{T\-Mstream\-\_\-get\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ T\-Mstream\-\_\-get\-Packet (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf stream\-\_\-t} $\ast$}]{stream\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{stream_8c_a3e30461bda0f0cc60980e56d8634ccf8}

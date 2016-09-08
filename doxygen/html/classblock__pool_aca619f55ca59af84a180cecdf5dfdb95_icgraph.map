@@ -1,0 +1,5 @@
+<map id="block_pool::alloc_block" name="block_pool::alloc_block">
+<area shape="rect" id="node2" href="$classMS__queue.html#ae4ba0c987f8efae263ffeba2c96579a2" title="MS_queue::MS_queue" alt="" coords="211,5,365,32"/>
+<area shape="rect" id="node3" href="$classMS__queue.html#aa8d33c46343874ae7e918c9058bc6fc3" title="MS_queue::enqueue" alt="" coords="217,56,359,83"/>
+<area shape="rect" id="node4" href="$classconcurrent__queue.html#a8c549b70d8e6f899b9b55c6f8eacce22" title="concurrent_queue::enqueue" alt="" coords="414,56,597,83"/>
+</map>

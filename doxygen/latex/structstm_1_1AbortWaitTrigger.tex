@@ -1,0 +1,94 @@
+\hypertarget{structstm_1_1AbortWaitTrigger}{\section{stm\-:\-:Abort\-Wait\-Trigger Struct Reference}
+\label{structstm_1_1AbortWaitTrigger}\index{stm\-::\-Abort\-Wait\-Trigger@{stm\-::\-Abort\-Wait\-Trigger}}
+}
+
+
+{\ttfamily \#include $<$profiling.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Abort\-Wait\-Trigger\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{structstm_1_1AbortWaitTrigger__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{structstm_1_1AbortWaitTrigger_a569a71f4008818dba88b07dd6757e33f}{on\-Commit\-Lock} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1AbortWaitTrigger_a8c7937ac9aa45dd7a240e636b4bc0ed8}{on\-Commit\-S\-T\-M} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static \hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{structstm_1_1AbortWaitTrigger_afb8db71071daad0585654b95ff8edd04}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A simple trigger\-: request collection of profiles after 16 consecutive aborts, or on a begin-\/time wait of $>$=2048 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1AbortWaitTrigger_afb8db71071daad0585654b95ff8edd04}{\index{stm\-::\-Abort\-Wait\-Trigger@{stm\-::\-Abort\-Wait\-Trigger}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::AbortWaitTrigger@{stm\-::\-Abort\-Wait\-Trigger}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void stm\-::\-Abort\-Wait\-Trigger\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1AbortWaitTrigger_afb8db71071daad0585654b95ff8edd04}
+Part 3\-: the thing that gets inlined into stm abort, and gets called on every abort 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1AbortWaitTrigger_afb8db71071daad0585654b95ff8edd04_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{structstm_1_1AbortWaitTrigger_afb8db71071daad0585654b95ff8edd04_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1AbortWaitTrigger_a569a71f4008818dba88b07dd6757e33f}{\index{stm\-::\-Abort\-Wait\-Trigger@{stm\-::\-Abort\-Wait\-Trigger}!on\-Commit\-Lock@{on\-Commit\-Lock}}
+\index{on\-Commit\-Lock@{on\-Commit\-Lock}!stm::AbortWaitTrigger@{stm\-::\-Abort\-Wait\-Trigger}}
+\subsubsection[{on\-Commit\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void stm\-::\-Abort\-Wait\-Trigger\-::on\-Commit\-Lock (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1AbortWaitTrigger_a569a71f4008818dba88b07dd6757e33f}
+Part 2\-: the thing that gets inlined into commit for S\-T\-Ms that have long blocking at begin time (T\-M\-L, C\-G\-L, Serial, M\-C\-S, Ticket), and gets called on every commit 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1AbortWaitTrigger_a569a71f4008818dba88b07dd6757e33f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1AbortWaitTrigger_a8c7937ac9aa45dd7a240e636b4bc0ed8}{\index{stm\-::\-Abort\-Wait\-Trigger@{stm\-::\-Abort\-Wait\-Trigger}!on\-Commit\-S\-T\-M@{on\-Commit\-S\-T\-M}}
+\index{on\-Commit\-S\-T\-M@{on\-Commit\-S\-T\-M}!stm::AbortWaitTrigger@{stm\-::\-Abort\-Wait\-Trigger}}
+\subsubsection[{on\-Commit\-S\-T\-M}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Abort\-Wait\-Trigger\-::on\-Commit\-S\-T\-M (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1AbortWaitTrigger_a8c7937ac9aa45dd7a240e636b4bc0ed8}
+This trigger does nothing when an S\-T\-M transaction commits 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{profiling_8hpp}{profiling.\-hpp}\end{DoxyCompactItemize}

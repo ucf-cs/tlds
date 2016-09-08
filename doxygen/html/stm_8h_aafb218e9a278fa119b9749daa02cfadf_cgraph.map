@@ -1,0 +1,8 @@
+<map id="remove_from_tx" name="remove_from_tx">
+<area shape="rect" id="node2" href="$stm__fraser_8c.html#aca0d40200c3502bdabeb44b27dfd4105" title="search_stm_tx_entry" alt="" coords="171,5,315,32"/>
+<area shape="rect" id="node3" href="$gc_8c.html#a80f4a5c119aa70ab0452a73dfac21bbd" title="fr_gc_free" alt="" coords="203,56,283,83"/>
+<area shape="rect" id="node4" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="363,56,495,83"/>
+<area shape="rect" id="node5" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="545,56,677,83"/>
+<area shape="rect" id="node6" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="726,31,861,57"/>
+<area shape="rect" id="node7" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="726,81,861,108"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="stm::install_algorithm_local" name="stm::install_algorithm_local">
+<area shape="rect" id="node2" href="$structstm_1_1TxThread.html#a27aa264d621bb5d008571c6aab47a9ba" title="stm::TxThread::TxThread" alt="" coords="200,81,371,108"/>
+<area shape="rect" id="node3" href="$structstm_1_1TxThread.html#a4e78a4f0dcb5010456aa031d3fda70ac" title="stm::TxThread::thread_init" alt="" coords="419,81,594,108"/>
+<area shape="rect" id="node4" href="$namespacestm.html#a3de69c665250e84ef5238477ae8524b0" title="stm::thread_init" alt="" coords="660,56,772,83"/>
+<area shape="rect" id="node7" href="$libitm_8h.html#a5edce724a00eff63931f07466901ef7d" title="_ITM_getTransaction" alt="" coords="643,107,789,133"/>
+<area shape="rect" id="node5" href="$stamp_8hpp.html#a7672bd41fd85f42a21e565c37108b09a" title="tm_main_startup" alt="" coords="851,5,970,32"/>
+<area shape="rect" id="node6" href="$stamp_8hpp.html#a4f805a0e1a5d6f581e1d4dafbc83fdf0" title="tm_start" alt="" coords="875,56,946,83"/>
+<area shape="rect" id="node8" href="$libitm-5_81_005_8cpp.html#a5cde4a3f0f8e98db7d17e4a6ed3859ca" title="_ITM_initializeThread" alt="" coords="837,107,984,133"/>
+<area shape="rect" id="node9" href="$libitm-5_81_005_8cpp.html#ae97451d0a7481e2ad0e2b0c4196d5117" title="_ITM_initializeProcess" alt="" coords="1032,107,1187,133"/>
+</map>

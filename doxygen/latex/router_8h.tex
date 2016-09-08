@@ -1,0 +1,130 @@
+\hypertarget{router_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/labyrinth/router.h File Reference}
+\label{router_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/router.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/router.\-h}}
+}
+{\ttfamily \#include \char`\"{}grid.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}maze.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for router.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrouter}{router}
+\item 
+struct \hyperlink{structrouter__solve__arg}{router\-\_\-solve\-\_\-arg}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structrouter}{router} \hyperlink{router_8h_a027679db3515967427aea1f9e7e51d4d}{router\-\_\-t}
+\item 
+typedef struct \hyperlink{structrouter__solve__arg}{router\-\_\-solve\-\_\-arg} \hyperlink{router_8h_a0a90453b8fe3bf4b513b73565258163d}{router\-\_\-solve\-\_\-arg\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{router_8h_a027679db3515967427aea1f9e7e51d4d}{router\-\_\-t} $\ast$ \hyperlink{router_8h_ab702dfcb3c10b11c3a5a6950269de63d}{router\-\_\-alloc} (long x\-Cost, long y\-Cost, long z\-Cost, long bend\-Cost)
+\item 
+void \hyperlink{router_8h_a28eeaf81f66a72c769f0eb868b14cea9}{router\-\_\-free} (\hyperlink{router_8h_a027679db3515967427aea1f9e7e51d4d}{router\-\_\-t} $\ast$router\-Ptr)
+\item 
+void \hyperlink{router_8h_afc99f42b8c4c1bdfd53f6e15b75900b7}{router\-\_\-solve} (void $\ast$arg\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{router_8h_a0a90453b8fe3bf4b513b73565258163d}{\index{router.\-h@{router.\-h}!router\-\_\-solve\-\_\-arg\-\_\-t@{router\-\_\-solve\-\_\-arg\-\_\-t}}
+\index{router\-\_\-solve\-\_\-arg\-\_\-t@{router\-\_\-solve\-\_\-arg\-\_\-t}!router.h@{router.\-h}}
+\subsubsection[{router\-\_\-solve\-\_\-arg\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf router\-\_\-solve\-\_\-arg}  {\bf router\-\_\-solve\-\_\-arg\-\_\-t}}}\label{router_8h_a0a90453b8fe3bf4b513b73565258163d}
+\hypertarget{router_8h_a027679db3515967427aea1f9e7e51d4d}{\index{router.\-h@{router.\-h}!router\-\_\-t@{router\-\_\-t}}
+\index{router\-\_\-t@{router\-\_\-t}!router.h@{router.\-h}}
+\subsubsection[{router\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf router}  {\bf router\-\_\-t}}}\label{router_8h_a027679db3515967427aea1f9e7e51d4d}
+
+
+\subsection{Function Documentation}
+\hypertarget{router_8h_ab702dfcb3c10b11c3a5a6950269de63d}{\index{router.\-h@{router.\-h}!router\-\_\-alloc@{router\-\_\-alloc}}
+\index{router\-\_\-alloc@{router\-\_\-alloc}!router.h@{router.\-h}}
+\subsubsection[{router\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf router\-\_\-t}$\ast$ router\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{x\-Cost, }
+\item[{long}]{y\-Cost, }
+\item[{long}]{z\-Cost, }
+\item[{long}]{bend\-Cost}
+\end{DoxyParamCaption}
+)}}\label{router_8h_ab702dfcb3c10b11c3a5a6950269de63d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{router_8h_ab702dfcb3c10b11c3a5a6950269de63d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8h_a28eeaf81f66a72c769f0eb868b14cea9}{\index{router.\-h@{router.\-h}!router\-\_\-free@{router\-\_\-free}}
+\index{router\-\_\-free@{router\-\_\-free}!router.h@{router.\-h}}
+\subsubsection[{router\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void router\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf router\-\_\-t} $\ast$}]{router\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{router_8h_a28eeaf81f66a72c769f0eb868b14cea9}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{router_8h_a28eeaf81f66a72c769f0eb868b14cea9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{router_8h_afc99f42b8c4c1bdfd53f6e15b75900b7}{\index{router.\-h@{router.\-h}!router\-\_\-solve@{router\-\_\-solve}}
+\index{router\-\_\-solve@{router\-\_\-solve}!router.h@{router.\-h}}
+\subsubsection[{router\-\_\-solve}]{\setlength{\rightskip}{0pt plus 5cm}void router\-\_\-solve (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{router_8h_afc99f42b8c4c1bdfd53f6e15b75900b7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{router_8h_afc99f42b8c4c1bdfd53f6e15b75900b7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{router_8h_afc99f42b8c4c1bdfd53f6e15b75900b7_icgraph}
+\end{center}
+\end{figure}
+
+

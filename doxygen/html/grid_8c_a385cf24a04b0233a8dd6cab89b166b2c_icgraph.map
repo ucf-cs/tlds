@@ -1,0 +1,5 @@
+<map id="grid_alloc" name="grid_alloc">
+<area shape="rect" id="node2" href="$maze_8h.html#a2135cee3a633084c9456873cb7746e0e" title="maze_read" alt="" coords="153,5,239,32"/>
+<area shape="rect" id="node4" href="$maze_8h.html#a3a26e3e203155748b35f8c460dcc6401" title="maze_checkPaths" alt="" coords="131,56,261,83"/>
+<area shape="rect" id="node3" href="$labyrinth_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="309,31,365,57"/>
+</map>

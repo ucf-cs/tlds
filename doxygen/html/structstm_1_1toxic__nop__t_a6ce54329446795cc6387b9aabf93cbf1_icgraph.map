@@ -1,0 +1,5 @@
+<map id="stm::toxic_nop_t::onHGCommit" name="stm::toxic_nop_t::onHGCommit">
+<area shape="rect" id="node2" href="$structstm_1_1StrongHourglassCM.html#a2960f3c8e24d6cb9f67cb2b485c3f158" title="stm::StrongHourglassCM\l::onCommit" alt="" coords="276,5,447,46"/>
+<area shape="rect" id="node3" href="$structstm_1_1HourglassCM.html#a59dc57fa05c484b45bd4fb1772d9f425" title="stm::HourglassCM::onCommit" alt="" coords="261,71,461,97"/>
+<area shape="rect" id="node4" href="$structstm_1_1HourglassBackoffCM.html#a2fd70ced29b70089607ed8e732852fa1" title="stm::HourglassBackoffCM\l::onCommit" alt="" coords="273,122,450,163"/>
+</map>

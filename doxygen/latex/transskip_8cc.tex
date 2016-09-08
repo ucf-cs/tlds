@@ -1,0 +1,857 @@
+\hypertarget{transskip_8cc}{\section{translink/skiplist/transskip.cc File Reference}
+\label{transskip_8cc}\index{translink/skiplist/transskip.\-cc@{translink/skiplist/transskip.\-cc}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include \char`\"{}common/fraser/portable\-\_\-defns.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/fraser/ptst.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}transskip.\-h\char`\"{}}\\*
+Include dependency graph for transskip.\-cc\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structHelpStack}{Help\-Stack}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{transskip_8cc_af1bd7bf5aa6d6de3cc5f9d5ec4b0f955}{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}
+\item 
+\#define \hyperlink{transskip_8cc_ae30687225c8f14173511d0dccedea716}{S\-E\-T\-\_\-\-M\-A\-R\-K}(\-\_\-p)~((\hyperlink{structnode__t}{node\-\_\-t} $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) $\vert$ 1))
+\item 
+\#define \hyperlink{transskip_8cc_a7bd1dc6e2afa5f73f39d6dbc604b8b8f}{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}(\-\_\-p)~((\hyperlink{structNodeDesc}{Node\-Desc} $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) \& $\sim$1))
+\item 
+\#define \hyperlink{transskip_8cc_a5045996183a50435fa2685920b8ea19f}{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}(\-\_\-p)~(((uintptr\-\_\-t)(\-\_\-p)) \& 1)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25}{Op\-Status} \{ \hyperlink{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a5810f7a85a06138a19e6f548273a6927}{L\-I\-V\-E} = 0, 
+\hyperlink{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a9b6890d649a5ed95ee892f10e432e6ac}{C\-O\-M\-M\-I\-T\-T\-E\-D}, 
+\hyperlink{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a3ae09818606786b529d9ca89180fa29a}{A\-B\-O\-R\-T\-E\-D}
+ \}
+\item 
+enum \hyperlink{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969}{Op\-Type} \{ \hyperlink{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D} = 0, 
+\hyperlink{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{transskip_8cc_a4ae3b77271a6617ab4b15183a6ca9601}{help\-\_\-ops} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{structDesc}{Desc} $\ast$desc, uint8\-\_\-t opid)
+\item 
+static bool \hyperlink{transskip_8cc_a0d6d503fca08ea29d18df6b11d5fbcc0}{Finish\-Pending\-Txn} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{structNodeDesc}{Node\-Desc} $\ast$node\-Desc, \hyperlink{structDesc}{Desc} $\ast$desc)
+\item 
+static bool \hyperlink{transskip_8cc_a04a4108bf9903c66f1dc0480135b8c1d}{Is\-Node\-Active} (\hyperlink{structNodeDesc}{Node\-Desc} $\ast$node\-Desc)
+\item 
+static bool \hyperlink{transskip_8cc_a0abe05e214e4e5e4b505029db0933f6d}{Is\-Key\-Exist} (\hyperlink{structNodeDesc}{Node\-Desc} $\ast$node\-Desc)
+\item 
+static bool \hyperlink{transskip_8cc_a2d52630adc00d6e36da0088ceb90327f}{Is\-Same\-Operation} (\hyperlink{structNodeDesc}{Node\-Desc} $\ast$node\-Desc1, \hyperlink{structNodeDesc}{Node\-Desc} $\ast$node\-Desc2)
+\item 
+static int \hyperlink{transskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c}{get\-\_\-level} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{transskip_8cc_aaebbe09bfcc49916e869df817e0ef5f2}{alloc\-\_\-node} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+static void \hyperlink{transskip_8cc_a26a2b06dc93215a87d025facf8370427}{free\-\_\-node} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{structnode__t}{node\-\_\-t} $\ast$n)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{transskip_8cc_a8df32de13951af05c7685b1698ce80dd}{strong\-\_\-search\-\_\-predecessors} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{structnode__t}{node\-\_\-t} $\ast$$\ast$pa, \hyperlink{structnode__t}{node\-\_\-t} $\ast$$\ast$na)
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{transskip_8cc_ad58834877131f5aaab060ce615d060f5}{weak\-\_\-search\-\_\-predecessors} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{structnode__t}{node\-\_\-t} $\ast$$\ast$pa, \hyperlink{structnode__t}{node\-\_\-t} $\ast$$\ast$na)
+\item 
+static void \hyperlink{transskip_8cc_a75266fd2f1b1dcd3213e6450a326421d}{mark\-\_\-deleted} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$x, int level)
+\item 
+static int \hyperlink{transskip_8cc_a0f45b30b9ae66fe48f2f0ca09a49069e}{check\-\_\-for\-\_\-full\-\_\-delete} (\hyperlink{structnode__t}{node\-\_\-t} $\ast$x)
+\item 
+static void \hyperlink{transskip_8cc_adef6414bd01ff21125b7e1042f709ac2}{do\-\_\-full\-\_\-delete} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{structnode__t}{node\-\_\-t} $\ast$x, int level)
+\item 
+\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$ \hyperlink{transskip_8cc_aca5b2ecf6dbd28c51a830b02e2b12911}{transskip\-\_\-alloc} (\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structDesc}{Desc} $>$ $\ast$\-\_\-desc\-Allocator, \hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structNodeDesc}{Node\-Desc} $>$ $\ast$\-\_\-node\-Desc\-Allocator)
+\item 
+bool \hyperlink{transskip_8cc_a977b7a640f81eb02b78ee08376387721}{transskip\-\_\-insert} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{structDesc}{Desc} $\ast$desc, uint8\-\_\-t opid, \hyperlink{structnode__t}{node\-\_\-t} $\ast$\&n)
+\item 
+bool \hyperlink{transskip_8cc_a45102b19cad6e5d69fc6d1b4db42cf44}{transskip\-\_\-delete} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{structDesc}{Desc} $\ast$desc, uint8\-\_\-t opid, \hyperlink{structnode__t}{node\-\_\-t} $\ast$\&n)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{transskip_8cc_a0476ce376b2b4276828a9b197a43d75a}{transskip\-\_\-delete\-\_\-org} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k)
+\item 
+bool \hyperlink{transskip_8cc_ae89a19c5e265e1f4988a8df74d9d27f7}{transskip\-\_\-find} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{structDesc}{Desc} $\ast$desc, uint8\-\_\-t opid)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{transskip_8cc_a292c5287f7cc9497a62add15d3aca707}{transskip\-\_\-find\-\_\-original} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k)
+\item 
+void \hyperlink{transskip_8cc_a45613be712b23cdba5b2f588f2c2e244}{init\-\_\-transskip\-\_\-subsystem} (void)
+\item 
+void \hyperlink{transskip_8cc_aae78ecc87cdfcfb8093d7b980fdab301}{destroy\-\_\-transskip\-\_\-subsystem} (void)
+\item 
+bool \hyperlink{transskip_8cc_ab9c29316cb91737b6c383818ff700dd0}{execute\-\_\-ops} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l}, \hyperlink{structDesc}{Desc} $\ast$desc)
+\item 
+void \hyperlink{transskip_8cc_a7bcad9ac414cdbcb1c0ef4715535267f}{transskip\-\_\-print} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l})
+\item 
+void \hyperlink{transskip_8cc_a4b81d9a45ece4bd0ae969d39798a6a3f}{transskip\-\_\-free} (\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$\hyperlink{structl}{l})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-thread \hyperlink{structHelpStack}{Help\-Stack} \hyperlink{transskip_8cc_ad626624dfd5f6a2004a2a3984b899c4c}{help\-Stack}
+\item 
+static int \hyperlink{transskip_8cc_a4680ac3204207c1899defd92356d606a}{gc\-\_\-id} \mbox{[}N\-U\-M\-\_\-\-L\-E\-V\-E\-L\-S\mbox{]}
+\item 
+static uint32\-\_\-t \hyperlink{transskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{g\-\_\-count\-\_\-commit} = 0
+\item 
+static uint32\-\_\-t \hyperlink{transskip_8cc_af6d2ec7fd143428ba3a29037b463a512}{g\-\_\-count\-\_\-abort} = 0
+\item 
+static uint32\-\_\-t \hyperlink{transskip_8cc_addca4ad790cd72e92c19479bf9095c22}{g\-\_\-count\-\_\-fake\-\_\-abort} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{transskip_8cc_af1bd7bf5aa6d6de3cc5f9d5ec4b0f955}{\index{transskip.\-cc@{transskip.\-cc}!\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-@{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-@{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{\-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-S\-E\-T\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}}\label{transskip_8cc_af1bd7bf5aa6d6de3cc5f9d5ec4b0f955}
+\hypertarget{transskip_8cc_a7bd1dc6e2afa5f73f39d6dbc604b8b8f}{\index{transskip.\-cc@{transskip.\-cc}!C\-L\-R\-\_\-\-M\-A\-R\-K\-D@{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}}
+\index{C\-L\-R\-\_\-\-M\-A\-R\-K\-D@{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{C\-L\-R\-\_\-\-M\-A\-R\-K\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-L\-R\-\_\-\-M\-A\-R\-K\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(({\bf Node\-Desc} $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) \& $\sim$1))}}\label{transskip_8cc_a7bd1dc6e2afa5f73f39d6dbc604b8b8f}
+\hypertarget{transskip_8cc_a5045996183a50435fa2685920b8ea19f}{\index{transskip.\-cc@{transskip.\-cc}!I\-S\-\_\-\-M\-A\-R\-K\-E\-D@{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}}
+\index{I\-S\-\_\-\-M\-A\-R\-K\-E\-D@{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{I\-S\-\_\-\-M\-A\-R\-K\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-S\-\_\-\-M\-A\-R\-K\-E\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(((uintptr\-\_\-t)(\-\_\-p)) \& 1)}}\label{transskip_8cc_a5045996183a50435fa2685920b8ea19f}
+\hypertarget{transskip_8cc_ae30687225c8f14173511d0dccedea716}{\index{transskip.\-cc@{transskip.\-cc}!S\-E\-T\-\_\-\-M\-A\-R\-K@{S\-E\-T\-\_\-\-M\-A\-R\-K}}
+\index{S\-E\-T\-\_\-\-M\-A\-R\-K@{S\-E\-T\-\_\-\-M\-A\-R\-K}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{S\-E\-T\-\_\-\-M\-A\-R\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-T\-\_\-\-M\-A\-R\-K(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(({\bf node\-\_\-t} $\ast$)(((uintptr\-\_\-t)(\-\_\-p)) $\vert$ 1))}}\label{transskip_8cc_ae30687225c8f14173511d0dccedea716}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25}{\index{transskip.\-cc@{transskip.\-cc}!Op\-Status@{Op\-Status}}
+\index{Op\-Status@{Op\-Status}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{Op\-Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Op\-Status}}}\label{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{L\-I\-V\-E@{L\-I\-V\-E}!transskip.\-cc@{transskip.\-cc}}\index{transskip.\-cc@{transskip.\-cc}!L\-I\-V\-E@{L\-I\-V\-E}}\item[{\em 
+\hypertarget{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a5810f7a85a06138a19e6f548273a6927}{L\-I\-V\-E}\label{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a5810f7a85a06138a19e6f548273a6927}
+}]\index{C\-O\-M\-M\-I\-T\-T\-E\-D@{C\-O\-M\-M\-I\-T\-T\-E\-D}!transskip.\-cc@{transskip.\-cc}}\index{transskip.\-cc@{transskip.\-cc}!C\-O\-M\-M\-I\-T\-T\-E\-D@{C\-O\-M\-M\-I\-T\-T\-E\-D}}\item[{\em 
+\hypertarget{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a9b6890d649a5ed95ee892f10e432e6ac}{C\-O\-M\-M\-I\-T\-T\-E\-D}\label{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a9b6890d649a5ed95ee892f10e432e6ac}
+}]\index{A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}!transskip.\-cc@{transskip.\-cc}}\index{transskip.\-cc@{transskip.\-cc}!A\-B\-O\-R\-T\-E\-D@{A\-B\-O\-R\-T\-E\-D}}\item[{\em 
+\hypertarget{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a3ae09818606786b529d9ca89180fa29a}{A\-B\-O\-R\-T\-E\-D}\label{transskip_8cc_af9e675a7980d5ac679b868f4ac463c25a3ae09818606786b529d9ca89180fa29a}
+}]\end{description}
+\end{Desc}
+\hypertarget{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969}{\index{transskip.\-cc@{transskip.\-cc}!Op\-Type@{Op\-Type}}
+\index{Op\-Type@{Op\-Type}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{Op\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Op\-Type}}}\label{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\-I\-N\-D@{F\-I\-N\-D}!transskip.\-cc@{transskip.\-cc}}\index{transskip.\-cc@{transskip.\-cc}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D}\label{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969a8f189475707a2b69614aeb6c6904a6df}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!transskip.\-cc@{transskip.\-cc}}\index{transskip.\-cc@{transskip.\-cc}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}\label{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969aa15c451953b2d2a93403afe786930d0f}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!transskip.\-cc@{transskip.\-cc}}\index{transskip.\-cc@{transskip.\-cc}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}\label{transskip_8cc_aa1aa1c6a8f3bbed5b167bc2d4511b969a9d61e82a9a12752f10aece1b22183913}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{transskip_8cc_aaebbe09bfcc49916e869df817e0ef5f2}{\index{transskip.\-cc@{transskip.\-cc}!alloc\-\_\-node@{alloc\-\_\-node}}
+\index{alloc\-\_\-node@{alloc\-\_\-node}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{alloc\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ alloc\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_aaebbe09bfcc49916e869df817e0ef5f2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_aaebbe09bfcc49916e869df817e0ef5f2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_aaebbe09bfcc49916e869df817e0ef5f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a0f45b30b9ae66fe48f2f0ca09a49069e}{\index{transskip.\-cc@{transskip.\-cc}!check\-\_\-for\-\_\-full\-\_\-delete@{check\-\_\-for\-\_\-full\-\_\-delete}}
+\index{check\-\_\-for\-\_\-full\-\_\-delete@{check\-\_\-for\-\_\-full\-\_\-delete}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{check\-\_\-for\-\_\-full\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}static int check\-\_\-for\-\_\-full\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_a0f45b30b9ae66fe48f2f0ca09a49069e}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a0f45b30b9ae66fe48f2f0ca09a49069e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_aae78ecc87cdfcfb8093d7b980fdab301}{\index{transskip.\-cc@{transskip.\-cc}!destroy\-\_\-transskip\-\_\-subsystem@{destroy\-\_\-transskip\-\_\-subsystem}}
+\index{destroy\-\_\-transskip\-\_\-subsystem@{destroy\-\_\-transskip\-\_\-subsystem}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{destroy\-\_\-transskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\-\_\-transskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_aae78ecc87cdfcfb8093d7b980fdab301}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_aae78ecc87cdfcfb8093d7b980fdab301_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_aae78ecc87cdfcfb8093d7b980fdab301_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_adef6414bd01ff21125b7e1042f709ac2}{\index{transskip.\-cc@{transskip.\-cc}!do\-\_\-full\-\_\-delete@{do\-\_\-full\-\_\-delete}}
+\index{do\-\_\-full\-\_\-delete@{do\-\_\-full\-\_\-delete}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{do\-\_\-full\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}static void do\-\_\-full\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf node\-\_\-t} $\ast$}]{x, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_adef6414bd01ff21125b7e1042f709ac2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_adef6414bd01ff21125b7e1042f709ac2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_adef6414bd01ff21125b7e1042f709ac2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_ab9c29316cb91737b6c383818ff700dd0}{\index{transskip.\-cc@{transskip.\-cc}!execute\-\_\-ops@{execute\-\_\-ops}}
+\index{execute\-\_\-ops@{execute\-\_\-ops}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{execute\-\_\-ops}]{\setlength{\rightskip}{0pt plus 5cm}bool execute\-\_\-ops (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_ab9c29316cb91737b6c383818ff700dd0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_ab9c29316cb91737b6c383818ff700dd0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{transskip_8cc_ab9c29316cb91737b6c383818ff700dd0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a0d6d503fca08ea29d18df6b11d5fbcc0}{\index{transskip.\-cc@{transskip.\-cc}!Finish\-Pending\-Txn@{Finish\-Pending\-Txn}}
+\index{Finish\-Pending\-Txn@{Finish\-Pending\-Txn}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{Finish\-Pending\-Txn}]{\setlength{\rightskip}{0pt plus 5cm}static bool Finish\-Pending\-Txn (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc, }
+\item[{{\bf Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{transskip_8cc_a0d6d503fca08ea29d18df6b11d5fbcc0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a0d6d503fca08ea29d18df6b11d5fbcc0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a0d6d503fca08ea29d18df6b11d5fbcc0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a26a2b06dc93215a87d025facf8370427}{\index{transskip.\-cc@{transskip.\-cc}!free\-\_\-node@{free\-\_\-node}}
+\index{free\-\_\-node@{free\-\_\-node}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{free\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-\_\-node (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf node\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_a26a2b06dc93215a87d025facf8370427}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a26a2b06dc93215a87d025facf8370427_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a26a2b06dc93215a87d025facf8370427_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c}{\index{transskip.\-cc@{transskip.\-cc}!get\-\_\-level@{get\-\_\-level}}
+\index{get\-\_\-level@{get\-\_\-level}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{get\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}static int get\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a4ae3b77271a6617ab4b15183a6ca9601}{\index{transskip.\-cc@{transskip.\-cc}!help\-\_\-ops@{help\-\_\-ops}}
+\index{help\-\_\-ops@{help\-\_\-ops}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{help\-\_\-ops}]{\setlength{\rightskip}{0pt plus 5cm}static bool help\-\_\-ops (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{transskip_8cc_a4ae3b77271a6617ab4b15183a6ca9601}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a4ae3b77271a6617ab4b15183a6ca9601_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a4ae3b77271a6617ab4b15183a6ca9601_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a45613be712b23cdba5b2f588f2c2e244}{\index{transskip.\-cc@{transskip.\-cc}!init\-\_\-transskip\-\_\-subsystem@{init\-\_\-transskip\-\_\-subsystem}}
+\index{init\-\_\-transskip\-\_\-subsystem@{init\-\_\-transskip\-\_\-subsystem}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{init\-\_\-transskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-transskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a45613be712b23cdba5b2f588f2c2e244}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a45613be712b23cdba5b2f588f2c2e244_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a45613be712b23cdba5b2f588f2c2e244_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a0abe05e214e4e5e4b505029db0933f6d}{\index{transskip.\-cc@{transskip.\-cc}!Is\-Key\-Exist@{Is\-Key\-Exist}}
+\index{Is\-Key\-Exist@{Is\-Key\-Exist}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{Is\-Key\-Exist}]{\setlength{\rightskip}{0pt plus 5cm}static bool Is\-Key\-Exist (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{transskip_8cc_a0abe05e214e4e5e4b505029db0933f6d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{transskip_8cc_a0abe05e214e4e5e4b505029db0933f6d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a0abe05e214e4e5e4b505029db0933f6d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a04a4108bf9903c66f1dc0480135b8c1d}{\index{transskip.\-cc@{transskip.\-cc}!Is\-Node\-Active@{Is\-Node\-Active}}
+\index{Is\-Node\-Active@{Is\-Node\-Active}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{Is\-Node\-Active}]{\setlength{\rightskip}{0pt plus 5cm}static bool Is\-Node\-Active (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{transskip_8cc_a04a4108bf9903c66f1dc0480135b8c1d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a04a4108bf9903c66f1dc0480135b8c1d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a2d52630adc00d6e36da0088ceb90327f}{\index{transskip.\-cc@{transskip.\-cc}!Is\-Same\-Operation@{Is\-Same\-Operation}}
+\index{Is\-Same\-Operation@{Is\-Same\-Operation}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{Is\-Same\-Operation}]{\setlength{\rightskip}{0pt plus 5cm}static bool Is\-Same\-Operation (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc1, }
+\item[{{\bf Node\-Desc} $\ast$}]{node\-Desc2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{transskip_8cc_a2d52630adc00d6e36da0088ceb90327f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a2d52630adc00d6e36da0088ceb90327f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a75266fd2f1b1dcd3213e6450a326421d}{\index{transskip.\-cc@{transskip.\-cc}!mark\-\_\-deleted@{mark\-\_\-deleted}}
+\index{mark\-\_\-deleted@{mark\-\_\-deleted}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{mark\-\_\-deleted}]{\setlength{\rightskip}{0pt plus 5cm}static void mark\-\_\-deleted (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-t} $\ast$}]{x, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_a75266fd2f1b1dcd3213e6450a326421d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{transskip_8cc_a75266fd2f1b1dcd3213e6450a326421d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a75266fd2f1b1dcd3213e6450a326421d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a8df32de13951af05c7685b1698ce80dd}{\index{transskip.\-cc@{transskip.\-cc}!strong\-\_\-search\-\_\-predecessors@{strong\-\_\-search\-\_\-predecessors}}
+\index{strong\-\_\-search\-\_\-predecessors@{strong\-\_\-search\-\_\-predecessors}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{strong\-\_\-search\-\_\-predecessors}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ strong\-\_\-search\-\_\-predecessors (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf node\-\_\-t} $\ast$$\ast$}]{pa, }
+\item[{{\bf node\-\_\-t} $\ast$$\ast$}]{na}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_a8df32de13951af05c7685b1698ce80dd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a8df32de13951af05c7685b1698ce80dd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a8df32de13951af05c7685b1698ce80dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_aca5b2ecf6dbd28c51a830b02e2b12911}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-alloc@{transskip\-\_\-alloc}}
+\index{transskip\-\_\-alloc@{transskip\-\_\-alloc}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf trans\-\_\-skip}$\ast$ transskip\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf Allocator}$<$ {\bf Desc} $>$ $\ast$}]{\-\_\-desc\-Allocator, }
+\item[{{\bf Allocator}$<$ {\bf Node\-Desc} $>$ $\ast$}]{\-\_\-node\-Desc\-Allocator}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_aca5b2ecf6dbd28c51a830b02e2b12911}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{transskip_8cc_aca5b2ecf6dbd28c51a830b02e2b12911_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a45102b19cad6e5d69fc6d1b4db42cf44}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-delete@{transskip\-\_\-delete}}
+\index{transskip\-\_\-delete@{transskip\-\_\-delete}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}bool transskip\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid, }
+\item[{{\bf node\-\_\-t} $\ast$\&}]{n}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a45102b19cad6e5d69fc6d1b4db42cf44}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a45102b19cad6e5d69fc6d1b4db42cf44_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a45102b19cad6e5d69fc6d1b4db42cf44_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a0476ce376b2b4276828a9b197a43d75a}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-delete\-\_\-org@{transskip\-\_\-delete\-\_\-org}}
+\index{transskip\-\_\-delete\-\_\-org@{transskip\-\_\-delete\-\_\-org}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-delete\-\_\-org}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} transskip\-\_\-delete\-\_\-org (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a0476ce376b2b4276828a9b197a43d75a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a0476ce376b2b4276828a9b197a43d75a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_ae89a19c5e265e1f4988a8df74d9d27f7}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-find@{transskip\-\_\-find}}
+\index{transskip\-\_\-find@{transskip\-\_\-find}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}bool transskip\-\_\-find (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_ae89a19c5e265e1f4988a8df74d9d27f7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_ae89a19c5e265e1f4988a8df74d9d27f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_ae89a19c5e265e1f4988a8df74d9d27f7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a292c5287f7cc9497a62add15d3aca707}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-find\-\_\-original@{transskip\-\_\-find\-\_\-original}}
+\index{transskip\-\_\-find\-\_\-original@{transskip\-\_\-find\-\_\-original}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-find\-\_\-original}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} transskip\-\_\-find\-\_\-original (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a292c5287f7cc9497a62add15d3aca707}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a292c5287f7cc9497a62add15d3aca707_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a4b81d9a45ece4bd0ae969d39798a6a3f}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-free@{transskip\-\_\-free}}
+\index{transskip\-\_\-free@{transskip\-\_\-free}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void transskip\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a4b81d9a45ece4bd0ae969d39798a6a3f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{transskip_8cc_a4b81d9a45ece4bd0ae969d39798a6a3f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a977b7a640f81eb02b78ee08376387721}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-insert@{transskip\-\_\-insert}}
+\index{transskip\-\_\-insert@{transskip\-\_\-insert}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}bool transskip\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf Desc} $\ast$}]{desc, }
+\item[{uint8\-\_\-t}]{opid, }
+\item[{{\bf node\-\_\-t} $\ast$\&}]{n}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a977b7a640f81eb02b78ee08376387721}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a977b7a640f81eb02b78ee08376387721_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a977b7a640f81eb02b78ee08376387721_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_a7bcad9ac414cdbcb1c0ef4715535267f}{\index{transskip.\-cc@{transskip.\-cc}!transskip\-\_\-print@{transskip\-\_\-print}}
+\index{transskip\-\_\-print@{transskip\-\_\-print}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{transskip\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void transskip\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{transskip_8cc_a7bcad9ac414cdbcb1c0ef4715535267f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_a7bcad9ac414cdbcb1c0ef4715535267f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{transskip_8cc_ad58834877131f5aaab060ce615d060f5}{\index{transskip.\-cc@{transskip.\-cc}!weak\-\_\-search\-\_\-predecessors@{weak\-\_\-search\-\_\-predecessors}}
+\index{weak\-\_\-search\-\_\-predecessors@{weak\-\_\-search\-\_\-predecessors}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{weak\-\_\-search\-\_\-predecessors}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ weak\-\_\-search\-\_\-predecessors (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\-\_\-skip} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf node\-\_\-t} $\ast$$\ast$}]{pa, }
+\item[{{\bf node\-\_\-t} $\ast$$\ast$}]{na}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_ad58834877131f5aaab060ce615d060f5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_ad58834877131f5aaab060ce615d060f5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transskip_8cc_ad58834877131f5aaab060ce615d060f5_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{transskip_8cc_af6d2ec7fd143428ba3a29037b463a512}{\index{transskip.\-cc@{transskip.\-cc}!g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}}
+\index{g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{g\-\_\-count\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t g\-\_\-count\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_af6d2ec7fd143428ba3a29037b463a512}
+\hypertarget{transskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{\index{transskip.\-cc@{transskip.\-cc}!g\-\_\-count\-\_\-commit@{g\-\_\-count\-\_\-commit}}
+\index{g\-\_\-count\-\_\-commit@{g\-\_\-count\-\_\-commit}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{g\-\_\-count\-\_\-commit}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t g\-\_\-count\-\_\-commit = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_a31e805bc19e3448a48adec9322bbb28a}
+\hypertarget{transskip_8cc_addca4ad790cd72e92c19479bf9095c22}{\index{transskip.\-cc@{transskip.\-cc}!g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}}
+\index{g\-\_\-count\-\_\-fake\-\_\-abort@{g\-\_\-count\-\_\-fake\-\_\-abort}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{g\-\_\-count\-\_\-fake\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t g\-\_\-count\-\_\-fake\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_addca4ad790cd72e92c19479bf9095c22}
+\hypertarget{transskip_8cc_a4680ac3204207c1899defd92356d606a}{\index{transskip.\-cc@{transskip.\-cc}!gc\-\_\-id@{gc\-\_\-id}}
+\index{gc\-\_\-id@{gc\-\_\-id}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{gc\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int gc\-\_\-id\mbox{[}N\-U\-M\-\_\-\-L\-E\-V\-E\-L\-S\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_a4680ac3204207c1899defd92356d606a}
+\hypertarget{transskip_8cc_ad626624dfd5f6a2004a2a3984b899c4c}{\index{transskip.\-cc@{transskip.\-cc}!help\-Stack@{help\-Stack}}
+\index{help\-Stack@{help\-Stack}!transskip.cc@{transskip.\-cc}}
+\subsubsection[{help\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-thread {\bf Help\-Stack} help\-Stack\hspace{0.3cm}{\ttfamily [static]}}}\label{transskip_8cc_ad626624dfd5f6a2004a2a3984b899c4c}

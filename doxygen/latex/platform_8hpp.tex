@@ -1,0 +1,120 @@
+\hypertarget{platform_8hpp}{\section{rstm/rstm-\/dev/include/common/platform.hpp File Reference}
+\label{platform_8hpp}\index{rstm/rstm-\/dev/include/common/platform.\-hpp@{rstm/rstm-\/dev/include/common/platform.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+Include dependency graph for platform.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{platform_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{platform_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{platform_8hpp_a4538b5ec4a295a2b8a52560e61575041}{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}~64
+\item 
+\#define \hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N}~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((noreturn))
+\item 
+\#define \hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E}~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((noinline))
+\item 
+\#define \hyperlink{platform_8hpp_aa1dec568e79152c892dcf63f445cbd7a}{A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E}~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((always\-\_\-inline))
+\item 
+\#define \hyperlink{platform_8hpp_abcd0a22ee4346cad5706adb6d2119429}{U\-S\-E\-D}~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((used))
+\item 
+\#define \hyperlink{platform_8hpp_a9d1d3ac5436a537d640377505ecf810f}{R\-E\-G\-P\-A\-R\-M}(\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((regparm(\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})))
+\item 
+\#define \hyperlink{platform_8hpp_a95663eafc2f3ad7f220ae4bc64feece7}{S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32}
+\item 
+\#define \hyperlink{platform_8hpp_acf03b9ed7c0734fd742eda91a2743cc4}{G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((fastcall))
+\item 
+\#define \hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E}~\hyperlink{platform_8hpp_aa1dec568e79152c892dcf63f445cbd7a}{A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E}
+\item 
+\#define \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}
+\item 
+\#define \hyperlink{platform_8hpp_a2219c615b6f6ec19641ad72ab9cf0fa7}{T\-M\-\_\-\-A\-L\-I\-G\-N}(\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})~\hyperlink{counted__ptr_8hpp_a454a5e4bfc1243a175baaa7327bb751f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((aligned(\hyperlink{mt19937ar_8h_a0240ac851181b84ac374872dc5434ee4}{N})))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{platform_8hpp_ae617a6842d4f3a192064c4354b88fcff}{sleep\-\_\-ms} (uint32\-\_\-t ms)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{platform_8hpp_aa1dec568e79152c892dcf63f445cbd7a}{\index{platform.\-hpp@{platform.\-hpp}!A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E@{A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E}}
+\index{A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E@{A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((always\-\_\-inline))}}\label{platform_8hpp_aa1dec568e79152c892dcf63f445cbd7a}
+\hypertarget{platform_8hpp_a4538b5ec4a295a2b8a52560e61575041}{\index{platform.\-hpp@{platform.\-hpp}!C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S@{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}}
+\index{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S@{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-C\-H\-E\-L\-I\-N\-E\-\_\-\-B\-Y\-T\-E\-S~64}}\label{platform_8hpp_a4538b5ec4a295a2b8a52560e61575041}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This file hides differences that are based on compiler, C\-P\-U, and O\-S. In particular, we define\-:
+
+1) atomic operations (cas, swap, etc, atomic 64-\/bit load/store) 2) access to the tick counter 3) clean definitions of custom compiler constructs (\-\_\-\-\_\-builtin\-\_\-expect, alignment attributes, etc) 4) scheduler syscalls (sleep, yield) 5) a high-\/resolution timer We set up a bunch of macros that we use to insulate the rest of the code from potentially platform-\/dependent behavior.
+
+N\-B\-: This is partially keyed off of {\bfseries L\-P64} which isn't universally defined for -\/m64 code, but it works on the platforms that we support.
+
+N\-B2\-: We don't really support non-\/gcc compatible compilers, so there isn't any compiler logic in these ifdefs. If we begin to support the Windows platform these will need to be more complicated We begin by hard-\/coding some macros that may become platform-\/dependent in the future. \hypertarget{platform_8hpp_acf03b9ed7c0734fd742eda91a2743cc4}{\index{platform.\-hpp@{platform.\-hpp}!G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L@{G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}}
+\index{G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L@{G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-C\-C\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((fastcall))}}\label{platform_8hpp_acf03b9ed7c0734fd742eda91a2743cc4}
+G\-C\-C's fastcall attribute causes a warning on x86\-\_\-64, so we don't use it there (it's not necessary in any case because of the native calling convention. \hypertarget{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{\index{platform.\-hpp@{platform.\-hpp}!N\-O\-I\-N\-L\-I\-N\-E@{N\-O\-I\-N\-L\-I\-N\-E}}
+\index{N\-O\-I\-N\-L\-I\-N\-E@{N\-O\-I\-N\-L\-I\-N\-E}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{N\-O\-I\-N\-L\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-O\-I\-N\-L\-I\-N\-E~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((noinline))}}\label{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}
+\hypertarget{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{\index{platform.\-hpp@{platform.\-hpp}!N\-O\-R\-E\-T\-U\-R\-N@{N\-O\-R\-E\-T\-U\-R\-N}}
+\index{N\-O\-R\-E\-T\-U\-R\-N@{N\-O\-R\-E\-T\-U\-R\-N}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{N\-O\-R\-E\-T\-U\-R\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-O\-R\-E\-T\-U\-R\-N~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((noreturn))}}\label{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}
+\hypertarget{platform_8hpp_a9d1d3ac5436a537d640377505ecf810f}{\index{platform.\-hpp@{platform.\-hpp}!R\-E\-G\-P\-A\-R\-M@{R\-E\-G\-P\-A\-R\-M}}
+\index{R\-E\-G\-P\-A\-R\-M@{R\-E\-G\-P\-A\-R\-M}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{R\-E\-G\-P\-A\-R\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-G\-P\-A\-R\-M(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf N}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((regparm({\bf N})))}}\label{platform_8hpp_a9d1d3ac5436a537d640377505ecf810f}
+\hypertarget{platform_8hpp_a95663eafc2f3ad7f220ae4bc64feece7}{\index{platform.\-hpp@{platform.\-hpp}!S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32@{S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32}}
+\index{S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32@{S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-B\-I\-T\-S\-\_\-32}}\label{platform_8hpp_a95663eafc2f3ad7f220ae4bc64feece7}
+Pick up the B\-I\-T\-S define from the {\bfseries L\-P64} token. \hypertarget{platform_8hpp_a2219c615b6f6ec19641ad72ab9cf0fa7}{\index{platform.\-hpp@{platform.\-hpp}!T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}}
+\index{T\-M\-\_\-\-A\-L\-I\-G\-N@{T\-M\-\_\-\-A\-L\-I\-G\-N}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-A\-L\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-A\-L\-I\-G\-N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf N}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((aligned({\bf N})))}}\label{platform_8hpp_a2219c615b6f6ec19641ad72ab9cf0fa7}
+\hypertarget{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{\index{platform.\-hpp@{platform.\-hpp}!T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L@{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}}
+\index{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L@{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}}\label{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}
+\hypertarget{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{\index{platform.\-hpp@{platform.\-hpp}!T\-M\-\_\-\-I\-N\-L\-I\-N\-E@{T\-M\-\_\-\-I\-N\-L\-I\-N\-E}}
+\index{T\-M\-\_\-\-I\-N\-L\-I\-N\-E@{T\-M\-\_\-\-I\-N\-L\-I\-N\-E}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{T\-M\-\_\-\-I\-N\-L\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-I\-N\-L\-I\-N\-E~{\bf A\-L\-W\-A\-Y\-S\-\_\-\-I\-N\-L\-I\-N\-E}}}\label{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}
+We rely on the configured parameters here (no cross platform building yet) \hypertarget{platform_8hpp_abcd0a22ee4346cad5706adb6d2119429}{\index{platform.\-hpp@{platform.\-hpp}!U\-S\-E\-D@{U\-S\-E\-D}}
+\index{U\-S\-E\-D@{U\-S\-E\-D}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{U\-S\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-E\-D~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((used))}}\label{platform_8hpp_abcd0a22ee4346cad5706adb6d2119429}
+
+
+\subsection{Function Documentation}
+\hypertarget{platform_8hpp_ae617a6842d4f3a192064c4354b88fcff}{\index{platform.\-hpp@{platform.\-hpp}!sleep\-\_\-ms@{sleep\-\_\-ms}}
+\index{sleep\-\_\-ms@{sleep\-\_\-ms}!platform.hpp@{platform.\-hpp}}
+\subsubsection[{sleep\-\_\-ms}]{\setlength{\rightskip}{0pt plus 5cm}void sleep\-\_\-ms (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{ms}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{platform_8hpp_ae617a6842d4f3a192064c4354b88fcff}
+The first task for this file is to declare atomic operations (cas, swap, etc) and custom assembly codes, such as compiler fences, memory barriers, and no-\/op instructions. This code depends on the compiler and processor. icc is nominally an x86/x86-\/64 compiler that supports sync builtins, however the stm prototype doesn't support operations on pointer types, which we perform all the time. This header performs the fixes by \#defining the \-\_\-\-\_\-sync builtin symbols as partial templates. Here is the declaration of atomic operations when we're on an x86 (32bit or 64bit) and using the G\-N\-U compiler collection. This assumes that the compiler is recent enough that it supports the builtin \-\_\-\-\_\-sync operations Here is the declaration of atomic operations when we're on a sparc (32bit) and using the G\-N\-U compiler collection. For some reason, gcc 4.\-3.\-1 \-\_\-\-\_\-sync\-\_\-$\ast$ operations can sometimes cause odd compiler crashes, so we provide our own assembly and use it instead.
+
+N\-B\-: gcc doesn't provide a builtin equivalent to the S\-P\-A\-R\-C swap instruction, and thus we have to implement atomicswap ourselves. Here is the declaration of atomic operations when we're using Sun Studio 12.\-1. These work for x86 and S\-P\-A\-R\-C, at 32-\/bit or 64-\/bit Now we must deal with the ability to load/store 64-\/bit values safely. In 32-\/bit mode, this is potentially a problem, so we handle 64-\/bit atomic load/store via the mvx() function. mvx() depends on the bit level and the C\-P\-U The next task for this file is to establish access to a high-\/resolution C\-P\-U timer. The code depends on the C\-P\-U and bit level. It is identical for 32/64-\/bit x86. For sparc, the code depends on if we are 32-\/bit or 64-\/bit. Next, we provide a platform-\/independent function for sleeping for a number of milliseconds. This code depends on the O\-S.
+
+N\-B\-: since we do not have Win32 support, this is now very easy... we just use the usleep instruction. 

@@ -1,0 +1,53 @@
+\hypertarget{unionstm_1_1id__version__t}{\section{stm\-:\-:id\-\_\-version\-\_\-t Union Reference}
+\label{unionstm_1_1id__version__t}\index{stm\-::id\-\_\-version\-\_\-t@{stm\-::id\-\_\-version\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$metadata.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:id\-\_\-version\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{unionstm_1_1id__version__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uintptr\_t \hyperlink{unionstm_1_1id__version__t_a8064c40e44c8e2912c89683a31e45eed}{lock}:1\\
+\>uintptr\_t \hyperlink{unionstm_1_1id__version__t_a1f425cb109ebb01b517b0b8de74ebb06}{id}:(8$\ast$sizeof(uintptr\_t))-\/1\\
+\} \hyperlink{unionstm_1_1id__version__t_a76e19433e55adf1359e31402c6d966dc}{fields}\\
+
+\end{tabbing}\item 
+uintptr\-\_\-t \hyperlink{unionstm_1_1id__version__t_a10064f484ae15db0ae6943fa48a2cb9e}{all}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{unionstm_1_1id__version__t}{id\-\_\-version\-\_\-t} uses the msb as the lock bit. If the msb is zero, treat the word as a version number. Otherwise, treat it as a struct with the lower 8 bits giving the I\-D of the lock-\/holding thread. 
+
+\subsection{Member Data Documentation}
+\hypertarget{unionstm_1_1id__version__t_a10064f484ae15db0ae6943fa48a2cb9e}{\index{stm\-::id\-\_\-version\-\_\-t@{stm\-::id\-\_\-version\-\_\-t}!all@{all}}
+\index{all@{all}!stm::id_version_t@{stm\-::id\-\_\-version\-\_\-t}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::id\-\_\-version\-\_\-t\-::all}}\label{unionstm_1_1id__version__t_a10064f484ae15db0ae6943fa48a2cb9e}
+\hypertarget{unionstm_1_1id__version__t_a76e19433e55adf1359e31402c6d966dc}{\index{stm\-::id\-\_\-version\-\_\-t@{stm\-::id\-\_\-version\-\_\-t}!fields@{fields}}
+\index{fields@{fields}!stm::id_version_t@{stm\-::id\-\_\-version\-\_\-t}}
+\subsubsection[{fields}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   stm\-::id\-\_\-version\-\_\-t\-::fields}}\label{unionstm_1_1id__version__t_a76e19433e55adf1359e31402c6d966dc}
+\hypertarget{unionstm_1_1id__version__t_a1f425cb109ebb01b517b0b8de74ebb06}{\index{stm\-::id\-\_\-version\-\_\-t@{stm\-::id\-\_\-version\-\_\-t}!id@{id}}
+\index{id@{id}!stm::id_version_t@{stm\-::id\-\_\-version\-\_\-t}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::id\-\_\-version\-\_\-t\-::id}}\label{unionstm_1_1id__version__t_a1f425cb109ebb01b517b0b8de74ebb06}
+\hypertarget{unionstm_1_1id__version__t_a8064c40e44c8e2912c89683a31e45eed}{\index{stm\-::id\-\_\-version\-\_\-t@{stm\-::id\-\_\-version\-\_\-t}!lock@{lock}}
+\index{lock@{lock}!stm::id_version_t@{stm\-::id\-\_\-version\-\_\-t}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t stm\-::id\-\_\-version\-\_\-t\-::lock}}\label{unionstm_1_1id__version__t_a8064c40e44c8e2912c89683a31e45eed}
+
+
+The documentation for this union was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{metadata_8hpp}{metadata.\-hpp}\end{DoxyCompactItemize}

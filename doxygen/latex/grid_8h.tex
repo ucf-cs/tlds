@@ -1,0 +1,504 @@
+\hypertarget{grid_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/labyrinth/grid.h File Reference}
+\label{grid_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/grid.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/labyrinth/grid.\-h}}
+}
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for grid.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{grid_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structgrid}{grid}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{grid_8h_aa28b349ecbb080dc498994f5a9a120da}{P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C}(x, y, z)~\hyperlink{grid_8h_aef5e54b79ecc8af10d200de884f31d87}{Pgrid\-\_\-alloc}(x, y, z)
+\item 
+\#define \hyperlink{grid_8h_ad7498ed3d9b94ea567a5c053a50651dc}{P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E}(g)~\hyperlink{grid_8h_aa7ba563ec9f4ccf69d71cf4ab131c3b5}{Pgrid\-\_\-free}(g)
+\item 
+\#define \hyperlink{grid_8h_a5ab8f140bf6cbad69b7783523401734f}{T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H}(g, \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})~\hyperlink{grid_8h_afc96f00c770d2aa0d01d418ad19479cd}{T\-Mgrid\-\_\-add\-Path}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  g, \hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p})
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structgrid}{grid} \hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{grid_8h_af9bdc3014f3d54c426b6d2df10de4960a8a4f78acf6a406ffd277c8d58b509b72}{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-F\-U\-L\-L} = -\/2\-L, 
+\hyperlink{grid_8h_af9bdc3014f3d54c426b6d2df10de4960ac829a9cd1041946ccd49db3c3d32b0b0}{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-E\-M\-P\-T\-Y} = -\/1\-L
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$ \hyperlink{grid_8h_a385cf24a04b0233a8dd6cab89b166b2c}{grid\-\_\-alloc} (long width, long height, long depth)
+\item 
+\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$ \hyperlink{grid_8h_aef5e54b79ecc8af10d200de884f31d87}{Pgrid\-\_\-alloc} (long width, long height, long depth)
+\item 
+void \hyperlink{grid_8h_ad739c9384660dff75f827d42ff0394db}{grid\-\_\-free} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr)
+\item 
+void \hyperlink{grid_8h_aa7ba563ec9f4ccf69d71cf4ab131c3b5}{Pgrid\-\_\-free} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr)
+\item 
+void \hyperlink{grid_8h_af653ae67797f387f99a33c27718e57e3}{grid\-\_\-copy} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$dst\-Grid\-Ptr, \hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$src\-Grid\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{grid_8h_a6c7d139cb6237716b793855fe763c56d}{grid\-\_\-is\-Point\-Valid} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long x, long y, long z)
+\item 
+long $\ast$ \hyperlink{grid_8h_a7b187e09849be4c29670e87471747db7}{grid\-\_\-get\-Point\-Ref} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long x, long y, long z)
+\item 
+void \hyperlink{grid_8h_ab0a8d5a9172299169cfc0e647ad3f717}{grid\-\_\-get\-Point\-Indices} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long $\ast$grid\-Point\-Ptr, long $\ast$x\-Ptr, long $\ast$y\-Ptr, long $\ast$z\-Ptr)
+\item 
+long \hyperlink{grid_8h_ac75076748559bd2d9970112916a4c3f9}{grid\-\_\-get\-Point} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long x, long y, long z)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{grid_8h_ad2e23474738ee5f8bdd3152a3927403f}{grid\-\_\-is\-Point\-Empty} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long x, long y, long z)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{grid_8h_a4e4a1eea8fe84b3721dc5b6bec9d7a19}{grid\-\_\-is\-Point\-Full} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long x, long y, long z)
+\item 
+void \hyperlink{grid_8h_ae0084d041e90d094ce2c24dfffb4ec66}{grid\-\_\-set\-Point} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, long x, long y, long z, long value)
+\item 
+void \hyperlink{grid_8h_aebb205a584b3af6d9301883ebd5bc895}{grid\-\_\-add\-Path} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$point\-Vector\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{grid_8h_afc96f00c770d2aa0d01d418ad19479cd}{T\-Mgrid\-\_\-add\-Path} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr, \hyperlink{vector_8h_a5a1bca6fa9a3f18a2897623094d918da}{vector\-\_\-t} $\ast$point\-Vector\-Ptr)
+\item 
+void \hyperlink{grid_8h_ab5112f6462ac62fe385ad9e559ea0783}{grid\-\_\-print} (\hyperlink{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{grid\-\_\-t} $\ast$grid\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{grid_8h_aa28b349ecbb080dc498994f5a9a120da}{\index{grid.\-h@{grid.\-h}!P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C@{P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C}}
+\index{P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C@{P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C}!grid.h@{grid.\-h}}
+\subsubsection[{P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-G\-R\-I\-D\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~{\bf Pgrid\-\_\-alloc}(x, y, z)}}\label{grid_8h_aa28b349ecbb080dc498994f5a9a120da}
+\hypertarget{grid_8h_ad7498ed3d9b94ea567a5c053a50651dc}{\index{grid.\-h@{grid.\-h}!P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E@{P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E}}
+\index{P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E@{P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E}!grid.h@{grid.\-h}}
+\subsubsection[{P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-G\-R\-I\-D\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{g}
+\end{DoxyParamCaption}
+)~{\bf Pgrid\-\_\-free}(g)}}\label{grid_8h_ad7498ed3d9b94ea567a5c053a50651dc}
+\hypertarget{grid_8h_a5ab8f140bf6cbad69b7783523401734f}{\index{grid.\-h@{grid.\-h}!T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H@{T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H}}
+\index{T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H@{T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H}!grid.h@{grid.\-h}}
+\subsubsection[{T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-G\-R\-I\-D\-\_\-\-A\-D\-D\-P\-A\-T\-H(
+\begin{DoxyParamCaption}
+\item[{}]{g, }
+\item[{}]{{\bf p}}
+\end{DoxyParamCaption}
+)~{\bf T\-Mgrid\-\_\-add\-Path}({\bf T\-M\-\_\-\-A\-R\-G}  g, {\bf p})}}\label{grid_8h_a5ab8f140bf6cbad69b7783523401734f}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{grid_8h_a19f46bc43e138becd1328c7fd96a448f}{\index{grid.\-h@{grid.\-h}!grid\-\_\-t@{grid\-\_\-t}}
+\index{grid\-\_\-t@{grid\-\_\-t}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf grid}  {\bf grid\-\_\-t}}}\label{grid_8h_a19f46bc43e138becd1328c7fd96a448f}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{grid_8h_af9bdc3014f3d54c426b6d2df10de4960}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{grid_8h_af9bdc3014f3d54c426b6d2df10de4960}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-F\-U\-L\-L@{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-F\-U\-L\-L}!grid.\-h@{grid.\-h}}\index{grid.\-h@{grid.\-h}!G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-F\-U\-L\-L@{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-F\-U\-L\-L}}\item[{\em 
+\hypertarget{grid_8h_af9bdc3014f3d54c426b6d2df10de4960a8a4f78acf6a406ffd277c8d58b509b72}{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-F\-U\-L\-L}\label{grid_8h_af9bdc3014f3d54c426b6d2df10de4960a8a4f78acf6a406ffd277c8d58b509b72}
+}]\index{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-E\-M\-P\-T\-Y@{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-E\-M\-P\-T\-Y}!grid.\-h@{grid.\-h}}\index{grid.\-h@{grid.\-h}!G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-E\-M\-P\-T\-Y@{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-E\-M\-P\-T\-Y}}\item[{\em 
+\hypertarget{grid_8h_af9bdc3014f3d54c426b6d2df10de4960ac829a9cd1041946ccd49db3c3d32b0b0}{G\-R\-I\-D\-\_\-\-P\-O\-I\-N\-T\-\_\-\-E\-M\-P\-T\-Y}\label{grid_8h_af9bdc3014f3d54c426b6d2df10de4960ac829a9cd1041946ccd49db3c3d32b0b0}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{grid_8h_aebb205a584b3af6d9301883ebd5bc895}{\index{grid.\-h@{grid.\-h}!grid\-\_\-add\-Path@{grid\-\_\-add\-Path}}
+\index{grid\-\_\-add\-Path@{grid\-\_\-add\-Path}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-add\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void grid\-\_\-add\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{point\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_aebb205a584b3af6d9301883ebd5bc895}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_aebb205a584b3af6d9301883ebd5bc895_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_aebb205a584b3af6d9301883ebd5bc895_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_a385cf24a04b0233a8dd6cab89b166b2c}{\index{grid.\-h@{grid.\-h}!grid\-\_\-alloc@{grid\-\_\-alloc}}
+\index{grid\-\_\-alloc@{grid\-\_\-alloc}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf grid\-\_\-t}$\ast$ grid\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{width, }
+\item[{long}]{height, }
+\item[{long}]{depth}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_a385cf24a04b0233a8dd6cab89b166b2c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_a385cf24a04b0233a8dd6cab89b166b2c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_af653ae67797f387f99a33c27718e57e3}{\index{grid.\-h@{grid.\-h}!grid\-\_\-copy@{grid\-\_\-copy}}
+\index{grid\-\_\-copy@{grid\-\_\-copy}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void grid\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{dst\-Grid\-Ptr, }
+\item[{{\bf grid\-\_\-t} $\ast$}]{src\-Grid\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_af653ae67797f387f99a33c27718e57e3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_af653ae67797f387f99a33c27718e57e3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{grid_8h_af653ae67797f387f99a33c27718e57e3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_ad739c9384660dff75f827d42ff0394db}{\index{grid.\-h@{grid.\-h}!grid\-\_\-free@{grid\-\_\-free}}
+\index{grid\-\_\-free@{grid\-\_\-free}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void grid\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_ad739c9384660dff75f827d42ff0394db}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{grid_8h_ad739c9384660dff75f827d42ff0394db_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_ac75076748559bd2d9970112916a4c3f9}{\index{grid.\-h@{grid.\-h}!grid\-\_\-get\-Point@{grid\-\_\-get\-Point}}
+\index{grid\-\_\-get\-Point@{grid\-\_\-get\-Point}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-get\-Point}]{\setlength{\rightskip}{0pt plus 5cm}long grid\-\_\-get\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_ac75076748559bd2d9970112916a4c3f9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{grid_8h_ac75076748559bd2d9970112916a4c3f9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_ac75076748559bd2d9970112916a4c3f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_ab0a8d5a9172299169cfc0e647ad3f717}{\index{grid.\-h@{grid.\-h}!grid\-\_\-get\-Point\-Indices@{grid\-\_\-get\-Point\-Indices}}
+\index{grid\-\_\-get\-Point\-Indices@{grid\-\_\-get\-Point\-Indices}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-get\-Point\-Indices}]{\setlength{\rightskip}{0pt plus 5cm}void grid\-\_\-get\-Point\-Indices (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long $\ast$}]{grid\-Point\-Ptr, }
+\item[{long $\ast$}]{x\-Ptr, }
+\item[{long $\ast$}]{y\-Ptr, }
+\item[{long $\ast$}]{z\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_ab0a8d5a9172299169cfc0e647ad3f717}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_ab0a8d5a9172299169cfc0e647ad3f717_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_a7b187e09849be4c29670e87471747db7}{\index{grid.\-h@{grid.\-h}!grid\-\_\-get\-Point\-Ref@{grid\-\_\-get\-Point\-Ref}}
+\index{grid\-\_\-get\-Point\-Ref@{grid\-\_\-get\-Point\-Ref}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-get\-Point\-Ref}]{\setlength{\rightskip}{0pt plus 5cm}long$\ast$ grid\-\_\-get\-Point\-Ref (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_a7b187e09849be4c29670e87471747db7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_a7b187e09849be4c29670e87471747db7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_ad2e23474738ee5f8bdd3152a3927403f}{\index{grid.\-h@{grid.\-h}!grid\-\_\-is\-Point\-Empty@{grid\-\_\-is\-Point\-Empty}}
+\index{grid\-\_\-is\-Point\-Empty@{grid\-\_\-is\-Point\-Empty}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-is\-Point\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} grid\-\_\-is\-Point\-Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_ad2e23474738ee5f8bdd3152a3927403f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_ad2e23474738ee5f8bdd3152a3927403f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_ad2e23474738ee5f8bdd3152a3927403f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_a4e4a1eea8fe84b3721dc5b6bec9d7a19}{\index{grid.\-h@{grid.\-h}!grid\-\_\-is\-Point\-Full@{grid\-\_\-is\-Point\-Full}}
+\index{grid\-\_\-is\-Point\-Full@{grid\-\_\-is\-Point\-Full}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-is\-Point\-Full}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} grid\-\_\-is\-Point\-Full (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_a4e4a1eea8fe84b3721dc5b6bec9d7a19}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_a4e4a1eea8fe84b3721dc5b6bec9d7a19_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_a4e4a1eea8fe84b3721dc5b6bec9d7a19_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_a6c7d139cb6237716b793855fe763c56d}{\index{grid.\-h@{grid.\-h}!grid\-\_\-is\-Point\-Valid@{grid\-\_\-is\-Point\-Valid}}
+\index{grid\-\_\-is\-Point\-Valid@{grid\-\_\-is\-Point\-Valid}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-is\-Point\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} grid\-\_\-is\-Point\-Valid (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_a6c7d139cb6237716b793855fe763c56d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_a6c7d139cb6237716b793855fe763c56d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_ab5112f6462ac62fe385ad9e559ea0783}{\index{grid.\-h@{grid.\-h}!grid\-\_\-print@{grid\-\_\-print}}
+\index{grid\-\_\-print@{grid\-\_\-print}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void grid\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_ab5112f6462ac62fe385ad9e559ea0783}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{grid_8h_ab5112f6462ac62fe385ad9e559ea0783_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_ab5112f6462ac62fe385ad9e559ea0783_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_ae0084d041e90d094ce2c24dfffb4ec66}{\index{grid.\-h@{grid.\-h}!grid\-\_\-set\-Point@{grid\-\_\-set\-Point}}
+\index{grid\-\_\-set\-Point@{grid\-\_\-set\-Point}!grid.h@{grid.\-h}}
+\subsubsection[{grid\-\_\-set\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void grid\-\_\-set\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{long}]{x, }
+\item[{long}]{y, }
+\item[{long}]{z, }
+\item[{long}]{value}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_ae0084d041e90d094ce2c24dfffb4ec66}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{grid_8h_ae0084d041e90d094ce2c24dfffb4ec66_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grid_8h_ae0084d041e90d094ce2c24dfffb4ec66_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{grid_8h_aef5e54b79ecc8af10d200de884f31d87}{\index{grid.\-h@{grid.\-h}!Pgrid\-\_\-alloc@{Pgrid\-\_\-alloc}}
+\index{Pgrid\-\_\-alloc@{Pgrid\-\_\-alloc}!grid.h@{grid.\-h}}
+\subsubsection[{Pgrid\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf grid\-\_\-t}$\ast$ Pgrid\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{width, }
+\item[{long}]{height, }
+\item[{long}]{depth}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_aef5e54b79ecc8af10d200de884f31d87}
+\hypertarget{grid_8h_aa7ba563ec9f4ccf69d71cf4ab131c3b5}{\index{grid.\-h@{grid.\-h}!Pgrid\-\_\-free@{Pgrid\-\_\-free}}
+\index{Pgrid\-\_\-free@{Pgrid\-\_\-free}!grid.h@{grid.\-h}}
+\subsubsection[{Pgrid\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pgrid\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf grid\-\_\-t} $\ast$}]{grid\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_aa7ba563ec9f4ccf69d71cf4ab131c3b5}
+\hypertarget{grid_8h_afc96f00c770d2aa0d01d418ad19479cd}{\index{grid.\-h@{grid.\-h}!T\-Mgrid\-\_\-add\-Path@{T\-Mgrid\-\_\-add\-Path}}
+\index{T\-Mgrid\-\_\-add\-Path@{T\-Mgrid\-\_\-add\-Path}!grid.h@{grid.\-h}}
+\subsubsection[{T\-Mgrid\-\_\-add\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void T\-Mgrid\-\_\-add\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf grid\-\_\-t} $\ast$}]{grid\-Ptr, }
+\item[{{\bf vector\-\_\-t} $\ast$}]{point\-Vector\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{grid_8h_afc96f00c770d2aa0d01d418ad19479cd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{grid_8h_afc96f00c770d2aa0d01d418ad19479cd_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,8 @@
+<map id="concurrent_queue::dequeue" name="concurrent_queue::dequeue">
+<area shape="rect" id="node2" href="$classMS__queue.html#a78a5210001367491d3184c55a7788cdb" title="MS_queue::dequeue" alt="" coords="237,56,379,83"/>
+<area shape="rect" id="node3" href="$queues_8cpp.html#a6499d4f1af7965a1e2ec7fa2ce62b07d" title="a_ld" alt="" coords="689,5,735,32"/>
+<area shape="rect" id="node4" href="$counted__ptr_8hpp.html#afe676f4f56a242fe38f903b9aa874de0" title="cp_cas" alt="" coords="680,56,744,83"/>
+<area shape="rect" id="node5" href="$classblock__pool.html#aaabfd73a9589b2d5d024161f3df1a11e" title="block_pool::free_block" alt="" coords="427,107,579,133"/>
+<area shape="rect" id="node6" href="$classblock__pool.html#a1af804f5ae32798163e68dca39418c77" title="block_pool::make_shared\l_block_t" alt="" coords="627,107,797,149"/>
+<area shape="rect" id="node7" href="$stmskip_8cc.html#a6691aa84f1bbf53bde80356be0be52f9" title="if" alt="" coords="693,173,731,200"/>
+</map>

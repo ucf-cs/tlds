@@ -1,0 +1,10 @@
+<map id="learner" name="learner">
+<area shape="rect" id="node2" href="$structadtree.html" title="{adtree\n||}" alt="" coords="189,565,247,643"/>
+<area shape="rect" id="node3" href="$structadtree__node.html" title="{adtree_node\n||}" alt="" coords="276,363,369,440"/>
+<area shape="rect" id="node4" href="$structvector.html" title="{vector\n||}" alt="" coords="79,200,136,277"/>
+<area shape="rect" id="node9" href="$structnet.html" title="{net\n||}" alt="" coords="75,464,113,541"/>
+<area shape="rect" id="node10" href="$structlist.html" title="{list\n||}" alt="" coords="843,363,881,440"/>
+<area shape="rect" id="node13" href="$structcomparator.html" title="{comparator\n||+ comparator()\l+ comparator()\l}" alt="" coords="1004,193,1111,285"/>
+<area shape="rect" id="node15" href="$structlearner__task.html" title="{learner_task\n||}" alt="" coords="557,565,651,643"/>
+<area shape="rect" id="node11" href="$structlist__node.html" title="{list_node\n||}" alt="" coords="827,200,900,277"/>
+</map>

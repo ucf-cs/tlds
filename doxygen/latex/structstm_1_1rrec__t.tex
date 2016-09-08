@@ -1,0 +1,151 @@
+\hypertarget{structstm_1_1rrec__t}{\section{stm\-:\-:rrec\-\_\-t Struct Reference}
+\label{structstm_1_1rrec__t}\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$metadata.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:rrec\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{structstm_1_1rrec__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structstm_1_1rrec__t_a8e7d6e312fea1d8b9751cccdbe600d47}{setbit} (unsigned slot)
+\item 
+bool \hyperlink{structstm_1_1rrec__t_afbaca6e3efffa2859ffe5d96bee429d2}{getbit} (unsigned slot)
+\item 
+void \hyperlink{structstm_1_1rrec__t_a7c05a4f78bd7e11e635274cacdfa4255}{unsetbit} (unsigned slot)
+\item 
+bool \hyperlink{structstm_1_1rrec__t_a6905a591f9bdd8ae5353da3e488d3afc}{setif} (unsigned slot)
+\item 
+void \hyperlink{structstm_1_1rrec__t_a35d775831a537137bae5ca50dcb4043e}{operator$\vert$=} (\hyperlink{structstm_1_1rrec__t}{rrec\-\_\-t} \&rhs)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile uintptr\-\_\-t \hyperlink{structstm_1_1rrec__t_acc2019fab1ebfb8f3302c08ff1d9aab2}{bits} \mbox{[}\hyperlink{structstm_1_1rrec__t_a4098b1f07f9d4a391a50ebdb990da8a2}{B\-U\-C\-K\-E\-T\-S}\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\-\_\-t \hyperlink{structstm_1_1rrec__t_a4098b1f07f9d4a391a50ebdb990da8a2}{B\-U\-C\-K\-E\-T\-S} = \hyperlink{namespacestm_a41da58ff755b92c2c2903c8e2844f6c4}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S} / (8$\ast$sizeof(uintptr\-\_\-t))
+\item 
+static const uint32\-\_\-t \hyperlink{structstm_1_1rrec__t_aec9e316f7666351329550a2c988ff1ce}{B\-I\-T\-S} = 8$\ast$sizeof(uintptr\-\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+a reader record (rrec) holds bits representing up to M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S reader transactions
+
+N\-B\-: methods are implemented in \hyperlink{algs_8hpp}{algs.\-hpp}, so that they are visible where needed, but not visible globally 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1rrec__t_afbaca6e3efffa2859ffe5d96bee429d2}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!getbit@{getbit}}
+\index{getbit@{getbit}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{getbit}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::rrec\-\_\-t\-::getbit (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{slot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1rrec__t_afbaca6e3efffa2859ffe5d96bee429d2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{structstm_1_1rrec__t_afbaca6e3efffa2859ffe5d96bee429d2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1rrec__t_a35d775831a537137bae5ca50dcb4043e}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!operator$\vert$=@{operator$\vert$=}}
+\index{operator$\vert$=@{operator$\vert$=}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{operator$\vert$=}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::rrec\-\_\-t\-::operator$\vert$= (
+\begin{DoxyParamCaption}
+\item[{{\bf rrec\-\_\-t} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1rrec__t_a35d775831a537137bae5ca50dcb4043e}
+\hypertarget{structstm_1_1rrec__t_a8e7d6e312fea1d8b9751cccdbe600d47}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!setbit@{setbit}}
+\index{setbit@{setbit}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{setbit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::rrec\-\_\-t\-::setbit (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{slot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1rrec__t_a8e7d6e312fea1d8b9751cccdbe600d47}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{structstm_1_1rrec__t_a8e7d6e312fea1d8b9751cccdbe600d47_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1rrec__t_a6905a591f9bdd8ae5353da3e488d3afc}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!setif@{setif}}
+\index{setif@{setif}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{setif}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::rrec\-\_\-t\-::setif (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{slot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1rrec__t_a6905a591f9bdd8ae5353da3e488d3afc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{structstm_1_1rrec__t_a6905a591f9bdd8ae5353da3e488d3afc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1rrec__t_a7c05a4f78bd7e11e635274cacdfa4255}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!unsetbit@{unsetbit}}
+\index{unsetbit@{unsetbit}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{unsetbit}]{\setlength{\rightskip}{0pt plus 5cm}void stm\-::rrec\-\_\-t\-::unsetbit (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{slot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structstm_1_1rrec__t_a7c05a4f78bd7e11e635274cacdfa4255}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{structstm_1_1rrec__t_a7c05a4f78bd7e11e635274cacdfa4255_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1rrec__t_aec9e316f7666351329550a2c988ff1ce}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!B\-I\-T\-S@{B\-I\-T\-S}}
+\index{B\-I\-T\-S@{B\-I\-T\-S}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{B\-I\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::rrec\-\_\-t\-::\-B\-I\-T\-S = 8$\ast$sizeof(uintptr\-\_\-t)\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1rrec__t_aec9e316f7666351329550a2c988ff1ce}
+\hypertarget{structstm_1_1rrec__t_acc2019fab1ebfb8f3302c08ff1d9aab2}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!bits@{bits}}
+\index{bits@{bits}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{bits}]{\setlength{\rightskip}{0pt plus 5cm}volatile uintptr\-\_\-t stm\-::rrec\-\_\-t\-::bits\mbox{[}{\bf B\-U\-C\-K\-E\-T\-S}\mbox{]}}}\label{structstm_1_1rrec__t_acc2019fab1ebfb8f3302c08ff1d9aab2}
+\hypertarget{structstm_1_1rrec__t_a4098b1f07f9d4a391a50ebdb990da8a2}{\index{stm\-::rrec\-\_\-t@{stm\-::rrec\-\_\-t}!B\-U\-C\-K\-E\-T\-S@{B\-U\-C\-K\-E\-T\-S}}
+\index{B\-U\-C\-K\-E\-T\-S@{B\-U\-C\-K\-E\-T\-S}!stm::rrec_t@{stm\-::rrec\-\_\-t}}
+\subsubsection[{B\-U\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::rrec\-\_\-t\-::\-B\-U\-C\-K\-E\-T\-S = {\bf M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S} / (8$\ast$sizeof(uintptr\-\_\-t))\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1rrec__t_a4098b1f07f9d4a391a50ebdb990da8a2}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/stm/\hyperlink{metadata_8hpp}{metadata.\-hpp}\item 
+rstm/rstm-\/dev/libstm/algs/\hyperlink{algs_8hpp}{algs.\-hpp}\end{DoxyCompactItemize}

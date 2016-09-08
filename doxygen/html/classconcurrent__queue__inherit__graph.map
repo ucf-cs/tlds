@@ -1,0 +1,4 @@
+<map id="concurrent_queue&lt; T &gt;" name="concurrent_queue&lt; T &gt;">
+<area shape="rect" id="node2" href="$classsimple__queue.html" title="{simple_queue\&lt; T \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="5,20,139,127"/>
+<area shape="rect" id="node3" href="$classMS__queue.html" title="{MS_queue\&lt; T \&gt;\n|&#45; head\l&#45; tail\l|# enqueue()\l# dequeue()\l# MS_queue()\l# ~MS_queue()\l}" alt="" coords="163,5,279,141"/>
+</map>

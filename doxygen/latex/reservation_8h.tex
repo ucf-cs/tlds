@@ -1,0 +1,431 @@
+\hypertarget{reservation_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/vacation/reservation.h File Reference}
+\label{reservation_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/reservation.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/reservation.\-h}}
+}
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for reservation.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{reservation_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structreservation__info}{reservation\-\_\-info}
+\item 
+struct \hyperlink{structreservation}{reservation}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{reservation_8h_aa021e9252f7d7e430b4ac1ca609e3ef4}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C}(type, id, price)~\hyperlink{reservation_8h_a0c9520b322876e1955b6753a5753aeff}{reservation\-\_\-info\-\_\-alloc}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  type, id, price)
+\item 
+\#define \hyperlink{reservation_8h_ae03974e5bc975c40aa82db7573b10f2f}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E}(r)~\hyperlink{reservation_8h_ad4e6a537066e68beccc52a1056061b06}{reservation\-\_\-info\-\_\-free}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r)
+\item 
+\#define \hyperlink{reservation_8h_a63c3399d40e7fe3496a661679290c28e}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}(id, price, tot)~\hyperlink{reservation_8h_ac48a084bb8c66772c85790535fac0460}{reservation\-\_\-alloc}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  id, price, tot)
+\item 
+\#define \hyperlink{reservation_8h_a9ea224654fa5800cfbe2a8c0f8c903d9}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L}(r, num)~\hyperlink{reservation_8h_a8360bea61f9cd5c56f6074a351aea617}{reservation\-\_\-add\-To\-Total}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r, num)
+\item 
+\#define \hyperlink{reservation_8h_a2c020dcdb3b2be8f5171a1f0499c6a26}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E}(r)~\hyperlink{reservation_8h_aeea8543db02ba1d9d9cae4213f530358}{reservation\-\_\-make}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r)
+\item 
+\#define \hyperlink{reservation_8h_a04eefcf1938e4d734950761ed915e058}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L}(r)~\hyperlink{reservation_8h_a9c11af4776ef3adcf1475002d6ce4520}{reservation\-\_\-cancel}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r)
+\item 
+\#define \hyperlink{reservation_8h_a5d01e19e7fc1bcf41b565413a332b5ec}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E}(r, price)~\hyperlink{reservation_8h_a2486dfdad55aebdf6320c2a61d08c03e}{reservation\-\_\-update\-Price}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r, price)
+\item 
+\#define \hyperlink{reservation_8h_a8e6c62eda279bec516d17b58ebe945d9}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E}(r)~\hyperlink{reservation_8h_a83e3f5b9c8ac17109e68e347e612124e}{reservation\-\_\-free}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{reservation_8h_a442b89ca8300b089602181351c92580a}{reservation\-\_\-type} \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t}
+\item 
+typedef struct \hyperlink{structreservation__info}{reservation\-\_\-info} \hyperlink{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}{reservation\-\_\-info\-\_\-t}
+\item 
+typedef struct \hyperlink{structreservation}{reservation} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{reservation_8h_a442b89ca8300b089602181351c92580a}{reservation\-\_\-type} \{ \hyperlink{reservation_8h_a442b89ca8300b089602181351c92580aa9e1a9ee4f3fc06ca21cc29448ec240c5}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-R}, 
+\hyperlink{reservation_8h_a442b89ca8300b089602181351c92580aa102d44e4f6185228c1207bbb6254890e}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-L\-I\-G\-H\-T}, 
+\hyperlink{reservation_8h_a442b89ca8300b089602181351c92580aa44795f7f403f3e4dd5e1f640976fb837}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-R\-O\-O\-M}, 
+\hyperlink{reservation_8h_a442b89ca8300b089602181351c92580aa538127d730c0d5e1f5fad04cd3991f4d}{N\-U\-M\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-T\-Y\-P\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}{reservation\-\_\-info\-\_\-t} $\ast$ \hyperlink{reservation_8h_a0c9520b322876e1955b6753a5753aeff}{reservation\-\_\-info\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t} type, long id, long price)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{reservation_8h_ad4e6a537066e68beccc52a1056061b06}{reservation\-\_\-info\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}{reservation\-\_\-info\-\_\-t} $\ast$reservation\-Info\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{reservation_8h_a10192e2a98e2939c0c9e9756430e241f}{reservation\-\_\-info\-\_\-compare} (\hyperlink{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}{reservation\-\_\-info\-\_\-t} $\ast$a\-Ptr, \hyperlink{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}{reservation\-\_\-info\-\_\-t} $\ast$b\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$ \hyperlink{reservation_8h_ac48a084bb8c66772c85790535fac0460}{reservation\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long id, long price, long num\-Total)
+\item 
+\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$ \hyperlink{reservation_8h_abb917897ee7a50cd3ab5d87de38ac042}{reservation\-\_\-alloc\-\_\-seq} (long id, long price, long num\-Total)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_a8360bea61f9cd5c56f6074a351aea617}{reservation\-\_\-add\-To\-Total} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr, long num)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_a095eddecd019df693bdcce5a3182799a}{reservation\-\_\-add\-To\-Total\-\_\-seq} (\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr, long num)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_aeea8543db02ba1d9d9cae4213f530358}{reservation\-\_\-make} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_acc26e42ba0aee427fba3a1b7013d6542}{reservation\-\_\-make\-\_\-seq} (\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_a9c11af4776ef3adcf1475002d6ce4520}{reservation\-\_\-cancel} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_aa6a8eb042a3446e22bf3af7d0d014f45}{reservation\-\_\-cancel\-\_\-seq} (\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_a2486dfdad55aebdf6320c2a61d08c03e}{reservation\-\_\-update\-Price} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr, long new\-Price)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{reservation_8h_af0f4e11ded3a9cc6d745ad63cc433f10}{reservation\-\_\-update\-Price\-\_\-seq} (\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr, long new\-Price)
+\item 
+long \hyperlink{reservation_8h_ada923faf7b4d43e30fd5d1a948af595f}{reservation\-\_\-compare} (\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$a\-Ptr, \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$b\-Ptr)
+\item 
+\hyperlink{types_8h_a95c0f4cc152cbacf72a7d70d7077dc96}{ulong\-\_\-t} \hyperlink{reservation_8h_a9f1647e720c1aec5d2cb71176a5dbfbb}{reservation\-\_\-hash} (\hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{reservation_8h_a83e3f5b9c8ac17109e68e347e612124e}{reservation\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{reservation\-\_\-t} $\ast$reservation\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{reservation_8h_a9ea224654fa5800cfbe2a8c0f8c903d9}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-D\-D\-\_\-\-T\-O\-\_\-\-T\-O\-T\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{num}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-add\-To\-Total}({\bf T\-M\-\_\-\-A\-R\-G}  r, num)}}\label{reservation_8h_a9ea224654fa5800cfbe2a8c0f8c903d9}
+\hypertarget{reservation_8h_a63c3399d40e7fe3496a661679290c28e}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{price, }
+\item[{}]{tot}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-alloc}({\bf T\-M\-\_\-\-A\-R\-G}  id, price, tot)}}\label{reservation_8h_a63c3399d40e7fe3496a661679290c28e}
+\hypertarget{reservation_8h_a04eefcf1938e4d734950761ed915e058}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-N\-C\-E\-L(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-cancel}({\bf T\-M\-\_\-\-A\-R\-G}  r)}}\label{reservation_8h_a04eefcf1938e4d734950761ed915e058}
+\hypertarget{reservation_8h_a8e6c62eda279bec516d17b58ebe945d9}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-free}({\bf T\-M\-\_\-\-A\-R\-G}  r)}}\label{reservation_8h_a8e6c62eda279bec516d17b58ebe945d9}
+\hypertarget{reservation_8h_aa021e9252f7d7e430b4ac1ca609e3ef4}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{type, }
+\item[{}]{id, }
+\item[{}]{price}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-info\-\_\-alloc}({\bf T\-M\-\_\-\-A\-R\-G}  type, id, price)}}\label{reservation_8h_aa021e9252f7d7e430b4ac1ca609e3ef4}
+\hypertarget{reservation_8h_ae03974e5bc975c40aa82db7573b10f2f}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-info\-\_\-free}({\bf T\-M\-\_\-\-A\-R\-G}  r)}}\label{reservation_8h_ae03974e5bc975c40aa82db7573b10f2f}
+\hypertarget{reservation_8h_a2c020dcdb3b2be8f5171a1f0499c6a26}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-M\-A\-K\-E(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-make}({\bf T\-M\-\_\-\-A\-R\-G}  r)}}\label{reservation_8h_a2c020dcdb3b2be8f5171a1f0499c6a26}
+\hypertarget{reservation_8h_a5d01e19e7fc1bcf41b565413a332b5ec}{\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E}}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E}!reservation.h@{reservation.\-h}}
+\subsubsection[{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-U\-P\-D\-A\-T\-E\-\_\-\-P\-R\-I\-C\-E(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{price}
+\end{DoxyParamCaption}
+)~{\bf reservation\-\_\-update\-Price}({\bf T\-M\-\_\-\-A\-R\-G}  r, price)}}\label{reservation_8h_a5d01e19e7fc1bcf41b565413a332b5ec}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-info\-\_\-t@{reservation\-\_\-info\-\_\-t}}
+\index{reservation\-\_\-info\-\_\-t@{reservation\-\_\-info\-\_\-t}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-info\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf reservation\-\_\-info}  {\bf reservation\-\_\-info\-\_\-t}}}\label{reservation_8h_a76cfda5127fb019ac6f14418da5cc82a}
+\hypertarget{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-t@{reservation\-\_\-t}}
+\index{reservation\-\_\-t@{reservation\-\_\-t}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf reservation}  {\bf reservation\-\_\-t}}}\label{reservation_8h_a4b8e5afa1359dca8cb708eaed79f0982}
+\hypertarget{reservation_8h_abf98b69fa9955803387979166fd17bc4}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-type\-\_\-t@{reservation\-\_\-type\-\_\-t}}
+\index{reservation\-\_\-type\-\_\-t@{reservation\-\_\-type\-\_\-t}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-type\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf reservation\-\_\-type}  {\bf reservation\-\_\-type\-\_\-t}}}\label{reservation_8h_abf98b69fa9955803387979166fd17bc4}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{reservation_8h_a442b89ca8300b089602181351c92580a}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-type@{reservation\-\_\-type}}
+\index{reservation\-\_\-type@{reservation\-\_\-type}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf reservation\-\_\-type}}}\label{reservation_8h_a442b89ca8300b089602181351c92580a}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-R@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-R}!reservation.\-h@{reservation.\-h}}\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-R@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-R}}\item[{\em 
+\hypertarget{reservation_8h_a442b89ca8300b089602181351c92580aa9e1a9ee4f3fc06ca21cc29448ec240c5}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-C\-A\-R}\label{reservation_8h_a442b89ca8300b089602181351c92580aa9e1a9ee4f3fc06ca21cc29448ec240c5}
+}]\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-L\-I\-G\-H\-T@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-L\-I\-G\-H\-T}!reservation.\-h@{reservation.\-h}}\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-L\-I\-G\-H\-T@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-L\-I\-G\-H\-T}}\item[{\em 
+\hypertarget{reservation_8h_a442b89ca8300b089602181351c92580aa102d44e4f6185228c1207bbb6254890e}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-F\-L\-I\-G\-H\-T}\label{reservation_8h_a442b89ca8300b089602181351c92580aa102d44e4f6185228c1207bbb6254890e}
+}]\index{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-R\-O\-O\-M@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-R\-O\-O\-M}!reservation.\-h@{reservation.\-h}}\index{reservation.\-h@{reservation.\-h}!R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-R\-O\-O\-M@{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-R\-O\-O\-M}}\item[{\em 
+\hypertarget{reservation_8h_a442b89ca8300b089602181351c92580aa44795f7f403f3e4dd5e1f640976fb837}{R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-R\-O\-O\-M}\label{reservation_8h_a442b89ca8300b089602181351c92580aa44795f7f403f3e4dd5e1f640976fb837}
+}]\index{N\-U\-M\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-T\-Y\-P\-E@{N\-U\-M\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-T\-Y\-P\-E}!reservation.\-h@{reservation.\-h}}\index{reservation.\-h@{reservation.\-h}!N\-U\-M\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-T\-Y\-P\-E@{N\-U\-M\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-T\-Y\-P\-E}}\item[{\em 
+\hypertarget{reservation_8h_a442b89ca8300b089602181351c92580aa538127d730c0d5e1f5fad04cd3991f4d}{N\-U\-M\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-T\-Y\-P\-E}\label{reservation_8h_a442b89ca8300b089602181351c92580aa538127d730c0d5e1f5fad04cd3991f4d}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{reservation_8h_a8360bea61f9cd5c56f6074a351aea617}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-add\-To\-Total@{reservation\-\_\-add\-To\-Total}}
+\index{reservation\-\_\-add\-To\-Total@{reservation\-\_\-add\-To\-Total}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-add\-To\-Total}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} reservation\-\_\-add\-To\-Total (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr, }
+\item[{long}]{num}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a8360bea61f9cd5c56f6074a351aea617}
+\hypertarget{reservation_8h_a095eddecd019df693bdcce5a3182799a}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-add\-To\-Total\-\_\-seq@{reservation\-\_\-add\-To\-Total\-\_\-seq}}
+\index{reservation\-\_\-add\-To\-Total\-\_\-seq@{reservation\-\_\-add\-To\-Total\-\_\-seq}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-add\-To\-Total\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} reservation\-\_\-add\-To\-Total\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr, }
+\item[{long}]{num}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a095eddecd019df693bdcce5a3182799a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_a095eddecd019df693bdcce5a3182799a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_a095eddecd019df693bdcce5a3182799a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reservation_8h_ac48a084bb8c66772c85790535fac0460}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-alloc@{reservation\-\_\-alloc}}
+\index{reservation\-\_\-alloc@{reservation\-\_\-alloc}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf reservation\-\_\-t}$\ast$ reservation\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{id, }
+\item[{long}]{price, }
+\item[{long}]{num\-Total}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_ac48a084bb8c66772c85790535fac0460}
+\hypertarget{reservation_8h_abb917897ee7a50cd3ab5d87de38ac042}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-alloc\-\_\-seq@{reservation\-\_\-alloc\-\_\-seq}}
+\index{reservation\-\_\-alloc\-\_\-seq@{reservation\-\_\-alloc\-\_\-seq}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-alloc\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf reservation\-\_\-t}$\ast$ reservation\-\_\-alloc\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{long}]{id, }
+\item[{long}]{price, }
+\item[{long}]{num\-Total}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_abb917897ee7a50cd3ab5d87de38ac042}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{reservation_8h_abb917897ee7a50cd3ab5d87de38ac042_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_abb917897ee7a50cd3ab5d87de38ac042_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reservation_8h_a9c11af4776ef3adcf1475002d6ce4520}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-cancel@{reservation\-\_\-cancel}}
+\index{reservation\-\_\-cancel@{reservation\-\_\-cancel}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-cancel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} reservation\-\_\-cancel (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a9c11af4776ef3adcf1475002d6ce4520}
+\hypertarget{reservation_8h_aa6a8eb042a3446e22bf3af7d0d014f45}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-cancel\-\_\-seq@{reservation\-\_\-cancel\-\_\-seq}}
+\index{reservation\-\_\-cancel\-\_\-seq@{reservation\-\_\-cancel\-\_\-seq}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-cancel\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} reservation\-\_\-cancel\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_aa6a8eb042a3446e22bf3af7d0d014f45}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_aa6a8eb042a3446e22bf3af7d0d014f45_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reservation_8h_ada923faf7b4d43e30fd5d1a948af595f}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-compare@{reservation\-\_\-compare}}
+\index{reservation\-\_\-compare@{reservation\-\_\-compare}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-compare}]{\setlength{\rightskip}{0pt plus 5cm}long reservation\-\_\-compare (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-t} $\ast$}]{a\-Ptr, }
+\item[{{\bf reservation\-\_\-t} $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_ada923faf7b4d43e30fd5d1a948af595f}
+\hypertarget{reservation_8h_a83e3f5b9c8ac17109e68e347e612124e}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-free@{reservation\-\_\-free}}
+\index{reservation\-\_\-free@{reservation\-\_\-free}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void reservation\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a83e3f5b9c8ac17109e68e347e612124e}
+\hypertarget{reservation_8h_a9f1647e720c1aec5d2cb71176a5dbfbb}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-hash@{reservation\-\_\-hash}}
+\index{reservation\-\_\-hash@{reservation\-\_\-hash}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-hash}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ulong\-\_\-t} reservation\-\_\-hash (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a9f1647e720c1aec5d2cb71176a5dbfbb}
+\hypertarget{reservation_8h_a0c9520b322876e1955b6753a5753aeff}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-info\-\_\-alloc@{reservation\-\_\-info\-\_\-alloc}}
+\index{reservation\-\_\-info\-\_\-alloc@{reservation\-\_\-info\-\_\-alloc}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-info\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf reservation\-\_\-info\-\_\-t}$\ast$ reservation\-\_\-info\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-type\-\_\-t}}]{type, }
+\item[{long}]{id, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a0c9520b322876e1955b6753a5753aeff}
+\hypertarget{reservation_8h_a10192e2a98e2939c0c9e9756430e241f}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-info\-\_\-compare@{reservation\-\_\-info\-\_\-compare}}
+\index{reservation\-\_\-info\-\_\-compare@{reservation\-\_\-info\-\_\-compare}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-info\-\_\-compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long reservation\-\_\-info\-\_\-compare (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-info\-\_\-t} $\ast$}]{a\-Ptr, }
+\item[{{\bf reservation\-\_\-info\-\_\-t} $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a10192e2a98e2939c0c9e9756430e241f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_a10192e2a98e2939c0c9e9756430e241f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reservation_8h_ad4e6a537066e68beccc52a1056061b06}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-info\-\_\-free@{reservation\-\_\-info\-\_\-free}}
+\index{reservation\-\_\-info\-\_\-free@{reservation\-\_\-info\-\_\-free}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-info\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void reservation\-\_\-info\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-info\-\_\-t} $\ast$}]{reservation\-Info\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_ad4e6a537066e68beccc52a1056061b06}
+\hypertarget{reservation_8h_aeea8543db02ba1d9d9cae4213f530358}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-make@{reservation\-\_\-make}}
+\index{reservation\-\_\-make@{reservation\-\_\-make}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-make}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} reservation\-\_\-make (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_aeea8543db02ba1d9d9cae4213f530358}
+\hypertarget{reservation_8h_acc26e42ba0aee427fba3a1b7013d6542}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-make\-\_\-seq@{reservation\-\_\-make\-\_\-seq}}
+\index{reservation\-\_\-make\-\_\-seq@{reservation\-\_\-make\-\_\-seq}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-make\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} reservation\-\_\-make\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_acc26e42ba0aee427fba3a1b7013d6542}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{reservation_8h_acc26e42ba0aee427fba3a1b7013d6542_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reservation_8h_a2486dfdad55aebdf6320c2a61d08c03e}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-update\-Price@{reservation\-\_\-update\-Price}}
+\index{reservation\-\_\-update\-Price@{reservation\-\_\-update\-Price}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-update\-Price}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} reservation\-\_\-update\-Price (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr, }
+\item[{long}]{new\-Price}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_a2486dfdad55aebdf6320c2a61d08c03e}
+\hypertarget{reservation_8h_af0f4e11ded3a9cc6d745ad63cc433f10}{\index{reservation.\-h@{reservation.\-h}!reservation\-\_\-update\-Price\-\_\-seq@{reservation\-\_\-update\-Price\-\_\-seq}}
+\index{reservation\-\_\-update\-Price\-\_\-seq@{reservation\-\_\-update\-Price\-\_\-seq}!reservation.h@{reservation.\-h}}
+\subsubsection[{reservation\-\_\-update\-Price\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} reservation\-\_\-update\-Price\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf reservation\-\_\-t} $\ast$}]{reservation\-Ptr, }
+\item[{long}]{new\-Price}
+\end{DoxyParamCaption}
+)}}\label{reservation_8h_af0f4e11ded3a9cc6d745ad63cc433f10}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_af0f4e11ded3a9cc6d745ad63cc433f10_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reservation_8h_af0f4e11ded3a9cc6d745ad63cc433f10_icgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,55 @@
+\hypertarget{libitm-5_817_8cpp}{\section{rstm/rstm-\/dev/libitm2stm/libitm-\/5.17.cpp File Reference}
+\label{libitm-5_817_8cpp}\index{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-17.\-cpp@{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-17.\-cpp}}
+}
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include \char`\"{}libitm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Transaction.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Scope.\-h\char`\"{}}\\*
+Include dependency graph for libitm-\/5.17.cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_817_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{libitm-5_817_8cpp_a4971677078396b3f880c0933141fa518}{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, \hyperlink{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function} f, \hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} tid, void $\ast$\hyperlink{structargs}{args})
+\item 
+void \hyperlink{libitm-5_817_8cpp_a9d6acb4fa3abb483bfaeec8e387c9c32}{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, \hyperlink{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function} f, void $\ast$\hyperlink{structarg}{arg})
+\item 
+void \hyperlink{libitm-5_817_8cpp_a4947732b2f808f54398d7076c09ba303}{\-\_\-\-I\-T\-M\-\_\-drop\-References} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, size\-\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{libitm-5_817_8cpp_a4971677078396b3f880c0933141fa518}{\index{libitm-\/5.\-17.\-cpp@{libitm-\/5.\-17.\-cpp}!\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action}}
+\index{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action}!libitm-5.17.cpp@{libitm-\/5.\-17.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}}]{f, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}}]{tid, }
+\item[{void $\ast$}]{args}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_817_8cpp_a4971677078396b3f880c0933141fa518}
+\hypertarget{libitm-5_817_8cpp_a9d6acb4fa3abb483bfaeec8e387c9c32}{\index{libitm-\/5.\-17.\-cpp@{libitm-\/5.\-17.\-cpp}!\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action}}
+\index{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action}!libitm-5.17.cpp@{libitm-\/5.\-17.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}}]{f, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_817_8cpp_a9d6acb4fa3abb483bfaeec8e387c9c32}
+\hypertarget{libitm-5_817_8cpp_a4947732b2f808f54398d7076c09ba303}{\index{libitm-\/5.\-17.\-cpp@{libitm-\/5.\-17.\-cpp}!\-\_\-\-I\-T\-M\-\_\-drop\-References@{\-\_\-\-I\-T\-M\-\_\-drop\-References}}
+\index{\-\_\-\-I\-T\-M\-\_\-drop\-References@{\-\_\-\-I\-T\-M\-\_\-drop\-References}!libitm-5.17.cpp@{libitm-\/5.\-17.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-drop\-References}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-drop\-References (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_817_8cpp_a4947732b2f808f54398d7076c09ba303}

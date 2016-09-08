@@ -1,0 +1,9 @@
+<map id="stm::init_pol_cbr" name="stm::init_pol_cbr">
+<area shape="rect" id="node2" href="$namespacestm.html#a6aa5d9dc2e638d0df9771d39cd3b87ef" title="stm::init_adapt_pol" alt="" coords="190,5,322,32"/>
+<area shape="rect" id="node3" href="$namespaceanonymous__namespace_02cbr_8cpp_03.html#a0566a8b94db9550484ad458e48c3d7f9" title="anonymous_namespace\l\{cbr::cpp\}::pol_CBR_RO" alt="" coords="173,57,339,98"/>
+<area shape="rect" id="node4" href="$namespaceanonymous__namespace_02cbr_8cpp_03.html#a24ec6eb1e0eca0a6b9866180e5e3ecb0" title="anonymous_namespace\l\{cbr::cpp\}::profile\l_nochange" alt="" coords="175,121,337,177"/>
+<area shape="rect" id="node5" href="$structstm_1_1dynprof__t.html#a2b3bf61e8cd914963dc3ff653ec2f6bc" title="stm::dynprof_t::doavg" alt="" coords="387,85,536,112"/>
+<area shape="rect" id="node7" href="$structstm_1_1dynprof__t.html#a16cfdcbd81c4528cd778b587d46c94e5" title="stm::dynprof_t::dump" alt="" coords="388,136,535,163"/>
+<area shape="rect" id="node8" href="$namespacestm.html#a18a81b01de87995b54cd855bb6eeaae7" title="stm::get_nontxtime" alt="" coords="394,187,529,213"/>
+<area shape="rect" id="node6" href="$structstm_1_1dynprof__t.html#a3a563bc6d70ae8791d4d940bdeed38fd" title="stm::dynprof_t::clear" alt="" coords="585,85,727,112"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="stm::initTM&lt; CGL &gt;" name="stm::initTM&lt; CGL &gt;">
+<area shape="rect" id="node2" href="$namespacestm.html#a74784f193abf87bd1c6f688d6b25cacd" title="stm::begin_CGL" alt="" coords="217,31,335,57"/>
+<area shape="rect" id="node7" href="$namespacestm.html#a94dbca4907e005c8c803e452b123903f" title="stm::commit" alt="" coords="229,81,323,108"/>
+<area shape="rect" id="node8" href="$namespaceanonymous__namespace_02oreceager_8cpp_03.html#a7a88c7a7453bbfaca53eeac03b80a5d6" title="anonymous_namespace\l\{oreceager::cpp\}::read" alt="" coords="195,133,357,174"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02oreceager_8cpp_03.html#ac18758bd7e358cee7461af925e192062" title="anonymous_namespace\l\{oreceager::cpp\}::write" alt="" coords="195,198,357,239"/>
+<area shape="rect" id="node10" href="$namespaceanonymous__namespace_02norec_8cpp_03.html#a0a6ec6794c0677e7f91daf5cb3a57775" title="anonymous_namespace\l\{norec::cpp\}::irrevoc" alt="" coords="195,263,357,305"/>
+<area shape="rect" id="node11" href="$namespaceanonymous__namespace_02norec_8cpp_03.html#a964889786277f55bf219ecf6a8fbd4a1" title="anonymous_namespace\l\{norec::cpp\}::onSwitchTo" alt="" coords="192,329,360,370"/>
+<area shape="rect" id="node3" href="$locks_8hpp.html#a0947d93866d35f8a9febdc3928bf7276" title="tatas_acquire" alt="" coords="459,5,559,32"/>
+<area shape="rect" id="node6" href="$classstm_1_1WBMMPolicy.html#a66451953ff2a0179699108a0e0b1cba3" title="stm::WBMMPolicy::onTxBegin" alt="" coords="408,56,611,83"/>
+<area shape="rect" id="node4" href="$locks_8hpp.html#a61d1a83c5eb0a8300dce2fbb225b078c" title="tatas_acquire_slowpath" alt="" coords="659,5,818,32"/>
+<area shape="rect" id="node5" href="$locks_8hpp.html#af5ba9b667099d9a2ff30ad4439e502a5" title="backoff" alt="" coords="867,5,933,32"/>
+</map>

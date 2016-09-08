@@ -1,0 +1,6 @@
+<map id="fr_gc_add_allocator" name="fr_gc_add_allocator">
+<area shape="rect" id="node2" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="189,31,312,57"/>
+<area shape="rect" id="node3" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="361,31,493,57"/>
+<area shape="rect" id="node4" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="542,5,677,32"/>
+<area shape="rect" id="node5" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="542,56,677,83"/>
+</map>

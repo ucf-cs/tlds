@@ -1,0 +1,25 @@
+<map id="BoostingSkip::Delete" name="BoostingSkip::Delete">
+<area shape="rect" id="node2" href="$classLockKey.html#ae524bd315c5de22c405e19875b27d6d3" title="LockKey::Lock" alt="" coords="200,159,309,186"/>
+<area shape="rect" id="node3" href="$lockfreeskip_8c.html#a0fa29e404756986c37476b188391af23" title="set_remove" alt="" coords="209,210,300,236"/>
+<area shape="rect" id="node4" href="$ptst_8c.html#a9f490f3eb71074b856eb2206f97c6cb1" title="fr_critical_enter" alt="" coords="375,348,486,375"/>
+<area shape="rect" id="node14" href="$lockfreeskip_8c.html#a751de1edff41da2526ac249c0c1dbbcd" title="weak_search_predecessors" alt="" coords="555,210,739,236"/>
+<area shape="rect" id="node15" href="$lockfreelist_8cc.html#ae7e018e2dc9f9f93414a68f3e0bbd14c" title="get_unmarked_ref" alt="" coords="790,134,917,160"/>
+<area shape="rect" id="node16" href="$lockfreeskip_8c.html#aa90f43c28b73bafc95db43e5b8f3d42d" title="mark_deleted" alt="" coords="381,286,481,312"/>
+<area shape="rect" id="node19" href="$lockfreeskip_8c.html#a4270e93e64c293502d088c95927ec90b" title="check_for_full_delete" alt="" coords="358,235,503,262"/>
+<area shape="rect" id="node20" href="$lockfreeskip_8c.html#a8a6df5fd4d3d94fdc980d581fc586e62" title="do_full_delete" alt="" coords="379,108,482,135"/>
+<area shape="rect" id="node22" href="$lockfreeskip_8c.html#ab054f9326717e9cb34629a01bd93dbc6" title="free_node" alt="" coords="607,7,686,34"/>
+<area shape="rect" id="node24" href="$stmskip_8cc.html#a5db6833ad98c08797c5dffd75d264833" title="fr_critical_exit" alt="" coords="379,399,482,426"/>
+<area shape="rect" id="node5" href="$gc_8c.html#aa06f5acb271ed4c9afcc728f3ceae52f" title="fr_gc_init" alt="" coords="609,362,684,388"/>
+<area shape="rect" id="node12" href="$gc_8c.html#a1b011e952f943e62b80e39768305d3fb" title="fr_gc_enter" alt="" coords="989,438,1075,464"/>
+<area shape="rect" id="node6" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="1147,311,1279,338"/>
+<area shape="rect" id="node9" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="795,362,911,388"/>
+<area shape="rect" id="node11" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="966,235,1098,262"/>
+<area shape="rect" id="node7" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="1329,387,1463,414"/>
+<area shape="rect" id="node8" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="1329,311,1463,338"/>
+<area shape="rect" id="node10" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="971,336,1093,363"/>
+<area shape="rect" id="node13" href="$gc_8c.html#a8c8094a35212fa8ed75ed9a4a38c7b9c" title="gc_reclaim" alt="" coords="1171,438,1256,464"/>
+<area shape="rect" id="node17" href="$lockfreelist_8cc.html#af3132c9d8404c5dc002b587f7318bdab" title="is_marked_ref" alt="" coords="801,184,905,211"/>
+<area shape="rect" id="node18" href="$lockfreelist_8cc.html#ab5987734a79eab6f7785885ac14c1285" title="get_marked_ref" alt="" coords="591,311,703,338"/>
+<area shape="rect" id="node21" href="$lockfreeskip_8c.html#a5b9ae140c05ded5ef68e086be1c15052" title="strong_search_predecessors" alt="" coords="552,159,741,186"/>
+<area shape="rect" id="node23" href="$gc_8c.html#a80f4a5c119aa70ab0452a73dfac21bbd" title="fr_gc_free" alt="" coords="813,58,893,84"/>
+</map>

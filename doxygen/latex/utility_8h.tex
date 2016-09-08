@@ -1,0 +1,71 @@
+\hypertarget{utility_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/utility.h File Reference}
+\label{utility_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/utility.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/utility.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utility_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{utility_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{M\-A\-X}(a, b)
+\item 
+\#define \hyperlink{utility_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N}(a, b)
+\item 
+\#define \hyperlink{utility_8h_af28656b80698aaa5da2d65e89c4e241c}{D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P}(a, b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{utility_8h_af28656b80698aaa5da2d65e89c4e241c}{\index{utility.\-h@{utility.\-h}!D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P@{D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P}}
+\index{D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P@{D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P}!utility.h@{utility.\-h}}
+\subsubsection[{D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-V\-I\-D\-E\-\_\-\-A\-N\-D\-\_\-\-R\-O\-U\-N\-D\-\_\-\-U\-P(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_af28656b80698aaa5da2d65e89c4e241c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\{ \(\backslash\)
+        \_\_typeof(a) \_a = (a); \(\backslash\)
+        \_\_typeof(b) \_b = (b); \(\backslash\)
+        (\_a / \_b) + (((\_a % \_b) > 0) ? (1) : (0)); \(\backslash\)
+    \})
+\end{DoxyCode}
+\hypertarget{utility_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{\index{utility.\-h@{utility.\-h}!M\-A\-X@{M\-A\-X}}
+\index{M\-A\-X@{M\-A\-X}!utility.h@{utility.\-h}}
+\subsubsection[{M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\{ \(\backslash\)
+        \_\_typeof(a) \_a = (a); \(\backslash\)
+        \_\_typeof(b) \_b = (b); \(\backslash\)
+        (\_a > \_b) ? (\_a) : (\_b); \(\backslash\)
+    \})
+\end{DoxyCode}
+\hypertarget{utility_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{\index{utility.\-h@{utility.\-h}!M\-I\-N@{M\-I\-N}}
+\index{M\-I\-N@{M\-I\-N}!utility.h@{utility.\-h}}
+\subsubsection[{M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_a3acffbd305ee72dcd4593c0d8af64a4f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\{ \(\backslash\)
+        \_\_typeof(a) \_a = (a); \(\backslash\)
+        \_\_typeof(b) \_b = (b); \(\backslash\)
+        (\_a < \_b) ? (\_a) : (\_b); \(\backslash\)
+    \})
+\end{DoxyCode}

@@ -1,0 +1,147 @@
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4}{\section{Set\-Adaptor$<$ trans\-\_\-skip $>$ Class Template Reference}
+\label{classSetAdaptor_3_01trans__skip_01_4}\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+}
+
+
+{\ttfamily \#include $<$setadaptor.\-h$>$}
+
+
+
+Collaboration diagram for Set\-Adaptor$<$ trans\-\_\-skip $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSetAdaptor_3_01trans__skip_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSetAdaptor_3_01trans__skip_01_4_a70793ce56d0b35ad32b8fdf9723e3fed}{Set\-Adaptor} (uint64\-\_\-t cap, uint64\-\_\-t thread\-Count, uint32\-\_\-t trans\-Size)
+\item 
+\hyperlink{classSetAdaptor_3_01trans__skip_01_4_a3737bfb7d1d13e91cd7688dd21ea86d4}{$\sim$\-Set\-Adaptor} ()
+\item 
+void \hyperlink{classSetAdaptor_3_01trans__skip_01_4_ad56122b123460a29c9372c1ad9cdaf40}{Init} ()
+\item 
+void \hyperlink{classSetAdaptor_3_01trans__skip_01_4_ae49af7d64d91647a660ba94e029ed437}{Uninit} ()
+\item 
+bool \hyperlink{classSetAdaptor_3_01trans__skip_01_4_a7a710fc23fd33466e92b1d06ad2e5869}{Execute\-Ops} (const \hyperlink{setadaptor_8h_a7af6ba4d94b446744e0e49accfb08e24}{Set\-Op\-Array} \&\hyperlink{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}{ops})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structDesc}{Desc} $>$ \hyperlink{classSetAdaptor_3_01trans__skip_01_4_ab1c58ed44975068b73118468a7ae56b2}{m\-\_\-desc\-Allocator}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structNodeDesc}{Node\-Desc} $>$ \hyperlink{classSetAdaptor_3_01trans__skip_01_4_a6011fb7888ade074791329b0ef855429}{m\-\_\-node\-Desc\-Allocator}
+\item 
+\hyperlink{structtrans__skip}{trans\-\_\-skip} $\ast$ \hyperlink{classSetAdaptor_3_01trans__skip_01_4_a35f19b9f0f48406537a0c224be5a3c67}{m\-\_\-skiplist}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_a70793ce56d0b35ad32b8fdf9723e3fed}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!Set\-Adaptor@{Set\-Adaptor}}
+\index{Set\-Adaptor@{Set\-Adaptor}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{Set\-Adaptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::{\bf Set\-Adaptor} (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{cap, }
+\item[{uint64\-\_\-t}]{thread\-Count, }
+\item[{uint32\-\_\-t}]{trans\-Size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01trans__skip_01_4_a70793ce56d0b35ad32b8fdf9723e3fed}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSetAdaptor_3_01trans__skip_01_4_a70793ce56d0b35ad32b8fdf9723e3fed_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_a3737bfb7d1d13e91cd7688dd21ea86d4}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!$\sim$\-Set\-Adaptor@{$\sim$\-Set\-Adaptor}}
+\index{$\sim$\-Set\-Adaptor@{$\sim$\-Set\-Adaptor}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{$\sim$\-Set\-Adaptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::$\sim${\bf Set\-Adaptor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01trans__skip_01_4_a3737bfb7d1d13e91cd7688dd21ea86d4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classSetAdaptor_3_01trans__skip_01_4_a3737bfb7d1d13e91cd7688dd21ea86d4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_a7a710fc23fd33466e92b1d06ad2e5869}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!Execute\-Ops@{Execute\-Ops}}
+\index{Execute\-Ops@{Execute\-Ops}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{Execute\-Ops}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::Execute\-Ops (
+\begin{DoxyParamCaption}
+\item[{const {\bf Set\-Op\-Array} \&}]{ops}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01trans__skip_01_4_a7a710fc23fd33466e92b1d06ad2e5869}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSetAdaptor_3_01trans__skip_01_4_a7a710fc23fd33466e92b1d06ad2e5869_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_ad56122b123460a29c9372c1ad9cdaf40}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!Init@{Init}}
+\index{Init@{Init}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01trans__skip_01_4_ad56122b123460a29c9372c1ad9cdaf40}
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_ae49af7d64d91647a660ba94e029ed437}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01trans__skip_01_4_ae49af7d64d91647a660ba94e029ed437}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSetAdaptor_3_01trans__skip_01_4_ae49af7d64d91647a660ba94e029ed437_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_ab1c58ed44975068b73118468a7ae56b2}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!m\-\_\-desc\-Allocator@{m\-\_\-desc\-Allocator}}
+\index{m\-\_\-desc\-Allocator@{m\-\_\-desc\-Allocator}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{m\-\_\-desc\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Desc}$>$ {\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::m\-\_\-desc\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01trans__skip_01_4_ab1c58ed44975068b73118468a7ae56b2}
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_a6011fb7888ade074791329b0ef855429}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!m\-\_\-node\-Desc\-Allocator@{m\-\_\-node\-Desc\-Allocator}}
+\index{m\-\_\-node\-Desc\-Allocator@{m\-\_\-node\-Desc\-Allocator}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{m\-\_\-node\-Desc\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Node\-Desc}$>$ {\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::m\-\_\-node\-Desc\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01trans__skip_01_4_a6011fb7888ade074791329b0ef855429}
+\hypertarget{classSetAdaptor_3_01trans__skip_01_4_a35f19b9f0f48406537a0c224be5a3c67}{\index{Set\-Adaptor$<$ trans\-\_\-skip $>$@{Set\-Adaptor$<$ trans\-\_\-skip $>$}!m\-\_\-skiplist@{m\-\_\-skiplist}}
+\index{m\-\_\-skiplist@{m\-\_\-skiplist}!SetAdaptor< trans_skip >@{Set\-Adaptor$<$ trans\-\_\-skip $>$}}
+\subsubsection[{m\-\_\-skiplist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf trans\-\_\-skip}$\ast$ {\bf Set\-Adaptor}$<$ {\bf trans\-\_\-skip} $>$\-::m\-\_\-skiplist\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01trans__skip_01_4_a35f19b9f0f48406537a0c224be5a3c67}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+bench/\hyperlink{setadaptor_8h}{setadaptor.\-h}\end{DoxyCompactItemize}

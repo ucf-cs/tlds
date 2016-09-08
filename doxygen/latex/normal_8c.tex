@@ -1,0 +1,150 @@
+\hypertarget{normal_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/kmeans/normal.c File Reference}
+\label{normal_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/kmeans/normal.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/kmeans/normal.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$float.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}normal.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+Include dependency graph for normal.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{normal_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structargs}{args}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{normal_8c_a25022864dfc8ec428e7128282e57b136}{C\-H\-U\-N\-K}~3
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structargs}{args} \hyperlink{normal_8c_a446276b6a87a1f444668e9fa062b8d6d}{args\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{normal_8c_a07c1b6e800a2f6bafded4e5fbac728eb}{work} (void $\ast$arg\-Ptr)
+\item 
+float $\ast$$\ast$ \hyperlink{normal_8c_ab2f390a6fe4039e040fb13eeeebdbfa9}{normal\-\_\-exec} (int nthreads, float $\ast$$\ast$feature, int nfeatures, int npoints, int nclusters, float threshold, int $\ast$membership, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{normal_8c_aa3ea98c7e5ad42511b3ec7e0e90e61a4}{global\-\_\-time} = 0.\-0
+\item 
+float \hyperlink{normal_8c_acb44125bf1a7f4bbcab5467433ebbf3e}{global\-\_\-delta}
+\item 
+long \hyperlink{normal_8c_a006871509fd9a67c49e113d48a410013}{global\-\_\-i}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{normal_8c_a25022864dfc8ec428e7128282e57b136}{\index{normal.\-c@{normal.\-c}!C\-H\-U\-N\-K@{C\-H\-U\-N\-K}}
+\index{C\-H\-U\-N\-K@{C\-H\-U\-N\-K}!normal.c@{normal.\-c}}
+\subsubsection[{C\-H\-U\-N\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-U\-N\-K~3}}\label{normal_8c_a25022864dfc8ec428e7128282e57b136}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{normal_8c_a446276b6a87a1f444668e9fa062b8d6d}{\index{normal.\-c@{normal.\-c}!args\-\_\-t@{args\-\_\-t}}
+\index{args\-\_\-t@{args\-\_\-t}!normal.c@{normal.\-c}}
+\subsubsection[{args\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf args}  {\bf args\-\_\-t}}}\label{normal_8c_a446276b6a87a1f444668e9fa062b8d6d}
+
+
+\subsection{Function Documentation}
+\hypertarget{normal_8c_ab2f390a6fe4039e040fb13eeeebdbfa9}{\index{normal.\-c@{normal.\-c}!normal\-\_\-exec@{normal\-\_\-exec}}
+\index{normal\-\_\-exec@{normal\-\_\-exec}!normal.c@{normal.\-c}}
+\subsubsection[{normal\-\_\-exec}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ normal\-\_\-exec (
+\begin{DoxyParamCaption}
+\item[{int}]{nthreads, }
+\item[{float $\ast$$\ast$}]{feature, }
+\item[{int}]{nfeatures, }
+\item[{int}]{npoints, }
+\item[{int}]{nclusters, }
+\item[{float}]{threshold, }
+\item[{int $\ast$}]{membership, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{normal_8c_ab2f390a6fe4039e040fb13eeeebdbfa9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{normal_8c_ab2f390a6fe4039e040fb13eeeebdbfa9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{normal_8c_ab2f390a6fe4039e040fb13eeeebdbfa9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{normal_8c_a07c1b6e800a2f6bafded4e5fbac728eb}{\index{normal.\-c@{normal.\-c}!work@{work}}
+\index{work@{work}!normal.c@{normal.\-c}}
+\subsubsection[{work}]{\setlength{\rightskip}{0pt plus 5cm}static void work (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{normal_8c_a07c1b6e800a2f6bafded4e5fbac728eb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{normal_8c_a07c1b6e800a2f6bafded4e5fbac728eb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{normal_8c_a07c1b6e800a2f6bafded4e5fbac728eb_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{normal_8c_acb44125bf1a7f4bbcab5467433ebbf3e}{\index{normal.\-c@{normal.\-c}!global\-\_\-delta@{global\-\_\-delta}}
+\index{global\-\_\-delta@{global\-\_\-delta}!normal.c@{normal.\-c}}
+\subsubsection[{global\-\_\-delta}]{\setlength{\rightskip}{0pt plus 5cm}float global\-\_\-delta}}\label{normal_8c_acb44125bf1a7f4bbcab5467433ebbf3e}
+\hypertarget{normal_8c_a006871509fd9a67c49e113d48a410013}{\index{normal.\-c@{normal.\-c}!global\-\_\-i@{global\-\_\-i}}
+\index{global\-\_\-i@{global\-\_\-i}!normal.c@{normal.\-c}}
+\subsubsection[{global\-\_\-i}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-i}}\label{normal_8c_a006871509fd9a67c49e113d48a410013}
+\hypertarget{normal_8c_aa3ea98c7e5ad42511b3ec7e0e90e61a4}{\index{normal.\-c@{normal.\-c}!global\-\_\-time@{global\-\_\-time}}
+\index{global\-\_\-time@{global\-\_\-time}!normal.c@{normal.\-c}}
+\subsubsection[{global\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}double global\-\_\-time = 0.\-0}}\label{normal_8c_aa3ea98c7e5ad42511b3ec7e0e90e61a4}

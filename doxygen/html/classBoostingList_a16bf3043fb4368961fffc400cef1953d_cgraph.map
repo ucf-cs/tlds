@@ -1,0 +1,7 @@
+<map id="BoostingList::Insert" name="BoostingList::Insert">
+<area shape="rect" id="node2" href="$classLockKey.html#ae524bd315c5de22c405e19875b27d6d3" title="LockKey::Lock" alt="" coords="203,5,312,32"/>
+<area shape="rect" id="node3" href="$classLockfreeList.html#a8177923608d471f9fddab408d7217994" title="LockfreeList::Insert" alt="" coords="190,56,325,83"/>
+<area shape="rect" id="node4" href="$classLockfreeList.html#ad06b1c38c8c92b50e29876fe8d1738c3" title="LockfreeList::LocatePred" alt="" coords="374,56,541,83"/>
+<area shape="rect" id="node5" href="$lockfreelist_8cc.html#af3132c9d8404c5dc002b587f7318bdab" title="is_marked_ref" alt="" coords="601,31,705,57"/>
+<area shape="rect" id="node6" href="$lockfreelist_8cc.html#ae7e018e2dc9f9f93414a68f3e0bbd14c" title="get_unmarked_ref" alt="" coords="590,81,717,108"/>
+</map>

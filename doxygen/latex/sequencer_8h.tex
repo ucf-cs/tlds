@@ -1,0 +1,163 @@
+\hypertarget{sequencer_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/genome/sequencer.h File Reference}
+\label{sequencer_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/sequencer.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/genome/sequencer.\-h}}
+}
+{\ttfamily \#include \char`\"{}hashtable.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}segments.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}table.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for sequencer.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsequencer}{sequencer}
+\item 
+struct \hyperlink{structsequencer__run__arg}{sequencer\-\_\-run\-\_\-arg}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structendInfoEntry}{end\-Info\-Entry} \hyperlink{sequencer_8h_a97c0cad60d1045ed2f1ea7a75f316da6}{end\-Info\-Entry\-\_\-t}
+\item 
+typedef struct \hyperlink{structconstructEntry}{construct\-Entry} \hyperlink{sequencer_8h_a63dad4594fb66e820886404f1fa9fe98}{construct\-Entry\-\_\-t}
+\item 
+typedef struct \hyperlink{structsequencer}{sequencer} \hyperlink{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}{sequencer\-\_\-t}
+\item 
+typedef struct \hyperlink{structsequencer__run__arg}{sequencer\-\_\-run\-\_\-arg} \hyperlink{sequencer_8h_a52b3ab60c83ec54b7fed5a83bf7af2a6}{sequencer\-\_\-run\-\_\-arg\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}{sequencer\-\_\-t} $\ast$ \hyperlink{sequencer_8h_ac075f78fc01ff6ba3a740957341bf254}{sequencer\-\_\-alloc} (long gene\-Length, long segment\-Length, \hyperlink{segments_8h_a6b833f170e932d51264176fcd9dd0bed}{segments\-\_\-t} $\ast$segments\-Ptr)
+\item 
+void \hyperlink{sequencer_8h_a302b260ded8a4cfd0db65f1e12d9a89b}{sequencer\-\_\-run} (void $\ast$arg\-Ptr)
+\item 
+void \hyperlink{sequencer_8h_ade65ca15593e63adb57d3ccb9ec0ca9a}{sequencer\-\_\-free} (\hyperlink{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}{sequencer\-\_\-t} $\ast$sequencer\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{sequencer_8h_a63dad4594fb66e820886404f1fa9fe98}{\index{sequencer.\-h@{sequencer.\-h}!construct\-Entry\-\_\-t@{construct\-Entry\-\_\-t}}
+\index{construct\-Entry\-\_\-t@{construct\-Entry\-\_\-t}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{construct\-Entry\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf construct\-Entry} {\bf construct\-Entry\-\_\-t}}}\label{sequencer_8h_a63dad4594fb66e820886404f1fa9fe98}
+\hypertarget{sequencer_8h_a97c0cad60d1045ed2f1ea7a75f316da6}{\index{sequencer.\-h@{sequencer.\-h}!end\-Info\-Entry\-\_\-t@{end\-Info\-Entry\-\_\-t}}
+\index{end\-Info\-Entry\-\_\-t@{end\-Info\-Entry\-\_\-t}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{end\-Info\-Entry\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf end\-Info\-Entry} {\bf end\-Info\-Entry\-\_\-t}}}\label{sequencer_8h_a97c0cad60d1045ed2f1ea7a75f316da6}
+\hypertarget{sequencer_8h_a52b3ab60c83ec54b7fed5a83bf7af2a6}{\index{sequencer.\-h@{sequencer.\-h}!sequencer\-\_\-run\-\_\-arg\-\_\-t@{sequencer\-\_\-run\-\_\-arg\-\_\-t}}
+\index{sequencer\-\_\-run\-\_\-arg\-\_\-t@{sequencer\-\_\-run\-\_\-arg\-\_\-t}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{sequencer\-\_\-run\-\_\-arg\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf sequencer\-\_\-run\-\_\-arg}  {\bf sequencer\-\_\-run\-\_\-arg\-\_\-t}}}\label{sequencer_8h_a52b3ab60c83ec54b7fed5a83bf7af2a6}
+\hypertarget{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}{\index{sequencer.\-h@{sequencer.\-h}!sequencer\-\_\-t@{sequencer\-\_\-t}}
+\index{sequencer\-\_\-t@{sequencer\-\_\-t}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{sequencer\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf sequencer}  {\bf sequencer\-\_\-t}}}\label{sequencer_8h_ab4f6bc3538a4fb91977fd80b4a29d574}
+
+
+\subsection{Function Documentation}
+\hypertarget{sequencer_8h_ac075f78fc01ff6ba3a740957341bf254}{\index{sequencer.\-h@{sequencer.\-h}!sequencer\-\_\-alloc@{sequencer\-\_\-alloc}}
+\index{sequencer\-\_\-alloc@{sequencer\-\_\-alloc}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{sequencer\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sequencer\-\_\-t}$\ast$ sequencer\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{gene\-Length, }
+\item[{long}]{segment\-Length, }
+\item[{{\bf segments\-\_\-t} $\ast$}]{segments\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{sequencer_8h_ac075f78fc01ff6ba3a740957341bf254}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8h_ac075f78fc01ff6ba3a740957341bf254_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{sequencer_8h_ac075f78fc01ff6ba3a740957341bf254_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8h_ade65ca15593e63adb57d3ccb9ec0ca9a}{\index{sequencer.\-h@{sequencer.\-h}!sequencer\-\_\-free@{sequencer\-\_\-free}}
+\index{sequencer\-\_\-free@{sequencer\-\_\-free}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{sequencer\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void sequencer\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf sequencer\-\_\-t} $\ast$}]{sequencer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{sequencer_8h_ade65ca15593e63adb57d3ccb9ec0ca9a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8h_ade65ca15593e63adb57d3ccb9ec0ca9a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{sequencer_8h_ade65ca15593e63adb57d3ccb9ec0ca9a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sequencer_8h_a302b260ded8a4cfd0db65f1e12d9a89b}{\index{sequencer.\-h@{sequencer.\-h}!sequencer\-\_\-run@{sequencer\-\_\-run}}
+\index{sequencer\-\_\-run@{sequencer\-\_\-run}!sequencer.h@{sequencer.\-h}}
+\subsubsection[{sequencer\-\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}void sequencer\-\_\-run (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{sequencer_8h_a302b260ded8a4cfd0db65f1e12d9a89b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sequencer_8h_a302b260ded8a4cfd0db65f1e12d9a89b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{sequencer_8h_a302b260ded8a4cfd0db65f1e12d9a89b_icgraph}
+\end{center}
+\end{figure}
+
+

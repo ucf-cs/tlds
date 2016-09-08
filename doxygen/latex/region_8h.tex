@@ -1,0 +1,196 @@
+\hypertarget{region_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/yada/region.h File Reference}
+\label{region_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/region.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/region.\-h}}
+}
+{\ttfamily \#include \char`\"{}element.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}heap.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for region.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{region_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{region_8h_a789d9f649bf502cf8d66edbbc23166d2}{P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}()~\hyperlink{region_8h_a8c683a35c5e2325f9e294ebe277c7461}{Pregion\-\_\-alloc}()
+\item 
+\#define \hyperlink{region_8h_ae6936aa5bb91a79b0d13b09e08e819c9}{P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E}(r)~\hyperlink{region_8h_a8fae2be618d960d7868d0b58dabad59f}{Pregion\-\_\-free}(r)
+\item 
+\#define \hyperlink{region_8h_aea5014698b56d71ae6948b258b48039c}{P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D}(r)~\hyperlink{region_8h_a6b4313793cf84a98da10815c65ce5b7e}{Pregion\-\_\-clear\-Bad}(r)
+\item 
+\#define \hyperlink{region_8h_aa66b173635b8f23a0472bf9c15c3f28d}{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E}(r, e, m)~\hyperlink{region_8h_a74d9ac41436518894e8e1bd6564ebf42}{T\-Mregion\-\_\-refine}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r, e, m)
+\item 
+\#define \hyperlink{region_8h_ab69adf4f61f7411d4f969c6104d7e598}{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D}(r, q)~\hyperlink{region_8h_a73dfcc2f406f8147c0edc05506f43bfd}{T\-Mregion\-\_\-transfer\-Bad}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  r, q)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structregion}{region} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$ \hyperlink{region_8h_a8c683a35c5e2325f9e294ebe277c7461}{Pregion\-\_\-alloc} ()
+\item 
+\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$ \hyperlink{region_8h_a353c6334013e3cc4a4501fad51db5739}{T\-Mregion\-\_\-alloc} (\hyperlink{tm_8h_a1e777a44e336d5f4adc02eb8e9e41062}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L\-\_\-\-A\-L\-O\-N\-E})
+\item 
+void \hyperlink{region_8h_a8fae2be618d960d7868d0b58dabad59f}{Pregion\-\_\-free} (\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr)
+\item 
+void \hyperlink{region_8h_aba2c2c21da3751ec96436b196b6c2c24}{T\-Mregion\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr)
+\item 
+long \hyperlink{region_8h_a74d9ac41436518894e8e1bd6564ebf42}{T\-Mregion\-\_\-refine} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr, \hyperlink{element_8h_a3578cc557f82ebb906d8224ce230ef38}{element\-\_\-t} $\ast$element\-Ptr, \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr)
+\item 
+void \hyperlink{region_8h_a6b4313793cf84a98da10815c65ce5b7e}{Pregion\-\_\-clear\-Bad} (\hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr)
+\item 
+void \hyperlink{region_8h_a73dfcc2f406f8147c0edc05506f43bfd}{T\-Mregion\-\_\-transfer\-Bad} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{region\-\_\-t} $\ast$region\-Ptr, \hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$work\-Heap\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{region_8h_a789d9f649bf502cf8d66edbbc23166d2}{\index{region.\-h@{region.\-h}!P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C@{P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}}
+\index{P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C@{P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}!region.h@{region.\-h}}
+\subsubsection[{P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-G\-I\-O\-N\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Pregion\-\_\-alloc}()}}\label{region_8h_a789d9f649bf502cf8d66edbbc23166d2}
+\hypertarget{region_8h_aea5014698b56d71ae6948b258b48039c}{\index{region.\-h@{region.\-h}!P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D@{P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D}}
+\index{P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D@{P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D}!region.h@{region.\-h}}
+\subsubsection[{P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-G\-I\-O\-N\-\_\-\-C\-L\-E\-A\-R\-B\-A\-D(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf Pregion\-\_\-clear\-Bad}(r)}}\label{region_8h_aea5014698b56d71ae6948b258b48039c}
+\hypertarget{region_8h_ae6936aa5bb91a79b0d13b09e08e819c9}{\index{region.\-h@{region.\-h}!P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E@{P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E}}
+\index{P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E@{P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E}!region.h@{region.\-h}}
+\subsubsection[{P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-G\-I\-O\-N\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~{\bf Pregion\-\_\-free}(r)}}\label{region_8h_ae6936aa5bb91a79b0d13b09e08e819c9}
+\hypertarget{region_8h_aa66b173635b8f23a0472bf9c15c3f28d}{\index{region.\-h@{region.\-h}!T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E@{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E}}
+\index{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E@{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E}!region.h@{region.\-h}}
+\subsubsection[{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-R\-E\-F\-I\-N\-E(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{e, }
+\item[{}]{m}
+\end{DoxyParamCaption}
+)~{\bf T\-Mregion\-\_\-refine}({\bf T\-M\-\_\-\-A\-R\-G}  r, e, m)}}\label{region_8h_aa66b173635b8f23a0472bf9c15c3f28d}
+\hypertarget{region_8h_ab69adf4f61f7411d4f969c6104d7e598}{\index{region.\-h@{region.\-h}!T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D@{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D}}
+\index{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D@{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D}!region.h@{region.\-h}}
+\subsubsection[{T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-R\-E\-G\-I\-O\-N\-\_\-\-T\-R\-A\-N\-S\-F\-E\-R\-B\-A\-D(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{q}
+\end{DoxyParamCaption}
+)~{\bf T\-Mregion\-\_\-transfer\-Bad}({\bf T\-M\-\_\-\-A\-R\-G}  r, q)}}\label{region_8h_ab69adf4f61f7411d4f969c6104d7e598}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}{\index{region.\-h@{region.\-h}!region\-\_\-t@{region\-\_\-t}}
+\index{region\-\_\-t@{region\-\_\-t}!region.h@{region.\-h}}
+\subsubsection[{region\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf region} {\bf region\-\_\-t}}}\label{region_8h_af6e8c98be73611ea015bf4c0aa4b8982}
+
+
+\subsection{Function Documentation}
+\hypertarget{region_8h_a8c683a35c5e2325f9e294ebe277c7461}{\index{region.\-h@{region.\-h}!Pregion\-\_\-alloc@{Pregion\-\_\-alloc}}
+\index{Pregion\-\_\-alloc@{Pregion\-\_\-alloc}!region.h@{region.\-h}}
+\subsubsection[{Pregion\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf region\-\_\-t}$\ast$ Pregion\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{region_8h_a8c683a35c5e2325f9e294ebe277c7461}
+\hypertarget{region_8h_a6b4313793cf84a98da10815c65ce5b7e}{\index{region.\-h@{region.\-h}!Pregion\-\_\-clear\-Bad@{Pregion\-\_\-clear\-Bad}}
+\index{Pregion\-\_\-clear\-Bad@{Pregion\-\_\-clear\-Bad}!region.h@{region.\-h}}
+\subsubsection[{Pregion\-\_\-clear\-Bad}]{\setlength{\rightskip}{0pt plus 5cm}void Pregion\-\_\-clear\-Bad (
+\begin{DoxyParamCaption}
+\item[{{\bf region\-\_\-t} $\ast$}]{region\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8h_a6b4313793cf84a98da10815c65ce5b7e}
+\hypertarget{region_8h_a8fae2be618d960d7868d0b58dabad59f}{\index{region.\-h@{region.\-h}!Pregion\-\_\-free@{Pregion\-\_\-free}}
+\index{Pregion\-\_\-free@{Pregion\-\_\-free}!region.h@{region.\-h}}
+\subsubsection[{Pregion\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Pregion\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf region\-\_\-t} $\ast$}]{region\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8h_a8fae2be618d960d7868d0b58dabad59f}
+\hypertarget{region_8h_a353c6334013e3cc4a4501fad51db5739}{\index{region.\-h@{region.\-h}!T\-Mregion\-\_\-alloc@{T\-Mregion\-\_\-alloc}}
+\index{T\-Mregion\-\_\-alloc@{T\-Mregion\-\_\-alloc}!region.h@{region.\-h}}
+\subsubsection[{T\-Mregion\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf region\-\_\-t}$\ast$ T\-Mregion\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+)}}\label{region_8h_a353c6334013e3cc4a4501fad51db5739}
+\hypertarget{region_8h_aba2c2c21da3751ec96436b196b6c2c24}{\index{region.\-h@{region.\-h}!T\-Mregion\-\_\-free@{T\-Mregion\-\_\-free}}
+\index{T\-Mregion\-\_\-free@{T\-Mregion\-\_\-free}!region.h@{region.\-h}}
+\subsubsection[{T\-Mregion\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mregion\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf region\-\_\-t} $\ast$}]{region\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8h_aba2c2c21da3751ec96436b196b6c2c24}
+\hypertarget{region_8h_a74d9ac41436518894e8e1bd6564ebf42}{\index{region.\-h@{region.\-h}!T\-Mregion\-\_\-refine@{T\-Mregion\-\_\-refine}}
+\index{T\-Mregion\-\_\-refine@{T\-Mregion\-\_\-refine}!region.h@{region.\-h}}
+\subsubsection[{T\-Mregion\-\_\-refine}]{\setlength{\rightskip}{0pt plus 5cm}long T\-Mregion\-\_\-refine (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf region\-\_\-t} $\ast$}]{region\-Ptr, }
+\item[{{\bf element\-\_\-t} $\ast$}]{element\-Ptr, }
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8h_a74d9ac41436518894e8e1bd6564ebf42}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{region_8h_a74d9ac41436518894e8e1bd6564ebf42_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{region_8h_a74d9ac41436518894e8e1bd6564ebf42_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{region_8h_a73dfcc2f406f8147c0edc05506f43bfd}{\index{region.\-h@{region.\-h}!T\-Mregion\-\_\-transfer\-Bad@{T\-Mregion\-\_\-transfer\-Bad}}
+\index{T\-Mregion\-\_\-transfer\-Bad@{T\-Mregion\-\_\-transfer\-Bad}!region.h@{region.\-h}}
+\subsubsection[{T\-Mregion\-\_\-transfer\-Bad}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mregion\-\_\-transfer\-Bad (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf region\-\_\-t} $\ast$}]{region\-Ptr, }
+\item[{{\bf heap\-\_\-t} $\ast$}]{work\-Heap\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{region_8h_a73dfcc2f406f8147c0edc05506f43bfd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{region_8h_a73dfcc2f406f8147c0edc05506f43bfd_cgraph}
+\end{center}
+\end{figure}
+
+

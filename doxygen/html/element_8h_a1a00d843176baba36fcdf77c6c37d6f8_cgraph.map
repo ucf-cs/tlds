@@ -1,0 +1,11 @@
+<map id="element_alloc" name="element_alloc">
+<area shape="rect" id="node2" href="$element_8c.html#ac0e5e56e092166a5407cbd8df8d566cc" title="minimizeCoordinates" alt="" coords="308,5,452,32"/>
+<area shape="rect" id="node4" href="$element_8c.html#a516b4b4c0f1c9b721118afb05dc2bc39" title="checkAngles" alt="" coords="158,157,255,184"/>
+<area shape="rect" id="node7" href="$element_8c.html#aa2f8ebe6a209829f3c48db5dece61abe" title="calculateCircumCircle" alt="" coords="305,107,455,133"/>
+<area shape="rect" id="node8" href="$element_8c.html#ad41119d6e3f2c2b16323533b941cabee" title="initEdges" alt="" coords="169,56,245,83"/>
+<area shape="rect" id="node10" href="$list_8c.html#acff01c26015a0263b94839e622c17d66" title="Plist_alloc" alt="" coords="165,208,248,235"/>
+<area shape="rect" id="node3" href="$yada_2coordinate_8c.html#a6ab38f14cde3ffe89a1496fbdf628549" title="coordinate_compare" alt="" coords="504,31,643,57"/>
+<area shape="rect" id="node5" href="$yada_2coordinate_8c.html#a23a6907e7021be62b89c588424af02d5" title="coordinate_angle" alt="" coords="320,157,440,184"/>
+<area shape="rect" id="node6" href="$yada_2coordinate_8c.html#a4b619d07f8343b4990b31920c9307c44" title="coordinate_distance" alt="" coords="504,107,643,133"/>
+<area shape="rect" id="node9" href="$element_8c.html#a32284f030a82851bfa5e95cb61901fea" title="setEdge" alt="" coords="345,56,415,83"/>
+</map>

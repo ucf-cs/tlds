@@ -1,0 +1,6 @@
+<map id="findSubGraphs0_arg" name="findSubGraphs0_arg">
+<area shape="rect" id="node2" href="$structV.html" title="{V\n||}" alt="" coords="505,263,543,340"/>
+<area shape="rect" id="node4" href="$structgraph.html" title="{graph\n||}" alt="" coords="219,263,273,340"/>
+<area shape="rect" id="node8" href="$classedge.html" title="{edge\n||+ print()\l+ index_of()\l+ reconsider()\l+ edge()\l+ destroy()\l+ ~edge()\l&#45; initialize_end()\l}" alt="" coords="763,219,876,384"/>
+<area shape="rect" id="node10" href="$classpoint.html" title="{point\n||+ hash()\l+ operator==()\l+ operator!=()\l+ operator\&lt;()\l+ point()\l}" alt="" coords="966,461,1071,597"/>
+</map>

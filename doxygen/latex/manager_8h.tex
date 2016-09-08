@@ -1,0 +1,922 @@
+\hypertarget{manager_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/vacation/manager.h File Reference}
+\label{manager_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/manager.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/manager.\-h}}
+}
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for manager.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{manager_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmanager}{manager}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{manager_8h_a7aa9357a04ab9fe23aef86241854b8a2}{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R}(mgr, id, num, price)~\hyperlink{manager_8h_a78e78023c1c3a054597653fb173969c2}{manager\-\_\-add\-Car}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id, num, price)
+\item 
+\#define \hyperlink{manager_8h_a3143458e5ebc4cd246e9f325fe2846eb}{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R}(mgr, id, num)~\hyperlink{manager_8h_af9a4a440671743e0d54902a17dd7aae3}{manager\-\_\-delete\-Car}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id, num)
+\item 
+\#define \hyperlink{manager_8h_a7dec3c53347b52d2c1fa76270d333487}{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M}(mgr, id, num, price)~\hyperlink{manager_8h_a2f220671c72a4cfe8d56c504aec414e1}{manager\-\_\-add\-Room}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id, num, price)
+\item 
+\#define \hyperlink{manager_8h_aad138be6888e5c9f0af68e1479b0d609}{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M}(mgr, id, num)~\hyperlink{manager_8h_aae2b09a37dbb33acdd1b8903ec9d44d3}{manager\-\_\-delete\-Room}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id, num)
+\item 
+\#define \hyperlink{manager_8h_a4dfd7b496677d1b6224874ebd660a065}{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T}(mgr, id, num, price)~\hyperlink{manager_8h_a3583ce7ed59bcd040ec35f37e2deec30}{manager\-\_\-add\-Flight}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id, num, price)
+\item 
+\#define \hyperlink{manager_8h_a29230a4514e8d12608c4725cb6c717f0}{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T}(mgr, id)~\hyperlink{manager_8h_a871d7cb7cbfe1c1968fe43c7c5973df5}{manager\-\_\-delete\-Flight}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_a5c0deb88d81b60e72a22b851375882ce}{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}(mgr, id)~\hyperlink{manager_8h_ac8e49d9c439bbf29ee919e71ae7eb057}{manager\-\_\-add\-Customer}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_a432f2a1406a8321f9497a50e41f1eabc}{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}(mgr, id)~\hyperlink{manager_8h_a0e2ec8d44b54c1cb7ae2f675b3bd084a}{manager\-\_\-delete\-Customer}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_aa80a224b76acf2ade68f64123466be71}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R}(mgr, id)~\hyperlink{manager_8h_a6feaf651c90349874b25be9f4536139a}{manager\-\_\-query\-Car}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_af5ec018b549e0a8a639bbe02c74c9a94}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E}(mgr, id)~\hyperlink{manager_8h_a1fed1fbdd8e2ae3cc19b7abb6a08d08c}{manager\-\_\-query\-Car\-Price}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_aec9f74520a505495e5e4460263e75654}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M}(mgr, id)~\hyperlink{manager_8h_a2c1ab3a05dafa6c6d7f41e1c0afa2229}{manager\-\_\-query\-Room}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_ab2a813afb4d8132beb8e87379ca929e3}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E}(mgr, id)~\hyperlink{manager_8h_a40e0b2370348746b0d4adcce17ed7b36}{manager\-\_\-query\-Room\-Price}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_a35e00654092b04fa891709fafbe9f8e1}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T}(mgr, id)~\hyperlink{manager_8h_ae7d9290684c5c512869715459940001b}{manager\-\_\-query\-Flight}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_ab4b104f25a6655990f6e63cdc5eaa1f7}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E}(mgr, id)~\hyperlink{manager_8h_a1de57e4d75af5c01e92c951ba3f00233}{manager\-\_\-query\-Flight\-Price}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_a12d2c98c4477e8576ffa93ae66d836e1}{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L}(mgr, id)~\hyperlink{manager_8h_a8e1d52b9a86c22598e4b2c291d47e4c0}{manager\-\_\-query\-Customer\-Bill}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, id)
+\item 
+\#define \hyperlink{manager_8h_a9ba89e409e6155b985bb3f8a58488c25}{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R}(mgr, cust, id)~\hyperlink{manager_8h_ac4cb2b40e1eda3633f11ae2f07f9af7e}{manager\-\_\-reserve\-Car}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)
+\item 
+\#define \hyperlink{manager_8h_a6efec374c5862cc7dcfbdcaaa76a4b00}{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M}(mgr, cust, id)~\hyperlink{manager_8h_a187bde8455b6585b95124c379a3bb956}{manager\-\_\-reserve\-Room}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)
+\item 
+\#define \hyperlink{manager_8h_ae3109bb9923051786dc1817a41a39220}{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T}(mgr, cust, id)~\hyperlink{manager_8h_ad3aad3614ae785a658a1968b892fe51b}{manager\-\_\-reserve\-Flight}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)
+\item 
+\#define \hyperlink{manager_8h_a81fe4420aa76f566d39c475c7a32fd35}{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R}(mgr, cust, id)~\hyperlink{manager_8h_a97033303649f6b8f1fd3e5d2bdda233f}{manager\-\_\-cancel\-Car}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)
+\item 
+\#define \hyperlink{manager_8h_ac0861ecf6660af00d57b11d81b4e1a1b}{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M}(mgr, cust, id)~\hyperlink{manager_8h_abc5f45f1b6c3102513f9d1805e13d593}{manager\-\_\-cancel\-Room}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)
+\item 
+\#define \hyperlink{manager_8h_ae3d98bdbcb75b511d6c8fd0a1e9b1e26}{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T}(mgr, cust, id)~\hyperlink{manager_8h_ae75211f39e16ccbc56b36867671a8b34}{manager\-\_\-cancel\-Flight}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structmanager}{manager} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$ \hyperlink{manager_8h_a3e111348099e2a939bd99796efae4035}{manager\-\_\-alloc} ()
+\item 
+void \hyperlink{manager_8h_a72b32f9b302969d40aa0b1853ed455d3}{manager\-\_\-free} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a78e78023c1c3a054597653fb173969c2}{manager\-\_\-add\-Car} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long car\-Id, long num\-Car, long price)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a94381eb4ecbd2f329b82a81ce41a6660}{manager\-\_\-add\-Car\-\_\-seq} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long car\-Id, long num\-Car, long price)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_af9a4a440671743e0d54902a17dd7aae3}{manager\-\_\-delete\-Car} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long car\-Id, long num\-Car)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a2f220671c72a4cfe8d56c504aec414e1}{manager\-\_\-add\-Room} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long room\-Id, long num\-Room, long price)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_ab0cf9fc86c671a8ffb79a52c010d1a22}{manager\-\_\-add\-Room\-\_\-seq} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long room\-Id, long num\-Room, long price)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_aae2b09a37dbb33acdd1b8903ec9d44d3}{manager\-\_\-delete\-Room} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long room\-Id, long num\-Room)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a3583ce7ed59bcd040ec35f37e2deec30}{manager\-\_\-add\-Flight} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long flight\-Id, long num\-Seat, long price)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a321dab2c4cf363c833a84aeeb51f3b0c}{manager\-\_\-add\-Flight\-\_\-seq} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long flight\-Id, long num\-Seat, long price)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a871d7cb7cbfe1c1968fe43c7c5973df5}{manager\-\_\-delete\-Flight} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long flight\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_ac8e49d9c439bbf29ee919e71ae7eb057}{manager\-\_\-add\-Customer} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a065147f4828a2f8104c450af70f20371}{manager\-\_\-add\-Customer\-\_\-seq} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a0e2ec8d44b54c1cb7ae2f675b3bd084a}{manager\-\_\-delete\-Customer} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_a6feaf651c90349874b25be9f4536139a}{manager\-\_\-query\-Car} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long car\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_a1fed1fbdd8e2ae3cc19b7abb6a08d08c}{manager\-\_\-query\-Car\-Price} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long car\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_a2c1ab3a05dafa6c6d7f41e1c0afa2229}{manager\-\_\-query\-Room} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long room\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_a40e0b2370348746b0d4adcce17ed7b36}{manager\-\_\-query\-Room\-Price} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long room\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_ae7d9290684c5c512869715459940001b}{manager\-\_\-query\-Flight} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long flight\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_a1de57e4d75af5c01e92c951ba3f00233}{manager\-\_\-query\-Flight\-Price} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long flight\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{manager_8h_a8e1d52b9a86c22598e4b2c291d47e4c0}{manager\-\_\-query\-Customer\-Bill} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_ac4cb2b40e1eda3633f11ae2f07f9af7e}{manager\-\_\-reserve\-Car} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id, long car\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a187bde8455b6585b95124c379a3bb956}{manager\-\_\-reserve\-Room} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id, long room\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_ad3aad3614ae785a658a1968b892fe51b}{manager\-\_\-reserve\-Flight} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id, long flight\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_a97033303649f6b8f1fd3e5d2bdda233f}{manager\-\_\-cancel\-Car} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id, long car\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_abc5f45f1b6c3102513f9d1805e13d593}{manager\-\_\-cancel\-Room} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id, long room\-Id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{manager_8h_ae75211f39e16ccbc56b36867671a8b34}{manager\-\_\-cancel\-Flight} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long customer\-Id, long flight\-Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{manager_8h_a7aa9357a04ab9fe23aef86241854b8a2}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id, }
+\item[{}]{num, }
+\item[{}]{price}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-add\-Car}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id, num, price)}}\label{manager_8h_a7aa9357a04ab9fe23aef86241854b8a2}
+\hypertarget{manager_8h_a5c0deb88d81b60e72a22b851375882ce}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-add\-Customer}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_a5c0deb88d81b60e72a22b851375882ce}
+\hypertarget{manager_8h_a4dfd7b496677d1b6224874ebd660a065}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-L\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id, }
+\item[{}]{num, }
+\item[{}]{price}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-add\-Flight}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id, num, price)}}\label{manager_8h_a4dfd7b496677d1b6224874ebd660a065}
+\hypertarget{manager_8h_a7dec3c53347b52d2c1fa76270d333487}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-O\-O\-M(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id, }
+\item[{}]{num, }
+\item[{}]{price}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-add\-Room}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id, num, price)}}\label{manager_8h_a7dec3c53347b52d2c1fa76270d333487}
+\hypertarget{manager_8h_a81fe4420aa76f566d39c475c7a32fd35}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-C\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{cust, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-cancel\-Car}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)}}\label{manager_8h_a81fe4420aa76f566d39c475c7a32fd35}
+\hypertarget{manager_8h_ae3d98bdbcb75b511d6c8fd0a1e9b1e26}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-F\-L\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{cust, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-cancel\-Flight}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)}}\label{manager_8h_ae3d98bdbcb75b511d6c8fd0a1e9b1e26}
+\hypertarget{manager_8h_ac0861ecf6660af00d57b11d81b4e1a1b}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-C\-A\-N\-C\-E\-L\-\_\-\-R\-O\-O\-M(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{cust, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-cancel\-Room}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)}}\label{manager_8h_ac0861ecf6660af00d57b11d81b4e1a1b}
+\hypertarget{manager_8h_a3143458e5ebc4cd246e9f325fe2846eb}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id, }
+\item[{}]{num}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-delete\-Car}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id, num)}}\label{manager_8h_a3143458e5ebc4cd246e9f325fe2846eb}
+\hypertarget{manager_8h_a432f2a1406a8321f9497a50e41f1eabc}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-delete\-Customer}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_a432f2a1406a8321f9497a50e41f1eabc}
+\hypertarget{manager_8h_a29230a4514e8d12608c4725cb6c717f0}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-F\-L\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-delete\-Flight}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_a29230a4514e8d12608c4725cb6c717f0}
+\hypertarget{manager_8h_aad138be6888e5c9f0af68e1479b0d609}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-D\-E\-L\-E\-T\-E\-\_\-\-R\-O\-O\-M(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id, }
+\item[{}]{num}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-delete\-Room}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id, num)}}\label{manager_8h_aad138be6888e5c9f0af68e1479b0d609}
+\hypertarget{manager_8h_aa80a224b76acf2ade68f64123466be71}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Car}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_aa80a224b76acf2ade68f64123466be71}
+\hypertarget{manager_8h_af5ec018b549e0a8a639bbe02c74c9a94}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-A\-R\-\_\-\-P\-R\-I\-C\-E(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Car\-Price}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_af5ec018b549e0a8a639bbe02c74c9a94}
+\hypertarget{manager_8h_a12d2c98c4477e8576ffa93ae66d836e1}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-B\-I\-L\-L(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Customer\-Bill}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_a12d2c98c4477e8576ffa93ae66d836e1}
+\hypertarget{manager_8h_a35e00654092b04fa891709fafbe9f8e1}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Flight}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_a35e00654092b04fa891709fafbe9f8e1}
+\hypertarget{manager_8h_ab4b104f25a6655990f6e63cdc5eaa1f7}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-F\-L\-I\-G\-H\-T\-\_\-\-P\-R\-I\-C\-E(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Flight\-Price}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_ab4b104f25a6655990f6e63cdc5eaa1f7}
+\hypertarget{manager_8h_aec9f74520a505495e5e4460263e75654}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Room}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_aec9f74520a505495e5e4460263e75654}
+\hypertarget{manager_8h_ab2a813afb4d8132beb8e87379ca929e3}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E@{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-R\-O\-O\-M\-\_\-\-P\-R\-I\-C\-E(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-query\-Room\-Price}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, id)}}\label{manager_8h_ab2a813afb4d8132beb8e87379ca929e3}
+\hypertarget{manager_8h_a9ba89e409e6155b985bb3f8a58488c25}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R@{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-C\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{cust, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-reserve\-Car}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)}}\label{manager_8h_a9ba89e409e6155b985bb3f8a58488c25}
+\hypertarget{manager_8h_ae3109bb9923051786dc1817a41a39220}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T@{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-F\-L\-I\-G\-H\-T(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{cust, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-reserve\-Flight}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)}}\label{manager_8h_ae3109bb9923051786dc1817a41a39220}
+\hypertarget{manager_8h_a6efec374c5862cc7dcfbdcaaa76a4b00}{\index{manager.\-h@{manager.\-h}!M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M}}
+\index{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M@{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M}!manager.h@{manager.\-h}}
+\subsubsection[{M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-A\-G\-E\-R\-\_\-\-R\-E\-S\-E\-R\-V\-E\-\_\-\-R\-O\-O\-M(
+\begin{DoxyParamCaption}
+\item[{}]{mgr, }
+\item[{}]{cust, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf manager\-\_\-reserve\-Room}({\bf T\-M\-\_\-\-A\-R\-G}  mgr, cust, id)}}\label{manager_8h_a6efec374c5862cc7dcfbdcaaa76a4b00}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{\index{manager.\-h@{manager.\-h}!manager\-\_\-t@{manager\-\_\-t}}
+\index{manager\-\_\-t@{manager\-\_\-t}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf manager}  {\bf manager\-\_\-t}}}\label{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}
+
+
+\subsection{Function Documentation}
+\hypertarget{manager_8h_a78e78023c1c3a054597653fb173969c2}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Car@{manager\-\_\-add\-Car}}
+\index{manager\-\_\-add\-Car@{manager\-\_\-add\-Car}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Car}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-add\-Car (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{car\-Id, }
+\item[{long}]{num\-Car, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a78e78023c1c3a054597653fb173969c2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{manager_8h_a78e78023c1c3a054597653fb173969c2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a94381eb4ecbd2f329b82a81ce41a6660}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Car\-\_\-seq@{manager\-\_\-add\-Car\-\_\-seq}}
+\index{manager\-\_\-add\-Car\-\_\-seq@{manager\-\_\-add\-Car\-\_\-seq}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Car\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} manager\-\_\-add\-Car\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{car\-Id, }
+\item[{long}]{num\-Car, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a94381eb4ecbd2f329b82a81ce41a6660}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a94381eb4ecbd2f329b82a81ce41a6660_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a94381eb4ecbd2f329b82a81ce41a6660_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_ac8e49d9c439bbf29ee919e71ae7eb057}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Customer@{manager\-\_\-add\-Customer}}
+\index{manager\-\_\-add\-Customer@{manager\-\_\-add\-Customer}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Customer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-add\-Customer (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_ac8e49d9c439bbf29ee919e71ae7eb057}
+\hypertarget{manager_8h_a065147f4828a2f8104c450af70f20371}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Customer\-\_\-seq@{manager\-\_\-add\-Customer\-\_\-seq}}
+\index{manager\-\_\-add\-Customer\-\_\-seq@{manager\-\_\-add\-Customer\-\_\-seq}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Customer\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} manager\-\_\-add\-Customer\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a065147f4828a2f8104c450af70f20371}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a065147f4828a2f8104c450af70f20371_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a065147f4828a2f8104c450af70f20371_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a3583ce7ed59bcd040ec35f37e2deec30}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Flight@{manager\-\_\-add\-Flight}}
+\index{manager\-\_\-add\-Flight@{manager\-\_\-add\-Flight}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Flight}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-add\-Flight (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{flight\-Id, }
+\item[{long}]{num\-Seat, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a3583ce7ed59bcd040ec35f37e2deec30}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{manager_8h_a3583ce7ed59bcd040ec35f37e2deec30_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a321dab2c4cf363c833a84aeeb51f3b0c}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Flight\-\_\-seq@{manager\-\_\-add\-Flight\-\_\-seq}}
+\index{manager\-\_\-add\-Flight\-\_\-seq@{manager\-\_\-add\-Flight\-\_\-seq}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Flight\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} manager\-\_\-add\-Flight\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{flight\-Id, }
+\item[{long}]{num\-Seat, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a321dab2c4cf363c833a84aeeb51f3b0c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a321dab2c4cf363c833a84aeeb51f3b0c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a321dab2c4cf363c833a84aeeb51f3b0c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a2f220671c72a4cfe8d56c504aec414e1}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Room@{manager\-\_\-add\-Room}}
+\index{manager\-\_\-add\-Room@{manager\-\_\-add\-Room}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-add\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{room\-Id, }
+\item[{long}]{num\-Room, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a2f220671c72a4cfe8d56c504aec414e1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{manager_8h_a2f220671c72a4cfe8d56c504aec414e1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_ab0cf9fc86c671a8ffb79a52c010d1a22}{\index{manager.\-h@{manager.\-h}!manager\-\_\-add\-Room\-\_\-seq@{manager\-\_\-add\-Room\-\_\-seq}}
+\index{manager\-\_\-add\-Room\-\_\-seq@{manager\-\_\-add\-Room\-\_\-seq}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-add\-Room\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} manager\-\_\-add\-Room\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{room\-Id, }
+\item[{long}]{num\-Room, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_ab0cf9fc86c671a8ffb79a52c010d1a22}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_ab0cf9fc86c671a8ffb79a52c010d1a22_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_ab0cf9fc86c671a8ffb79a52c010d1a22_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a3e111348099e2a939bd99796efae4035}{\index{manager.\-h@{manager.\-h}!manager\-\_\-alloc@{manager\-\_\-alloc}}
+\index{manager\-\_\-alloc@{manager\-\_\-alloc}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf manager\-\_\-t}$\ast$ manager\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a3e111348099e2a939bd99796efae4035}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{manager_8h_a3e111348099e2a939bd99796efae4035_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8h_a3e111348099e2a939bd99796efae4035_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a97033303649f6b8f1fd3e5d2bdda233f}{\index{manager.\-h@{manager.\-h}!manager\-\_\-cancel\-Car@{manager\-\_\-cancel\-Car}}
+\index{manager\-\_\-cancel\-Car@{manager\-\_\-cancel\-Car}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-cancel\-Car}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-cancel\-Car (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id, }
+\item[{long}]{car\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a97033303649f6b8f1fd3e5d2bdda233f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{manager_8h_a97033303649f6b8f1fd3e5d2bdda233f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_ae75211f39e16ccbc56b36867671a8b34}{\index{manager.\-h@{manager.\-h}!manager\-\_\-cancel\-Flight@{manager\-\_\-cancel\-Flight}}
+\index{manager\-\_\-cancel\-Flight@{manager\-\_\-cancel\-Flight}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-cancel\-Flight}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-cancel\-Flight (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id, }
+\item[{long}]{flight\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_ae75211f39e16ccbc56b36867671a8b34}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{manager_8h_ae75211f39e16ccbc56b36867671a8b34_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_abc5f45f1b6c3102513f9d1805e13d593}{\index{manager.\-h@{manager.\-h}!manager\-\_\-cancel\-Room@{manager\-\_\-cancel\-Room}}
+\index{manager\-\_\-cancel\-Room@{manager\-\_\-cancel\-Room}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-cancel\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-cancel\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id, }
+\item[{long}]{room\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_abc5f45f1b6c3102513f9d1805e13d593}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{manager_8h_abc5f45f1b6c3102513f9d1805e13d593_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_af9a4a440671743e0d54902a17dd7aae3}{\index{manager.\-h@{manager.\-h}!manager\-\_\-delete\-Car@{manager\-\_\-delete\-Car}}
+\index{manager\-\_\-delete\-Car@{manager\-\_\-delete\-Car}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-delete\-Car}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-delete\-Car (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{car\-Id, }
+\item[{long}]{num\-Car}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_af9a4a440671743e0d54902a17dd7aae3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{manager_8h_af9a4a440671743e0d54902a17dd7aae3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a0e2ec8d44b54c1cb7ae2f675b3bd084a}{\index{manager.\-h@{manager.\-h}!manager\-\_\-delete\-Customer@{manager\-\_\-delete\-Customer}}
+\index{manager\-\_\-delete\-Customer@{manager\-\_\-delete\-Customer}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-delete\-Customer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-delete\-Customer (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a0e2ec8d44b54c1cb7ae2f675b3bd084a}
+\hypertarget{manager_8h_a871d7cb7cbfe1c1968fe43c7c5973df5}{\index{manager.\-h@{manager.\-h}!manager\-\_\-delete\-Flight@{manager\-\_\-delete\-Flight}}
+\index{manager\-\_\-delete\-Flight@{manager\-\_\-delete\-Flight}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-delete\-Flight}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-delete\-Flight (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{flight\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a871d7cb7cbfe1c1968fe43c7c5973df5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{manager_8h_a871d7cb7cbfe1c1968fe43c7c5973df5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_aae2b09a37dbb33acdd1b8903ec9d44d3}{\index{manager.\-h@{manager.\-h}!manager\-\_\-delete\-Room@{manager\-\_\-delete\-Room}}
+\index{manager\-\_\-delete\-Room@{manager\-\_\-delete\-Room}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-delete\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-delete\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{room\-Id, }
+\item[{long}]{num\-Room}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_aae2b09a37dbb33acdd1b8903ec9d44d3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{manager_8h_aae2b09a37dbb33acdd1b8903ec9d44d3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a72b32f9b302969d40aa0b1853ed455d3}{\index{manager.\-h@{manager.\-h}!manager\-\_\-free@{manager\-\_\-free}}
+\index{manager\-\_\-free@{manager\-\_\-free}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void manager\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a72b32f9b302969d40aa0b1853ed455d3}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{manager_8h_a72b32f9b302969d40aa0b1853ed455d3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{manager_8h_a72b32f9b302969d40aa0b1853ed455d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a6feaf651c90349874b25be9f4536139a}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Car@{manager\-\_\-query\-Car}}
+\index{manager\-\_\-query\-Car@{manager\-\_\-query\-Car}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Car}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Car (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{car\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a6feaf651c90349874b25be9f4536139a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{manager_8h_a6feaf651c90349874b25be9f4536139a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a1fed1fbdd8e2ae3cc19b7abb6a08d08c}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Car\-Price@{manager\-\_\-query\-Car\-Price}}
+\index{manager\-\_\-query\-Car\-Price@{manager\-\_\-query\-Car\-Price}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Car\-Price}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Car\-Price (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{car\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a1fed1fbdd8e2ae3cc19b7abb6a08d08c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{manager_8h_a1fed1fbdd8e2ae3cc19b7abb6a08d08c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a8e1d52b9a86c22598e4b2c291d47e4c0}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Customer\-Bill@{manager\-\_\-query\-Customer\-Bill}}
+\index{manager\-\_\-query\-Customer\-Bill@{manager\-\_\-query\-Customer\-Bill}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Customer\-Bill}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Customer\-Bill (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a8e1d52b9a86c22598e4b2c291d47e4c0}
+\hypertarget{manager_8h_ae7d9290684c5c512869715459940001b}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Flight@{manager\-\_\-query\-Flight}}
+\index{manager\-\_\-query\-Flight@{manager\-\_\-query\-Flight}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Flight}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Flight (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{flight\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_ae7d9290684c5c512869715459940001b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{manager_8h_ae7d9290684c5c512869715459940001b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a1de57e4d75af5c01e92c951ba3f00233}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Flight\-Price@{manager\-\_\-query\-Flight\-Price}}
+\index{manager\-\_\-query\-Flight\-Price@{manager\-\_\-query\-Flight\-Price}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Flight\-Price}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Flight\-Price (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{flight\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a1de57e4d75af5c01e92c951ba3f00233}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{manager_8h_a1de57e4d75af5c01e92c951ba3f00233_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a2c1ab3a05dafa6c6d7f41e1c0afa2229}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Room@{manager\-\_\-query\-Room}}
+\index{manager\-\_\-query\-Room@{manager\-\_\-query\-Room}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{room\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a2c1ab3a05dafa6c6d7f41e1c0afa2229}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{manager_8h_a2c1ab3a05dafa6c6d7f41e1c0afa2229_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a40e0b2370348746b0d4adcce17ed7b36}{\index{manager.\-h@{manager.\-h}!manager\-\_\-query\-Room\-Price@{manager\-\_\-query\-Room\-Price}}
+\index{manager\-\_\-query\-Room\-Price@{manager\-\_\-query\-Room\-Price}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-query\-Room\-Price}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long manager\-\_\-query\-Room\-Price (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{room\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a40e0b2370348746b0d4adcce17ed7b36}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{manager_8h_a40e0b2370348746b0d4adcce17ed7b36_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_ac4cb2b40e1eda3633f11ae2f07f9af7e}{\index{manager.\-h@{manager.\-h}!manager\-\_\-reserve\-Car@{manager\-\_\-reserve\-Car}}
+\index{manager\-\_\-reserve\-Car@{manager\-\_\-reserve\-Car}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-reserve\-Car}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-reserve\-Car (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id, }
+\item[{long}]{car\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_ac4cb2b40e1eda3633f11ae2f07f9af7e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{manager_8h_ac4cb2b40e1eda3633f11ae2f07f9af7e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_ad3aad3614ae785a658a1968b892fe51b}{\index{manager.\-h@{manager.\-h}!manager\-\_\-reserve\-Flight@{manager\-\_\-reserve\-Flight}}
+\index{manager\-\_\-reserve\-Flight@{manager\-\_\-reserve\-Flight}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-reserve\-Flight}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-reserve\-Flight (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id, }
+\item[{long}]{flight\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_ad3aad3614ae785a658a1968b892fe51b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{manager_8h_ad3aad3614ae785a658a1968b892fe51b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manager_8h_a187bde8455b6585b95124c379a3bb956}{\index{manager.\-h@{manager.\-h}!manager\-\_\-reserve\-Room@{manager\-\_\-reserve\-Room}}
+\index{manager\-\_\-reserve\-Room@{manager\-\_\-reserve\-Room}!manager.h@{manager.\-h}}
+\subsubsection[{manager\-\_\-reserve\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} manager\-\_\-reserve\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{customer\-Id, }
+\item[{long}]{room\-Id}
+\end{DoxyParamCaption}
+)}}\label{manager_8h_a187bde8455b6585b95124c379a3bb956}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{manager_8h_a187bde8455b6585b95124c379a3bb956_cgraph}
+\end{center}
+\end{figure}
+
+

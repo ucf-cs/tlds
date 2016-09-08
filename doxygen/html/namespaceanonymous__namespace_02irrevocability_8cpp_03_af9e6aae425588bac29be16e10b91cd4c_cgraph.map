@@ -1,0 +1,12 @@
+<map id="anonymous_namespace{irrevocability::cpp}::commit_irrevocable" name="anonymous_namespace{irrevocability::cpp}::commit_irrevocable">
+<area shape="rect" id="node2" href="$namespaceanonymous__namespace_02irrevocability_8cpp_03.html#ab42770392de26e3b0bc1ffbe2f7932b8" title="anonymous_namespace\l\{irrevocability::cpp\}\l::unset_irrevocable_barriers" alt="" coords="217,31,399,87"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a00287c50a719dcda144cc1cbc9e9ae4b" title="stm::OnReadOnlyCommit" alt="" coords="221,111,395,137"/>
+<area shape="rect" id="node4" href="$classstm_1_1WBMMPolicy.html#af174b70b9898c8d900a5a2604cfadc7c" title="stm::WBMMPolicy::onTxCommit" alt="" coords="449,85,663,112"/>
+<area shape="rect" id="node11" href="$structstm_1_1toxic__nop__t.html#a1c92cb621137c523ad38b9c252b4da06" title="stm::toxic_nop_t::onCommit" alt="" coords="463,136,649,163"/>
+<area shape="rect" id="node5" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="733,5,886,32"/>
+<area shape="rect" id="node6" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="738,56,881,83"/>
+<area shape="rect" id="node7" href="$classstm_1_1WBMMPolicy.html#aa2aa233946e7b6b1d35b184503b8c9f9" title="stm::WBMMPolicy::schedFor\lReclaim" alt="" coords="712,107,907,149"/>
+<area shape="rect" id="node10" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="734,173,885,200"/>
+<area shape="rect" id="node8" href="$classstm_1_1WBMMPolicy.html#a80a035e5b8f805d49606613b869ddd3c" title="stm::WBMMPolicy::handle\l_full_prelimbo" alt="" coords="955,107,1133,149"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02WBMMPolicy_8cpp_03.html#a030c6e9142fd49127ce70ad9b1af5e79" title="anonymous_namespace\l\{WBMMPolicy::cpp\}::is\l_strictly_older" alt="" coords="1181,100,1344,156"/>
+</map>

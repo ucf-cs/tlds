@@ -1,0 +1,7 @@
+<map id="stm::trigger_common" name="stm::trigger_common">
+<area shape="rect" id="node2" href="$structstm_1_1AbortWaitTrigger.html#a569a71f4008818dba88b07dd6757e33f" title="stm::AbortWaitTrigger\l::onCommitLock" alt="" coords="201,5,351,46"/>
+<area shape="rect" id="node3" href="$structstm_1_1AbortWaitTrigger.html#afb8db71071daad0585654b95ff8edd04" title="stm::AbortWaitTrigger\l::onAbort" alt="" coords="201,70,351,111"/>
+<area shape="rect" id="node5" href="$structstm_1_1CommitTrigger.html#acdf3280966d01d057c2efc8ff1792aab" title="stm::CommitTrigger\l::onCommitSTM" alt="" coords="207,135,345,177"/>
+<area shape="rect" id="node4" href="$structstm_1_1CommitTrigger.html#aee144a92ac151fa1aae6942b04f68685" title="stm::CommitTrigger\l::onAbort" alt="" coords="400,70,539,111"/>
+<area shape="rect" id="node6" href="$structstm_1_1CommitTrigger.html#a4d706454d226b9100a972d36bb3be88e" title="stm::CommitTrigger\l::onCommitLock" alt="" coords="400,135,539,177"/>
+</map>

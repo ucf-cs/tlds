@@ -1,0 +1,130 @@
+\hypertarget{ptst_8c}{\section{common/fraser/ptst.c File Reference}
+\label{ptst_8c}\index{common/fraser/ptst.\-c@{common/fraser/ptst.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}portable\-\_\-defns.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ptst.\-h\char`\"{}}\\*
+Include dependency graph for ptst.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$ \hyperlink{ptst_8c_a9f490f3eb71074b856eb2206f97c6cb1}{fr\-\_\-critical\-\_\-enter} (void)
+\item 
+static void \hyperlink{ptst_8c_a2236017553cfe5b386310bcc8b52927d}{ptst\-\_\-destructor} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+void \hyperlink{ptst_8c_a1871243b5465e5a17a02e631887ef9c2}{fr\-\_\-init\-\_\-ptst\-\_\-subsystem} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-key\-\_\-t \hyperlink{ptst_8c_a0629b49e301d26658167ff4a7a447340}{ptst\-\_\-key}
+\item 
+\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$ \hyperlink{ptst_8c_ab63d5ac44367ff1f451b16c7bd111efe}{ptst\-\_\-list}
+\item 
+static unsigned int \hyperlink{ptst_8c_a78645df14edcd7c15bd1f2c4e7629e46}{next\-\_\-id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{ptst_8c_a9f490f3eb71074b856eb2206f97c6cb1}{\index{ptst.\-c@{ptst.\-c}!fr\-\_\-critical\-\_\-enter@{fr\-\_\-critical\-\_\-enter}}
+\index{fr\-\_\-critical\-\_\-enter@{fr\-\_\-critical\-\_\-enter}!ptst.c@{ptst.\-c}}
+\subsubsection[{fr\-\_\-critical\-\_\-enter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptst\-\_\-t}$\ast$ fr\-\_\-critical\-\_\-enter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ptst_8c_a9f490f3eb71074b856eb2206f97c6cb1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8c_a9f490f3eb71074b856eb2206f97c6cb1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8c_a9f490f3eb71074b856eb2206f97c6cb1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ptst_8c_a1871243b5465e5a17a02e631887ef9c2}{\index{ptst.\-c@{ptst.\-c}!fr\-\_\-init\-\_\-ptst\-\_\-subsystem@{fr\-\_\-init\-\_\-ptst\-\_\-subsystem}}
+\index{fr\-\_\-init\-\_\-ptst\-\_\-subsystem@{fr\-\_\-init\-\_\-ptst\-\_\-subsystem}!ptst.c@{ptst.\-c}}
+\subsubsection[{fr\-\_\-init\-\_\-ptst\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-init\-\_\-ptst\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ptst_8c_a1871243b5465e5a17a02e631887ef9c2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{ptst_8c_a1871243b5465e5a17a02e631887ef9c2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8c_a1871243b5465e5a17a02e631887ef9c2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ptst_8c_a2236017553cfe5b386310bcc8b52927d}{\index{ptst.\-c@{ptst.\-c}!ptst\-\_\-destructor@{ptst\-\_\-destructor}}
+\index{ptst\-\_\-destructor@{ptst\-\_\-destructor}!ptst.c@{ptst.\-c}}
+\subsubsection[{ptst\-\_\-destructor}]{\setlength{\rightskip}{0pt plus 5cm}static void ptst\-\_\-destructor (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{ptst_8c_a2236017553cfe5b386310bcc8b52927d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ptst_8c_a2236017553cfe5b386310bcc8b52927d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{ptst_8c_a78645df14edcd7c15bd1f2c4e7629e46}{\index{ptst.\-c@{ptst.\-c}!next\-\_\-id@{next\-\_\-id}}
+\index{next\-\_\-id@{next\-\_\-id}!ptst.c@{ptst.\-c}}
+\subsubsection[{next\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int next\-\_\-id\hspace{0.3cm}{\ttfamily [static]}}}\label{ptst_8c_a78645df14edcd7c15bd1f2c4e7629e46}
+\hypertarget{ptst_8c_a0629b49e301d26658167ff4a7a447340}{\index{ptst.\-c@{ptst.\-c}!ptst\-\_\-key@{ptst\-\_\-key}}
+\index{ptst\-\_\-key@{ptst\-\_\-key}!ptst.c@{ptst.\-c}}
+\subsubsection[{ptst\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-key\-\_\-t ptst\-\_\-key}}\label{ptst_8c_a0629b49e301d26658167ff4a7a447340}
+\hypertarget{ptst_8c_ab63d5ac44367ff1f451b16c7bd111efe}{\index{ptst.\-c@{ptst.\-c}!ptst\-\_\-list@{ptst\-\_\-list}}
+\index{ptst\-\_\-list@{ptst\-\_\-list}!ptst.c@{ptst.\-c}}
+\subsubsection[{ptst\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptst\-\_\-t}$\ast$ ptst\-\_\-list}}\label{ptst_8c_ab63d5ac44367ff1f451b16c7bd111efe}

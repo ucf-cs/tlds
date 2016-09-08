@@ -1,0 +1,110 @@
+\hypertarget{pair_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/pair.c File Reference}
+\label{pair_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/pair.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/pair.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}memory.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pair.\-h\char`\"{}}\\*
+Include dependency graph for pair.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{pair_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$ \hyperlink{pair_8c_ad5ad234511d294112438f39dd8091aa7}{pair\-\_\-alloc} (void $\ast$first\-Ptr, void $\ast$second\-Ptr)
+\item 
+\hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$ \hyperlink{pair_8c_a135ab57d42c720bb1a53c1a7ac4ecd67}{Ppair\-\_\-alloc} (void $\ast$first\-Ptr, void $\ast$second\-Ptr)
+\item 
+\hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$ \hyperlink{pair_8c_a9ce3df2adc298682fdaf88861c047978}{T\-Mpair\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} void $\ast$first\-Ptr, void $\ast$second\-Ptr)
+\item 
+void \hyperlink{pair_8c_af7abfb9e92cb7ce7fc178df13a75c433}{pair\-\_\-free} (\hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$pair\-Ptr)
+\item 
+void \hyperlink{pair_8c_a79d2357545d94fd98f89e978cbb0e138}{Ppair\-\_\-free} (\hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$pair\-Ptr)
+\item 
+void \hyperlink{pair_8c_a9756801480849f2dbb106407648d75ee}{T\-Mpair\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$pair\-Ptr)
+\item 
+void \hyperlink{pair_8c_a6568461257b9cc86e2cf81b244f7d16e}{pair\-\_\-swap} (\hyperlink{pair_8h_a22a04bbebcea6eb94a8adfaf49e4c0a6}{pair\-\_\-t} $\ast$pair\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{pair_8c_ad5ad234511d294112438f39dd8091aa7}{\index{pair.\-c@{pair.\-c}!pair\-\_\-alloc@{pair\-\_\-alloc}}
+\index{pair\-\_\-alloc@{pair\-\_\-alloc}!pair.c@{pair.\-c}}
+\subsubsection[{pair\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pair\-\_\-t}$\ast$ pair\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{first\-Ptr, }
+\item[{void $\ast$}]{second\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_ad5ad234511d294112438f39dd8091aa7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{pair_8c_ad5ad234511d294112438f39dd8091aa7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pair_8c_af7abfb9e92cb7ce7fc178df13a75c433}{\index{pair.\-c@{pair.\-c}!pair\-\_\-free@{pair\-\_\-free}}
+\index{pair\-\_\-free@{pair\-\_\-free}!pair.c@{pair.\-c}}
+\subsubsection[{pair\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void pair\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf pair\-\_\-t} $\ast$}]{pair\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_af7abfb9e92cb7ce7fc178df13a75c433}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{pair_8c_af7abfb9e92cb7ce7fc178df13a75c433_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pair_8c_a6568461257b9cc86e2cf81b244f7d16e}{\index{pair.\-c@{pair.\-c}!pair\-\_\-swap@{pair\-\_\-swap}}
+\index{pair\-\_\-swap@{pair\-\_\-swap}!pair.c@{pair.\-c}}
+\subsubsection[{pair\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}void pair\-\_\-swap (
+\begin{DoxyParamCaption}
+\item[{{\bf pair\-\_\-t} $\ast$}]{pair\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_a6568461257b9cc86e2cf81b244f7d16e}
+\hypertarget{pair_8c_a135ab57d42c720bb1a53c1a7ac4ecd67}{\index{pair.\-c@{pair.\-c}!Ppair\-\_\-alloc@{Ppair\-\_\-alloc}}
+\index{Ppair\-\_\-alloc@{Ppair\-\_\-alloc}!pair.c@{pair.\-c}}
+\subsubsection[{Ppair\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pair\-\_\-t}$\ast$ Ppair\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{first\-Ptr, }
+\item[{void $\ast$}]{second\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_a135ab57d42c720bb1a53c1a7ac4ecd67}
+\hypertarget{pair_8c_a79d2357545d94fd98f89e978cbb0e138}{\index{pair.\-c@{pair.\-c}!Ppair\-\_\-free@{Ppair\-\_\-free}}
+\index{Ppair\-\_\-free@{Ppair\-\_\-free}!pair.c@{pair.\-c}}
+\subsubsection[{Ppair\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Ppair\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf pair\-\_\-t} $\ast$}]{pair\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_a79d2357545d94fd98f89e978cbb0e138}
+\hypertarget{pair_8c_a9ce3df2adc298682fdaf88861c047978}{\index{pair.\-c@{pair.\-c}!T\-Mpair\-\_\-alloc@{T\-Mpair\-\_\-alloc}}
+\index{T\-Mpair\-\_\-alloc@{T\-Mpair\-\_\-alloc}!pair.c@{pair.\-c}}
+\subsubsection[{T\-Mpair\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pair\-\_\-t}$\ast$ T\-Mpair\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} void $\ast$}]{first\-Ptr, }
+\item[{void $\ast$}]{second\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_a9ce3df2adc298682fdaf88861c047978}
+\hypertarget{pair_8c_a9756801480849f2dbb106407648d75ee}{\index{pair.\-c@{pair.\-c}!T\-Mpair\-\_\-free@{T\-Mpair\-\_\-free}}
+\index{T\-Mpair\-\_\-free@{T\-Mpair\-\_\-free}!pair.c@{pair.\-c}}
+\subsubsection[{T\-Mpair\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mpair\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf pair\-\_\-t} $\ast$}]{pair\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{pair_8c_a9756801480849f2dbb106407648d75ee}

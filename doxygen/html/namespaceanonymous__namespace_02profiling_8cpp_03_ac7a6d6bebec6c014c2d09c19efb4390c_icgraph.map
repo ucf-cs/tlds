@@ -1,0 +1,8 @@
+<map id="anonymous_namespace{profiling::cpp}::change_algorithm" name="anonymous_namespace{profiling::cpp}::change_algorithm">
+<area shape="rect" id="node2" href="$namespacestm.html#a7691058d97dd9bb3444ab2200a90e54b" title="stm::trigger_common" alt="" coords="217,77,362,104"/>
+<area shape="rect" id="node3" href="$structstm_1_1AbortWaitTrigger.html#a569a71f4008818dba88b07dd6757e33f" title="stm::AbortWaitTrigger\l::onCommitLock" alt="" coords="411,5,562,46"/>
+<area shape="rect" id="node4" href="$structstm_1_1AbortWaitTrigger.html#afb8db71071daad0585654b95ff8edd04" title="stm::AbortWaitTrigger\l::onAbort" alt="" coords="411,70,562,111"/>
+<area shape="rect" id="node6" href="$structstm_1_1CommitTrigger.html#acdf3280966d01d057c2efc8ff1792aab" title="stm::CommitTrigger\l::onCommitSTM" alt="" coords="417,135,556,177"/>
+<area shape="rect" id="node5" href="$structstm_1_1CommitTrigger.html#aee144a92ac151fa1aae6942b04f68685" title="stm::CommitTrigger\l::onAbort" alt="" coords="611,70,749,111"/>
+<area shape="rect" id="node7" href="$structstm_1_1CommitTrigger.html#a4d706454d226b9100a972d36bb3be88e" title="stm::CommitTrigger\l::onCommitLock" alt="" coords="611,135,749,177"/>
+</map>

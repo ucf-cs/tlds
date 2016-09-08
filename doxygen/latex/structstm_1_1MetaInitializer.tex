@@ -1,0 +1,56 @@
+\hypertarget{structstm_1_1MetaInitializer}{\section{stm\-:\-:Meta\-Initializer$<$ I $>$ Struct Template Reference}
+\label{structstm_1_1MetaInitializer}\index{stm\-::\-Meta\-Initializer$<$ I $>$@{stm\-::\-Meta\-Initializer$<$ I $>$}}
+}
+
+
+Collaboration diagram for stm\-:\-:Meta\-Initializer$<$ I $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{structstm_1_1MetaInitializer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1MetaInitializer_aefc76265a7717e1161305fdcbae1231b}{init} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$int I = 0$>$struct stm\-::\-Meta\-Initializer$<$ I $>$}
+
+Template Metaprogramming trick for initializing all S\-T\-M algorithms.
+
+This is either a very gross trick, or a very cool one. We have A\-L\-G\-\_\-\-M\-A\-X algorithms, and they all need to be initialized. Each has a unique identifying integer, and each is initialized by calling an instantiation of init\-T\-M$<$$>$ with that integer.
+
+Rather than call each function through a line of code, we use a tail-\/recursive template\-: When we call \hyperlink{structstm_1_1MetaInitializer_aefc76265a7717e1161305fdcbae1231b}{Meta\-Initializer$<$0$>$.\-init()}, it will recursively call itself for every X, where 0 $<$= X $<$ A\-L\-G\-\_\-\-M\-A\-X. Since \hyperlink{structstm_1_1MetaInitializer_aefc76265a7717e1161305fdcbae1231b}{Meta\-Initializer$<$\-X$>$\-::init()} calls init\-T\-M$<$\-X$>$ before recursing, this instantiates and calls the appropriate init\-T\-M function. Thus we correctly call all initialization functions.
+
+Furthermore, since the code is tail-\/recursive, at -\/\-O3 g++ will inline all the init\-T\-M calls right into the sys\-\_\-init function. While the code is not performance critical, it's still nice to avoid the overhead. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1MetaInitializer_aefc76265a7717e1161305fdcbae1231b}{\index{stm\-::\-Meta\-Initializer@{stm\-::\-Meta\-Initializer}!init@{init}}
+\index{init@{init}!stm::MetaInitializer@{stm\-::\-Meta\-Initializer}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int I = 0$>$ static void {\bf stm\-::\-Meta\-Initializer}$<$ I $>$\-::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1MetaInitializer_aefc76265a7717e1161305fdcbae1231b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{structstm_1_1MetaInitializer_aefc76265a7717e1161305fdcbae1231b_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{txthread_8cpp}{txthread.\-cpp}\end{DoxyCompactItemize}

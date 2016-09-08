@@ -1,0 +1,11 @@
+<map id="do_full_delete" name="do_full_delete">
+<area shape="rect" id="node2" href="$transskip_8cc.html#a8df32de13951af05c7685b1698ce80dd" title="strong_search_predecessors" alt="" coords="157,5,347,32"/>
+<area shape="rect" id="node4" href="$lockfreelist_8cc.html#ae7e018e2dc9f9f93414a68f3e0bbd14c" title="get_unmarked_ref" alt="" coords="395,56,522,83"/>
+<area shape="rect" id="node5" href="$transskip_8cc.html#a26a2b06dc93215a87d025facf8370427" title="free_node" alt="" coords="213,107,291,133"/>
+<area shape="rect" id="node3" href="$lockfreelist_8cc.html#af3132c9d8404c5dc002b587f7318bdab" title="is_marked_ref" alt="" coords="407,5,511,32"/>
+<area shape="rect" id="node6" href="$gc_8c.html#a80f4a5c119aa70ab0452a73dfac21bbd" title="fr_gc_free" alt="" coords="419,107,499,133"/>
+<area shape="rect" id="node7" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="571,107,703,133"/>
+<area shape="rect" id="node8" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="753,107,885,133"/>
+<area shape="rect" id="node9" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="934,81,1069,108"/>
+<area shape="rect" id="node10" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="934,132,1069,159"/>
+</map>

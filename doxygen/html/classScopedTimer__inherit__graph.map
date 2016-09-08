@@ -1,0 +1,3 @@
+<map id="ScopedTimer" name="ScopedTimer">
+<area shape="rect" id="node2" href="$classTimer.html" title="{Timer\n|&#45; m_cpuStart\l&#45; m_wallStart\l&#45; m_cpuElapse\l&#45; m_wallElapse\l&#45; m_stopped\l|+ Timer()\l+ ~Timer()\l+ Start()\l+ Stop()\l+ Resume()\l+ ElapsedCpu()\l+ ElapsedWall()\l+ ToString()\l+ ToSecond()\l}" alt="" coords="11,5,125,259"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="region_info" name="region_info">
+<area shape="rect" id="node2" href="$classsimple__queue.html" title="{simple_queue\&lt; edge * \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="5,233,168,340"/>
+<area shape="rect" id="node3" href="$classsimple__queue.html" title="{simple_queue\&lt; T \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="19,5,153,112"/>
+<area shape="rect" id="node5" href="$classpoint.html" title="{point\n||+ hash()\l+ operator==()\l+ operator!=()\l+ operator\&lt;()\l+ point()\l}" alt="" coords="299,219,404,355"/>
+<area shape="rect" id="node8" href="$classedge.html" title="{edge\n||+ print()\l+ index_of()\l+ reconsider()\l+ edge()\l+ destroy()\l+ ~edge()\l&#45; initialize_end()\l}" alt="" coords="419,448,532,613"/>
+</map>

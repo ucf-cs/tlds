@@ -1,0 +1,129 @@
+\hypertarget{classRSTMList}{\section{R\-S\-T\-M\-List Class Reference}
+\label{classRSTMList}\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}}
+}
+
+
+{\ttfamily \#include $<$rstmlist.\-hpp$>$}
+
+
+
+Collaboration diagram for R\-S\-T\-M\-List\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classRSTMList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structRSTMList_1_1Node}{Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRSTMList_a18dea60bfc63edcc3a7e293ff1cd558a}{R\-S\-T\-M\-List} ()
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{classRSTMList_a173c9bd9bd61008a21ec0f2975ee5c07}{lookup} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{classRSTMList_aa0daabc69fa98a2fd3d57751133dd85b}{insert} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{classRSTMList_aa94514fee852bb8b03e28a8622b7e544}{remove} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+bool \hyperlink{classRSTMList_a1ab24887f316aca1a3e695a89e943646}{is\-Sane} () const 
+\item 
+bool \hyperlink{classRSTMList_aa9b1536526cca34b2f811c43489f15d9}{extended\-Sanity\-Check} (\hyperlink{List_8hpp_a0b34b0d5aa05650e72ff076ac10580ad}{verifier} v, uint32\-\_\-t param) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} int \hyperlink{classRSTMList_afa1ace992cc78ea607cfc749d7e9fd45}{findmax} (\hyperlink{tm_8h_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} int \hyperlink{classRSTMList_a1978ce6001a749e794b7e13c40b51e64}{findmin} (\hyperlink{tm_8h_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classRSTMList_a4836859ea0ceaadfc1e7028548f2b27d}{overwrite} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structRSTMList_1_1Node}{Node} $\ast$ \hyperlink{classRSTMList_a241dd3aff70d607fbd037b4792434a5a}{sentinel}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRSTMList_a18dea60bfc63edcc3a7e293ff1cd558a}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!R\-S\-T\-M\-List@{R\-S\-T\-M\-List}}
+\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{R\-S\-T\-M\-List}]{\setlength{\rightskip}{0pt plus 5cm}R\-S\-T\-M\-List\-::\-R\-S\-T\-M\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRSTMList_a18dea60bfc63edcc3a7e293ff1cd558a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRSTMList_aa9b1536526cca34b2f811c43489f15d9}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!extended\-Sanity\-Check@{extended\-Sanity\-Check}}
+\index{extended\-Sanity\-Check@{extended\-Sanity\-Check}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{extended\-Sanity\-Check}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-S\-T\-M\-List\-::extended\-Sanity\-Check (
+\begin{DoxyParamCaption}
+\item[{{\bf verifier}}]{v, }
+\item[{uint32\-\_\-t}]{param}
+\end{DoxyParamCaption}
+) const}}\label{classRSTMList_aa9b1536526cca34b2f811c43489f15d9}
+\hypertarget{classRSTMList_afa1ace992cc78ea607cfc749d7e9fd45}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!findmax@{findmax}}
+\index{findmax@{findmax}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{findmax}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} int R\-S\-T\-M\-List\-::findmax (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+) const}}\label{classRSTMList_afa1ace992cc78ea607cfc749d7e9fd45}
+\hypertarget{classRSTMList_a1978ce6001a749e794b7e13c40b51e64}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!findmin@{findmin}}
+\index{findmin@{findmin}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{findmin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} int R\-S\-T\-M\-List\-::findmin (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+) const}}\label{classRSTMList_a1978ce6001a749e794b7e13c40b51e64}
+\hypertarget{classRSTMList_aa0daabc69fa98a2fd3d57751133dd85b}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!insert@{insert}}
+\index{insert@{insert}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool R\-S\-T\-M\-List\-::insert (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classRSTMList_aa0daabc69fa98a2fd3d57751133dd85b}
+\hypertarget{classRSTMList_a1ab24887f316aca1a3e695a89e943646}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!is\-Sane@{is\-Sane}}
+\index{is\-Sane@{is\-Sane}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{is\-Sane}]{\setlength{\rightskip}{0pt plus 5cm}bool R\-S\-T\-M\-List\-::is\-Sane (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classRSTMList_a1ab24887f316aca1a3e695a89e943646}
+\hypertarget{classRSTMList_a173c9bd9bd61008a21ec0f2975ee5c07}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!lookup@{lookup}}
+\index{lookup@{lookup}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool R\-S\-T\-M\-List\-::lookup (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+) const}}\label{classRSTMList_a173c9bd9bd61008a21ec0f2975ee5c07}
+\hypertarget{classRSTMList_a4836859ea0ceaadfc1e7028548f2b27d}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!overwrite@{overwrite}}
+\index{overwrite@{overwrite}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{overwrite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void R\-S\-T\-M\-List\-::overwrite (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classRSTMList_a4836859ea0ceaadfc1e7028548f2b27d}
+\hypertarget{classRSTMList_aa94514fee852bb8b03e28a8622b7e544}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!remove@{remove}}
+\index{remove@{remove}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool R\-S\-T\-M\-List\-::remove (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classRSTMList_aa94514fee852bb8b03e28a8622b7e544}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classRSTMList_a241dd3aff70d607fbd037b4792434a5a}{\index{R\-S\-T\-M\-List@{R\-S\-T\-M\-List}!sentinel@{sentinel}}
+\index{sentinel@{sentinel}!RSTMList@{R\-S\-T\-M\-List}}
+\subsubsection[{sentinel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ R\-S\-T\-M\-List\-::sentinel}}\label{classRSTMList_a241dd3aff70d607fbd037b4792434a5a}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/list/\hyperlink{rstmlist_8hpp}{rstmlist.\-hpp}\end{DoxyCompactItemize}

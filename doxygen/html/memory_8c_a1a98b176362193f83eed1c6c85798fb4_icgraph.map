@@ -1,0 +1,7 @@
+<map id="allocBlock" name="allocBlock">
+<area shape="rect" id="node2" href="$memory_8c.html#ac7039baa504f6ce943569d7bde032630" title="allocPool" alt="" coords="157,5,232,32"/>
+<area shape="rect" id="node4" href="$memory_8c.html#a63d386399f368ebaad2ecfda5382ac4b" title="addBlockToPool" alt="" coords="136,56,253,83"/>
+<area shape="rect" id="node3" href="$memory_8h.html#a1adac4de42423ed164a57970764b4885" title="memory_init" alt="" coords="327,5,420,32"/>
+<area shape="rect" id="node5" href="$memory_8c.html#a4e5b775425f7ea041d124943ccbf32db" title="getMemoryFromPool" alt="" coords="302,56,445,83"/>
+<area shape="rect" id="node6" href="$memory_8h.html#a01aec66fde967f5fe90fc8426d8d1871" title="memory_get" alt="" coords="494,56,589,83"/>
+</map>

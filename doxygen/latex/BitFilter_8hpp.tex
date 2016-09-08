@@ -1,0 +1,59 @@
+\hypertarget{BitFilter_8hpp}{\section{rstm/rstm-\/dev/include/stm/\-Bit\-Filter.hpp File Reference}
+\label{BitFilter_8hpp}\index{rstm/rstm-\/dev/include/stm/\-Bit\-Filter.\-hpp@{rstm/rstm-\/dev/include/stm/\-Bit\-Filter.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+Include dependency graph for Bit\-Filter.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{BitFilter_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{BitFilter_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classstm_1_1BitFilter}{stm\-::\-Bit\-Filter$<$ B\-I\-T\-S $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{BitFilter_8hpp_aea174608b8810dc57a7d1416f07f51c0}{F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C}(x)~malloc((x))
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uintptr\-\_\-t \hyperlink{BitFilter_8hpp_a64afc46fcd6c0aec63555cb8978a757c}{word\-\_\-filter} \mbox{[}W\-O\-R\-D\-\_\-\-B\-L\-O\-C\-K\-S\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{BitFilter_8hpp_aea174608b8810dc57a7d1416f07f51c0}{\index{Bit\-Filter.\-hpp@{Bit\-Filter.\-hpp}!F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C@{F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C}}
+\index{F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C@{F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C}!BitFilter.hpp@{Bit\-Filter.\-hpp}}
+\subsubsection[{F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-L\-T\-E\-R\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~malloc((x))}}\label{BitFilter_8hpp_aea174608b8810dc57a7d1416f07f51c0}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This file implements a simple bit filter datatype, with S\-S\-E2 optimizations. The type is templated by size, but has only been tested at a size of 1024 bits. 
+
+\subsection{Variable Documentation}
+\hypertarget{BitFilter_8hpp_a64afc46fcd6c0aec63555cb8978a757c}{\index{Bit\-Filter.\-hpp@{Bit\-Filter.\-hpp}!word\-\_\-filter@{word\-\_\-filter}}
+\index{word\-\_\-filter@{word\-\_\-filter}!BitFilter.hpp@{Bit\-Filter.\-hpp}}
+\subsubsection[{word\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t word\-\_\-filter\mbox{[}W\-O\-R\-D\-\_\-\-B\-L\-O\-C\-K\-S\mbox{]}}}\label{BitFilter_8hpp_a64afc46fcd6c0aec63555cb8978a757c}

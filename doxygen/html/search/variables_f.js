@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['o',['o',['../structstm_1_1nanorec__t.html#af7f5825e4452ca965598c001779823c7',1,'stm::nanorec_t']]],
+  ['old',['old',['../structstm__tx__entry__st.html#af9269be64413d5abdf51d0a6953f2fb0',1,'stm_tx_entry_st']]],
+  ['old_5fabort_5fhandler',['old_abort_handler',['../namespaceanonymous__namespace_02irrevocability_8cpp_03.html#ac93d4712c00e7ccb77270953062faa28',1,'anonymous_namespace{irrevocability.cpp}']]],
+  ['older',['older',['../structstm_1_1limbo__t.html#a77a04c6b5a6ca290eb745c4278ed0272',1,'stm::limbo_t']]],
+  ['onenodeptr',['oneNodePtr',['../structadtree__vary.html#a5716bdbe6777ae45bd8e9600a9f6b3d0',1,'adtree_vary']]],
+  ['op',['op',['../structlearner__task.html#a53d37a6e20de1fde3605548b2047fffb',1,'learner_task']]],
+  ['opid',['opid',['../structTransList_1_1NodeDesc.html#a3c61633b1bbfeed173a038a27678de82',1,'TransList::NodeDesc::opid()'],['../structNodeDesc.html#a7fb5d32e8027ad439d6d096b5031bd89',1,'NodeDesc::opid()']]],
+  ['ops',['ops',['../structConfig.html#aa1d5884a1708cdc5ff1b20251087e200',1,'Config::ops()'],['../structTransList_1_1Desc.html#a9785f2851b9f4191e2001ff387a08b8a',1,'TransList::Desc::ops()'],['../structDesc.html#a1cc2e62a24c7879890faeacf74ccae1d',1,'Desc::ops()'],['../stmskip_8cc.html#a91ee67dbc899b78fabcd2bfc4643d307',1,'ops():&#160;stmskip.cc']]],
+  ['order',['order',['../structstm_1_1TxThread.html#a4399908cf54e49c35f1db573dcc86916',1,'stm::TxThread']]],
+  ['orecs',['orecs',['../namespacestm.html#a59c4d1983c5d8a6640537726c4e8aed4',1,'stm']]],
+  ['outdegree',['outDegree',['../structgraph.html#a88be5ff5217680aa53c16b6adcded249',1,'graph']]],
+  ['output_5fend',['output_end',['../common_8hpp.html#a75427bc7bd64ac5cb6711a7efb4ba2e7',1,'output_end():&#160;mesh.cpp'],['../mesh_8cpp.html#a75427bc7bd64ac5cb6711a7efb4ba2e7',1,'output_end():&#160;mesh.cpp']]],
+  ['output_5fincremental',['output_incremental',['../common_8hpp.html#a8d4cddbc2e906817a67cc1f88aca5d7f',1,'output_incremental():&#160;mesh.cpp'],['../mesh_8cpp.html#a8d4cddbc2e906817a67cc1f88aca5d7f',1,'output_incremental():&#160;mesh.cpp']]],
+  ['outvertexindex',['outVertexIndex',['../structgraph.html#a3b806cd011f7a2d0a5ca6bd964f80d3d',1,'graph']]],
+  ['outvertexlist',['outVertexList',['../structgraph.html#a3759f331476b226794074ad497e3332b',1,'graph']]],
+  ['overlap',['overlap',['../structconstructEntry.html#a709851c75b4302d62e9438ec88a0603c',1,'constructEntry']]],
+  ['owner',['owner',['../structstm_1_1bytelock__t.html#aa8374c1b43bca7bde750523925e2ccc5',1,'stm::bytelock_t::owner()'],['../structstm_1_1bitlock__t.html#a9998628fab8ea8149e6e3b257cee4c9e',1,'stm::bitlock_t::owner()']]],
+  ['owner_5f',['owner_',['../classitm2stm_1_1Scope.html#abbfd6d926da8e64737daa37efccb43bf',1,'itm2stm::Scope']]]
+];

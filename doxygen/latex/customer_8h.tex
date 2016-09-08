@@ -1,0 +1,224 @@
+\hypertarget{customer_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/vacation/customer.h File Reference}
+\label{customer_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/customer.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/customer.\-h}}
+}
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}reservation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for customer.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{customer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{customer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcustomer}{customer}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{customer_8h_a2648bfd3155b28942094ba176799c4bc}{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C}(id)~\hyperlink{customer_8h_a6f3ba7d4bf539f8aa63d76c5d5972ff4}{customer\-\_\-alloc}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  id)
+\item 
+\#define \hyperlink{customer_8h_a4d614450985b44ccf81decca08bb346e}{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}(cust, type, id, price)~\hyperlink{customer_8h_a33786d80ecc9c56298b5c060c9670254}{customer\-\_\-add\-Reservation\-Info}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  cust, type, id, price)
+\item 
+\#define \hyperlink{customer_8h_a49a5053e7d881a6ee56e12511e55ed9f}{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}(cust, type, id)~\hyperlink{customer_8h_a6db2719c3a8b8b4ef27dfb9374b0ef92}{customer\-\_\-remove\-Reservation\-Info}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  cust, type, id)
+\item 
+\#define \hyperlink{customer_8h_a0d3720d1c1c4b46276b45aec17340cf0}{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L}(cust)~\hyperlink{customer_8h_a7faceabc5176e8f43a1ebe6321e45079}{customer\-\_\-get\-Bill}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  cust)
+\item 
+\#define \hyperlink{customer_8h_a836346d19d88d8cc37e4b02292172fa3}{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E}(cust)~\hyperlink{customer_8h_a9099558bdca8a1ff50cd29dd8f63a187}{customer\-\_\-free}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  cust)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structcustomer}{customer} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$ \hyperlink{customer_8h_a6f3ba7d4bf539f8aa63d76c5d5972ff4}{customer\-\_\-alloc} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long id)
+\item 
+\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$ \hyperlink{customer_8h_a977a1905b51f19c2b024776bcad52548}{customer\-\_\-alloc\-\_\-seq} (long id)
+\item 
+long \hyperlink{customer_8h_a2238e1e89569ac40e2db682fcc79594f}{customer\-\_\-compare} (\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$a\-Ptr, \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$b\-Ptr)
+\item 
+unsigned long \hyperlink{customer_8h_ac8cb8b93331d3de68e0f933ee8213f3f}{customer\-\_\-hash} (\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{customer_8h_a9099558bdca8a1ff50cd29dd8f63a187}{customer\-\_\-free} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{customer_8h_a33786d80ecc9c56298b5c060c9670254}{customer\-\_\-add\-Reservation\-Info} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr, \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t} type, long id, long price)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{customer_8h_abb4c34430a6aaca5378cea2bc3626e2e}{customer\-\_\-add\-Reservation\-Info\-\_\-seq} (\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr, \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t} type, long id, long price)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{customer_8h_a6db2719c3a8b8b4ef27dfb9374b0ef92}{customer\-\_\-remove\-Reservation\-Info} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr, \hyperlink{reservation_8h_abf98b69fa9955803387979166fd17bc4}{reservation\-\_\-type\-\_\-t} type, long id)
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long \hyperlink{customer_8h_a7faceabc5176e8f43a1ebe6321e45079}{customer\-\_\-get\-Bill} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr)
+\item 
+long \hyperlink{customer_8h_a6bd09df4fb6ad8279281996fce2cd417}{customer\-\_\-get\-Bill\-\_\-seq} (\hyperlink{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{customer\-\_\-t} $\ast$customer\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{customer_8h_a4d614450985b44ccf81decca08bb346e}{\index{customer.\-h@{customer.\-h}!C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}}
+\index{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}!customer.h@{customer.\-h}}
+\subsubsection[{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-D\-D\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O(
+\begin{DoxyParamCaption}
+\item[{}]{cust, }
+\item[{}]{type, }
+\item[{}]{id, }
+\item[{}]{price}
+\end{DoxyParamCaption}
+)~{\bf customer\-\_\-add\-Reservation\-Info}({\bf T\-M\-\_\-\-A\-R\-G}  cust, type, id, price)}}\label{customer_8h_a4d614450985b44ccf81decca08bb346e}
+\hypertarget{customer_8h_a2648bfd3155b28942094ba176799c4bc}{\index{customer.\-h@{customer.\-h}!C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C}}
+\index{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C}!customer.h@{customer.\-h}}
+\subsubsection[{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-A\-L\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf customer\-\_\-alloc}({\bf T\-M\-\_\-\-A\-R\-G}  id)}}\label{customer_8h_a2648bfd3155b28942094ba176799c4bc}
+\hypertarget{customer_8h_a836346d19d88d8cc37e4b02292172fa3}{\index{customer.\-h@{customer.\-h}!C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E}}
+\index{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E}!customer.h@{customer.\-h}}
+\subsubsection[{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{cust}
+\end{DoxyParamCaption}
+)~{\bf customer\-\_\-free}({\bf T\-M\-\_\-\-A\-R\-G}  cust)}}\label{customer_8h_a836346d19d88d8cc37e4b02292172fa3}
+\hypertarget{customer_8h_a0d3720d1c1c4b46276b45aec17340cf0}{\index{customer.\-h@{customer.\-h}!C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L}}
+\index{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L}!customer.h@{customer.\-h}}
+\subsubsection[{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-L\-L(
+\begin{DoxyParamCaption}
+\item[{}]{cust}
+\end{DoxyParamCaption}
+)~{\bf customer\-\_\-get\-Bill}({\bf T\-M\-\_\-\-A\-R\-G}  cust)}}\label{customer_8h_a0d3720d1c1c4b46276b45aec17340cf0}
+\hypertarget{customer_8h_a49a5053e7d881a6ee56e12511e55ed9f}{\index{customer.\-h@{customer.\-h}!C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}}
+\index{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O@{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}!customer.h@{customer.\-h}}
+\subsubsection[{C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-U\-S\-T\-O\-M\-E\-R\-\_\-\-R\-E\-M\-O\-V\-E\-\_\-\-R\-E\-S\-E\-R\-V\-A\-T\-I\-O\-N\-\_\-\-I\-N\-F\-O(
+\begin{DoxyParamCaption}
+\item[{}]{cust, }
+\item[{}]{type, }
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~{\bf customer\-\_\-remove\-Reservation\-Info}({\bf T\-M\-\_\-\-A\-R\-G}  cust, type, id)}}\label{customer_8h_a49a5053e7d881a6ee56e12511e55ed9f}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}{\index{customer.\-h@{customer.\-h}!customer\-\_\-t@{customer\-\_\-t}}
+\index{customer\-\_\-t@{customer\-\_\-t}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf customer}  {\bf customer\-\_\-t}}}\label{customer_8h_a58a2a1fc65815952f7f0d8de8af19f98}
+
+
+\subsection{Function Documentation}
+\hypertarget{customer_8h_a33786d80ecc9c56298b5c060c9670254}{\index{customer.\-h@{customer.\-h}!customer\-\_\-add\-Reservation\-Info@{customer\-\_\-add\-Reservation\-Info}}
+\index{customer\-\_\-add\-Reservation\-Info@{customer\-\_\-add\-Reservation\-Info}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-add\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} customer\-\_\-add\-Reservation\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr, }
+\item[{{\bf reservation\-\_\-type\-\_\-t}}]{type, }
+\item[{long}]{id, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a33786d80ecc9c56298b5c060c9670254}
+\hypertarget{customer_8h_abb4c34430a6aaca5378cea2bc3626e2e}{\index{customer.\-h@{customer.\-h}!customer\-\_\-add\-Reservation\-Info\-\_\-seq@{customer\-\_\-add\-Reservation\-Info\-\_\-seq}}
+\index{customer\-\_\-add\-Reservation\-Info\-\_\-seq@{customer\-\_\-add\-Reservation\-Info\-\_\-seq}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-add\-Reservation\-Info\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} customer\-\_\-add\-Reservation\-Info\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf customer\-\_\-t} $\ast$}]{customer\-Ptr, }
+\item[{{\bf reservation\-\_\-type\-\_\-t}}]{type, }
+\item[{long}]{id, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_abb4c34430a6aaca5378cea2bc3626e2e}
+\hypertarget{customer_8h_a6f3ba7d4bf539f8aa63d76c5d5972ff4}{\index{customer.\-h@{customer.\-h}!customer\-\_\-alloc@{customer\-\_\-alloc}}
+\index{customer\-\_\-alloc@{customer\-\_\-alloc}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf customer\-\_\-t}$\ast$ customer\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} long}]{id}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a6f3ba7d4bf539f8aa63d76c5d5972ff4}
+\hypertarget{customer_8h_a977a1905b51f19c2b024776bcad52548}{\index{customer.\-h@{customer.\-h}!customer\-\_\-alloc\-\_\-seq@{customer\-\_\-alloc\-\_\-seq}}
+\index{customer\-\_\-alloc\-\_\-seq@{customer\-\_\-alloc\-\_\-seq}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-alloc\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf customer\-\_\-t}$\ast$ customer\-\_\-alloc\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a977a1905b51f19c2b024776bcad52548}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{customer_8h_a977a1905b51f19c2b024776bcad52548_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{customer_8h_a977a1905b51f19c2b024776bcad52548_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{customer_8h_a2238e1e89569ac40e2db682fcc79594f}{\index{customer.\-h@{customer.\-h}!customer\-\_\-compare@{customer\-\_\-compare}}
+\index{customer\-\_\-compare@{customer\-\_\-compare}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-compare}]{\setlength{\rightskip}{0pt plus 5cm}long customer\-\_\-compare (
+\begin{DoxyParamCaption}
+\item[{{\bf customer\-\_\-t} $\ast$}]{a\-Ptr, }
+\item[{{\bf customer\-\_\-t} $\ast$}]{b\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a2238e1e89569ac40e2db682fcc79594f}
+\hypertarget{customer_8h_a9099558bdca8a1ff50cd29dd8f63a187}{\index{customer.\-h@{customer.\-h}!customer\-\_\-free@{customer\-\_\-free}}
+\index{customer\-\_\-free@{customer\-\_\-free}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void customer\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a9099558bdca8a1ff50cd29dd8f63a187}
+\hypertarget{customer_8h_a7faceabc5176e8f43a1ebe6321e45079}{\index{customer.\-h@{customer.\-h}!customer\-\_\-get\-Bill@{customer\-\_\-get\-Bill}}
+\index{customer\-\_\-get\-Bill@{customer\-\_\-get\-Bill}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-get\-Bill}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} long customer\-\_\-get\-Bill (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a7faceabc5176e8f43a1ebe6321e45079}
+\hypertarget{customer_8h_a6bd09df4fb6ad8279281996fce2cd417}{\index{customer.\-h@{customer.\-h}!customer\-\_\-get\-Bill\-\_\-seq@{customer\-\_\-get\-Bill\-\_\-seq}}
+\index{customer\-\_\-get\-Bill\-\_\-seq@{customer\-\_\-get\-Bill\-\_\-seq}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-get\-Bill\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}long customer\-\_\-get\-Bill\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{{\bf customer\-\_\-t} $\ast$}]{customer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a6bd09df4fb6ad8279281996fce2cd417}
+\hypertarget{customer_8h_ac8cb8b93331d3de68e0f933ee8213f3f}{\index{customer.\-h@{customer.\-h}!customer\-\_\-hash@{customer\-\_\-hash}}
+\index{customer\-\_\-hash@{customer\-\_\-hash}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-hash}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long customer\-\_\-hash (
+\begin{DoxyParamCaption}
+\item[{{\bf customer\-\_\-t} $\ast$}]{customer\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_ac8cb8b93331d3de68e0f933ee8213f3f}
+\hypertarget{customer_8h_a6db2719c3a8b8b4ef27dfb9374b0ef92}{\index{customer.\-h@{customer.\-h}!customer\-\_\-remove\-Reservation\-Info@{customer\-\_\-remove\-Reservation\-Info}}
+\index{customer\-\_\-remove\-Reservation\-Info@{customer\-\_\-remove\-Reservation\-Info}!customer.h@{customer.\-h}}
+\subsubsection[{customer\-\_\-remove\-Reservation\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} {\bf bool\-\_\-t} customer\-\_\-remove\-Reservation\-Info (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf customer\-\_\-t} $\ast$}]{customer\-Ptr, }
+\item[{{\bf reservation\-\_\-type\-\_\-t}}]{type, }
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}\label{customer_8h_a6db2719c3a8b8b4ef27dfb9374b0ef92}

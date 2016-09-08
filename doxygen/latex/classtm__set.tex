@@ -1,0 +1,109 @@
+\hypertarget{classtm__set}{\section{tm\-\_\-set$<$ T $>$ Class Template Reference}
+\label{classtm__set}\index{tm\-\_\-set$<$ T $>$@{tm\-\_\-set$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$tm\-\_\-set.\-hpp$>$}
+
+
+
+Inheritance diagram for tm\-\_\-set$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{classtm__set__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for tm\-\_\-set$<$ T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classtm__set__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classtm__set_a8956169e12ecb29a1b5888634f034b50}{insert} (const T item)=0
+\item 
+virtual void \hyperlink{classtm__set_a45a928f648e51c4ea1c181db71efadf0}{remove} (const T item)=0
+\item 
+virtual bool \hyperlink{classtm__set_a64e229588adaaf5108b9db56a1fcf55f}{lookup} (const T item)=0
+\item 
+virtual void \hyperlink{classtm__set_a046e1d0e431a29f1c162a0aacd14ef2b}{apply\-\_\-to\-\_\-all} (void($\ast$f)(T item))=0
+\item 
+virtual \hyperlink{classtm__set_a37dadfd301e47e686621b1e3121f22bd}{$\sim$tm\-\_\-set} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class tm\-\_\-set$<$ T $>$}
+
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtm__set_a37dadfd301e47e686621b1e3121f22bd}{\index{tm\-\_\-set@{tm\-\_\-set}!$\sim$tm\-\_\-set@{$\sim$tm\-\_\-set}}
+\index{$\sim$tm\-\_\-set@{$\sim$tm\-\_\-set}!tm_set@{tm\-\_\-set}}
+\subsubsection[{$\sim$tm\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual {\bf tm\-\_\-set}$<$ T $>$\-::$\sim${\bf tm\-\_\-set} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classtm__set_a37dadfd301e47e686621b1e3121f22bd}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtm__set_a046e1d0e431a29f1c162a0aacd14ef2b}{\index{tm\-\_\-set@{tm\-\_\-set}!apply\-\_\-to\-\_\-all@{apply\-\_\-to\-\_\-all}}
+\index{apply\-\_\-to\-\_\-all@{apply\-\_\-to\-\_\-all}!tm_set@{tm\-\_\-set}}
+\subsubsection[{apply\-\_\-to\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual void {\bf tm\-\_\-set}$<$ T $>$\-::apply\-\_\-to\-\_\-all (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(T item)}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classtm__set_a046e1d0e431a29f1c162a0aacd14ef2b}
+
+
+Implemented in \hyperlink{classtm__list__set_a7f9b4de667c8728bcd25675f48339449}{tm\-\_\-list\-\_\-set$<$ T $>$}, and \hyperlink{classtm__hash__set_a8ae116cb73411f6179cecc03ad3f6f50}{tm\-\_\-hash\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__set_a8956169e12ecb29a1b5888634f034b50}{\index{tm\-\_\-set@{tm\-\_\-set}!insert@{insert}}
+\index{insert@{insert}!tm_set@{tm\-\_\-set}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual void {\bf tm\-\_\-set}$<$ T $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classtm__set_a8956169e12ecb29a1b5888634f034b50}
+
+
+Implemented in \hyperlink{classtm__list__set_a7b2de448d04c0682cb276bfdcdc44034}{tm\-\_\-list\-\_\-set$<$ T $>$}, and \hyperlink{classtm__hash__set_ae953be9e3f84496324247d026973977e}{tm\-\_\-hash\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__set_a64e229588adaaf5108b9db56a1fcf55f}{\index{tm\-\_\-set@{tm\-\_\-set}!lookup@{lookup}}
+\index{lookup@{lookup}!tm_set@{tm\-\_\-set}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual bool {\bf tm\-\_\-set}$<$ T $>$\-::lookup (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classtm__set_a64e229588adaaf5108b9db56a1fcf55f}
+
+
+Implemented in \hyperlink{classtm__list__set_ad5373e6893f79c296f5c9b91779485d7}{tm\-\_\-list\-\_\-set$<$ T $>$}, and \hyperlink{classtm__hash__set_a8951d8abc33cec22051de7168a84ee3e}{tm\-\_\-hash\-\_\-set$<$ T $>$}.
+
+\hypertarget{classtm__set_a45a928f648e51c4ea1c181db71efadf0}{\index{tm\-\_\-set@{tm\-\_\-set}!remove@{remove}}
+\index{remove@{remove}!tm_set@{tm\-\_\-set}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ virtual void {\bf tm\-\_\-set}$<$ T $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classtm__set_a45a928f648e51c4ea1c181db71efadf0}
+
+
+Implemented in \hyperlink{classtm__list__set_a6b0574bddef610f8dbf80c80b7210140}{tm\-\_\-list\-\_\-set$<$ T $>$}, and \hyperlink{classtm__hash__set_a1509ba92e7be69a82bb43d2198119b08}{tm\-\_\-hash\-\_\-set$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{tm__set_8hpp}{tm\-\_\-set.\-hpp}\end{DoxyCompactItemize}

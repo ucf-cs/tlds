@@ -1,0 +1,9 @@
+<map id="worker" name="worker">
+<area shape="rect" id="node2" href="$classrunnable.html" title="{runnable\n||+ operator()()\l+ ~runnable()\l}" alt="" coords="31,485,129,577"/>
+<area shape="rect" id="node3" href="$structregion__info.html" title="{region_info\n||+ region_info()\l+ ~region_info()\l}" alt="" coords="154,485,267,577"/>
+<area shape="rect" id="node4" href="$classsimple__queue.html" title="{simple_queue\&lt; edge * \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="5,233,168,340"/>
+<area shape="rect" id="node5" href="$classsimple__queue.html" title="{simple_queue\&lt; T \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="19,5,153,112"/>
+<area shape="rect" id="node7" href="$classpoint.html" title="{point\n||+ hash()\l+ operator==()\l+ operator!=()\l+ operator\&lt;()\l+ point()\l}" alt="" coords="447,219,552,355"/>
+<area shape="rect" id="node12" href="$classbarrier.html" title="{barrier\n||+ wait()\l+ barrier()\l+ ~barrier()\l}" alt="" coords="871,233,957,340"/>
+<area shape="rect" id="node10" href="$classedge.html" title="{edge\n||+ print()\l+ index_of()\l+ reconsider()\l+ edge()\l+ destroy()\l+ ~edge()\l&#45; initialize_end()\l}" alt="" coords="594,448,707,613"/>
+</map>

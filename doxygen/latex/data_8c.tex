@@ -1,0 +1,257 @@
+\hypertarget{data_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/data.c File Reference}
+\label{data_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/data.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/data.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}bitmap.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}net.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sort.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\\*
+Include dependency graph for data.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{data_8c_af79e6adbbe478ed58ae744535aa9961a}{data\-\_\-config} \{ \hyperlink{data_8c_af79e6adbbe478ed58ae744535aa9961aa1e59de267bdd6f36932678417d5c0b2b}{D\-A\-T\-A\-\_\-\-P\-R\-E\-C\-I\-S\-I\-O\-N} = 100, 
+\hyperlink{data_8c_af79e6adbbe478ed58ae744535aa9961aad77425cb4b727e86f15446801a83bd84}{D\-A\-T\-A\-\_\-\-I\-N\-I\-T} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$ \hyperlink{data_8c_acd7642ce517c922061d6015294de8bc1}{data\-\_\-alloc} (long num\-Var, long num\-Record, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\item 
+void \hyperlink{data_8c_a86fa8c38d589c7f8a58aa58480bdb0bb}{data\-\_\-free} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr)
+\item 
+\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$ \hyperlink{data_8c_a0f45b98c6cac17904d9daf25fbdc1dc9}{data\-\_\-generate} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr, long \hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed}, long max\-Num\-Parent, long percent\-Parent)
+\item 
+char $\ast$ \hyperlink{data_8c_ace8175e7d126edb478008ffb47b54e5e}{data\-\_\-get\-Record} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr, long index)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{data_8c_a52dc31b214ba68ace76f0d43d389dc2b}{data\-\_\-copy} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$dst\-Ptr, \hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$src\-Ptr)
+\item 
+static int \hyperlink{data_8c_a55d84d95095696b9e3a6dffc6b6049c9}{compare\-Record} (const void $\ast$p1, const void $\ast$p2, long n, long offset)
+\item 
+void \hyperlink{data_8c_a62cb3f6c6f8e5c0618d981c214fa899d}{data\-\_\-sort} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr, long \hyperlink{avltree_8c_aef0786e63ba14dfdb6d8632333208422}{start}, long num, long offset)
+\item 
+long \hyperlink{data_8c_a1211999ecb921bcd38c4c8f960840cd5}{data\-\_\-find\-Split} (\hyperlink{data_8h_a50073053a739797e11cbf2271b80f9c3}{data\-\_\-t} $\ast$data\-Ptr, long \hyperlink{avltree_8c_aef0786e63ba14dfdb6d8632333208422}{start}, long num, long offset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{data_8c_af79e6adbbe478ed58ae744535aa9961a}{\index{data.\-c@{data.\-c}!data\-\_\-config@{data\-\_\-config}}
+\index{data\-\_\-config@{data\-\_\-config}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-config}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf data\-\_\-config}}}\label{data_8c_af79e6adbbe478ed58ae744535aa9961a}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{D\-A\-T\-A\-\_\-\-P\-R\-E\-C\-I\-S\-I\-O\-N@{D\-A\-T\-A\-\_\-\-P\-R\-E\-C\-I\-S\-I\-O\-N}!data.\-c@{data.\-c}}\index{data.\-c@{data.\-c}!D\-A\-T\-A\-\_\-\-P\-R\-E\-C\-I\-S\-I\-O\-N@{D\-A\-T\-A\-\_\-\-P\-R\-E\-C\-I\-S\-I\-O\-N}}\item[{\em 
+\hypertarget{data_8c_af79e6adbbe478ed58ae744535aa9961aa1e59de267bdd6f36932678417d5c0b2b}{D\-A\-T\-A\-\_\-\-P\-R\-E\-C\-I\-S\-I\-O\-N}\label{data_8c_af79e6adbbe478ed58ae744535aa9961aa1e59de267bdd6f36932678417d5c0b2b}
+}]\index{D\-A\-T\-A\-\_\-\-I\-N\-I\-T@{D\-A\-T\-A\-\_\-\-I\-N\-I\-T}!data.\-c@{data.\-c}}\index{data.\-c@{data.\-c}!D\-A\-T\-A\-\_\-\-I\-N\-I\-T@{D\-A\-T\-A\-\_\-\-I\-N\-I\-T}}\item[{\em 
+\hypertarget{data_8c_af79e6adbbe478ed58ae744535aa9961aad77425cb4b727e86f15446801a83bd84}{D\-A\-T\-A\-\_\-\-I\-N\-I\-T}\label{data_8c_af79e6adbbe478ed58ae744535aa9961aad77425cb4b727e86f15446801a83bd84}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{data_8c_a55d84d95095696b9e3a6dffc6b6049c9}{\index{data.\-c@{data.\-c}!compare\-Record@{compare\-Record}}
+\index{compare\-Record@{compare\-Record}!data.c@{data.\-c}}
+\subsubsection[{compare\-Record}]{\setlength{\rightskip}{0pt plus 5cm}static int compare\-Record (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p1, }
+\item[{const void $\ast$}]{p2, }
+\item[{long}]{n, }
+\item[{long}]{offset}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{data_8c_a55d84d95095696b9e3a6dffc6b6049c9}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a55d84d95095696b9e3a6dffc6b6049c9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{data_8c_acd7642ce517c922061d6015294de8bc1}{\index{data.\-c@{data.\-c}!data\-\_\-alloc@{data\-\_\-alloc}}
+\index{data\-\_\-alloc@{data\-\_\-alloc}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf data\-\_\-t}$\ast$ data\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Var, }
+\item[{long}]{num\-Record, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{data_8c_acd7642ce517c922061d6015294de8bc1}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_acd7642ce517c922061d6015294de8bc1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{data_8c_a52dc31b214ba68ace76f0d43d389dc2b}{\index{data.\-c@{data.\-c}!data\-\_\-copy@{data\-\_\-copy}}
+\index{data\-\_\-copy@{data\-\_\-copy}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} data\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{dst\-Ptr, }
+\item[{{\bf data\-\_\-t} $\ast$}]{src\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{data_8c_a52dc31b214ba68ace76f0d43d389dc2b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a52dc31b214ba68ace76f0d43d389dc2b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{data_8c_a1211999ecb921bcd38c4c8f960840cd5}{\index{data.\-c@{data.\-c}!data\-\_\-find\-Split@{data\-\_\-find\-Split}}
+\index{data\-\_\-find\-Split@{data\-\_\-find\-Split}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-find\-Split}]{\setlength{\rightskip}{0pt plus 5cm}long data\-\_\-find\-Split (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr, }
+\item[{long}]{start, }
+\item[{long}]{num, }
+\item[{long}]{offset}
+\end{DoxyParamCaption}
+)}}\label{data_8c_a1211999ecb921bcd38c4c8f960840cd5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{data_8c_a1211999ecb921bcd38c4c8f960840cd5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a1211999ecb921bcd38c4c8f960840cd5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{data_8c_a86fa8c38d589c7f8a58aa58480bdb0bb}{\index{data.\-c@{data.\-c}!data\-\_\-free@{data\-\_\-free}}
+\index{data\-\_\-free@{data\-\_\-free}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void data\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{data_8c_a86fa8c38d589c7f8a58aa58480bdb0bb}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a86fa8c38d589c7f8a58aa58480bdb0bb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{data_8c_a0f45b98c6cac17904d9daf25fbdc1dc9}{\index{data.\-c@{data.\-c}!data\-\_\-generate@{data\-\_\-generate}}
+\index{data\-\_\-generate@{data\-\_\-generate}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-generate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf net\-\_\-t}$\ast$ data\-\_\-generate (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr, }
+\item[{long}]{seed, }
+\item[{long}]{max\-Num\-Parent, }
+\item[{long}]{percent\-Parent}
+\end{DoxyParamCaption}
+)}}\label{data_8c_a0f45b98c6cac17904d9daf25fbdc1dc9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a0f45b98c6cac17904d9daf25fbdc1dc9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{data_8c_a0f45b98c6cac17904d9daf25fbdc1dc9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{data_8c_ace8175e7d126edb478008ffb47b54e5e}{\index{data.\-c@{data.\-c}!data\-\_\-get\-Record@{data\-\_\-get\-Record}}
+\index{data\-\_\-get\-Record@{data\-\_\-get\-Record}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-get\-Record}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ data\-\_\-get\-Record (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr, }
+\item[{long}]{index}
+\end{DoxyParamCaption}
+)}}\label{data_8c_ace8175e7d126edb478008ffb47b54e5e}
+\hypertarget{data_8c_a62cb3f6c6f8e5c0618d981c214fa899d}{\index{data.\-c@{data.\-c}!data\-\_\-sort@{data\-\_\-sort}}
+\index{data\-\_\-sort@{data\-\_\-sort}!data.c@{data.\-c}}
+\subsubsection[{data\-\_\-sort}]{\setlength{\rightskip}{0pt plus 5cm}void data\-\_\-sort (
+\begin{DoxyParamCaption}
+\item[{{\bf data\-\_\-t} $\ast$}]{data\-Ptr, }
+\item[{long}]{start, }
+\item[{long}]{num, }
+\item[{long}]{offset}
+\end{DoxyParamCaption}
+)}}\label{data_8c_a62cb3f6c6f8e5c0618d981c214fa899d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a62cb3f6c6f8e5c0618d981c214fa899d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{data_8c_a62cb3f6c6f8e5c0618d981c214fa899d_icgraph}
+\end{center}
+\end{figure}
+
+

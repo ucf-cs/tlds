@@ -1,0 +1,95 @@
+\hypertarget{classSetAdaptor_3_01TransList_01_4}{\section{Set\-Adaptor$<$ Trans\-List $>$ Class Template Reference}
+\label{classSetAdaptor_3_01TransList_01_4}\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}}
+}
+
+
+{\ttfamily \#include $<$setadaptor.\-h$>$}
+
+
+
+Collaboration diagram for Set\-Adaptor$<$ Trans\-List $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSetAdaptor_3_01TransList_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSetAdaptor_3_01TransList_01_4_a97330b3bae205032d2acf27aa9f1acc5}{Set\-Adaptor} (uint64\-\_\-t cap, uint64\-\_\-t thread\-Count, uint32\-\_\-t trans\-Size)
+\item 
+void \hyperlink{classSetAdaptor_3_01TransList_01_4_aebb2f39c39d4626ad846dd0a6d2de1e7}{Init} ()
+\item 
+void \hyperlink{classSetAdaptor_3_01TransList_01_4_a86c8a30a762338ea26c7cfd63304e562}{Uninit} ()
+\item 
+bool \hyperlink{classSetAdaptor_3_01TransList_01_4_a8693f263b5371906471698230084fd02}{Execute\-Ops} (const \hyperlink{setadaptor_8h_a7af6ba4d94b446744e0e49accfb08e24}{Set\-Op\-Array} \&\hyperlink{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}{ops})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1Desc}{Trans\-List\-::\-Desc} $>$ \hyperlink{classSetAdaptor_3_01TransList_01_4_a6bfa19fd452930554f066777ab98465f}{m\-\_\-desc\-Allocator}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1Node}{Trans\-List\-::\-Node} $>$ \hyperlink{classSetAdaptor_3_01TransList_01_4_a01051805f279a3cbc56346a2f9b4b8fd}{m\-\_\-node\-Allocator}
+\item 
+\hyperlink{classAllocator}{Allocator}$<$ \hyperlink{structTransList_1_1NodeDesc}{Trans\-List\-::\-Node\-Desc} $>$ \hyperlink{classSetAdaptor_3_01TransList_01_4_a0b3572181bde1cd713d76961bd3e6df9}{m\-\_\-node\-Desc\-Allocator}
+\item 
+\hyperlink{classTransList}{Trans\-List} \hyperlink{classSetAdaptor_3_01TransList_01_4_a4a214a269931e33781cc694a83e5e910}{m\-\_\-list}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a97330b3bae205032d2acf27aa9f1acc5}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!Set\-Adaptor@{Set\-Adaptor}}
+\index{Set\-Adaptor@{Set\-Adaptor}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{Set\-Adaptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::{\bf Set\-Adaptor} (
+\begin{DoxyParamCaption}
+\item[{uint64\-\_\-t}]{cap, }
+\item[{uint64\-\_\-t}]{thread\-Count, }
+\item[{uint32\-\_\-t}]{trans\-Size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01TransList_01_4_a97330b3bae205032d2acf27aa9f1acc5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a8693f263b5371906471698230084fd02}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!Execute\-Ops@{Execute\-Ops}}
+\index{Execute\-Ops@{Execute\-Ops}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{Execute\-Ops}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::Execute\-Ops (
+\begin{DoxyParamCaption}
+\item[{const {\bf Set\-Op\-Array} \&}]{ops}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01TransList_01_4_a8693f263b5371906471698230084fd02}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_aebb2f39c39d4626ad846dd0a6d2de1e7}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!Init@{Init}}
+\index{Init@{Init}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01TransList_01_4_aebb2f39c39d4626ad846dd0a6d2de1e7}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a86c8a30a762338ea26c7cfd63304e562}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSetAdaptor_3_01TransList_01_4_a86c8a30a762338ea26c7cfd63304e562}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a6bfa19fd452930554f066777ab98465f}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!m\-\_\-desc\-Allocator@{m\-\_\-desc\-Allocator}}
+\index{m\-\_\-desc\-Allocator@{m\-\_\-desc\-Allocator}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{m\-\_\-desc\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Trans\-List\-::\-Desc}$>$ {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::m\-\_\-desc\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01TransList_01_4_a6bfa19fd452930554f066777ab98465f}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a4a214a269931e33781cc694a83e5e910}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!m\-\_\-list@{m\-\_\-list}}
+\index{m\-\_\-list@{m\-\_\-list}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{m\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trans\-List} {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::m\-\_\-list\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01TransList_01_4_a4a214a269931e33781cc694a83e5e910}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a01051805f279a3cbc56346a2f9b4b8fd}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!m\-\_\-node\-Allocator@{m\-\_\-node\-Allocator}}
+\index{m\-\_\-node\-Allocator@{m\-\_\-node\-Allocator}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{m\-\_\-node\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Trans\-List\-::\-Node}$>$ {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::m\-\_\-node\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01TransList_01_4_a01051805f279a3cbc56346a2f9b4b8fd}
+\hypertarget{classSetAdaptor_3_01TransList_01_4_a0b3572181bde1cd713d76961bd3e6df9}{\index{Set\-Adaptor$<$ Trans\-List $>$@{Set\-Adaptor$<$ Trans\-List $>$}!m\-\_\-node\-Desc\-Allocator@{m\-\_\-node\-Desc\-Allocator}}
+\index{m\-\_\-node\-Desc\-Allocator@{m\-\_\-node\-Desc\-Allocator}!SetAdaptor< TransList >@{Set\-Adaptor$<$ Trans\-List $>$}}
+\subsubsection[{m\-\_\-node\-Desc\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Allocator}$<${\bf Trans\-List\-::\-Node\-Desc}$>$ {\bf Set\-Adaptor}$<$ {\bf Trans\-List} $>$\-::m\-\_\-node\-Desc\-Allocator\hspace{0.3cm}{\ttfamily [private]}}}\label{classSetAdaptor_3_01TransList_01_4_a0b3572181bde1cd713d76961bd3e6df9}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+bench/\hyperlink{setadaptor_8h}{setadaptor.\-h}\end{DoxyCompactItemize}

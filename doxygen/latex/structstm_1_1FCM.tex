@@ -1,0 +1,70 @@
+\hypertarget{structstm_1_1FCM}{\section{stm\-:\-:F\-C\-M Struct Reference}
+\label{structstm_1_1FCM}\index{stm\-::\-F\-C\-M@{stm\-::\-F\-C\-M}}
+}
+
+
+{\ttfamily \#include $<$cm.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:F\-C\-M\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{structstm_1_1FCM__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1FCM_af32cf145a1faa41d43eb69f17c13e497}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static void \hyperlink{structstm_1_1FCM_aee25641e48adf018263566caa114d14f}{on\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+static void \hyperlink{structstm_1_1FCM_afb16a04094d3a6367daf5f6fd92fe37c}{on\-Begin} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static bool \hyperlink{structstm_1_1FCM_a9e7347a65e15addef5a2bef84798c204}{may\-Kill} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, uint32\-\_\-t other)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fine-\/grained C\-M\-: we get a timestamp, and use it to decide when to abort the other thread. This is not exactly an attacker-\/wins policy anymore
+
+This is based on a concept from Bobba et al. I\-S\-C\-A 07 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1FCM_a9e7347a65e15addef5a2bef84798c204}{\index{stm\-::\-F\-C\-M@{stm\-::\-F\-C\-M}!may\-Kill@{may\-Kill}}
+\index{may\-Kill@{may\-Kill}!stm::FCM@{stm\-::\-F\-C\-M}}
+\subsubsection[{may\-Kill}]{\setlength{\rightskip}{0pt plus 5cm}static bool stm\-::\-F\-C\-M\-::may\-Kill (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx, }
+\item[{uint32\-\_\-t}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1FCM_a9e7347a65e15addef5a2bef84798c204}
+Permission to kill the other is granted when this transaction's timestamp is less than the other transaction's timestamp \hypertarget{structstm_1_1FCM_af32cf145a1faa41d43eb69f17c13e497}{\index{stm\-::\-F\-C\-M@{stm\-::\-F\-C\-M}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::FCM@{stm\-::\-F\-C\-M}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-F\-C\-M\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1FCM_af32cf145a1faa41d43eb69f17c13e497}
+\hypertarget{structstm_1_1FCM_afb16a04094d3a6367daf5f6fd92fe37c}{\index{stm\-::\-F\-C\-M@{stm\-::\-F\-C\-M}!on\-Begin@{on\-Begin}}
+\index{on\-Begin@{on\-Begin}!stm::FCM@{stm\-::\-F\-C\-M}}
+\subsubsection[{on\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-F\-C\-M\-::on\-Begin (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1FCM_afb16a04094d3a6367daf5f6fd92fe37c}
+On begin, we must get a timestamp. For now, we use a global counter, which is a bottleneck but ensures uniqueness. \hypertarget{structstm_1_1FCM_aee25641e48adf018263566caa114d14f}{\index{stm\-::\-F\-C\-M@{stm\-::\-F\-C\-M}!on\-Commit@{on\-Commit}}
+\index{on\-Commit@{on\-Commit}!stm::FCM@{stm\-::\-F\-C\-M}}
+\subsubsection[{on\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-F\-C\-M\-::on\-Commit (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1FCM_aee25641e48adf018263566caa114d14f}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{cm_8hpp}{cm.\-hpp}\end{DoxyCompactItemize}

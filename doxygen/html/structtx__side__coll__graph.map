@@ -1,0 +1,4 @@
+<map id="tx_side" name="tx_side">
+<area shape="rect" id="node3" href="$classpoint.html" title="{point\n||+ hash()\l+ operator==()\l+ operator!=()\l+ operator\&lt;()\l+ point()\l}" alt="" coords="77,189,181,325"/>
+<area shape="rect" id="node6" href="$classedge.html" title="{edge\n||+ print()\l+ index_of()\l+ reconsider()\l+ edge()\l+ destroy()\l+ ~edge()\l&#45; initialize_end()\l}" alt="" coords="166,403,279,568"/>
+</map>

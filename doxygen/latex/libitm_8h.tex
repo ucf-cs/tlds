@@ -1,0 +1,2346 @@
+\hypertarget{libitm_8h}{\section{rstm/rstm-\/dev/libitm2stm/libitm.h File Reference}
+\label{libitm_8h}\index{rstm/rstm-\/dev/libitm2stm/libitm.\-h@{rstm/rstm-\/dev/libitm2stm/libitm.\-h}}
+}
+{\ttfamily \#include $<$itm/itm.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdbool.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}alt-\/license/avxintrin\-\_\-emu.\-h\char`\"{}}\\*
+Include dependency graph for libitm.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{libitm_8h_aa319977d078b61efa1dbe5e2018de3c0}{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N}~\char`\"{}0.\-9 (October 1, 2008)\char`\"{}
+\item 
+\#define \hyperlink{libitm_8h_aa0f7ba53308e5232dbfb13c2de107673}{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O}~90
+\item 
+\#define \hyperlink{libitm_8h_ad30480e02c031f7bf2259a262dff122d}{\-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id}~0
+\item 
+\#define \hyperlink{libitm_8h_a4dce65896b4e8c1bf367c241c0ff9c63}{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N}~\hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} \hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction}
+\item 
+typedef uint32\-\_\-t \hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}
+\item 
+typedef void($\ast$ \hyperlink{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function} )(void $\ast$)
+\item 
+typedef void($\ast$ \hyperlink{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function} )(void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33}{\-\_\-\-I\-T\-M\-\_\-abort\-Reason} \{ \hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33af1eb35715b2e111fb68cc1ac7ea0c892}{user\-Abort} = 1, 
+\hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33a967d11252d58a6c1048d0290ff074148}{user\-Retry} = 2, 
+\hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33a9e273eab76bf5ba8437c621913e6be9c}{T\-M\-Conflict} = 4, 
+\hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33adb7da9a0bac35c1c11509d09ff5d1ab6}{exception\-Block\-Abort} = 8
+ \}
+\item 
+enum \hyperlink{libitm_8h_a1e070460d135ffad19d298e5dbd01a71}{\-\_\-\-I\-T\-M\-\_\-transaction\-State} \{ \hyperlink{libitm_8h_a1e070460d135ffad19d298e5dbd01a71a0957edb0e3c8a246b57840f66f7f98a6}{mode\-Serial\-Irrevocable}
+ \}
+\item 
+enum \hyperlink{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aa}{\-\_\-\-I\-T\-M\-\_\-how\-Executing} \{ \hyperlink{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa8babf248403dbfd22955064b0ac606ff}{outside\-Transaction} = 0, 
+\hyperlink{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa9f0c3b4b16e9e37f6634893915058b9b}{in\-Retryable\-Transaction}, 
+\hyperlink{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa87173208954bd505f49fbf9607e0c58d}{in\-Irrevocable\-Transaction}
+ \}
+\item 
+enum \hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3}{\-\_\-\-I\-T\-M\-\_\-code\-Properties} \{ \\*
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3aacc4e602c979eb2e6a4d7197ca4658a5}{pr\-\_\-instrumented\-Code} = 0x0001, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a5b6d61624fab7cac0caa96d28ac55e1d}{pr\-\_\-uninstrumented\-Code} = 0x0002, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ad0562d9e953007e96bb54ff2238020e0}{pr\-\_\-multiway\-Code} = pr\-\_\-instrumented\-Code $\vert$ pr\-\_\-uninstrumented\-Code, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ade2df02ce9893a0efe6128e8a769dce7}{pr\-\_\-has\-No\-X\-M\-M\-Update} = 0x0004, 
+\\*
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a9b47b019d00607f340034a019fee53ed}{pr\-\_\-has\-No\-Abort} = 0x0008, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a7a43e11ad1ad6869876b7f07c943eeec}{pr\-\_\-has\-No\-Retry} = 0x0010, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ad911927868aea63d8bb6237c8374bb60}{pr\-\_\-has\-No\-Irrevocable} = 0x0020, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ade0c9ecb5ee49380d5fa8c9ac37e6d36}{pr\-\_\-does\-Go\-Irrevocable} = 0x0040, 
+\\*
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a274ff15cf088127ac9a6d3df793385b4}{pr\-\_\-has\-No\-Simple\-Reads} = 0x0080, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3aadec7acdd51d34af58517acedfafabc7}{pr\-\_\-a\-W\-Barriers\-Omitted} = 0x0100, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a19ad0ed71286e9b8117137a64006400e}{pr\-\_\-\-Ra\-R\-Barriers\-Omitted} = 0x0200, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a5ab93f75ffdb1d15bfea1ad238057981}{pr\-\_\-undo\-Log\-Code} = 0x0400, 
+\\*
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3af57a04c39332a86884480e1de0c0a5c2}{pr\-\_\-prefer\-Uninstrumented} = 0x0800, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a976bb26813a2922fef95d7e39c777322}{pr\-\_\-exception\-Block} = 0x1000, 
+\hyperlink{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a4bf7263a8b04595ed1c0342cfa66fa02}{pr\-\_\-has\-Else} = 0x2000
+ \}
+\item 
+enum \hyperlink{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaa}{\-\_\-\-I\-T\-M\-\_\-actions} \{ \\*
+\hyperlink{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa45378e801fc88af65be19b3fd41ca047}{a\-\_\-run\-Instrumented\-Code} = 0x01, 
+\hyperlink{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa7e67a01353b94efb96f14a6f13704fc4}{a\-\_\-run\-Uninstrumented\-Code} = 0x02, 
+\hyperlink{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa02a3c1e5820ea76b3ded66c103ce32db}{a\-\_\-save\-Live\-Variables} = 0x04, 
+\hyperlink{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa22cc0b244994574794efd95b48af3be1}{a\-\_\-restore\-Live\-Variables} = 0x08, 
+\\*
+\hyperlink{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa24043cf2f38d9b8481353b7ec8a9f003}{a\-\_\-abort\-Transaction} = 0x10
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac52d40a04c5e558ef0e89ba371437933}{\-\_\-\-I\-T\-M\-\_\-version\-Compatible} (int)
+\item 
+const char $\ast$\hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afeb3f6b4ba3486fdc1e6dc77be02c1f1}{\-\_\-\-I\-T\-M\-\_\-library\-Version} (void)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4dce65896b4e8c1bf367c241c0ff9c63}{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N} \hyperlink{libitm_8h_a8733f93f6cc0af045f8a362dd23cc95f}{\-\_\-\-I\-T\-M\-\_\-error} (const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$, int error\-Code)
+\item 
+\hyperlink{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aa}{\-\_\-\-I\-T\-M\-\_\-how\-Executing} \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3f661fc4a138df2bb6e5c0222870ffc5}{\-\_\-\-I\-T\-M\-\_\-in\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$)
+\item 
+\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$\hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5edce724a00eff63931f07466901ef7d}{\-\_\-\-I\-T\-M\-\_\-get\-Transaction} (void)
+\item 
+\hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a14c5d7687383678a3ec7581a16e2a202}{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$)
+\item 
+uint32\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afdd98b4555823f96c5db48497ef4183a}{\-\_\-\-I\-T\-M\-\_\-begin\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint32\-\_\-t, \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4dce65896b4e8c1bf367c241c0ff9c63}{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N} \hyperlink{libitm_8h_a6b6f0d40f683d950a7a3f076982a46e0}{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33}{\-\_\-\-I\-T\-M\-\_\-abort\-Reason}, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a21a54498fdc0d76948f7087d711df607}{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a15e92bf1cc3ab2cb6a6d1589d7dd5443}{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+bool \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aada0a211f88bfbc3b44ffde26f451eab}{\-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a031168938450d765e70a6f28423d917b}{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a497c32393f1a46181000643f63bf8a73}{\-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a96c379fad6e02add0c8c9005ed7aa748}{\-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{libitm_8h_a1e070460d135ffad19d298e5dbd01a71}{\-\_\-\-I\-T\-M\-\_\-transaction\-State}, const \hyperlink{struct__ITM__srcLocation}{\-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$)
+\item 
+uint8\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a27dd397d34c4c114a998455c9d285838}{\-\_\-\-I\-T\-M\-\_\-\-R\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint8\-\_\-t $\ast$)
+\item 
+uint8\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ad22d4dd7167dea69631f788c3c07c277}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint8\-\_\-t $\ast$)
+\item 
+uint8\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ab31dbe360458032635eef25ca0907069}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint8\-\_\-t $\ast$)
+\item 
+uint8\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a427f668cd42f2f582d4256173491e1eb}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint8\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a80da0015cebf2571fd94a85f81996985}{\-\_\-\-I\-T\-M\-\_\-\-W\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint8\-\_\-t $\ast$, uint8\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a9051cba4a5c11f4528352adc437c9d07}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint8\-\_\-t $\ast$, uint8\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3cb73a8d040a258dc057da9294df232b}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint8\-\_\-t $\ast$, uint8\-\_\-t)
+\item 
+uint16\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4b2508df0adce9652b3512cb53da153d}{\-\_\-\-I\-T\-M\-\_\-\-R\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint16\-\_\-t $\ast$)
+\item 
+uint16\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a810b4cb37641078c01e1854810b4c914}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint16\-\_\-t $\ast$)
+\item 
+uint16\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae0aa6a109303c27340a24fb1bbe8454d}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint16\-\_\-t $\ast$)
+\item 
+uint16\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a23956dcda3a27074adce9554ef6a44b2}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint16\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a6c5d7e04eed10cdbccd2e5c274eac7bc}{\-\_\-\-I\-T\-M\-\_\-\-W\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint16\-\_\-t $\ast$, uint16\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a2d9fce817e40da5fb98ad46f1ea4973e}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint16\-\_\-t $\ast$, uint16\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3b26d6b4dce7c0c43e69cba912f253d1}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint16\-\_\-t $\ast$, uint16\-\_\-t)
+\item 
+uint32\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a64f541fe50b99d3768b0b86f86768bd6}{\-\_\-\-I\-T\-M\-\_\-\-R\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint32\-\_\-t $\ast$)
+\item 
+uint32\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_af5b92b2c01a5699c8dd3761ad4e21c0b}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint32\-\_\-t $\ast$)
+\item 
+uint32\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a85cf523dce8223eb678cd166b3c1d370}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint32\-\_\-t $\ast$)
+\item 
+uint32\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3609c338217a50d1dd6c5220c4fe8a6e}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint32\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae6720d69e91fdb7a21a378fdf256cf6d}{\-\_\-\-I\-T\-M\-\_\-\-W\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint32\-\_\-t $\ast$, uint32\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afcf995b3d547081baa41333716aed36f}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint32\-\_\-t $\ast$, uint32\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae581574030ded4552bcd4d2d8e3454f6}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint32\-\_\-t $\ast$, uint32\-\_\-t)
+\item 
+uint64\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ab95df72293c1697bb08384431c34085c}{\-\_\-\-I\-T\-M\-\_\-\-R\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint64\-\_\-t $\ast$)
+\item 
+uint64\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac9d0618afd18ee59b720b9086a022238}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint64\-\_\-t $\ast$)
+\item 
+uint64\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a74483305439cb4c08750ee612e183fcb}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint64\-\_\-t $\ast$)
+\item 
+uint64\-\_\-t \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac4a5758f1d8039b5b3bee95967642afa}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint64\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ab8241331b8c34f61c644c7e46d3a8a60}{\-\_\-\-I\-T\-M\-\_\-\-W\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint64\-\_\-t $\ast$, uint64\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a1565d66400f222457c99d2b14359b0ee}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint64\-\_\-t $\ast$, uint64\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae73e66c5d01053753fa7d412d2a8629e}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, uint64\-\_\-t $\ast$, uint64\-\_\-t)
+\item 
+float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ad37a1b6f1745a3ccda6f44821112f35c}{\-\_\-\-I\-T\-M\-\_\-\-R\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const float $\ast$)
+\item 
+float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a61fc3e477ac0e1f8043cdaa485eff7e6}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const float $\ast$)
+\item 
+float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ad91d8660014ce64e7635b37cd2848528}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const float $\ast$)
+\item 
+float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aed05e7a3f3e2ee4b99ddd2308b6d9cd6}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const float $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a276490ae501b5d7e8003e7b196b2b501}{\-\_\-\-I\-T\-M\-\_\-\-W\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, float $\ast$, float)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a1512c4eaeff74b40477675ade8382ba9}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, float $\ast$, float)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5e803885522c7187b94d071b45bb1c9c}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, float $\ast$, float)
+\item 
+double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aae08ae7d6624e35ddc9964d700727426}{\-\_\-\-I\-T\-M\-\_\-\-R\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const double $\ast$)
+\item 
+double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a228009d687333347a1ad8a495ace4bc5}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const double $\ast$)
+\item 
+double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a01fcc332ac131eb87b8e164ef758fedf}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const double $\ast$)
+\item 
+double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aacf9d7ab33c464a920981b72ca372870}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ab6bd92628fbb216d6c21d006610d3572}{\-\_\-\-I\-T\-M\-\_\-\-W\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, double $\ast$, double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_abb6b371e32cd38640f483f78c786d05c}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, double $\ast$, double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a58395b8f6fa0f983f1d70c441fbc7edf}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, double $\ast$, double)
+\item 
+long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aed3ae9a0dea88b336d1ce7d4bc3d9252}{\-\_\-\-I\-T\-M\-\_\-\-R\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const long double $\ast$)
+\item 
+long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3b5b93806aba9e1a11dbab2f581f7aaf}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const long double $\ast$)
+\item 
+long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a87abaaba2acddb2146205368c84ead64}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const long double $\ast$)
+\item 
+long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_adde0b989ab5401802ddc43860ea21c04}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const long double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afaf9f20286657af2801b787c6962f156}{\-\_\-\-I\-T\-M\-\_\-\-W\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, long double $\ast$, long double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a452bd89ae941c77d46a14d46f194c2a6}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, long double $\ast$, long double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_af93462e9752e6ef0221b231e02622c2d}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, long double $\ast$, long double)
+\item 
+\-\_\-\-\_\-m64 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a585d8b81e88bbe88c28bfa800dd2f4c8}{\-\_\-\-I\-T\-M\-\_\-\-R\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m64 $\ast$)
+\item 
+\-\_\-\-\_\-m64 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_adf65cce8d130eadbd012226292361049}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m64 $\ast$)
+\item 
+\-\_\-\-\_\-m64 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_af56c6ac845a1cab559ff503fd2fa8e42}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m64 $\ast$)
+\item 
+\-\_\-\-\_\-m64 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aafcc6bfe3c3ed8d5cab82533091946ee}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m64 $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aefd5b367f803ffb964cdb0115f4e3be3}{\-\_\-\-I\-T\-M\-\_\-\-W\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-\_\-m64 $\ast$, \-\_\-\-\_\-m64)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a2dae4e23b0a01fd5b34486a5f0882b92}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-\_\-m64 $\ast$, \-\_\-\-\_\-m64)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_add064e99ff509681d0271da1e53550cf}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-\_\-m64 $\ast$, \-\_\-\-\_\-m64)
+\item 
+\-\_\-\-\_\-m128 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a8ea9e159b1c3ec669927cb0e9ad26161}{\-\_\-\-I\-T\-M\-\_\-\-R\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m128 $\ast$)
+\item 
+\-\_\-\-\_\-m128 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4e22022ac3284e00d18a75b25e040b4b}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m128 $\ast$)
+\item 
+\-\_\-\-\_\-m128 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afccb6cc23d855cb488a5e888a7ad30d3}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m128 $\ast$)
+\item 
+\-\_\-\-\_\-m128 \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4d8cfa2bb866e5bf0a8d292dfdc17a64}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m128 $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a97e035deb16b4fb3742b0cc9625cbd6e}{\-\_\-\-I\-T\-M\-\_\-\-W\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-\_\-m128 $\ast$, \-\_\-\-\_\-m128)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a441071f7163f3ddb816e44f827c3738f}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-\_\-m128 $\ast$, \-\_\-\-\_\-m128)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a1427410390e76ca3441648d2ec14baac}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-\_\-m128 $\ast$, \-\_\-\-\_\-m128)
+\item 
+\hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_acbbb52faef6bb956985a9e2d38ef0d7b}{\-\_\-\-I\-T\-M\-\_\-\-R\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$)
+\item 
+\hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a62062f4f8619417ee6b9e68c361b9816}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$)
+\item 
+\hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aa927da3242996a69f773181a92e97c1d}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$)
+\item 
+\hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a528a013d210795d310302259773d9da5}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ad05352926ecd68a535154582b5127376}{\-\_\-\-I\-T\-M\-\_\-\-W\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$, \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256})
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a79f4627c1bbd061b92f9f586734aa4df}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$, \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256})
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac7a344269e019d9c8dafed10ac384670}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$, \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256})
+\item 
+\-\_\-\-Complex float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ad9a8e565b97fc88c3817fb317b78a5f2}{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex float $\ast$)
+\item 
+\-\_\-\-Complex float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae78aaa11a356f33e26bf6de39767ce3f}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex float $\ast$)
+\item 
+\-\_\-\-Complex float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a9e3d8d73b9378b665b766316f4b54b72}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex float $\ast$)
+\item 
+\-\_\-\-Complex float \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ab2632d09e75704e252cee505ed4fc9d7}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex float $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_abdf198f879c097901d25f5bbd54697b7}{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex float $\ast$, \-\_\-\-Complex float)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac1169ad1085f6c592866e334761a504f}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex float $\ast$, \-\_\-\-Complex float)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_adefcb902e9f6715700684548c62a186c}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex float $\ast$, \-\_\-\-Complex float)
+\item 
+\-\_\-\-Complex double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a75487fab559e260abb2b19fbe2b16eb0}{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex double $\ast$)
+\item 
+\-\_\-\-Complex double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3a279215b7c69c5158ba42a5f7b3552a}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex double $\ast$)
+\item 
+\-\_\-\-Complex double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a52792c526bb9a782a5addfd1e92f36ea}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex double $\ast$)
+\item 
+\-\_\-\-Complex double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a7313b3ca563689527ae69273ea897bad}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_abeab9b4bab0e4f9f2e31163038699faf}{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex double $\ast$, \-\_\-\-Complex double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3bfec541580d02976decbb451a961884}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex double $\ast$, \-\_\-\-Complex double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ad24228d5b8b49478fce41e99002f098e}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex double $\ast$, \-\_\-\-Complex double)
+\item 
+\-\_\-\-Complex long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a9c2169194af8ef7d747259e2190d01d2}{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex long double $\ast$)
+\item 
+\-\_\-\-Complex long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aa93f02f84bc556fdff0727c79c18321b}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex long double $\ast$)
+\item 
+\-\_\-\-Complex long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a8779c548e0e496c0bd56ea969abaaf80}{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex long double $\ast$)
+\item 
+\-\_\-\-Complex long double \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4c6bba4e7871bd614498ce4998c07c4a}{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex long double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aa170db27b694fec77efd8eb34e104a1c}{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex long double $\ast$, \-\_\-\-Complex long double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a2bbe683ddba93999a4a4f872e247c414}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex long double $\ast$, \-\_\-\-Complex long double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac8a3e9a06492d709f998e4d70bee7a5c}{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \-\_\-\-Complex long double $\ast$, \-\_\-\-Complex long double)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3f1f4461492b20c28cd06513da28c633}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3224f291284f802b20f5ea1792db3f94}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5dd54feb9823b598c49a4761b515a53d}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afc9d4b41c89f23a9e07d8ca1f588c2af}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_af2783e7b1d63294992ed5116a7e5d4c9}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae16707ec64d7f7394e9c7b6881f89852}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5cb8fa184f1e917881a102491d129bea}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a7af2f230c6cab0ed07a3b5e8488c1b5e}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a689d00de138371b6b59f1e728466150c}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a8a4aa02208d901911e9aedd422723cc5}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a697308975feb837bd0beccfbe708e046}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a591dbdbe5e98fa8e33d467d321729d80}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a6f2ca18ec8f8dcf0ef541617350e0f7d}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ae6cd7d331b13504f93ac0427201ba70f}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a671729abde7580584c1b31711e511f16}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a089aefe550d88ea9485f6e25d591bcc0}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5c4ab0d3dc9937cb2ef05497fd92fd52}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a665429b653b29d7b948e59c8fdbd87f9}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a9a3fcfa7b5e64eb1fe234d03cada226a}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a625ddf0c471534a3346b89d616a62d79}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5c862929130403dfe30dc38356ec58cb}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aed6d43e38ef9447605312c9971423941}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_acdd6734721455c1c2537f007463111cc}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a80afe68ca0fb993c397bc59b4990addc}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a44de7ac6f3c26625640f80b82ff05834}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a2a1f908fae8bf39b8ff736cccc80d744}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5cfafdda04c3d8d5b6f6945bb0a92802}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a5174586ae1f62c4e48a2a80888037e8a}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a4bf9ab1f6e7016e4fa266769b0c3747c}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a72c92fb099f0a9701e4038566da67c86}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aba72a525646578b583d88b836970ef3e}{\-\_\-\-I\-T\-M\-\_\-memset\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, int, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a09b91a78eb9499640214b6a85558ebee}{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, int, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a49b97152af59269d61b65201510acfbc}{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, int, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a11510305c296e937a77c76dfc1d6b362}{\-\_\-\-I\-T\-M\-\_\-\-L\-U1} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint8\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a676bbba5b35159a03a61f91f162b6346}{\-\_\-\-I\-T\-M\-\_\-\-L\-U2} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint16\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a2a38cafbe4cd4e75046f2016073bd35f}{\-\_\-\-I\-T\-M\-\_\-\-L\-U4} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint32\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a1da28c54a46373cde3681dfcb6e2e810}{\-\_\-\-I\-T\-M\-\_\-\-L\-U8} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const uint64\-\_\-t $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aaf4fd64853ae48583296a759d9434b03}{\-\_\-\-I\-T\-M\-\_\-\-L\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const float $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a0b7acd41ce955d45c7d2caedd1ac881c}{\-\_\-\-I\-T\-M\-\_\-\-L\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a6be9cc0687e6451d846e716ddb1454ca}{\-\_\-\-I\-T\-M\-\_\-\-L\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const long double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a851a6f967e26aef8fc24e3e164bb65a2}{\-\_\-\-I\-T\-M\-\_\-\-L\-M64} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m64 $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aab09d406916596ea28b571e86ff096f7}{\-\_\-\-I\-T\-M\-\_\-\-L\-M128} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-\_\-m128 $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_afa6fb6136672c66f5de4757c1ffc3225}{\-\_\-\-I\-T\-M\-\_\-\-L\-M256} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \hyperlink{avxintrin__emu_8h_ad3b9d4799312cca2fadfd1ae44f8918b}{\-\_\-\-\_\-m256} $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a8651a2ee9993e998a9c49d3f555be573}{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-F} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex float $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_aaabc93896286b94d1dc22d73ce4b6263}{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-D} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_abeb18435f516a0948bb90eb3d58880f4}{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const \-\_\-\-Complex long double $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a3172a783f02004cf33fbae89a6cd1b3e}{\-\_\-\-I\-T\-M\-\_\-\-L\-B} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, const void $\ast$, size\-\_\-t)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ac36b973f21c125eb7ecda18138297f4b}{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}, \hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}, void $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_a275c6788879b2965ac136aff16249a06}{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, \hyperlink{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}, void $\ast$)
+\item 
+void \hyperlink{itm_8h_ab1a08fd7b28f0fc40bb342572b94aad4}{\-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \hyperlink{libitm_8h_ab405da3fa5aa9ea5cf10dec677d06f2a}{\-\_\-\-I\-T\-M\-\_\-drop\-References} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$, void $\ast$, size\-\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{libitm_8h_a4dce65896b4e8c1bf367c241c0ff9c63}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N@{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N@{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N~{\bf N\-O\-R\-E\-T\-U\-R\-N}}}\label{libitm_8h_a4dce65896b4e8c1bf367c241c0ff9c63}
+\hypertarget{libitm_8h_ad30480e02c031f7bf2259a262dff122d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id@{\-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id@{\-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-I\-T\-M\-\_\-\-No\-Transaction\-Id~0}}\label{libitm_8h_ad30480e02c031f7bf2259a262dff122d}
+\hypertarget{libitm_8h_aa319977d078b61efa1dbe5e2018de3c0}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N@{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N@{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N~\char`\"{}0.\-9 (October 1, 2008)\char`\"{}}}\label{libitm_8h_aa319977d078b61efa1dbe5e2018de3c0}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information \hypertarget{libitm_8h_aa0f7ba53308e5232dbfb13c2de107673}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O@{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O@{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-I\-T\-M\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-N\-O~90}}\label{libitm_8h_aa0f7ba53308e5232dbfb13c2de107673}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-transaction@{\-\_\-\-I\-T\-M\-\_\-transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-transaction@{\-\_\-\-I\-T\-M\-\_\-transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-transaction}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-I\-T\-M\-\_\-transaction\-::\-\_\-\-I\-T\-M\-\_\-transaction}}\label{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}
+\hypertarget{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t@{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}}
+\index{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t@{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint32\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}}}\label{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}
+\hypertarget{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function@{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}}
+\index{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function@{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ \-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function)(void $\ast$)}}\label{libitm_8h_ac19d9bbf121b4c401cbf3603a681aa0c}
+\hypertarget{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function@{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}}
+\index{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function@{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ \-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function)(void $\ast$)}}\label{libitm_8h_ab839c16357d3c2a1b04f7a286bf476d1}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-abort\-Reason@{\-\_\-\-I\-T\-M\-\_\-abort\-Reason}}
+\index{\-\_\-\-I\-T\-M\-\_\-abort\-Reason@{\-\_\-\-I\-T\-M\-\_\-abort\-Reason}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-abort\-Reason}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-I\-T\-M\-\_\-abort\-Reason}}}\label{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{user\-Abort@{user\-Abort}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!user\-Abort@{user\-Abort}}\item[{\em 
+\hypertarget{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33af1eb35715b2e111fb68cc1ac7ea0c892}{user\-Abort}\label{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33af1eb35715b2e111fb68cc1ac7ea0c892}
+}]\index{user\-Retry@{user\-Retry}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!user\-Retry@{user\-Retry}}\item[{\em 
+\hypertarget{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33a967d11252d58a6c1048d0290ff074148}{user\-Retry}\label{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33a967d11252d58a6c1048d0290ff074148}
+}]\index{T\-M\-Conflict@{T\-M\-Conflict}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!T\-M\-Conflict@{T\-M\-Conflict}}\item[{\em 
+\hypertarget{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33a9e273eab76bf5ba8437c621913e6be9c}{T\-M\-Conflict}\label{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33a9e273eab76bf5ba8437c621913e6be9c}
+}]\index{exception\-Block\-Abort@{exception\-Block\-Abort}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!exception\-Block\-Abort@{exception\-Block\-Abort}}\item[{\em 
+\hypertarget{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33adb7da9a0bac35c1c11509d09ff5d1ab6}{exception\-Block\-Abort}\label{libitm_8h_aa7db0003bd46a83a6552f2faa6125d33adb7da9a0bac35c1c11509d09ff5d1ab6}
+}]\end{description}
+\end{Desc}
+\hypertarget{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaa}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-actions@{\-\_\-\-I\-T\-M\-\_\-actions}}
+\index{\-\_\-\-I\-T\-M\-\_\-actions@{\-\_\-\-I\-T\-M\-\_\-actions}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-actions}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-I\-T\-M\-\_\-actions}}}\label{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaa}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{a\-\_\-run\-Instrumented\-Code@{a\-\_\-run\-Instrumented\-Code}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!a\-\_\-run\-Instrumented\-Code@{a\-\_\-run\-Instrumented\-Code}}\item[{\em 
+\hypertarget{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa45378e801fc88af65be19b3fd41ca047}{a\-\_\-run\-Instrumented\-Code}\label{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa45378e801fc88af65be19b3fd41ca047}
+}]\index{a\-\_\-run\-Uninstrumented\-Code@{a\-\_\-run\-Uninstrumented\-Code}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!a\-\_\-run\-Uninstrumented\-Code@{a\-\_\-run\-Uninstrumented\-Code}}\item[{\em 
+\hypertarget{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa7e67a01353b94efb96f14a6f13704fc4}{a\-\_\-run\-Uninstrumented\-Code}\label{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa7e67a01353b94efb96f14a6f13704fc4}
+}]\index{a\-\_\-save\-Live\-Variables@{a\-\_\-save\-Live\-Variables}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!a\-\_\-save\-Live\-Variables@{a\-\_\-save\-Live\-Variables}}\item[{\em 
+\hypertarget{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa02a3c1e5820ea76b3ded66c103ce32db}{a\-\_\-save\-Live\-Variables}\label{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa02a3c1e5820ea76b3ded66c103ce32db}
+}]\index{a\-\_\-restore\-Live\-Variables@{a\-\_\-restore\-Live\-Variables}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!a\-\_\-restore\-Live\-Variables@{a\-\_\-restore\-Live\-Variables}}\item[{\em 
+\hypertarget{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa22cc0b244994574794efd95b48af3be1}{a\-\_\-restore\-Live\-Variables}\label{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa22cc0b244994574794efd95b48af3be1}
+}]\index{a\-\_\-abort\-Transaction@{a\-\_\-abort\-Transaction}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!a\-\_\-abort\-Transaction@{a\-\_\-abort\-Transaction}}\item[{\em 
+\hypertarget{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa24043cf2f38d9b8481353b7ec8a9f003}{a\-\_\-abort\-Transaction}\label{libitm_8h_aed9a3072e036bec99ca62ced76ac2aaaa24043cf2f38d9b8481353b7ec8a9f003}
+}]\end{description}
+\end{Desc}
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-code\-Properties@{\-\_\-\-I\-T\-M\-\_\-code\-Properties}}
+\index{\-\_\-\-I\-T\-M\-\_\-code\-Properties@{\-\_\-\-I\-T\-M\-\_\-code\-Properties}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-code\-Properties}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-I\-T\-M\-\_\-code\-Properties}}}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{pr\-\_\-instrumented\-Code@{pr\-\_\-instrumented\-Code}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-instrumented\-Code@{pr\-\_\-instrumented\-Code}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3aacc4e602c979eb2e6a4d7197ca4658a5}{pr\-\_\-instrumented\-Code}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3aacc4e602c979eb2e6a4d7197ca4658a5}
+}]\index{pr\-\_\-uninstrumented\-Code@{pr\-\_\-uninstrumented\-Code}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-uninstrumented\-Code@{pr\-\_\-uninstrumented\-Code}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a5b6d61624fab7cac0caa96d28ac55e1d}{pr\-\_\-uninstrumented\-Code}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a5b6d61624fab7cac0caa96d28ac55e1d}
+}]\index{pr\-\_\-multiway\-Code@{pr\-\_\-multiway\-Code}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-multiway\-Code@{pr\-\_\-multiway\-Code}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ad0562d9e953007e96bb54ff2238020e0}{pr\-\_\-multiway\-Code}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ad0562d9e953007e96bb54ff2238020e0}
+}]\index{pr\-\_\-has\-No\-X\-M\-M\-Update@{pr\-\_\-has\-No\-X\-M\-M\-Update}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-has\-No\-X\-M\-M\-Update@{pr\-\_\-has\-No\-X\-M\-M\-Update}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ade2df02ce9893a0efe6128e8a769dce7}{pr\-\_\-has\-No\-X\-M\-M\-Update}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ade2df02ce9893a0efe6128e8a769dce7}
+}]\index{pr\-\_\-has\-No\-Abort@{pr\-\_\-has\-No\-Abort}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-has\-No\-Abort@{pr\-\_\-has\-No\-Abort}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a9b47b019d00607f340034a019fee53ed}{pr\-\_\-has\-No\-Abort}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a9b47b019d00607f340034a019fee53ed}
+}]\index{pr\-\_\-has\-No\-Retry@{pr\-\_\-has\-No\-Retry}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-has\-No\-Retry@{pr\-\_\-has\-No\-Retry}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a7a43e11ad1ad6869876b7f07c943eeec}{pr\-\_\-has\-No\-Retry}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a7a43e11ad1ad6869876b7f07c943eeec}
+}]\index{pr\-\_\-has\-No\-Irrevocable@{pr\-\_\-has\-No\-Irrevocable}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-has\-No\-Irrevocable@{pr\-\_\-has\-No\-Irrevocable}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ad911927868aea63d8bb6237c8374bb60}{pr\-\_\-has\-No\-Irrevocable}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ad911927868aea63d8bb6237c8374bb60}
+}]\index{pr\-\_\-does\-Go\-Irrevocable@{pr\-\_\-does\-Go\-Irrevocable}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-does\-Go\-Irrevocable@{pr\-\_\-does\-Go\-Irrevocable}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ade0c9ecb5ee49380d5fa8c9ac37e6d36}{pr\-\_\-does\-Go\-Irrevocable}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3ade0c9ecb5ee49380d5fa8c9ac37e6d36}
+}]\index{pr\-\_\-has\-No\-Simple\-Reads@{pr\-\_\-has\-No\-Simple\-Reads}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-has\-No\-Simple\-Reads@{pr\-\_\-has\-No\-Simple\-Reads}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a274ff15cf088127ac9a6d3df793385b4}{pr\-\_\-has\-No\-Simple\-Reads}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a274ff15cf088127ac9a6d3df793385b4}
+}]\index{pr\-\_\-a\-W\-Barriers\-Omitted@{pr\-\_\-a\-W\-Barriers\-Omitted}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-a\-W\-Barriers\-Omitted@{pr\-\_\-a\-W\-Barriers\-Omitted}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3aadec7acdd51d34af58517acedfafabc7}{pr\-\_\-a\-W\-Barriers\-Omitted}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3aadec7acdd51d34af58517acedfafabc7}
+}]\index{pr\-\_\-\-Ra\-R\-Barriers\-Omitted@{pr\-\_\-\-Ra\-R\-Barriers\-Omitted}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-\-Ra\-R\-Barriers\-Omitted@{pr\-\_\-\-Ra\-R\-Barriers\-Omitted}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a19ad0ed71286e9b8117137a64006400e}{pr\-\_\-\-Ra\-R\-Barriers\-Omitted}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a19ad0ed71286e9b8117137a64006400e}
+}]\index{pr\-\_\-undo\-Log\-Code@{pr\-\_\-undo\-Log\-Code}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-undo\-Log\-Code@{pr\-\_\-undo\-Log\-Code}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a5ab93f75ffdb1d15bfea1ad238057981}{pr\-\_\-undo\-Log\-Code}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a5ab93f75ffdb1d15bfea1ad238057981}
+}]\index{pr\-\_\-prefer\-Uninstrumented@{pr\-\_\-prefer\-Uninstrumented}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-prefer\-Uninstrumented@{pr\-\_\-prefer\-Uninstrumented}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3af57a04c39332a86884480e1de0c0a5c2}{pr\-\_\-prefer\-Uninstrumented}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3af57a04c39332a86884480e1de0c0a5c2}
+}]\index{pr\-\_\-exception\-Block@{pr\-\_\-exception\-Block}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-exception\-Block@{pr\-\_\-exception\-Block}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a976bb26813a2922fef95d7e39c777322}{pr\-\_\-exception\-Block}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a976bb26813a2922fef95d7e39c777322}
+}]\index{pr\-\_\-has\-Else@{pr\-\_\-has\-Else}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!pr\-\_\-has\-Else@{pr\-\_\-has\-Else}}\item[{\em 
+\hypertarget{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a4bf7263a8b04595ed1c0342cfa66fa02}{pr\-\_\-has\-Else}\label{libitm_8h_a3b3f52230f2a6e92f38d1cf73ceed4e3a4bf7263a8b04595ed1c0342cfa66fa02}
+}]\end{description}
+\end{Desc}
+\hypertarget{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aa}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-how\-Executing@{\-\_\-\-I\-T\-M\-\_\-how\-Executing}}
+\index{\-\_\-\-I\-T\-M\-\_\-how\-Executing@{\-\_\-\-I\-T\-M\-\_\-how\-Executing}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-how\-Executing}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-I\-T\-M\-\_\-how\-Executing}}}\label{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aa}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{outside\-Transaction@{outside\-Transaction}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!outside\-Transaction@{outside\-Transaction}}\item[{\em 
+\hypertarget{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa8babf248403dbfd22955064b0ac606ff}{outside\-Transaction}\label{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa8babf248403dbfd22955064b0ac606ff}
+}]\index{in\-Retryable\-Transaction@{in\-Retryable\-Transaction}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!in\-Retryable\-Transaction@{in\-Retryable\-Transaction}}\item[{\em 
+\hypertarget{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa9f0c3b4b16e9e37f6634893915058b9b}{in\-Retryable\-Transaction}\label{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa9f0c3b4b16e9e37f6634893915058b9b}
+}]\index{in\-Irrevocable\-Transaction@{in\-Irrevocable\-Transaction}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!in\-Irrevocable\-Transaction@{in\-Irrevocable\-Transaction}}\item[{\em 
+\hypertarget{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa87173208954bd505f49fbf9607e0c58d}{in\-Irrevocable\-Transaction}\label{libitm_8h_a7a57174e1b7d03b016b2490ffb4682aaa87173208954bd505f49fbf9607e0c58d}
+}]\end{description}
+\end{Desc}
+\hypertarget{libitm_8h_a1e070460d135ffad19d298e5dbd01a71}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-transaction\-State@{\-\_\-\-I\-T\-M\-\_\-transaction\-State}}
+\index{\-\_\-\-I\-T\-M\-\_\-transaction\-State@{\-\_\-\-I\-T\-M\-\_\-transaction\-State}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-transaction\-State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-I\-T\-M\-\_\-transaction\-State}}}\label{libitm_8h_a1e070460d135ffad19d298e5dbd01a71}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{mode\-Serial\-Irrevocable@{mode\-Serial\-Irrevocable}!libitm.\-h@{libitm.\-h}}\index{libitm.\-h@{libitm.\-h}!mode\-Serial\-Irrevocable@{mode\-Serial\-Irrevocable}}\item[{\em 
+\hypertarget{libitm_8h_a1e070460d135ffad19d298e5dbd01a71a0957edb0e3c8a246b57840f66f7f98a6}{mode\-Serial\-Irrevocable}\label{libitm_8h_a1e070460d135ffad19d298e5dbd01a71a0957edb0e3c8a246b57840f66f7f98a6}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{libitm_8h_a6b6f0d40f683d950a7a3f076982a46e0}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-abort\-Transaction@{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction@{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-abort\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} {\bf \-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N} \-\_\-\-I\-T\-M\-\_\-abort\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-abort\-Reason}}]{, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a6b6f0d40f683d950a7a3f076982a46e0}
+\hypertarget{libitm_8h_ac36b973f21c125eb7ecda18138297f4b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action}}
+\index{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-add\-User\-Commit\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-user\-Commit\-Function}}]{, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac36b973f21c125eb7ecda18138297f4b}
+\hypertarget{libitm_8h_a275c6788879b2965ac136aff16249a06}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action}}
+\index{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action@{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-add\-User\-Undo\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-user\-Undo\-Function}}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a275c6788879b2965ac136aff16249a06}
+\hypertarget{libitm_8h_afdd98b4555823f96c5db48497ef4183a}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-begin\-Transaction@{\-\_\-\-I\-T\-M\-\_\-begin\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-begin\-Transaction@{\-\_\-\-I\-T\-M\-\_\-begin\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-begin\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-begin\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint32\-\_\-t}]{, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afdd98b4555823f96c5db48497ef4183a}
+\hypertarget{libitm_8h_a96c379fad6e02add0c8c9005ed7aa748}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode@{\-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode}}
+\index{\-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode@{\-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-change\-Transaction\-Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-State}}]{state, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{src}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a96c379fad6e02add0c8c9005ed7aa748}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a96c379fad6e02add0c8c9005ed7aa748_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a15e92bf1cc3ab2cb6a6d1589d7dd5443}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-commit\-Transaction@{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction@{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-commit\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a15e92bf1cc3ab2cb6a6d1589d7dd5443}
+\hypertarget{libitm_8h_a031168938450d765e70a6f28423d917b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id@{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id}}
+\index{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id@{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-commit\-Transaction\-To\-Id (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t}}]{, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a031168938450d765e70a6f28423d917b}
+\hypertarget{libitm_8h_ab405da3fa5aa9ea5cf10dec677d06f2a}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-drop\-References@{\-\_\-\-I\-T\-M\-\_\-drop\-References}}
+\index{\-\_\-\-I\-T\-M\-\_\-drop\-References@{\-\_\-\-I\-T\-M\-\_\-drop\-References}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-drop\-References}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-drop\-References (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ab405da3fa5aa9ea5cf10dec677d06f2a}
+\hypertarget{libitm_8h_a8733f93f6cc0af045f8a362dd23cc95f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-error@{\-\_\-\-I\-T\-M\-\_\-error}}
+\index{\-\_\-\-I\-T\-M\-\_\-error@{\-\_\-\-I\-T\-M\-\_\-error}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} {\bf \-\_\-\-I\-T\-M\-\_\-\-N\-O\-R\-E\-T\-U\-R\-N} \-\_\-\-I\-T\-M\-\_\-error (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{src, }
+\item[{int}]{error\-Code}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a8733f93f6cc0af045f8a362dd23cc95f}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information \hypertarget{libitm_8h_a5edce724a00eff63931f07466901ef7d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-get\-Transaction@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-get\-Transaction@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-get\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction}$\ast$ {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-get\-Transaction (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5edce724a00eff63931f07466901ef7d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5edce724a00eff63931f07466901ef7d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5edce724a00eff63931f07466901ef7d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a14c5d7687383678a3ec7581a16e2a202}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id}}
+\index{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a14c5d7687383678a3ec7581a16e2a202}
+\hypertarget{libitm_8h_a3f661fc4a138df2bb6e5c0222870ffc5}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-in\-Transaction@{\-\_\-\-I\-T\-M\-\_\-in\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-in\-Transaction@{\-\_\-\-I\-T\-M\-\_\-in\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-in\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-how\-Executing} {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-in\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3f661fc4a138df2bb6e5c0222870ffc5}
+\hypertarget{libitm_8h_a3172a783f02004cf33fbae89a6cd1b3e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-B@{\-\_\-\-I\-T\-M\-\_\-\-L\-B}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-B@{\-\_\-\-I\-T\-M\-\_\-\-L\-B}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-B}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3172a783f02004cf33fbae89a6cd1b3e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{libitm_8h_a3172a783f02004cf33fbae89a6cd1b3e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_aaabc93896286b94d1dc22d73ce4b6263}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aaabc93896286b94d1dc22d73ce4b6263}
+\hypertarget{libitm_8h_abeb18435f516a0948bb90eb3d58880f4}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_abeb18435f516a0948bb90eb3d58880f4}
+\hypertarget{libitm_8h_a8651a2ee9993e998a9c49d3f555be573}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a8651a2ee9993e998a9c49d3f555be573}
+\hypertarget{libitm_8h_a0b7acd41ce955d45c7d2caedd1ac881c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-D@{\-\_\-\-I\-T\-M\-\_\-\-L\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-D@{\-\_\-\-I\-T\-M\-\_\-\-L\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a0b7acd41ce955d45c7d2caedd1ac881c}
+\hypertarget{libitm_8h_a6be9cc0687e6451d846e716ddb1454ca}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-E@{\-\_\-\-I\-T\-M\-\_\-\-L\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-E@{\-\_\-\-I\-T\-M\-\_\-\-L\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a6be9cc0687e6451d846e716ddb1454ca}
+\hypertarget{libitm_8h_aaf4fd64853ae48583296a759d9434b03}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-F@{\-\_\-\-I\-T\-M\-\_\-\-L\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-F@{\-\_\-\-I\-T\-M\-\_\-\-L\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aaf4fd64853ae48583296a759d9434b03}
+\hypertarget{libitm_8h_afeb3f6b4ba3486fdc1e6dc77be02c1f1}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-library\-Version@{\-\_\-\-I\-T\-M\-\_\-library\-Version}}
+\index{\-\_\-\-I\-T\-M\-\_\-library\-Version@{\-\_\-\-I\-T\-M\-\_\-library\-Version}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-library\-Version}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-library\-Version (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afeb3f6b4ba3486fdc1e6dc77be02c1f1}
+\hypertarget{libitm_8h_aab09d406916596ea28b571e86ff096f7}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-M128@{\-\_\-\-I\-T\-M\-\_\-\-L\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-M128@{\-\_\-\-I\-T\-M\-\_\-\-L\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-M128}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m128 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aab09d406916596ea28b571e86ff096f7}
+\hypertarget{libitm_8h_afa6fb6136672c66f5de4757c1ffc3225}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-M256@{\-\_\-\-I\-T\-M\-\_\-\-L\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-M256@{\-\_\-\-I\-T\-M\-\_\-\-L\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-M256}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-\_\-m256} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afa6fb6136672c66f5de4757c1ffc3225}
+\hypertarget{libitm_8h_a851a6f967e26aef8fc24e3e164bb65a2}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-M64@{\-\_\-\-I\-T\-M\-\_\-\-L\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-M64@{\-\_\-\-I\-T\-M\-\_\-\-L\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-M64}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m64 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a851a6f967e26aef8fc24e3e164bb65a2}
+\hypertarget{libitm_8h_a11510305c296e937a77c76dfc1d6b362}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-U1@{\-\_\-\-I\-T\-M\-\_\-\-L\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-U1@{\-\_\-\-I\-T\-M\-\_\-\-L\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-U1}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint8\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a11510305c296e937a77c76dfc1d6b362}
+\hypertarget{libitm_8h_a676bbba5b35159a03a61f91f162b6346}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-U2@{\-\_\-\-I\-T\-M\-\_\-\-L\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-U2@{\-\_\-\-I\-T\-M\-\_\-\-L\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-U2}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint16\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a676bbba5b35159a03a61f91f162b6346}
+\hypertarget{libitm_8h_a2a38cafbe4cd4e75046f2016073bd35f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-U4@{\-\_\-\-I\-T\-M\-\_\-\-L\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-U4@{\-\_\-\-I\-T\-M\-\_\-\-L\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-U4}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a2a38cafbe4cd4e75046f2016073bd35f}
+\hypertarget{libitm_8h_a1da28c54a46373cde3681dfcb6e2e810}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-L\-U8@{\-\_\-\-I\-T\-M\-\_\-\-L\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-U8@{\-\_\-\-I\-T\-M\-\_\-\-L\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-U8}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-L\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint64\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a1da28c54a46373cde3681dfcb6e2e810}
+\hypertarget{libitm_8h_a3f1f4461492b20c28cd06513da28c633}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3f1f4461492b20c28cd06513da28c633}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a3f1f4461492b20c28cd06513da28c633_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a3224f291284f802b20f5ea1792db3f94}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3224f291284f802b20f5ea1792db3f94}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a3224f291284f802b20f5ea1792db3f94_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a5dd54feb9823b598c49a4761b515a53d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5dd54feb9823b598c49a4761b515a53d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5dd54feb9823b598c49a4761b515a53d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a7af2f230c6cab0ed07a3b5e8488c1b5e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a7af2f230c6cab0ed07a3b5e8488c1b5e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a7af2f230c6cab0ed07a3b5e8488c1b5e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a689d00de138371b6b59f1e728466150c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a689d00de138371b6b59f1e728466150c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a689d00de138371b6b59f1e728466150c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a8a4aa02208d901911e9aedd422723cc5}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a8a4aa02208d901911e9aedd422723cc5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a8a4aa02208d901911e9aedd422723cc5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a697308975feb837bd0beccfbe708e046}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a697308975feb837bd0beccfbe708e046}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a697308975feb837bd0beccfbe708e046_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a591dbdbe5e98fa8e33d467d321729d80}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a591dbdbe5e98fa8e33d467d321729d80}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a591dbdbe5e98fa8e33d467d321729d80_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a6f2ca18ec8f8dcf0ef541617350e0f7d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a6f2ca18ec8f8dcf0ef541617350e0f7d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a6f2ca18ec8f8dcf0ef541617350e0f7d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_ae6cd7d331b13504f93ac0427201ba70f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae6cd7d331b13504f93ac0427201ba70f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_ae6cd7d331b13504f93ac0427201ba70f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a671729abde7580584c1b31711e511f16}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a671729abde7580584c1b31711e511f16}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a671729abde7580584c1b31711e511f16_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_afc9d4b41c89f23a9e07d8ca1f588c2af}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afc9d4b41c89f23a9e07d8ca1f588c2af}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_afc9d4b41c89f23a9e07d8ca1f588c2af_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_af2783e7b1d63294992ed5116a7e5d4c9}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_af2783e7b1d63294992ed5116a7e5d4c9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_af2783e7b1d63294992ed5116a7e5d4c9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_ae16707ec64d7f7394e9c7b6881f89852}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae16707ec64d7f7394e9c7b6881f89852}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_ae16707ec64d7f7394e9c7b6881f89852_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a5cb8fa184f1e917881a102491d129bea}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5cb8fa184f1e917881a102491d129bea}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5cb8fa184f1e917881a102491d129bea_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a089aefe550d88ea9485f6e25d591bcc0}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a089aefe550d88ea9485f6e25d591bcc0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a089aefe550d88ea9485f6e25d591bcc0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a5c4ab0d3dc9937cb2ef05497fd92fd52}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5c4ab0d3dc9937cb2ef05497fd92fd52}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5c4ab0d3dc9937cb2ef05497fd92fd52_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a665429b653b29d7b948e59c8fdbd87f9}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a665429b653b29d7b948e59c8fdbd87f9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a665429b653b29d7b948e59c8fdbd87f9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_acdd6734721455c1c2537f007463111cc}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_acdd6734721455c1c2537f007463111cc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_acdd6734721455c1c2537f007463111cc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a80afe68ca0fb993c397bc59b4990addc}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a80afe68ca0fb993c397bc59b4990addc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a80afe68ca0fb993c397bc59b4990addc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a44de7ac6f3c26625640f80b82ff05834}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a44de7ac6f3c26625640f80b82ff05834}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a44de7ac6f3c26625640f80b82ff05834_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a2a1f908fae8bf39b8ff736cccc80d744}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a2a1f908fae8bf39b8ff736cccc80d744}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a2a1f908fae8bf39b8ff736cccc80d744_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a5cfafdda04c3d8d5b6f6945bb0a92802}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5cfafdda04c3d8d5b6f6945bb0a92802}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5cfafdda04c3d8d5b6f6945bb0a92802_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a5174586ae1f62c4e48a2a80888037e8a}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5174586ae1f62c4e48a2a80888037e8a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5174586ae1f62c4e48a2a80888037e8a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a4bf9ab1f6e7016e4fa266769b0c3747c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a4bf9ab1f6e7016e4fa266769b0c3747c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a4bf9ab1f6e7016e4fa266769b0c3747c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a72c92fb099f0a9701e4038566da67c86}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a72c92fb099f0a9701e4038566da67c86}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a72c92fb099f0a9701e4038566da67c86_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a9a3fcfa7b5e64eb1fe234d03cada226a}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a9a3fcfa7b5e64eb1fe234d03cada226a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a9a3fcfa7b5e64eb1fe234d03cada226a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a625ddf0c471534a3346b89d616a62d79}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a625ddf0c471534a3346b89d616a62d79}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a625ddf0c471534a3346b89d616a62d79_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a5c862929130403dfe30dc38356ec58cb}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5c862929130403dfe30dc38356ec58cb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a5c862929130403dfe30dc38356ec58cb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_aed6d43e38ef9447605312c9971423941}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{const void $\ast$}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aed6d43e38ef9447605312c9971423941}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_aed6d43e38ef9447605312c9971423941_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_aba72a525646578b583d88b836970ef3e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memset\-W@{\-\_\-\-I\-T\-M\-\_\-memset\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memset\-W@{\-\_\-\-I\-T\-M\-\_\-memset\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memset\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memset\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{int}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aba72a525646578b583d88b836970ef3e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_aba72a525646578b583d88b836970ef3e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a09b91a78eb9499640214b6a85558ebee}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R@{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R@{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memset\-Wa\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{int}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a09b91a78eb9499640214b6a85558ebee}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a09b91a78eb9499640214b6a85558ebee_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a49b97152af59269d61b65201510acfbc}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W@{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W@{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-memset\-Wa\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{void $\ast$}]{, }
+\item[{int}]{, }
+\item[{size\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a49b97152af59269d61b65201510acfbc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm_8h_a49b97152af59269d61b65201510acfbc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm_8h_a3a279215b7c69c5158ba42a5f7b3552a}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3a279215b7c69c5158ba42a5f7b3552a}
+\hypertarget{libitm_8h_aa93f02f84bc556fdff0727c79c18321b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aa93f02f84bc556fdff0727c79c18321b}
+\hypertarget{libitm_8h_ae78aaa11a356f33e26bf6de39767ce3f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae78aaa11a356f33e26bf6de39767ce3f}
+\hypertarget{libitm_8h_a228009d687333347a1ad8a495ace4bc5}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a228009d687333347a1ad8a495ace4bc5}
+\hypertarget{libitm_8h_a3b5b93806aba9e1a11dbab2f581f7aaf}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3b5b93806aba9e1a11dbab2f581f7aaf}
+\hypertarget{libitm_8h_a61fc3e477ac0e1f8043cdaa485eff7e6}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a61fc3e477ac0e1f8043cdaa485eff7e6}
+\hypertarget{libitm_8h_a4e22022ac3284e00d18a75b25e040b4b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m128 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m128 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a4e22022ac3284e00d18a75b25e040b4b}
+\hypertarget{libitm_8h_a62062f4f8619417ee6b9e68c361b9816}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-m256} {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-\_\-m256} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a62062f4f8619417ee6b9e68c361b9816}
+\hypertarget{libitm_8h_adf65cce8d130eadbd012226292361049}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m64 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m64 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_adf65cce8d130eadbd012226292361049}
+\hypertarget{libitm_8h_ad22d4dd7167dea69631f788c3c07c277}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint8\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ad22d4dd7167dea69631f788c3c07c277}
+\hypertarget{libitm_8h_a810b4cb37641078c01e1854810b4c914}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint16\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a810b4cb37641078c01e1854810b4c914}
+\hypertarget{libitm_8h_af5b92b2c01a5699c8dd3761ad4e21c0b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_af5b92b2c01a5699c8dd3761ad4e21c0b}
+\hypertarget{libitm_8h_ac9d0618afd18ee59b720b9086a022238}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-R\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint64\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac9d0618afd18ee59b720b9086a022238}
+\hypertarget{libitm_8h_a52792c526bb9a782a5addfd1e92f36ea}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a52792c526bb9a782a5addfd1e92f36ea}
+\hypertarget{libitm_8h_a8779c548e0e496c0bd56ea969abaaf80}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a8779c548e0e496c0bd56ea969abaaf80}
+\hypertarget{libitm_8h_a9e3d8d73b9378b665b766316f4b54b72}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a9e3d8d73b9378b665b766316f4b54b72}
+\hypertarget{libitm_8h_a01fcc332ac131eb87b8e164ef758fedf}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a01fcc332ac131eb87b8e164ef758fedf}
+\hypertarget{libitm_8h_a87abaaba2acddb2146205368c84ead64}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E}]{\setlength{\rightskip}{0pt plus 5cm}long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a87abaaba2acddb2146205368c84ead64}
+\hypertarget{libitm_8h_ad91d8660014ce64e7635b37cd2848528}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ad91d8660014ce64e7635b37cd2848528}
+\hypertarget{libitm_8h_afccb6cc23d855cb488a5e888a7ad30d3}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m128 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m128 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afccb6cc23d855cb488a5e888a7ad30d3}
+\hypertarget{libitm_8h_aa927da3242996a69f773181a92e97c1d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-m256} {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-\_\-m256} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aa927da3242996a69f773181a92e97c1d}
+\hypertarget{libitm_8h_af56c6ac845a1cab559ff503fd2fa8e42}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m64 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m64 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_af56c6ac845a1cab559ff503fd2fa8e42}
+\hypertarget{libitm_8h_ab31dbe360458032635eef25ca0907069}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint8\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ab31dbe360458032635eef25ca0907069}
+\hypertarget{libitm_8h_ae0aa6a109303c27340a24fb1bbe8454d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint16\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae0aa6a109303c27340a24fb1bbe8454d}
+\hypertarget{libitm_8h_a85cf523dce8223eb678cd166b3c1d370}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a85cf523dce8223eb678cd166b3c1d370}
+\hypertarget{libitm_8h_a74483305439cb4c08750ee612e183fcb}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Ra\-W\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint64\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a74483305439cb4c08750ee612e183fcb}
+\hypertarget{libitm_8h_a75487fab559e260abb2b19fbe2b16eb0}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a75487fab559e260abb2b19fbe2b16eb0}
+\hypertarget{libitm_8h_a9c2169194af8ef7d747259e2190d01d2}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a9c2169194af8ef7d747259e2190d01d2}
+\hypertarget{libitm_8h_ad9a8e565b97fc88c3817fb317b78a5f2}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ad9a8e565b97fc88c3817fb317b78a5f2}
+\hypertarget{libitm_8h_aae08ae7d6624e35ddc9964d700727426}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-D@{\-\_\-\-I\-T\-M\-\_\-\-R\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-D@{\-\_\-\-I\-T\-M\-\_\-\-R\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aae08ae7d6624e35ddc9964d700727426}
+\hypertarget{libitm_8h_aed3ae9a0dea88b336d1ce7d4bc3d9252}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-E@{\-\_\-\-I\-T\-M\-\_\-\-R\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-E@{\-\_\-\-I\-T\-M\-\_\-\-R\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aed3ae9a0dea88b336d1ce7d4bc3d9252}
+\hypertarget{libitm_8h_a497c32393f1a46181000643f63bf8a73}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object@{\-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object}}
+\index{\-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object@{\-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-register\-Thrown\-Object (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{const void $\ast$}]{addr, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a497c32393f1a46181000643f63bf8a73}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information \hypertarget{libitm_8h_ad37a1b6f1745a3ccda6f44821112f35c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-F@{\-\_\-\-I\-T\-M\-\_\-\-R\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-F@{\-\_\-\-I\-T\-M\-\_\-\-R\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-F}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ad37a1b6f1745a3ccda6f44821112f35c}
+\hypertarget{libitm_8h_a7313b3ca563689527ae69273ea897bad}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a7313b3ca563689527ae69273ea897bad}
+\hypertarget{libitm_8h_a4c6bba4e7871bd614498ce4998c07c4a}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a4c6bba4e7871bd614498ce4998c07c4a}
+\hypertarget{libitm_8h_ab2632d09e75704e252cee505ed4fc9d7}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-Complex float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-Complex float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ab2632d09e75704e252cee505ed4fc9d7}
+\hypertarget{libitm_8h_aacf9d7ab33c464a920981b72ca372870}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aacf9d7ab33c464a920981b72ca372870}
+\hypertarget{libitm_8h_adde0b989ab5401802ddc43860ea21c04}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E}]{\setlength{\rightskip}{0pt plus 5cm}long double {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const long double $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_adde0b989ab5401802ddc43860ea21c04}
+\hypertarget{libitm_8h_aed05e7a3f3e2ee4b99ddd2308b6d9cd6}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const float $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aed05e7a3f3e2ee4b99ddd2308b6d9cd6}
+\hypertarget{libitm_8h_a4d8cfa2bb866e5bf0a8d292dfdc17a64}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m128 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m128 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a4d8cfa2bb866e5bf0a8d292dfdc17a64}
+\hypertarget{libitm_8h_a528a013d210795d310302259773d9da5}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-m256} {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-\_\-m256} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a528a013d210795d310302259773d9da5}
+\hypertarget{libitm_8h_aafcc6bfe3c3ed8d5cab82533091946ee}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m64 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m64 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aafcc6bfe3c3ed8d5cab82533091946ee}
+\hypertarget{libitm_8h_a427f668cd42f2f582d4256173491e1eb}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint8\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a427f668cd42f2f582d4256173491e1eb}
+\hypertarget{libitm_8h_a23956dcda3a27074adce9554ef6a44b2}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint16\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a23956dcda3a27074adce9554ef6a44b2}
+\hypertarget{libitm_8h_a3609c338217a50d1dd6c5220c4fe8a6e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3609c338217a50d1dd6c5220c4fe8a6e}
+\hypertarget{libitm_8h_ac4a5758f1d8039b5b3bee95967642afa}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Rf\-W\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint64\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac4a5758f1d8039b5b3bee95967642afa}
+\hypertarget{libitm_8h_a8ea9e159b1c3ec669927cb0e9ad26161}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-M128@{\-\_\-\-I\-T\-M\-\_\-\-R\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-M128@{\-\_\-\-I\-T\-M\-\_\-\-R\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-M128}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m128 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m128 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a8ea9e159b1c3ec669927cb0e9ad26161}
+\hypertarget{libitm_8h_acbbb52faef6bb956985a9e2d38ef0d7b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-M256@{\-\_\-\-I\-T\-M\-\_\-\-R\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-M256@{\-\_\-\-I\-T\-M\-\_\-\-R\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-M256}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-m256} {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-\_\-m256} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_acbbb52faef6bb956985a9e2d38ef0d7b}
+\hypertarget{libitm_8h_a585d8b81e88bbe88c28bfa800dd2f4c8}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-M64@{\-\_\-\-I\-T\-M\-\_\-\-R\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-M64@{\-\_\-\-I\-T\-M\-\_\-\-R\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-M64}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-m64 {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const \-\_\-\-\_\-m64 $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a585d8b81e88bbe88c28bfa800dd2f4c8}
+\hypertarget{libitm_8h_a21a54498fdc0d76948f7087d711df607}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction@{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction@{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-rollback\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-rollback\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a21a54498fdc0d76948f7087d711df607}
+\hypertarget{libitm_8h_a27dd397d34c4c114a998455c9d285838}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-U1@{\-\_\-\-I\-T\-M\-\_\-\-R\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-U1@{\-\_\-\-I\-T\-M\-\_\-\-R\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-U1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint8\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a27dd397d34c4c114a998455c9d285838}
+\hypertarget{libitm_8h_a4b2508df0adce9652b3512cb53da153d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-U2@{\-\_\-\-I\-T\-M\-\_\-\-R\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-U2@{\-\_\-\-I\-T\-M\-\_\-\-R\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-U2}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint16\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a4b2508df0adce9652b3512cb53da153d}
+\hypertarget{libitm_8h_a64f541fe50b99d3768b0b86f86768bd6}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-U4@{\-\_\-\-I\-T\-M\-\_\-\-R\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-U4@{\-\_\-\-I\-T\-M\-\_\-\-R\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-U4}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint32\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a64f541fe50b99d3768b0b86f86768bd6}
+\hypertarget{libitm_8h_ab95df72293c1697bb08384431c34085c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-R\-U8@{\-\_\-\-I\-T\-M\-\_\-\-R\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-R\-U8@{\-\_\-\-I\-T\-M\-\_\-\-R\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-R\-U8}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-R\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const uint64\-\_\-t $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ab95df72293c1697bb08384431c34085c}
+\hypertarget{libitm_8h_aada0a211f88bfbc3b44ffde26f451eab}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction@{\-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction@{\-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-try\-Commit\-Transaction (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{const {\bf \-\_\-\-I\-T\-M\-\_\-src\-Location} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aada0a211f88bfbc3b44ffde26f451eab}
+\hypertarget{libitm_8h_ac52d40a04c5e558ef0e89ba371437933}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-version\-Compatible@{\-\_\-\-I\-T\-M\-\_\-version\-Compatible}}
+\index{\-\_\-\-I\-T\-M\-\_\-version\-Compatible@{\-\_\-\-I\-T\-M\-\_\-version\-Compatible}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-version\-Compatible}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-version\-Compatible (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac52d40a04c5e558ef0e89ba371437933}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information \hypertarget{libitm_8h_a3bfec541580d02976decbb451a961884}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex double $\ast$}]{, }
+\item[{\-\_\-\-Complex}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3bfec541580d02976decbb451a961884}
+\hypertarget{libitm_8h_a2bbe683ddba93999a4a4f872e247c414}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex long double $\ast$}]{, }
+\item[{\-\_\-\-Complex long}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a2bbe683ddba93999a4a4f872e247c414}
+\hypertarget{libitm_8h_ac1169ad1085f6c592866e334761a504f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex float $\ast$}]{, }
+\item[{\-\_\-\-Complex}]{float}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac1169ad1085f6c592866e334761a504f}
+\hypertarget{libitm_8h_abb6b371e32cd38640f483f78c786d05c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_abb6b371e32cd38640f483f78c786d05c}
+\hypertarget{libitm_8h_a452bd89ae941c77d46a14d46f194c2a6}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{long double $\ast$}]{, }
+\item[{long}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a452bd89ae941c77d46a14d46f194c2a6}
+\hypertarget{libitm_8h_a1512c4eaeff74b40477675ade8382ba9}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a1512c4eaeff74b40477675ade8382ba9}
+\hypertarget{libitm_8h_a441071f7163f3ddb816e44f827c3738f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-\_\-m128 $\ast$}]{, }
+\item[{\-\_\-\-\_\-m128}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a441071f7163f3ddb816e44f827c3738f}
+\hypertarget{libitm_8h_a79f4627c1bbd061b92f9f586734aa4df}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-\_\-m256} $\ast$}]{, }
+\item[{{\bf \-\_\-\-\_\-m256}}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a79f4627c1bbd061b92f9f586734aa4df}
+\hypertarget{libitm_8h_a2dae4e23b0a01fd5b34486a5f0882b92}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-\_\-m64 $\ast$}]{, }
+\item[{\-\_\-\-\_\-m64}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a2dae4e23b0a01fd5b34486a5f0882b92}
+\hypertarget{libitm_8h_a9051cba4a5c11f4528352adc437c9d07}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint8\-\_\-t $\ast$}]{, }
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a9051cba4a5c11f4528352adc437c9d07}
+\hypertarget{libitm_8h_a2d9fce817e40da5fb98ad46f1ea4973e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint16\-\_\-t $\ast$}]{, }
+\item[{uint16\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a2d9fce817e40da5fb98ad46f1ea4973e}
+\hypertarget{libitm_8h_afcf995b3d547081baa41333716aed36f}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint32\-\_\-t $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afcf995b3d547081baa41333716aed36f}
+\hypertarget{libitm_8h_a1565d66400f222457c99d2b14359b0ee}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-R\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint64\-\_\-t $\ast$}]{, }
+\item[{uint64\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a1565d66400f222457c99d2b14359b0ee}
+\hypertarget{libitm_8h_ad24228d5b8b49478fce41e99002f098e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex double $\ast$}]{, }
+\item[{\-\_\-\-Complex}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ad24228d5b8b49478fce41e99002f098e}
+\hypertarget{libitm_8h_ac8a3e9a06492d709f998e4d70bee7a5c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex long double $\ast$}]{, }
+\item[{\-\_\-\-Complex long}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac8a3e9a06492d709f998e4d70bee7a5c}
+\hypertarget{libitm_8h_adefcb902e9f6715700684548c62a186c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex float $\ast$}]{, }
+\item[{\-\_\-\-Complex}]{float}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_adefcb902e9f6715700684548c62a186c}
+\hypertarget{libitm_8h_a58395b8f6fa0f983f1d70c441fbc7edf}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a58395b8f6fa0f983f1d70c441fbc7edf}
+\hypertarget{libitm_8h_af93462e9752e6ef0221b231e02622c2d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{long double $\ast$}]{, }
+\item[{long}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_af93462e9752e6ef0221b231e02622c2d}
+\hypertarget{libitm_8h_a5e803885522c7187b94d071b45bb1c9c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a5e803885522c7187b94d071b45bb1c9c}
+\hypertarget{libitm_8h_a1427410390e76ca3441648d2ec14baac}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-\_\-m128 $\ast$}]{, }
+\item[{\-\_\-\-\_\-m128}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a1427410390e76ca3441648d2ec14baac}
+\hypertarget{libitm_8h_ac7a344269e019d9c8dafed10ac384670}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-\_\-m256} $\ast$}]{, }
+\item[{{\bf \-\_\-\-\_\-m256}}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ac7a344269e019d9c8dafed10ac384670}
+\hypertarget{libitm_8h_add064e99ff509681d0271da1e53550cf}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-\_\-m64 $\ast$}]{, }
+\item[{\-\_\-\-\_\-m64}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_add064e99ff509681d0271da1e53550cf}
+\hypertarget{libitm_8h_a3cb73a8d040a258dc057da9294df232b}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint8\-\_\-t $\ast$}]{, }
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3cb73a8d040a258dc057da9294df232b}
+\hypertarget{libitm_8h_a3b26d6b4dce7c0c43e69cba912f253d1}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint16\-\_\-t $\ast$}]{, }
+\item[{uint16\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a3b26d6b4dce7c0c43e69cba912f253d1}
+\hypertarget{libitm_8h_ae581574030ded4552bcd4d2d8e3454f6}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint32\-\_\-t $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae581574030ded4552bcd4d2d8e3454f6}
+\hypertarget{libitm_8h_ae73e66c5d01053753fa7d412d2a8629e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-Wa\-W\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint64\-\_\-t $\ast$}]{, }
+\item[{uint64\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae73e66c5d01053753fa7d412d2a8629e}
+\hypertarget{libitm_8h_abeab9b4bab0e4f9f2e31163038699faf}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-D@{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex double $\ast$}]{, }
+\item[{\-\_\-\-Complex}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_abeab9b4bab0e4f9f2e31163038699faf}
+\hypertarget{libitm_8h_aa170db27b694fec77efd8eb34e104a1c}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-E@{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-C\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex long double $\ast$}]{, }
+\item[{\-\_\-\-Complex long}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aa170db27b694fec77efd8eb34e104a1c}
+\hypertarget{libitm_8h_abdf198f879c097901d25f5bbd54697b7}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-F@{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-C\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-Complex float $\ast$}]{, }
+\item[{\-\_\-\-Complex}]{float}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_abdf198f879c097901d25f5bbd54697b7}
+\hypertarget{libitm_8h_ab6bd92628fbb216d6c21d006610d3572}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-W\-D}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-D@{\-\_\-\-I\-T\-M\-\_\-\-W\-D}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ab6bd92628fbb216d6c21d006610d3572}
+\hypertarget{libitm_8h_afaf9f20286657af2801b787c6962f156}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-W\-E}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-E@{\-\_\-\-I\-T\-M\-\_\-\-W\-E}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-E}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{long double $\ast$}]{, }
+\item[{long}]{double}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_afaf9f20286657af2801b787c6962f156}
+\hypertarget{libitm_8h_a276490ae501b5d7e8003e7b196b2b501}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-W\-F}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-F@{\-\_\-\-I\-T\-M\-\_\-\-W\-F}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a276490ae501b5d7e8003e7b196b2b501}
+\hypertarget{libitm_8h_a97e035deb16b4fb3742b0cc9625cbd6e}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-W\-M128}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-M128@{\-\_\-\-I\-T\-M\-\_\-\-W\-M128}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-M128}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-M128 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-\_\-m128 $\ast$}]{, }
+\item[{\-\_\-\-\_\-m128}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a97e035deb16b4fb3742b0cc9625cbd6e}
+\hypertarget{libitm_8h_ad05352926ecd68a535154582b5127376}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-W\-M256}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-M256@{\-\_\-\-I\-T\-M\-\_\-\-W\-M256}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-M256}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-M256 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{{\bf \-\_\-\-\_\-m256} $\ast$}]{, }
+\item[{{\bf \-\_\-\-\_\-m256}}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ad05352926ecd68a535154582b5127376}
+\hypertarget{libitm_8h_aefd5b367f803ffb964cdb0115f4e3be3}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-W\-M64}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-M64@{\-\_\-\-I\-T\-M\-\_\-\-W\-M64}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-M64}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-M64 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{\-\_\-\-\_\-m64 $\ast$}]{, }
+\item[{\-\_\-\-\_\-m64}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_aefd5b367f803ffb964cdb0115f4e3be3}
+\hypertarget{libitm_8h_a80da0015cebf2571fd94a85f81996985}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-W\-U1}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-U1@{\-\_\-\-I\-T\-M\-\_\-\-W\-U1}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-U1}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-U1 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint8\-\_\-t $\ast$}]{, }
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a80da0015cebf2571fd94a85f81996985}
+\hypertarget{libitm_8h_a6c5d7e04eed10cdbccd2e5c274eac7bc}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-W\-U2}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-U2@{\-\_\-\-I\-T\-M\-\_\-\-W\-U2}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-U2}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-U2 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint16\-\_\-t $\ast$}]{, }
+\item[{uint16\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_a6c5d7e04eed10cdbccd2e5c274eac7bc}
+\hypertarget{libitm_8h_ae6720d69e91fdb7a21a378fdf256cf6d}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-W\-U4}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-U4@{\-\_\-\-I\-T\-M\-\_\-\-W\-U4}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-U4}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-U4 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint32\-\_\-t $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ae6720d69e91fdb7a21a378fdf256cf6d}
+\hypertarget{libitm_8h_ab8241331b8c34f61c644c7e46d3a8a60}{\index{libitm.\-h@{libitm.\-h}!\-\_\-\-I\-T\-M\-\_\-\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-W\-U8}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-W\-U8@{\-\_\-\-I\-T\-M\-\_\-\-W\-U8}!libitm.h@{libitm.\-h}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-W\-U8}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-\_\-\-I\-T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} \-\_\-\-I\-T\-M\-\_\-\-W\-U8 (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{, }
+\item[{uint64\-\_\-t $\ast$}]{, }
+\item[{uint64\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm_8h_ab8241331b8c34f61c644c7e46d3a8a60}

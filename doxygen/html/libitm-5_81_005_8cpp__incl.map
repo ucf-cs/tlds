@@ -1,0 +1,22 @@
+<map id="rstm/rstm&#45;dev/libitm2stm/libitm&#45;5.1,5.cpp" name="rstm/rstm&#45;dev/libitm2stm/libitm&#45;5.1,5.cpp">
+<area shape="rect" id="node2" href="$libitm_8h.html" title="libitm.h" alt="" coords="245,245,309,272"/>
+<area shape="rect" id="node12" href="$Transaction_8h.html" title="Transaction.h" alt="" coords="277,96,379,123"/>
+<area shape="rect" id="node13" href="$Scope_8h.html" title="Scope.h" alt="" coords="329,171,399,197"/>
+<area shape="rect" id="node18" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="423,171,595,197"/>
+<area shape="rect" id="node19" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="989,96,1109,123"/>
+<area shape="rect" id="node35" href="$lib__globals_8hpp.html" title="stm/lib_globals.hpp" alt="" coords="775,171,909,197"/>
+<area shape="rect" id="node3" href="$itm_8h.html" title="itm/itm.h" alt="" coords="315,328,388,355"/>
+<area shape="rect" id="node10" href="$avxintrin__emu_8h.html" title="alt&#45;license/avxintrin\l_emu.h" alt="" coords="105,321,239,362"/>
+<area shape="rect" id="node4" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="361,411,508,437"/>
+<area shape="rect" id="node15" href="$Checkpoint_8h.html" title="Checkpoint.h" alt="" coords="416,245,515,272"/>
+<area shape="rect" id="node20" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="1473,171,1625,197"/>
+<area shape="rect" id="node22" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="619,171,751,197"/>
+<area shape="rect" id="node23" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="779,245,905,272"/>
+<area shape="rect" id="node29" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="1373,328,1496,355"/>
+<area shape="rect" id="node31" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="981,245,1107,272"/>
+<area shape="rect" id="node33" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="1182,245,1308,272"/>
+<area shape="rect" id="node34" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="986,171,1112,197"/>
+<area shape="rect" id="node24" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="1123,328,1257,355"/>
+<area shape="rect" id="node28" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="635,411,753,437"/>
+<area shape="rect" id="node32" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="931,328,1047,355"/>
+</map>

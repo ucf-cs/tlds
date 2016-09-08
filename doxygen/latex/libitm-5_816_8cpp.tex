@@ -1,0 +1,78 @@
+\hypertarget{libitm-5_816_8cpp}{\section{rstm/rstm-\/dev/libitm2stm/libitm-\/5.16.cpp File Reference}
+\label{libitm-5_816_8cpp}\index{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-16.\-cpp@{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-16.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}libitm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Transaction.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Scope.\-h\char`\"{}}\\*
+Include dependency graph for libitm-\/5.16.cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_816_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02libitm-5_816_8cpp_03_1_1INST}{anonymous\-\_\-namespace\{libitm-\/5.\-16.\-cpp\}\-::\-I\-N\-S\-T$<$ T, W $>$}
+\item 
+struct \hyperlink{structanonymous__namespace_02libitm-5_816_8cpp_03_1_1INST_3_01T_00_010u_01_4}{anonymous\-\_\-namespace\{libitm-\/5.\-16.\-cpp\}\-::\-I\-N\-S\-T$<$ T, 0u $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02libitm-5_816_8cpp_03}{anonymous\-\_\-namespace\{libitm-\/5.\-16.\-cpp\}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{libitm-5_816_8cpp_afebb26d0c4ca66c9e5b3f73997c2fe97}{G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G}(T\-Y\-P\-E, E\-X\-T)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{libitm-5_816_8cpp_ae6609be468b982bb9f7004232fd59e47}{\-\_\-\-I\-T\-M\-\_\-\-L\-B} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, const void $\ast$addr, size\-\_\-t bytes)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{libitm-5_816_8cpp_afebb26d0c4ca66c9e5b3f73997c2fe97}{\index{libitm-\/5.\-16.\-cpp@{libitm-\/5.\-16.\-cpp}!G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G@{G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G}}
+\index{G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G@{G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G}!libitm-5.16.cpp@{libitm-\/5.\-16.\-cpp}}
+\subsubsection[{G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-N\-E\-R\-A\-T\-E\-\_\-\-L\-O\-G(
+\begin{DoxyParamCaption}
+\item[{}]{T\-Y\-P\-E, }
+\item[{}]{E\-X\-T}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_816_8cpp_afebb26d0c4ca66c9e5b3f73997c2fe97}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+void                                                        \(\backslash\)
+    \_ITM\_L##EXT(\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\_ITM\_transaction}* td, \textcolor{keyword}{const} TYPE* address) \{    \(\backslash\)
+        INST<TYPE>::log(td->inner(), address);                  \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{libitm-5_816_8cpp_ae6609be468b982bb9f7004232fd59e47}{\index{libitm-\/5.\-16.\-cpp@{libitm-\/5.\-16.\-cpp}!\-\_\-\-I\-T\-M\-\_\-\-L\-B@{\-\_\-\-I\-T\-M\-\_\-\-L\-B}}
+\index{\-\_\-\-I\-T\-M\-\_\-\-L\-B@{\-\_\-\-I\-T\-M\-\_\-\-L\-B}!libitm-5.16.cpp@{libitm-\/5.\-16.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-\-L\-B}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-\-L\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{const void $\ast$}]{addr, }
+\item[{size\-\_\-t}]{bytes}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_816_8cpp_ae6609be468b982bb9f7004232fd59e47}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{libitm-5_816_8cpp_ae6609be468b982bb9f7004232fd59e47_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,5 @@
+<map id="tx_side::move" name="tx_side::move">
+<area shape="rect" id="node2" href="$worker_8cpp.html#a94abc2b5cb09b8d750cfebf482ba43e6" title="synchronized_baste" alt="" coords="157,5,296,32"/>
+<area shape="rect" id="node3" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="345,5,415,32"/>
+<area shape="rect" id="node4" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="465,5,589,32"/>
+</map>

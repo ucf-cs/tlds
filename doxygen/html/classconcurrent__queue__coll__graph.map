@@ -1,0 +1,5 @@
+<map id="concurrent_queue&lt; T &gt;" name="concurrent_queue&lt; T &gt;">
+<area shape="rect" id="node2" href="$classsimple__queue.html" title="{simple_queue\&lt; T \&gt;\n||+ enqueue()\l+ dequeue()\l+ ~simple_queue()\l}" alt="" coords="5,325,139,432"/>
+<area shape="rect" id="node3" href="$classMS__queue.html" title="{MS_queue\&lt; T \&gt;\n||# enqueue()\l# dequeue()\l# MS_queue()\l# ~MS_queue()\l}" alt="" coords="163,318,279,439"/>
+<area shape="rect" id="node4" href="$unioncounted__ptr.html" title="{counted_ptr\n||}" alt="" coords="176,163,267,240"/>
+</map>

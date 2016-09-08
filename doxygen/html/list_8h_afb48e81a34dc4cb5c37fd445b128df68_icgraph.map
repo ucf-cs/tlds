@@ -1,0 +1,10 @@
+<map id="list_alloc" name="list_alloc">
+<area shape="rect" id="node2" href="$table_8h.html#a2fc6637e05cc972581e5f4d0b9ae85af" title="table_alloc" alt="" coords="313,13,397,40"/>
+<area shape="rect" id="node5" href="$decoder_8h.html#a92136c16eda5a24a0eb6c60b9f96244a" title="decoder_process" alt="" coords="129,32,250,59"/>
+<area shape="rect" id="node6" href="$labyrinth_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="327,96,383,123"/>
+<area shape="rect" id="node7" href="$maze_8h.html#a2135cee3a633084c9456873cb7746e0e" title="maze_read" alt="" coords="146,133,233,160"/>
+<area shape="rect" id="node8" href="$hashtable_8c.html#a45593e850734e8054df44299e0d7826c" title="allocBuckets" alt="" coords="141,184,238,211"/>
+<area shape="rect" id="node3" href="$sequencer_8h.html#ac075f78fc01ff6ba3a740957341bf254" title="sequencer_alloc" alt="" coords="459,87,575,113"/>
+<area shape="rect" id="node4" href="$genome_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="624,87,680,113"/>
+<area shape="rect" id="node9" href="$hashtable_8h.html#aea4bab05eb6f8a5ceb5692278bb9a4e8" title="hashtable_alloc" alt="" coords="299,159,411,185"/>
+</map>

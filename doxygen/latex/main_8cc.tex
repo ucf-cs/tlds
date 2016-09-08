@@ -1,0 +1,132 @@
+\hypertarget{main_8cc}{\section{bench/main.cc File Reference}
+\label{main_8cc}\index{bench/main.\-cc@{bench/main.\-cc}}
+}
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$array$>$}\\*
+{\ttfamily \#include $<$set$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+{\ttfamily \#include $<$mutex$>$}\\*
+{\ttfamily \#include $<$boost/random.\-hpp$>$}\\*
+{\ttfamily \#include $<$sched.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common/timehelper.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/threadbarrier.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bench/setadaptor.\-h\char`\"{}}\\*
+Include dependency graph for main.\-cc\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{main_8cc_acb016cdde7320aa69fa806ece441992f}{Work\-Thread} (uint32\-\_\-t num\-Thread, int thread\-Id, uint32\-\_\-t test\-Size, uint32\-\_\-t tran\-Size, uint32\-\_\-t key\-Range, uint32\-\_\-t insertion, uint32\-\_\-t deletion, \hyperlink{classThreadBarrier}{Thread\-Barrier} \&\hyperlink{classbarrier}{barrier}, T \&set)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{main_8cc_a42cc1eab93fe22abc0f739c8a5be320f}{Tester} (uint32\-\_\-t num\-Thread, uint32\-\_\-t test\-Size, uint32\-\_\-t tran\-Size, uint32\-\_\-t key\-Range, uint32\-\_\-t insertion, uint32\-\_\-t deletion, \hyperlink{classSetAdaptor}{Set\-Adaptor}$<$ T $>$ \&set)
+\item 
+int \hyperlink{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{\index{main.\-cc@{main.\-cc}!main@{main}}
+\index{main@{main}!main.cc@{main.\-cc}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{main_8cc_ac0f2228420376f4db7e1274f2b41667c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cc_ac0f2228420376f4db7e1274f2b41667c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cc_a42cc1eab93fe22abc0f739c8a5be320f}{\index{main.\-cc@{main.\-cc}!Tester@{Tester}}
+\index{Tester@{Tester}!main.cc@{main.\-cc}}
+\subsubsection[{Tester}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void Tester (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{num\-Thread, }
+\item[{uint32\-\_\-t}]{test\-Size, }
+\item[{uint32\-\_\-t}]{tran\-Size, }
+\item[{uint32\-\_\-t}]{key\-Range, }
+\item[{uint32\-\_\-t}]{insertion, }
+\item[{uint32\-\_\-t}]{deletion, }
+\item[{{\bf Set\-Adaptor}$<$ T $>$ \&}]{set}
+\end{DoxyParamCaption}
+)}}\label{main_8cc_a42cc1eab93fe22abc0f739c8a5be320f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cc_a42cc1eab93fe22abc0f739c8a5be320f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{main_8cc_a42cc1eab93fe22abc0f739c8a5be320f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cc_acb016cdde7320aa69fa806ece441992f}{\index{main.\-cc@{main.\-cc}!Work\-Thread@{Work\-Thread}}
+\index{Work\-Thread@{Work\-Thread}!main.cc@{main.\-cc}}
+\subsubsection[{Work\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void Work\-Thread (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{num\-Thread, }
+\item[{int}]{thread\-Id, }
+\item[{uint32\-\_\-t}]{test\-Size, }
+\item[{uint32\-\_\-t}]{tran\-Size, }
+\item[{uint32\-\_\-t}]{key\-Range, }
+\item[{uint32\-\_\-t}]{insertion, }
+\item[{uint32\-\_\-t}]{deletion, }
+\item[{{\bf Thread\-Barrier} \&}]{barrier, }
+\item[{T \&}]{set}
+\end{DoxyParamCaption}
+)}}\label{main_8cc_acb016cdde7320aa69fa806ece441992f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{main_8cc_acb016cdde7320aa69fa806ece441992f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{main_8cc_acb016cdde7320aa69fa806ece441992f_icgraph}
+\end{center}
+\end{figure}
+
+

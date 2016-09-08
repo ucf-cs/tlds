@@ -1,0 +1,7 @@
+<map id="client_run" name="client_run">
+<area shape="rect" id="node2" href="$thread_8c.html#abec126223ac40629f70a1bdcfa1aa088" title="thread_getId" alt="" coords="147,5,242,32"/>
+<area shape="rect" id="node3" href="$random_8c.html#a733bbcfd7d850fa4596d834489b83178" title="random_generate" alt="" coords="133,56,256,83"/>
+<area shape="rect" id="node6" href="$client_8c.html#ac053081bcd35e969dd4fd0c97cfd6042" title="selectAction" alt="" coords="147,107,242,133"/>
+<area shape="rect" id="node4" href="$mt19937ar_8c.html#a8056efdcc7cbf6ff8f46ce36509c506e" title="genrand_int32" alt="" coords="305,56,407,83"/>
+<area shape="rect" id="node5" href="$mt19937ar_8c.html#aba3fcf9d2e0c0d1db5b8b63af90eb51c" title="init_genrand" alt="" coords="457,56,549,83"/>
+</map>

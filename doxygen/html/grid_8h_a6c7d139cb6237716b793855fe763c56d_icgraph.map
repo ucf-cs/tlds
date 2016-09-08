@@ -1,0 +1,10 @@
+<map id="grid_isPointValid" name="grid_isPointValid">
+<area shape="rect" id="node2" href="$maze_8c.html#a3e149a3612d14ed3e9fbe35a4287bbd1" title="addToGrid" alt="" coords="203,5,285,32"/>
+<area shape="rect" id="node5" href="$router_8c.html#a5de066233778d73e5c17f4ed03404f26" title="PexpandToNeighbor" alt="" coords="174,56,314,83"/>
+<area shape="rect" id="node8" href="$router_8c.html#a3959d336c2ceb91b15ab0e2f004f1af4" title="traceToNeighbor" alt="" coords="185,107,303,133"/>
+<area shape="rect" id="node3" href="$maze_8h.html#a2135cee3a633084c9456873cb7746e0e" title="maze_read" alt="" coords="521,5,607,32"/>
+<area shape="rect" id="node4" href="$labyrinth_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="659,31,715,57"/>
+<area shape="rect" id="node6" href="$router_8c.html#a30a3b3fa79c8edd2bc05533b7a3ef342" title="PdoExpansion" alt="" coords="363,56,469,83"/>
+<area shape="rect" id="node7" href="$router_8h.html#afc99f42b8c4c1bdfd53f6e15b75900b7" title="router_solve" alt="" coords="517,56,611,83"/>
+<area shape="rect" id="node9" href="$router_8c.html#ac5973d035daa93806bb4391426b310f4" title="PdoTraceback" alt="" coords="363,107,469,133"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="SetAdaptor&lt; BoostingList &gt;" name="SetAdaptor&lt; BoostingList &gt;">
+<area shape="rect" id="node2" href="$classBoostingList.html" title="{BoostingList\n||+ ~BoostingList()\l+ Init()\l+ Uninit()\l+ Insert()\l+ Delete()\l+ Find()\l+ OnAbort()\l+ OnCommit()\l+ Print()\l&#45; ASSERT_CODE()\l}" alt="" coords="282,579,420,789"/>
+<area shape="rect" id="node3" href="$classLockfreeList.html" title="{LockfreeList\n||+ LockfreeList()\l+ ~LockfreeList()\l+ Find()\l+ Insert()\l+ Delete()\l+ Size()\l+ Print()\l&#45; LocatePred()\l}" alt="" coords="198,334,319,514"/>
+<area shape="rect" id="node5" href="$structLockfreeList_1_1Node.html" title="{LockfreeList::Node\n||}" alt="" coords="193,155,324,232"/>
+<area shape="rect" id="node6" href="$classLockKey.html" title="{LockKey\n||+ LockKey()\l+ ~LockKey()\l+ Init()\l+ Uninit()\l+ Lock()\l+ Unlock()\l}" alt="" coords="394,349,495,499"/>
+</map>

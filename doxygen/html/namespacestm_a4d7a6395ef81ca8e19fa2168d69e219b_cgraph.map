@@ -1,0 +1,17 @@
+<map id="stm::pol_init" name="stm::pol_init">
+<area shape="rect" id="node2" href="$namespacestm.html#ab5a1851d6381fc50697f662635db22ea" title="stm::init_pol_static" alt="" coords="162,176,294,203"/>
+<area shape="rect" id="node8" href="$namespacestm.html#aa0b1d39423394b3e447d37ac36e9fde3" title="stm::init_pol_cbr" alt="" coords="169,325,287,352"/>
+<area shape="rect" id="node15" href="$namespaceanonymous__namespace_02policies_8cpp_03.html#ae90b562c1daa7c02318148678f1ebea4" title="anonymous_namespace\l\{policies::cpp\}::load\l_qtable" alt="" coords="147,412,309,468"/>
+<area shape="rect" id="node3" href="$namespacestm.html#a6aa5d9dc2e638d0df9771d39cd3b87ef" title="stm::init_adapt_pol" alt="" coords="374,267,506,293"/>
+<area shape="rect" id="node4" href="$namespaceanonymous__namespace_02static_8cpp_03.html#ae9990f5d808082c67e85dd51b5679732" title="anonymous_namespace\l\{static::cpp\}::pol_E" alt="" coords="359,5,521,46"/>
+<area shape="rect" id="node5" href="$namespaceanonymous__namespace_02static_8cpp_03.html#a356adb65bf55070273b42e289177d08a" title="anonymous_namespace\l\{static::cpp\}::pol_ER" alt="" coords="359,70,521,111"/>
+<area shape="rect" id="node6" href="$namespaceanonymous__namespace_02static_8cpp_03.html#ae7874d79d4bed12301c4b8cfa73510ab" title="anonymous_namespace\l\{static::cpp\}::pol_X" alt="" coords="359,135,521,177"/>
+<area shape="rect" id="node7" href="$namespaceanonymous__namespace_02static_8cpp_03.html#aa824c84a6c1fe13a580dace00ad444c8" title="anonymous_namespace\l\{static::cpp\}::pol_R" alt="" coords="359,201,521,242"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02cbr_8cpp_03.html#a0566a8b94db9550484ad458e48c3d7f9" title="anonymous_namespace\l\{cbr::cpp\}::pol_CBR_RO" alt="" coords="357,318,523,359"/>
+<area shape="rect" id="node10" href="$namespaceanonymous__namespace_02cbr_8cpp_03.html#a24ec6eb1e0eca0a6b9866180e5e3ecb0" title="anonymous_namespace\l\{cbr::cpp\}::profile\l_nochange" alt="" coords="359,383,521,439"/>
+<area shape="rect" id="node11" href="$structstm_1_1dynprof__t.html#a2b3bf61e8cd914963dc3ff653ec2f6bc" title="stm::dynprof_t::doavg" alt="" coords="571,347,720,373"/>
+<area shape="rect" id="node13" href="$structstm_1_1dynprof__t.html#a16cfdcbd81c4528cd778b587d46c94e5" title="stm::dynprof_t::dump" alt="" coords="572,397,719,424"/>
+<area shape="rect" id="node14" href="$namespacestm.html#a18a81b01de87995b54cd855bb6eeaae7" title="stm::get_nontxtime" alt="" coords="578,448,713,475"/>
+<area shape="rect" id="node12" href="$structstm_1_1dynprof__t.html#a3a563bc6d70ae8791d4d940bdeed38fd" title="stm::dynprof_t::clear" alt="" coords="769,347,911,373"/>
+<area shape="rect" id="node16" href="$namespacestm.html#ab7e623982dc0a84b9d3d4b53a4e7962e" title="stm::stm_name_map" alt="" coords="367,463,513,489"/>
+</map>

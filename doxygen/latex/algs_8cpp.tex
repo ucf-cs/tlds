@@ -1,0 +1,66 @@
+\hypertarget{algs_8cpp}{\section{rstm/rstm-\/dev/libstm/algs/algs.cpp File Reference}
+\label{algs_8cpp}\index{rstm/rstm-\/dev/libstm/algs/algs.\-cpp@{rstm/rstm-\/dev/libstm/algs/algs.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}algs.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../cm.\-hpp\char`\"{}}\\*
+Include dependency graph for algs.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{algs_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+filter\-\_\-t ring\-\_\-wf\mbox{[}R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S\mbox{]} \hyperlink{namespacestm_a637ea4515e2e4f7feb9e4ad31c3dea05}{stm\-::\-T\-M\-\_\-\-A\-L\-I\-G\-N} (16)
+\item 
+int \hyperlink{namespacestm_ab7e623982dc0a84b9d3d4b53a4e7962e}{stm\-::stm\-\_\-name\-\_\-map} (const char $\ast$phasename)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a8a8c42099bd04d1e89140ee02702f6e0}{stm\-::timestamp} = \{0\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a8d8dfb6b2b3438e3e104d5acbfbd7e71}{stm\-::timestamp\-\_\-max} = \{0\}
+\item 
+orec\-\_\-t \hyperlink{namespacestm_a59c4d1983c5d8a6640537726c4e8aed4}{stm\-::orecs} \mbox{[}N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S\mbox{]} = \{\{\{\{0\}\}\}\}
+\item 
+orec\-\_\-t \hyperlink{namespacestm_a677ac5f80d97329f2058a0aca0bfb295}{stm\-::nanorecs} \mbox{[}R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S\mbox{]} = \{\{\{\{0\}\}\}\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a17c110bd329d81ba81aef7210954a72d}{stm\-::last\-\_\-complete} = \{0\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_ab0d9633930ec8c8921b11c64bf9cb890}{stm\-::last\-\_\-init} = \{0\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a487249084a21cda5f208d7a25b3c385e}{stm\-::prio\-Tx\-Count} = \{0\}
+\item 
+rrec\-\_\-t \hyperlink{namespacestm_a025af84316e5fb6b9033dec86640f912}{stm\-::rrecs} \mbox{[}R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T\mbox{]} = \{\{\{0\}\}\}
+\item 
+bytelock\-\_\-t \hyperlink{namespacestm_abea1740c6c56b45f46aa26a594caadb6}{stm\-::bytelocks} \mbox{[}N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S\mbox{]} = \{\{0\}\}
+\item 
+bitlock\-\_\-t \hyperlink{namespacestm_a5984f2381f2e7e81b5e647d6e7f9ebe3}{stm\-::bitlocks} \mbox{[}N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S\mbox{]} = \{\{0\}\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a162bd0b45643942e59ea68af00fec992}{stm\-::epochs} \mbox{[}\hyperlink{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]} = \{\{0\}\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a82e6b09074d58a249ff29b161be62ab6}{stm\-::greedy\-\_\-ts} = \{0\}
+\item 
+\hyperlink{structmcs__qnode__t}{mcs\-\_\-qnode\-\_\-t} $\ast$ \hyperlink{namespacestm_a61e4fdd8145b69c03eab91bdeddb0293}{stm\-::mcslock} = N\-U\-L\-L
+\item 
+\hyperlink{structticket__lock__t}{ticket\-\_\-lock\-\_\-t} \hyperlink{namespacestm_af262f754120f34d53b7aff4f3ee4e447}{stm\-::ticketlock} = \{0\}
+\item 
+pad\-\_\-word\-\_\-t \hyperlink{namespacestm_a05cd8e71fbf5f13425c1c6db187bb583}{stm\-::fcm\-\_\-timestamp} = \{0\}
+\item 
+alg\-\_\-t \hyperlink{namespacestm_af0a1336341054a7273c3d732d248f7fc}{stm\-::stms} \mbox{[}A\-L\-G\-\_\-\-M\-A\-X\mbox{]}
+\item 
+dynprof\-\_\-t $\ast$ \hyperlink{namespacestm_a067ff48e3e80f9f2ee75df5b1156827b}{stm\-::app\-\_\-profiles} = N\-U\-L\-L
+\item 
+uint32\-\_\-t \hyperlink{namespacestm_a3b7951049cf91d2e3d63444f6aa31b31}{stm\-::profile\-\_\-txns} = 1
+\item 
+dynprof\-\_\-t $\ast$ \hyperlink{namespacestm_a0c5d34db2778717a0766a164ccf9b40f}{stm\-::profiles} = N\-U\-L\-L
+\end{DoxyCompactItemize}

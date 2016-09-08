@@ -1,0 +1,74 @@
+\hypertarget{structgc__st}{\section{gc\-\_\-st Struct Reference}
+\label{structgc__st}\index{gc\-\_\-st@{gc\-\_\-st}}
+}
+
+
+Collaboration diagram for gc\-\_\-st\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structgc__st__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{structgc__st_aa9ad4f123ba3c959123e85406bfe149b}{epoch}
+\item 
+unsigned int \hyperlink{structgc__st_abdb3ffc1ba4e5d4250ad4ec03d8eff50}{entries\-\_\-since\-\_\-reclaim}
+\item 
+void $\ast$ \hyperlink{structgc__st_af00135e23e51902c07df6f359491bc80}{async\-\_\-page}
+\item 
+int \hyperlink{structgc__st_a916bd3e0e79b8461de68a4ca9084af0e}{async\-\_\-page\-\_\-state}
+\item 
+\hyperlink{gc_8c_a86d0de2b8550a1f7156c949ace00bba1}{chunk\-\_\-t} $\ast$ \hyperlink{structgc__st_a9a4e8e2d1ad05d2683be3e43b01439e5}{garbage} \mbox{[}\hyperlink{gc_8c_ab6c2f14e285c375d1c06ea4ce7c52c22}{N\-R\-\_\-\-E\-P\-O\-C\-H\-S}\mbox{]}\mbox{[}\hyperlink{gc_8c_ab0e65719548729791281faee6068905b}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}
+\item 
+\hyperlink{gc_8c_a86d0de2b8550a1f7156c949ace00bba1}{chunk\-\_\-t} $\ast$ \hyperlink{structgc__st_ac442c1204915548c2f15be6de336a7f1}{garbage\-\_\-tail} \mbox{[}\hyperlink{gc_8c_ab6c2f14e285c375d1c06ea4ce7c52c22}{N\-R\-\_\-\-E\-P\-O\-C\-H\-S}\mbox{]}\mbox{[}\hyperlink{gc_8c_ab0e65719548729791281faee6068905b}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}
+\item 
+\hyperlink{gc_8c_a86d0de2b8550a1f7156c949ace00bba1}{chunk\-\_\-t} $\ast$ \hyperlink{structgc__st_a047ca4f5451bbc921224a07a9521a780}{chunk\-\_\-cache}
+\item 
+\hyperlink{gc_8c_a86d0de2b8550a1f7156c949ace00bba1}{chunk\-\_\-t} $\ast$ \hyperlink{structgc__st_ad2473d591b0ffda8ce54ca445f6f6662}{alloc} \mbox{[}\hyperlink{gc_8c_ab0e65719548729791281faee6068905b}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}
+\item 
+unsigned int \hyperlink{structgc__st_a1adda3a9c4a27de6dbc5245c62d083d1}{alloc\-\_\-chunks} \mbox{[}\hyperlink{gc_8c_ab0e65719548729791281faee6068905b}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}
+\item 
+\hyperlink{gc_8c_a86d0de2b8550a1f7156c949ace00bba1}{chunk\-\_\-t} $\ast$ \hyperlink{structgc__st_a7bbafe17b373d9a64f0cc1aaf4e2b9f2}{hook} \mbox{[}\hyperlink{gc_8c_ab6c2f14e285c375d1c06ea4ce7c52c22}{N\-R\-\_\-\-E\-P\-O\-C\-H\-S}\mbox{]}\mbox{[}\hyperlink{gc_8c_a95b6a1ec44c296be366d09c891676556}{M\-A\-X\-\_\-\-H\-O\-O\-K\-S}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structgc__st_ad2473d591b0ffda8ce54ca445f6f6662}{\index{gc\-\_\-st@{gc\-\_\-st}!alloc@{alloc}}
+\index{alloc@{alloc}!gc_st@{gc\-\_\-st}}
+\subsubsection[{alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chunk\-\_\-t}$\ast$ gc\-\_\-st\-::alloc\mbox{[}{\bf M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}}}\label{structgc__st_ad2473d591b0ffda8ce54ca445f6f6662}
+\hypertarget{structgc__st_a1adda3a9c4a27de6dbc5245c62d083d1}{\index{gc\-\_\-st@{gc\-\_\-st}!alloc\-\_\-chunks@{alloc\-\_\-chunks}}
+\index{alloc\-\_\-chunks@{alloc\-\_\-chunks}!gc_st@{gc\-\_\-st}}
+\subsubsection[{alloc\-\_\-chunks}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int gc\-\_\-st\-::alloc\-\_\-chunks\mbox{[}{\bf M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}}}\label{structgc__st_a1adda3a9c4a27de6dbc5245c62d083d1}
+\hypertarget{structgc__st_af00135e23e51902c07df6f359491bc80}{\index{gc\-\_\-st@{gc\-\_\-st}!async\-\_\-page@{async\-\_\-page}}
+\index{async\-\_\-page@{async\-\_\-page}!gc_st@{gc\-\_\-st}}
+\subsubsection[{async\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ gc\-\_\-st\-::async\-\_\-page}}\label{structgc__st_af00135e23e51902c07df6f359491bc80}
+\hypertarget{structgc__st_a916bd3e0e79b8461de68a4ca9084af0e}{\index{gc\-\_\-st@{gc\-\_\-st}!async\-\_\-page\-\_\-state@{async\-\_\-page\-\_\-state}}
+\index{async\-\_\-page\-\_\-state@{async\-\_\-page\-\_\-state}!gc_st@{gc\-\_\-st}}
+\subsubsection[{async\-\_\-page\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}int gc\-\_\-st\-::async\-\_\-page\-\_\-state}}\label{structgc__st_a916bd3e0e79b8461de68a4ca9084af0e}
+\hypertarget{structgc__st_a047ca4f5451bbc921224a07a9521a780}{\index{gc\-\_\-st@{gc\-\_\-st}!chunk\-\_\-cache@{chunk\-\_\-cache}}
+\index{chunk\-\_\-cache@{chunk\-\_\-cache}!gc_st@{gc\-\_\-st}}
+\subsubsection[{chunk\-\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chunk\-\_\-t}$\ast$ gc\-\_\-st\-::chunk\-\_\-cache}}\label{structgc__st_a047ca4f5451bbc921224a07a9521a780}
+\hypertarget{structgc__st_abdb3ffc1ba4e5d4250ad4ec03d8eff50}{\index{gc\-\_\-st@{gc\-\_\-st}!entries\-\_\-since\-\_\-reclaim@{entries\-\_\-since\-\_\-reclaim}}
+\index{entries\-\_\-since\-\_\-reclaim@{entries\-\_\-since\-\_\-reclaim}!gc_st@{gc\-\_\-st}}
+\subsubsection[{entries\-\_\-since\-\_\-reclaim}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int gc\-\_\-st\-::entries\-\_\-since\-\_\-reclaim}}\label{structgc__st_abdb3ffc1ba4e5d4250ad4ec03d8eff50}
+\hypertarget{structgc__st_aa9ad4f123ba3c959123e85406bfe149b}{\index{gc\-\_\-st@{gc\-\_\-st}!epoch@{epoch}}
+\index{epoch@{epoch}!gc_st@{gc\-\_\-st}}
+\subsubsection[{epoch}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int gc\-\_\-st\-::epoch}}\label{structgc__st_aa9ad4f123ba3c959123e85406bfe149b}
+\hypertarget{structgc__st_a9a4e8e2d1ad05d2683be3e43b01439e5}{\index{gc\-\_\-st@{gc\-\_\-st}!garbage@{garbage}}
+\index{garbage@{garbage}!gc_st@{gc\-\_\-st}}
+\subsubsection[{garbage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chunk\-\_\-t}$\ast$ gc\-\_\-st\-::garbage\mbox{[}{\bf N\-R\-\_\-\-E\-P\-O\-C\-H\-S}\mbox{]}\mbox{[}{\bf M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}}}\label{structgc__st_a9a4e8e2d1ad05d2683be3e43b01439e5}
+\hypertarget{structgc__st_ac442c1204915548c2f15be6de336a7f1}{\index{gc\-\_\-st@{gc\-\_\-st}!garbage\-\_\-tail@{garbage\-\_\-tail}}
+\index{garbage\-\_\-tail@{garbage\-\_\-tail}!gc_st@{gc\-\_\-st}}
+\subsubsection[{garbage\-\_\-tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chunk\-\_\-t}$\ast$ gc\-\_\-st\-::garbage\-\_\-tail\mbox{[}{\bf N\-R\-\_\-\-E\-P\-O\-C\-H\-S}\mbox{]}\mbox{[}{\bf M\-A\-X\-\_\-\-S\-I\-Z\-E\-S}\mbox{]}}}\label{structgc__st_ac442c1204915548c2f15be6de336a7f1}
+\hypertarget{structgc__st_a7bbafe17b373d9a64f0cc1aaf4e2b9f2}{\index{gc\-\_\-st@{gc\-\_\-st}!hook@{hook}}
+\index{hook@{hook}!gc_st@{gc\-\_\-st}}
+\subsubsection[{hook}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chunk\-\_\-t}$\ast$ gc\-\_\-st\-::hook\mbox{[}{\bf N\-R\-\_\-\-E\-P\-O\-C\-H\-S}\mbox{]}\mbox{[}{\bf M\-A\-X\-\_\-\-H\-O\-O\-K\-S}\mbox{]}}}\label{structgc__st_a7bbafe17b373d9a64f0cc1aaf4e2b9f2}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+common/fraser/\hyperlink{gc_8c}{gc.\-c}\end{DoxyCompactItemize}

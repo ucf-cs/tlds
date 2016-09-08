@@ -1,0 +1,5 @@
+<map id="stm::BitFilter::hash" name="stm::BitFilter::hash">
+<area shape="rect" id="node2" href="$classstm_1_1BitFilter.html#aedccb5a7fdc84cd6f71d15a5ba03875e" title="stm::BitFilter::add" alt="" coords="210,5,337,32"/>
+<area shape="rect" id="node3" href="$classstm_1_1BitFilter.html#a2b2df3ea67e7b1cbe0cedd4801c004b1" title="stm::BitFilter::atomic_add" alt="" coords="187,56,359,83"/>
+<area shape="rect" id="node4" href="$classstm_1_1BitFilter.html#a7f3aa56e438e3bec7542f5f4f0797074" title="stm::BitFilter::lookup" alt="" coords="202,107,345,133"/>
+</map>

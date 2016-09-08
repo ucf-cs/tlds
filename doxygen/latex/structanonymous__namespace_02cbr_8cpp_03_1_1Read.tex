@@ -1,0 +1,69 @@
+\hypertarget{structanonymous__namespace_02cbr_8cpp_03_1_1Read}{\section{anonymous\-\_\-namespace\{cbr.\-cpp\}\-:\-:Read Struct Reference}
+\label{structanonymous__namespace_02cbr_8cpp_03_1_1Read}\index{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}}
+}
+
+
+Collaboration diagram for anonymous\-\_\-namespace\{cbr.\-cpp\}\-:\-:Read\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{structanonymous__namespace_02cbr_8cpp_03_1_1Read__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a97b3e117807c25c9c20d17d055164c4a}{uses\-\_\-\-R\-O} ()
+\item 
+static bool \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Read_aec948f203834ab60f03301e7a6487cc0}{uses\-\_\-\-Txn\-Ratio} ()
+\item 
+static int32\-\_\-t \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a921c8c50042be8fbd3f4261b75dee5a1}{compare} (\hyperlink{structstm_1_1dynprof__t}{dynprof\-\_\-t} \&\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, \hyperlink{structstm_1_1qtable__t}{qtable\-\_\-t} $\ast$i, uint32\-\_\-t, int)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+To implement our C\-B\-R policies, we simply declare a struct that describes how comparisons are to be performed. Then, we can instantiate the above template using these different structs. Metric for comparing the average ro+rw read of a qtable entry with the profile's ro+rw read count 
+
+\subsection{Member Function Documentation}
+\hypertarget{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a921c8c50042be8fbd3f4261b75dee5a1}{\index{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}!compare@{compare}}
+\index{compare@{compare}!anonymous_namespace{cbr.cpp}::Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}static int32\-\_\-t anonymous\-\_\-namespace\{cbr.\-cpp\}\-::Read\-::compare (
+\begin{DoxyParamCaption}
+\item[{{\bf dynprof\-\_\-t} \&}]{p, }
+\item[{{\bf qtable\-\_\-t} $\ast$}]{i, }
+\item[{uint32\-\_\-t}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a921c8c50042be8fbd3f4261b75dee5a1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a921c8c50042be8fbd3f4261b75dee5a1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a97b3e117807c25c9c20d17d055164c4a}{\index{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}!uses\-\_\-\-R\-O@{uses\-\_\-\-R\-O}}
+\index{uses\-\_\-\-R\-O@{uses\-\_\-\-R\-O}!anonymous_namespace{cbr.cpp}::Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}}
+\subsubsection[{uses\-\_\-\-R\-O}]{\setlength{\rightskip}{0pt plus 5cm}static bool anonymous\-\_\-namespace\{cbr.\-cpp\}\-::Read\-::uses\-\_\-\-R\-O (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structanonymous__namespace_02cbr_8cpp_03_1_1Read_a97b3e117807c25c9c20d17d055164c4a}
+\hypertarget{structanonymous__namespace_02cbr_8cpp_03_1_1Read_aec948f203834ab60f03301e7a6487cc0}{\index{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}!uses\-\_\-\-Txn\-Ratio@{uses\-\_\-\-Txn\-Ratio}}
+\index{uses\-\_\-\-Txn\-Ratio@{uses\-\_\-\-Txn\-Ratio}!anonymous_namespace{cbr.cpp}::Read@{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}}
+\subsubsection[{uses\-\_\-\-Txn\-Ratio}]{\setlength{\rightskip}{0pt plus 5cm}static bool anonymous\-\_\-namespace\{cbr.\-cpp\}\-::Read\-::uses\-\_\-\-Txn\-Ratio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structanonymous__namespace_02cbr_8cpp_03_1_1Read_aec948f203834ab60f03301e7a6487cc0}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/policies/\hyperlink{cbr_8cpp}{cbr.\-cpp}\end{DoxyCompactItemize}

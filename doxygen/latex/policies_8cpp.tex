@@ -1,0 +1,43 @@
+\hypertarget{policies_8cpp}{\section{rstm/rstm-\/dev/libstm/policies/policies.cpp File Reference}
+\label{policies_8cpp}\index{rstm/rstm-\/dev/libstm/policies/policies.\-cpp@{rstm/rstm-\/dev/libstm/policies/policies.\-cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include \char`\"{}policies.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}initializers.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../algs/algs.\-hpp\char`\"{}}\\*
+Include dependency graph for policies.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{policies_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02policies_8cpp_03}{anonymous\-\_\-namespace\{policies.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceanonymous__namespace_02policies_8cpp_03_ae90b562c1daa7c02318148678f1ebea4}{anonymous\-\_\-namespace\{policies.\-cpp\}\-::load\-\_\-qtable} (char $\ast$\&qstr)
+\item 
+int \hyperlink{namespacestm_a67c0991ee0ce05d2dc2015dff47a584e}{stm\-::pol\-\_\-name\-\_\-map} (const char $\ast$phasename)
+\item 
+void \hyperlink{namespacestm_a6aa5d9dc2e638d0df9771d39cd3b87ef}{stm\-::init\-\_\-adapt\-\_\-pol} (uint32\-\_\-t Policy\-I\-D, int32\-\_\-t startmode, int32\-\_\-t abort\-Thresh, int32\-\_\-t wait\-Thresh, bool is\-Dynamic, bool is\-C\-B\-R, bool is\-Commit\-Profile, uint32\-\_\-t \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L}($\ast$decider)(), const char $\ast$name)
+\item 
+void \hyperlink{namespacestm_a4d7a6395ef81ca8e19fa2168d69e219b}{stm\-::pol\-\_\-init} (const char $\ast$mode)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstm_1_1pol__t}{pol\-\_\-t} \hyperlink{namespacestm_a533577214af07c44f099eb536d8dece7}{stm\-::pols} \mbox{[}P\-O\-L\-\_\-\-M\-A\-X\mbox{]}
+\item 
+\hyperlink{structstm_1_1behavior__t}{behavior\-\_\-t} \hyperlink{namespacestm_ab5f6db774c01e9a0e2aec0173d0481b1}{stm\-::curr\-\_\-policy}
+\item 
+\hyperlink{classstm_1_1MiniVector}{Mini\-Vector}$<$ \hyperlink{structstm_1_1qtable__t}{qtable\-\_\-t} $>$ $\ast$ \hyperlink{namespacestm_a93eff2ad5eaf4e9c0661b0214c35bd1b}{stm\-::qtbl} \mbox{[}\hyperlink{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}+1\mbox{]} = \{N\-U\-L\-L\}
+\end{DoxyCompactItemize}

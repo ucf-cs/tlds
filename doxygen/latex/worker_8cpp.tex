@@ -1,0 +1,186 @@
+\hypertarget{worker_8cpp}{\section{rstm/rstm-\/dev/mesh/worker.cpp File Reference}
+\label{worker_8cpp}\index{rstm/rstm-\/dev/mesh/worker.\-cpp@{rstm/rstm-\/dev/mesh/worker.\-cpp}}
+}
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}edge.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}side.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lock.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}barrier.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dwyer.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}edge\-\_\-set.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}my\-\_\-thread.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}worker.\-hpp\char`\"{}}\\*
+Include dependency graph for worker.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classedge}{edge} $\ast$ \hyperlink{worker_8cpp_a0ee361de59493315020dd5c9296667a0}{baste} (\hyperlink{structpv__side}{pv\-\_\-side} \&left, \hyperlink{structpv__side}{pv\-\_\-side} \&right, const int dir, const int col, \hyperlink{classedge}{edge} $\ast$starter, \hyperlink{classsimple__queue}{simple\-\_\-queue}$<$ \hyperlink{classedge}{edge} $\ast$ $>$ $\ast$tentative\-\_\-edges)
+\item 
+{\footnotesize template$<$typename T $>$ }\\static \hyperlink{common_8hpp_aad0b6a771c65df7f474192857172ee3e}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E} void \hyperlink{worker_8cpp_aa777f59f830dd68588ddb166bd7cecd5}{txasserteq} (T lhs, T rhs)
+\item 
+static void \hyperlink{worker_8cpp_a94abc2b5cb09b8d750cfebf482ba43e6}{synchronized\-\_\-baste} (\hyperlink{classpoint}{point} $\ast$lp, \hyperlink{classpoint}{point} $\ast$rp, int dir, const int col, \hyperlink{classedge}{edge} $\ast$cur\-\_\-edge, \hyperlink{structregion__info}{region\-\_\-info} $\ast$$\ast$regions)
+\item 
+static void \hyperlink{worker_8cpp_aaaf358d95d261241cf6073eaf7de2a94}{reconsider\-\_\-edge} (\hyperlink{classedge}{edge} $\ast$e, const int col, \hyperlink{structregion__info}{region\-\_\-info} $\ast$$\ast$regions)
+\item 
+static void \hyperlink{worker_8cpp_a4d3d5d6b1446463eca81bdd1106ef943}{do\-\_\-work} (const int col, \hyperlink{structregion__info}{region\-\_\-info} $\ast$$\ast$regions, \hyperlink{classbarrier}{barrier} $\ast$bar)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{worker_8cpp_a0ee361de59493315020dd5c9296667a0}{\index{worker.\-cpp@{worker.\-cpp}!baste@{baste}}
+\index{baste@{baste}!worker.cpp@{worker.\-cpp}}
+\subsubsection[{baste}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf edge}$\ast$ baste (
+\begin{DoxyParamCaption}
+\item[{{\bf pv\-\_\-side} \&}]{left, }
+\item[{{\bf pv\-\_\-side} \&}]{right, }
+\item[{const int}]{dir, }
+\item[{const int}]{col, }
+\item[{{\bf edge} $\ast$}]{starter, }
+\item[{{\bf simple\-\_\-queue}$<$ {\bf edge} $\ast$ $>$ $\ast$}]{tentative\-\_\-edges}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{worker_8cpp_a0ee361de59493315020dd5c9296667a0}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp_a0ee361de59493315020dd5c9296667a0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{worker_8cpp_a0ee361de59493315020dd5c9296667a0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{worker_8cpp_a4d3d5d6b1446463eca81bdd1106ef943}{\index{worker.\-cpp@{worker.\-cpp}!do\-\_\-work@{do\-\_\-work}}
+\index{do\-\_\-work@{do\-\_\-work}!worker.cpp@{worker.\-cpp}}
+\subsubsection[{do\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}static void do\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{const int}]{col, }
+\item[{{\bf region\-\_\-info} $\ast$$\ast$}]{regions, }
+\item[{{\bf barrier} $\ast$}]{bar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{worker_8cpp_a4d3d5d6b1446463eca81bdd1106ef943}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp_a4d3d5d6b1446463eca81bdd1106ef943_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{worker_8cpp_a4d3d5d6b1446463eca81bdd1106ef943_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{worker_8cpp_aaaf358d95d261241cf6073eaf7de2a94}{\index{worker.\-cpp@{worker.\-cpp}!reconsider\-\_\-edge@{reconsider\-\_\-edge}}
+\index{reconsider\-\_\-edge@{reconsider\-\_\-edge}!worker.cpp@{worker.\-cpp}}
+\subsubsection[{reconsider\-\_\-edge}]{\setlength{\rightskip}{0pt plus 5cm}static void reconsider\-\_\-edge (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{e, }
+\item[{const int}]{col, }
+\item[{{\bf region\-\_\-info} $\ast$$\ast$}]{regions}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{worker_8cpp_aaaf358d95d261241cf6073eaf7de2a94}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp_aaaf358d95d261241cf6073eaf7de2a94_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp_aaaf358d95d261241cf6073eaf7de2a94_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{worker_8cpp_a94abc2b5cb09b8d750cfebf482ba43e6}{\index{worker.\-cpp@{worker.\-cpp}!synchronized\-\_\-baste@{synchronized\-\_\-baste}}
+\index{synchronized\-\_\-baste@{synchronized\-\_\-baste}!worker.cpp@{worker.\-cpp}}
+\subsubsection[{synchronized\-\_\-baste}]{\setlength{\rightskip}{0pt plus 5cm}static void synchronized\-\_\-baste (
+\begin{DoxyParamCaption}
+\item[{{\bf point} $\ast$}]{lp, }
+\item[{{\bf point} $\ast$}]{rp, }
+\item[{int}]{dir, }
+\item[{const int}]{col, }
+\item[{{\bf edge} $\ast$}]{cur\-\_\-edge, }
+\item[{{\bf region\-\_\-info} $\ast$$\ast$}]{regions}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{worker_8cpp_a94abc2b5cb09b8d750cfebf482ba43e6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp_a94abc2b5cb09b8d750cfebf482ba43e6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8cpp_a94abc2b5cb09b8d750cfebf482ba43e6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{worker_8cpp_aa777f59f830dd68588ddb166bd7cecd5}{\index{worker.\-cpp@{worker.\-cpp}!txasserteq@{txasserteq}}
+\index{txasserteq@{txasserteq}!worker.cpp@{worker.\-cpp}}
+\subsubsection[{txasserteq}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ static {\bf T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E} void txasserteq (
+\begin{DoxyParamCaption}
+\item[{T}]{lhs, }
+\item[{T}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{worker_8cpp_aa777f59f830dd68588ddb166bd7cecd5}

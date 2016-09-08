@@ -1,0 +1,279 @@
+\hypertarget{structpv__side}{\section{pv\-\_\-side Struct Reference}
+\label{structpv__side}\index{pv\-\_\-side@{pv\-\_\-side}}
+}
+
+
+{\ttfamily \#include $<$side.\-hpp$>$}
+
+
+
+Collaboration diagram for pv\-\_\-side\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structpv__side__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structpv__side_a163c81bef5a8989bb0f307e7ce72f555}{initialize} (\hyperlink{classpoint}{point} $\ast$pt, int d)
+\item 
+void \hyperlink{structpv__side_a5db6958f81fc211625a2337acc8fb72e}{reinitialize} (\hyperlink{classedge}{edge} $\ast$e, \hyperlink{classpoint}{point} $\ast$pt, int d)
+\item 
+void \hyperlink{structpv__side_aeefb5cadc78fb95fa4e145a757a68b72}{update} (\hyperlink{classedge}{edge} $\ast$mid, int d)
+\item 
+\hyperlink{classedge}{edge} $\ast$ \hyperlink{structpv__side_a58d4b8e4888146331f3af5a3a6a0eaa6}{move} (\hyperlink{classpoint}{point} $\ast$o)
+\item 
+\hyperlink{classpoint}{point} $\ast$ \hyperlink{structpv__side_ab6c6440d122035bd15a096d96350ce77}{find\-\_\-candidate} (\hyperlink{classedge}{edge} $\ast$bottom, \hyperlink{classpoint}{point} $\ast$o)
+\item 
+\hyperlink{classedge}{edge} $\ast$ \hyperlink{structpv__side_ab982252ee33bd8b4d6609f35506fe898}{conditional\-\_\-move} (\hyperlink{classpoint}{point} $\ast$o, int seam)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpoint}{point} $\ast$ \hyperlink{structpv__side_a3928abff0a5599798efc9fe8c33e0cfb}{p}
+\item 
+\hyperlink{classedge}{edge} $\ast$ \hyperlink{structpv__side_ac696ba7ef00b7bd57fd286b002473805}{a}
+\item 
+\hyperlink{classedge}{edge} $\ast$ \hyperlink{structpv__side_a61ccae24216776d1395abb33999a921c}{b}
+\item 
+\hyperlink{classpoint}{point} $\ast$ \hyperlink{structpv__side_af15ca1b413508ff5bcdd7febe266cb00}{ap}
+\item 
+\hyperlink{classpoint}{point} $\ast$ \hyperlink{structpv__side_a5582f9b842acaa2aa4a54be2beff5af5}{bp}
+\item 
+int \hyperlink{structpv__side_ac5321a47babd8c9d8d15c486d0b94f3e}{ai}
+\item 
+int \hyperlink{structpv__side_ae76d8647bc2e09adea965cf804e48165}{bi}
+\item 
+int \hyperlink{structpv__side_ab521366c9cb3938efd02212c05bfbe76}{dir}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structpv__side_ab982252ee33bd8b4d6609f35506fe898}{\index{pv\-\_\-side@{pv\-\_\-side}!conditional\-\_\-move@{conditional\-\_\-move}}
+\index{conditional\-\_\-move@{conditional\-\_\-move}!pv_side@{pv\-\_\-side}}
+\subsubsection[{conditional\-\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}{\bf edge} $\ast$ pv\-\_\-side\-::conditional\-\_\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf point} $\ast$}]{o, }
+\item[{int}]{seam}
+\end{DoxyParamCaption}
+)}}\label{structpv__side_ab982252ee33bd8b4d6609f35506fe898}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_ab982252ee33bd8b4d6609f35506fe898_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_ab982252ee33bd8b4d6609f35506fe898_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structpv__side_ab6c6440d122035bd15a096d96350ce77}{\index{pv\-\_\-side@{pv\-\_\-side}!find\-\_\-candidate@{find\-\_\-candidate}}
+\index{find\-\_\-candidate@{find\-\_\-candidate}!pv_side@{pv\-\_\-side}}
+\subsubsection[{find\-\_\-candidate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} $\ast$ pv\-\_\-side\-::find\-\_\-candidate (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{bottom, }
+\item[{{\bf point} $\ast$}]{o}
+\end{DoxyParamCaption}
+)}}\label{structpv__side_ab6c6440d122035bd15a096d96350ce77}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_ab6c6440d122035bd15a096d96350ce77_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_ab6c6440d122035bd15a096d96350ce77_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structpv__side_a163c81bef5a8989bb0f307e7ce72f555}{\index{pv\-\_\-side@{pv\-\_\-side}!initialize@{initialize}}
+\index{initialize@{initialize}!pv_side@{pv\-\_\-side}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void pv\-\_\-side\-::initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf point} $\ast$}]{pt, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{structpv__side_a163c81bef5a8989bb0f307e7ce72f555}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_a163c81bef5a8989bb0f307e7ce72f555_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_a163c81bef5a8989bb0f307e7ce72f555_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structpv__side_a58d4b8e4888146331f3af5a3a6a0eaa6}{\index{pv\-\_\-side@{pv\-\_\-side}!move@{move}}
+\index{move@{move}!pv_side@{pv\-\_\-side}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}{\bf edge} $\ast$ pv\-\_\-side\-::move (
+\begin{DoxyParamCaption}
+\item[{{\bf point} $\ast$}]{o}
+\end{DoxyParamCaption}
+)}}\label{structpv__side_a58d4b8e4888146331f3af5a3a6a0eaa6}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{structpv__side_a58d4b8e4888146331f3af5a3a6a0eaa6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_a58d4b8e4888146331f3af5a3a6a0eaa6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structpv__side_a5db6958f81fc211625a2337acc8fb72e}{\index{pv\-\_\-side@{pv\-\_\-side}!reinitialize@{reinitialize}}
+\index{reinitialize@{reinitialize}!pv_side@{pv\-\_\-side}}
+\subsubsection[{reinitialize}]{\setlength{\rightskip}{0pt plus 5cm}void pv\-\_\-side\-::reinitialize (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{e, }
+\item[{{\bf point} $\ast$}]{pt, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{structpv__side_a5db6958f81fc211625a2337acc8fb72e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_a5db6958f81fc211625a2337acc8fb72e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_a5db6958f81fc211625a2337acc8fb72e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structpv__side_aeefb5cadc78fb95fa4e145a757a68b72}{\index{pv\-\_\-side@{pv\-\_\-side}!update@{update}}
+\index{update@{update}!pv_side@{pv\-\_\-side}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void pv\-\_\-side\-::update (
+\begin{DoxyParamCaption}
+\item[{{\bf edge} $\ast$}]{mid, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{structpv__side_aeefb5cadc78fb95fa4e145a757a68b72}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{structpv__side_aeefb5cadc78fb95fa4e145a757a68b72_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpv__side_aeefb5cadc78fb95fa4e145a757a68b72_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structpv__side_ac696ba7ef00b7bd57fd286b002473805}{\index{pv\-\_\-side@{pv\-\_\-side}!a@{a}}
+\index{a@{a}!pv_side@{pv\-\_\-side}}
+\subsubsection[{a}]{\setlength{\rightskip}{0pt plus 5cm}{\bf edge}$\ast$ pv\-\_\-side\-::a}}\label{structpv__side_ac696ba7ef00b7bd57fd286b002473805}
+\hypertarget{structpv__side_ac5321a47babd8c9d8d15c486d0b94f3e}{\index{pv\-\_\-side@{pv\-\_\-side}!ai@{ai}}
+\index{ai@{ai}!pv_side@{pv\-\_\-side}}
+\subsubsection[{ai}]{\setlength{\rightskip}{0pt plus 5cm}int pv\-\_\-side\-::ai}}\label{structpv__side_ac5321a47babd8c9d8d15c486d0b94f3e}
+\hypertarget{structpv__side_af15ca1b413508ff5bcdd7febe266cb00}{\index{pv\-\_\-side@{pv\-\_\-side}!ap@{ap}}
+\index{ap@{ap}!pv_side@{pv\-\_\-side}}
+\subsubsection[{ap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point}$\ast$ pv\-\_\-side\-::ap}}\label{structpv__side_af15ca1b413508ff5bcdd7febe266cb00}
+\hypertarget{structpv__side_a61ccae24216776d1395abb33999a921c}{\index{pv\-\_\-side@{pv\-\_\-side}!b@{b}}
+\index{b@{b}!pv_side@{pv\-\_\-side}}
+\subsubsection[{b}]{\setlength{\rightskip}{0pt plus 5cm}{\bf edge}$\ast$ pv\-\_\-side\-::b}}\label{structpv__side_a61ccae24216776d1395abb33999a921c}
+\hypertarget{structpv__side_ae76d8647bc2e09adea965cf804e48165}{\index{pv\-\_\-side@{pv\-\_\-side}!bi@{bi}}
+\index{bi@{bi}!pv_side@{pv\-\_\-side}}
+\subsubsection[{bi}]{\setlength{\rightskip}{0pt plus 5cm}int pv\-\_\-side\-::bi}}\label{structpv__side_ae76d8647bc2e09adea965cf804e48165}
+\hypertarget{structpv__side_a5582f9b842acaa2aa4a54be2beff5af5}{\index{pv\-\_\-side@{pv\-\_\-side}!bp@{bp}}
+\index{bp@{bp}!pv_side@{pv\-\_\-side}}
+\subsubsection[{bp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point}$\ast$ pv\-\_\-side\-::bp}}\label{structpv__side_a5582f9b842acaa2aa4a54be2beff5af5}
+\hypertarget{structpv__side_ab521366c9cb3938efd02212c05bfbe76}{\index{pv\-\_\-side@{pv\-\_\-side}!dir@{dir}}
+\index{dir@{dir}!pv_side@{pv\-\_\-side}}
+\subsubsection[{dir}]{\setlength{\rightskip}{0pt plus 5cm}int pv\-\_\-side\-::dir}}\label{structpv__side_ab521366c9cb3938efd02212c05bfbe76}
+\hypertarget{structpv__side_a3928abff0a5599798efc9fe8c33e0cfb}{\index{pv\-\_\-side@{pv\-\_\-side}!p@{p}}
+\index{p@{p}!pv_side@{pv\-\_\-side}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point}$\ast$ pv\-\_\-side\-::p}}\label{structpv__side_a3928abff0a5599798efc9fe8c33e0cfb}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/mesh/\hyperlink{side_8hpp}{side.\-hpp}\item 
+rstm/rstm-\/dev/mesh/\hyperlink{side_8cpp}{side.\-cpp}\end{DoxyCompactItemize}

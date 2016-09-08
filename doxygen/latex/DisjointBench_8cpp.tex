@@ -1,0 +1,98 @@
+\hypertarget{DisjointBench_8cpp}{\section{rstm/rstm-\/dev/bench/\-Disjoint\-Bench.cpp File Reference}
+\label{DisjointBench_8cpp}\index{rstm/rstm-\/dev/bench/\-Disjoint\-Bench.\-cpp@{rstm/rstm-\/dev/bench/\-Disjoint\-Bench.\-cpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$alt-\/license/rand\-\_\-r\-\_\-32.\-h$>$}\\*
+{\ttfamily \#include $<$api/api.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}bmconfig.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Disjoint.\-hpp\char`\"{}}\\*
+Include dependency graph for Disjoint\-Bench.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{DisjointBench_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{DisjointBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}{bench\-\_\-init} ()
+\item 
+void \hyperlink{DisjointBench_8cpp_addbfc382659190b658da6ea40bafc182}{bench\-\_\-test} (uintptr\-\_\-t id, uint32\-\_\-t $\ast$\hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed})
+\item 
+bool \hyperlink{DisjointBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{bench\-\_\-verify} ()
+\item 
+void \hyperlink{DisjointBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{bench\-\_\-reparse} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDisjoint}{Disjoint} $\ast$ \hyperlink{DisjointBench_8cpp_a6e0bede8eb05b83539b278fdfdd09caa}{S\-E\-T}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{DisjointBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}{\index{Disjoint\-Bench.\-cpp@{Disjoint\-Bench.\-cpp}!bench\-\_\-init@{bench\-\_\-init}}
+\index{bench\-\_\-init@{bench\-\_\-init}!DisjointBench.cpp@{Disjoint\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{DisjointBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}
+B\-E\-N\-C\-H\-M\-A\-R\-K\-S I\-M\-P\-L\-E\-M\-E\-N\-T T\-H\-E F\-O\-L\-L\-O\-W\-I\-N\-G F\-U\-N\-C\-T\-I\-O\-N\-S
+
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{DisjointBench_8cpp_a3adf213f254e3746cbce57cc95dfb687_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{DisjointBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{\index{Disjoint\-Bench.\-cpp@{Disjoint\-Bench.\-cpp}!bench\-\_\-reparse@{bench\-\_\-reparse}}
+\index{bench\-\_\-reparse@{bench\-\_\-reparse}!DisjointBench.cpp@{Disjoint\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-reparse}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-reparse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{DisjointBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}
+Step 4\-: Include the code that has the \hyperlink{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{main()} function, and the code for creating threads and calling the three above-\/named functions. Don't forget to provide an arg reparser. \hypertarget{DisjointBench_8cpp_addbfc382659190b658da6ea40bafc182}{\index{Disjoint\-Bench.\-cpp@{Disjoint\-Bench.\-cpp}!bench\-\_\-test@{bench\-\_\-test}}
+\index{bench\-\_\-test@{bench\-\_\-test}!DisjointBench.cpp@{Disjoint\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{id, }
+\item[{uint32\-\_\-t $\ast$}]{seed}
+\end{DoxyParamCaption}
+)}}\label{DisjointBench_8cpp_addbfc382659190b658da6ea40bafc182}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{DisjointBench_8cpp_addbfc382659190b658da6ea40bafc182_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{DisjointBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{\index{Disjoint\-Bench.\-cpp@{Disjoint\-Bench.\-cpp}!bench\-\_\-verify@{bench\-\_\-verify}}
+\index{bench\-\_\-verify@{bench\-\_\-verify}!DisjointBench.cpp@{Disjoint\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}bool bench\-\_\-verify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{DisjointBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}
+
+
+\subsection{Variable Documentation}
+\hypertarget{DisjointBench_8cpp_a6e0bede8eb05b83539b278fdfdd09caa}{\index{Disjoint\-Bench.\-cpp@{Disjoint\-Bench.\-cpp}!S\-E\-T@{S\-E\-T}}
+\index{S\-E\-T@{S\-E\-T}!DisjointBench.cpp@{Disjoint\-Bench.\-cpp}}
+\subsubsection[{S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Disjoint}$\ast$ S\-E\-T}}\label{DisjointBench_8cpp_a6e0bede8eb05b83539b278fdfdd09caa}
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions 

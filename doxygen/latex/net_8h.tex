@@ -1,0 +1,614 @@
+\hypertarget{net_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/bayes/net.h File Reference}
+\label{net_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/net.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/bayes/net.\-h}}
+}
+{\ttfamily \#include \char`\"{}bitmap.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}operation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for net.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{net_8h_ab5f3842bf2285c213f465ec7f5c1ae97}{T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N}(\hyperlink{structnet}{net}, op, from, to)
+\item 
+\#define \hyperlink{net_8h_a7699d6c08e1bd71c761f79291b0bcb56}{T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E}(\hyperlink{structnet}{net}, from, to)
+\item 
+\#define \hyperlink{net_8h_a3a7c34ecd1541b51b282be6dfa7dae5f}{T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H}(\hyperlink{structnet}{net}, from, to, bmp, wq)
+\item 
+\#define \hyperlink{net_8h_a7d9efd384a78dddc9c60594dfbec14e9}{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S}(\hyperlink{structnet}{net}, id, bmp, wq)
+\item 
+\#define \hyperlink{net_8h_abb0ac25ed0f9e4fa3161f3cfa6c052f3}{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S}(\hyperlink{structnet}{net}, id, bmp, wq)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structnet}{net} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$ \hyperlink{net_8h_a0e1584818d0f7bb3619e74222bc3f918}{net\-\_\-alloc} (long num\-Node)
+\item 
+void \hyperlink{net_8h_abdc957330d97273b46714332ba2619b0}{net\-\_\-free} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr)
+\item 
+void \hyperlink{net_8h_a7a2e0647373945c39b0efcdf78618993}{net\-\_\-apply\-Operation} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, \hyperlink{bayes_2operation_8h_aa0a2186e2195264ce2bc21107ca829da}{operation\-\_\-t} op, long from\-Id, long to\-Id)
+\item 
+void \hyperlink{net_8h_aa366d4cea93ac2a273851d0bcfdd0aef}{T\-Mnet\-\_\-apply\-Operation} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, \hyperlink{bayes_2operation_8h_aa0a2186e2195264ce2bc21107ca829da}{operation\-\_\-t} op, long from\-Id, long to\-Id)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_aee6a55f40ac6d1aa179e0cd25a2d1d06}{net\-\_\-has\-Edge} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long from\-Id, long to\-Id)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_a03bc7cca09765f5157801629a124241d}{T\-Mnet\-\_\-has\-Edge} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long from\-Id, long to\-Id)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_a1963a15a906fd5f2bd659d0e5b2ec5be}{net\-\_\-is\-Path} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long from\-Id, long to\-Id, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$visited\-Bitmap\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$work\-Queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_a1ccce276f089c3cc3b0ddac3416b6746}{T\-Mnet\-\_\-is\-Path} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long from\-Id, long to\-Id, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$visited\-Bitmap\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$work\-Queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_ab6b1f4635a8a5122850cb17f144ea933}{net\-\_\-is\-Cycle} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr)
+\item 
+\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$ \hyperlink{net_8h_ad32183bff5aacc2cb805dbf1fc492024}{net\-\_\-get\-Parent\-Id\-List\-Ptr} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id)
+\item 
+\hyperlink{list_8h_af629e6a6713d7de11eab50cbe6449b06}{list\-\_\-t} $\ast$ \hyperlink{net_8h_a65dc3e97cdd1d6a03a832e241268f32e}{net\-\_\-get\-Child\-Id\-List\-Ptr} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_ab62419fc63326df24804b7b7982ce437}{net\-\_\-find\-Ancestors} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$ancestor\-Bitmap\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$work\-Queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_abc8cd767f24c35ab0e76dd78151ae15a}{T\-Mnet\-\_\-find\-Ancestors} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$ancestor\-Bitmap\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$work\-Queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_ab4dc77862d16111a3153033534128bd9}{net\-\_\-find\-Descendants} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$descendant\-Bitmap\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$work\-Queue\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{net_8h_af96325729dbcfd6f52b6f893a28b7347}{T\-Mnet\-\_\-find\-Descendants} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long id, \hyperlink{bitmap_8h_ab8cbe0b7e8894a92ab1c7b17acebcc83}{bitmap\-\_\-t} $\ast$descendant\-Bitmap\-Ptr, \hyperlink{queue_8h_aa8acf648f3b0c69d7e132fcc61dc58c7}{queue\-\_\-t} $\ast$work\-Queue\-Ptr)
+\item 
+void \hyperlink{net_8h_a7ac0b179e1d386a853aba9b4fffa369a}{net\-\_\-generate\-Random\-Edges} (\hyperlink{net_8h_a418dbad92573b09dbdf0db1582d7148e}{net\-\_\-t} $\ast$net\-Ptr, long max\-Num\-Parent, long percent\-Parent, \hyperlink{rstm_2rstm-dev_2stamp-0_89_810_2lib_2random_8h_af410e652a1bc8f802b0da971e8b87fad}{random\-\_\-t} $\ast$random\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{net_8h_ab5f3842bf2285c213f465ec7f5c1ae97}{\index{net.\-h@{net.\-h}!T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N@{T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N}}
+\index{T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N@{T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N}!net.h@{net.\-h}}
+\subsubsection[{T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-N\-E\-T\-\_\-\-A\-P\-P\-L\-Y\-O\-P\-E\-R\-A\-T\-I\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf net}, }
+\item[{}]{op, }
+\item[{}]{from, }
+\item[{}]{to}
+\end{DoxyParamCaption}
+)}}\label{net_8h_ab5f3842bf2285c213f465ec7f5c1ae97}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{net_8h_aa366d4cea93ac2a273851d0bcfdd0aef}{TMnet\_applyOperation}(\hyperlink{cxxtm_8hpp_a030f4350a175fed7a99c242cbaa53258}{TM\_ARG} \(\backslash\)
+                                                                         \hyperlink{structnet}{net}, \(\backslash\)
+                                                                         op, \(\backslash\)
+                                                                         from, \(\backslash\)
+                                                                         to)
+\end{DoxyCode}
+\hypertarget{net_8h_a7d9efd384a78dddc9c60594dfbec14e9}{\index{net.\-h@{net.\-h}!T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S@{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S}}
+\index{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S@{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S}!net.h@{net.\-h}}
+\subsubsection[{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-A\-N\-C\-E\-S\-T\-O\-R\-S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf net}, }
+\item[{}]{id, }
+\item[{}]{bmp, }
+\item[{}]{wq}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a7d9efd384a78dddc9c60594dfbec14e9}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{net_8h_abc8cd767f24c35ab0e76dd78151ae15a}{TMnet\_findAncestors}(\hyperlink{cxxtm_8hpp_a030f4350a175fed7a99c242cbaa53258}{TM\_ARG} \(\backslash\)
+                                                                        \hyperlink{structnet}{net}, \(\backslash\)
+                                                                        \textcolor{keywordtype}{id}, \(\backslash\)
+                                                                        bmp, \(\backslash\)
+                                                                        wq)
+\end{DoxyCode}
+\hypertarget{net_8h_abb0ac25ed0f9e4fa3161f3cfa6c052f3}{\index{net.\-h@{net.\-h}!T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S@{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S}}
+\index{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S@{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S}!net.h@{net.\-h}}
+\subsubsection[{T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-N\-E\-T\-\_\-\-F\-I\-N\-D\-D\-E\-S\-C\-E\-N\-D\-A\-N\-T\-S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf net}, }
+\item[{}]{id, }
+\item[{}]{bmp, }
+\item[{}]{wq}
+\end{DoxyParamCaption}
+)}}\label{net_8h_abb0ac25ed0f9e4fa3161f3cfa6c052f3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{net_8h_af96325729dbcfd6f52b6f893a28b7347}{TMnet\_findDescendants}(\hyperlink{cxxtm_8hpp_a030f4350a175fed7a99c242cbaa53258}{TM\_ARG} \(\backslash\)
+                                                                          \hyperlink{structnet}{net}, \(\backslash\)
+                                                                          \textcolor{keywordtype}{id}, \(\backslash\)
+                                                                          bmp, \(\backslash\)
+                                                                          wq)
+\end{DoxyCode}
+\hypertarget{net_8h_a7699d6c08e1bd71c761f79291b0bcb56}{\index{net.\-h@{net.\-h}!T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E@{T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E}}
+\index{T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E@{T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E}!net.h@{net.\-h}}
+\subsubsection[{T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-N\-E\-T\-\_\-\-H\-A\-S\-E\-D\-G\-E(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf net}, }
+\item[{}]{from, }
+\item[{}]{to}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a7699d6c08e1bd71c761f79291b0bcb56}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{net_8h_a03bc7cca09765f5157801629a124241d}{TMnet\_hasEdge}(\hyperlink{cxxtm_8hpp_a030f4350a175fed7a99c242cbaa53258}{TM\_ARG} \(\backslash\)
+                                                                  \hyperlink{structnet}{net}, \(\backslash\)
+                                                                  from, \(\backslash\)
+                                                                  to)
+\end{DoxyCode}
+\hypertarget{net_8h_a3a7c34ecd1541b51b282be6dfa7dae5f}{\index{net.\-h@{net.\-h}!T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H@{T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H}}
+\index{T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H@{T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H}!net.h@{net.\-h}}
+\subsubsection[{T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-N\-E\-T\-\_\-\-I\-S\-P\-A\-T\-H(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf net}, }
+\item[{}]{from, }
+\item[{}]{to, }
+\item[{}]{bmp, }
+\item[{}]{wq}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a3a7c34ecd1541b51b282be6dfa7dae5f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{net_8h_a1ccce276f089c3cc3b0ddac3416b6746}{TMnet\_isPath}(\hyperlink{cxxtm_8hpp_a030f4350a175fed7a99c242cbaa53258}{TM\_ARG} \(\backslash\)
+                                                                 \hyperlink{structnet}{net}, \(\backslash\)
+                                                                 from, \(\backslash\)
+                                                                 to, \(\backslash\)
+                                                                 bmp, \(\backslash\)
+                                                                 wq)
+\end{DoxyCode}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{net_8h_a418dbad92573b09dbdf0db1582d7148e}{\index{net.\-h@{net.\-h}!net\-\_\-t@{net\-\_\-t}}
+\index{net\-\_\-t@{net\-\_\-t}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf net} {\bf net\-\_\-t}}}\label{net_8h_a418dbad92573b09dbdf0db1582d7148e}
+
+
+\subsection{Function Documentation}
+\hypertarget{net_8h_a0e1584818d0f7bb3619e74222bc3f918}{\index{net.\-h@{net.\-h}!net\-\_\-alloc@{net\-\_\-alloc}}
+\index{net\-\_\-alloc@{net\-\_\-alloc}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf net\-\_\-t}$\ast$ net\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Node}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a0e1584818d0f7bb3619e74222bc3f918}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a0e1584818d0f7bb3619e74222bc3f918_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a0e1584818d0f7bb3619e74222bc3f918_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_a7a2e0647373945c39b0efcdf78618993}{\index{net.\-h@{net.\-h}!net\-\_\-apply\-Operation@{net\-\_\-apply\-Operation}}
+\index{net\-\_\-apply\-Operation@{net\-\_\-apply\-Operation}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-apply\-Operation}]{\setlength{\rightskip}{0pt plus 5cm}void net\-\_\-apply\-Operation (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{{\bf operation\-\_\-t}}]{op, }
+\item[{long}]{from\-Id, }
+\item[{long}]{to\-Id}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a7a2e0647373945c39b0efcdf78618993}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a7a2e0647373945c39b0efcdf78618993_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_ab62419fc63326df24804b7b7982ce437}{\index{net.\-h@{net.\-h}!net\-\_\-find\-Ancestors@{net\-\_\-find\-Ancestors}}
+\index{net\-\_\-find\-Ancestors@{net\-\_\-find\-Ancestors}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-find\-Ancestors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} net\-\_\-find\-Ancestors (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{ancestor\-Bitmap\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{work\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_ab62419fc63326df24804b7b7982ce437}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{net_8h_ab62419fc63326df24804b7b7982ce437_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_ab4dc77862d16111a3153033534128bd9}{\index{net.\-h@{net.\-h}!net\-\_\-find\-Descendants@{net\-\_\-find\-Descendants}}
+\index{net\-\_\-find\-Descendants@{net\-\_\-find\-Descendants}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-find\-Descendants}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} net\-\_\-find\-Descendants (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{descendant\-Bitmap\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{work\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_ab4dc77862d16111a3153033534128bd9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{net_8h_ab4dc77862d16111a3153033534128bd9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_abdc957330d97273b46714332ba2619b0}{\index{net.\-h@{net.\-h}!net\-\_\-free@{net\-\_\-free}}
+\index{net\-\_\-free@{net\-\_\-free}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void net\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_abdc957330d97273b46714332ba2619b0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_abdc957330d97273b46714332ba2619b0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_abdc957330d97273b46714332ba2619b0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_a7ac0b179e1d386a853aba9b4fffa369a}{\index{net.\-h@{net.\-h}!net\-\_\-generate\-Random\-Edges@{net\-\_\-generate\-Random\-Edges}}
+\index{net\-\_\-generate\-Random\-Edges@{net\-\_\-generate\-Random\-Edges}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-generate\-Random\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}void net\-\_\-generate\-Random\-Edges (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{max\-Num\-Parent, }
+\item[{long}]{percent\-Parent, }
+\item[{{\bf random\-\_\-t} $\ast$}]{random\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a7ac0b179e1d386a853aba9b4fffa369a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a7ac0b179e1d386a853aba9b4fffa369a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a7ac0b179e1d386a853aba9b4fffa369a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_a65dc3e97cdd1d6a03a832e241268f32e}{\index{net.\-h@{net.\-h}!net\-\_\-get\-Child\-Id\-List\-Ptr@{net\-\_\-get\-Child\-Id\-List\-Ptr}}
+\index{net\-\_\-get\-Child\-Id\-List\-Ptr@{net\-\_\-get\-Child\-Id\-List\-Ptr}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-get\-Child\-Id\-List\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\-\_\-t}$\ast$ net\-\_\-get\-Child\-Id\-List\-Ptr (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a65dc3e97cdd1d6a03a832e241268f32e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{net_8h_a65dc3e97cdd1d6a03a832e241268f32e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a65dc3e97cdd1d6a03a832e241268f32e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_ad32183bff5aacc2cb805dbf1fc492024}{\index{net.\-h@{net.\-h}!net\-\_\-get\-Parent\-Id\-List\-Ptr@{net\-\_\-get\-Parent\-Id\-List\-Ptr}}
+\index{net\-\_\-get\-Parent\-Id\-List\-Ptr@{net\-\_\-get\-Parent\-Id\-List\-Ptr}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-get\-Parent\-Id\-List\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\-\_\-t}$\ast$ net\-\_\-get\-Parent\-Id\-List\-Ptr (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}\label{net_8h_ad32183bff5aacc2cb805dbf1fc492024}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{net_8h_ad32183bff5aacc2cb805dbf1fc492024_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_ad32183bff5aacc2cb805dbf1fc492024_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_aee6a55f40ac6d1aa179e0cd25a2d1d06}{\index{net.\-h@{net.\-h}!net\-\_\-has\-Edge@{net\-\_\-has\-Edge}}
+\index{net\-\_\-has\-Edge@{net\-\_\-has\-Edge}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-has\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} net\-\_\-has\-Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{from\-Id, }
+\item[{long}]{to\-Id}
+\end{DoxyParamCaption}
+)}}\label{net_8h_aee6a55f40ac6d1aa179e0cd25a2d1d06}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{net_8h_aee6a55f40ac6d1aa179e0cd25a2d1d06_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_aee6a55f40ac6d1aa179e0cd25a2d1d06_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_ab6b1f4635a8a5122850cb17f144ea933}{\index{net.\-h@{net.\-h}!net\-\_\-is\-Cycle@{net\-\_\-is\-Cycle}}
+\index{net\-\_\-is\-Cycle@{net\-\_\-is\-Cycle}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-is\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} net\-\_\-is\-Cycle (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_ab6b1f4635a8a5122850cb17f144ea933}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_ab6b1f4635a8a5122850cb17f144ea933_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_ab6b1f4635a8a5122850cb17f144ea933_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_a1963a15a906fd5f2bd659d0e5b2ec5be}{\index{net.\-h@{net.\-h}!net\-\_\-is\-Path@{net\-\_\-is\-Path}}
+\index{net\-\_\-is\-Path@{net\-\_\-is\-Path}!net.h@{net.\-h}}
+\subsubsection[{net\-\_\-is\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} net\-\_\-is\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{from\-Id, }
+\item[{long}]{to\-Id, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{visited\-Bitmap\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{work\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a1963a15a906fd5f2bd659d0e5b2ec5be}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{net_8h_a1963a15a906fd5f2bd659d0e5b2ec5be_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_a1963a15a906fd5f2bd659d0e5b2ec5be_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_aa366d4cea93ac2a273851d0bcfdd0aef}{\index{net.\-h@{net.\-h}!T\-Mnet\-\_\-apply\-Operation@{T\-Mnet\-\_\-apply\-Operation}}
+\index{T\-Mnet\-\_\-apply\-Operation@{T\-Mnet\-\_\-apply\-Operation}!net.h@{net.\-h}}
+\subsubsection[{T\-Mnet\-\_\-apply\-Operation}]{\setlength{\rightskip}{0pt plus 5cm}void T\-Mnet\-\_\-apply\-Operation (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{{\bf operation\-\_\-t}}]{op, }
+\item[{long}]{from\-Id, }
+\item[{long}]{to\-Id}
+\end{DoxyParamCaption}
+)}}\label{net_8h_aa366d4cea93ac2a273851d0bcfdd0aef}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{net_8h_aa366d4cea93ac2a273851d0bcfdd0aef_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_abc8cd767f24c35ab0e76dd78151ae15a}{\index{net.\-h@{net.\-h}!T\-Mnet\-\_\-find\-Ancestors@{T\-Mnet\-\_\-find\-Ancestors}}
+\index{T\-Mnet\-\_\-find\-Ancestors@{T\-Mnet\-\_\-find\-Ancestors}!net.h@{net.\-h}}
+\subsubsection[{T\-Mnet\-\_\-find\-Ancestors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mnet\-\_\-find\-Ancestors (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{ancestor\-Bitmap\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{work\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_abc8cd767f24c35ab0e76dd78151ae15a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{net_8h_abc8cd767f24c35ab0e76dd78151ae15a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_af96325729dbcfd6f52b6f893a28b7347}{\index{net.\-h@{net.\-h}!T\-Mnet\-\_\-find\-Descendants@{T\-Mnet\-\_\-find\-Descendants}}
+\index{T\-Mnet\-\_\-find\-Descendants@{T\-Mnet\-\_\-find\-Descendants}!net.h@{net.\-h}}
+\subsubsection[{T\-Mnet\-\_\-find\-Descendants}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mnet\-\_\-find\-Descendants (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{id, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{descendant\-Bitmap\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{work\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_af96325729dbcfd6f52b6f893a28b7347}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{net_8h_af96325729dbcfd6f52b6f893a28b7347_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_a03bc7cca09765f5157801629a124241d}{\index{net.\-h@{net.\-h}!T\-Mnet\-\_\-has\-Edge@{T\-Mnet\-\_\-has\-Edge}}
+\index{T\-Mnet\-\_\-has\-Edge@{T\-Mnet\-\_\-has\-Edge}!net.h@{net.\-h}}
+\subsubsection[{T\-Mnet\-\_\-has\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mnet\-\_\-has\-Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{from\-Id, }
+\item[{long}]{to\-Id}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a03bc7cca09765f5157801629a124241d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{net_8h_a03bc7cca09765f5157801629a124241d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{net_8h_a1ccce276f089c3cc3b0ddac3416b6746}{\index{net.\-h@{net.\-h}!T\-Mnet\-\_\-is\-Path@{T\-Mnet\-\_\-is\-Path}}
+\index{T\-Mnet\-\_\-is\-Path@{T\-Mnet\-\_\-is\-Path}!net.h@{net.\-h}}
+\subsubsection[{T\-Mnet\-\_\-is\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} T\-Mnet\-\_\-is\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf net\-\_\-t} $\ast$}]{net\-Ptr, }
+\item[{long}]{from\-Id, }
+\item[{long}]{to\-Id, }
+\item[{{\bf bitmap\-\_\-t} $\ast$}]{visited\-Bitmap\-Ptr, }
+\item[{{\bf queue\-\_\-t} $\ast$}]{work\-Queue\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{net_8h_a1ccce276f089c3cc3b0ddac3416b6746}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{net_8h_a1ccce276f089c3cc3b0ddac3416b6746_cgraph}
+\end{center}
+\end{figure}
+
+

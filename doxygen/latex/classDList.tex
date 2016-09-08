@@ -1,0 +1,246 @@
+\hypertarget{classDList}{\section{D\-List Class Reference}
+\label{classDList}\index{D\-List@{D\-List}}
+}
+
+
+{\ttfamily \#include $<$D\-List.\-hpp$>$}
+
+
+
+Collaboration diagram for D\-List\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classDList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDList_1_1Node}{Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDList_a0f2860f210505acb032ddc2a779f85a3}{D\-List} ()
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_aee38e39d36c976cbde2c74a2a845f1dd}{insert} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool \hyperlink{classDList_a1bbdbfa44979c867da332f3a97c9942d}{lookup} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}) const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_ac998269d8b5bd4ac9ee393e3a3f20ec3}{remove} (int val \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+bool \hyperlink{classDList_a3d026313a47711da4d6cf3d637747457}{is\-Sane} () const 
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_a4f2f83d67c2fab2f23ecf5e31f376494}{increment\-\_\-forward} (\hyperlink{tm_8h_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_a7268e5953aacd61a7ac839f7886cb1a5}{increment\-\_\-backward} (\hyperlink{tm_8h_a5f5ab8a008b9734c5378be81bcb3639e}{T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_ae60ec7241aa350516088c1680561e00d}{increment\-\_\-forward\-\_\-pattern} (int \hyperlink{avltree_8c_aef0786e63ba14dfdb6d8632333208422}{start}, int seq \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_a43a32781dca806a63eceb4093373c90f}{increment\-\_\-backward\-\_\-pattern} (int \hyperlink{avltree_8c_aef0786e63ba14dfdb6d8632333208422}{start}, int seq \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\item 
+\hyperlink{tm_8h_adf0341d9b0d169f1aba20257caed702e}{T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void \hyperlink{classDList_a1f7895399b0057c9038f343d63117637}{increment\-\_\-chunk} (int chunk\-\_\-num, int chunk\-\_\-size \hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDList_1_1Node}{Node} $\ast$ \hyperlink{classDList_a1eba8e33defbea1bb370d26b6ec26ffa}{head}
+\item 
+\hyperlink{structDList_1_1Node}{Node} $\ast$ \hyperlink{classDList_a49eb783a98d63873114836968b18a94c}{tail}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDList_a0f2860f210505acb032ddc2a779f85a3}{\index{D\-List@{D\-List}!D\-List@{D\-List}}
+\index{D\-List@{D\-List}!DList@{D\-List}}
+\subsubsection[{D\-List}]{\setlength{\rightskip}{0pt plus 5cm}D\-List\-::\-D\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDList_a0f2860f210505acb032ddc2a779f85a3}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDList_a7268e5953aacd61a7ac839f7886cb1a5}{\index{D\-List@{D\-List}!increment\-\_\-backward@{increment\-\_\-backward}}
+\index{increment\-\_\-backward@{increment\-\_\-backward}!DList@{D\-List}}
+\subsubsection[{increment\-\_\-backward}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::increment\-\_\-backward (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+)}}\label{classDList_a7268e5953aacd61a7ac839f7886cb1a5}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDList_a7268e5953aacd61a7ac839f7886cb1a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_a43a32781dca806a63eceb4093373c90f}{\index{D\-List@{D\-List}!increment\-\_\-backward\-\_\-pattern@{increment\-\_\-backward\-\_\-pattern}}
+\index{increment\-\_\-backward\-\_\-pattern@{increment\-\_\-backward\-\_\-pattern}!DList@{D\-List}}
+\subsubsection[{increment\-\_\-backward\-\_\-pattern}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::increment\-\_\-backward\-\_\-pattern (
+\begin{DoxyParamCaption}
+\item[{int}]{start, }
+\item[{int seq}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classDList_a43a32781dca806a63eceb4093373c90f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classDList_a43a32781dca806a63eceb4093373c90f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_a1f7895399b0057c9038f343d63117637}{\index{D\-List@{D\-List}!increment\-\_\-chunk@{increment\-\_\-chunk}}
+\index{increment\-\_\-chunk@{increment\-\_\-chunk}!DList@{D\-List}}
+\subsubsection[{increment\-\_\-chunk}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::increment\-\_\-chunk (
+\begin{DoxyParamCaption}
+\item[{int}]{chunk\-\_\-num, }
+\item[{int chunk\-\_\-size}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classDList_a1f7895399b0057c9038f343d63117637}
+\hypertarget{classDList_a4f2f83d67c2fab2f23ecf5e31f376494}{\index{D\-List@{D\-List}!increment\-\_\-forward@{increment\-\_\-forward}}
+\index{increment\-\_\-forward@{increment\-\_\-forward}!DList@{D\-List}}
+\subsubsection[{increment\-\_\-forward}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::increment\-\_\-forward (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-\_\-\-A\-L\-O\-N\-E}}]{}
+\end{DoxyParamCaption}
+)}}\label{classDList_a4f2f83d67c2fab2f23ecf5e31f376494}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDList_a4f2f83d67c2fab2f23ecf5e31f376494_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_ae60ec7241aa350516088c1680561e00d}{\index{D\-List@{D\-List}!increment\-\_\-forward\-\_\-pattern@{increment\-\_\-forward\-\_\-pattern}}
+\index{increment\-\_\-forward\-\_\-pattern@{increment\-\_\-forward\-\_\-pattern}!DList@{D\-List}}
+\subsubsection[{increment\-\_\-forward\-\_\-pattern}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::increment\-\_\-forward\-\_\-pattern (
+\begin{DoxyParamCaption}
+\item[{int}]{start, }
+\item[{int seq}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classDList_ae60ec7241aa350516088c1680561e00d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{classDList_ae60ec7241aa350516088c1680561e00d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_aee38e39d36c976cbde2c74a2a845f1dd}{\index{D\-List@{D\-List}!insert@{insert}}
+\index{insert@{insert}!DList@{D\-List}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::insert (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classDList_aee38e39d36c976cbde2c74a2a845f1dd}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classDList_aee38e39d36c976cbde2c74a2a845f1dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_a3d026313a47711da4d6cf3d637747457}{\index{D\-List@{D\-List}!is\-Sane@{is\-Sane}}
+\index{is\-Sane@{is\-Sane}!DList@{D\-List}}
+\subsubsection[{is\-Sane}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-List\-::is\-Sane (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classDList_a3d026313a47711da4d6cf3d637747457}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classDList_a3d026313a47711da4d6cf3d637747457_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_a1bbdbfa44979c867da332f3a97c9942d}{\index{D\-List@{D\-List}!lookup@{lookup}}
+\index{lookup@{lookup}!DList@{D\-List}}
+\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} bool D\-List\-::lookup (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+) const}}\label{classDList_a1bbdbfa44979c867da332f3a97c9942d}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classDList_a1bbdbfa44979c867da332f3a97c9942d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classDList_ac998269d8b5bd4ac9ee393e3a3f20ec3}{\index{D\-List@{D\-List}!remove@{remove}}
+\index{remove@{remove}!DList@{D\-List}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-C\-A\-L\-L\-A\-B\-L\-E} void D\-List\-::remove (
+\begin{DoxyParamCaption}
+\item[{int val}]{T\-M\-\_\-\-A\-R\-G}
+\end{DoxyParamCaption}
+)}}\label{classDList_ac998269d8b5bd4ac9ee393e3a3f20ec3}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{classDList_ac998269d8b5bd4ac9ee393e3a3f20ec3_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDList_a1eba8e33defbea1bb370d26b6ec26ffa}{\index{D\-List@{D\-List}!head@{head}}
+\index{head@{head}!DList@{D\-List}}
+\subsubsection[{head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ D\-List\-::head}}\label{classDList_a1eba8e33defbea1bb370d26b6ec26ffa}
+\hypertarget{classDList_a49eb783a98d63873114836968b18a94c}{\index{D\-List@{D\-List}!tail@{tail}}
+\index{tail@{tail}!DList@{D\-List}}
+\subsubsection[{tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ D\-List\-::tail}}\label{classDList_a49eb783a98d63873114836968b18a94c}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/bench/\hyperlink{DList_8hpp}{D\-List.\-hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="validate_stm_tx" name="validate_stm_tx">
+<area shape="rect" id="node2" href="$stm__fraser_8c.html#aa57c521c9ca8d9bfc271c7077c3ea3a0" title="handle_fault" alt="" coords="169,12,261,39"/>
+<area shape="rect" id="node3" href="$stm__fraser_8c.html#a7b76b85023f5a028abad5e822391f95a" title="_init_stm_subsystem" alt="" coords="309,12,456,39"/>
+<area shape="rect" id="node4" href="$stmskip_8h.html#aedbfc8f18bee8e611ee20d17feb55f98" title="init_stmskip_subsystem" alt="" coords="504,12,667,39"/>
+<area shape="rect" id="node5" href="$classSetAdaptor_3_01stm__skip_01_4.html#acfb0c3f8dd7da801bdafb4ff1de8ba3e" title="SetAdaptor\&lt; stm_skip\l \&gt;::SetAdaptor" alt="" coords="715,5,867,46"/>
+</map>

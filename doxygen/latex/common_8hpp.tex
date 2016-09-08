@@ -1,0 +1,148 @@
+\hypertarget{common_8hpp}{\section{rstm/rstm-\/dev/mesh/common.hpp File Reference}
+\label{common_8hpp}\index{rstm/rstm-\/dev/mesh/common.\-hpp@{rstm/rstm-\/dev/mesh/common.\-hpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include \char`\"{}common/platform.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/\-Thread\-Local.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lock.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$malloc.\-h$>$}\\*
+Include dependency graph for common.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E}
+\item 
+\#define \hyperlink{common_8hpp_aad0b6a771c65df7f474192857172ee3e}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E}
+\item 
+\#define \hyperlink{common_8hpp_a0c2545170014c1c89130ef9bc2456dd9}{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R}
+\item 
+\#define \hyperlink{common_8hpp_aa5f666685014c88d7db51b44a77ed5b6}{S\-Y\-S\-\_\-\-I\-N\-I\-T}()
+\item 
+\#define \hyperlink{common_8hpp_afb35d7c7b8a708c49861633b0ad813c9}{T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}()
+\item 
+\#define \hyperlink{common_8hpp_aee5eb37aa83e1c71763fd19b2dd786cf}{T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}()
+\item 
+\#define \hyperlink{common_8hpp_a4a72eda9a92376a10b6a9371aaebccac}{S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{common_8hpp_a8a4a75b4a231b7d14e3d9c2e009eceb9}{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E} (\hyperlink{classthread}{thread} $\ast$) current\-Thread
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{common_8hpp_abaef4f818f7fb7047b746a6cdd2bfdda}{num\-\_\-points}
+\item 
+int \hyperlink{common_8hpp_aea83690c8f0d7b9af3af06fb64793822}{num\-\_\-workers}
+\item 
+bool \hyperlink{common_8hpp_a8d4cddbc2e906817a67cc1f88aca5d7f}{output\-\_\-incremental}
+\item 
+bool \hyperlink{common_8hpp_a75427bc7bd64ac5cb6711a7efb4ba2e7}{output\-\_\-end}
+\item 
+bool \hyperlink{common_8hpp_ab3f078684998b83967d507d0f453f454}{verbose}
+\item 
+static const int \hyperlink{common_8hpp_a6bbc06c8c94754ed6d780e699011227f}{M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S} = 32
+\item 
+\hyperlink{classd__lock}{d\-\_\-lock} \hyperlink{common_8hpp_ad16735b0eb2c7489aa7450ac4bb75990}{io\-\_\-lock}
+\item 
+unsigned long long \hyperlink{common_8hpp_a53de2496b5ea419c54d02b6391ec16e5}{start\-\_\-time}
+\item 
+unsigned long long \hyperlink{common_8hpp_a3ceb81ba3162a09a5c798afdd76aae38}{last\-\_\-time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{common_8hpp_aa5f666685014c88d7db51b44a77ed5b6}{\index{common.\-hpp@{common.\-hpp}!S\-Y\-S\-\_\-\-I\-N\-I\-T@{S\-Y\-S\-\_\-\-I\-N\-I\-T}}
+\index{S\-Y\-S\-\_\-\-I\-N\-I\-T@{S\-Y\-S\-\_\-\-I\-N\-I\-T}!common.hpp@{common.\-hpp}}
+\subsubsection[{S\-Y\-S\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Y\-S\-\_\-\-I\-N\-I\-T(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{common_8hpp_aa5f666685014c88d7db51b44a77ed5b6}
+\hypertarget{common_8hpp_a4a72eda9a92376a10b6a9371aaebccac}{\index{common.\-hpp@{common.\-hpp}!S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}}
+\index{S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}!common.hpp@{common.\-hpp}}
+\subsubsection[{S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Y\-S\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{common_8hpp_a4a72eda9a92376a10b6a9371aaebccac}
+\hypertarget{common_8hpp_afb35d7c7b8a708c49861633b0ad813c9}{\index{common.\-hpp@{common.\-hpp}!T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T@{T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}}
+\index{T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T@{T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}!common.hpp@{common.\-hpp}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-R\-E\-A\-D\-\_\-\-I\-N\-I\-T(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{common_8hpp_afb35d7c7b8a708c49861633b0ad813c9}
+\hypertarget{common_8hpp_aee5eb37aa83e1c71763fd19b2dd786cf}{\index{common.\-hpp@{common.\-hpp}!T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}}
+\index{T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N@{T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}!common.hpp@{common.\-hpp}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-R\-E\-A\-D\-\_\-\-S\-H\-U\-T\-D\-O\-W\-N(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{common_8hpp_aee5eb37aa83e1c71763fd19b2dd786cf}
+\hypertarget{common_8hpp_aad0b6a771c65df7f474192857172ee3e}{\index{common.\-hpp@{common.\-hpp}!T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E@{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E}}
+\index{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E@{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E}!common.hpp@{common.\-hpp}}
+\subsubsection[{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-P\-U\-R\-E}}\label{common_8hpp_aad0b6a771c65df7f474192857172ee3e}
+\hypertarget{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}{\index{common.\-hpp@{common.\-hpp}!T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E@{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E}}
+\index{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E@{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E}!common.hpp@{common.\-hpp}}
+\subsubsection[{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-S\-A\-F\-E}}\label{common_8hpp_a77872cb9748b204f4b1c44ba6141b862}
+\hypertarget{common_8hpp_a0c2545170014c1c89130ef9bc2456dd9}{\index{common.\-hpp@{common.\-hpp}!T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R@{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R}}
+\index{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R@{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R}!common.hpp@{common.\-hpp}}
+\subsubsection[{T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-\_\-\-W\-A\-I\-V\-E\-R}}\label{common_8hpp_a0c2545170014c1c89130ef9bc2456dd9}
+
+
+\subsection{Function Documentation}
+\hypertarget{common_8hpp_a8a4a75b4a231b7d14e3d9c2e009eceb9}{\index{common.\-hpp@{common.\-hpp}!T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}}
+\index{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}!common.hpp@{common.\-hpp}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf thread} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{common_8hpp_a8a4a75b4a231b7d14e3d9c2e009eceb9}
+
+
+\subsection{Variable Documentation}
+\hypertarget{common_8hpp_ad16735b0eb2c7489aa7450ac4bb75990}{\index{common.\-hpp@{common.\-hpp}!io\-\_\-lock@{io\-\_\-lock}}
+\index{io\-\_\-lock@{io\-\_\-lock}!common.hpp@{common.\-hpp}}
+\subsubsection[{io\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf d\-\_\-lock} io\-\_\-lock}}\label{common_8hpp_ad16735b0eb2c7489aa7450ac4bb75990}
+\hypertarget{common_8hpp_a3ceb81ba3162a09a5c798afdd76aae38}{\index{common.\-hpp@{common.\-hpp}!last\-\_\-time@{last\-\_\-time}}
+\index{last\-\_\-time@{last\-\_\-time}!common.hpp@{common.\-hpp}}
+\subsubsection[{last\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long last\-\_\-time}}\label{common_8hpp_a3ceb81ba3162a09a5c798afdd76aae38}
+\hypertarget{common_8hpp_a6bbc06c8c94754ed6d780e699011227f}{\index{common.\-hpp@{common.\-hpp}!M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S@{M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S}}
+\index{M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S@{M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S}!common.hpp@{common.\-hpp}}
+\subsubsection[{M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}const int M\-A\-X\-\_\-\-W\-O\-R\-K\-E\-R\-S = 32\hspace{0.3cm}{\ttfamily [static]}}}\label{common_8hpp_a6bbc06c8c94754ed6d780e699011227f}
+\hypertarget{common_8hpp_abaef4f818f7fb7047b746a6cdd2bfdda}{\index{common.\-hpp@{common.\-hpp}!num\-\_\-points@{num\-\_\-points}}
+\index{num\-\_\-points@{num\-\_\-points}!common.hpp@{common.\-hpp}}
+\subsubsection[{num\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-points}}\label{common_8hpp_abaef4f818f7fb7047b746a6cdd2bfdda}
+\hypertarget{common_8hpp_aea83690c8f0d7b9af3af06fb64793822}{\index{common.\-hpp@{common.\-hpp}!num\-\_\-workers@{num\-\_\-workers}}
+\index{num\-\_\-workers@{num\-\_\-workers}!common.hpp@{common.\-hpp}}
+\subsubsection[{num\-\_\-workers}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-workers}}\label{common_8hpp_aea83690c8f0d7b9af3af06fb64793822}
+\hypertarget{common_8hpp_a75427bc7bd64ac5cb6711a7efb4ba2e7}{\index{common.\-hpp@{common.\-hpp}!output\-\_\-end@{output\-\_\-end}}
+\index{output\-\_\-end@{output\-\_\-end}!common.hpp@{common.\-hpp}}
+\subsubsection[{output\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}bool output\-\_\-end}}\label{common_8hpp_a75427bc7bd64ac5cb6711a7efb4ba2e7}
+\hypertarget{common_8hpp_a8d4cddbc2e906817a67cc1f88aca5d7f}{\index{common.\-hpp@{common.\-hpp}!output\-\_\-incremental@{output\-\_\-incremental}}
+\index{output\-\_\-incremental@{output\-\_\-incremental}!common.hpp@{common.\-hpp}}
+\subsubsection[{output\-\_\-incremental}]{\setlength{\rightskip}{0pt plus 5cm}bool output\-\_\-incremental}}\label{common_8hpp_a8d4cddbc2e906817a67cc1f88aca5d7f}
+\hypertarget{common_8hpp_a53de2496b5ea419c54d02b6391ec16e5}{\index{common.\-hpp@{common.\-hpp}!start\-\_\-time@{start\-\_\-time}}
+\index{start\-\_\-time@{start\-\_\-time}!common.hpp@{common.\-hpp}}
+\subsubsection[{start\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long start\-\_\-time}}\label{common_8hpp_a53de2496b5ea419c54d02b6391ec16e5}
+\hypertarget{common_8hpp_ab3f078684998b83967d507d0f453f454}{\index{common.\-hpp@{common.\-hpp}!verbose@{verbose}}
+\index{verbose@{verbose}!common.hpp@{common.\-hpp}}
+\subsubsection[{verbose}]{\setlength{\rightskip}{0pt plus 5cm}bool verbose}}\label{common_8hpp_ab3f078684998b83967d507d0f453f454}

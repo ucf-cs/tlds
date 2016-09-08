@@ -1,0 +1,138 @@
+\hypertarget{client_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/vacation/client.c File Reference}
+\label{client_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/client.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/client.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}action.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}client.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}reservation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for client.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{client_8h_a66c6519d271f361c72ed4b11725ad90e}{client\-\_\-t} $\ast$ \hyperlink{client_8c_a9094acbb5971e0476517e7ee94415126}{client\-\_\-alloc} (long id, \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long num\-Operation, long num\-Query\-Per\-Transaction, long query\-Range, long percent\-User)
+\item 
+void \hyperlink{client_8c_a545693dd5b8e3ebaed163d982dbfb656}{client\-\_\-free} (\hyperlink{client_8h_a66c6519d271f361c72ed4b11725ad90e}{client\-\_\-t} $\ast$client\-Ptr)
+\item 
+static \hyperlink{action_8h_a1348445a5a335f99f7afc1d97ac92f7f}{action\-\_\-t} \hyperlink{client_8c_ac053081bcd35e969dd4fd0c97cfd6042}{select\-Action} (long r, long percent\-User)
+\item 
+void \hyperlink{client_8c_a786afe95bbc4e1753bc0940b622e2a2f}{client\-\_\-run} (void $\ast$arg\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{client_8c_a9094acbb5971e0476517e7ee94415126}{\index{client.\-c@{client.\-c}!client\-\_\-alloc@{client\-\_\-alloc}}
+\index{client\-\_\-alloc@{client\-\_\-alloc}!client.c@{client.\-c}}
+\subsubsection[{client\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf client\-\_\-t}$\ast$ client\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{long}]{id, }
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{num\-Operation, }
+\item[{long}]{num\-Query\-Per\-Transaction, }
+\item[{long}]{query\-Range, }
+\item[{long}]{percent\-User}
+\end{DoxyParamCaption}
+)}}\label{client_8c_a9094acbb5971e0476517e7ee94415126}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a9094acbb5971e0476517e7ee94415126_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{client_8c_a9094acbb5971e0476517e7ee94415126_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{client_8c_a545693dd5b8e3ebaed163d982dbfb656}{\index{client.\-c@{client.\-c}!client\-\_\-free@{client\-\_\-free}}
+\index{client\-\_\-free@{client\-\_\-free}!client.c@{client.\-c}}
+\subsubsection[{client\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void client\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf client\-\_\-t} $\ast$}]{client\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{client_8c_a545693dd5b8e3ebaed163d982dbfb656}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{client_8c_a545693dd5b8e3ebaed163d982dbfb656_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{client_8c_a786afe95bbc4e1753bc0940b622e2a2f}{\index{client.\-c@{client.\-c}!client\-\_\-run@{client\-\_\-run}}
+\index{client\-\_\-run@{client\-\_\-run}!client.c@{client.\-c}}
+\subsubsection[{client\-\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}void client\-\_\-run (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{client_8c_a786afe95bbc4e1753bc0940b622e2a2f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a786afe95bbc4e1753bc0940b622e2a2f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{client_8c_a786afe95bbc4e1753bc0940b622e2a2f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{client_8c_ac053081bcd35e969dd4fd0c97cfd6042}{\index{client.\-c@{client.\-c}!select\-Action@{select\-Action}}
+\index{select\-Action@{select\-Action}!client.c@{client.\-c}}
+\subsubsection[{select\-Action}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf action\-\_\-t} select\-Action (
+\begin{DoxyParamCaption}
+\item[{long}]{r, }
+\item[{long}]{percent\-User}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{client_8c_ac053081bcd35e969dd4fd0c97cfd6042}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{client_8c_ac053081bcd35e969dd4fd0c97cfd6042_icgraph}
+\end{center}
+\end{figure}
+
+

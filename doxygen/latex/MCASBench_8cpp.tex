@@ -1,0 +1,85 @@
+\hypertarget{MCASBench_8cpp}{\section{rstm/rstm-\/dev/bench/\-M\-C\-A\-S\-Bench.cpp File Reference}
+\label{MCASBench_8cpp}\index{rstm/rstm-\/dev/bench/\-M\-C\-A\-S\-Bench.\-cpp@{rstm/rstm-\/dev/bench/\-M\-C\-A\-S\-Bench.\-cpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$alt-\/license/rand\-\_\-r\-\_\-32.\-h$>$}\\*
+{\ttfamily \#include $<$api/api.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}bmconfig.\-hpp\char`\"{}}\\*
+Include dependency graph for M\-C\-A\-S\-Bench.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{MCASBench_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MCASBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}{bench\-\_\-init} ()
+\item 
+void \hyperlink{MCASBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb}{bench\-\_\-test} (uintptr\-\_\-t, uint32\-\_\-t $\ast$\hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed})
+\item 
+bool \hyperlink{MCASBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{bench\-\_\-verify} ()
+\item 
+void \hyperlink{MCASBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{bench\-\_\-reparse} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \hyperlink{MCASBench_8cpp_a2ccbdd5ba467faf7b2f7d491427812bd}{matrix}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{MCASBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}{\index{M\-C\-A\-S\-Bench.\-cpp@{M\-C\-A\-S\-Bench.\-cpp}!bench\-\_\-init@{bench\-\_\-init}}
+\index{bench\-\_\-init@{bench\-\_\-init}!MCASBench.cpp@{M\-C\-A\-S\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MCASBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions \hypertarget{MCASBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{\index{M\-C\-A\-S\-Bench.\-cpp@{M\-C\-A\-S\-Bench.\-cpp}!bench\-\_\-reparse@{bench\-\_\-reparse}}
+\index{bench\-\_\-reparse@{bench\-\_\-reparse}!MCASBench.cpp@{M\-C\-A\-S\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-reparse}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-reparse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MCASBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}
+Step 4\-: Include the code that has the \hyperlink{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{main()} function, and the code for creating threads and calling the three above-\/named functions. Don't forget to provide an arg reparser. \hypertarget{MCASBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb}{\index{M\-C\-A\-S\-Bench.\-cpp@{M\-C\-A\-S\-Bench.\-cpp}!bench\-\_\-test@{bench\-\_\-test}}
+\index{bench\-\_\-test@{bench\-\_\-test}!MCASBench.cpp@{M\-C\-A\-S\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{, }
+\item[{uint32\-\_\-t $\ast$}]{seed}
+\end{DoxyParamCaption}
+)}}\label{MCASBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{MCASBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{MCASBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{\index{M\-C\-A\-S\-Bench.\-cpp@{M\-C\-A\-S\-Bench.\-cpp}!bench\-\_\-verify@{bench\-\_\-verify}}
+\index{bench\-\_\-verify@{bench\-\_\-verify}!MCASBench.cpp@{M\-C\-A\-S\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}bool bench\-\_\-verify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MCASBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}
+
+
+\subsection{Variable Documentation}
+\hypertarget{MCASBench_8cpp_a2ccbdd5ba467faf7b2f7d491427812bd}{\index{M\-C\-A\-S\-Bench.\-cpp@{M\-C\-A\-S\-Bench.\-cpp}!matrix@{matrix}}
+\index{matrix@{matrix}!MCASBench.cpp@{M\-C\-A\-S\-Bench.\-cpp}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ matrix}}\label{MCASBench_8cpp_a2ccbdd5ba467faf7b2f7d491427812bd}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information Step 1\-: Include the configuration code for the harness, and the A\-P\-I code. We provide the option to build the entire benchmark in a single source. The \hyperlink{bmconfig_8hpp}{bmconfig.\-hpp} include defines all of the important functions that are implemented in this file, and \hyperlink{bmharness_8cpp}{bmharness.\-cpp} defines the execution infrastructure. Step 2\-: Declare the data type that will be stress tested via this benchmark. Also provide any functions that will be needed to manipulate the data type. Take care to avoid unnecessary indirection. 

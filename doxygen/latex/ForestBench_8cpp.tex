@@ -1,0 +1,104 @@
+\hypertarget{ForestBench_8cpp}{\section{rstm/rstm-\/dev/bench/\-Forest\-Bench.cpp File Reference}
+\label{ForestBench_8cpp}\index{rstm/rstm-\/dev/bench/\-Forest\-Bench.\-cpp@{rstm/rstm-\/dev/bench/\-Forest\-Bench.\-cpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$alt-\/license/rand\-\_\-r\-\_\-32.\-h$>$}\\*
+{\ttfamily \#include $<$api/api.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}bmconfig.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Tree.\-hpp\char`\"{}}\\*
+Include dependency graph for Forest\-Bench.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ForestBench_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structCustomForest}{Custom\-Forest}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ForestBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}{bench\-\_\-init} ()
+\item 
+void \hyperlink{ForestBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb}{bench\-\_\-test} (uintptr\-\_\-t, uint32\-\_\-t $\ast$\hyperlink{mesh_8cpp_a1447ad288a0a73454510f5777bdc3ed1}{seed})
+\item 
+bool \hyperlink{ForestBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{bench\-\_\-verify} ()
+\item 
+void \hyperlink{ForestBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{bench\-\_\-reparse} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structCustomForest}{Custom\-Forest} $\ast$ \hyperlink{ForestBench_8cpp_a4560d07019867d301931586d93909eca}{S\-E\-T}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{ForestBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}{\index{Forest\-Bench.\-cpp@{Forest\-Bench.\-cpp}!bench\-\_\-init@{bench\-\_\-init}}
+\index{bench\-\_\-init@{bench\-\_\-init}!ForestBench.cpp@{Forest\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ForestBench_8cpp_a3adf213f254e3746cbce57cc95dfb687}
+B\-E\-N\-C\-H\-M\-A\-R\-K\-S I\-M\-P\-L\-E\-M\-E\-N\-T T\-H\-E F\-O\-L\-L\-O\-W\-I\-N\-G F\-U\-N\-C\-T\-I\-O\-N\-S
+
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions \hypertarget{ForestBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}{\index{Forest\-Bench.\-cpp@{Forest\-Bench.\-cpp}!bench\-\_\-reparse@{bench\-\_\-reparse}}
+\index{bench\-\_\-reparse@{bench\-\_\-reparse}!ForestBench.cpp@{Forest\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-reparse}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-reparse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ForestBench_8cpp_a5b32c4b74f369683b46a67dd7e50ff3e}
+Step 4\-: Include the code that has the \hyperlink{main_8cc_ac0f2228420376f4db7e1274f2b41667c}{main()} function, and the code for creating threads and calling the three above-\/named functions. Don't forget to provide an arg reparser. \hypertarget{ForestBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb}{\index{Forest\-Bench.\-cpp@{Forest\-Bench.\-cpp}!bench\-\_\-test@{bench\-\_\-test}}
+\index{bench\-\_\-test@{bench\-\_\-test}!ForestBench.cpp@{Forest\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void bench\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t}]{, }
+\item[{uint32\-\_\-t $\ast$}]{seed}
+\end{DoxyParamCaption}
+)}}\label{ForestBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{ForestBench_8cpp_ad11a233f81ddfcdb0effb7b0bb5b97fb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ForestBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}{\index{Forest\-Bench.\-cpp@{Forest\-Bench.\-cpp}!bench\-\_\-verify@{bench\-\_\-verify}}
+\index{bench\-\_\-verify@{bench\-\_\-verify}!ForestBench.cpp@{Forest\-Bench.\-cpp}}
+\subsubsection[{bench\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}bool bench\-\_\-verify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ForestBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ForestBench_8cpp_a0c66bb3c4c93ab03eced3cb6a617c884_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{ForestBench_8cpp_a4560d07019867d301931586d93909eca}{\index{Forest\-Bench.\-cpp@{Forest\-Bench.\-cpp}!S\-E\-T@{S\-E\-T}}
+\index{S\-E\-T@{S\-E\-T}!ForestBench.cpp@{Forest\-Bench.\-cpp}}
+\subsubsection[{S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Custom\-Forest}$\ast$ S\-E\-T}}\label{ForestBench_8cpp_a4560d07019867d301931586d93909eca}
+Step 3\-: Declare an instance of the data type, and provide init, test, and verify functions 

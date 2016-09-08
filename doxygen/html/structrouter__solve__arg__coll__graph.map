@@ -1,0 +1,10 @@
+<map id="router_solve_arg" name="router_solve_arg">
+<area shape="rect" id="node2" href="$structmaze.html" title="{maze\n||}" alt="" coords="293,427,347,504"/>
+<area shape="rect" id="node3" href="$structvector.html" title="{vector\n||}" alt="" coords="254,216,311,293"/>
+<area shape="rect" id="node7" href="$structqueue.html" title="{queue\n||}" alt="" coords="128,216,184,293"/>
+<area shape="rect" id="node6" href="$structgrid.html" title="{grid\n||}" alt="" coords="372,216,415,293"/>
+<area shape="rect" id="node8" href="$structrouter.html" title="{router\n||}" alt="" coords="500,325,554,403"/>
+<area shape="rect" id="node9" href="$structlist.html" title="{list\n||}" alt="" coords="653,427,691,504"/>
+<area shape="rect" id="node12" href="$structcomparator.html" title="{comparator\n||+ comparator()\l+ comparator()\l}" alt="" coords="851,209,958,301"/>
+<area shape="rect" id="node10" href="$structlist__node.html" title="{list_node\n||}" alt="" coords="674,216,747,293"/>
+</map>

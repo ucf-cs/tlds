@@ -1,0 +1,281 @@
+\hypertarget{avltree_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/avltree.h File Reference}
+\label{avltree_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/avltree.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/avltree.\-h}}
+}
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for avltree.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{avltree_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{avltree_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structjsw__avltree}{jsw\-\_\-avltree} \hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t}
+\item 
+typedef struct \hyperlink{structjsw__avltrav}{jsw\-\_\-avltrav} \hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t}
+\item 
+typedef long($\ast$ \hyperlink{avltree_8h_a2bc4e41c0905bb265a8a0240b76f011d}{cmp\-\_\-f} )(const void $\ast$p1, const void $\ast$p2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$ \hyperlink{avltree_8h_a304c8bad26c7ccdb0e2114165d1581cc}{jsw\-\_\-avlnew} (\hyperlink{avltree_8h_a2bc4e41c0905bb265a8a0240b76f011d}{cmp\-\_\-f} cmp)
+\item 
+\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$ \hyperlink{avltree_8h_a4f90ea3e5687118e775b8dbe08a2627a}{Pjsw\-\_\-avlnew} (\hyperlink{avltree_8h_a2bc4e41c0905bb265a8a0240b76f011d}{cmp\-\_\-f} cmp)
+\item 
+void \hyperlink{avltree_8h_a3bf8b0e3451de2e4a8a582310bf7c0a8}{jsw\-\_\-avldelete} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree)
+\item 
+void \hyperlink{avltree_8h_aec8ce235817bf1b99c4aaaeaaf61ed54}{Pjsw\-\_\-avldelete} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree)
+\item 
+void $\ast$ \hyperlink{avltree_8h_aa9c6ccf0afe9e1b3fdf49f66c6d71a15}{jsw\-\_\-avlfind} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree, void $\ast$\hyperlink{structdata}{data})
+\item 
+void $\ast$ \hyperlink{avltree_8h_ab5ce736fc4a5202b785c754629c6eccf}{Pjsw\-\_\-avlfind} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree, void $\ast$\hyperlink{structdata}{data})
+\item 
+long \hyperlink{avltree_8h_a653794ae343f55047dc7cf02eaf69c75}{jsw\-\_\-avlinsert} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree, void $\ast$\hyperlink{structdata}{data})
+\item 
+long \hyperlink{avltree_8h_a43af497daa481c55cd2760f9fea3152d}{Pjsw\-\_\-avlinsert} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree, void $\ast$\hyperlink{structdata}{data})
+\item 
+long \hyperlink{avltree_8h_a2ff48b5a82b32247c2ae68a6f1ffeb67}{jsw\-\_\-avlerase} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree, void $\ast$\hyperlink{structdata}{data})
+\item 
+long \hyperlink{avltree_8h_a26650bd8117fb01330a51c30ec070fc5}{Pjsw\-\_\-avlerase} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree, void $\ast$\hyperlink{structdata}{data})
+\item 
+size\-\_\-t \hyperlink{avltree_8h_addbb5e5cb6862de7b76d17fa8f12fd7c}{jsw\-\_\-avlsize} (\hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree)
+\item 
+\hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t} $\ast$ \hyperlink{avltree_8h_aca4506f7dc822e454c8a7f5efb938f25}{jsw\-\_\-avltnew} (void)
+\item 
+void \hyperlink{avltree_8h_aabd948483e0e10dc17e6534798868a4e}{jsw\-\_\-avltdelete} (\hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t} $\ast$trav)
+\item 
+void $\ast$ \hyperlink{avltree_8h_acda52ea2299b2ed77378250d436df765}{jsw\-\_\-avltfirst} (\hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t} $\ast$trav, \hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree)
+\item 
+void $\ast$ \hyperlink{avltree_8h_acb0615f83ea373b3ece2e75746e40915}{jsw\-\_\-avltlast} (\hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t} $\ast$trav, \hyperlink{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{jsw\-\_\-avltree\-\_\-t} $\ast$tree)
+\item 
+void $\ast$ \hyperlink{avltree_8h_a25607306d50a21bc573f5b4b1fbffd98}{jsw\-\_\-avltnext} (\hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t} $\ast$trav)
+\item 
+void $\ast$ \hyperlink{avltree_8h_a563713f106a9f28c7369196e5cd8a1da}{jsw\-\_\-avltprev} (\hyperlink{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{jsw\-\_\-avltrav\-\_\-t} $\ast$trav)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{avltree_8h_a2bc4e41c0905bb265a8a0240b76f011d}{\index{avltree.\-h@{avltree.\-h}!cmp\-\_\-f@{cmp\-\_\-f}}
+\index{cmp\-\_\-f@{cmp\-\_\-f}!avltree.h@{avltree.\-h}}
+\subsubsection[{cmp\-\_\-f}]{\setlength{\rightskip}{0pt plus 5cm}typedef long($\ast$ cmp\-\_\-f)(const void $\ast$p1, const void $\ast$p2)}}\label{avltree_8h_a2bc4e41c0905bb265a8a0240b76f011d}
+\hypertarget{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltrav\-\_\-t@{jsw\-\_\-avltrav\-\_\-t}}
+\index{jsw\-\_\-avltrav\-\_\-t@{jsw\-\_\-avltrav\-\_\-t}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltrav\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf jsw\-\_\-avltrav} {\bf jsw\-\_\-avltrav\-\_\-t}}}\label{avltree_8h_a060a4732d7afacdfeadf6b8eb66c0896}
+\hypertarget{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltree\-\_\-t@{jsw\-\_\-avltree\-\_\-t}}
+\index{jsw\-\_\-avltree\-\_\-t@{jsw\-\_\-avltree\-\_\-t}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltree\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf jsw\-\_\-avltree} {\bf jsw\-\_\-avltree\-\_\-t}}}\label{avltree_8h_a4719c53f3b192c81b56668b5f5b3ca52}
+
+
+\subsection{Function Documentation}
+\hypertarget{avltree_8h_a3bf8b0e3451de2e4a8a582310bf7c0a8}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avldelete@{jsw\-\_\-avldelete}}
+\index{jsw\-\_\-avldelete@{jsw\-\_\-avldelete}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avldelete}]{\setlength{\rightskip}{0pt plus 5cm}void jsw\-\_\-avldelete (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a3bf8b0e3451de2e4a8a582310bf7c0a8}
+\hypertarget{avltree_8h_a2ff48b5a82b32247c2ae68a6f1ffeb67}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avlerase@{jsw\-\_\-avlerase}}
+\index{jsw\-\_\-avlerase@{jsw\-\_\-avlerase}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avlerase}]{\setlength{\rightskip}{0pt plus 5cm}long jsw\-\_\-avlerase (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a2ff48b5a82b32247c2ae68a6f1ffeb67}
+\hypertarget{avltree_8h_aa9c6ccf0afe9e1b3fdf49f66c6d71a15}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avlfind@{jsw\-\_\-avlfind}}
+\index{jsw\-\_\-avlfind@{jsw\-\_\-avlfind}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avlfind}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ jsw\-\_\-avlfind (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_aa9c6ccf0afe9e1b3fdf49f66c6d71a15}
+\hypertarget{avltree_8h_a653794ae343f55047dc7cf02eaf69c75}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avlinsert@{jsw\-\_\-avlinsert}}
+\index{jsw\-\_\-avlinsert@{jsw\-\_\-avlinsert}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avlinsert}]{\setlength{\rightskip}{0pt plus 5cm}long jsw\-\_\-avlinsert (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a653794ae343f55047dc7cf02eaf69c75}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{avltree_8h_a653794ae343f55047dc7cf02eaf69c75_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{avltree_8h_a304c8bad26c7ccdb0e2114165d1581cc}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avlnew@{jsw\-\_\-avlnew}}
+\index{jsw\-\_\-avlnew@{jsw\-\_\-avlnew}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avlnew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsw\-\_\-avltree\-\_\-t}$\ast$ jsw\-\_\-avlnew (
+\begin{DoxyParamCaption}
+\item[{{\bf cmp\-\_\-f}}]{cmp}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a304c8bad26c7ccdb0e2114165d1581cc}
+\hypertarget{avltree_8h_addbb5e5cb6862de7b76d17fa8f12fd7c}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avlsize@{jsw\-\_\-avlsize}}
+\index{jsw\-\_\-avlsize@{jsw\-\_\-avlsize}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avlsize}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t jsw\-\_\-avlsize (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_addbb5e5cb6862de7b76d17fa8f12fd7c}
+\hypertarget{avltree_8h_aabd948483e0e10dc17e6534798868a4e}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltdelete@{jsw\-\_\-avltdelete}}
+\index{jsw\-\_\-avltdelete@{jsw\-\_\-avltdelete}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltdelete}]{\setlength{\rightskip}{0pt plus 5cm}void jsw\-\_\-avltdelete (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltrav\-\_\-t} $\ast$}]{trav}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_aabd948483e0e10dc17e6534798868a4e}
+\hypertarget{avltree_8h_acda52ea2299b2ed77378250d436df765}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltfirst@{jsw\-\_\-avltfirst}}
+\index{jsw\-\_\-avltfirst@{jsw\-\_\-avltfirst}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltfirst}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ jsw\-\_\-avltfirst (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltrav\-\_\-t} $\ast$}]{trav, }
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_acda52ea2299b2ed77378250d436df765}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{avltree_8h_acda52ea2299b2ed77378250d436df765_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{avltree_8h_acb0615f83ea373b3ece2e75746e40915}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltlast@{jsw\-\_\-avltlast}}
+\index{jsw\-\_\-avltlast@{jsw\-\_\-avltlast}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltlast}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ jsw\-\_\-avltlast (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltrav\-\_\-t} $\ast$}]{trav, }
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_acb0615f83ea373b3ece2e75746e40915}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{avltree_8h_acb0615f83ea373b3ece2e75746e40915_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{avltree_8h_aca4506f7dc822e454c8a7f5efb938f25}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltnew@{jsw\-\_\-avltnew}}
+\index{jsw\-\_\-avltnew@{jsw\-\_\-avltnew}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltnew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsw\-\_\-avltrav\-\_\-t}$\ast$ jsw\-\_\-avltnew (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_aca4506f7dc822e454c8a7f5efb938f25}
+\hypertarget{avltree_8h_a25607306d50a21bc573f5b4b1fbffd98}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltnext@{jsw\-\_\-avltnext}}
+\index{jsw\-\_\-avltnext@{jsw\-\_\-avltnext}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltnext}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ jsw\-\_\-avltnext (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltrav\-\_\-t} $\ast$}]{trav}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a25607306d50a21bc573f5b4b1fbffd98}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{avltree_8h_a25607306d50a21bc573f5b4b1fbffd98_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{avltree_8h_a563713f106a9f28c7369196e5cd8a1da}{\index{avltree.\-h@{avltree.\-h}!jsw\-\_\-avltprev@{jsw\-\_\-avltprev}}
+\index{jsw\-\_\-avltprev@{jsw\-\_\-avltprev}!avltree.h@{avltree.\-h}}
+\subsubsection[{jsw\-\_\-avltprev}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ jsw\-\_\-avltprev (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltrav\-\_\-t} $\ast$}]{trav}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a563713f106a9f28c7369196e5cd8a1da}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{avltree_8h_a563713f106a9f28c7369196e5cd8a1da_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{avltree_8h_aec8ce235817bf1b99c4aaaeaaf61ed54}{\index{avltree.\-h@{avltree.\-h}!Pjsw\-\_\-avldelete@{Pjsw\-\_\-avldelete}}
+\index{Pjsw\-\_\-avldelete@{Pjsw\-\_\-avldelete}!avltree.h@{avltree.\-h}}
+\subsubsection[{Pjsw\-\_\-avldelete}]{\setlength{\rightskip}{0pt plus 5cm}void Pjsw\-\_\-avldelete (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_aec8ce235817bf1b99c4aaaeaaf61ed54}
+\hypertarget{avltree_8h_a26650bd8117fb01330a51c30ec070fc5}{\index{avltree.\-h@{avltree.\-h}!Pjsw\-\_\-avlerase@{Pjsw\-\_\-avlerase}}
+\index{Pjsw\-\_\-avlerase@{Pjsw\-\_\-avlerase}!avltree.h@{avltree.\-h}}
+\subsubsection[{Pjsw\-\_\-avlerase}]{\setlength{\rightskip}{0pt plus 5cm}long Pjsw\-\_\-avlerase (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a26650bd8117fb01330a51c30ec070fc5}
+\hypertarget{avltree_8h_ab5ce736fc4a5202b785c754629c6eccf}{\index{avltree.\-h@{avltree.\-h}!Pjsw\-\_\-avlfind@{Pjsw\-\_\-avlfind}}
+\index{Pjsw\-\_\-avlfind@{Pjsw\-\_\-avlfind}!avltree.h@{avltree.\-h}}
+\subsubsection[{Pjsw\-\_\-avlfind}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Pjsw\-\_\-avlfind (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_ab5ce736fc4a5202b785c754629c6eccf}
+\hypertarget{avltree_8h_a43af497daa481c55cd2760f9fea3152d}{\index{avltree.\-h@{avltree.\-h}!Pjsw\-\_\-avlinsert@{Pjsw\-\_\-avlinsert}}
+\index{Pjsw\-\_\-avlinsert@{Pjsw\-\_\-avlinsert}!avltree.h@{avltree.\-h}}
+\subsubsection[{Pjsw\-\_\-avlinsert}]{\setlength{\rightskip}{0pt plus 5cm}long Pjsw\-\_\-avlinsert (
+\begin{DoxyParamCaption}
+\item[{{\bf jsw\-\_\-avltree\-\_\-t} $\ast$}]{tree, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a43af497daa481c55cd2760f9fea3152d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{avltree_8h_a43af497daa481c55cd2760f9fea3152d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{avltree_8h_a4f90ea3e5687118e775b8dbe08a2627a}{\index{avltree.\-h@{avltree.\-h}!Pjsw\-\_\-avlnew@{Pjsw\-\_\-avlnew}}
+\index{Pjsw\-\_\-avlnew@{Pjsw\-\_\-avlnew}!avltree.h@{avltree.\-h}}
+\subsubsection[{Pjsw\-\_\-avlnew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsw\-\_\-avltree\-\_\-t}$\ast$ Pjsw\-\_\-avlnew (
+\begin{DoxyParamCaption}
+\item[{{\bf cmp\-\_\-f}}]{cmp}
+\end{DoxyParamCaption}
+)}}\label{avltree_8h_a4f90ea3e5687118e775b8dbe08a2627a}

@@ -1,0 +1,130 @@
+\hypertarget{cluster_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/kmeans/cluster.c File Reference}
+\label{cluster_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/kmeans/cluster.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/kmeans/cluster.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$float.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cluster.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}normal.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for cluster.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cluster_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float $\ast$ \hyperlink{cluster_8c_a5977f232e9da233dfeeaf735e3c5d2b7}{extract\-Moments} (float $\ast$\hyperlink{structdata}{data}, int num\-\_\-elts, int num\-\_\-moments)
+\item 
+static void \hyperlink{cluster_8c_af3992882bbf2558ebbe30680ce6224ca}{zscore\-Transform} (float $\ast$$\ast$\hyperlink{structdata}{data}, int num\-Objects, int num\-Attributes)
+\item 
+int \hyperlink{cluster_8c_aebefc2f2848c7ce2e52803168e10d804}{cluster\-\_\-exec} (int nthreads, int num\-Objects, int num\-Attributes, float $\ast$$\ast$attributes, int use\-\_\-zscore\-\_\-transform, int min\-\_\-nclusters, int max\-\_\-nclusters, float threshold, int $\ast$best\-\_\-nclusters, float $\ast$$\ast$$\ast$cluster\-\_\-centres, int $\ast$cluster\-\_\-assign)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{cluster_8c_aebefc2f2848c7ce2e52803168e10d804}{\index{cluster.\-c@{cluster.\-c}!cluster\-\_\-exec@{cluster\-\_\-exec}}
+\index{cluster\-\_\-exec@{cluster\-\_\-exec}!cluster.c@{cluster.\-c}}
+\subsubsection[{cluster\-\_\-exec}]{\setlength{\rightskip}{0pt plus 5cm}int cluster\-\_\-exec (
+\begin{DoxyParamCaption}
+\item[{int}]{nthreads, }
+\item[{int}]{num\-Objects, }
+\item[{int}]{num\-Attributes, }
+\item[{float $\ast$$\ast$}]{attributes, }
+\item[{int}]{use\-\_\-zscore\-\_\-transform, }
+\item[{int}]{min\-\_\-nclusters, }
+\item[{int}]{max\-\_\-nclusters, }
+\item[{float}]{threshold, }
+\item[{int $\ast$}]{best\-\_\-nclusters, }
+\item[{float $\ast$$\ast$$\ast$}]{cluster\-\_\-centres, }
+\item[{int $\ast$}]{cluster\-\_\-assign}
+\end{DoxyParamCaption}
+)}}\label{cluster_8c_aebefc2f2848c7ce2e52803168e10d804}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cluster_8c_aebefc2f2848c7ce2e52803168e10d804_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{cluster_8c_aebefc2f2848c7ce2e52803168e10d804_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{cluster_8c_a5977f232e9da233dfeeaf735e3c5d2b7}{\index{cluster.\-c@{cluster.\-c}!extract\-Moments@{extract\-Moments}}
+\index{extract\-Moments@{extract\-Moments}!cluster.c@{cluster.\-c}}
+\subsubsection[{extract\-Moments}]{\setlength{\rightskip}{0pt plus 5cm}static float$\ast$ extract\-Moments (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{data, }
+\item[{int}]{num\-\_\-elts, }
+\item[{int}]{num\-\_\-moments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{cluster_8c_a5977f232e9da233dfeeaf735e3c5d2b7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cluster_8c_a5977f232e9da233dfeeaf735e3c5d2b7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{cluster_8c_af3992882bbf2558ebbe30680ce6224ca}{\index{cluster.\-c@{cluster.\-c}!zscore\-Transform@{zscore\-Transform}}
+\index{zscore\-Transform@{zscore\-Transform}!cluster.c@{cluster.\-c}}
+\subsubsection[{zscore\-Transform}]{\setlength{\rightskip}{0pt plus 5cm}static void zscore\-Transform (
+\begin{DoxyParamCaption}
+\item[{float $\ast$$\ast$}]{data, }
+\item[{int}]{num\-Objects, }
+\item[{int}]{num\-Attributes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{cluster_8c_af3992882bbf2558ebbe30680ce6224ca}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{cluster_8c_af3992882bbf2558ebbe30680ce6224ca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cluster_8c_af3992882bbf2558ebbe30680ce6224ca_icgraph}
+\end{center}
+\end{figure}
+
+

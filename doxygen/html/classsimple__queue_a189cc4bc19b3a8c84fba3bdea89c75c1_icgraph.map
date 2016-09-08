@@ -1,0 +1,7 @@
+<map id="simple_queue::enqueue" name="simple_queue::enqueue">
+<area shape="rect" id="node2" href="$worker_8cpp.html#a0ee361de59493315020dd5c9296667a0" title="baste" alt="" coords="255,5,310,32"/>
+<area shape="rect" id="node3" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="401,81,471,108"/>
+<area shape="rect" id="node5" href="$worker_8cpp.html#a94abc2b5cb09b8d750cfebf482ba43e6" title="synchronized_baste" alt="" coords="213,107,352,133"/>
+<area shape="rect" id="node6" href="$worker_8cpp.html#aaaf358d95d261241cf6073eaf7de2a94" title="reconsider_edge" alt="" coords="224,157,341,184"/>
+<area shape="rect" id="node4" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="521,81,645,108"/>
+</map>

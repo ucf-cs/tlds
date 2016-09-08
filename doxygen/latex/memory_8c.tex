@@ -1,0 +1,366 @@
+\hypertarget{memory_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/memory.c File Reference}
+\label{memory_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/memory.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/memory.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}memory.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for memory.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{memory_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structblock}{block}
+\item 
+struct \hyperlink{structpool}{pool}
+\item 
+struct \hyperlink{structmemory}{memory}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{memory_8c_a94f6012543c347973177b45c908cd024}{P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E}~8
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structblock}{block} \hyperlink{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{block\-\_\-t}
+\item 
+typedef struct \hyperlink{structpool}{pool} \hyperlink{memory_8c_af40f12257d45268f5e068e7b117ae302}{pool\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{block\-\_\-t} $\ast$ \hyperlink{memory_8c_a1a98b176362193f83eed1c6c85798fb4}{alloc\-Block} (size\-\_\-t capacity)
+\item 
+static void \hyperlink{memory_8c_a589582800c6476d6a6b5cd993211e643}{free\-Block} (\hyperlink{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{block\-\_\-t} $\ast$block\-Ptr)
+\item 
+static \hyperlink{memory_8c_af40f12257d45268f5e068e7b117ae302}{pool\-\_\-t} $\ast$ \hyperlink{memory_8c_ac7039baa504f6ce943569d7bde032630}{alloc\-Pool} (size\-\_\-t init\-Block\-Capacity, long block\-Growth\-Factor)
+\item 
+static void \hyperlink{memory_8c_a057d748b30f8bf954821eeb23a6044c5}{free\-Blocks} (\hyperlink{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{block\-\_\-t} $\ast$block\-Ptr)
+\item 
+static void \hyperlink{memory_8c_ae92d28d012888ddb6ca989a7f35f0750}{free\-Pool} (\hyperlink{memory_8c_af40f12257d45268f5e068e7b117ae302}{pool\-\_\-t} $\ast$pool\-Ptr)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{memory_8c_a1adac4de42423ed164a57970764b4885}{memory\-\_\-init} (long num\-Thread, size\-\_\-t init\-Block\-Capacity, long block\-Growth\-Factor)
+\item 
+void \hyperlink{memory_8c_afe68a115a8b881f58a4b343910717727}{memory\-\_\-destroy} (void)
+\item 
+static \hyperlink{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{block\-\_\-t} $\ast$ \hyperlink{memory_8c_a63d386399f368ebaad2ecfda5382ac4b}{add\-Block\-To\-Pool} (\hyperlink{memory_8c_af40f12257d45268f5e068e7b117ae302}{pool\-\_\-t} $\ast$pool\-Ptr, long num\-Byte)
+\item 
+static void $\ast$ \hyperlink{memory_8c_a369cf20976738afe1830b3df9f5de8a6}{get\-Memory\-From\-Block} (\hyperlink{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{block\-\_\-t} $\ast$block\-Ptr, size\-\_\-t num\-Byte)
+\item 
+static void $\ast$ \hyperlink{memory_8c_a4e5b775425f7ea041d124943ccbf32db}{get\-Memory\-From\-Pool} (\hyperlink{memory_8c_af40f12257d45268f5e068e7b117ae302}{pool\-\_\-t} $\ast$pool\-Ptr, size\-\_\-t num\-Byte)
+\item 
+void $\ast$ \hyperlink{memory_8c_a01aec66fde967f5fe90fc8426d8d1871}{memory\-\_\-get} (long thread\-Id, size\-\_\-t num\-Byte)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memory_8h_ac668809198b2a20ad9ba96ab71499948}{memory\-\_\-t} $\ast$ \hyperlink{memory_8c_ac8a6185ec0fa458e5150f2fd05a04acb}{global\-\_\-memory\-Ptr} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{memory_8c_a94f6012543c347973177b45c908cd024}{\index{memory.\-c@{memory.\-c}!P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E@{P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E}}
+\index{P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E@{P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E}!memory.c@{memory.\-c}}
+\subsubsection[{P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-D\-D\-I\-N\-G\-\_\-\-S\-I\-Z\-E~8}}\label{memory_8c_a94f6012543c347973177b45c908cd024}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}{\index{memory.\-c@{memory.\-c}!block\-\_\-t@{block\-\_\-t}}
+\index{block\-\_\-t@{block\-\_\-t}!memory.c@{memory.\-c}}
+\subsubsection[{block\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf block}  {\bf block\-\_\-t}}}\label{memory_8c_a25a7929002e2ee0c9de180aafe65e3d3}
+\hypertarget{memory_8c_af40f12257d45268f5e068e7b117ae302}{\index{memory.\-c@{memory.\-c}!pool\-\_\-t@{pool\-\_\-t}}
+\index{pool\-\_\-t@{pool\-\_\-t}!memory.c@{memory.\-c}}
+\subsubsection[{pool\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pool}  {\bf pool\-\_\-t}}}\label{memory_8c_af40f12257d45268f5e068e7b117ae302}
+
+
+\subsection{Function Documentation}
+\hypertarget{memory_8c_a63d386399f368ebaad2ecfda5382ac4b}{\index{memory.\-c@{memory.\-c}!add\-Block\-To\-Pool@{add\-Block\-To\-Pool}}
+\index{add\-Block\-To\-Pool@{add\-Block\-To\-Pool}!memory.c@{memory.\-c}}
+\subsubsection[{add\-Block\-To\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf block\-\_\-t}$\ast$ add\-Block\-To\-Pool (
+\begin{DoxyParamCaption}
+\item[{{\bf pool\-\_\-t} $\ast$}]{pool\-Ptr, }
+\item[{long}]{num\-Byte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_a63d386399f368ebaad2ecfda5382ac4b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{memory_8c_a63d386399f368ebaad2ecfda5382ac4b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a63d386399f368ebaad2ecfda5382ac4b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a1a98b176362193f83eed1c6c85798fb4}{\index{memory.\-c@{memory.\-c}!alloc\-Block@{alloc\-Block}}
+\index{alloc\-Block@{alloc\-Block}!memory.c@{memory.\-c}}
+\subsubsection[{alloc\-Block}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf block\-\_\-t}$\ast$ alloc\-Block (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_a1a98b176362193f83eed1c6c85798fb4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a1a98b176362193f83eed1c6c85798fb4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_ac7039baa504f6ce943569d7bde032630}{\index{memory.\-c@{memory.\-c}!alloc\-Pool@{alloc\-Pool}}
+\index{alloc\-Pool@{alloc\-Pool}!memory.c@{memory.\-c}}
+\subsubsection[{alloc\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf pool\-\_\-t}$\ast$ alloc\-Pool (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{init\-Block\-Capacity, }
+\item[{long}]{block\-Growth\-Factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_ac7039baa504f6ce943569d7bde032630}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{memory_8c_ac7039baa504f6ce943569d7bde032630_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{memory_8c_ac7039baa504f6ce943569d7bde032630_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a589582800c6476d6a6b5cd993211e643}{\index{memory.\-c@{memory.\-c}!free\-Block@{free\-Block}}
+\index{free\-Block@{free\-Block}!memory.c@{memory.\-c}}
+\subsubsection[{free\-Block}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Block (
+\begin{DoxyParamCaption}
+\item[{{\bf block\-\_\-t} $\ast$}]{block\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_a589582800c6476d6a6b5cd993211e643}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a589582800c6476d6a6b5cd993211e643_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a057d748b30f8bf954821eeb23a6044c5}{\index{memory.\-c@{memory.\-c}!free\-Blocks@{free\-Blocks}}
+\index{free\-Blocks@{free\-Blocks}!memory.c@{memory.\-c}}
+\subsubsection[{free\-Blocks}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Blocks (
+\begin{DoxyParamCaption}
+\item[{{\bf block\-\_\-t} $\ast$}]{block\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_a057d748b30f8bf954821eeb23a6044c5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{memory_8c_a057d748b30f8bf954821eeb23a6044c5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a057d748b30f8bf954821eeb23a6044c5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_ae92d28d012888ddb6ca989a7f35f0750}{\index{memory.\-c@{memory.\-c}!free\-Pool@{free\-Pool}}
+\index{free\-Pool@{free\-Pool}!memory.c@{memory.\-c}}
+\subsubsection[{free\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Pool (
+\begin{DoxyParamCaption}
+\item[{{\bf pool\-\_\-t} $\ast$}]{pool\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_ae92d28d012888ddb6ca989a7f35f0750}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{memory_8c_ae92d28d012888ddb6ca989a7f35f0750_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{memory_8c_ae92d28d012888ddb6ca989a7f35f0750_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a369cf20976738afe1830b3df9f5de8a6}{\index{memory.\-c@{memory.\-c}!get\-Memory\-From\-Block@{get\-Memory\-From\-Block}}
+\index{get\-Memory\-From\-Block@{get\-Memory\-From\-Block}!memory.c@{memory.\-c}}
+\subsubsection[{get\-Memory\-From\-Block}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ get\-Memory\-From\-Block (
+\begin{DoxyParamCaption}
+\item[{{\bf block\-\_\-t} $\ast$}]{block\-Ptr, }
+\item[{size\-\_\-t}]{num\-Byte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_a369cf20976738afe1830b3df9f5de8a6}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a369cf20976738afe1830b3df9f5de8a6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a4e5b775425f7ea041d124943ccbf32db}{\index{memory.\-c@{memory.\-c}!get\-Memory\-From\-Pool@{get\-Memory\-From\-Pool}}
+\index{get\-Memory\-From\-Pool@{get\-Memory\-From\-Pool}!memory.c@{memory.\-c}}
+\subsubsection[{get\-Memory\-From\-Pool}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ get\-Memory\-From\-Pool (
+\begin{DoxyParamCaption}
+\item[{{\bf pool\-\_\-t} $\ast$}]{pool\-Ptr, }
+\item[{size\-\_\-t}]{num\-Byte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{memory_8c_a4e5b775425f7ea041d124943ccbf32db}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a4e5b775425f7ea041d124943ccbf32db_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{memory_8c_a4e5b775425f7ea041d124943ccbf32db_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_afe68a115a8b881f58a4b343910717727}{\index{memory.\-c@{memory.\-c}!memory\-\_\-destroy@{memory\-\_\-destroy}}
+\index{memory\-\_\-destroy@{memory\-\_\-destroy}!memory.c@{memory.\-c}}
+\subsubsection[{memory\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void memory\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{memory_8c_afe68a115a8b881f58a4b343910717727}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_afe68a115a8b881f58a4b343910717727_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a01aec66fde967f5fe90fc8426d8d1871}{\index{memory.\-c@{memory.\-c}!memory\-\_\-get@{memory\-\_\-get}}
+\index{memory\-\_\-get@{memory\-\_\-get}!memory.c@{memory.\-c}}
+\subsubsection[{memory\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ memory\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{long}]{thread\-Id, }
+\item[{size\-\_\-t}]{num\-Byte}
+\end{DoxyParamCaption}
+)}}\label{memory_8c_a01aec66fde967f5fe90fc8426d8d1871}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a01aec66fde967f5fe90fc8426d8d1871_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a1adac4de42423ed164a57970764b4885}{\index{memory.\-c@{memory.\-c}!memory\-\_\-init@{memory\-\_\-init}}
+\index{memory\-\_\-init@{memory\-\_\-init}!memory.c@{memory.\-c}}
+\subsubsection[{memory\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} memory\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Thread, }
+\item[{size\-\_\-t}]{init\-Block\-Capacity, }
+\item[{long}]{block\-Growth\-Factor}
+\end{DoxyParamCaption}
+)}}\label{memory_8c_a1adac4de42423ed164a57970764b4885}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{memory_8c_a1adac4de42423ed164a57970764b4885_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{memory_8c_ac8a6185ec0fa458e5150f2fd05a04acb}{\index{memory.\-c@{memory.\-c}!global\-\_\-memory\-Ptr@{global\-\_\-memory\-Ptr}}
+\index{global\-\_\-memory\-Ptr@{global\-\_\-memory\-Ptr}!memory.c@{memory.\-c}}
+\subsubsection[{global\-\_\-memory\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf memory\-\_\-t}$\ast$ global\-\_\-memory\-Ptr = 0}}\label{memory_8c_ac8a6185ec0fa458e5150f2fd05a04acb}

@@ -1,0 +1,11 @@
+<map id="anonymous_namespace{swiss::cpp}::Swiss::rollback" name="anonymous_namespace{swiss::cpp}::Swiss::rollback">
+<area shape="rect" id="node2" href="$namespacestm.html#a3240a1a3d22a030fc4e26fad68ad9ec7" title="stm::PreRollback" alt="" coords="228,5,351,32"/>
+<area shape="rect" id="node3" href="$classstm_1_1MiniVector.html#a2b30e4feb605f230ca17dec2b39fe472" title="stm::MiniVector::size" alt="" coords="216,56,363,83"/>
+<area shape="rect" id="node4" href="$classstm_1_1WriteSet.html#a94850cf0782213e633f3946e2a783ef9" title="stm::WriteSet::reset" alt="" coords="219,107,359,133"/>
+<area shape="rect" id="node6" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="661,157,811,184"/>
+<area shape="rect" id="node7" href="$namespacestm.html#ab1ed02e28e6963306b89990522792bb0" title="stm::PostRollback" alt="" coords="224,208,355,235"/>
+<area shape="rect" id="node5" href="$classstm_1_1WriteSet.html#aed2680209e791a7902f11a13fe9478e1" title="stm::WriteSet::reset\l_internal" alt="" coords="441,91,581,133"/>
+<area shape="rect" id="node8" href="$classstm_1_1WBMMPolicy.html#a659b1e52e3946a9a45fc3abf31dc8800" title="stm::WBMMPolicy::onTxAbort" alt="" coords="411,208,611,235"/>
+<area shape="rect" id="node9" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="659,208,813,235"/>
+<area shape="rect" id="node10" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="665,259,807,285"/>
+</map>

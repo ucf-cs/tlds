@@ -1,0 +1,184 @@
+\hypertarget{include_2stm_2macros_8hpp}{\section{rstm/rstm-\/dev/include/stm/macros.hpp File Reference}
+\label{include_2stm_2macros_8hpp}\index{rstm/rstm-\/dev/include/stm/macros.\-hpp@{rstm/rstm-\/dev/include/stm/macros.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+Include dependency graph for macros.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{include_2stm_2macros_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2stm_2macros_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}{C\-A\-T2}(a, b)~a \#\# b
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_aa6fa13246c1d6df342c083aac0f2ef95}{C\-A\-T3}(a, b, c)~a \#\# b \#\# c
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a80e0a5495fdbab692d97955fee4c62f2}{T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L}(\hyperlink{structarg}{arg})~\#\hyperlink{structarg}{arg}
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a591d7466f92e45090f1d6b904410ece3}{M\-A\-K\-E\-\_\-\-S\-T\-R}(\hyperlink{structarg}{arg})~\hyperlink{include_2stm_2macros_8hpp_a80e0a5495fdbab692d97955fee4c62f2}{T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L}(\hyperlink{structarg}{arg})
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_af9b617dc5a84e5937bb820e4f5fe0700}{M\-A\-X\-I\-M\-U\-M}(x, y)~(((x)$>$(y))?(x)\-:(y))
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_aea6d2a39a4b851adc90040a35b643efa}{foreach}(T\-Y\-P\-E, V\-A\-R, C\-O\-L\-L\-E\-C\-T\-I\-O\-N)
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a95ad7e7460940bd17c8713303df51f68}{F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E}(T\-Y\-P\-E, V\-A\-R, C\-O\-L\-L\-E\-C\-T\-I\-O\-N)
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}(S)
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_acdba73b9fcacecb694ab9a8f14470a16}{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W}(S)
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, addr, mask)~Tx\-Thread$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, void$\ast$$\ast$ addr
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, addr, val, mask)~Tx\-Thread$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, void$\ast$$\ast$ addr, void$\ast$ val
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, stack)~Tx\-Thread$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, stack)~Tx\-Thread$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\item 
+\#define \hyperlink{include_2stm_2macros_8hpp_a1c36a48149c84f90d5bca01019950ca9}{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, stack, exception, len)~Tx\-Thread$\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!C\-A\-T2@{C\-A\-T2}}
+\index{C\-A\-T2@{C\-A\-T2}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{C\-A\-T2}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-T2(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~a \#\# b}}\label{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}
+Copyright (C) 2011 University of Rochester Department of Computer Science and Lehigh University Department of Computer Science and Engineering
+
+License\-: Modified B\-S\-D Please see the file L\-I\-C\-E\-N\-S\-E.\-R\-S\-T\-M for licensing information This file establishes a few helpful macros. Some of these are obvious. Others are used to simplify some very redundant programming, particularly with regard to declaring S\-T\-M functions and abort codes. \hypertarget{include_2stm_2macros_8hpp_aa6fa13246c1d6df342c083aac0f2ef95}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!C\-A\-T3@{C\-A\-T3}}
+\index{C\-A\-T3@{C\-A\-T3}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{C\-A\-T3}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-T3(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~a \#\# b \#\# c}}\label{include_2stm_2macros_8hpp_aa6fa13246c1d6df342c083aac0f2ef95}
+\hypertarget{include_2stm_2macros_8hpp_aea6d2a39a4b851adc90040a35b643efa}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!foreach@{foreach}}
+\index{foreach@{foreach}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{foreach}]{\setlength{\rightskip}{0pt plus 5cm}\#define foreach(
+\begin{DoxyParamCaption}
+\item[{}]{T\-Y\-P\-E, }
+\item[{}]{V\-A\-R, }
+\item[{}]{C\-O\-L\-L\-E\-C\-T\-I\-O\-N}
+\end{DoxyParamCaption}
+)}}\label{include_2stm_2macros_8hpp_aea6d2a39a4b851adc90040a35b643efa}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (TYPE::iterator VAR = COLLECTION.begin(),       \(\backslash\)
+         CEND = COLLECTION.end();                       \(\backslash\)
+         VAR != CEND; ++VAR)
+\end{DoxyCode}
+C++ iterators can get so ugly without c++0x 'auto'. These macros are not a good idea, but it makes it much easier to write 79-\/column code \hypertarget{include_2stm_2macros_8hpp_a95ad7e7460940bd17c8713303df51f68}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E@{F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E}}
+\index{F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E@{F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-R\-E\-A\-C\-H\-\_\-\-R\-E\-V\-E\-R\-S\-E(
+\begin{DoxyParamCaption}
+\item[{}]{T\-Y\-P\-E, }
+\item[{}]{V\-A\-R, }
+\item[{}]{C\-O\-L\-L\-E\-C\-T\-I\-O\-N}
+\end{DoxyParamCaption}
+)}}\label{include_2stm_2macros_8hpp_a95ad7e7460940bd17c8713303df51f68}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (TYPE::iterator VAR = COLLECTION.end() - 1,     \hyperlink{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}{\(\backslash\)}
+\hyperlink{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}{         CAT2}(end, \_\_LINE\_\_) = COLLECTION.begin();      \(\backslash\)
+         VAR >= \hyperlink{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}{CAT2}(end, \_\_LINE\_\_); --VAR)
+\end{DoxyCode}
+\hypertarget{include_2stm_2macros_8hpp_a591d7466f92e45090f1d6b904410ece3}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!M\-A\-K\-E\-\_\-\-S\-T\-R@{M\-A\-K\-E\-\_\-\-S\-T\-R}}
+\index{M\-A\-K\-E\-\_\-\-S\-T\-R@{M\-A\-K\-E\-\_\-\-S\-T\-R}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{M\-A\-K\-E\-\_\-\-S\-T\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-K\-E\-\_\-\-S\-T\-R(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf arg}}
+\end{DoxyParamCaption}
+)~{\bf T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L}({\bf arg})}}\label{include_2stm_2macros_8hpp_a591d7466f92e45090f1d6b904410ece3}
+\hypertarget{include_2stm_2macros_8hpp_af9b617dc5a84e5937bb820e4f5fe0700}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!M\-A\-X\-I\-M\-U\-M@{M\-A\-X\-I\-M\-U\-M}}
+\index{M\-A\-X\-I\-M\-U\-M@{M\-A\-X\-I\-M\-U\-M}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{M\-A\-X\-I\-M\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-I\-M\-U\-M(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~(((x)$>$(y))?(x)\-:(y))}}\label{include_2stm_2macros_8hpp_af9b617dc5a84e5937bb820e4f5fe0700}
+\hypertarget{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}}
+\index{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf tx}, }
+\item[{}]{stack}
+\end{DoxyParamCaption}
+)~Tx\-Thread$\ast$ {\bf tx}}}\label{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}
+\hypertarget{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}}
+\index{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf tx}, }
+\item[{}]{stack}
+\end{DoxyParamCaption}
+)~Tx\-Thread$\ast$ {\bf tx}}}\label{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}
+\hypertarget{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}}
+\index{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf tx}, }
+\item[{}]{addr, }
+\item[{}]{mask}
+\end{DoxyParamCaption}
+)~Tx\-Thread$\ast$ {\bf tx}, void$\ast$$\ast$ addr}}\label{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}
+\hypertarget{include_2stm_2macros_8hpp_a1c36a48149c84f90d5bca01019950ca9}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}}
+\index{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf tx}, }
+\item[{}]{stack, }
+\item[{}]{exception, }
+\item[{}]{len}
+\end{DoxyParamCaption}
+)~Tx\-Thread$\ast$ {\bf tx}}}\label{include_2stm_2macros_8hpp_a1c36a48149c84f90d5bca01019950ca9}
+\hypertarget{include_2stm_2macros_8hpp_acdba73b9fcacecb694ab9a8f14470a16}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W@{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W}}
+\index{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W@{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-A\-B\-O\-R\-T\-\_\-\-O\-N\-\_\-\-T\-H\-R\-O\-W(
+\begin{DoxyParamCaption}
+\item[{}]{S}
+\end{DoxyParamCaption}
+)}}\label{include_2stm_2macros_8hpp_acdba73b9fcacecb694ab9a8f14470a16}
+\hypertarget{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K@{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}}
+\index{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K@{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-W\-H\-E\-N\-\_\-\-P\-R\-O\-T\-E\-C\-T\-\_\-\-S\-T\-A\-C\-K(
+\begin{DoxyParamCaption}
+\item[{}]{S}
+\end{DoxyParamCaption}
+)}}\label{include_2stm_2macros_8hpp_a34a90de2d4a963f0a58ac1be9b22baaf}
+When we use compiler-\/based instrumentation, support for sub-\/word-\/granularity accesses requires the individual S\-T\-M read/write functions to take a mask as the third parameter. The following macros let us inject a parameter into the function signature as needed for this purpose. We need to protect the stack from \char`\"{}stale\char`\"{} writes during redo-\/writeback and undo-\/undo. This requires some platform-\/specific functionality to get some stack information. \hypertarget{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}}
+\index{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G@{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf tx}, }
+\item[{}]{addr, }
+\item[{}]{val, }
+\item[{}]{mask}
+\end{DoxyParamCaption}
+)~Tx\-Thread$\ast$ {\bf tx}, void$\ast$$\ast$ addr, void$\ast$ val}}\label{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}
+\hypertarget{include_2stm_2macros_8hpp_a80e0a5495fdbab692d97955fee4c62f2}{\index{include/stm/macros.\-hpp@{include/stm/macros.\-hpp}!T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L@{T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L}}
+\index{T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L@{T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L}!include/stm/macros.hpp@{include/stm/macros.\-hpp}}
+\subsubsection[{T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-L\-I\-T\-E\-R\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf arg}}
+\end{DoxyParamCaption}
+)~\#{\bf arg}}}\label{include_2stm_2macros_8hpp_a80e0a5495fdbab692d97955fee4c62f2}

@@ -1,0 +1,7 @@
+<map id="pv_side::find_candidate" name="pv_side::find_candidate">
+<area shape="rect" id="node2" href="$dwyer_8cpp.html#ac5af40cdd517beac7515468404be6c72" title="stitch" alt="" coords="214,31,269,57"/>
+<area shape="rect" id="node3" href="$dwyer_8hpp.html#af02e2aa3c0f40c330c2d1bc03ad9438a" title="dwyer_solve" alt="" coords="318,31,413,57"/>
+<area shape="rect" id="node4" href="$mesh_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="472,5,523,32"/>
+<area shape="rect" id="node5" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="462,56,533,83"/>
+<area shape="rect" id="node6" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="582,56,706,83"/>
+</map>

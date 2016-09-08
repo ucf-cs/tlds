@@ -1,0 +1,187 @@
+\hypertarget{algs_8hpp}{\section{rstm/rstm-\/dev/libstm/algs/algs.hpp File Reference}
+\label{algs_8hpp}\index{rstm/rstm-\/dev/libstm/algs/algs.\-hpp@{rstm/rstm-\/dev/libstm/algs/algs.\-hpp}}
+}
+{\ttfamily \#include $<$stm/config.\-h$>$}\\*
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include \char`\"{}stm/metadata.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/txthread.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../profiling.\-hpp\char`\"{}}\\*
+Include dependency graph for algs.\-hpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{algs_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{algs_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm_1_1alg__t}{stm\-::alg\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void $\ast$($\ast$ \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{stm\-::\-Read\-Barrier} )(\hyperlink{include_2stm_2macros_8hpp_abae784c2079f9c1ecc6a72cfeb795db4}{S\-T\-M\-\_\-\-R\-E\-A\-D\-\_\-\-S\-I\-G}(,,))
+\item 
+typedef \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{stm\-::\-Write\-Barrier} )(\hyperlink{include_2stm_2macros_8hpp_a05836a7c31fa89c1c84557f4691c44d3}{S\-T\-M\-\_\-\-W\-R\-I\-T\-E\-\_\-\-S\-I\-G}(,,,))
+\item 
+typedef \hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void($\ast$ \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{stm\-::\-Commit\-Barrier} )(\hyperlink{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(,))
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacestm_ad75547cc23d4014783868b799d740145}{stm\-::\-A\-L\-G\-S} \{ \\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a675f3b39efd86983a102f172f46cdc84}{stm\-::\-C\-G\-L} = 0, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a5ad095d426d300a189561d95966ccd99}{stm\-::\-Ticket}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a9799c84fcadcaeaed9bf64bbe5042fa3}{stm\-::\-T\-M\-L}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aa81da945f46106b6a7b23de4422f53d6}{stm\-::\-Ring\-S\-W}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a363dcacee89911268737825ed8933c61}{stm\-::\-Orec\-A\-L\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145acdee336ae380e66b2fa911035c56344d}{stm\-::\-Orec\-E\-L\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7d8a5103ddb4cd49199cfb6405eb0159}{stm\-::\-T\-M\-L\-Lazy}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abb11ecde2280ca9defc8fe22778d9457}{stm\-::\-N\-Orec\-Prio}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a62af7646bf32ca2ceb5e1bf50d9eedb4}{stm\-::\-Orec\-Fair}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae7eebbedede9e8921b8159ba7ab92b48}{stm\-::\-C\-Token}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a04a6fafc926585db8069d8de87eab5e0}{stm\-::\-C\-Token\-Turbo}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a924e7c702aa11ad7c9981958bc9477a8}{stm\-::\-Pipeline}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a475cbda5bdb7ecb6b031d2bd9e989bcf}{stm\-::\-Bit\-Lazy}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abdf4dafd5a2beffbc571cfe40fc21c56}{stm\-::\-L\-L\-T}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aa111fa5c172f28fdb66b45de35df568e}{stm\-::\-T\-L\-I}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a406de428d372a6101065c5586af86100}{stm\-::\-Byte\-Eager}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a5e0c4df7937f96fce647c2445b28cf16}{stm\-::\-M\-C\-S}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac9a7bdcea0d608f315b21eb17da835b8}{stm\-::\-Serial}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac6790adc59da09be49dc5bc7a0f6d508}{stm\-::\-Bit\-Eager}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aad1eea8e3827068fe3eee543d75da8b5}{stm\-::\-Byte\-Lazy}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae0388604d99fcbe10045d51cb6371abd}{stm\-::\-By\-E\-A\-R}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7f5fd59369fddfa3c0e5caab9a16eb76}{stm\-::\-Orec\-Eager\-Redo}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abed8f16fe1c08081c73d2f783992d172}{stm\-::\-Byte\-Eager\-Redo}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ab2d5f8d2dd98046b822ef8cb94a7a02c}{stm\-::\-Bit\-Eager\-Redo}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abc773c76ac2d7aa99e2d9961863bc029}{stm\-::\-Ring\-A\-L\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a96dfd65ebc77976afa3c824c439fdb50}{stm\-::\-Nano}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145acaaff909a085b4e39196b00512c04b71}{stm\-::\-Swiss}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aeb3ee66e4dfe3a3f581d0b67e13f02b4}{stm\-::\-By\-E\-A\-U}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a20385b257d797b39b6c3733e8a927e2a}{stm\-::\-By\-E\-A\-U\-F\-C\-M}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a46f2ceaa20ed04b68789e0a84eebdabe}{stm\-::\-By\-E\-A\-U\-H\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a4f387d53a061aabdd8d3cee8417c4975}{stm\-::\-By\-E\-A\-U\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a3c2112f76a36366b49634c92b81a2af9}{stm\-::\-Or\-E\-A\-U}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a37a730e371595917820202c1c24c1405}{stm\-::\-Or\-E\-A\-U\-F\-C\-M}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ade76e171cd83b848c65807e3f2877a17}{stm\-::\-Or\-E\-A\-U\-H\-A}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a1e318e4628ff40872c4735384813da1e}{stm\-::\-Or\-E\-A\-U\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145af45d567b53be3f43fa622fa4acec7469}{stm\-::\-Orec\-Eager}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a73d6f35cde808a68ac2bfb7e50ff938e}{stm\-::\-Orec\-Eager\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a68d8ed7bd8c026c3f527b70b89e90671}{stm\-::\-Orec\-Eager\-Backoff}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145abcd4db1f50bd8f6fc44ed4977da0346d}{stm\-::\-Orec\-Eager\-H\-B}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a0260e027cdf5da03688d8f52e424aa2c}{stm\-::\-Orec\-Lazy}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae753c643ecdbf464c575a05beddc7f2f}{stm\-::\-Orec\-Lazy\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a05d3f2b0b2a35d258304197f4ae3b554}{stm\-::\-Orec\-Lazy\-Backoff}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae91d0788a4ee3c20a0526d120f72d1f2}{stm\-::\-Orec\-Lazy\-H\-B}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145aefcd72d51be4ac5fa48359c5656bd6b9}{stm\-::\-N\-Orec}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a92c8a3800760b319d7f208d796cde8a8}{stm\-::\-N\-Orec\-Hour}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a6fd409ae7e92c7ff3516416621257265}{stm\-::\-N\-Orec\-Backoff}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a7428b7322325893892f8600bb89a0f94}{stm\-::\-N\-Orec\-H\-B}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae53e186eb0d96942d6a31cf756e199ec}{stm\-::\-Profile\-T\-M}, 
+\\*
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ac73c083e2ef3a57a9a67840033e76044}{stm\-::\-Profile\-App\-Avg}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a948565b4c6ec1e7c01b488547a32fcad}{stm\-::\-Profile\-App\-Max}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a9c09be1c8e5f99a3dcb3bd4266069c42}{stm\-::\-Profile\-App\-All}, 
+\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a466ea15eb4c3d10520bd729f59123097}{stm\-::\-A\-L\-G\-\_\-\-M\-A\-X}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+filter\-\_\-t ring\-\_\-wf\mbox{[}R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S\mbox{]} \hyperlink{namespacestm_a637ea4515e2e4f7feb9e4ad31c3dea05}{stm\-::\-T\-M\-\_\-\-A\-L\-I\-G\-N} (16)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} orec\-\_\-t $\ast$ \hyperlink{namespacestm_a059f2742566005f0d199d47a4f3131d2}{stm\-::get\-\_\-orec} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} orec\-\_\-t $\ast$ \hyperlink{namespacestm_ac8e54342cd61b4426d70bff9a726d6c8}{stm\-::get\-\_\-nanorec} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} rrec\-\_\-t $\ast$ \hyperlink{namespacestm_a6cfd9a7082b443f355ecd09cb09c4752}{stm\-::get\-\_\-rrec} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} bytelock\-\_\-t $\ast$ \hyperlink{namespacestm_a149c0523622ed7c657ed050cb12a9511}{stm\-::get\-\_\-bytelock} (void $\ast$addr)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} bitlock\-\_\-t $\ast$ \hyperlink{namespacestm_a78aa4b1c9b53b6ff311d77d3118fec23}{stm\-::get\-\_\-bitlock} (void $\ast$addr)
+\item 
+{\footnotesize template$<$int I$>$ }\\void \hyperlink{namespacestm_abb2124c312981d2c1beeca03d28934b0}{stm\-::init\-T\-M} ()
+\item 
+int \hyperlink{namespacestm_ab7e623982dc0a84b9d3d4b53a4e7962e}{stm\-::stm\-\_\-name\-\_\-map} (const char $\ast$phasename)
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} void \hyperlink{namespacestm_af27d33b081d718c75a64717907e3dbd4}{stm\-::exp\-\_\-backoff} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} bool \hyperlink{namespacestm_a74784f193abf87bd1c6f688d6b25cacd}{stm\-::begin\-\_\-\-C\-G\-L} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+void \hyperlink{namespacestm_aaaa08c01741f1eba381fd4a279df12b1}{stm\-::\-On\-Read\-Write\-Commit} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, Read\-Barrier read\-\_\-ro, Write\-Barrier write\-\_\-ro, Commit\-Barrier commit\-\_\-ro)
+\item 
+void \hyperlink{namespacestm_ae985543dca9a983eefa517b3cec6ca95}{stm\-::\-On\-Read\-Write\-Commit} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a00287c50a719dcda144cc1cbc9e9ae4b}{stm\-::\-On\-Read\-Only\-Commit} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_ab817bbaf25e6eb6466682982ac4f623f}{stm\-::\-On\-C\-G\-L\-Commit} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a8b8f510beed1c9e35b1468cf6d9e3616}{stm\-::\-On\-Read\-Only\-C\-G\-L\-Commit} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_adf44a5de6f249cb9c4181a6bd3163638}{stm\-::\-On\-First\-Write} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, Read\-Barrier read\-\_\-rw, Write\-Barrier write\-\_\-rw, Commit\-Barrier commit\-\_\-rw)
+\item 
+void \hyperlink{namespacestm_a3240a1a3d22a030fc4e26fad68ad9ec7}{stm\-::\-Pre\-Rollback} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+scope\-\_\-t $\ast$ \hyperlink{namespacestm_ab1ed02e28e6963306b89990522792bb0}{stm\-::\-Post\-Rollback} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, Read\-Barrier read\-\_\-ro, Write\-Barrier write\-\_\-ro, Commit\-Barrier commit\-\_\-ro)
+\item 
+scope\-\_\-t $\ast$ \hyperlink{namespacestm_a4ccedba6cad535a1120ec0245f5282f8}{stm\-::\-Post\-Rollback} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+scope\-\_\-t $\ast$ \hyperlink{namespacestm_a102ef2437a8acd5cd91f32764a317639}{stm\-::\-Post\-Rollback\-No\-Trigger} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{namespacestm_a656ebc647a656fffc1ff640cb818c669}{stm\-::\-Read\-Barrier} r, \hyperlink{namespacestm_a90bdf03fe1fd826eba4bc9321e318798}{stm\-::\-Write\-Barrier} w, \hyperlink{namespacestm_a16e5b681852106be63d320e490c05165}{stm\-::\-Commit\-Barrier} c)
+\item 
+scope\-\_\-t $\ast$ \hyperlink{namespacestm_a6c5f7b165eafa6b8932bc7904f0bc8a2}{stm\-::\-Post\-Rollback\-No\-Trigger} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+void \hyperlink{namespacestm_a9506ca168bd37fecc44feddbfe8c6233}{stm\-::\-Go\-Turbo} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, Read\-Barrier r, Write\-Barrier w, Commit\-Barrier c)
+\item 
+bool \hyperlink{namespacestm_a6dac45d3016212cca24831c1bff9ec19}{stm\-::\-Check\-Turbo\-Mode} (Tx\-Thread $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, Read\-Barrier read\-\_\-turbo)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ac333fa1ea03145d9c5d601624ab507eb}{stm\-::\-N\-U\-M\-\_\-\-S\-T\-R\-I\-P\-E\-S} = 1048576
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_aff01348819bdc4955bee1bfbecd22c1a}{stm\-::\-R\-I\-N\-G\-\_\-\-E\-L\-E\-M\-E\-N\-T\-S} = 1024
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a803f7da233820c0cb019e9916ac87207}{stm\-::\-K\-A\-R\-M\-A\-\_\-\-F\-A\-C\-T\-O\-R} = 16
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a5db105c525a0fc1848a80d674c441052}{stm\-::\-B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-I\-N} = 4
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a998e4e0c954ef37eefab31f44ff016d7}{stm\-::\-B\-A\-C\-K\-O\-F\-F\-\_\-\-M\-A\-X} = 16
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ac811b3e7503fcf79d860e5a9f997f673}{stm\-::\-R\-R\-E\-C\-\_\-\-C\-O\-U\-N\-T} = 1048576
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ac13bcf2e446994b6bc58c29f207b61ab}{stm\-::\-W\-B\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E} = 16
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_ad8467c8fd66bee04be744334bc17b75e}{stm\-::\-E\-P\-O\-C\-H\-\_\-\-M\-A\-X} = I\-N\-T\-\_\-\-M\-A\-X
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_adf9ac55b7a24ef9715c8e425928b580b}{stm\-::\-A\-C\-T\-I\-V\-E} = 0
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_aac91219d15a450587c7cbb52db4b13fd}{stm\-::\-A\-B\-O\-R\-T\-E\-D} = 1
+\item 
+static const uint32\-\_\-t \hyperlink{namespacestm_a08d03c541bfa9d260904138ed0ccda6b}{stm\-::\-S\-W\-I\-S\-S\-\_\-\-P\-H\-A\-S\-E2} = 10
+\end{DoxyCompactItemize}

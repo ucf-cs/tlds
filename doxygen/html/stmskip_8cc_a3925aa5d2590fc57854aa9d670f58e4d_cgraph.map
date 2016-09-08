@@ -1,0 +1,27 @@
+<map id="stmskip_remove" name="stmskip_remove">
+<area shape="rect" id="node2" href="$stmskip_8cc.html#aa82848b11e972b9339ceadb6816cdb6a" title="search_predecessors" alt="" coords="173,106,320,133"/>
+<area shape="rect" id="node19" href="$stm_8h.html#a00de1ad150378181157510e2e5982f75" title="write_stm_blk" alt="" coords="369,194,471,221"/>
+<area shape="rect" id="node3" href="$stm_8h.html#a5594d7fca67459d7d9738436af589c5c" title="read_stm_blk" alt="" coords="370,86,470,113"/>
+<area shape="rect" id="node4" href="$stm__fraser_8c.html#aca0d40200c3502bdabeb44b27dfd4105" title="search_stm_tx_entry" alt="" coords="941,162,1085,189"/>
+<area shape="rect" id="node5" href="$stm__fraser_8c.html#a75177d9fa0335bd50b6fae9a68341443" title="alloc_stm_tx_entry" alt="" coords="535,111,667,138"/>
+<area shape="rect" id="node6" href="$stm__fraser_8c.html#a4e016a575dac2ee3931ef9ec94550d33" title="read_blk_data" alt="" coords="550,263,653,290"/>
+<area shape="rect" id="node17" href="$stm__fraser_8c.html#a31ea9d61a84d817aac10ffbc4ba9f296" title="commit_stm_tx" alt="" coords="756,213,868,239"/>
+<area shape="rect" id="node18" href="$stm__fraser_8c.html#ad6e1404788ef0e710c991c3e00fd5c39" title="abort_stm_tx" alt="" coords="552,61,651,87"/>
+<area shape="rect" id="node7" href="$stm__fraser_8c.html#a3baf54f8c2c6bdb79109865e5500cbd9" title="rc_up_descriptor" alt="" coords="954,238,1073,265"/>
+<area shape="rect" id="node9" href="$stm__fraser_8c.html#ad41e28910c7dbe8cfd98c9e0c168c9dc" title="rc_down_descriptor" alt="" coords="946,314,1081,341"/>
+<area shape="rect" id="node8" href="$stm__fraser_8c.html#a1a59f05201730ec9ba9a348070073e57" title="rc_delta_descriptor" alt="" coords="1134,238,1266,265"/>
+<area shape="rect" id="node10" href="$stm__fraser_8c.html#afd1a951db8c0f79e6bf20624e7dca338" title="release_descriptor" alt="" coords="1136,317,1264,343"/>
+<area shape="rect" id="node11" href="$gc_8c.html#a80f4a5c119aa70ab0452a73dfac21bbd" title="fr_gc_free" alt="" coords="1509,367,1589,394"/>
+<area shape="rect" id="node16" href="$gc_8c.html#a1e1a80c2d04496b5b70bd86b59510355" title="fr_gc_unsafe_free" alt="" coords="1315,367,1442,394"/>
+<area shape="rect" id="node12" href="$gc_8c.html#afb494e950c8c6b5661974748ae89b61e" title="chunk_from_cache" alt="" coords="1657,369,1789,395"/>
+<area shape="rect" id="node13" href="$gc_8c.html#a2a6f41199ed37925df4cc7b9909dc0ed" title="get_empty_chunks" alt="" coords="1838,423,1970,450"/>
+<area shape="rect" id="node14" href="$gc_8c.html#ac360b80b93ad00f0fba18a1993e1d6a0" title="add_chunks_to_list" alt="" coords="2019,474,2154,501"/>
+<area shape="rect" id="node15" href="$gc_8c.html#ade31863985bdaa481ade142bdfb6d99f" title="alloc_more_chunks" alt="" coords="2019,423,2154,450"/>
+<area shape="rect" id="node20" href="$gc_8c.html#a5c5981457deeeefd60df569f6265f59c" title="fr_gc_alloc" alt="" coords="1336,525,1421,551"/>
+<area shape="rect" id="node23" href="$namespaceanonymous__namespace_02libitm-5_813_0014_8cpp_03.html#a8b7be7cf3afef27c0623b844ce9116d8" title="anonymous_namespace\l\{libitm&#45;5::13,14::cpp\}\l::memcpy" alt="" coords="520,375,683,431"/>
+<area shape="rect" id="node21" href="$gc_8c.html#a6dffa65320ddab40d01f198433b3aeb6" title="get_alloc_chunk" alt="" coords="1491,474,1607,501"/>
+<area shape="rect" id="node22" href="$gc_8c.html#ae47e099483bed50da4e41b906c300b99" title="get_filled_chunks" alt="" coords="1661,423,1784,450"/>
+<area shape="rect" id="node24" href="$namespaceanonymous__namespace_02oreceager_8cpp_03.html#a7a88c7a7453bbfaca53eeac03b80a5d6" title="anonymous_namespace\l\{oreceager::cpp\}::read" alt="" coords="731,467,893,508"/>
+<area shape="rect" id="node25" href="$namespaceitm2stm.html#a334b9615cac957b9ce7a4743beaaaf53" title="itm2stm::add_bytes" alt="" coords="743,365,881,391"/>
+<area shape="rect" id="node26" href="$namespaceitm2stm.html#aa9908b113027ae21130750939980ee0b" title="itm2stm::offset_of" alt="" coords="748,415,876,442"/>
+</map>

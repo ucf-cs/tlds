@@ -1,0 +1,77 @@
+\hypertarget{oreclazy_8cpp}{\section{rstm/rstm-\/dev/libstm/algs/oreclazy.cpp File Reference}
+\label{oreclazy_8cpp}\index{rstm/rstm-\/dev/libstm/algs/oreclazy.\-cpp@{rstm/rstm-\/dev/libstm/algs/oreclazy.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}../profiling.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../cm.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}algs.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Redo\-R\-A\-W\-Utils.\-hpp\char`\"{}}\\*
+Include dependency graph for oreclazy.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{oreclazy_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02oreclazy_8cpp_03_1_1OrecLazy__Generic}{anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::\-Orec\-Lazy\-\_\-\-Generic$<$ C\-M $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03}{anonymous\-\_\-namespace\{oreclazy.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{oreclazy_8cpp_add3420c82214a1958223ce74219f01d3}{F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}(M\-A\-C\-R\-O)
+\item 
+\#define \hyperlink{oreclazy_8cpp_a87f0acbd6e0a3f9b42e79840d04acbb7}{I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}(I\-D, C\-M)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_a228bf9de4c09f23374e35032fba36d36}{anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::on\-Switch\-To} ()
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_acf582010356d11b17267b5a63fe72066}{anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(,))
+\item 
+\hyperlink{platform_8hpp_a1b173d22e57d9395897acbd8de62d505}{N\-O\-I\-N\-L\-I\-N\-E} void \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_a8434dca53f6bf86e1ac69c7d3c135251}{anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::validate} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$)
+\item 
+bool \hyperlink{namespaceanonymous__namespace_02oreclazy_8cpp_03_a91428098388d7e210055baacee0f0481}{anonymous\-\_\-namespace\{oreclazy.\-cpp\}\-::irrevoc} (\hyperlink{include_2stm_2macros_8hpp_acf117c2df6442342f6603e1a12fa3b5c}{S\-T\-M\-\_\-\-I\-R\-R\-E\-V\-O\-C\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, upper\-\_\-stack\-\_\-bound))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{oreclazy_8cpp_add3420c82214a1958223ce74219f01d3}{\index{oreclazy.\-cpp@{oreclazy.\-cpp}!F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y@{F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}}
+\index{F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y@{F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}!oreclazy.cpp@{oreclazy.\-cpp}}
+\subsubsection[{F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-R\-E\-A\-C\-H\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-C\-R\-O}
+\end{DoxyParamCaption}
+)}}\label{oreclazy_8cpp_add3420c82214a1958223ce74219f01d3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a0260e027cdf5da03688d8f52e424aa2c}{OrecLazy}, HyperAggressiveCM)          \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae753c643ecdbf464c575a05beddc7f2f}{OrecLazyHour}, HourglassCM)            \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a05d3f2b0b2a35d258304197f4ae3b554}{OrecLazyBackoff}, BackoffCM)           \(\backslash\)
+    MACRO(\hyperlink{namespacestm_ad75547cc23d4014783868b799d740145ae91d0788a4ee3c20a0526d120f72d1f2}{OrecLazyHB}, HourglassBackoffCM)
+\end{DoxyCode}
+\hypertarget{oreclazy_8cpp_a87f0acbd6e0a3f9b42e79840d04acbb7}{\index{oreclazy.\-cpp@{oreclazy.\-cpp}!I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y@{I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}}
+\index{I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y@{I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}!oreclazy.cpp@{oreclazy.\-cpp}}
+\subsubsection[{I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-\_\-\-O\-R\-E\-C\-L\-A\-Z\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{I\-D, }
+\item[{}]{C\-M}
+\end{DoxyParamCaption}
+)}}\label{oreclazy_8cpp_a87f0acbd6e0a3f9b42e79840d04acbb7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <>                                     \(\backslash\)
+    void initTM<ID>() \{                             \(\backslash\)
+        OrecLazy\_Generic<stm::CM>::Initialize(ID, #ID); \(\backslash\)
+    \}
+\end{DoxyCode}

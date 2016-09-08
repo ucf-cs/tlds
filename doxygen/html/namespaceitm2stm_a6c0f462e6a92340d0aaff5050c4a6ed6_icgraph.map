@@ -1,0 +1,14 @@
+<map id="itm2stm::base_of" name="itm2stm::base_of">
+<area shape="rect" id="node2" href="$namespaceitm2stm.html#ab76a65e75d1318bd4c1e4dab11096446" title="itm2stm::block_read" alt="" coords="209,24,349,51"/>
+<area shape="rect" id="node4" href="$namespaceitm2stm.html#a60fadbf1779483f2446ab9e30aa1f713" title="itm2stm::block_write" alt="" coords="207,81,350,108"/>
+<area shape="rect" id="node6" href="$namespaceitm2stm.html#ad658616dcf595ab736e02f0f4f274f67" title="itm2stm::block_set" alt="" coords="212,136,345,163"/>
+<area shape="rect" id="node10" href="$structanonymous__namespace_02libitm-5_812_8cpp_03_1_1INST_3_01T_00_01N_00_01false_01_4.html#a29d0eb26e3ee89f6089721cf49adc66b" title="anonymous_namespace\l\{libitm&#45;5.12.cpp\}::INST\l\&lt; T, N, false \&gt;::ReadUnaligned" alt="" coords="176,187,381,243"/>
+<area shape="rect" id="node11" href="$structanonymous__namespace_02libitm-5_812_8cpp_03_1_1INST_3_01T_00_01N_00_01false_01_4.html#a21991bb499faadba26398728a6aef3ef" title="anonymous_namespace\l\{libitm&#45;5.12.cpp\}::INST\l\&lt; T, N, false \&gt;::WriteUnaligned" alt="" coords="176,267,381,323"/>
+<area shape="rect" id="node12" href="$structanonymous__namespace_02libitm-5_812_8cpp_03_1_1INST_3_01T_00_010u_00_01true_01_4.html#a87767be3160584aa7bad991191ee0680" title="anonymous_namespace\l\{libitm&#45;5.12.cpp\}::INST\l\&lt; T, 0u, true \&gt;::Read" alt="" coords="197,347,360,403"/>
+<area shape="rect" id="node13" href="$structanonymous__namespace_02libitm-5_812_8cpp_03_1_1INST_3_01T_00_010u_00_01true_01_4.html#a35e8d273fefc1356f9886a762c67e78a" title="anonymous_namespace\l\{libitm&#45;5.12.cpp\}::INST\l\&lt; T, 0u, true \&gt;::Write" alt="" coords="197,427,360,483"/>
+<area shape="rect" id="node3" href="$structitm2stm_1_1BlockReader.html#a967b0c639adba84b3e30e4b47b332136" title="itm2stm::BlockReader\l::operator()" alt="" coords="429,5,581,46"/>
+<area shape="rect" id="node5" href="$structitm2stm_1_1BlockWriter.html#a0319dc33fb20ef4b25814997264e9248" title="itm2stm::BlockWriter\l::operator()" alt="" coords="433,70,578,111"/>
+<area shape="rect" id="node7" href="$libitm_8h.html#aba72a525646578b583d88b836970ef3e" title="_ITM_memsetW" alt="" coords="446,136,565,163"/>
+<area shape="rect" id="node8" href="$libitm_8h.html#a09b91a78eb9499640214b6a85558ebee" title="_ITM_memsetWaR" alt="" coords="437,187,573,213"/>
+<area shape="rect" id="node9" href="$libitm_8h.html#a49b97152af59269d61b65201510acfbc" title="_ITM_memsetWaW" alt="" coords="436,237,575,264"/>
+</map>

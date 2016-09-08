@@ -1,0 +1,209 @@
+\hypertarget{decoder_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/intruder/decoder.h File Reference}
+\label{decoder_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/decoder.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/intruder/decoder.\-h}}
+}
+{\ttfamily \#include \char`\"{}error.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for decoder.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{decoder_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{decoder_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{decoder_8h_a1e89455e43328c8ca797e74c5ec61f61}{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}(d, b, n)~\hyperlink{decoder_8h_a9c0d096ccb18b06d0a5a226757e50742}{T\-Mdecoder\-\_\-process}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  d, b, n)
+\item 
+\#define \hyperlink{decoder_8h_a4aa6bb31be3083f64cbcd2eeaf31bc45}{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E}(d, f)~\hyperlink{decoder_8h_a8f4ad3f6d47e4bd07e93e6418d240d05}{T\-Mdecoder\-\_\-get\-Complete}(\hyperlink{tm_8h_a030f4350a175fed7a99c242cbaa53258}{T\-M\-\_\-\-A\-R\-G}  d, f)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structdecoder}{decoder} \hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t} $\ast$ \hyperlink{decoder_8h_a4a3e9ee9fe6edab76ef637f69d63d0ac}{decoder\-\_\-alloc} ()
+\item 
+void \hyperlink{decoder_8h_a66ba50e48ba30722f2460cca28cb6d0b}{decoder\-\_\-free} (\hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t} $\ast$decoder\-Ptr)
+\item 
+\hyperlink{error_8h_aee2eebeab7eb8cadf7e38b56c4428cac}{int\-\_\-error\-\_\-t} \hyperlink{decoder_8h_a92136c16eda5a24a0eb6c60b9f96244a}{decoder\-\_\-process} (\hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t} $\ast$decoder\-Ptr, char $\ast$bytes, long num\-Byte)
+\item 
+\hyperlink{error_8h_aee2eebeab7eb8cadf7e38b56c4428cac}{int\-\_\-error\-\_\-t} \hyperlink{decoder_8h_a9c0d096ccb18b06d0a5a226757e50742}{T\-Mdecoder\-\_\-process} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t} $\ast$decoder\-Ptr, char $\ast$bytes, long num\-Byte)
+\item 
+char $\ast$ \hyperlink{decoder_8h_ada6ec36630baf537f35e4d10be9fc497}{decoder\-\_\-get\-Complete} (\hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t} $\ast$decoder\-Ptr, long $\ast$decoded\-Flow\-Id\-Ptr)
+\item 
+char $\ast$ \hyperlink{decoder_8h_a8f4ad3f6d47e4bd07e93e6418d240d05}{T\-Mdecoder\-\_\-get\-Complete} (\hyperlink{tm_8h_ae33cc3e793f29d38bc95aadf88d1b6f8}{T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} \hyperlink{decoder_8h_adffea8c79b0574669a059a454fb9e923}{decoder\-\_\-t} $\ast$decoder\-Ptr, long $\ast$decoded\-Flow\-Id\-Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{decoder_8h_a4aa6bb31be3083f64cbcd2eeaf31bc45}{\index{decoder.\-h@{decoder.\-h}!T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E@{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E}}
+\index{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E@{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E}!decoder.h@{decoder.\-h}}
+\subsubsection[{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-G\-E\-T\-C\-O\-M\-P\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~{\bf T\-Mdecoder\-\_\-get\-Complete}({\bf T\-M\-\_\-\-A\-R\-G}  d, f)}}\label{decoder_8h_a4aa6bb31be3083f64cbcd2eeaf31bc45}
+\hypertarget{decoder_8h_a1e89455e43328c8ca797e74c5ec61f61}{\index{decoder.\-h@{decoder.\-h}!T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S@{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}}
+\index{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S@{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}!decoder.h@{decoder.\-h}}
+\subsubsection[{T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-D\-E\-C\-O\-D\-E\-R\-\_\-\-P\-R\-O\-C\-E\-S\-S(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{b, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~{\bf T\-Mdecoder\-\_\-process}({\bf T\-M\-\_\-\-A\-R\-G}  d, b, n)}}\label{decoder_8h_a1e89455e43328c8ca797e74c5ec61f61}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{decoder_8h_adffea8c79b0574669a059a454fb9e923}{\index{decoder.\-h@{decoder.\-h}!decoder\-\_\-t@{decoder\-\_\-t}}
+\index{decoder\-\_\-t@{decoder\-\_\-t}!decoder.h@{decoder.\-h}}
+\subsubsection[{decoder\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf decoder} {\bf decoder\-\_\-t}}}\label{decoder_8h_adffea8c79b0574669a059a454fb9e923}
+
+
+\subsection{Function Documentation}
+\hypertarget{decoder_8h_a4a3e9ee9fe6edab76ef637f69d63d0ac}{\index{decoder.\-h@{decoder.\-h}!decoder\-\_\-alloc@{decoder\-\_\-alloc}}
+\index{decoder\-\_\-alloc@{decoder\-\_\-alloc}!decoder.h@{decoder.\-h}}
+\subsubsection[{decoder\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf decoder\-\_\-t}$\ast$ decoder\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{decoder_8h_a4a3e9ee9fe6edab76ef637f69d63d0ac}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{decoder_8h_a4a3e9ee9fe6edab76ef637f69d63d0ac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{decoder_8h_a4a3e9ee9fe6edab76ef637f69d63d0ac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{decoder_8h_a66ba50e48ba30722f2460cca28cb6d0b}{\index{decoder.\-h@{decoder.\-h}!decoder\-\_\-free@{decoder\-\_\-free}}
+\index{decoder\-\_\-free@{decoder\-\_\-free}!decoder.h@{decoder.\-h}}
+\subsubsection[{decoder\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void decoder\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf decoder\-\_\-t} $\ast$}]{decoder\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{decoder_8h_a66ba50e48ba30722f2460cca28cb6d0b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{decoder_8h_a66ba50e48ba30722f2460cca28cb6d0b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{decoder_8h_a66ba50e48ba30722f2460cca28cb6d0b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{decoder_8h_ada6ec36630baf537f35e4d10be9fc497}{\index{decoder.\-h@{decoder.\-h}!decoder\-\_\-get\-Complete@{decoder\-\_\-get\-Complete}}
+\index{decoder\-\_\-get\-Complete@{decoder\-\_\-get\-Complete}!decoder.h@{decoder.\-h}}
+\subsubsection[{decoder\-\_\-get\-Complete}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ decoder\-\_\-get\-Complete (
+\begin{DoxyParamCaption}
+\item[{{\bf decoder\-\_\-t} $\ast$}]{decoder\-Ptr, }
+\item[{long $\ast$}]{decoded\-Flow\-Id\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{decoder_8h_ada6ec36630baf537f35e4d10be9fc497}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{decoder_8h_ada6ec36630baf537f35e4d10be9fc497_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{decoder_8h_a92136c16eda5a24a0eb6c60b9f96244a}{\index{decoder.\-h@{decoder.\-h}!decoder\-\_\-process@{decoder\-\_\-process}}
+\index{decoder\-\_\-process@{decoder\-\_\-process}!decoder.h@{decoder.\-h}}
+\subsubsection[{decoder\-\_\-process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int\-\_\-error\-\_\-t} decoder\-\_\-process (
+\begin{DoxyParamCaption}
+\item[{{\bf decoder\-\_\-t} $\ast$}]{decoder\-Ptr, }
+\item[{char $\ast$}]{bytes, }
+\item[{long}]{num\-Byte}
+\end{DoxyParamCaption}
+)}}\label{decoder_8h_a92136c16eda5a24a0eb6c60b9f96244a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{decoder_8h_a92136c16eda5a24a0eb6c60b9f96244a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{decoder_8h_a8f4ad3f6d47e4bd07e93e6418d240d05}{\index{decoder.\-h@{decoder.\-h}!T\-Mdecoder\-\_\-get\-Complete@{T\-Mdecoder\-\_\-get\-Complete}}
+\index{T\-Mdecoder\-\_\-get\-Complete@{T\-Mdecoder\-\_\-get\-Complete}!decoder.h@{decoder.\-h}}
+\subsubsection[{T\-Mdecoder\-\_\-get\-Complete}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ T\-Mdecoder\-\_\-get\-Complete (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf decoder\-\_\-t} $\ast$}]{decoder\-Ptr, }
+\item[{long $\ast$}]{decoded\-Flow\-Id\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{decoder_8h_a8f4ad3f6d47e4bd07e93e6418d240d05}
+\hypertarget{decoder_8h_a9c0d096ccb18b06d0a5a226757e50742}{\index{decoder.\-h@{decoder.\-h}!T\-Mdecoder\-\_\-process@{T\-Mdecoder\-\_\-process}}
+\index{T\-Mdecoder\-\_\-process@{T\-Mdecoder\-\_\-process}!decoder.h@{decoder.\-h}}
+\subsubsection[{T\-Mdecoder\-\_\-process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int\-\_\-error\-\_\-t} T\-Mdecoder\-\_\-process (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-M\-\_\-\-A\-R\-G\-D\-E\-C\-L} {\bf decoder\-\_\-t} $\ast$}]{decoder\-Ptr, }
+\item[{char $\ast$}]{bytes, }
+\item[{long}]{num\-Byte}
+\end{DoxyParamCaption}
+)}}\label{decoder_8h_a9c0d096ccb18b06d0a5a226757e50742}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{decoder_8h_a9c0d096ccb18b06d0a5a226757e50742_cgraph}
+\end{center}
+\end{figure}
+
+

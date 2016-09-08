@@ -1,0 +1,227 @@
+\hypertarget{yada_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/yada/yada.c File Reference}
+\label{yada_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/yada.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/yada/yada.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$getopt.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}region.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}heap.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+Include dependency graph for yada.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{yada_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{yada_8c_a730616d0d1f8f681fb6125c2cb623ea1}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X}~(\char`\"{}\char`\"{})
+\item 
+\#define \hyperlink{yada_8c_a905f36df09e633b84a7ef81917226869}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D}~(1\-L)
+\item 
+\#define \hyperlink{yada_8c_a9a53861ca5a33ff8c99c536552a0bdd9}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E}~(20.\-0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{yada_8c_afa36de360eec20abef9d05d036b8b285}{display\-Usage} (const char $\ast$app\-Name)
+\item 
+static void \hyperlink{yada_8c_accf0fd4bc6c5b765d7fc74882d20f222}{parse\-Args} (long argc, char $\ast$const argv\mbox{[}$\,$\mbox{]})
+\item 
+static long \hyperlink{yada_8c_ab7e0f7542cccd7ef3d24f89dd74614c5}{initialize\-Work} (\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$work\-Heap\-Ptr, \hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$mesh\-Ptr)
+\item 
+void \hyperlink{yada_8c_a2e9c5136d19b1a95fc427e0852deab5c}{process} ()
+\item 
+\hyperlink{yada_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{M\-A\-I\-N} (argc, argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{yada_8c_adff5fe0870f2038f95ef4afae1aea352}{global\-\_\-input\-Prefix} = \hyperlink{yada_8c_a730616d0d1f8f681fb6125c2cb623ea1}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X}
+\item 
+long \hyperlink{yada_8c_a445a4378e28101607d686d64ed3f3612}{global\-\_\-num\-Thread} = \hyperlink{yada_8c_a905f36df09e633b84a7ef81917226869}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D}
+\item 
+double \hyperlink{yada_8c_a1a65f0b28b54de0b18db3031d7f84085}{global\-\_\-angle\-Constraint} = \hyperlink{yada_8c_a9a53861ca5a33ff8c99c536552a0bdd9}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E}
+\item 
+\hyperlink{mesh_8h_a60a2e3662036241c92ea399074395589}{mesh\-\_\-t} $\ast$ \hyperlink{yada_8c_a75fc77ef21144477e15ae5c56f651c24}{global\-\_\-mesh\-Ptr}
+\item 
+\hyperlink{heap_8h_ad3bb09826584eab4757c6cd2f988e7d6}{heap\-\_\-t} $\ast$ \hyperlink{yada_8c_a0efe41db7d6602f5154191cc6ff4ce49}{global\-\_\-work\-Heap\-Ptr}
+\item 
+long \hyperlink{yada_8c_ab9217e75cb403da1d08c4870ffa6c48e}{global\-\_\-total\-Num\-Added} = 0
+\item 
+long \hyperlink{yada_8c_ad4c35a024584c40ed73a2dddf687b43e}{global\-\_\-num\-Process} = 0
+\item 
+\hyperlink{lehigh_8h_a493abab632f5cea71ed0baaef40590aa}{comparator\-\_\-t} yada\-\_\-heapcompare \& \hyperlink{yada_8c_acec9610eacfa47e103cc38c2a69dd0b5}{element\-\_\-heap\-Compare}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{yada_8c_a9a53861ca5a33ff8c99c536552a0bdd9}{\index{yada.\-c@{yada.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E}!yada.c@{yada.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E~(20.\-0)}}\label{yada_8c_a9a53861ca5a33ff8c99c536552a0bdd9}
+\hypertarget{yada_8c_a730616d0d1f8f681fb6125c2cb623ea1}{\index{yada.\-c@{yada.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X}!yada.c@{yada.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X~(\char`\"{}\char`\"{})}}\label{yada_8c_a730616d0d1f8f681fb6125c2cb623ea1}
+\hypertarget{yada_8c_a905f36df09e633b84a7ef81917226869}{\index{yada.\-c@{yada.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D}!yada.c@{yada.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D~(1\-L)}}\label{yada_8c_a905f36df09e633b84a7ef81917226869}
+
+
+\subsection{Function Documentation}
+\hypertarget{yada_8c_afa36de360eec20abef9d05d036b8b285}{\index{yada.\-c@{yada.\-c}!display\-Usage@{display\-Usage}}
+\index{display\-Usage@{display\-Usage}!yada.c@{yada.\-c}}
+\subsubsection[{display\-Usage}]{\setlength{\rightskip}{0pt plus 5cm}static void display\-Usage (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{app\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{yada_8c_afa36de360eec20abef9d05d036b8b285}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{yada_8c_afa36de360eec20abef9d05d036b8b285_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{yada_8c_ab7e0f7542cccd7ef3d24f89dd74614c5}{\index{yada.\-c@{yada.\-c}!initialize\-Work@{initialize\-Work}}
+\index{initialize\-Work@{initialize\-Work}!yada.c@{yada.\-c}}
+\subsubsection[{initialize\-Work}]{\setlength{\rightskip}{0pt plus 5cm}static long initialize\-Work (
+\begin{DoxyParamCaption}
+\item[{{\bf heap\-\_\-t} $\ast$}]{work\-Heap\-Ptr, }
+\item[{{\bf mesh\-\_\-t} $\ast$}]{mesh\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{yada_8c_ab7e0f7542cccd7ef3d24f89dd74614c5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{yada_8c_ab7e0f7542cccd7ef3d24f89dd74614c5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{yada_8c_ab7e0f7542cccd7ef3d24f89dd74614c5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{yada_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{\index{yada.\-c@{yada.\-c}!M\-A\-I\-N@{M\-A\-I\-N}}
+\index{M\-A\-I\-N@{M\-A\-I\-N}!yada.c@{yada.\-c}}
+\subsubsection[{M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}M\-A\-I\-N (
+\begin{DoxyParamCaption}
+\item[{argc}]{, }
+\item[{argv}]{}
+\end{DoxyParamCaption}
+)}}\label{yada_8c_a40c5c0b0d4eb7b59a91108269f69dc89}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{yada_8c_a40c5c0b0d4eb7b59a91108269f69dc89_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{yada_8c_accf0fd4bc6c5b765d7fc74882d20f222}{\index{yada.\-c@{yada.\-c}!parse\-Args@{parse\-Args}}
+\index{parse\-Args@{parse\-Args}!yada.c@{yada.\-c}}
+\subsubsection[{parse\-Args}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-Args (
+\begin{DoxyParamCaption}
+\item[{long}]{argc, }
+\item[{char $\ast$const}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{yada_8c_accf0fd4bc6c5b765d7fc74882d20f222}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{yada_8c_accf0fd4bc6c5b765d7fc74882d20f222_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{yada_8c_accf0fd4bc6c5b765d7fc74882d20f222_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{yada_8c_a2e9c5136d19b1a95fc427e0852deab5c}{\index{yada.\-c@{yada.\-c}!process@{process}}
+\index{process@{process}!yada.c@{yada.\-c}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{yada_8c_a2e9c5136d19b1a95fc427e0852deab5c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{yada_8c_a2e9c5136d19b1a95fc427e0852deab5c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{yada_8c_acec9610eacfa47e103cc38c2a69dd0b5}{\index{yada.\-c@{yada.\-c}!element\-\_\-heap\-Compare@{element\-\_\-heap\-Compare}}
+\index{element\-\_\-heap\-Compare@{element\-\_\-heap\-Compare}!yada.c@{yada.\-c}}
+\subsubsection[{element\-\_\-heap\-Compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf comparator\-\_\-t} yada\-\_\-heapcompare\& element\-\_\-heap\-Compare}}\label{yada_8c_acec9610eacfa47e103cc38c2a69dd0b5}
+\hypertarget{yada_8c_a1a65f0b28b54de0b18db3031d7f84085}{\index{yada.\-c@{yada.\-c}!global\-\_\-angle\-Constraint@{global\-\_\-angle\-Constraint}}
+\index{global\-\_\-angle\-Constraint@{global\-\_\-angle\-Constraint}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-angle\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}double global\-\_\-angle\-Constraint = {\bf P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-A\-N\-G\-L\-E}}}\label{yada_8c_a1a65f0b28b54de0b18db3031d7f84085}
+\hypertarget{yada_8c_adff5fe0870f2038f95ef4afae1aea352}{\index{yada.\-c@{yada.\-c}!global\-\_\-input\-Prefix@{global\-\_\-input\-Prefix}}
+\index{global\-\_\-input\-Prefix@{global\-\_\-input\-Prefix}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-input\-Prefix}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ global\-\_\-input\-Prefix = {\bf P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-P\-U\-T\-P\-R\-E\-F\-I\-X}}}\label{yada_8c_adff5fe0870f2038f95ef4afae1aea352}
+\hypertarget{yada_8c_a75fc77ef21144477e15ae5c56f651c24}{\index{yada.\-c@{yada.\-c}!global\-\_\-mesh\-Ptr@{global\-\_\-mesh\-Ptr}}
+\index{global\-\_\-mesh\-Ptr@{global\-\_\-mesh\-Ptr}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-mesh\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\-\_\-t}$\ast$ global\-\_\-mesh\-Ptr}}\label{yada_8c_a75fc77ef21144477e15ae5c56f651c24}
+\hypertarget{yada_8c_ad4c35a024584c40ed73a2dddf687b43e}{\index{yada.\-c@{yada.\-c}!global\-\_\-num\-Process@{global\-\_\-num\-Process}}
+\index{global\-\_\-num\-Process@{global\-\_\-num\-Process}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-num\-Process}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-num\-Process = 0}}\label{yada_8c_ad4c35a024584c40ed73a2dddf687b43e}
+\hypertarget{yada_8c_a445a4378e28101607d686d64ed3f3612}{\index{yada.\-c@{yada.\-c}!global\-\_\-num\-Thread@{global\-\_\-num\-Thread}}
+\index{global\-\_\-num\-Thread@{global\-\_\-num\-Thread}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-num\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-num\-Thread = {\bf P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-T\-H\-R\-E\-A\-D}}}\label{yada_8c_a445a4378e28101607d686d64ed3f3612}
+\hypertarget{yada_8c_ab9217e75cb403da1d08c4870ffa6c48e}{\index{yada.\-c@{yada.\-c}!global\-\_\-total\-Num\-Added@{global\-\_\-total\-Num\-Added}}
+\index{global\-\_\-total\-Num\-Added@{global\-\_\-total\-Num\-Added}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-total\-Num\-Added}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-total\-Num\-Added = 0}}\label{yada_8c_ab9217e75cb403da1d08c4870ffa6c48e}
+\hypertarget{yada_8c_a0efe41db7d6602f5154191cc6ff4ce49}{\index{yada.\-c@{yada.\-c}!global\-\_\-work\-Heap\-Ptr@{global\-\_\-work\-Heap\-Ptr}}
+\index{global\-\_\-work\-Heap\-Ptr@{global\-\_\-work\-Heap\-Ptr}!yada.c@{yada.\-c}}
+\subsubsection[{global\-\_\-work\-Heap\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf heap\-\_\-t}$\ast$ global\-\_\-work\-Heap\-Ptr}}\label{yada_8c_a0efe41db7d6602f5154191cc6ff4ce49}

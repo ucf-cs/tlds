@@ -1,0 +1,124 @@
+\hypertarget{memory_8h}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/memory.h File Reference}
+\label{memory_8h}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/memory.\-h@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/memory.\-h}}
+}
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for memory.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{memory_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structmemory}{memory} \hyperlink{memory_8h_ac668809198b2a20ad9ba96ab71499948}{memory\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{memory_8h_a94798fdadfbf49a7c658ace669a1d310a505c2eeafc39997f2b575d28efc54125}{D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y} = 16, 
+\hyperlink{memory_8h_a94798fdadfbf49a7c658ace669a1d310a93a007e3d10959cab6564bc6714c6130}{D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{memory_8h_a1adac4de42423ed164a57970764b4885}{memory\-\_\-init} (long num\-Thread, size\-\_\-t init\-Block\-Capacity, long block\-Growth\-Factor)
+\item 
+void \hyperlink{memory_8h_a7489b7cfac3294cff72aa4fa5211bb44}{memory\-\_\-destroy} ()
+\item 
+void $\ast$ \hyperlink{memory_8h_a01aec66fde967f5fe90fc8426d8d1871}{memory\-\_\-get} (long thread\-Id, size\-\_\-t num\-Byte)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{memory_8h_ac668809198b2a20ad9ba96ab71499948}{\index{memory.\-h@{memory.\-h}!memory\-\_\-t@{memory\-\_\-t}}
+\index{memory\-\_\-t@{memory\-\_\-t}!memory.h@{memory.\-h}}
+\subsubsection[{memory\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf memory} {\bf memory\-\_\-t}}}\label{memory_8h_ac668809198b2a20ad9ba96ab71499948}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{memory_8h_a94798fdadfbf49a7c658ace669a1d310}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{memory_8h_a94798fdadfbf49a7c658ace669a1d310}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y@{D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}!memory.\-h@{memory.\-h}}\index{memory.\-h@{memory.\-h}!D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y@{D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}}\item[{\em 
+\hypertarget{memory_8h_a94798fdadfbf49a7c658ace669a1d310a505c2eeafc39997f2b575d28efc54125}{D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}\label{memory_8h_a94798fdadfbf49a7c658ace669a1d310a505c2eeafc39997f2b575d28efc54125}
+}]\index{D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R@{D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R}!memory.\-h@{memory.\-h}}\index{memory.\-h@{memory.\-h}!D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R@{D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R}}\item[{\em 
+\hypertarget{memory_8h_a94798fdadfbf49a7c658ace669a1d310a93a007e3d10959cab6564bc6714c6130}{D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-G\-R\-O\-W\-T\-H\-\_\-\-F\-A\-C\-T\-O\-R}\label{memory_8h_a94798fdadfbf49a7c658ace669a1d310a93a007e3d10959cab6564bc6714c6130}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{memory_8h_a7489b7cfac3294cff72aa4fa5211bb44}{\index{memory.\-h@{memory.\-h}!memory\-\_\-destroy@{memory\-\_\-destroy}}
+\index{memory\-\_\-destroy@{memory\-\_\-destroy}!memory.h@{memory.\-h}}
+\subsubsection[{memory\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void memory\-\_\-destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{memory_8h_a7489b7cfac3294cff72aa4fa5211bb44}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8h_a7489b7cfac3294cff72aa4fa5211bb44_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8h_a01aec66fde967f5fe90fc8426d8d1871}{\index{memory.\-h@{memory.\-h}!memory\-\_\-get@{memory\-\_\-get}}
+\index{memory\-\_\-get@{memory\-\_\-get}!memory.h@{memory.\-h}}
+\subsubsection[{memory\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ memory\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{long}]{thread\-Id, }
+\item[{size\-\_\-t}]{num\-Byte}
+\end{DoxyParamCaption}
+)}}\label{memory_8h_a01aec66fde967f5fe90fc8426d8d1871}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8h_a01aec66fde967f5fe90fc8426d8d1871_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8h_a1adac4de42423ed164a57970764b4885}{\index{memory.\-h@{memory.\-h}!memory\-\_\-init@{memory\-\_\-init}}
+\index{memory\-\_\-init@{memory\-\_\-init}!memory.h@{memory.\-h}}
+\subsubsection[{memory\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} memory\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Thread, }
+\item[{size\-\_\-t}]{init\-Block\-Capacity, }
+\item[{long}]{block\-Growth\-Factor}
+\end{DoxyParamCaption}
+)}}\label{memory_8h_a1adac4de42423ed164a57970764b4885}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{memory_8h_a1adac4de42423ed164a57970764b4885_cgraph}
+\end{center}
+\end{figure}
+
+

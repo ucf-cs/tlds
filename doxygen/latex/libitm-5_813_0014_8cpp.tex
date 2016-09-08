@@ -1,0 +1,753 @@
+\hypertarget{libitm-5_813_0014_8cpp}{\section{rstm/rstm-\/dev/libitm2stm/libitm-\/5.13,14.cpp File Reference}
+\label{libitm-5_813_0014_8cpp}\index{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-13,14.\-cpp@{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-13,14.\-cpp}}
+}
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include \char`\"{}libitm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Transaction.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Block\-Operations.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Utilities.\-h\char`\"{}}\\*
+Include dependency graph for libitm-\/5.13,14.cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02libitm-5_813_0014_8cpp_03}{anonymous\-\_\-namespace\{libitm-\/5.\-13,14.\-cpp\}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename R , typename W $>$ }\\void \hyperlink{namespaceanonymous__namespace_02libitm-5_813_0014_8cpp_03_a8b7be7cf3afef27c0623b844ce9116d8}{anonymous\-\_\-namespace\{libitm-\/5.\-13,14.\-cpp\}\-::memcpy} (void $\ast$to, const void $\ast$from, size\-\_\-t len, R reader, W writer)
+\item 
+size\-\_\-t \hyperlink{namespaceanonymous__namespace_02libitm-5_813_0014_8cpp_03_a8dd7dae76248648e1534f566e0af169b}{anonymous\-\_\-namespace\{libitm-\/5.\-13,14.\-cpp\}\-::builtin\-\_\-memcpy\-\_\-wrapper} (void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+size\-\_\-t \hyperlink{namespaceanonymous__namespace_02libitm-5_813_0014_8cpp_03_a721a39277089e6abf82f33aa6d022585}{anonymous\-\_\-namespace\{libitm-\/5.\-13,14.\-cpp\}\-::builtin\-\_\-memmove\-\_\-wrapper} (void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a2cb2b95c71020f45d0a014edc3741b67}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a79c79376d490c451bce9d50fe9ef568a}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a39bf8783d370778793db84e3c105294a}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a7a812c0eb28e3a03762bd9fe03fbc347}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a1558ad32aecd43142de0541f6a203f62}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a42a0d979ff23bb05b90f1b29c542ce0f}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a1dad394b331ec5ddd775c360fd1f9000}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a0c2b2b487a894cecf01b4fdac9fa19ff}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a3d396e4d94aa7226c2fa5cab2309ba58}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a5cbf5894ac840f0321c5629eb70f126d}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a309a66b77656078766a1466e01f01f7e}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a9fd986ec251b625445d9e38a2e5ecc60}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a037e1ef8a72c7040dbf9d45e17d37674}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_afb9972f25cc9363a0931bddcb694f528}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a07c938b7a808cfc49f83b12aa5535b30}{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a34cba8048205d01fe750a62775d02bf7}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a7d920991e40a91c39a52e819cc2ace72}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a4c22cab147daa561788cd63ec8bed1ed}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a3275cf58741d8a8a15af2bf7f4cb0a6f}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a57220a8b505e83c0f5123a4e1079262f}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_af41f7bad3329219dd2a4c353312955c2}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a2acd7d043bcdf7e43975c7f31df9af89}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a30774784741bc966fdc1d48f0b49c14e}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_ad67fff80abcc85541320321a01b806d9}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a6b3f7c57c1eab3748156256b6e0637c1}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a02df312c9487f106612391331aa356f4}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a522bff7c271fc2421f28119d5f96d742}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a1d60f94365761c517282a08ab86a97ae}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a0dcde68c93e5acb621fe3600c1fe9502}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\item 
+void \hyperlink{libitm-5_813_0014_8cpp_a7e39eef88200efc88a6cd89c12734f12}{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td, void $\ast$to, const void $\ast$from, size\-\_\-t n)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{libitm-5_813_0014_8cpp_a2cb2b95c71020f45d0a014edc3741b67}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a2cb2b95c71020f45d0a014edc3741b67}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a2cb2b95c71020f45d0a014edc3741b67_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a79c79376d490c451bce9d50fe9ef568a}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a79c79376d490c451bce9d50fe9ef568a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a79c79376d490c451bce9d50fe9ef568a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a39bf8783d370778793db84e3c105294a}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rn\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a39bf8783d370778793db84e3c105294a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a39bf8783d370778793db84e3c105294a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a0c2b2b487a894cecf01b4fdac9fa19ff}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a0c2b2b487a894cecf01b4fdac9fa19ff}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a0c2b2b487a894cecf01b4fdac9fa19ff_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a3d396e4d94aa7226c2fa5cab2309ba58}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a3d396e4d94aa7226c2fa5cab2309ba58}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a3d396e4d94aa7226c2fa5cab2309ba58_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a5cbf5894ac840f0321c5629eb70f126d}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a5cbf5894ac840f0321c5629eb70f126d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a5cbf5894ac840f0321c5629eb70f126d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a309a66b77656078766a1466e01f01f7e}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-R\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a309a66b77656078766a1466e01f01f7e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a309a66b77656078766a1466e01f01f7e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a9fd986ec251b625445d9e38a2e5ecc60}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a9fd986ec251b625445d9e38a2e5ecc60}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a9fd986ec251b625445d9e38a2e5ecc60_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a037e1ef8a72c7040dbf9d45e17d37674}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a037e1ef8a72c7040dbf9d45e17d37674}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a037e1ef8a72c7040dbf9d45e17d37674_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_afb9972f25cc9363a0931bddcb694f528}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_afb9972f25cc9363a0931bddcb694f528}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_afb9972f25cc9363a0931bddcb694f528_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a07c938b7a808cfc49f83b12aa5535b30}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rta\-W\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a07c938b7a808cfc49f83b12aa5535b30}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a07c938b7a808cfc49f83b12aa5535b30_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a7a812c0eb28e3a03762bd9fe03fbc347}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a7a812c0eb28e3a03762bd9fe03fbc347}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a7a812c0eb28e3a03762bd9fe03fbc347_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a1558ad32aecd43142de0541f6a203f62}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a1558ad32aecd43142de0541f6a203f62}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a1558ad32aecd43142de0541f6a203f62_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a42a0d979ff23bb05b90f1b29c542ce0f}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a42a0d979ff23bb05b90f1b29c542ce0f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a42a0d979ff23bb05b90f1b29c542ce0f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a1dad394b331ec5ddd775c360fd1f9000}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memcpy\-Rt\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a1dad394b331ec5ddd775c360fd1f9000}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a1dad394b331ec5ddd775c360fd1f9000_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a34cba8048205d01fe750a62775d02bf7}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a34cba8048205d01fe750a62775d02bf7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a34cba8048205d01fe750a62775d02bf7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a7d920991e40a91c39a52e819cc2ace72}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a7d920991e40a91c39a52e819cc2ace72}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a7d920991e40a91c39a52e819cc2ace72_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a4c22cab147daa561788cd63ec8bed1ed}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rn\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a4c22cab147daa561788cd63ec8bed1ed}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a4c22cab147daa561788cd63ec8bed1ed_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a30774784741bc966fdc1d48f0b49c14e}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a30774784741bc966fdc1d48f0b49c14e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a30774784741bc966fdc1d48f0b49c14e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_ad67fff80abcc85541320321a01b806d9}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_ad67fff80abcc85541320321a01b806d9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_ad67fff80abcc85541320321a01b806d9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a6b3f7c57c1eab3748156256b6e0637c1}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a6b3f7c57c1eab3748156256b6e0637c1}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a6b3f7c57c1eab3748156256b6e0637c1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a02df312c9487f106612391331aa356f4}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-R\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a02df312c9487f106612391331aa356f4}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a02df312c9487f106612391331aa356f4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a522bff7c271fc2421f28119d5f96d742}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a522bff7c271fc2421f28119d5f96d742}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a522bff7c271fc2421f28119d5f96d742_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a1d60f94365761c517282a08ab86a97ae}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a1d60f94365761c517282a08ab86a97ae}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a1d60f94365761c517282a08ab86a97ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a0dcde68c93e5acb621fe3600c1fe9502}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a0dcde68c93e5acb621fe3600c1fe9502}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a0dcde68c93e5acb621fe3600c1fe9502_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a7e39eef88200efc88a6cd89c12734f12}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rta\-W\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a7e39eef88200efc88a6cd89c12734f12}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a7e39eef88200efc88a6cd89c12734f12_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a3275cf58741d8a8a15af2bf7f4cb0a6f}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wn (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a3275cf58741d8a8a15af2bf7f4cb0a6f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a3275cf58741d8a8a15af2bf7f4cb0a6f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a57220a8b505e83c0f5123a4e1079262f}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wt (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a57220a8b505e83c0f5123a4e1079262f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a57220a8b505e83c0f5123a4e1079262f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_af41f7bad3329219dd2a4c353312955c2}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_af41f7bad3329219dd2a4c353312955c2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_af41f7bad3329219dd2a4c353312955c2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_813_0014_8cpp_a2acd7d043bcdf7e43975c7f31df9af89}{\index{libitm-\/5.\-13,14.\-cpp@{libitm-\/5.\-13,14.\-cpp}!\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W}}
+\index{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W@{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W}!libitm-5.13,14.cpp@{libitm-\/5.\-13,14.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-memmove\-Rt\-Wta\-W (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td, }
+\item[{void $\ast$}]{to, }
+\item[{const void $\ast$}]{from, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_813_0014_8cpp_a2acd7d043bcdf7e43975c7f31df9af89}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_813_0014_8cpp_a2acd7d043bcdf7e43975c7f31df9af89_cgraph}
+\end{center}
+\end{figure}
+
+

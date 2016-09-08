@@ -1,0 +1,6 @@
+<map id="backoff" name="backoff">
+<area shape="rect" id="node2" href="$locks_8hpp.html#a61d1a83c5eb0a8300dce2fbb225b078c" title="tatas_acquire_slowpath" alt="" coords="121,5,279,32"/>
+<area shape="rect" id="node3" href="$locks_8hpp.html#a0947d93866d35f8a9febdc3928bf7276" title="tatas_acquire" alt="" coords="329,5,429,32"/>
+<area shape="rect" id="node4" href="$namespacestm.html#a74784f193abf87bd1c6f688d6b25cacd" title="stm::begin_CGL" alt="" coords="477,5,595,32"/>
+<area shape="rect" id="node5" href="$namespacestm.html#a976f5145078328564e9e05c97bce777e" title="stm::initTM\&lt; CGL \&gt;" alt="" coords="643,5,781,32"/>
+</map>

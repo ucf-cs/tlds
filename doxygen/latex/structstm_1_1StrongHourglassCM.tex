@@ -1,0 +1,115 @@
+\hypertarget{structstm_1_1StrongHourglassCM}{\section{stm\-:\-:Strong\-Hourglass\-C\-M Struct Reference}
+\label{structstm_1_1StrongHourglassCM}\index{stm\-::\-Strong\-Hourglass\-C\-M@{stm\-::\-Strong\-Hourglass\-C\-M}}
+}
+
+
+{\ttfamily \#include $<$cm.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:Strong\-Hourglass\-C\-M\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{structstm_1_1StrongHourglassCM__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structstm_1_1StrongHourglassCM_a558fad680abe604244a1c247b0667af8}{on\-Begin} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1StrongHourglassCM_a88a1d0eda48d3e22dba6bd4c8a7a4add}{on\-Abort} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static void \hyperlink{structstm_1_1StrongHourglassCM_a2960f3c8e24d6cb9f67cb2b485c3f158}{on\-Commit} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+static bool \hyperlink{structstm_1_1StrongHourglassCM_a8d1566001e3546712a664c1553460353}{may\-Kill} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$, uint32\-\_\-t)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\-\_\-t \hyperlink{structstm_1_1StrongHourglassCM_acb9da950e9ef9a20b3e1f78ff0247dbd}{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Strong\-Hourglass C\-M\-: a concerned transaction serializes all execution. The aborted transaction who wishes to enter the hourglass waits until he can do so 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1StrongHourglassCM_a8d1566001e3546712a664c1553460353}{\index{stm\-::\-Strong\-Hourglass\-C\-M@{stm\-::\-Strong\-Hourglass\-C\-M}!may\-Kill@{may\-Kill}}
+\index{may\-Kill@{may\-Kill}!stm::StrongHourglassCM@{stm\-::\-Strong\-Hourglass\-C\-M}}
+\subsubsection[{may\-Kill}]{\setlength{\rightskip}{0pt plus 5cm}static bool stm\-::\-Strong\-Hourglass\-C\-M\-::may\-Kill (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{, }
+\item[{uint32\-\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1StrongHourglassCM_a8d1566001e3546712a664c1553460353}
+During the transaction, always abort conflicting transactions \hypertarget{structstm_1_1StrongHourglassCM_a88a1d0eda48d3e22dba6bd4c8a7a4add}{\index{stm\-::\-Strong\-Hourglass\-C\-M@{stm\-::\-Strong\-Hourglass\-C\-M}!on\-Abort@{on\-Abort}}
+\index{on\-Abort@{on\-Abort}!stm::StrongHourglassCM@{stm\-::\-Strong\-Hourglass\-C\-M}}
+\subsubsection[{on\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Strong\-Hourglass\-C\-M\-::on\-Abort (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1StrongHourglassCM_a88a1d0eda48d3e22dba6bd4c8a7a4add}
+On abort, get a timestamp if I exceed some threshold 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1StrongHourglassCM_a88a1d0eda48d3e22dba6bd4c8a7a4add_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1StrongHourglassCM_a558fad680abe604244a1c247b0667af8}{\index{stm\-::\-Strong\-Hourglass\-C\-M@{stm\-::\-Strong\-Hourglass\-C\-M}!on\-Begin@{on\-Begin}}
+\index{on\-Begin@{on\-Begin}!stm::StrongHourglassCM@{stm\-::\-Strong\-Hourglass\-C\-M}}
+\subsubsection[{on\-Begin}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Strong\-Hourglass\-C\-M\-::on\-Begin (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1StrongHourglassCM_a558fad680abe604244a1c247b0667af8}
+On begin, block if there is a distinguished transaction 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1StrongHourglassCM_a558fad680abe604244a1c247b0667af8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1StrongHourglassCM_a2960f3c8e24d6cb9f67cb2b485c3f158}{\index{stm\-::\-Strong\-Hourglass\-C\-M@{stm\-::\-Strong\-Hourglass\-C\-M}!on\-Commit@{on\-Commit}}
+\index{on\-Commit@{on\-Commit}!stm::StrongHourglassCM@{stm\-::\-Strong\-Hourglass\-C\-M}}
+\subsubsection[{on\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}static void stm\-::\-Strong\-Hourglass\-C\-M\-::on\-Commit (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1StrongHourglassCM_a2960f3c8e24d6cb9f67cb2b485c3f158}
+On commit, release my timestamp 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1StrongHourglassCM_a2960f3c8e24d6cb9f67cb2b485c3f158_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1StrongHourglassCM_acb9da950e9ef9a20b3e1f78ff0247dbd}{\index{stm\-::\-Strong\-Hourglass\-C\-M@{stm\-::\-Strong\-Hourglass\-C\-M}!A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}}
+\index{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}!stm::StrongHourglassCM@{stm\-::\-Strong\-Hourglass\-C\-M}}
+\subsubsection[{A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}const uint32\-\_\-t stm\-::\-Strong\-Hourglass\-C\-M\-::\-A\-B\-O\-R\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D = 2\hspace{0.3cm}{\ttfamily [static]}}}\label{structstm_1_1StrongHourglassCM_acb9da950e9ef9a20b3e1f78ff0247dbd}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/\hyperlink{cm_8hpp}{cm.\-hpp}\end{DoxyCompactItemize}

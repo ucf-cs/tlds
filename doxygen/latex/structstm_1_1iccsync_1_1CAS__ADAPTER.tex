@@ -1,0 +1,80 @@
+\hypertarget{structstm_1_1iccsync_1_1CAS__ADAPTER}{\section{stm\-:\-:iccsync\-:\-:C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$ Struct Template Reference}
+\label{structstm_1_1iccsync_1_1CAS__ADAPTER}\index{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$@{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$}}
+}
+
+
+{\ttfamily \#include $<$icc-\/sync.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:iccsync\-:\-:C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{structstm_1_1iccsync_1_1CAS__ADAPTER__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER_a3d399617d9c4d8cdf232370135500ae0}{cas} (volatile T $\ast$address, S from, S to)
+\item 
+static bool \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER_a0080f226afaea04d6a7fae81e095963b}{bcas} (volatile T $\ast$address, S from, S to)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename S, size\-\_\-t D = sizeof(\-T) / sizeof(\-S)$>$struct stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$}
+
+We're really liberal with the types of the parameters that we pass to the sync builtins. Apparently, gcc is fine with this, and \char`\"{}does the
+right thing\char`\"{} for them. Our \hyperlink{structstm_1_1iccsync_1_1SYNC}{S\-Y\-N\-C} interface, on the other hand, is really picky about type matching. This \hyperlink{structstm_1_1iccsync_1_1CAS__ADAPTER}{C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R} does the type matching that we need for our stm usage. This matches whenever T and S are different, and the value we're casting in may be smaller than the value we're casting to. This works because we've specialized for T == S, and for S $>$ T. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1iccsync_1_1CAS__ADAPTER_a0080f226afaea04d6a7fae81e095963b}{\index{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R@{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}!bcas@{bcas}}
+\index{bcas@{bcas}!stm::iccsync::CAS_ADAPTER@{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}}
+\subsubsection[{bcas}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S , size\-\_\-t D = sizeof(\-T) / sizeof(\-S)$>$ static bool {\bf stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}$<$ T, S, D $>$\-::bcas (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{from, }
+\item[{S}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1iccsync_1_1CAS__ADAPTER_a0080f226afaea04d6a7fae81e095963b}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1iccsync_1_1CAS__ADAPTER_a0080f226afaea04d6a7fae81e095963b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structstm_1_1iccsync_1_1CAS__ADAPTER_a3d399617d9c4d8cdf232370135500ae0}{\index{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R@{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}!cas@{cas}}
+\index{cas@{cas}!stm::iccsync::CAS_ADAPTER@{stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}}
+\subsubsection[{cas}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S , size\-\_\-t D = sizeof(\-T) / sizeof(\-S)$>$ static T {\bf stm\-::iccsync\-::\-C\-A\-S\-\_\-\-A\-D\-A\-P\-T\-E\-R}$<$ T, S, D $>$\-::cas (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{from, }
+\item[{S}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1iccsync_1_1CAS__ADAPTER_a3d399617d9c4d8cdf232370135500ae0}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1iccsync_1_1CAS__ADAPTER_a3d399617d9c4d8cdf232370135500ae0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/common/\hyperlink{icc-sync_8hpp}{icc-\/sync.\-hpp}\end{DoxyCompactItemize}

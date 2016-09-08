@@ -1,0 +1,16 @@
+<map id="Allocator::Alloc" name="Allocator::Alloc">
+<area shape="rect" id="node2" href="$classTransList.html#a4a0093e3ba48a0b4914ec3d5f6817d77" title="TransList::AllocateDesc" alt="" coords="165,5,328,32"/>
+<area shape="rect" id="node3" href="$classTransList.html#a5ace06b8defeb2501a9607fc8fdec5f0" title="TransList::Insert" alt="" coords="188,259,305,285"/>
+<area shape="rect" id="node7" href="$classTransList.html#ae48aacff3239bd5b85749631c2ac271a" title="TransList::Delete" alt="" coords="816,157,939,184"/>
+<area shape="rect" id="node8" href="$classTransList.html#ab75389528ee7e0773ac0fe9c00351670" title="TransList::Find" alt="" coords="823,259,932,285"/>
+<area shape="rect" id="node9" href="$transskip_8cc.html#a977b7a640f81eb02b78ee08376387721" title="transskip_insert" alt="" coords="189,411,304,437"/>
+<area shape="rect" id="node12" href="$transskip_8cc.html#a45102b19cad6e5d69fc6d1b4db42cf44" title="transskip_delete" alt="" coords="819,411,936,437"/>
+<area shape="rect" id="node13" href="$transskip_8cc.html#ae89a19c5e265e1f4988a8df74d9d27f7" title="transskip_find" alt="" coords="826,508,929,535"/>
+<area shape="rect" id="node4" href="$classTransList.html#aa7e67c5ff8aeadc6d1d7791a297a58c4" title="TransList::HelpOps" alt="" coords="377,208,511,235"/>
+<area shape="rect" id="node5" href="$classTransList.html#abe5853275ff6befa6ccd7ab0e84b4dce" title="TransList::ExecuteOps" alt="" coords="577,107,733,133"/>
+<area shape="rect" id="node6" href="$classTransList.html#a7ed667a308f2f7422dde28c7fe40cdc7" title="TransList::FinishPendingTxn" alt="" coords="561,259,749,285"/>
+<area shape="rect" id="node10" href="$transskip_8cc.html#a4ae3b77271a6617ab4b15183a6ca9601" title="help_ops" alt="" coords="407,461,481,488"/>
+<area shape="rect" id="node11" href="$transskip_8cc.html#a0d6d503fca08ea29d18df6b11d5fbcc0" title="FinishPendingTxn" alt="" coords="591,411,718,437"/>
+<area shape="rect" id="node14" href="$transskip_8h.html#ab9c29316cb91737b6c383818ff700dd0" title="execute_ops" alt="" coords="607,563,703,589"/>
+<area shape="rect" id="node15" href="$classSetAdaptor_3_01trans__skip_01_4.html#a7a710fc23fd33466e92b1d06ad2e5869" title="SetAdaptor\&lt; trans_skip\l \&gt;::ExecuteOps" alt="" coords="798,559,957,601"/>
+</map>

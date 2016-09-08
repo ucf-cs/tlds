@@ -1,0 +1,61 @@
+\hypertarget{structstm_1_1behavior__t}{\section{stm\-:\-:behavior\-\_\-t Struct Reference}
+\label{structstm_1_1behavior__t}\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$policies.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:behavior\-\_\-t\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structstm_1_1behavior__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1behavior__t_aef57c4f5438b332ed2829a907101504f}{P\-O\-L\-\_\-\-I\-D}
+\item 
+volatile uint32\-\_\-t \hyperlink{structstm_1_1behavior__t_a52f3d6d903327aa9b96b4358c301b906}{A\-L\-G\-\_\-\-I\-D}
+\item 
+uint32\-\_\-t \hyperlink{structstm_1_1behavior__t_ab914d48d4a039a0b4b9dbbdd0f08462d}{P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G}
+\item 
+bool \hyperlink{structstm_1_1behavior__t_a246c606cffbe6e00ad47817cca8b44f2}{abort\-\_\-switch}
+\item 
+int \hyperlink{structstm_1_1behavior__t_ad54029ebe2d83e4ba76f1e011ed8f95e}{abort\-Thresh}
+\item 
+int \hyperlink{structstm_1_1behavior__t_a64fe29181a677b2617b5e954a78c33b8}{wait\-Thresh}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This describes the state of the selected policy. This should be a singleton, but we don't bother. There will be one of these, which we can use to tell what the current policy is that libstm is using. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structstm_1_1behavior__t_a246c606cffbe6e00ad47817cca8b44f2}{\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}!abort\-\_\-switch@{abort\-\_\-switch}}
+\index{abort\-\_\-switch@{abort\-\_\-switch}!stm::behavior_t@{stm\-::behavior\-\_\-t}}
+\subsubsection[{abort\-\_\-switch}]{\setlength{\rightskip}{0pt plus 5cm}bool stm\-::behavior\-\_\-t\-::abort\-\_\-switch}}\label{structstm_1_1behavior__t_a246c606cffbe6e00ad47817cca8b44f2}
+\hypertarget{structstm_1_1behavior__t_ad54029ebe2d83e4ba76f1e011ed8f95e}{\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}!abort\-Thresh@{abort\-Thresh}}
+\index{abort\-Thresh@{abort\-Thresh}!stm::behavior_t@{stm\-::behavior\-\_\-t}}
+\subsubsection[{abort\-Thresh}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::behavior\-\_\-t\-::abort\-Thresh}}\label{structstm_1_1behavior__t_ad54029ebe2d83e4ba76f1e011ed8f95e}
+\hypertarget{structstm_1_1behavior__t_a52f3d6d903327aa9b96b4358c301b906}{\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}!A\-L\-G\-\_\-\-I\-D@{A\-L\-G\-\_\-\-I\-D}}
+\index{A\-L\-G\-\_\-\-I\-D@{A\-L\-G\-\_\-\-I\-D}!stm::behavior_t@{stm\-::behavior\-\_\-t}}
+\subsubsection[{A\-L\-G\-\_\-\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\-\_\-t stm\-::behavior\-\_\-t\-::\-A\-L\-G\-\_\-\-I\-D}}\label{structstm_1_1behavior__t_a52f3d6d903327aa9b96b4358c301b906}
+\hypertarget{structstm_1_1behavior__t_aef57c4f5438b332ed2829a907101504f}{\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}!P\-O\-L\-\_\-\-I\-D@{P\-O\-L\-\_\-\-I\-D}}
+\index{P\-O\-L\-\_\-\-I\-D@{P\-O\-L\-\_\-\-I\-D}!stm::behavior_t@{stm\-::behavior\-\_\-t}}
+\subsubsection[{P\-O\-L\-\_\-\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::behavior\-\_\-t\-::\-P\-O\-L\-\_\-\-I\-D}}\label{structstm_1_1behavior__t_aef57c4f5438b332ed2829a907101504f}
+\hypertarget{structstm_1_1behavior__t_ab914d48d4a039a0b4b9dbbdd0f08462d}{\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}!P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G@{P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G}}
+\index{P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G@{P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G}!stm::behavior_t@{stm\-::behavior\-\_\-t}}
+\subsubsection[{P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t stm\-::behavior\-\_\-t\-::\-P\-R\-E\-P\-R\-O\-F\-I\-L\-E\-\_\-\-A\-L\-G}}\label{structstm_1_1behavior__t_ab914d48d4a039a0b4b9dbbdd0f08462d}
+\hypertarget{structstm_1_1behavior__t_a64fe29181a677b2617b5e954a78c33b8}{\index{stm\-::behavior\-\_\-t@{stm\-::behavior\-\_\-t}!wait\-Thresh@{wait\-Thresh}}
+\index{wait\-Thresh@{wait\-Thresh}!stm::behavior_t@{stm\-::behavior\-\_\-t}}
+\subsubsection[{wait\-Thresh}]{\setlength{\rightskip}{0pt plus 5cm}int stm\-::behavior\-\_\-t\-::wait\-Thresh}}\label{structstm_1_1behavior__t_a64fe29181a677b2617b5e954a78c33b8}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/libstm/policies/\hyperlink{policies_8hpp}{policies.\-hpp}\end{DoxyCompactItemize}

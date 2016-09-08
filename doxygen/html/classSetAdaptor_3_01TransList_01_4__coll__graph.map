@@ -1,0 +1,11 @@
+<map id="SetAdaptor&lt; TransList &gt;" name="SetAdaptor&lt; TransList &gt;">
+<area shape="rect" id="node2" href="$classAllocator.html" title="{Allocator\&lt; TransList\l::Desc \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="971,689,1110,839"/>
+<area shape="rect" id="node8" href="$classTransList.html" title="{TransList\n||+ TransList()\l+ ~TransList()\l+ ExecuteOps()\l+ AllocateDesc()\l&#45; Insert()\l&#45; Delete()\l&#45; Find()\l&#45; HelpOps()\l&#45; IsSameOperation()\l&#45; FinishPendingTxn()\l&#45; IsNodeExist()\l&#45; IsNodeActive()\l&#45; IsKeyExist()\l&#45; LocatePred()\l&#45; MarkForDeletion()\l&#45; Print()\l&#45; ASSERT_CODE()\l}" alt="" coords="756,917,898,1229"/>
+<area shape="rect" id="node5" href="$classAllocator.html" title="{Allocator\&lt; DataType \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="735,488,888,624"/>
+<area shape="rect" id="node6" href="$classAllocator.html" title="{Allocator\&lt; TransList\l::Node \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="755,689,894,839"/>
+<area shape="rect" id="node7" href="$classAllocator.html" title="{Allocator\&lt; TransList\l::NodeDesc \&gt;\n||+ Allocator()\l+ ~Allocator()\l+ Init()\l+ Uninit()\l+ Alloc()\l}" alt="" coords="458,689,596,839"/>
+<area shape="rect" id="node10" href="$structTransList_1_1Node.html" title="{TransList::Node\n||+ Node()\l+ Node()\l}" alt="" coords="255,718,370,810"/>
+<area shape="rect" id="node14" href="$structTransList_1_1Operator.html" title="{TransList::Operator\n||}" alt="" coords="78,147,212,224"/>
+<area shape="rect" id="node11" href="$structTransList_1_1NodeDesc.html" title="{TransList::NodeDesc\n||+ NodeDesc()\l}" alt="" coords="128,517,275,595"/>
+<area shape="rect" id="node13" href="$structTransList_1_1Desc.html" title="{TransList::Desc\n||+ SizeOf()\l}" alt="" coords="88,288,203,365"/>
+</map>

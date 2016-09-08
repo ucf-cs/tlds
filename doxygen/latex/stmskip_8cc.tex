@@ -1,0 +1,530 @@
+\hypertarget{stmskip_8cc}{\section{ostm/skiplist/stmskip.cc File Reference}
+\label{stmskip_8cc}\index{ostm/skiplist/stmskip.\-cc@{ostm/skiplist/stmskip.\-cc}}
+}
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}common/fraser/portable\-\_\-defns.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/fraser/gc.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/fraser/stm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stmskip.\-h\char`\"{}}\\*
+Include dependency graph for stmskip.\-cc\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnode__st}{node\-\_\-st}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stmskip_8cc_af72b01d7d697a90b5139f40a39f6ad23}{\-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}
+\item 
+\#define \hyperlink{stmskip_8cc_aaf08a63f67339d49d4c4efec7562496f}{M\-E\-M\-O\-R\-Y}~(\hyperlink{stmskip_8cc_ab4ba2ae149083112b20e94bc236acd84}{shared.\-memory})
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structnode__st}{node\-\_\-st} \hyperlink{stmskip_8cc_ab254c8fc5827c00ce5040bba5130f5e3}{node\-\_\-t}
+\item 
+typedef \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} \hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0}{Set\-Op\-Type} \{ \\*
+\hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D} = 0, 
+\hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{setadaptor_8h_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}, 
+\hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D} = 0, 
+\\*
+\hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}, 
+\hyperlink{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{stmskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c}{get\-\_\-level} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+static \hyperlink{structnode__t}{node\-\_\-t} $\ast$ \hyperlink{stmskip_8cc_aa82848b11e972b9339ceadb6816cdb6a}{search\-\_\-predecessors} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$$\ast$pa, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$$\ast$na)
+\item 
+\hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t} $\ast$ \hyperlink{stmskip_8cc_a84ed803790c8d8d139a5381c95143ded}{stmskip\-\_\-alloc} (void)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{stmskip_8cc_ad17c6ea2fd390c2dd637a34fdeb0b3df}{stmskip\-\_\-update} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k, \hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} v)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{stmskip_8cc_a3925aa5d2590fc57854aa9d670f58e4d}{stmskip\-\_\-remove} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k)
+\item 
+\hyperlink{lockfreeskip_8h_a07e25227a67b4e708996b09fd575408b}{setval\-\_\-t} \hyperlink{stmskip_8cc_a09de30bf6124d9640899b27c93b49471}{stmskip\-\_\-lookup} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t} $\ast$\hyperlink{structl}{l}, \hyperlink{lockfreeskip_8h_a3945a06384f87c28e0642d51b0524e92}{setkey\-\_\-t} k)
+\item 
+bool \hyperlink{stmskip_8cc_afb45906e757341a512fd32a072a405b8}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((optimize(0))) \hyperlink{stmskip_8h_a92e7ee5c7251030bd78d66ec89bab8c4}{stmskip\-\_\-execute\-\_\-ops}(void $\ast$s
+\item 
+\hyperlink{stmskip_8cc_a1b8b3d689420e67813ac24d515384b85}{new\-\_\-stm\-\_\-tx} (\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}, \hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stmskip_8cc_aaf08a63f67339d49d4c4efec7562496f}{M\-E\-M\-O\-R\-Y})
+\item 
+\hyperlink{stmskip_8cc_a9ab04b9e875013b4d2dd249d0c97dce5}{for} (int i=0;i$<$ op\-\_\-size;++i)
+\item 
+\hyperlink{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{if} (\hyperlink{stm__fraser_8c_a31ea9d61a84d817aac10ffbc4ba9f296}{commit\-\_\-stm\-\_\-tx}(\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}))
+\item 
+\hyperlink{stmskip_8cc_a5db6833ad98c08797c5dffd75d264833}{fr\-\_\-critical\-\_\-exit} (\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+void \hyperlink{stmskip_8cc_aedbfc8f18bee8e611ee20d17feb55f98}{init\-\_\-stmskip\-\_\-subsystem} (void)
+\item 
+void \hyperlink{stmskip_8cc_a35710eb6d2d01ed318faa7820460ec2e}{destory\-\_\-stmskip\-\_\-subsystem} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\-\_\-t \hyperlink{stmskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{g\-\_\-count\-\_\-commit} = 0
+\item 
+static uint32\-\_\-t \hyperlink{stmskip_8cc_af6d2ec7fd143428ba3a29037b463a512}{g\-\_\-count\-\_\-abort} = 0
+\item 
+static uint32\-\_\-t \hyperlink{stmskip_8cc_aec53d044760aac8ddf9f4903db76ace9}{g\-\_\-count\-\_\-real\-\_\-abort} = 0
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$ \hyperlink{stmskip_8cc_ab4ba2ae149083112b20e94bc236acd84}{memory}\\
+\} \hyperlink{stmskip_8cc_a1bf1d01bafba3e8e810976410ce7ef1f}{shared}\\
+
+\end{tabbing}\item 
+bool \hyperlink{stmskip_8h_a61f87fe27f28ce80c26c5a723f9e1ba1}{set\-\_\-op} \hyperlink{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}{ops} \mbox{[}$\,$\mbox{]}
+\item 
+bool \hyperlink{stmskip_8h_a61f87fe27f28ce80c26c5a723f9e1ba1}{set\-\_\-op} int op\-\_\-size \hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t} $\ast$ \hyperlink{stmskip_8cc_ae3162dff9c202b7212b9d76f5d9a55f7}{l} = (\hyperlink{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{set\-\_\-t}$\ast$)s
+\item 
+bool \hyperlink{stmskip_8cc_a339672ff94e6199019102f50d317c3d7}{ret} = false
+\item 
+\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$ \hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst} = \hyperlink{ptst_8h_a9f490f3eb71074b856eb2206f97c6cb1}{fr\-\_\-critical\-\_\-enter}()
+\item 
+\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$ \hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx}
+\item 
+\hyperlink{stmskip_8cc_a0544c3fe466e421738dae463968b70ba}{else}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stmskip_8cc_af72b01d7d697a90b5139f40a39f6ad23}{\index{stmskip.\-cc@{stmskip.\-cc}!\-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-@{\-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-@{\-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{\-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-S\-T\-M\-S\-K\-I\-P\-\_\-\-I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-\_\-}}\label{stmskip_8cc_af72b01d7d697a90b5139f40a39f6ad23}
+\hypertarget{stmskip_8cc_aaf08a63f67339d49d4c4efec7562496f}{\index{stmskip.\-cc@{stmskip.\-cc}!M\-E\-M\-O\-R\-Y@{M\-E\-M\-O\-R\-Y}}
+\index{M\-E\-M\-O\-R\-Y@{M\-E\-M\-O\-R\-Y}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{M\-E\-M\-O\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-M\-O\-R\-Y~({\bf shared.\-memory})}}\label{stmskip_8cc_aaf08a63f67339d49d4c4efec7562496f}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{stmskip_8cc_ab254c8fc5827c00ce5040bba5130f5e3}{\index{stmskip.\-cc@{stmskip.\-cc}!node\-\_\-t@{node\-\_\-t}}
+\index{node\-\_\-t@{node\-\_\-t}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{node\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf node\-\_\-st} {\bf node\-\_\-t}}}\label{stmskip_8cc_ab254c8fc5827c00ce5040bba5130f5e3}
+\hypertarget{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}{\index{stmskip.\-cc@{stmskip.\-cc}!set\-\_\-t@{set\-\_\-t}}
+\index{set\-\_\-t@{set\-\_\-t}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{set\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf stm\-\_\-blk} {\bf set\-\_\-t}}}\label{stmskip_8cc_aac432cd2fcb866716dcbeacad524a046}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0}{\index{stmskip.\-cc@{stmskip.\-cc}!Set\-Op\-Type@{Set\-Op\-Type}}
+\index{Set\-Op\-Type@{Set\-Op\-Type}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{Set\-Op\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Set\-Op\-Type}}}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\-I\-N\-D@{F\-I\-N\-D}!stmskip.\-cc@{stmskip.\-cc}}\index{stmskip.\-cc@{stmskip.\-cc}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!stmskip.\-cc@{stmskip.\-cc}}\index{stmskip.\-cc@{stmskip.\-cc}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!stmskip.\-cc@{stmskip.\-cc}}\index{stmskip.\-cc@{stmskip.\-cc}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}
+}]\index{F\-I\-N\-D@{F\-I\-N\-D}!stmskip.\-cc@{stmskip.\-cc}}\index{stmskip.\-cc@{stmskip.\-cc}!F\-I\-N\-D@{F\-I\-N\-D}}\item[{\em 
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}{F\-I\-N\-D}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a8f189475707a2b69614aeb6c6904a6df}
+}]\index{I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}!stmskip.\-cc@{stmskip.\-cc}}\index{stmskip.\-cc@{stmskip.\-cc}!I\-N\-S\-E\-R\-T@{I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}{I\-N\-S\-E\-R\-T}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0aa15c451953b2d2a93403afe786930d0f}
+}]\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!stmskip.\-cc@{stmskip.\-cc}}\index{stmskip.\-cc@{stmskip.\-cc}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}\item[{\em 
+\hypertarget{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}{D\-E\-L\-E\-T\-E}\label{stmskip_8cc_abb1640500b17c88eba793592b5a41fc0a9d61e82a9a12752f10aece1b22183913}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{stmskip_8cc_afb45906e757341a512fd32a072a405b8}{\index{stmskip.\-cc@{stmskip.\-cc}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(optimize(0))}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_afb45906e757341a512fd32a072a405b8}
+\hypertarget{stmskip_8cc_a35710eb6d2d01ed318faa7820460ec2e}{\index{stmskip.\-cc@{stmskip.\-cc}!destory\-\_\-stmskip\-\_\-subsystem@{destory\-\_\-stmskip\-\_\-subsystem}}
+\index{destory\-\_\-stmskip\-\_\-subsystem@{destory\-\_\-stmskip\-\_\-subsystem}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{destory\-\_\-stmskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void destory\-\_\-stmskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a35710eb6d2d01ed318faa7820460ec2e}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a35710eb6d2d01ed318faa7820460ec2e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a35710eb6d2d01ed318faa7820460ec2e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a9ab04b9e875013b4d2dd249d0c97dce5}{\index{stmskip.\-cc@{stmskip.\-cc}!for@{for}}
+\index{for@{for}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{for}]{\setlength{\rightskip}{0pt plus 5cm}for (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a9ab04b9e875013b4d2dd249d0c97dce5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a9ab04b9e875013b4d2dd249d0c97dce5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a9ab04b9e875013b4d2dd249d0c97dce5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a5db6833ad98c08797c5dffd75d264833}{\index{stmskip.\-cc@{stmskip.\-cc}!fr\-\_\-critical\-\_\-exit@{fr\-\_\-critical\-\_\-exit}}
+\index{fr\-\_\-critical\-\_\-exit@{fr\-\_\-critical\-\_\-exit}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{fr\-\_\-critical\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}fr\-\_\-critical\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst}}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a5db6833ad98c08797c5dffd75d264833}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a5db6833ad98c08797c5dffd75d264833_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c}{\index{stmskip.\-cc@{stmskip.\-cc}!get\-\_\-level@{get\-\_\-level}}
+\index{get\-\_\-level@{get\-\_\-level}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{get\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}static int get\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stmskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_ab6919257456cff4d47684cdfd3bc5a3c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}{\index{stmskip.\-cc@{stmskip.\-cc}!if@{if}}
+\index{if@{if}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{{\bf commit\-\_\-stm\-\_\-tx}({\bf ptst}, {\bf tx})}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a6691aa84f1bbf53bde80356be0be52f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_aedbfc8f18bee8e611ee20d17feb55f98}{\index{stmskip.\-cc@{stmskip.\-cc}!init\-\_\-stmskip\-\_\-subsystem@{init\-\_\-stmskip\-\_\-subsystem}}
+\index{init\-\_\-stmskip\-\_\-subsystem@{init\-\_\-stmskip\-\_\-subsystem}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{init\-\_\-stmskip\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-stmskip\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_aedbfc8f18bee8e611ee20d17feb55f98}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_aedbfc8f18bee8e611ee20d17feb55f98_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_aedbfc8f18bee8e611ee20d17feb55f98_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a1b8b3d689420e67813ac24d515384b85}{\index{stmskip.\-cc@{stmskip.\-cc}!new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}}
+\index{new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{new\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}new\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf tx}}]{, }
+\item[{{\bf ptst}}]{, }
+\item[{{\bf M\-E\-M\-O\-R\-Y}}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a1b8b3d689420e67813ac24d515384b85}
+\hypertarget{stmskip_8cc_aa82848b11e972b9339ceadb6816cdb6a}{\index{stmskip.\-cc@{stmskip.\-cc}!search\-\_\-predecessors@{search\-\_\-predecessors}}
+\index{search\-\_\-predecessors@{search\-\_\-predecessors}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{search\-\_\-predecessors}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf node\-\_\-t}$\ast$ search\-\_\-predecessors (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{tx, }
+\item[{{\bf set\-\_\-t} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf stm\-\_\-blk} $\ast$$\ast$}]{pa, }
+\item[{{\bf stm\-\_\-blk} $\ast$$\ast$}]{na}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stmskip_8cc_aa82848b11e972b9339ceadb6816cdb6a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_aa82848b11e972b9339ceadb6816cdb6a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_aa82848b11e972b9339ceadb6816cdb6a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a84ed803790c8d8d139a5381c95143ded}{\index{stmskip.\-cc@{stmskip.\-cc}!stmskip\-\_\-alloc@{stmskip\-\_\-alloc}}
+\index{stmskip\-\_\-alloc@{stmskip\-\_\-alloc}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{stmskip\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\-\_\-t}$\ast$ stmskip\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a84ed803790c8d8d139a5381c95143ded}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a84ed803790c8d8d139a5381c95143ded_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{stmskip_8cc_a84ed803790c8d8d139a5381c95143ded_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a09de30bf6124d9640899b27c93b49471}{\index{stmskip.\-cc@{stmskip.\-cc}!stmskip\-\_\-lookup@{stmskip\-\_\-lookup}}
+\index{stmskip\-\_\-lookup@{stmskip\-\_\-lookup}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{stmskip\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} stmskip\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{tx, }
+\item[{{\bf set\-\_\-t} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a09de30bf6124d9640899b27c93b49471}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a09de30bf6124d9640899b27c93b49471_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a09de30bf6124d9640899b27c93b49471_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_a3925aa5d2590fc57854aa9d670f58e4d}{\index{stmskip.\-cc@{stmskip.\-cc}!stmskip\-\_\-remove@{stmskip\-\_\-remove}}
+\index{stmskip\-\_\-remove@{stmskip\-\_\-remove}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{stmskip\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} stmskip\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{tx, }
+\item[{{\bf set\-\_\-t} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_a3925aa5d2590fc57854aa9d670f58e4d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a3925aa5d2590fc57854aa9d670f58e4d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_a3925aa5d2590fc57854aa9d670f58e4d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stmskip_8cc_ad17c6ea2fd390c2dd637a34fdeb0b3df}{\index{stmskip.\-cc@{stmskip.\-cc}!stmskip\-\_\-update@{stmskip\-\_\-update}}
+\index{stmskip\-\_\-update@{stmskip\-\_\-update}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{stmskip\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}{\bf setval\-\_\-t} stmskip\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{tx, }
+\item[{{\bf set\-\_\-t} $\ast$}]{l, }
+\item[{{\bf setkey\-\_\-t}}]{k, }
+\item[{{\bf setval\-\_\-t}}]{v}
+\end{DoxyParamCaption}
+)}}\label{stmskip_8cc_ad17c6ea2fd390c2dd637a34fdeb0b3df}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_ad17c6ea2fd390c2dd637a34fdeb0b3df_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stmskip_8cc_ad17c6ea2fd390c2dd637a34fdeb0b3df_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{stmskip_8cc_a0544c3fe466e421738dae463968b70ba}{\index{stmskip.\-cc@{stmskip.\-cc}!else@{else}}
+\index{else@{else}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}else}}\label{stmskip_8cc_a0544c3fe466e421738dae463968b70ba}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+        \hyperlink{icc-sync_8hpp_a6b733bdf11f24c72e9c1cedd35534d6e}{\_\_sync\_fetch\_and\_add}(&\hyperlink{stmskip_8cc_af6d2ec7fd143428ba3a29037b463a512}{g\_count\_abort}, 1)
+\end{DoxyCode}
+\hypertarget{stmskip_8cc_af6d2ec7fd143428ba3a29037b463a512}{\index{stmskip.\-cc@{stmskip.\-cc}!g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}}
+\index{g\-\_\-count\-\_\-abort@{g\-\_\-count\-\_\-abort}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{g\-\_\-count\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t g\-\_\-count\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{stmskip_8cc_af6d2ec7fd143428ba3a29037b463a512}
+\hypertarget{stmskip_8cc_a31e805bc19e3448a48adec9322bbb28a}{\index{stmskip.\-cc@{stmskip.\-cc}!g\-\_\-count\-\_\-commit@{g\-\_\-count\-\_\-commit}}
+\index{g\-\_\-count\-\_\-commit@{g\-\_\-count\-\_\-commit}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{g\-\_\-count\-\_\-commit}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t g\-\_\-count\-\_\-commit = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{stmskip_8cc_a31e805bc19e3448a48adec9322bbb28a}
+\hypertarget{stmskip_8cc_aec53d044760aac8ddf9f4903db76ace9}{\index{stmskip.\-cc@{stmskip.\-cc}!g\-\_\-count\-\_\-real\-\_\-abort@{g\-\_\-count\-\_\-real\-\_\-abort}}
+\index{g\-\_\-count\-\_\-real\-\_\-abort@{g\-\_\-count\-\_\-real\-\_\-abort}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{g\-\_\-count\-\_\-real\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t g\-\_\-count\-\_\-real\-\_\-abort = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{stmskip_8cc_aec53d044760aac8ddf9f4903db76ace9}
+\hypertarget{stmskip_8cc_ae3162dff9c202b7212b9d76f5d9a55f7}{\index{stmskip.\-cc@{stmskip.\-cc}!l@{l}}
+\index{l@{l}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{l}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf set\-\_\-op} int op\-\_\-size {\bf set\-\_\-t}$\ast$ {\bf l} = ({\bf set\-\_\-t}$\ast$)s}}\label{stmskip_8cc_ae3162dff9c202b7212b9d76f5d9a55f7}
+\hypertarget{stmskip_8cc_ab4ba2ae149083112b20e94bc236acd84}{\index{stmskip.\-cc@{stmskip.\-cc}!memory@{memory}}
+\index{memory@{memory}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{memory}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm}$\ast$ {\bf memory}}}\label{stmskip_8cc_ab4ba2ae149083112b20e94bc236acd84}
+\hypertarget{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}{\index{stmskip.\-cc@{stmskip.\-cc}!ops@{ops}}
+\index{ops@{ops}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{ops}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf set\-\_\-op} ops\mbox{[}$\,$\mbox{]}}}\label{stmskip_8cc_a91ee67dbc899b78fabcd2bfc4643d307}
+\hypertarget{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{\index{stmskip.\-cc@{stmskip.\-cc}!ptst@{ptst}}
+\index{ptst@{ptst}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{ptst}]{\setlength{\rightskip}{0pt plus 5cm}ptst = {\bf fr\-\_\-critical\-\_\-enter}()}}\label{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}
+\hypertarget{stmskip_8cc_a339672ff94e6199019102f50d317c3d7}{\index{stmskip.\-cc@{stmskip.\-cc}!ret@{ret}}
+\index{ret@{ret}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{ret}]{\setlength{\rightskip}{0pt plus 5cm}return ret = false}}\label{stmskip_8cc_a339672ff94e6199019102f50d317c3d7}
+\hypertarget{stmskip_8cc_a1bf1d01bafba3e8e810976410ce7ef1f}{\index{stmskip.\-cc@{stmskip.\-cc}!shared@{shared}}
+\index{shared@{shared}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{shared}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   shared\hspace{0.3cm}{\ttfamily [static]}}}\label{stmskip_8cc_a1bf1d01bafba3e8e810976410ce7ef1f}
+\hypertarget{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{\index{stmskip.\-cc@{stmskip.\-cc}!tx@{tx}}
+\index{tx@{tx}!stmskip.cc@{stmskip.\-cc}}
+\subsubsection[{tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx}$\ast$ tx}}\label{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}

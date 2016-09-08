@@ -1,0 +1,5 @@
+<map id="reserve" name="reserve">
+<area shape="rect" id="node2" href="$manager_8h.html#ac4cb2b40e1eda3633f11ae2f07f9af7e" title="manager_reserveCar" alt="" coords="127,5,270,32"/>
+<area shape="rect" id="node3" href="$manager_8h.html#a187bde8455b6585b95124c379a3bb956" title="manager_reserveRoom" alt="" coords="120,56,277,83"/>
+<area shape="rect" id="node4" href="$manager_8h.html#ad3aad3614ae785a658a1968b892fe51b" title="manager_reserveFlight" alt="" coords="121,107,276,133"/>
+</map>

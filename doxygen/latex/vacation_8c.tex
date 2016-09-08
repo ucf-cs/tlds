@@ -1,0 +1,455 @@
+\hypertarget{vacation_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/vacation/vacation.c File Reference}
+\label{vacation_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/vacation.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/vacation/vacation.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$getopt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}client.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}customer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}memory.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}operation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}reservation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+Include dependency graph for vacation.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vacation_8c_a4574e0492daca40970c72411dc370002}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S}~(1)
+\item 
+\#define \hyperlink{vacation_8c_a29cdeae87f216b1d66f8c37ea99fa399}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}~(10)
+\item 
+\#define \hyperlink{vacation_8c_aa4c762e3b4da2b23a5d72567af05bfa1}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S}~(90)
+\item 
+\#define \hyperlink{vacation_8c_ac35022c346fc9255034660383d15ea58}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}~(1 $<$$<$ 16)
+\item 
+\#define \hyperlink{vacation_8c_aea47be1119d9a21918fd2951a4ce4b12}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}~(1 $<$$<$ 26)
+\item 
+\#define \hyperlink{vacation_8c_a44d4b06563952d0f4f283def86adb361}{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R}~(80)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688c}{param\-\_\-types} \{ \\*
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688cae1e089fffa0a51ba4ce812904169aef9}{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E} = (unsigned char)'e', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca0f92ec055830431a6a2765b50e5b2973}{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T} = (unsigned char)'i', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R} = (unsigned char)'n', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca6672bcf164002bbef0853faf8ce30b92}{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T} = (unsigned char)'p', 
+\\*
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca82d9e91c689c1f182fb35420b749f7d6}{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D} = (unsigned char)'r', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D} = (unsigned char)'s', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\hyperlink{bayes_8c_adee0355d5a54fc002b5fd1103cca688caabf25d1f467352cbe7b4111973fdac84}{P\-A\-R\-A\-M\-\_\-\-V\-A\-R} = (unsigned char)'v', 
+\\*
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688cae9ecb67a0716f816f88dbbe5c13a8ae4}{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E} = (unsigned char)'g', 
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R} = (unsigned char)'n', 
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688ca275a689bba706b230dbec8da7cd71ca1}{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T} = (unsigned char)'s', 
+\hyperlink{genome_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\\*
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca86c72cc7ef78bf2315322352c4c64d57}{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K} = (unsigned char)'a', 
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca8254a2e73a99bec7b129c814f7d72ca8}{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H} = (unsigned char)'l', 
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca75731fe255b1db610be93bfb89fd1ca1}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M} = (unsigned char)'n', 
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D} = (unsigned char)'s', 
+\\*
+\hyperlink{intruder_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca862dab6d80c9d21eb19e8864e994f335}{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T} = (unsigned char)'b', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D} = (unsigned char)'t', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688cafd939048b86bcb967efbad0f8222481a}{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T} = (unsigned char)'x', 
+\\*
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca404432718bbc6b407bfafadc6863c781}{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T} = (unsigned char)'y', 
+\hyperlink{labyrinth_8c_adee0355d5a54fc002b5fd1103cca688ca98adb97c9d3b363c140dcc8ccc828df2}{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T} = (unsigned char)'z', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca79d71b7631f0befc4cb8316092996b09}{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S} = (unsigned char)'c', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R} = (unsigned char)'n', 
+\\*
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca00dd82f01d9136ce8ba75ebcc193f359}{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S} = (unsigned char)'q', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca1e19ff0100ee27ae260a5119764bbe6a}{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S} = (unsigned char)'r', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688cab610f31849afcf022d335292cb911aa7}{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S} = (unsigned char)'t', 
+\hyperlink{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae2b667d5d6f60946a67bb7dceedf5f68}{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R} = (unsigned char)'u'
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{vacation_8c_afa36de360eec20abef9d05d036b8b285}{display\-Usage} (const char $\ast$app\-Name)
+\item 
+static void \hyperlink{vacation_8c_a016efab4bdc7de50acd10796a39c7b33}{set\-Default\-Params} ()
+\item 
+static void \hyperlink{vacation_8c_accf0fd4bc6c5b765d7fc74882d20f222}{parse\-Args} (long argc, char $\ast$const argv\mbox{[}$\,$\mbox{]})
+\item 
+static \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{vacation_8c_a71a90924e6bac2c48cdfc1153b33084b}{add\-Customer} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr, long id, long num, long price)
+\item 
+static \hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$ \hyperlink{vacation_8c_a50cbd725eec0f7508965d533f2dadf44}{initialize\-Manager} ()
+\item 
+static \hyperlink{client_8h_a66c6519d271f361c72ed4b11725ad90e}{client\-\_\-t} $\ast$$\ast$ \hyperlink{vacation_8c_a4fe2ed40233f9f31d63579a6c872446d}{initialize\-Clients} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr)
+\item 
+static void \hyperlink{vacation_8c_a788803b8aaa6ed92eb1ca5cb47cad275}{check\-Tables} (\hyperlink{manager_8h_a3440d84d7d051c3ea878b9ebf82e724b}{manager\-\_\-t} $\ast$manager\-Ptr)
+\item 
+static void \hyperlink{vacation_8c_a461128481733b1cc4384ce5a9df6f5aa}{free\-Clients} (\hyperlink{client_8h_a66c6519d271f361c72ed4b11725ad90e}{client\-\_\-t} $\ast$$\ast$clients)
+\item 
+\hyperlink{vacation_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{M\-A\-I\-N} (argc, argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{vacation_8c_a97118ae9acc2845595a962dc2fa152d0}{global\-\_\-params} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{vacation_8c_a4574e0492daca40970c72411dc370002}{\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S}!vacation.c@{vacation.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-L\-I\-E\-N\-T\-S~(1)}}\label{vacation_8c_a4574e0492daca40970c72411dc370002}
+\hypertarget{vacation_8c_a29cdeae87f216b1d66f8c37ea99fa399}{\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}!vacation.c@{vacation.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-N\-U\-M\-B\-E\-R~(10)}}\label{vacation_8c_a29cdeae87f216b1d66f8c37ea99fa399}
+\hypertarget{vacation_8c_aa4c762e3b4da2b23a5d72567af05bfa1}{\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S}!vacation.c@{vacation.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-Q\-U\-E\-R\-I\-E\-S~(90)}}\label{vacation_8c_aa4c762e3b4da2b23a5d72567af05bfa1}
+\hypertarget{vacation_8c_ac35022c346fc9255034660383d15ea58}{\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}!vacation.c@{vacation.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S~(1 $<$$<$ 16)}}\label{vacation_8c_ac35022c346fc9255034660383d15ea58}
+\hypertarget{vacation_8c_aea47be1119d9a21918fd2951a4ce4b12}{\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}!vacation.c@{vacation.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S~(1 $<$$<$ 26)}}\label{vacation_8c_aea47be1119d9a21918fd2951a4ce4b12}
+\hypertarget{vacation_8c_a44d4b06563952d0f4f283def86adb361}{\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R}}
+\index{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R@{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R}!vacation.c@{vacation.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-U\-S\-E\-R~(80)}}\label{vacation_8c_a44d4b06563952d0f4f283def86adb361}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688c}{\index{vacation.\-c@{vacation.\-c}!param\-\_\-types@{param\-\_\-types}}
+\index{param\-\_\-types@{param\-\_\-types}!vacation.c@{vacation.\-c}}
+\subsubsection[{param\-\_\-types}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf param\-\_\-types}}}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688c}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E@{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E@{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae1e089fffa0a51ba4ce812904169aef9}{P\-A\-R\-A\-M\-\_\-\-E\-D\-G\-E}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae1e089fffa0a51ba4ce812904169aef9}
+}]\index{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T@{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T@{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca0f92ec055830431a6a2765b50e5b2973}{P\-A\-R\-A\-M\-\_\-\-I\-N\-S\-E\-R\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca0f92ec055830431a6a2765b50e5b2973}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}
+}]\index{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca6672bcf164002bbef0853faf8ce30b92}{P\-A\-R\-A\-M\-\_\-\-P\-E\-R\-C\-E\-N\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca6672bcf164002bbef0853faf8ce30b92}
+}]\index{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D@{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D@{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca82d9e91c689c1f182fb35420b749f7d6}{P\-A\-R\-A\-M\-\_\-\-R\-E\-C\-O\-R\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca82d9e91c689c1f182fb35420b749f7d6}
+}]\index{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-V\-A\-R@{P\-A\-R\-A\-M\-\_\-\-V\-A\-R}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-V\-A\-R@{P\-A\-R\-A\-M\-\_\-\-V\-A\-R}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688caabf25d1f467352cbe7b4111973fdac84}{P\-A\-R\-A\-M\-\_\-\-V\-A\-R}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688caabf25d1f467352cbe7b4111973fdac84}
+}]\index{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E@{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E@{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae9ecb67a0716f816f88dbbe5c13a8ae4}{P\-A\-R\-A\-M\-\_\-\-G\-E\-N\-E}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae9ecb67a0716f816f88dbbe5c13a8ae4}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}
+}]\index{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T@{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca275a689bba706b230dbec8da7cd71ca1}{P\-A\-R\-A\-M\-\_\-\-S\-E\-G\-M\-E\-N\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca275a689bba706b230dbec8da7cd71ca1}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K@{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K@{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca86c72cc7ef78bf2315322352c4c64d57}{P\-A\-R\-A\-M\-\_\-\-A\-T\-T\-A\-C\-K}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca86c72cc7ef78bf2315322352c4c64d57}
+}]\index{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H@{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H@{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca8254a2e73a99bec7b129c814f7d72ca8}{P\-A\-R\-A\-M\-\_\-\-L\-E\-N\-G\-T\-H}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca8254a2e73a99bec7b129c814f7d72ca8}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca75731fe255b1db610be93bfb89fd1ca1}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca75731fe255b1db610be93bfb89fd1ca1}
+}]\index{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D@{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}{P\-A\-R\-A\-M\-\_\-\-S\-E\-E\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca23b51b764ef01293e015319da167296d}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca862dab6d80c9d21eb19e8864e994f335}{P\-A\-R\-A\-M\-\_\-\-B\-E\-N\-D\-C\-O\-S\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca862dab6d80c9d21eb19e8864e994f335}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D@{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}{P\-A\-R\-A\-M\-\_\-\-T\-H\-R\-E\-A\-D}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca88a6d6213d8720dff59c01b4947dda6c}
+}]\index{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688cafd939048b86bcb967efbad0f8222481a}{P\-A\-R\-A\-M\-\_\-\-X\-C\-O\-S\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688cafd939048b86bcb967efbad0f8222481a}
+}]\index{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca404432718bbc6b407bfafadc6863c781}{P\-A\-R\-A\-M\-\_\-\-Y\-C\-O\-S\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca404432718bbc6b407bfafadc6863c781}
+}]\index{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T@{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca98adb97c9d3b363c140dcc8ccc828df2}{P\-A\-R\-A\-M\-\_\-\-Z\-C\-O\-S\-T}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca98adb97c9d3b363c140dcc8ccc828df2}
+}]\index{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S@{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S@{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca79d71b7631f0befc4cb8316092996b09}{P\-A\-R\-A\-M\-\_\-\-C\-L\-I\-E\-N\-T\-S}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca79d71b7631f0befc4cb8316092996b09}
+}]\index{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R@{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}{P\-A\-R\-A\-M\-\_\-\-N\-U\-M\-B\-E\-R}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca7e64eaa96112e4d72938795a206acbc3}
+}]\index{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S@{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S@{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca00dd82f01d9136ce8ba75ebcc193f359}{P\-A\-R\-A\-M\-\_\-\-Q\-U\-E\-R\-I\-E\-S}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca00dd82f01d9136ce8ba75ebcc193f359}
+}]\index{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca1e19ff0100ee27ae260a5119764bbe6a}{P\-A\-R\-A\-M\-\_\-\-R\-E\-L\-A\-T\-I\-O\-N\-S}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688ca1e19ff0100ee27ae260a5119764bbe6a}
+}]\index{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S@{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688cab610f31849afcf022d335292cb911aa7}{P\-A\-R\-A\-M\-\_\-\-T\-R\-A\-N\-S\-A\-C\-T\-I\-O\-N\-S}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688cab610f31849afcf022d335292cb911aa7}
+}]\index{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R@{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R}!vacation.\-c@{vacation.\-c}}\index{vacation.\-c@{vacation.\-c}!P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R@{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R}}\item[{\em 
+\hypertarget{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae2b667d5d6f60946a67bb7dceedf5f68}{P\-A\-R\-A\-M\-\_\-\-U\-S\-E\-R}\label{vacation_8c_adee0355d5a54fc002b5fd1103cca688cae2b667d5d6f60946a67bb7dceedf5f68}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{vacation_8c_a71a90924e6bac2c48cdfc1153b33084b}{\index{vacation.\-c@{vacation.\-c}!add\-Customer@{add\-Customer}}
+\index{add\-Customer@{add\-Customer}!vacation.c@{vacation.\-c}}
+\subsubsection[{add\-Customer}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf bool\-\_\-t} add\-Customer (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr, }
+\item[{long}]{id, }
+\item[{long}]{num, }
+\item[{long}]{price}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_a71a90924e6bac2c48cdfc1153b33084b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a71a90924e6bac2c48cdfc1153b33084b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a71a90924e6bac2c48cdfc1153b33084b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_a788803b8aaa6ed92eb1ca5cb47cad275}{\index{vacation.\-c@{vacation.\-c}!check\-Tables@{check\-Tables}}
+\index{check\-Tables@{check\-Tables}!vacation.c@{vacation.\-c}}
+\subsubsection[{check\-Tables}]{\setlength{\rightskip}{0pt plus 5cm}static void check\-Tables (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_a788803b8aaa6ed92eb1ca5cb47cad275}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a788803b8aaa6ed92eb1ca5cb47cad275_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{vacation_8c_a788803b8aaa6ed92eb1ca5cb47cad275_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_afa36de360eec20abef9d05d036b8b285}{\index{vacation.\-c@{vacation.\-c}!display\-Usage@{display\-Usage}}
+\index{display\-Usage@{display\-Usage}!vacation.c@{vacation.\-c}}
+\subsubsection[{display\-Usage}]{\setlength{\rightskip}{0pt plus 5cm}static void display\-Usage (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{app\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_afa36de360eec20abef9d05d036b8b285}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{vacation_8c_afa36de360eec20abef9d05d036b8b285_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_a461128481733b1cc4384ce5a9df6f5aa}{\index{vacation.\-c@{vacation.\-c}!free\-Clients@{free\-Clients}}
+\index{free\-Clients@{free\-Clients}!vacation.c@{vacation.\-c}}
+\subsubsection[{free\-Clients}]{\setlength{\rightskip}{0pt plus 5cm}static void free\-Clients (
+\begin{DoxyParamCaption}
+\item[{{\bf client\-\_\-t} $\ast$$\ast$}]{clients}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_a461128481733b1cc4384ce5a9df6f5aa}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{vacation_8c_a461128481733b1cc4384ce5a9df6f5aa_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{vacation_8c_a461128481733b1cc4384ce5a9df6f5aa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_a4fe2ed40233f9f31d63579a6c872446d}{\index{vacation.\-c@{vacation.\-c}!initialize\-Clients@{initialize\-Clients}}
+\index{initialize\-Clients@{initialize\-Clients}!vacation.c@{vacation.\-c}}
+\subsubsection[{initialize\-Clients}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf client\-\_\-t}$\ast$$\ast$ initialize\-Clients (
+\begin{DoxyParamCaption}
+\item[{{\bf manager\-\_\-t} $\ast$}]{manager\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_a4fe2ed40233f9f31d63579a6c872446d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a4fe2ed40233f9f31d63579a6c872446d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{vacation_8c_a4fe2ed40233f9f31d63579a6c872446d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_a50cbd725eec0f7508965d533f2dadf44}{\index{vacation.\-c@{vacation.\-c}!initialize\-Manager@{initialize\-Manager}}
+\index{initialize\-Manager@{initialize\-Manager}!vacation.c@{vacation.\-c}}
+\subsubsection[{initialize\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf manager\-\_\-t}$\ast$ initialize\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_a50cbd725eec0f7508965d533f2dadf44}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a50cbd725eec0f7508965d533f2dadf44_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{vacation_8c_a50cbd725eec0f7508965d533f2dadf44_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_a40c5c0b0d4eb7b59a91108269f69dc89}{\index{vacation.\-c@{vacation.\-c}!M\-A\-I\-N@{M\-A\-I\-N}}
+\index{M\-A\-I\-N@{M\-A\-I\-N}!vacation.c@{vacation.\-c}}
+\subsubsection[{M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}M\-A\-I\-N (
+\begin{DoxyParamCaption}
+\item[{argc}]{, }
+\item[{argv}]{}
+\end{DoxyParamCaption}
+)}}\label{vacation_8c_a40c5c0b0d4eb7b59a91108269f69dc89}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a40c5c0b0d4eb7b59a91108269f69dc89_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_accf0fd4bc6c5b765d7fc74882d20f222}{\index{vacation.\-c@{vacation.\-c}!parse\-Args@{parse\-Args}}
+\index{parse\-Args@{parse\-Args}!vacation.c@{vacation.\-c}}
+\subsubsection[{parse\-Args}]{\setlength{\rightskip}{0pt plus 5cm}static void parse\-Args (
+\begin{DoxyParamCaption}
+\item[{long}]{argc, }
+\item[{char $\ast$const}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_accf0fd4bc6c5b765d7fc74882d20f222}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{vacation_8c_accf0fd4bc6c5b765d7fc74882d20f222_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{vacation_8c_accf0fd4bc6c5b765d7fc74882d20f222_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{vacation_8c_a016efab4bdc7de50acd10796a39c7b33}{\index{vacation.\-c@{vacation.\-c}!set\-Default\-Params@{set\-Default\-Params}}
+\index{set\-Default\-Params@{set\-Default\-Params}!vacation.c@{vacation.\-c}}
+\subsubsection[{set\-Default\-Params}]{\setlength{\rightskip}{0pt plus 5cm}static void set\-Default\-Params (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{vacation_8c_a016efab4bdc7de50acd10796a39c7b33}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vacation_8c_a016efab4bdc7de50acd10796a39c7b33_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{vacation_8c_a97118ae9acc2845595a962dc2fa152d0}{\index{vacation.\-c@{vacation.\-c}!global\-\_\-params@{global\-\_\-params}}
+\index{global\-\_\-params@{global\-\_\-params}!vacation.c@{vacation.\-c}}
+\subsubsection[{global\-\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}double global\-\_\-params\mbox{[}256\mbox{]}}}\label{vacation_8c_a97118ae9acc2845595a962dc2fa152d0}

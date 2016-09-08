@@ -1,0 +1,25 @@
+<map id="fr_critical_enter" name="fr_critical_enter">
+<area shape="rect" id="node2" href="$lockfreeskip_8h.html#ae4d4144644d817c1c038bdda714a16c7" title="set_update" alt="" coords="217,56,303,83"/>
+<area shape="rect" id="node5" href="$lockfreeskip_8h.html#aa995b64d64a390fcb661ae5c92241d61" title="set_remove" alt="" coords="215,107,305,133"/>
+<area shape="rect" id="node7" href="$lockfreeskip_8h.html#a55124934482687d6316d9725de087e67" title="set_lookup" alt="" coords="217,157,303,184"/>
+<area shape="rect" id="node9" href="$stm__fraser_8c.html#aa57c521c9ca8d9bfc271c7077c3ea3a0" title="handle_fault" alt="" coords="214,259,306,285"/>
+<area shape="rect" id="node11" href="$stmskip_8h.html#aedbfc8f18bee8e611ee20d17feb55f98" title="init_stmskip_subsystem" alt="" coords="605,259,768,285"/>
+<area shape="rect" id="node13" href="$stmskip_8h.html#a010792935ce773352fdab0ac90c520d6" title="stmskip_alloc" alt="" coords="635,309,738,336"/>
+<area shape="rect" id="node14" href="$stmskip_8h.html#a35710eb6d2d01ed318faa7820460ec2e" title="destory_stmskip_subsystem" alt="" coords="165,364,355,391"/>
+<area shape="rect" id="node16" href="$transskip_8cc.html#a977b7a640f81eb02b78ee08376387721" title="transskip_insert" alt="" coords="203,477,317,504"/>
+<area shape="rect" id="node19" href="$transskip_8cc.html#a45102b19cad6e5d69fc6d1b4db42cf44" title="transskip_delete" alt="" coords="837,477,955,504"/>
+<area shape="rect" id="node20" href="$transskip_8cc.html#ae89a19c5e265e1f4988a8df74d9d27f7" title="transskip_find" alt="" coords="845,575,947,601"/>
+<area shape="rect" id="node23" href="$transskip_8cc.html#a0476ce376b2b4276828a9b197a43d75a" title="transskip_delete_org" alt="" coords="189,731,331,757"/>
+<area shape="rect" id="node24" href="$transskip_8cc.html#a292c5287f7cc9497a62add15d3aca707" title="transskip_find_original" alt="" coords="185,781,335,808"/>
+<area shape="rect" id="node3" href="$classBoostingSkip.html#ae0ddab9bd1e3d1972fc8bcaa74a9ed81" title="BoostingSkip::Insert" alt="" coords="410,5,550,32"/>
+<area shape="rect" id="node4" href="$classBoostingSkip.html#ac9bf8693a172f366ae733c5a78804071" title="BoostingSkip::OnAbort" alt="" coords="403,56,557,83"/>
+<area shape="rect" id="node6" href="$classBoostingSkip.html#ab1f1f0ba800de912c42ec328767c4685" title="BoostingSkip::Delete" alt="" coords="407,107,553,133"/>
+<area shape="rect" id="node8" href="$classBoostingSkip.html#a8a58f9a9cba8a359cbbba216342ce0bd" title="BoostingSkip::Find" alt="" coords="414,157,546,184"/>
+<area shape="rect" id="node10" href="$stm__fraser_8c.html#a7b76b85023f5a028abad5e822391f95a" title="_init_stm_subsystem" alt="" coords="407,259,553,285"/>
+<area shape="rect" id="node12" href="$classSetAdaptor_3_01stm__skip_01_4.html#acfb0c3f8dd7da801bdafb4ff1de8ba3e" title="SetAdaptor\&lt; stm_skip\l \&gt;::SetAdaptor" alt="" coords="820,277,972,318"/>
+<area shape="rect" id="node15" href="$classSetAdaptor_3_01stm__skip_01_4.html#a2507a030fd63806e44bd3711757c0a49" title="SetAdaptor\&lt; stm_skip\l \&gt;::~SetAdaptor" alt="" coords="404,361,556,402"/>
+<area shape="rect" id="node17" href="$transskip_8cc.html#a4ae3b77271a6617ab4b15183a6ca9601" title="help_ops" alt="" coords="443,528,517,555"/>
+<area shape="rect" id="node18" href="$transskip_8cc.html#a0d6d503fca08ea29d18df6b11d5fbcc0" title="FinishPendingTxn" alt="" coords="623,477,750,504"/>
+<area shape="rect" id="node21" href="$transskip_8h.html#ab9c29316cb91737b6c383818ff700dd0" title="execute_ops" alt="" coords="639,629,735,656"/>
+<area shape="rect" id="node22" href="$classSetAdaptor_3_01trans__skip_01_4.html#a7a710fc23fd33466e92b1d06ad2e5869" title="SetAdaptor\&lt; trans_skip\l \&gt;::ExecuteOps" alt="" coords="817,626,975,667"/>
+</map>

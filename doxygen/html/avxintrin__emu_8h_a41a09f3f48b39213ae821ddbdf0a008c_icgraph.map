@@ -1,0 +1,6 @@
+<map id="__emu_set_m128" name="__emu_set_m128">
+<area shape="rect" id="node2" href="$avxintrin__emu_8h.html#ac8d1186f1c74cebfa7a674f26d2c313b" title="__emu_mm256_setzero_ps" alt="" coords="179,5,362,32"/>
+<area shape="rect" id="node3" href="$avxintrin__emu_8h.html#a542c94371215d994748c77b940a403de" title="__emu_mm256_set_ps" alt="" coords="192,56,349,83"/>
+<area shape="rect" id="node4" href="$avxintrin__emu_8h.html#ab977a0407502cffd5fa95910321519b9" title="__emu_mm256_setr_ps" alt="" coords="190,107,351,133"/>
+<area shape="rect" id="node5" href="$avxintrin__emu_8h.html#ad83848d0b8163283833e297d120889a0" title="__emu_mm256_castps128\l_ps256" alt="" coords="181,158,360,199"/>
+</map>

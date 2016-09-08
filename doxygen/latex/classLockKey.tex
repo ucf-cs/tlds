@@ -1,0 +1,177 @@
+\hypertarget{classLockKey}{\section{Lock\-Key Class Reference}
+\label{classLockKey}\index{Lock\-Key@{Lock\-Key}}
+}
+
+
+{\ttfamily \#include $<$lockkey.\-h$>$}
+
+
+
+Collaboration diagram for Lock\-Key\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classLockKey__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLockKey_aec8e18e5043d0fc71a850189aa097fc6}{Lock\-Key} ()
+\item 
+\hyperlink{classLockKey_a1df4a35c5d73aebeb969413a305a4c0e}{$\sim$\-Lock\-Key} ()
+\item 
+void \hyperlink{classLockKey_a06617ba173ee5e0097aeca576e79f1f4}{Init} ()
+\item 
+void \hyperlink{classLockKey_adf4f2e48d3a2456e4ef8cb9d1d13f713}{Uninit} ()
+\item 
+bool \hyperlink{classLockKey_ae524bd315c5de22c405e19875b27d6d3}{Lock} (uint32\-\_\-t key)
+\item 
+void \hyperlink{classLockKey_acb4b0e1caa6571dae666f3bcbb367df0}{Unlock} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::recursive\-\_\-timed\-\_\-mutex \hyperlink{classLockKey_a1d353f7485eb028eba4f8d8b310671d2}{Lock\-Type}
+\item 
+typedef \\*
+tbb\-::concurrent\-\_\-hash\-\_\-map\\*
+$<$ uint32\-\_\-t, \hyperlink{classLockKey_a1d353f7485eb028eba4f8d8b310671d2}{Lock\-Type} $\ast$ $>$ \hyperlink{classLockKey_ac1fcdfbaee1acc65af16330619a8da6b}{Lock\-Map}
+\item 
+typedef std\-::unordered\-\_\-set\\*
+$<$ \hyperlink{classLockKey_a1d353f7485eb028eba4f8d8b310671d2}{Lock\-Type} $\ast$ $>$ \hyperlink{classLockKey_ac9cd4ebc6a682f3f1e879d89062af047}{Lock\-Set}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLockKey_ac1fcdfbaee1acc65af16330619a8da6b}{Lock\-Map} \hyperlink{classLockKey_ab2c69fd900b76bbe73d61113fd72a649}{m\-\_\-lock\-Map}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-thread \hyperlink{classLockKey_ac9cd4ebc6a682f3f1e879d89062af047}{Lock\-Set} $\ast$ \hyperlink{classLockKey_a0ab7ba3859ccae1c1e8b20c3203fe6ba}{m\-\_\-lock\-Set}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classLockKey_ac1fcdfbaee1acc65af16330619a8da6b}{\index{Lock\-Key@{Lock\-Key}!Lock\-Map@{Lock\-Map}}
+\index{Lock\-Map@{Lock\-Map}!LockKey@{Lock\-Key}}
+\subsubsection[{Lock\-Map}]{\setlength{\rightskip}{0pt plus 5cm}typedef tbb\-::concurrent\-\_\-hash\-\_\-map$<$uint32\-\_\-t, {\bf Lock\-Type}$\ast$$>$ {\bf Lock\-Key\-::\-Lock\-Map}\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockKey_ac1fcdfbaee1acc65af16330619a8da6b}
+\hypertarget{classLockKey_ac9cd4ebc6a682f3f1e879d89062af047}{\index{Lock\-Key@{Lock\-Key}!Lock\-Set@{Lock\-Set}}
+\index{Lock\-Set@{Lock\-Set}!LockKey@{Lock\-Key}}
+\subsubsection[{Lock\-Set}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::unordered\-\_\-set$<${\bf Lock\-Type}$\ast$$>$ {\bf Lock\-Key\-::\-Lock\-Set}\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockKey_ac9cd4ebc6a682f3f1e879d89062af047}
+\hypertarget{classLockKey_a1d353f7485eb028eba4f8d8b310671d2}{\index{Lock\-Key@{Lock\-Key}!Lock\-Type@{Lock\-Type}}
+\index{Lock\-Type@{Lock\-Type}!LockKey@{Lock\-Key}}
+\subsubsection[{Lock\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::recursive\-\_\-timed\-\_\-mutex {\bf Lock\-Key\-::\-Lock\-Type}\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockKey_a1d353f7485eb028eba4f8d8b310671d2}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLockKey_aec8e18e5043d0fc71a850189aa097fc6}{\index{Lock\-Key@{Lock\-Key}!Lock\-Key@{Lock\-Key}}
+\index{Lock\-Key@{Lock\-Key}!LockKey@{Lock\-Key}}
+\subsubsection[{Lock\-Key}]{\setlength{\rightskip}{0pt plus 5cm}Lock\-Key\-::\-Lock\-Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLockKey_aec8e18e5043d0fc71a850189aa097fc6}
+\hypertarget{classLockKey_a1df4a35c5d73aebeb969413a305a4c0e}{\index{Lock\-Key@{Lock\-Key}!$\sim$\-Lock\-Key@{$\sim$\-Lock\-Key}}
+\index{$\sim$\-Lock\-Key@{$\sim$\-Lock\-Key}!LockKey@{Lock\-Key}}
+\subsubsection[{$\sim$\-Lock\-Key}]{\setlength{\rightskip}{0pt plus 5cm}Lock\-Key\-::$\sim$\-Lock\-Key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLockKey_a1df4a35c5d73aebeb969413a305a4c0e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLockKey_a06617ba173ee5e0097aeca576e79f1f4}{\index{Lock\-Key@{Lock\-Key}!Init@{Init}}
+\index{Init@{Init}!LockKey@{Lock\-Key}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Lock\-Key\-::\-Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLockKey_a06617ba173ee5e0097aeca576e79f1f4}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{classLockKey_a06617ba173ee5e0097aeca576e79f1f4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockKey_ae524bd315c5de22c405e19875b27d6d3}{\index{Lock\-Key@{Lock\-Key}!Lock@{Lock}}
+\index{Lock@{Lock}!LockKey@{Lock\-Key}}
+\subsubsection[{Lock}]{\setlength{\rightskip}{0pt plus 5cm}bool Lock\-Key\-::\-Lock (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLockKey_ae524bd315c5de22c405e19875b27d6d3}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classLockKey_ae524bd315c5de22c405e19875b27d6d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockKey_adf4f2e48d3a2456e4ef8cb9d1d13f713}{\index{Lock\-Key@{Lock\-Key}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!LockKey@{Lock\-Key}}
+\subsubsection[{Uninit}]{\setlength{\rightskip}{0pt plus 5cm}void Lock\-Key\-::\-Uninit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLockKey_adf4f2e48d3a2456e4ef8cb9d1d13f713}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classLockKey_adf4f2e48d3a2456e4ef8cb9d1d13f713_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classLockKey_acb4b0e1caa6571dae666f3bcbb367df0}{\index{Lock\-Key@{Lock\-Key}!Unlock@{Unlock}}
+\index{Unlock@{Unlock}!LockKey@{Lock\-Key}}
+\subsubsection[{Unlock}]{\setlength{\rightskip}{0pt plus 5cm}void Lock\-Key\-::\-Unlock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLockKey_acb4b0e1caa6571dae666f3bcbb367df0}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classLockKey_acb4b0e1caa6571dae666f3bcbb367df0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classLockKey_ab2c69fd900b76bbe73d61113fd72a649}{\index{Lock\-Key@{Lock\-Key}!m\-\_\-lock\-Map@{m\-\_\-lock\-Map}}
+\index{m\-\_\-lock\-Map@{m\-\_\-lock\-Map}!LockKey@{Lock\-Key}}
+\subsubsection[{m\-\_\-lock\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lock\-Map} Lock\-Key\-::m\-\_\-lock\-Map\hspace{0.3cm}{\ttfamily [private]}}}\label{classLockKey_ab2c69fd900b76bbe73d61113fd72a649}
+\hypertarget{classLockKey_a0ab7ba3859ccae1c1e8b20c3203fe6ba}{\index{Lock\-Key@{Lock\-Key}!m\-\_\-lock\-Set@{m\-\_\-lock\-Set}}
+\index{m\-\_\-lock\-Set@{m\-\_\-lock\-Set}!LockKey@{Lock\-Key}}
+\subsubsection[{m\-\_\-lock\-Set}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-thread {\bf Lock\-Key\-::\-Lock\-Set} $\ast$ Lock\-Key\-::m\-\_\-lock\-Set\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classLockKey_a0ab7ba3859ccae1c1e8b20c3203fe6ba}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+boosting/\hyperlink{lockkey_8h}{lockkey.\-h}\item 
+boosting/\hyperlink{lockkey_8cc}{lockkey.\-cc}\end{DoxyCompactItemize}

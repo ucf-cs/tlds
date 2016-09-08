@@ -1,0 +1,176 @@
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03}{\section{anonymous\-\_\-namespace\{irrevocability.\-cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02irrevocability_8cpp_03}\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_aa1728270d73c5d1598de1fd691762eb1}{N\-O\-R\-E\-T\-U\-R\-N} void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac71fd4f2ae60b1814ccaedea40d424a2}{abort\-\_\-irrevocable} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{stm\-::scope\-\_\-t} $\ast$ \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_adfdb44f5b204ddd367543d1e3a5465fc}{rollback\-\_\-irrevocable} (\hyperlink{include_2stm_2macros_8hpp_a1c36a48149c84f90d5bca01019950ca9}{S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}(,,,))
+\item 
+void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_ab42770392de26e3b0bc1ffbe2f7932b8}{unset\-\_\-irrevocable\-\_\-barriers} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_af9e6aae425588bac29be16e10b91cd4c}{commit\-\_\-irrevocable} (\hyperlink{include_2stm_2macros_8hpp_a1b8304eb1082517c7dc31f3534b72343}{S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}(\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx},))
+\item 
+void \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_a5f2e3da55eda99c9e30b6314c36ed8b2}{set\-\_\-irrevocable\-\_\-barriers} (\hyperlink{structstm_1_1TxThread}{Tx\-Thread} \&\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Abort\-Handler \hyperlink{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac93d4712c00e7ccb77270953062faa28}{old\-\_\-abort\-\_\-handler} = N\-U\-L\-L
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac71fd4f2ae60b1814ccaedea40d424a2}{\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}!abort\-\_\-irrevocable@{abort\-\_\-irrevocable}}
+\index{abort\-\_\-irrevocable@{abort\-\_\-irrevocable}!anonymous_namespace{irrevocability.cpp}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+\subsubsection[{abort\-\_\-irrevocable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\-O\-R\-E\-T\-U\-R\-N} void anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::abort\-\_\-irrevocable (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac71fd4f2ae60b1814ccaedea40d424a2}
+Handler for abort attempts while irrevocable. Useful for trapping problems early. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac71fd4f2ae60b1814ccaedea40d424a2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac71fd4f2ae60b1814ccaedea40d424a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03_af9e6aae425588bac29be16e10b91cd4c}{\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}!commit\-\_\-irrevocable@{commit\-\_\-irrevocable}}
+\index{commit\-\_\-irrevocable@{commit\-\_\-irrevocable}!anonymous_namespace{irrevocability.cpp}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+\subsubsection[{commit\-\_\-irrevocable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} void anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::commit\-\_\-irrevocable (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-C\-O\-M\-M\-I\-T\-\_\-\-S\-I\-G}({\bf tx},)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02irrevocability_8cpp_03_af9e6aae425588bac29be16e10b91cd4c}
+custom commit for irrevocable transactions 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_af9e6aae425588bac29be16e10b91cd4c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_af9e6aae425588bac29be16e10b91cd4c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03_adfdb44f5b204ddd367543d1e3a5465fc}{\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}!rollback\-\_\-irrevocable@{rollback\-\_\-irrevocable}}
+\index{rollback\-\_\-irrevocable@{rollback\-\_\-irrevocable}!anonymous_namespace{irrevocability.cpp}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+\subsubsection[{rollback\-\_\-irrevocable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-::scope\-\_\-t}$\ast$ anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::rollback\-\_\-irrevocable (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-M\-\_\-\-R\-O\-L\-L\-B\-A\-C\-K\-\_\-\-S\-I\-G}(,,,)}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02irrevocability_8cpp_03_adfdb44f5b204ddd367543d1e3a5465fc}
+Handler for rollback attempts while irrevocable. Useful for trapping problems early.
+
+N\-B\-: For whatever reason a 'using \hyperlink{namespacestm_a91badf88c88aacc831b01a315435a255}{stm\-::scope\-\_\-t}' triggers an I\-C\-E in Mac O\-S X's default gcc-\/4.\-2.\-1. It's fine if we use the fully qualified namespace here. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_adfdb44f5b204ddd367543d1e3a5465fc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_adfdb44f5b204ddd367543d1e3a5465fc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03_a5f2e3da55eda99c9e30b6314c36ed8b2}{\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}!set\-\_\-irrevocable\-\_\-barriers@{set\-\_\-irrevocable\-\_\-barriers}}
+\index{set\-\_\-irrevocable\-\_\-barriers@{set\-\_\-irrevocable\-\_\-barriers}!anonymous_namespace{irrevocability.cpp}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+\subsubsection[{set\-\_\-irrevocable\-\_\-barriers}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::set\-\_\-irrevocable\-\_\-barriers (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} \&}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceanonymous__namespace_02irrevocability_8cpp_03_a5f2e3da55eda99c9e30b6314c36ed8b2}
+Sets all of the barriers to be irrevocable, except tmbegin. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_a5f2e3da55eda99c9e30b6314c36ed8b2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_a5f2e3da55eda99c9e30b6314c36ed8b2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03_ab42770392de26e3b0bc1ffbe2f7932b8}{\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}!unset\-\_\-irrevocable\-\_\-barriers@{unset\-\_\-irrevocable\-\_\-barriers}}
+\index{unset\-\_\-irrevocable\-\_\-barriers@{unset\-\_\-irrevocable\-\_\-barriers}!anonymous_namespace{irrevocability.cpp}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+\subsubsection[{unset\-\_\-irrevocable\-\_\-barriers}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::unset\-\_\-irrevocable\-\_\-barriers (
+\begin{DoxyParamCaption}
+\item[{{\bf Tx\-Thread} \&}]{tx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceanonymous__namespace_02irrevocability_8cpp_03_ab42770392de26e3b0bc1ffbe2f7932b8}
+Resets all of the barriers to be the curr\-\_\-policy bariers, except for tmabort which reverts to the one we saved, and tmbegin which should be done manually in the caller. 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02irrevocability_8cpp_03_ab42770392de26e3b0bc1ffbe2f7932b8_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac93d4712c00e7ccb77270953062faa28}{\index{anonymous\-\_\-namespace\{irrevocability.\-cpp\}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}!old\-\_\-abort\-\_\-handler@{old\-\_\-abort\-\_\-handler}}
+\index{old\-\_\-abort\-\_\-handler@{old\-\_\-abort\-\_\-handler}!anonymous_namespace{irrevocability.cpp}@{anonymous\-\_\-namespace\{irrevocability.\-cpp\}}}
+\subsubsection[{old\-\_\-abort\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}Abort\-Handler anonymous\-\_\-namespace\{irrevocability.\-cpp\}\-::old\-\_\-abort\-\_\-handler = N\-U\-L\-L}}\label{namespaceanonymous__namespace_02irrevocability_8cpp_03_ac93d4712c00e7ccb77270953062faa28}
+The abort handler is set during sys\-\_\-init. We overwrite it with abort\-\_\-irrevocable when a transaction becomes irrevocable, and we save the old one here so we can restore it during commit. 

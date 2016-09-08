@@ -1,0 +1,7 @@
+<map id="manager_addCar_seq" name="manager_addCar_seq">
+<area shape="rect" id="node2" href="$manager_8c.html#a5f407c87365596a5d4085c9d53982a91" title="addReservation_seq" alt="" coords="203,56,344,83"/>
+<area shape="rect" id="node3" href="$reservation_8c.html#a5a7178e63efa3d32eb1eb43f9d95b758" title="reservation_alloc_seq" alt="" coords="414,5,562,32"/>
+<area shape="rect" id="node5" href="$reservation_8c.html#a095eddecd019df693bdcce5a3182799a" title="reservation_addToTotal_seq" alt="" coords="395,56,581,83"/>
+<area shape="rect" id="node6" href="$reservation_8c.html#af0f4e11ded3a9cc6d745ad63cc433f10" title="reservation_updatePrice_seq" alt="" coords="393,107,583,133"/>
+<area shape="rect" id="node4" href="$reservation_8c.html#a00e6e3fa05212396ac8ee5bc91602c30" title="checkReservation_seq" alt="" coords="632,56,787,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="freeBuckets" name="freeBuckets">
+<area shape="rect" id="node2" href="$list_8c.html#a4fb22eb8e01180e8150cd15c8257e57a" title="list_free" alt="" coords="147,5,215,32"/>
+<area shape="rect" id="node3" href="$list_8c.html#a475696d1a0aedfdbac6a0c6516fc78da" title="freeList" alt="" coords="265,5,330,32"/>
+<area shape="rect" id="node4" href="$list_8c.html#ac485202058cce61a3db7ad23eea4c658" title="freeNode" alt="" coords="379,5,453,32"/>
+</map>

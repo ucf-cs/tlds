@@ -1,0 +1,854 @@
+\hypertarget{stm__fraser_8c}{\section{common/fraser/stm\-\_\-fraser.c File Reference}
+\label{stm__fraser_8c}\index{common/fraser/stm\-\_\-fraser.\-c@{common/fraser/stm\-\_\-fraser.\-c}}
+}
+{\ttfamily \#include \char`\"{}portable\-\_\-defns.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ptst.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}gc.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$setjmp.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+Include dependency graph for stm\-\_\-fraser.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstm__blk__st}{stm\-\_\-blk\-\_\-st}
+\item 
+struct \hyperlink{structstm__tx__entry__st}{stm\-\_\-tx\-\_\-entry\-\_\-st}
+\item 
+struct \hyperlink{structstm__tx__st}{stm\-\_\-tx\-\_\-st}
+\item 
+struct \hyperlink{structstm__st}{stm\-\_\-st}
+\item 
+struct \hyperlink{structpriv__t}{priv\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stm__fraser_8c_a478dce8b2996e11e92de80139738fc89}{A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E}(\-\_\-s)~(\hyperlink{stm__fraser_8c_a1535d1dfab4322f6af382a63d54f1fc1}{do\-\_\-padding} ? \hyperlink{grid_8c_ab711bbb41cecee65bf4515d78f323628}{C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E} \-: (\-\_\-s))
+\item 
+\#define \hyperlink{stm__fraser_8c_a716f9c94eab29ae62af2ce55bf23db20}{A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E}~163840
+\item 
+\#define \hyperlink{stm__fraser_8c_a622ff4be245e69ca821f93246fa66d44}{D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E}~16384
+\item 
+\#define \hyperlink{stm__fraser_8c_a8f22d68030a638da217e7b02a99aedb9}{T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S}~0
+\item 
+\#define \hyperlink{stm__fraser_8c_a0d7a27fb5c1f054ba0ada3006546baca}{T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E}~1
+\item 
+\#define \hyperlink{stm__fraser_8c_a10a9c0bcd5937438e8d1ba0c1000a4c7}{T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D}~2
+\item 
+\#define \hyperlink{stm__fraser_8c_ad46452b8744f53f867781a6adcf5502b}{T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L}~3
+\item 
+\#define \hyperlink{stm__fraser_8c_a317aab6d604d231e2ff4f40cb198f823}{is\-\_\-descriptor}(\-\_\-p)~((unsigned long)(\-\_\-p) \& 1)
+\item 
+\#define \hyperlink{stm__fraser_8c_ae87029911a95aeac325ee9102fadeb91}{ptr\-\_\-to\-\_\-descriptor}(\-\_\-p)~((\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$)((unsigned long)(\-\_\-p) \& $\sim$1))
+\item 
+\#define \hyperlink{stm__fraser_8c_af8238a3142bd229c87815fe1fa18c8c7}{make\-\_\-marked\-\_\-ptr}(\-\_\-p)~((void $\ast$)((unsigned long)(\-\_\-p) $\vert$ 1))
+\item 
+\#define \hyperlink{stm__fraser_8c_a78c0df6936ce1049a88793fb4121aeb5}{read\-\_\-only}(\-\_\-t)~((\-\_\-t)-\/$>$writes == N\-U\-L\-L)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structstm__blk__st}{stm\-\_\-blk\-\_\-st} \hyperlink{stm__fraser_8c_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk}
+\item 
+typedef struct \hyperlink{structstm__tx__entry__st}{stm\-\_\-tx\-\_\-entry\-\_\-st} \hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry}
+\item 
+typedef struct \hyperlink{structstm__tx__st}{stm\-\_\-tx\-\_\-st} \hyperlink{stm__fraser_8c_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx}
+\item 
+typedef struct \hyperlink{structstm__st}{stm\-\_\-st} \hyperlink{stm__fraser_8c_a9064e992f352e5c38e2333c1489b5efc}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{stm__fraser_8c_a31ea9d61a84d817aac10ffbc4ba9f296}{commit\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+static void \hyperlink{stm__fraser_8c_a2078f1c33c67d3ddae15cbd349d39588}{new\-\_\-arena} (\hyperlink{structpriv__t}{priv\-\_\-t} $\ast$priv, int size)
+\item 
+static void \hyperlink{stm__fraser_8c_afd1a951db8c0f79e6bf20624e7dca338}{release\-\_\-descriptor} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+static int \hyperlink{stm__fraser_8c_a1a59f05201730ec9ba9a348070073e57}{rc\-\_\-delta\-\_\-descriptor} (\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, int delta)
+\item 
+static void \hyperlink{stm__fraser_8c_a3baf54f8c2c6bdb79109865e5500cbd9}{rc\-\_\-up\-\_\-descriptor} (\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+static void \hyperlink{stm__fraser_8c_ad41e28910c7dbe8cfd98c9e0c168c9dc}{rc\-\_\-down\-\_\-descriptor} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+static \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$ \hyperlink{stm__fraser_8c_aeae83ff15e83aa88a447cf9e61463ebc}{new\-\_\-descriptor} (\hyperlink{structpriv__t}{priv\-\_\-t} $\ast$priv)
+\item 
+static \hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$ \hyperlink{stm__fraser_8c_a75177d9fa0335bd50b6fae9a68341443}{alloc\-\_\-stm\-\_\-tx\-\_\-entry} (\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+static \hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$$\ast$ \hyperlink{stm__fraser_8c_aca0d40200c3502bdabeb44b27dfd4105}{search\-\_\-stm\-\_\-tx\-\_\-entry} (\hyperlink{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{stm\-\_\-tx\-\_\-entry} $\ast$$\ast$pnext, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+static void $\ast$ \hyperlink{stm__fraser_8c_a4e016a575dac2ee3931ef9ec94550d33}{read\-\_\-blk\-\_\-data} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+\hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$ \hyperlink{stm__fraser_8c_a949151d8bcac092e7cb4bd782059c194}{new\-\_\-stm} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, int blk\-\_\-size)
+\item 
+void \hyperlink{stm__fraser_8c_a11462d544b66c8e0e0324e88dd32650d}{free\-\_\-stm} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem)
+\item 
+\hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$ \hyperlink{stm__fraser_8c_a7f41614dded09613f4ccd7578ef188ba}{new\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem)
+\item 
+void \hyperlink{stm__fraser_8c_a61731e38dec59f7f2995842fed69719f}{free\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void $\ast$ \hyperlink{stm__fraser_8c_a2c77806bb0511fb17494d226b5ea20d8}{init\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+int \hyperlink{stm__fraser_8c_a29d1fe9b70bc01d34adba12ecb23fa3b}{sizeof\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+\hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$ \hyperlink{stm__fraser_8c_a2e088d3290a0848f5727d19f36c1cb76}{new\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_a9064e992f352e5c38e2333c1489b5efc}{stm} $\ast$mem, sigjmp\-\_\-buf $\ast$penv)
+\item 
+\hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{stm__fraser_8c_acd69585b95bbcac8c69333f4aaee4335}{validate\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+void \hyperlink{stm__fraser_8c_ad6e1404788ef0e710c991c3e00fd5c39}{abort\-\_\-stm\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t)
+\item 
+void $\ast$ \hyperlink{stm__fraser_8c_a5594d7fca67459d7d9738436af589c5c}{read\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void $\ast$ \hyperlink{stm__fraser_8c_a00de1ad150378181157510e2e5982f75}{write\-\_\-stm\-\_\-blk} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+void \hyperlink{stm__fraser_8c_aafb218e9a278fa119b9749daa02cfadf}{remove\-\_\-from\-\_\-tx} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, \hyperlink{stm_8h_aa6edafeae971e657c7f732ffe5a9d026}{stm\-\_\-tx} $\ast$t, \hyperlink{stm_8h_a516da8305f9cec2fe40c7458fb7483e3}{stm\-\_\-blk} $\ast$b)
+\item 
+static void \hyperlink{stm__fraser_8c_aa57c521c9ca8d9bfc271c7077c3ea3a0}{handle\-\_\-fault} (int sig)
+\item 
+void \hyperlink{stm__fraser_8c_a7b76b85023f5a028abad5e822391f95a}{\-\_\-init\-\_\-stm\-\_\-subsystem} (int pad\-\_\-data)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structpriv__t}{priv\-\_\-t} \hyperlink{stm__fraser_8c_a2f387967e40f46a7255e1d6c054d74ca}{priv\-\_\-ptst} \mbox{[}\hyperlink{portable__defns_8h_a8b5173357adb02a86c027316e0acdfa0}{M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]}
+\item 
+static int \hyperlink{stm__fraser_8c_afdc1e79d616abc063c8e8f52faab1e74}{gc\-\_\-blk\-\_\-id}
+\item 
+static int \hyperlink{stm__fraser_8c_a1535d1dfab4322f6af382a63d54f1fc1}{do\-\_\-padding}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stm__fraser_8c_a478dce8b2996e11e92de80139738fc89}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E@{A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E}}
+\index{A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E@{A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-A\-T\-O\-R\-\_\-\-S\-I\-Z\-E(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-s}
+\end{DoxyParamCaption}
+)~({\bf do\-\_\-padding} ? {\bf C\-A\-C\-H\-E\-\_\-\-L\-I\-N\-E\-\_\-\-S\-I\-Z\-E} \-: (\-\_\-s))}}\label{stm__fraser_8c_a478dce8b2996e11e92de80139738fc89}
+\hypertarget{stm__fraser_8c_a716f9c94eab29ae62af2ce55bf23db20}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E@{A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E}}
+\index{A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E@{A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-R\-E\-N\-A\-\_\-\-S\-I\-Z\-E~163840}}\label{stm__fraser_8c_a716f9c94eab29ae62af2ce55bf23db20}
+\hypertarget{stm__fraser_8c_a622ff4be245e69ca821f93246fa66d44}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E@{D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E}}
+\index{D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E@{D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-S\-C\-R\-I\-P\-T\-O\-R\-\_\-\-S\-I\-Z\-E~16384}}\label{stm__fraser_8c_a622ff4be245e69ca821f93246fa66d44}
+\hypertarget{stm__fraser_8c_a317aab6d604d231e2ff4f40cb198f823}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!is\-\_\-descriptor@{is\-\_\-descriptor}}
+\index{is\-\_\-descriptor@{is\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{is\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}\#define is\-\_\-descriptor(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((unsigned long)(\-\_\-p) \& 1)}}\label{stm__fraser_8c_a317aab6d604d231e2ff4f40cb198f823}
+\hypertarget{stm__fraser_8c_af8238a3142bd229c87815fe1fa18c8c7}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!make\-\_\-marked\-\_\-ptr@{make\-\_\-marked\-\_\-ptr}}
+\index{make\-\_\-marked\-\_\-ptr@{make\-\_\-marked\-\_\-ptr}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{make\-\_\-marked\-\_\-ptr}]{\setlength{\rightskip}{0pt plus 5cm}\#define make\-\_\-marked\-\_\-ptr(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~((void $\ast$)((unsigned long)(\-\_\-p) $\vert$ 1))}}\label{stm__fraser_8c_af8238a3142bd229c87815fe1fa18c8c7}
+\hypertarget{stm__fraser_8c_ae87029911a95aeac325ee9102fadeb91}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!ptr\-\_\-to\-\_\-descriptor@{ptr\-\_\-to\-\_\-descriptor}}
+\index{ptr\-\_\-to\-\_\-descriptor@{ptr\-\_\-to\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{ptr\-\_\-to\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}\#define ptr\-\_\-to\-\_\-descriptor(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-p}
+\end{DoxyParamCaption}
+)~(({\bf stm\-\_\-tx} $\ast$)((unsigned long)(\-\_\-p) \& $\sim$1))}}\label{stm__fraser_8c_ae87029911a95aeac325ee9102fadeb91}
+\hypertarget{stm__fraser_8c_a78c0df6936ce1049a88793fb4121aeb5}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!read\-\_\-only@{read\-\_\-only}}
+\index{read\-\_\-only@{read\-\_\-only}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{read\-\_\-only}]{\setlength{\rightskip}{0pt plus 5cm}\#define read\-\_\-only(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-t}
+\end{DoxyParamCaption}
+)~((\-\_\-t)-\/$>$writes == N\-U\-L\-L)}}\label{stm__fraser_8c_a78c0df6936ce1049a88793fb4121aeb5}
+\hypertarget{stm__fraser_8c_a10a9c0bcd5937438e8d1ba0c1000a4c7}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D@{T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D}}
+\index{T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D@{T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-S\-\_\-\-F\-A\-I\-L\-E\-D~2}}\label{stm__fraser_8c_a10a9c0bcd5937438e8d1ba0c1000a4c7}
+\hypertarget{stm__fraser_8c_a8f22d68030a638da217e7b02a99aedb9}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S@{T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S}}
+\index{T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S@{T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-S\-\_\-\-I\-N\-\_\-\-P\-R\-O\-G\-R\-E\-S\-S~0}}\label{stm__fraser_8c_a8f22d68030a638da217e7b02a99aedb9}
+\hypertarget{stm__fraser_8c_a0d7a27fb5c1f054ba0ada3006546baca}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E@{T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E}}
+\index{T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E@{T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-S\-\_\-\-R\-E\-A\-D\-\_\-\-P\-H\-A\-S\-E~1}}\label{stm__fraser_8c_a0d7a27fb5c1f054ba0ada3006546baca}
+\hypertarget{stm__fraser_8c_ad46452b8744f53f867781a6adcf5502b}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L@{T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L}}
+\index{T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L@{T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-S\-\_\-\-S\-U\-C\-C\-E\-S\-S\-F\-U\-L~3}}\label{stm__fraser_8c_ad46452b8744f53f867781a6adcf5502b}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{stm__fraser_8c_a9064e992f352e5c38e2333c1489b5efc}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!stm@{stm}}
+\index{stm@{stm}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{stm}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-st} {\bf stm}}}\label{stm__fraser_8c_a9064e992f352e5c38e2333c1489b5efc}
+\hypertarget{stm__fraser_8c_a516da8305f9cec2fe40c7458fb7483e3}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!stm\-\_\-blk@{stm\-\_\-blk}}
+\index{stm\-\_\-blk@{stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-blk\-\_\-st} {\bf stm\-\_\-blk}}}\label{stm__fraser_8c_a516da8305f9cec2fe40c7458fb7483e3}
+\hypertarget{stm__fraser_8c_aa6edafeae971e657c7f732ffe5a9d026}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!stm\-\_\-tx@{stm\-\_\-tx}}
+\index{stm\-\_\-tx@{stm\-\_\-tx}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-tx\-\_\-st} {\bf stm\-\_\-tx}}}\label{stm__fraser_8c_aa6edafeae971e657c7f732ffe5a9d026}
+\hypertarget{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!stm\-\_\-tx\-\_\-entry@{stm\-\_\-tx\-\_\-entry}}
+\index{stm\-\_\-tx\-\_\-entry@{stm\-\_\-tx\-\_\-entry}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{stm\-\_\-tx\-\_\-entry}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf stm\-\_\-tx\-\_\-entry\-\_\-st} {\bf stm\-\_\-tx\-\_\-entry}}}\label{stm__fraser_8c_a4aacc05bcf38ac11ac911641876db633}
+
+
+\subsection{Function Documentation}
+\hypertarget{stm__fraser_8c_a7b76b85023f5a028abad5e822391f95a}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!\-\_\-init\-\_\-stm\-\_\-subsystem@{\-\_\-init\-\_\-stm\-\_\-subsystem}}
+\index{\-\_\-init\-\_\-stm\-\_\-subsystem@{\-\_\-init\-\_\-stm\-\_\-subsystem}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{\-\_\-init\-\_\-stm\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-init\-\_\-stm\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{int}]{pad\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a7b76b85023f5a028abad5e822391f95a}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a7b76b85023f5a028abad5e822391f95a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a7b76b85023f5a028abad5e822391f95a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_ad6e1404788ef0e710c991c3e00fd5c39}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!abort\-\_\-stm\-\_\-tx@{abort\-\_\-stm\-\_\-tx}}
+\index{abort\-\_\-stm\-\_\-tx@{abort\-\_\-stm\-\_\-tx}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{abort\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void abort\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_ad6e1404788ef0e710c991c3e00fd5c39}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_ad6e1404788ef0e710c991c3e00fd5c39_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a75177d9fa0335bd50b6fae9a68341443}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!alloc\-\_\-stm\-\_\-tx\-\_\-entry@{alloc\-\_\-stm\-\_\-tx\-\_\-entry}}
+\index{alloc\-\_\-stm\-\_\-tx\-\_\-entry@{alloc\-\_\-stm\-\_\-tx\-\_\-entry}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{alloc\-\_\-stm\-\_\-tx\-\_\-entry}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf stm\-\_\-tx\-\_\-entry}$\ast$ alloc\-\_\-stm\-\_\-tx\-\_\-entry (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a75177d9fa0335bd50b6fae9a68341443}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a75177d9fa0335bd50b6fae9a68341443_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a31ea9d61a84d817aac10ffbc4ba9f296}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!commit\-\_\-stm\-\_\-tx@{commit\-\_\-stm\-\_\-tx}}
+\index{commit\-\_\-stm\-\_\-tx@{commit\-\_\-stm\-\_\-tx}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{commit\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} commit\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a31ea9d61a84d817aac10ffbc4ba9f296}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a31ea9d61a84d817aac10ffbc4ba9f296_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a31ea9d61a84d817aac10ffbc4ba9f296_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a11462d544b66c8e0e0324e88dd32650d}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!free\-\_\-stm@{free\-\_\-stm}}
+\index{free\-\_\-stm@{free\-\_\-stm}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{free\-\_\-stm}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-stm (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a11462d544b66c8e0e0324e88dd32650d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{stm__fraser_8c_a11462d544b66c8e0e0324e88dd32650d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a11462d544b66c8e0e0324e88dd32650d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a61731e38dec59f7f2995842fed69719f}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!free\-\_\-stm\-\_\-blk@{free\-\_\-stm\-\_\-blk}}
+\index{free\-\_\-stm\-\_\-blk@{free\-\_\-stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{free\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a61731e38dec59f7f2995842fed69719f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a61731e38dec59f7f2995842fed69719f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_aa57c521c9ca8d9bfc271c7077c3ea3a0}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!handle\-\_\-fault@{handle\-\_\-fault}}
+\index{handle\-\_\-fault@{handle\-\_\-fault}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{handle\-\_\-fault}]{\setlength{\rightskip}{0pt plus 5cm}static void handle\-\_\-fault (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_aa57c521c9ca8d9bfc271c7077c3ea3a0}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_aa57c521c9ca8d9bfc271c7077c3ea3a0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_aa57c521c9ca8d9bfc271c7077c3ea3a0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a2c77806bb0511fb17494d226b5ea20d8}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!init\-\_\-stm\-\_\-blk@{init\-\_\-stm\-\_\-blk}}
+\index{init\-\_\-stm\-\_\-blk@{init\-\_\-stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{init\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ init\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a2c77806bb0511fb17494d226b5ea20d8}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a2c77806bb0511fb17494d226b5ea20d8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a2078f1c33c67d3ddae15cbd349d39588}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!new\-\_\-arena@{new\-\_\-arena}}
+\index{new\-\_\-arena@{new\-\_\-arena}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{new\-\_\-arena}]{\setlength{\rightskip}{0pt plus 5cm}static void new\-\_\-arena (
+\begin{DoxyParamCaption}
+\item[{{\bf priv\-\_\-t} $\ast$}]{priv, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a2078f1c33c67d3ddae15cbd349d39588}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a2078f1c33c67d3ddae15cbd349d39588_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_aeae83ff15e83aa88a447cf9e61463ebc}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!new\-\_\-descriptor@{new\-\_\-descriptor}}
+\index{new\-\_\-descriptor@{new\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{new\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf stm\-\_\-tx}$\ast$ new\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf priv\-\_\-t} $\ast$}]{priv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_aeae83ff15e83aa88a447cf9e61463ebc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{stm__fraser_8c_aeae83ff15e83aa88a447cf9e61463ebc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{stm__fraser_8c_aeae83ff15e83aa88a447cf9e61463ebc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a949151d8bcac092e7cb4bd782059c194}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!new\-\_\-stm@{new\-\_\-stm}}
+\index{new\-\_\-stm@{new\-\_\-stm}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{new\-\_\-stm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm}$\ast$ new\-\_\-stm (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{int}]{blk\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a949151d8bcac092e7cb4bd782059c194}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a949151d8bcac092e7cb4bd782059c194_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a949151d8bcac092e7cb4bd782059c194_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a7f41614dded09613f4ccd7578ef188ba}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!new\-\_\-stm\-\_\-blk@{new\-\_\-stm\-\_\-blk}}
+\index{new\-\_\-stm\-\_\-blk@{new\-\_\-stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{new\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-blk}$\ast$ new\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a7f41614dded09613f4ccd7578ef188ba}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a7f41614dded09613f4ccd7578ef188ba_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a7f41614dded09613f4ccd7578ef188ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a2e088d3290a0848f5727d19f36c1cb76}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}}
+\index{new\-\_\-stm\-\_\-tx@{new\-\_\-stm\-\_\-tx}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{new\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stm\-\_\-tx}$\ast$ new\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{sigjmp\-\_\-buf $\ast$}]{penv}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a2e088d3290a0848f5727d19f36c1cb76}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a2e088d3290a0848f5727d19f36c1cb76_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a1a59f05201730ec9ba9a348070073e57}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!rc\-\_\-delta\-\_\-descriptor@{rc\-\_\-delta\-\_\-descriptor}}
+\index{rc\-\_\-delta\-\_\-descriptor@{rc\-\_\-delta\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{rc\-\_\-delta\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}static int rc\-\_\-delta\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{int}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a1a59f05201730ec9ba9a348070073e57}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a1a59f05201730ec9ba9a348070073e57_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_ad41e28910c7dbe8cfd98c9e0c168c9dc}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!rc\-\_\-down\-\_\-descriptor@{rc\-\_\-down\-\_\-descriptor}}
+\index{rc\-\_\-down\-\_\-descriptor@{rc\-\_\-down\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{rc\-\_\-down\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}static void rc\-\_\-down\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_ad41e28910c7dbe8cfd98c9e0c168c9dc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_ad41e28910c7dbe8cfd98c9e0c168c9dc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_ad41e28910c7dbe8cfd98c9e0c168c9dc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a3baf54f8c2c6bdb79109865e5500cbd9}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!rc\-\_\-up\-\_\-descriptor@{rc\-\_\-up\-\_\-descriptor}}
+\index{rc\-\_\-up\-\_\-descriptor@{rc\-\_\-up\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{rc\-\_\-up\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}static void rc\-\_\-up\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a3baf54f8c2c6bdb79109865e5500cbd9}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{stm__fraser_8c_a3baf54f8c2c6bdb79109865e5500cbd9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a3baf54f8c2c6bdb79109865e5500cbd9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a4e016a575dac2ee3931ef9ec94550d33}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!read\-\_\-blk\-\_\-data@{read\-\_\-blk\-\_\-data}}
+\index{read\-\_\-blk\-\_\-data@{read\-\_\-blk\-\_\-data}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{read\-\_\-blk\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ read\-\_\-blk\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a4e016a575dac2ee3931ef9ec94550d33}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a4e016a575dac2ee3931ef9ec94550d33_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a4e016a575dac2ee3931ef9ec94550d33_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a5594d7fca67459d7d9738436af589c5c}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!read\-\_\-stm\-\_\-blk@{read\-\_\-stm\-\_\-blk}}
+\index{read\-\_\-stm\-\_\-blk@{read\-\_\-stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{read\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ read\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a5594d7fca67459d7d9738436af589c5c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a5594d7fca67459d7d9738436af589c5c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a5594d7fca67459d7d9738436af589c5c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_afd1a951db8c0f79e6bf20624e7dca338}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!release\-\_\-descriptor@{release\-\_\-descriptor}}
+\index{release\-\_\-descriptor@{release\-\_\-descriptor}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{release\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}static void release\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_afd1a951db8c0f79e6bf20624e7dca338}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_afd1a951db8c0f79e6bf20624e7dca338_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_afd1a951db8c0f79e6bf20624e7dca338_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_aafb218e9a278fa119b9749daa02cfadf}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!remove\-\_\-from\-\_\-tx@{remove\-\_\-from\-\_\-tx}}
+\index{remove\-\_\-from\-\_\-tx@{remove\-\_\-from\-\_\-tx}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{remove\-\_\-from\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void remove\-\_\-from\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_aafb218e9a278fa119b9749daa02cfadf}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_aafb218e9a278fa119b9749daa02cfadf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_aca0d40200c3502bdabeb44b27dfd4105}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!search\-\_\-stm\-\_\-tx\-\_\-entry@{search\-\_\-stm\-\_\-tx\-\_\-entry}}
+\index{search\-\_\-stm\-\_\-tx\-\_\-entry@{search\-\_\-stm\-\_\-tx\-\_\-entry}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{search\-\_\-stm\-\_\-tx\-\_\-entry}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf stm\-\_\-tx\-\_\-entry}$\ast$$\ast$ search\-\_\-stm\-\_\-tx\-\_\-entry (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-\_\-tx\-\_\-entry} $\ast$$\ast$}]{pnext, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_aca0d40200c3502bdabeb44b27dfd4105}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_aca0d40200c3502bdabeb44b27dfd4105_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a29d1fe9b70bc01d34adba12ecb23fa3b}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!sizeof\-\_\-stm\-\_\-blk@{sizeof\-\_\-stm\-\_\-blk}}
+\index{sizeof\-\_\-stm\-\_\-blk@{sizeof\-\_\-stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{sizeof\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}int sizeof\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm} $\ast$}]{mem, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a29d1fe9b70bc01d34adba12ecb23fa3b}
+\hypertarget{stm__fraser_8c_acd69585b95bbcac8c69333f4aaee4335}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!validate\-\_\-stm\-\_\-tx@{validate\-\_\-stm\-\_\-tx}}
+\index{validate\-\_\-stm\-\_\-tx@{validate\-\_\-stm\-\_\-tx}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{validate\-\_\-stm\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\-\_\-t} validate\-\_\-stm\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_acd69585b95bbcac8c69333f4aaee4335}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_acd69585b95bbcac8c69333f4aaee4335_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_acd69585b95bbcac8c69333f4aaee4335_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{stm__fraser_8c_a00de1ad150378181157510e2e5982f75}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!write\-\_\-stm\-\_\-blk@{write\-\_\-stm\-\_\-blk}}
+\index{write\-\_\-stm\-\_\-blk@{write\-\_\-stm\-\_\-blk}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{write\-\_\-stm\-\_\-blk}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ write\-\_\-stm\-\_\-blk (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{{\bf stm\-\_\-tx} $\ast$}]{t, }
+\item[{{\bf stm\-\_\-blk} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{stm__fraser_8c_a00de1ad150378181157510e2e5982f75}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a00de1ad150378181157510e2e5982f75_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm__fraser_8c_a00de1ad150378181157510e2e5982f75_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{stm__fraser_8c_a1535d1dfab4322f6af382a63d54f1fc1}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!do\-\_\-padding@{do\-\_\-padding}}
+\index{do\-\_\-padding@{do\-\_\-padding}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{do\-\_\-padding}]{\setlength{\rightskip}{0pt plus 5cm}int do\-\_\-padding\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a1535d1dfab4322f6af382a63d54f1fc1}
+\hypertarget{stm__fraser_8c_afdc1e79d616abc063c8e8f52faab1e74}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!gc\-\_\-blk\-\_\-id@{gc\-\_\-blk\-\_\-id}}
+\index{gc\-\_\-blk\-\_\-id@{gc\-\_\-blk\-\_\-id}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{gc\-\_\-blk\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int gc\-\_\-blk\-\_\-id\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_afdc1e79d616abc063c8e8f52faab1e74}
+\hypertarget{stm__fraser_8c_a2f387967e40f46a7255e1d6c054d74ca}{\index{stm\-\_\-fraser.\-c@{stm\-\_\-fraser.\-c}!priv\-\_\-ptst@{priv\-\_\-ptst}}
+\index{priv\-\_\-ptst@{priv\-\_\-ptst}!stm_fraser.c@{stm\-\_\-fraser.\-c}}
+\subsubsection[{priv\-\_\-ptst}]{\setlength{\rightskip}{0pt plus 5cm}{\bf priv\-\_\-t} priv\-\_\-ptst\mbox{[}{\bf M\-A\-X\-\_\-\-T\-H\-R\-E\-A\-D\-S}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{stm__fraser_8c_a2f387967e40f46a7255e1d6c054d74ca}

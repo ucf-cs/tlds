@@ -1,0 +1,6 @@
+<map id="grid_isPointEmpty" name="grid_isPointEmpty">
+<area shape="rect" id="node2" href="$router_8c.html#a3959d336c2ceb91b15ab0e2f004f1af4" title="traceToNeighbor" alt="" coords="182,5,301,32"/>
+<area shape="rect" id="node3" href="$router_8c.html#ac5973d035daa93806bb4391426b310f4" title="PdoTraceback" alt="" coords="349,5,456,32"/>
+<area shape="rect" id="node4" href="$router_8h.html#afc99f42b8c4c1bdfd53f6e15b75900b7" title="router_solve" alt="" coords="504,5,597,32"/>
+<area shape="rect" id="node5" href="$labyrinth_8c.html#a40c5c0b0d4eb7b59a91108269f69dc89" title="MAIN" alt="" coords="645,5,701,32"/>
+</map>

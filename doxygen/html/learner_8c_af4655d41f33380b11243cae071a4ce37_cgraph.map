@@ -1,0 +1,16 @@
+<map id="TMfindBestInsertTask" name="TMfindBestInsertTask">
+<area shape="rect" id="node2" href="$learner_8c.html#a6ead24509867bb6bb068620ad2d9da93" title="TMpopulateParentQueryVector" alt="" coords="206,5,407,32"/>
+<area shape="rect" id="node4" href="$net_8c.html#ad32183bff5aacc2cb805dbf1fc492024" title="net_getParentIdListPtr" alt="" coords="472,56,624,83"/>
+<area shape="rect" id="node6" href="$learner_8c.html#a05d316b71b33410bb2a7493a79b7a243" title="compareQuery" alt="" coords="253,107,360,133"/>
+<area shape="rect" id="node7" href="$bitmap_8c.html#a2383729dfcc0f66dc0e7e150cf372fe7" title="bitmap_set" alt="" coords="263,157,350,184"/>
+<area shape="rect" id="node8" href="$bitmap_8c.html#aeb1d4a0a5c4a3f08e1829d745867f13a" title="bitmap_findClear" alt="" coords="247,208,367,235"/>
+<area shape="rect" id="node9" href="$learner_8c.html#ad3241a2f5d00bb81f7db714702ea3d46" title="computeLocalLogLikelihood" alt="" coords="215,259,398,285"/>
+<area shape="rect" id="node3" href="$vector_8c.html#ac38a38534f4bbf4a29e4cdebede8cd9d" title="vector_clear" alt="" coords="501,5,595,32"/>
+<area shape="rect" id="node5" href="$vector_8c.html#a043c4e94efce1c5a44095eb9388ba5e7" title="vector_at" alt="" coords="1279,132,1355,159"/>
+<area shape="rect" id="node10" href="$vector_8c.html#a158656a347e208114bcd945b91cfd87a" title="vector_getSize" alt="" coords="1263,259,1372,285"/>
+<area shape="rect" id="node11" href="$learner_8c.html#a280dfaac5218200a65bd222548bd0563" title="computeLocalLogLikelihood\lHelper" alt="" coords="457,201,639,242"/>
+<area shape="rect" id="node12" href="$learner_8c.html#a98c61c86b28cffdf94d0d158c4ae5aa0" title="computeSpecificLocalLogLikelihood" alt="" coords="688,208,917,235"/>
+<area shape="rect" id="node13" href="$adtree_8c.html#a378e9c0c9fae060a6a0d9ccdef934643" title="adtree_getCount" alt="" coords="966,208,1085,235"/>
+<area shape="rect" id="node14" href="$adtree_8c.html#a8d3ad641fa20a5b10eeb67ba1c0cd7a7" title="getCount" alt="" coords="1133,208,1208,235"/>
+<area shape="rect" id="node15" href="$vector_8c.html#a644473da71660c373cbfb134d83b37bf" title="vector_pushBack" alt="" coords="1256,208,1379,235"/>
+</map>

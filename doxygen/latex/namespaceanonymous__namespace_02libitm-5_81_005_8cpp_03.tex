@@ -1,0 +1,55 @@
+\hypertarget{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03}{\section{anonymous\-\_\-namespace\{libitm-\/5.1,5.cpp\} Namespace Reference}
+\label{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03}\index{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}@{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_ace8c647e409f1fb27af6e0a3df63100c}{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$) td
+\item 
+void \hyperlink{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_a4c66a5e4427961d821f3a610417cbf56}{tmabort} (\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_ace8c647e409f1fb27af6e0a3df63100c}{\index{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}@{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}}!T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}}
+\index{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E@{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}!anonymous_namespace{libitm-5.1,5.cpp}@{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}anonymous\-\_\-namespace\{libitm-\/5.\-1,5.cpp\}\-::T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_ace8c647e409f1fb27af6e0a3df63100c}
+Our thread local transaction descriptor. On most platforms this uses \-\_\-\-\_\-thread or its equivalent, but on Mac O\-S X---or if explicitly selected by the user---it will use a specialized template-\/based Pthreads implementation. \hypertarget{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_a4c66a5e4427961d821f3a610417cbf56}{\index{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}@{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}}!tmabort@{tmabort}}
+\index{tmabort@{tmabort}!anonymous_namespace{libitm-5.1,5.cpp}@{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}}}
+\subsubsection[{tmabort}]{\setlength{\rightskip}{0pt plus 5cm}void anonymous\-\_\-namespace\{libitm-\/5.\-1,5.cpp\}\-::tmabort (
+\begin{DoxyParamCaption}
+\item[{{\bf stm\-::\-Tx\-Thread} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_a4c66a5e4427961d821f3a610417cbf56}
+This is what the stm library will call when it detects a conflict and needs to abort. We always retry in this case, and if we have a registered thrown object we ignore it (the thrown object only pertains to explicit cancel-\/and-\/throw calls, which must happen in a consistent context).
+
+Don't need any of the funky user-\/visible abort handling because the abort is invisible. Just treat it like a restart of the current scope. This is passed to sys\-\_\-init.
+
+Since the stm abort path doesn't protect the stack (R\-S\-T\-M assumes for the moment that aborts are implemented via a longjmp-\/style mechanism), the best that we can do is to protect the stack from here on. This is fine because we /do/ have a longjmp-\/style abort mechanism, and any stack clobbering that happens here is not an issue. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_a4c66a5e4427961d821f3a610417cbf56_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_a4c66a5e4427961d821f3a610417cbf56_icgraph}
+\end{center}
+\end{figure}
+
+

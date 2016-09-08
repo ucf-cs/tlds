@@ -1,0 +1,171 @@
+\hypertarget{libitm-5_81_005_8cpp}{\section{rstm/rstm-\/dev/libitm2stm/libitm-\/5.1,5.cpp File Reference}
+\label{libitm-5_81_005_8cpp}\index{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-1,5.\-cpp@{rstm/rstm-\/dev/libitm2stm/libitm-\/5.\-1,5.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}libitm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Transaction.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Scope.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Stack\-Protection.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common/\-Thread\-Local.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/txthread.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm/lib\-\_\-globals.\-hpp\char`\"{}}\\*
+Include dependency graph for libitm-\/5.1,5.cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_81_005_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03}{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_ace8c647e409f1fb27af6e0a3df63100c}{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}\-::\-T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-D\-E\-C\-L\-\_\-\-T\-Y\-P\-E} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$) td
+\item 
+void \hyperlink{namespaceanonymous__namespace_02libitm-5_81_005_8cpp_03_a4c66a5e4427961d821f3a610417cbf56}{anonymous\-\_\-namespace\{libitm-\/5.\-1,5.\-cpp\}\-::tmabort} (\hyperlink{structstm_1_1TxThread}{stm\-::\-Tx\-Thread} $\ast$\hyperlink{stmskip_8cc_a0f1c58699b83ce5a08bd9ee859250d72}{tx})
+\item 
+int \hyperlink{libitm-5_81_005_8cpp_ae97451d0a7481e2ad0e2b0c4196d5117}{\-\_\-\-I\-T\-M\-\_\-initialize\-Process} (void)
+\item 
+int \hyperlink{libitm-5_81_005_8cpp_a5cde4a3f0f8e98db7d17e4a6ed3859ca}{\-\_\-\-I\-T\-M\-\_\-initialize\-Thread} (void)
+\item 
+void \hyperlink{libitm-5_81_005_8cpp_a058da6dda5a61ad3ab82496220e332ed}{\-\_\-\-I\-T\-M\-\_\-finalize\-Thread} (void)
+\item 
+void \hyperlink{libitm-5_81_005_8cpp_acc2f560865f2ca96f42869ff81467f71}{\-\_\-\-I\-T\-M\-\_\-finalize\-Process} (void)
+\item 
+\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$ \hyperlink{libitm-5_81_005_8cpp_ae4d78d99d8baec2e9b548b865e83a893}{\-\_\-\-I\-T\-M\-\_\-get\-Transaction} (void)
+\item 
+\hyperlink{libitm_8h_a560abc8cf0e1499368b0cc014ee8bd60}{\-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} \hyperlink{libitm-5_81_005_8cpp_a7a9646bcb260015bc8136fc5decdaa26}{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id} (\hyperlink{libitm_8h_a65d3a93d285fdbde408558d6b431abc8}{\-\_\-\-I\-T\-M\-\_\-transaction} $\ast$td)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{libitm-5_81_005_8cpp_acc2f560865f2ca96f42869ff81467f71}{\index{libitm-\/5.\-1,5.\-cpp@{libitm-\/5.\-1,5.\-cpp}!\-\_\-\-I\-T\-M\-\_\-finalize\-Process@{\-\_\-\-I\-T\-M\-\_\-finalize\-Process}}
+\index{\-\_\-\-I\-T\-M\-\_\-finalize\-Process@{\-\_\-\-I\-T\-M\-\_\-finalize\-Process}!libitm-5.1,5.cpp@{libitm-\/5.\-1,5.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-finalize\-Process}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-finalize\-Process (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_81_005_8cpp_acc2f560865f2ca96f42869ff81467f71}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_81_005_8cpp_acc2f560865f2ca96f42869ff81467f71_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_81_005_8cpp_a058da6dda5a61ad3ab82496220e332ed}{\index{libitm-\/5.\-1,5.\-cpp@{libitm-\/5.\-1,5.\-cpp}!\-\_\-\-I\-T\-M\-\_\-finalize\-Thread@{\-\_\-\-I\-T\-M\-\_\-finalize\-Thread}}
+\index{\-\_\-\-I\-T\-M\-\_\-finalize\-Thread@{\-\_\-\-I\-T\-M\-\_\-finalize\-Thread}!libitm-5.1,5.cpp@{libitm-\/5.\-1,5.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-finalize\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-I\-T\-M\-\_\-finalize\-Thread (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_81_005_8cpp_a058da6dda5a61ad3ab82496220e332ed}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{libitm-5_81_005_8cpp_a058da6dda5a61ad3ab82496220e332ed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_81_005_8cpp_ae4d78d99d8baec2e9b548b865e83a893}{\index{libitm-\/5.\-1,5.\-cpp@{libitm-\/5.\-1,5.\-cpp}!\-\_\-\-I\-T\-M\-\_\-get\-Transaction@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction}}
+\index{\-\_\-\-I\-T\-M\-\_\-get\-Transaction@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction}!libitm-5.1,5.cpp@{libitm-\/5.\-1,5.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-get\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction}$\ast$ \-\_\-\-I\-T\-M\-\_\-get\-Transaction (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_81_005_8cpp_ae4d78d99d8baec2e9b548b865e83a893}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_81_005_8cpp_ae4d78d99d8baec2e9b548b865e83a893_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_81_005_8cpp_ae4d78d99d8baec2e9b548b865e83a893_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_81_005_8cpp_a7a9646bcb260015bc8136fc5decdaa26}{\index{libitm-\/5.\-1,5.\-cpp@{libitm-\/5.\-1,5.\-cpp}!\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id}}
+\index{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id@{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id}!libitm-5.1,5.cpp@{libitm-\/5.\-1,5.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-I\-T\-M\-\_\-transaction\-Id\-\_\-t} \-\_\-\-I\-T\-M\-\_\-get\-Transaction\-Id (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-I\-T\-M\-\_\-transaction} $\ast$}]{td}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_81_005_8cpp_a7a9646bcb260015bc8136fc5decdaa26}
+\hypertarget{libitm-5_81_005_8cpp_ae97451d0a7481e2ad0e2b0c4196d5117}{\index{libitm-\/5.\-1,5.\-cpp@{libitm-\/5.\-1,5.\-cpp}!\-\_\-\-I\-T\-M\-\_\-initialize\-Process@{\-\_\-\-I\-T\-M\-\_\-initialize\-Process}}
+\index{\-\_\-\-I\-T\-M\-\_\-initialize\-Process@{\-\_\-\-I\-T\-M\-\_\-initialize\-Process}!libitm-5.1,5.cpp@{libitm-\/5.\-1,5.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-initialize\-Process}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-I\-T\-M\-\_\-initialize\-Process (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_81_005_8cpp_ae97451d0a7481e2ad0e2b0c4196d5117}
+The following Initialization and finalization functions must be visible. These are from section 5.\-1 of the draft spec. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_81_005_8cpp_ae97451d0a7481e2ad0e2b0c4196d5117_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{libitm-5_81_005_8cpp_a5cde4a3f0f8e98db7d17e4a6ed3859ca}{\index{libitm-\/5.\-1,5.\-cpp@{libitm-\/5.\-1,5.\-cpp}!\-\_\-\-I\-T\-M\-\_\-initialize\-Thread@{\-\_\-\-I\-T\-M\-\_\-initialize\-Thread}}
+\index{\-\_\-\-I\-T\-M\-\_\-initialize\-Thread@{\-\_\-\-I\-T\-M\-\_\-initialize\-Thread}!libitm-5.1,5.cpp@{libitm-\/5.\-1,5.\-cpp}}
+\subsubsection[{\-\_\-\-I\-T\-M\-\_\-initialize\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-I\-T\-M\-\_\-initialize\-Thread (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{libitm-5_81_005_8cpp_a5cde4a3f0f8e98db7d17e4a6ed3859ca}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libitm-5_81_005_8cpp_a5cde4a3f0f8e98db7d17e4a6ed3859ca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{libitm-5_81_005_8cpp_a5cde4a3f0f8e98db7d17e4a6ed3859ca_icgraph}
+\end{center}
+\end{figure}
+
+

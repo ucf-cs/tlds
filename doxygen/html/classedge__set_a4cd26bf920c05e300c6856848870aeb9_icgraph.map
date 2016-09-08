@@ -1,0 +1,11 @@
+<map id="edge_set::erase" name="edge_set::erase">
+<area shape="rect" id="node2" href="$classedge.html#a17a50641ad92dce62c3c8db8bf528ddc" title="edge::destroy" alt="" coords="168,93,269,120"/>
+<area shape="rect" id="node3" href="$classedge.html#aad0f6a205dbe62d5f1bc564cb66cd9e8" title="edge::reconsider" alt="" coords="526,56,645,83"/>
+<area shape="rect" id="node7" href="$structpv__side.html#ab6c6440d122035bd15a096d96350ce77" title="pv_side::find_candidate" alt="" coords="318,124,477,151"/>
+<area shape="rect" id="node4" href="$worker_8cpp.html#aaaf358d95d261241cf6073eaf7de2a94" title="reconsider_edge" alt="" coords="693,5,811,32"/>
+<area shape="rect" id="node5" href="$worker_8cpp.html#a4d3d5d6b1446463eca81bdd1106ef943" title="do_work" alt="" coords="859,56,930,83"/>
+<area shape="rect" id="node6" href="$classworker.html#a7b7d6866de64fc583693899b65cb12bc" title="worker::operator()" alt="" coords="979,56,1103,83"/>
+<area shape="rect" id="node8" href="$dwyer_8cpp.html#ac5af40cdd517beac7515468404be6c72" title="stitch" alt="" coords="558,128,613,155"/>
+<area shape="rect" id="node9" href="$dwyer_8hpp.html#af02e2aa3c0f40c330c2d1bc03ad9438a" title="dwyer_solve" alt="" coords="705,131,799,157"/>
+<area shape="rect" id="node10" href="$mesh_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="869,131,920,157"/>
+</map>

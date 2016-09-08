@@ -1,0 +1,370 @@
+\hypertarget{gc_8h}{\section{common/fraser/gc.h File Reference}
+\label{gc_8h}\index{common/fraser/gc.\-h@{common/fraser/gc.\-h}}
+}
+{\ttfamily \#include \char`\"{}ptst.\-h\char`\"{}}\\*
+Include dependency graph for gc.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{gc_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structgc__st}{gc\-\_\-st} \hyperlink{gc_8h_a8a20138fd0c343ba1379616c9417e5fb}{gc\-\_\-t}
+\item 
+typedef void($\ast$ \hyperlink{gc_8h_a42f21fddc282b094c8d8a9010ac22fa4}{hook\-\_\-fn\-\_\-t} )(\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$, void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{gc_8h_a8a20138fd0c343ba1379616c9417e5fb}{gc\-\_\-t} $\ast$ \hyperlink{gc_8h_aa06f5acb271ed4c9afcc728f3ceae52f}{fr\-\_\-gc\-\_\-init} (void)
+\item 
+int \hyperlink{gc_8h_a28811cf9cf00d0ff764ddab38590e9ef}{fr\-\_\-gc\-\_\-add\-\_\-allocator} (int alloc\-\_\-size)
+\item 
+void \hyperlink{gc_8h_a771b27352be09100c9ba0d70b3ea6be7}{fr\-\_\-gc\-\_\-remove\-\_\-allocator} (int alloc\-\_\-id)
+\item 
+void $\ast$ \hyperlink{gc_8h_a5c5981457deeeefd60df569f6265f59c}{fr\-\_\-gc\-\_\-alloc} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, int alloc\-\_\-id)
+\item 
+void \hyperlink{gc_8h_a80f4a5c119aa70ab0452a73dfac21bbd}{fr\-\_\-gc\-\_\-free} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, void $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, int alloc\-\_\-id)
+\item 
+void \hyperlink{gc_8h_a1e1a80c2d04496b5b70bd86b59510355}{fr\-\_\-gc\-\_\-unsafe\-\_\-free} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, void $\ast$\hyperlink{counted__ptr_8hpp_a5c9f59d7c24e3fd6ceae319a968fc3e0}{p}, int alloc\-\_\-id)
+\item 
+int \hyperlink{gc_8h_a1a81ee2d08fe2f093f07a1c503a8f69a}{fr\-\_\-gc\-\_\-add\-\_\-hook} (\hyperlink{gc_8h_a42f21fddc282b094c8d8a9010ac22fa4}{hook\-\_\-fn\-\_\-t} fn)
+\item 
+void \hyperlink{gc_8h_acbcb8946cf9c2b3b1cc4b82f81c4d596}{fr\-\_\-gc\-\_\-remove\-\_\-hook} (int hook\-\_\-id)
+\item 
+void \hyperlink{gc_8h_ab8386323a062c2b252cdadbdf8a77ed5}{fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst}, void $\ast$\hyperlink{counted__ptr_8hpp_ac0fd97c9323e3a3981515b00166f14d8}{ptr}, int hook\-\_\-id)
+\item 
+void \hyperlink{gc_8h_a1b011e952f943e62b80e39768305d3fb}{fr\-\_\-gc\-\_\-enter} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+void \hyperlink{gc_8h_a769164af51b73c8b4df6868cbea07c90}{fr\-\_\-gc\-\_\-exit} (\hyperlink{ptst_8h_a1c1965dad228ac64fc833c78267fc595}{ptst\-\_\-t} $\ast$\hyperlink{stmskip_8cc_a2b4a5352b52673896263aaac69e20e63}{ptst})
+\item 
+void \hyperlink{gc_8h_adf9d2cd51bda8cedc0279dfc15c822ea}{fr\-\_\-init\-\_\-gc\-\_\-subsystem} (void)
+\item 
+void \hyperlink{gc_8h_ae01c0354cf2cab9c193fbdd9245d7e2f}{fr\-\_\-destroy\-\_\-gc\-\_\-subsystem} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{gc_8h_a8a20138fd0c343ba1379616c9417e5fb}{\index{gc.\-h@{gc.\-h}!gc\-\_\-t@{gc\-\_\-t}}
+\index{gc\-\_\-t@{gc\-\_\-t}!gc.h@{gc.\-h}}
+\subsubsection[{gc\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf gc\-\_\-st} {\bf gc\-\_\-t}}}\label{gc_8h_a8a20138fd0c343ba1379616c9417e5fb}
+\hypertarget{gc_8h_a42f21fddc282b094c8d8a9010ac22fa4}{\index{gc.\-h@{gc.\-h}!hook\-\_\-fn\-\_\-t@{hook\-\_\-fn\-\_\-t}}
+\index{hook\-\_\-fn\-\_\-t@{hook\-\_\-fn\-\_\-t}!gc.h@{gc.\-h}}
+\subsubsection[{hook\-\_\-fn\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ hook\-\_\-fn\-\_\-t)({\bf ptst\-\_\-t} $\ast$, void $\ast$)}}\label{gc_8h_a42f21fddc282b094c8d8a9010ac22fa4}
+
+
+\subsection{Function Documentation}
+\hypertarget{gc_8h_ae01c0354cf2cab9c193fbdd9245d7e2f}{\index{gc.\-h@{gc.\-h}!fr\-\_\-destroy\-\_\-gc\-\_\-subsystem@{fr\-\_\-destroy\-\_\-gc\-\_\-subsystem}}
+\index{fr\-\_\-destroy\-\_\-gc\-\_\-subsystem@{fr\-\_\-destroy\-\_\-gc\-\_\-subsystem}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-destroy\-\_\-gc\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-destroy\-\_\-gc\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_ae01c0354cf2cab9c193fbdd9245d7e2f}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_ae01c0354cf2cab9c193fbdd9245d7e2f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_a28811cf9cf00d0ff764ddab38590e9ef}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-add\-\_\-allocator@{fr\-\_\-gc\-\_\-add\-\_\-allocator}}
+\index{fr\-\_\-gc\-\_\-add\-\_\-allocator@{fr\-\_\-gc\-\_\-add\-\_\-allocator}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-add\-\_\-allocator}]{\setlength{\rightskip}{0pt plus 5cm}int fr\-\_\-gc\-\_\-add\-\_\-allocator (
+\begin{DoxyParamCaption}
+\item[{int}]{alloc\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a28811cf9cf00d0ff764ddab38590e9ef}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a28811cf9cf00d0ff764ddab38590e9ef_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a28811cf9cf00d0ff764ddab38590e9ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_a1a81ee2d08fe2f093f07a1c503a8f69a}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-add\-\_\-hook@{fr\-\_\-gc\-\_\-add\-\_\-hook}}
+\index{fr\-\_\-gc\-\_\-add\-\_\-hook@{fr\-\_\-gc\-\_\-add\-\_\-hook}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-add\-\_\-hook}]{\setlength{\rightskip}{0pt plus 5cm}int fr\-\_\-gc\-\_\-add\-\_\-hook (
+\begin{DoxyParamCaption}
+\item[{{\bf hook\-\_\-fn\-\_\-t}}]{fn}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a1a81ee2d08fe2f093f07a1c503a8f69a}
+\hypertarget{gc_8h_ab8386323a062c2b252cdadbdf8a77ed5}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list@{fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list}}
+\index{fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list@{fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-add\-\_\-ptr\-\_\-to\-\_\-hook\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{void $\ast$}]{ptr, }
+\item[{int}]{hook\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_ab8386323a062c2b252cdadbdf8a77ed5}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_ab8386323a062c2b252cdadbdf8a77ed5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_a5c5981457deeeefd60df569f6265f59c}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-alloc@{fr\-\_\-gc\-\_\-alloc}}
+\index{fr\-\_\-gc\-\_\-alloc@{fr\-\_\-gc\-\_\-alloc}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ fr\-\_\-gc\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{int}]{alloc\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a5c5981457deeeefd60df569f6265f59c}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a5c5981457deeeefd60df569f6265f59c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a5c5981457deeeefd60df569f6265f59c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_a1b011e952f943e62b80e39768305d3fb}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-enter@{fr\-\_\-gc\-\_\-enter}}
+\index{fr\-\_\-gc\-\_\-enter@{fr\-\_\-gc\-\_\-enter}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-enter}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-enter (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a1b011e952f943e62b80e39768305d3fb}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a1b011e952f943e62b80e39768305d3fb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a1b011e952f943e62b80e39768305d3fb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_a769164af51b73c8b4df6868cbea07c90}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-exit@{fr\-\_\-gc\-\_\-exit}}
+\index{fr\-\_\-gc\-\_\-exit@{fr\-\_\-gc\-\_\-exit}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a769164af51b73c8b4df6868cbea07c90}
+\hypertarget{gc_8h_a80f4a5c119aa70ab0452a73dfac21bbd}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-free@{fr\-\_\-gc\-\_\-free}}
+\index{fr\-\_\-gc\-\_\-free@{fr\-\_\-gc\-\_\-free}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{void $\ast$}]{p, }
+\item[{int}]{alloc\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a80f4a5c119aa70ab0452a73dfac21bbd}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a80f4a5c119aa70ab0452a73dfac21bbd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a80f4a5c119aa70ab0452a73dfac21bbd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_aa06f5acb271ed4c9afcc728f3ceae52f}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-init@{fr\-\_\-gc\-\_\-init}}
+\index{fr\-\_\-gc\-\_\-init@{fr\-\_\-gc\-\_\-init}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf gc\-\_\-t}$\ast$ fr\-\_\-gc\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_aa06f5acb271ed4c9afcc728f3ceae52f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_aa06f5acb271ed4c9afcc728f3ceae52f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_aa06f5acb271ed4c9afcc728f3ceae52f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_a771b27352be09100c9ba0d70b3ea6be7}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-remove\-\_\-allocator@{fr\-\_\-gc\-\_\-remove\-\_\-allocator}}
+\index{fr\-\_\-gc\-\_\-remove\-\_\-allocator@{fr\-\_\-gc\-\_\-remove\-\_\-allocator}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-remove\-\_\-allocator}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-remove\-\_\-allocator (
+\begin{DoxyParamCaption}
+\item[{int}]{alloc\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a771b27352be09100c9ba0d70b3ea6be7}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a771b27352be09100c9ba0d70b3ea6be7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_acbcb8946cf9c2b3b1cc4b82f81c4d596}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-remove\-\_\-hook@{fr\-\_\-gc\-\_\-remove\-\_\-hook}}
+\index{fr\-\_\-gc\-\_\-remove\-\_\-hook@{fr\-\_\-gc\-\_\-remove\-\_\-hook}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-remove\-\_\-hook}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-remove\-\_\-hook (
+\begin{DoxyParamCaption}
+\item[{int}]{hook\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_acbcb8946cf9c2b3b1cc4b82f81c4d596}
+\hypertarget{gc_8h_a1e1a80c2d04496b5b70bd86b59510355}{\index{gc.\-h@{gc.\-h}!fr\-\_\-gc\-\_\-unsafe\-\_\-free@{fr\-\_\-gc\-\_\-unsafe\-\_\-free}}
+\index{fr\-\_\-gc\-\_\-unsafe\-\_\-free@{fr\-\_\-gc\-\_\-unsafe\-\_\-free}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-gc\-\_\-unsafe\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-gc\-\_\-unsafe\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf ptst\-\_\-t} $\ast$}]{ptst, }
+\item[{void $\ast$}]{p, }
+\item[{int}]{alloc\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_a1e1a80c2d04496b5b70bd86b59510355}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a1e1a80c2d04496b5b70bd86b59510355_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_a1e1a80c2d04496b5b70bd86b59510355_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{gc_8h_adf9d2cd51bda8cedc0279dfc15c822ea}{\index{gc.\-h@{gc.\-h}!fr\-\_\-init\-\_\-gc\-\_\-subsystem@{fr\-\_\-init\-\_\-gc\-\_\-subsystem}}
+\index{fr\-\_\-init\-\_\-gc\-\_\-subsystem@{fr\-\_\-init\-\_\-gc\-\_\-subsystem}!gc.h@{gc.\-h}}
+\subsubsection[{fr\-\_\-init\-\_\-gc\-\_\-subsystem}]{\setlength{\rightskip}{0pt plus 5cm}void fr\-\_\-init\-\_\-gc\-\_\-subsystem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{gc_8h_adf9d2cd51bda8cedc0279dfc15c822ea}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{gc_8h_adf9d2cd51bda8cedc0279dfc15c822ea_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gc_8h_adf9d2cd51bda8cedc0279dfc15c822ea_icgraph}
+\end{center}
+\end{figure}
+
+

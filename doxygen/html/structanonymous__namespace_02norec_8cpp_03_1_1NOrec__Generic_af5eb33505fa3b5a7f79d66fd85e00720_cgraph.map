@@ -1,0 +1,8 @@
+<map id="anonymous_namespace{norec::cpp}::NOrec_Generic::rollback" name="anonymous_namespace{norec::cpp}::NOrec_Generic::rollback">
+<area shape="rect" id="node2" href="$namespacestm.html#a3240a1a3d22a030fc4e26fad68ad9ec7" title="stm::PreRollback" alt="" coords="220,5,343,32"/>
+<area shape="rect" id="node3" href="$namespacestm.html#ab1ed02e28e6963306b89990522792bb0" title="stm::PostRollback" alt="" coords="216,56,347,83"/>
+<area shape="rect" id="node4" href="$classstm_1_1WBMMPolicy.html#a659b1e52e3946a9a45fc3abf31dc8800" title="stm::WBMMPolicy::onTxAbort" alt="" coords="395,56,595,83"/>
+<area shape="rect" id="node5" href="$classstm_1_1MiniVector.html#a4d707e1115e162943b4709a2af92ed77" title="stm::MiniVector::begin" alt="" coords="643,5,797,32"/>
+<area shape="rect" id="node6" href="$classstm_1_1MiniVector.html#ae2297c706ac2ebee161ef60ace9ae645" title="stm::MiniVector::end" alt="" coords="649,56,791,83"/>
+<area shape="rect" id="node7" href="$classstm_1_1MiniVector.html#ad17f9c76202d399264ba62812f0b5c41" title="stm::MiniVector::reset" alt="" coords="645,107,795,133"/>
+</map>

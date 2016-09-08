@@ -1,0 +1,127 @@
+\hypertarget{cbr_8cpp}{\section{rstm/rstm-\/dev/libstm/policies/cbr.cpp File Reference}
+\label{cbr_8cpp}\index{rstm/rstm-\/dev/libstm/policies/cbr.\-cpp@{rstm/rstm-\/dev/libstm/policies/cbr.\-cpp}}
+}
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}initializers.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}policies.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../profiling.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../algs/algs.\-hpp\char`\"{}}\\*
+Include dependency graph for cbr.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cbr_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Read}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Read}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Write}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Write}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1RW}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-W}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1R__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1R__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1W__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-W\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1W__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-W\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1Time__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Time\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1R__W__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-\_\-\-W\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1R__W__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-\_\-\-W\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1R__Time__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-\_\-\-Time\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1W__Time__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-W\-\_\-\-Time\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1R__W__Time__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-R\-\_\-\-W\-\_\-\-Time\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__R}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__W}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-W}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__RW}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-W}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__R__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__R__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__W__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__W__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-W\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__RO__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-O\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__RW__RO}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__RW__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__R__RO__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-\_\-\-R\-O\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__W__RO__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-W\-\_\-\-R\-O\-\_\-\-Time}
+\item 
+struct \hyperlink{structanonymous__namespace_02cbr_8cpp_03_1_1TxnRatio__RW__RO__Time}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::\-Txn\-Ratio\-\_\-\-R\-W\-\_\-\-R\-O\-\_\-\-Time}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceanonymous__namespace_02cbr_8cpp_03}{anonymous\-\_\-namespace\{cbr.\-cpp\}}
+\item 
+\hyperlink{namespacestm}{stm}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cbr_8cpp_a839e4d5a2ec03fd055726442ead454db}{L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R}(pol, name)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{platform_8hpp_abdc8d70d196a73a2a119efdbe674ecf8}{T\-M\-\_\-\-I\-N\-L\-I\-N\-E} unsigned long \hyperlink{namespaceanonymous__namespace_02cbr_8cpp_03_a9581e1f6511c6795fbd98578ecea3b78}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::norm\-\_\-dist} (unsigned long a, unsigned long b)
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02cbr_8cpp_03_a24ec6eb1e0eca0a6b9866180e5e3ecb0}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::profile\-\_\-nochange} ()
+\item 
+{\footnotesize template$<$class C $>$ }\\uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02cbr_8cpp_03_a6d59ee82837d29707c2f774262228976}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::cbr\-\_\-tail} (\hyperlink{structstm_1_1qtable__t}{qtable\-\_\-t} \&profile)
+\item 
+\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02cbr_8cpp_03_a0566a8b94db9550484ad458e48c3d7f9}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::pol\-\_\-\-C\-B\-R\-\_\-\-R\-O} ()
+\item 
+{\footnotesize template$<$class C $>$ }\\\hyperlink{platform_8hpp_a8b5d728e6eed8f368f9966f637d2f719}{T\-M\-\_\-\-F\-A\-S\-T\-C\-A\-L\-L} uint32\-\_\-t \hyperlink{namespaceanonymous__namespace_02cbr_8cpp_03_a4ddd26e7ad4488682da335e5ad1a3351}{anonymous\-\_\-namespace\{cbr.\-cpp\}\-::cbr\-\_\-nn} ()
+\item 
+void \hyperlink{namespacestm_aa0b1d39423394b3e447d37ac36e9fde3}{stm\-::init\-\_\-pol\-\_\-cbr} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cbr_8cpp_a839e4d5a2ec03fd055726442ead454db}{\index{cbr.\-cpp@{cbr.\-cpp}!L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R@{L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R}}
+\index{L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R@{L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R}!cbr.cpp@{cbr.\-cpp}}
+\subsubsection[{L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-L\-\_\-\-H\-E\-L\-P\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{pol, }
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}}\label{cbr_8cpp_a839e4d5a2ec03fd055726442ead454db}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{namespacestm_a6aa5d9dc2e638d0df9771d39cd3b87ef}{init\_adapt\_pol}(\hyperlink{include_2stm_2macros_8hpp_aad13525f6356ba40f658494d567df304}{CAT2}(CBR\_,pol), \hyperlink{namespacestm_ad75547cc23d4014783868b799d740145a5ad095d426d300a189561d95966ccd99}{Ticket}, 16, 2048, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true},    \(\backslash\)
+                 cbr\_nn<pol>, name)
+\end{DoxyCode}
+This rather ugly bit of code initializes all of our C\-B\-R policies, so that we don't need them to be visible outside of this file 

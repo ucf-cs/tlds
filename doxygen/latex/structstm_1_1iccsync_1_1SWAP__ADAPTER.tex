@@ -1,0 +1,67 @@
+\hypertarget{structstm_1_1iccsync_1_1SWAP__ADAPTER}{\section{stm\-:\-:iccsync\-:\-:S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$ Struct Template Reference}
+\label{structstm_1_1iccsync_1_1SWAP__ADAPTER}\index{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$@{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$}}
+}
+
+
+{\ttfamily \#include $<$icc-\/sync.\-hpp$>$}
+
+
+
+Collaboration diagram for stm\-:\-:iccsync\-:\-:S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{structstm_1_1iccsync_1_1SWAP__ADAPTER__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \hyperlink{structstm_1_1iccsync_1_1SWAP__ADAPTER_a7c21866c3951b11ad255924e1bf28f1f}{swap} (volatile T $\ast$address, S value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename S, size\-\_\-t D = sizeof(\-T) / sizeof(\-S)$>$struct stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R$<$ T, S, D $>$}
+
+An adapter class that matches types for swapping. This matches only when S is smaller than T, because equal sized and larger have their own specializations. 
+
+\subsection{Member Function Documentation}
+\hypertarget{structstm_1_1iccsync_1_1SWAP__ADAPTER_a7c21866c3951b11ad255924e1bf28f1f}{\index{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R@{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R}!swap@{swap}}
+\index{swap@{swap}!stm::iccsync::SWAP_ADAPTER@{stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename S , size\-\_\-t D = sizeof(\-T) / sizeof(\-S)$>$ static T {\bf stm\-::iccsync\-::\-S\-W\-A\-P\-\_\-\-A\-D\-A\-P\-T\-E\-R}$<$ T, S, D $>$\-::swap (
+\begin{DoxyParamCaption}
+\item[{volatile T $\ast$}]{address, }
+\item[{S}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{structstm_1_1iccsync_1_1SWAP__ADAPTER_a7c21866c3951b11ad255924e1bf28f1f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{structstm_1_1iccsync_1_1SWAP__ADAPTER_a7c21866c3951b11ad255924e1bf28f1f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{structstm_1_1iccsync_1_1SWAP__ADAPTER_a7c21866c3951b11ad255924e1bf28f1f_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+rstm/rstm-\/dev/include/common/\hyperlink{icc-sync_8hpp}{icc-\/sync.\-hpp}\end{DoxyCompactItemize}

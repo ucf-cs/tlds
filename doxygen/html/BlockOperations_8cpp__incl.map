@@ -1,0 +1,17 @@
+<map id="rstm/rstm&#45;dev/libitm2stm/BlockOperations.cpp" name="rstm/rstm&#45;dev/libitm2stm/BlockOperations.cpp">
+<area shape="rect" id="node2" href="$BlockOperations_8h.html" title="BlockOperations.h" alt="" coords="5,96,133,123"/>
+<area shape="rect" id="node5" href="$Utilities_8h.html" title="Utilities.h" alt="" coords="157,96,233,123"/>
+<area shape="rect" id="node6" href="$txthread_8hpp.html" title="stm/txthread.hpp" alt="" coords="677,96,797,123"/>
+<area shape="rect" id="node7" href="$rand__r__32_8h.html" title="alt&#45;license/rand_r_32.h" alt="" coords="867,171,1020,197"/>
+<area shape="rect" id="node10" href="$locks_8hpp.html" title="common/locks.hpp" alt="" coords="343,320,475,347"/>
+<area shape="rect" id="node14" href="$ThreadLocal_8hpp.html" title="common/ThreadLocal.hpp" alt="" coords="1045,171,1216,197"/>
+<area shape="rect" id="node15" href="$metadata_8hpp.html" title="stm/metadata.hpp" alt="" coords="421,245,547,272"/>
+<area shape="rect" id="node21" href="$WriteSet_8hpp.html" title="stm/WriteSet.hpp" alt="" coords="865,320,988,347"/>
+<area shape="rect" id="node23" href="$UndoLog_8hpp.html" title="stm/UndoLog.hpp" alt="" coords="1187,245,1312,272"/>
+<area shape="rect" id="node25" href="$ValueList_8hpp.html" title="stm/ValueList.hpp" alt="" coords="674,245,800,272"/>
+<area shape="rect" id="node26" href="$WBMMPolicy_8hpp.html" title="WBMMPolicy.hpp" alt="" coords="573,171,699,197"/>
+<area shape="rect" id="node11" href="$platform_8hpp.html" title="common/platform.hpp" alt="" coords="349,395,496,421"/>
+<area shape="rect" id="node16" href="$MiniVector_8hpp.html" title="stm/MiniVector.hpp" alt="" coords="674,320,808,347"/>
+<area shape="rect" id="node20" href="$BitFilter_8hpp.html" title="stm/BitFilter.hpp" alt="" coords="206,395,324,421"/>
+<area shape="rect" id="node24" href="$include_2stm_2macros_8hpp.html" title="stm/macros.hpp" alt="" coords="1226,320,1341,347"/>
+</map>

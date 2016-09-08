@@ -1,0 +1,309 @@
+\hypertarget{thread_8c}{\section{rstm/rstm-\/dev/stamp-\/0.9.10/lib/thread.c File Reference}
+\label{thread_8c}\index{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/thread.\-c@{rstm/rstm-\/dev/stamp-\/0.\-9.\-10/lib/thread.\-c}}
+}
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}thread.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+Include dependency graph for thread.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{thread_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{classbarrier}{barrier}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{classbarrier}{barrier} \hyperlink{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}{barrier\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{thread_8c_a9cf87f4d1e1ffe87b97062e4ee17fa93}{thread\-Wait} (void $\ast$arg\-Ptr)
+\item 
+void \hyperlink{thread_8c_a66094007460192026d615704b2b413e2}{thread\-\_\-startup} (long num\-Thread)
+\item 
+void \hyperlink{thread_8c_a508408edb8d14801fda6061479a24f19}{thread\-\_\-start} (void($\ast$func\-Ptr)(void $\ast$), void $\ast$arg\-Ptr)
+\item 
+void \hyperlink{thread_8c_a011ab8fb29f5fb2d419bf8f017518c9b}{thread\-\_\-shutdown} ()
+\item 
+\hyperlink{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}{barrier\-\_\-t} $\ast$ \hyperlink{thread_8c_a4fd7b61da935dad1ff8ee8b7a6f7230f}{barrier\-\_\-alloc} ()
+\item 
+void \hyperlink{thread_8c_ac07eefea2287d19ec44a5981cfa7870f}{barrier\-\_\-free} (\hyperlink{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}{barrier\-\_\-t} $\ast$b)
+\item 
+void \hyperlink{thread_8c_a67be0cf0b0c0e832edd17049bb04dd7a}{barrier\-\_\-init} (\hyperlink{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}{barrier\-\_\-t} $\ast$b, int n)
+\item 
+void \hyperlink{thread_8c_a417d1459d9195f7ae2c60f6ae3d991ab}{barrier\-\_\-cross} (\hyperlink{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}{barrier\-\_\-t} $\ast$b)
+\item 
+void \hyperlink{thread_8c_aee9c8a14d66ce9e1d05082e431b724f7}{thread\-\_\-barrier\-\_\-wait} ()
+\item 
+long \hyperlink{thread_8c_abec126223ac40629f70a1bdcfa1aa088}{thread\-\_\-get\-Id} ()
+\item 
+long \hyperlink{thread_8c_a82f23d770962c29f4e8f09480227e8be}{thread\-\_\-get\-Num\-Thread} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{thread_8h_a5a9d482dbc2f19c61c3e59045acf2e60}{T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-T} \hyperlink{thread_8c_accded56b4cde0906e824a63ed67445c2}{global\-\_\-thread\-Id}
+\item 
+static long \hyperlink{thread_8c_a445a4378e28101607d686d64ed3f3612}{global\-\_\-num\-Thread} = 1
+\item 
+static \hyperlink{thread_8h_a74a770aadc86c9c42de4e8522991ca3c}{T\-H\-R\-E\-A\-D\-\_\-\-B\-A\-R\-R\-I\-E\-R\-\_\-\-T} $\ast$ \hyperlink{thread_8c_a180b29d2da2610df8d63ecab650a95aa}{global\-\_\-barrier\-Ptr} = N\-U\-L\-L
+\item 
+static long $\ast$ \hyperlink{thread_8c_a5d2c4d69058064e5f4a4b527146c7d89}{global\-\_\-thread\-Ids} = N\-U\-L\-L
+\item 
+static \hyperlink{thread_8h_a3a5954ff47262578a61691708ca8e8c1}{T\-H\-R\-E\-A\-D\-\_\-\-A\-T\-T\-R\-\_\-\-T} \hyperlink{thread_8c_aedec6dfac7c3efb8bc55e665d065669b}{global\-\_\-thread\-Attr}
+\item 
+static \hyperlink{thread_8h_a6f893648db3ce7da43ca9da9ab56e279}{T\-H\-R\-E\-A\-D\-\_\-\-T} $\ast$ \hyperlink{thread_8c_a05f7c14c47e4c1b65bfecd9a45a897e2}{global\-\_\-threads} = N\-U\-L\-L
+\item 
+static void($\ast$ \hyperlink{thread_8c_a25ed61b1cadeed7d817e586f1056f710}{global\-\_\-func\-Ptr} )(void $\ast$) = N\-U\-L\-L
+\item 
+static void $\ast$ \hyperlink{thread_8c_a903bde23805980fa34600a6cde235762}{global\-\_\-arg\-Ptr} = N\-U\-L\-L
+\item 
+static volatile \hyperlink{portable__defns_8h_a812d16e5494522586b3784e55d479912}{bool\-\_\-t} \hyperlink{thread_8c_ab5584271361e85d6570b8ecb75bf947b}{global\-\_\-do\-Shutdown} = \hyperlink{types_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}{\index{thread.\-c@{thread.\-c}!barrier\-\_\-t@{barrier\-\_\-t}}
+\index{barrier\-\_\-t@{barrier\-\_\-t}!thread.c@{thread.\-c}}
+\subsubsection[{barrier\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf barrier}  {\bf barrier\-\_\-t}}}\label{thread_8c_a9d7d77bf15c9be88c844232f8ce890cc}
+
+
+\subsection{Function Documentation}
+\hypertarget{thread_8c_a4fd7b61da935dad1ff8ee8b7a6f7230f}{\index{thread.\-c@{thread.\-c}!barrier\-\_\-alloc@{barrier\-\_\-alloc}}
+\index{barrier\-\_\-alloc@{barrier\-\_\-alloc}!thread.c@{thread.\-c}}
+\subsubsection[{barrier\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf barrier\-\_\-t}$\ast$ barrier\-\_\-alloc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_a4fd7b61da935dad1ff8ee8b7a6f7230f}
+\hypertarget{thread_8c_a417d1459d9195f7ae2c60f6ae3d991ab}{\index{thread.\-c@{thread.\-c}!barrier\-\_\-cross@{barrier\-\_\-cross}}
+\index{barrier\-\_\-cross@{barrier\-\_\-cross}!thread.c@{thread.\-c}}
+\subsubsection[{barrier\-\_\-cross}]{\setlength{\rightskip}{0pt plus 5cm}void barrier\-\_\-cross (
+\begin{DoxyParamCaption}
+\item[{{\bf barrier\-\_\-t} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_a417d1459d9195f7ae2c60f6ae3d991ab}
+\hypertarget{thread_8c_ac07eefea2287d19ec44a5981cfa7870f}{\index{thread.\-c@{thread.\-c}!barrier\-\_\-free@{barrier\-\_\-free}}
+\index{barrier\-\_\-free@{barrier\-\_\-free}!thread.c@{thread.\-c}}
+\subsubsection[{barrier\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void barrier\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf barrier\-\_\-t} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_ac07eefea2287d19ec44a5981cfa7870f}
+\hypertarget{thread_8c_a67be0cf0b0c0e832edd17049bb04dd7a}{\index{thread.\-c@{thread.\-c}!barrier\-\_\-init@{barrier\-\_\-init}}
+\index{barrier\-\_\-init@{barrier\-\_\-init}!thread.c@{thread.\-c}}
+\subsubsection[{barrier\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void barrier\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf barrier\-\_\-t} $\ast$}]{b, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_a67be0cf0b0c0e832edd17049bb04dd7a}
+\hypertarget{thread_8c_aee9c8a14d66ce9e1d05082e431b724f7}{\index{thread.\-c@{thread.\-c}!thread\-\_\-barrier\-\_\-wait@{thread\-\_\-barrier\-\_\-wait}}
+\index{thread\-\_\-barrier\-\_\-wait@{thread\-\_\-barrier\-\_\-wait}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-\_\-barrier\-\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-\_\-barrier\-\_\-wait (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_aee9c8a14d66ce9e1d05082e431b724f7}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{thread_8c_aee9c8a14d66ce9e1d05082e431b724f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8c_aee9c8a14d66ce9e1d05082e431b724f7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{thread_8c_abec126223ac40629f70a1bdcfa1aa088}{\index{thread.\-c@{thread.\-c}!thread\-\_\-get\-Id@{thread\-\_\-get\-Id}}
+\index{thread\-\_\-get\-Id@{thread\-\_\-get\-Id}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-\_\-get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}long thread\-\_\-get\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_abec126223ac40629f70a1bdcfa1aa088}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8c_abec126223ac40629f70a1bdcfa1aa088_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{thread_8c_a82f23d770962c29f4e8f09480227e8be}{\index{thread.\-c@{thread.\-c}!thread\-\_\-get\-Num\-Thread@{thread\-\_\-get\-Num\-Thread}}
+\index{thread\-\_\-get\-Num\-Thread@{thread\-\_\-get\-Num\-Thread}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-\_\-get\-Num\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}long thread\-\_\-get\-Num\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_a82f23d770962c29f4e8f09480227e8be}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8c_a82f23d770962c29f4e8f09480227e8be_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{thread_8c_a011ab8fb29f5fb2d419bf8f017518c9b}{\index{thread.\-c@{thread.\-c}!thread\-\_\-shutdown@{thread\-\_\-shutdown}}
+\index{thread\-\_\-shutdown@{thread\-\_\-shutdown}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-\_\-shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-\_\-shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{thread_8c_a011ab8fb29f5fb2d419bf8f017518c9b}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{thread_8c_a011ab8fb29f5fb2d419bf8f017518c9b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{thread_8c_a508408edb8d14801fda6061479a24f19}{\index{thread.\-c@{thread.\-c}!thread\-\_\-start@{thread\-\_\-start}}
+\index{thread\-\_\-start@{thread\-\_\-start}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void $\ast$)}]{func\-Ptr, }
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_a508408edb8d14801fda6061479a24f19}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{thread_8c_a508408edb8d14801fda6061479a24f19_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8c_a508408edb8d14801fda6061479a24f19_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{thread_8c_a66094007460192026d615704b2b413e2}{\index{thread.\-c@{thread.\-c}!thread\-\_\-startup@{thread\-\_\-startup}}
+\index{thread\-\_\-startup@{thread\-\_\-startup}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-\_\-startup}]{\setlength{\rightskip}{0pt plus 5cm}void thread\-\_\-startup (
+\begin{DoxyParamCaption}
+\item[{long}]{num\-Thread}
+\end{DoxyParamCaption}
+)}}\label{thread_8c_a66094007460192026d615704b2b413e2}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{thread_8c_a66094007460192026d615704b2b413e2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{thread_8c_a66094007460192026d615704b2b413e2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{thread_8c_a9cf87f4d1e1ffe87b97062e4ee17fa93}{\index{thread.\-c@{thread.\-c}!thread\-Wait@{thread\-Wait}}
+\index{thread\-Wait@{thread\-Wait}!thread.c@{thread.\-c}}
+\subsubsection[{thread\-Wait}]{\setlength{\rightskip}{0pt plus 5cm}static void thread\-Wait (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg\-Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a9cf87f4d1e1ffe87b97062e4ee17fa93}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8c_a9cf87f4d1e1ffe87b97062e4ee17fa93_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{thread_8c_a903bde23805980fa34600a6cde235762}{\index{thread.\-c@{thread.\-c}!global\-\_\-arg\-Ptr@{global\-\_\-arg\-Ptr}}
+\index{global\-\_\-arg\-Ptr@{global\-\_\-arg\-Ptr}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-arg\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ global\-\_\-arg\-Ptr = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a903bde23805980fa34600a6cde235762}
+\hypertarget{thread_8c_a180b29d2da2610df8d63ecab650a95aa}{\index{thread.\-c@{thread.\-c}!global\-\_\-barrier\-Ptr@{global\-\_\-barrier\-Ptr}}
+\index{global\-\_\-barrier\-Ptr@{global\-\_\-barrier\-Ptr}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-barrier\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-H\-R\-E\-A\-D\-\_\-\-B\-A\-R\-R\-I\-E\-R\-\_\-\-T}$\ast$ global\-\_\-barrier\-Ptr = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a180b29d2da2610df8d63ecab650a95aa}
+\hypertarget{thread_8c_ab5584271361e85d6570b8ecb75bf947b}{\index{thread.\-c@{thread.\-c}!global\-\_\-do\-Shutdown@{global\-\_\-do\-Shutdown}}
+\index{global\-\_\-do\-Shutdown@{global\-\_\-do\-Shutdown}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-do\-Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf bool\-\_\-t} global\-\_\-do\-Shutdown = {\bf F\-A\-L\-S\-E}\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_ab5584271361e85d6570b8ecb75bf947b}
+\hypertarget{thread_8c_a25ed61b1cadeed7d817e586f1056f710}{\index{thread.\-c@{thread.\-c}!global\-\_\-func\-Ptr@{global\-\_\-func\-Ptr}}
+\index{global\-\_\-func\-Ptr@{global\-\_\-func\-Ptr}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-func\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ global\-\_\-func\-Ptr)(void $\ast$) = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a25ed61b1cadeed7d817e586f1056f710}
+\hypertarget{thread_8c_a445a4378e28101607d686d64ed3f3612}{\index{thread.\-c@{thread.\-c}!global\-\_\-num\-Thread@{global\-\_\-num\-Thread}}
+\index{global\-\_\-num\-Thread@{global\-\_\-num\-Thread}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-num\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}long global\-\_\-num\-Thread = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a445a4378e28101607d686d64ed3f3612}
+\hypertarget{thread_8c_aedec6dfac7c3efb8bc55e665d065669b}{\index{thread.\-c@{thread.\-c}!global\-\_\-thread\-Attr@{global\-\_\-thread\-Attr}}
+\index{global\-\_\-thread\-Attr@{global\-\_\-thread\-Attr}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-thread\-Attr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-H\-R\-E\-A\-D\-\_\-\-A\-T\-T\-R\-\_\-\-T} global\-\_\-thread\-Attr\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_aedec6dfac7c3efb8bc55e665d065669b}
+\hypertarget{thread_8c_accded56b4cde0906e824a63ed67445c2}{\index{thread.\-c@{thread.\-c}!global\-\_\-thread\-Id@{global\-\_\-thread\-Id}}
+\index{global\-\_\-thread\-Id@{global\-\_\-thread\-Id}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-thread\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-H\-R\-E\-A\-D\-\_\-\-L\-O\-C\-A\-L\-\_\-\-T} global\-\_\-thread\-Id\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_accded56b4cde0906e824a63ed67445c2}
+\hypertarget{thread_8c_a5d2c4d69058064e5f4a4b527146c7d89}{\index{thread.\-c@{thread.\-c}!global\-\_\-thread\-Ids@{global\-\_\-thread\-Ids}}
+\index{global\-\_\-thread\-Ids@{global\-\_\-thread\-Ids}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-thread\-Ids}]{\setlength{\rightskip}{0pt plus 5cm}long$\ast$ global\-\_\-thread\-Ids = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a5d2c4d69058064e5f4a4b527146c7d89}
+\hypertarget{thread_8c_a05f7c14c47e4c1b65bfecd9a45a897e2}{\index{thread.\-c@{thread.\-c}!global\-\_\-threads@{global\-\_\-threads}}
+\index{global\-\_\-threads@{global\-\_\-threads}!thread.c@{thread.\-c}}
+\subsubsection[{global\-\_\-threads}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-H\-R\-E\-A\-D\-\_\-\-T}$\ast$ global\-\_\-threads = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{thread_8c_a05f7c14c47e4c1b65bfecd9a45a897e2}
