@@ -2,7 +2,7 @@
 layout: tervel_documentation
 ---
 
-# Installing tlds
+# Installing TLDS
 
 ## System Requirements
 
@@ -11,15 +11,15 @@ Supported platforms:
 *   Ubuntu Linux
 
 
-## Downloading tlds
+## Downloading TLDS
 
-Clone the tlds from the git repo:
+Clone the TLDS from the git repo:
 
 {% highlight bash %}
 $ git clone {{ site.gitrepo }}
 {% endhighlight %}
 
-## Building tlds
+## Building TLDS
 
 ### Dependencies
 
@@ -49,6 +49,6 @@ $ make
 
 ## Next Steps
 
-Now you can add tlds containers and algorithms into your own applications.
+Now you can add TLDS containers and algorithms into your own applications.
 See [user manual](tlds-user-manual.html) for more information.
 Let us know if you have any questions!
