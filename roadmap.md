@@ -2,10 +2,10 @@
 layout: tervel_about
 ---
 
-# tlds Feature Road map
+# TLDS Feature Road map
 
-Author: [The tlds Team](bio.html)
+Author: [The TLDS Team](bio.html)
 
-The immediate future plans focus on spreading the word of our release and developing a userbase.
+We are currently working on supporting transactional data structures for non-linked containers and also transactions that are executed on multiple containers.
 
-We also plan to implement more algorithms and containers to make it even more attractive for application designers.
+Future plans focus on spreading the word of our release and developing a userbase.

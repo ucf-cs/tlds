@@ -6,7 +6,7 @@ layout: tervel_about
 
 The Computer Software Engineering - Scalable and Secure Systems (CSE - S3) Lab at the University of Central Florida was established by Dr. Damian Dechev in 2010. His work focuses on concurrency and multithreading using C++. Dr. Dechev completed his Ph.D. degree in 2009 at Texas A&M University under the supervision of Dr. Bjarne Stroustrup. The CSE-S3 lab has been supported by the National Science Foundation, Sandia National Laboratories, and the Department of Energy.
 
-# Key tlds Developers
+# Key TLDS Developers
 <h3> Deli Zhang</h3>
 Deli Zhang received his Ph.D. and M.S. in Computer Science in 2016 from University of Central Florida. He received his B.S in Telecommunication Engineering from Huazhong University of Science and Technology. His work focuses on developing concurrent transactioanl data structures, synchronization algorithms, and performance analysis tools for parallel computing.
 
