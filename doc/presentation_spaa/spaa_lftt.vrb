@@ -1,0 +1,25 @@
+\frametitle{Extended TATAS}
+    \begin{columns}
+        \begin{column}{5.8cm}
+            %\begin{algorithm}[H]
+                %\caption*{Extended TATAS}
+                \lstinputlisting{../../mrlock-dev/doc/code/tatas_inslide.c}
+            %\end{algorithm}
+        \end{column}
+        \begin{column}{6cm}
+            \small
+            \begin{itemize}
+                \item A bitset is an array of bits
+                \item Represent a resource by one bit
+                \item Detecting conflict by bitwise AND
+                \item Handle acquisition in batch
+                \pause
+                \item Drawbacks
+                \begin{itemize}
+                \item No fairness guarantee
+                \item Heavy contention
+                \item Limited number of resources
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+    \end{columns}
