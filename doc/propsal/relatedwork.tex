@@ -1,0 +1,66 @@
+Non-blocking linked data structures have been extensively studied because their distributed memory layout provides data access parallelism and scalability under high levels of contention~\cite{harris2001pragmatic,linden2013skiplist,zhang2015lockfree,michael2002high}.
+To the best of the PI's knowledge, there is no existing linked data structure that provides native support for transactions.
+Straightforward generic constructions can be implemented by executing all shared memory accesses in coarse-grained \emph{atomic sections}, which can employ either optimistic (e.g., STM) or pessimistic (e.g., lock inference) concurrency control.
+More sophisticated approaches~\cite{bronson2010transactional,herlihy2008transactional,golan2015automatic} exploit semantic conflict detection for transaction-level synchronization to reduce benign conflicts.
+However, with the specific knowledge on linked data structure, the proposed approach further optimizes the transaction execution by performing in-place conflict detection and contention management on existing nodes.
+
+\subsection{Transactional Memory}
+Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
+However, due to current HTM's cache-coherency based conflict detection scheme, transactions are subject to spurious failures during page faults and context switches~\cite{dice2009early}.
+This makes HTM less desirable for data structure implementations.
+Considerable amount of work and ingenuity has instead gone into designing lock-free data structures using low-level synchronization primitives such as \textsc{CompareAndSwap}, which empowers researchers to devise algorithm-specific fine-grained concurrency control protocol.
+
+Software transactional memory (STM)~\cite{shavit1997software,herlihy2003software} can be used to conveniently construct transactional data structures from their sequential counterparts: operations executed within an STM transaction are guaranteed to be transactional.
+The first software transactional memory was proposed by Shavit and Touitou~\cite{shavit1997software}, which is lock-free but only supports a static set of data items.
+Herlihy, et al., later presented DSTM~\cite{herlihy2003software} that supports dynamic data sets on the condition that the progress guarantee is relaxed to obstruction-freedom.
+Over the years, a large number of STM implementations have been proposed~\cite{saha2006mcrt,fraser2004practical,marathe2006lowering,dice2006transactional,dalessandro2010norec}.
+Complete reviews are omitted because it is out of the scope of this work.
+Despite the appeal of straightforward implementation, STM based approach has yet to gain practical acceptance due to its significant runtime overhead~\cite{cascaval2008software}.
+An STM instruments threads' memory accesses by recording the locations a thread reads in a \emph{read set}, and the locations it writes in a \emph{write set}. 
+Conflicts are detected among the \emph{read/write sets} of different threads. 
+In the presence of conflicts, only one transaction is allowed to commit while the others are aborted and restarted.
+Apart from the overhead of metadata management, excessive transaction aborts in the presence of data structure ``hot-spots'' (memory locations that are constantly accessed by threads, e.g., the head node of a linked list) limit the overall concurrency~\cite{herlihy2008transactional}.
+Figure~\ref{fig:stmconflict} illustrates such an example.
+It shows a set implemented as an ordered linked list, where each node has two fields, an integer value and a pointer to the next node.
+The initial state of the set is $\{0,3,6,9,10\}$.
+Thread 1 and Thread 2 intend to insert 4 and 1, respectively.
+Since these two operations commute, it is feasible to execute them concurrently~\cite{clements2015scalable}.
+Nevertheless, these operations have a read/write conflict and the STM has to abort one of them. 
+The inherent disadvantage of STM concurrency control is that \emph{low-level memory access conflicts do not necessarily correspond to high-level semantic conflicts}.
+There is also an increasing realization that the read/write conflicts inherently provide insufficient support for concurrency when shared objects are subject to contention~\cite{koskinen2010coarse}.
+It has been suggested that ``STM may not deliver the promised efficiency and simplicity for \emph{all} scenario, and multitude of approaches should be explored catering to different needs''~\cite{attiya2010inherent}.
+Unlike STM-based data structures, the proposed approach eliminate false conflict and excessive aborts by adopting semantic conflict detection.
+
+\subsection{Lock Inference}
+STM implementations are typically \emph{optimistic}, which means they execute under the assumption that interferences are unlikely to occur.
+They maintain computationally expensive redo- or undo-logs to allow replay or rollback in case a transaction experiences interference.
+In light of this shortcoming, pessimistic alternatives based on lock inference has been proposed~\cite{mccloskey2006autolocker}.
+These algorithms synthesize enough locks through static analysis to prevent data races in atomic sections.
+The choice of locking granularity has an impact on the trade-off between concurrency and overhead.
+Some approaches require programmers' annotation~\cite{golan2013concurrent} to specify the granularity, others automatically infer locks at a fixed granularity~\cite{emmi2007lock} or even multiple granularities~\cite{cherem2008inferring}.
+Nevertheless, most approaches associate locks with memory locations, which may lead to reduced parallelism due to false conflicts as seen in STM. 
+Applying these approaches to real-world programs also faces scalability changes in the presence of large libraries ~\cite{gudka2012lock} because of the high complexity involved in the static analysis process.
+Applying these approaches to real-world programs also faces scalability changes in the presence of large libraries ~\cite{gudka2012lock} because of the high cyclomatic complexity~\footnote{A measure of the number of linearly independent execution paths~\cite{mccabe1976complexity}.} involved in the static analysis process.
+Moreover, the use of locks degrades any non-blocking progress guarantee one might expected from using a non-blocking library.
+In contrast, the proposed approach guarantees lock-free progress.
+
+\subsection{Semantic Conflict Detection}
+Considering the imprecise nature of data-based conflict detection, semantic-based approaches have been proposed to identify conflicts at a high-level (e.g., two commutative operations would not raise conflict even though they may access and modify the same memory data) which enables greater parallelism.
+Because semantically independent transactions may have low-level memory access conflicts, some other concurrency control protocol must be used to protect accesses to the underlying data structure.
+This results in a two-layer concurrency control.
+Transactional boosting proposed by Herlihy~\cite{herlihy2008transactional} is the first dedicated treatment on building highly concurrent transactional data structures using a semantic layer of abstract locks.
+The idea behind boosting is intuitive: if two operations commute they are allowed to proceed without interference (i.e., thread-level synchronization happens within the operations); otherwise they need to be synchronized at the transaction level.
+It treats the base data structure as a black box and uses \emph{abstract locking} to ensure that non-commutative method calls do not occur concurrently. 
+For each operation in a transaction, the boosted data structure calls the corresponding method of the underlying linearizable data structure after acquiring the abstract lock associated with that call. 
+In the boosted linked list shown in Figure~\ref{fig:boosting}, the abstract lock is pertaining to each key.  
+Thread 1 tries to execute \textsc{Insert(1)} and \textsc{Insert(4)} in a transaction while Thread 2 tries to execute \textsc{Remove(9)} and \textsc{Insert(4)} transactionally.
+A transaction aborts when it fails to acquire an abstract lock, and it recovers from failure by invoking the inverses of already executed calls. 
+Its semantic-based conflict detection approach eliminates excessive false conflicts associated with STM-based transactional data structures, but it still suffers from performance penalties due to the rollbacks of partially executed transactions.
+Moreover, when applied to non-blocking data structures, the progress guarantee of the boosted data structure is degraded because of the locks used for transactional-level synchronization.
+
+Koskinen et al.~\cite{koskinen2010coarse} later generalize the transactional boosting work and introduce a formal framework called coarse-grained transactions.
+Bronson et al. proposed transaction prediction, which maps the abstract state of a set into memory blocks called predicate and relies on STM to synchronize transactional accesses~\cite{bronson2010transactional}.
+Hassan et al.~\cite{hassan2014developing} proposed an optimistic version of boosting, which employs a white box design and provides throughput and usability benefits over the original boosting approach.
+Other STM variants, such open nested transactions~\cite{ni2007open} support a more relaxed transaction model that leverages some semantic knowledge based on programmers' input.
+The relaxation of STM systems and its implication on composability has been studied by Gramoli et al.~\cite{gramoli2013composing}.
+The work by Golan-Gueta et al.~\cite{golan2015automatic} applies commutativity specification obtained from programmers' input to inferring locks for abstract data types.

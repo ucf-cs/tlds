@@ -1,0 +1,108 @@
+In this section, the PI expalins the three key ideas of the proposed approach by an example: 1) node-based semantic conflict detection; 2) interpretation-based logical rollback; and 3) cooperative transaction execution.
+For clarity, the constants and data type definitions are listed in Algorithm~\ref{alg:nodestructure}.
+In addition to the fields used by the base lock-free data structure, a new field $info$ is introduced in \textsc{Node}.
+\textsc{NodeInfo} stores $desc$, a reference to the shared transaction descriptor, and an index $opid$, which provides a history record on the last access (i.e., given a node $n$, $n.info.desc.ops[n.desc.opid]$ is the most recent operation that accessed it).
+A node is considered \emph{active} when the last transaction that accessed the node had an active status (i.e., $n.info.desc.status=\text{Active}$).
+A descriptor~\cite{herlihy2012art} is a shared object commonly used in lock-free programming to announce steps that cannot be done by a single atomic primitive.
+The functionalities of the transaction descriptor is twofold: a) it stores all the necessary context for helping finish a delayed transaction; and b) it shares the transaction status among all nodes participating in the same transaction.
+
+\vspace{-0.1in}
+\begin{algorithm}[h]
+    \caption{Type Definitions}
+    \label{alg:nodestructure}
+    \vspace{-0.2in}
+    \begin{multicols}{2}
+        \begin{algorithmic}[1]
+            \Enum{TxStatus}
+            \State Active
+            \State Commited
+            \State Aborted
+            \EndEnum
+            \Enum{OpType}
+            \State Insert
+            \State Delete
+            \State Find
+            \EndEnum
+            \Struct{Operation}
+            \State \textbf{OpType} $type$
+            \State \textbf{int} $key$
+            \EndStruct
+            \Struct{Desc}
+            \State \textbf{int} $size$
+            \State \textbf{TxStauts} $status$
+            \State \textbf{Operation} $ops[\;]$
+            \EndStruct
+            \Struct{NodeInfo}
+            \State \textbf{Desc*} $desc$
+            \State \textbf{int} $opid$
+            \EndStruct
+            \Struct{Node}
+            \State \textbf{NodeInfo*} $info$
+            \State \textbf{int} $key$
+            \State ...
+            \EndStruct
+            \end{algorithmic}
+    \end{multicols}
+    \vspace{-0.15in}
+\end{algorithm}
+
+An example of lock-free transaction execution is illustrated in Figure~\ref{fig:lfttconflict}.
+In the proposed approach, conflicts are detected at the granularity of a node. 
+If two transactions access different nodes (i.e. the method calls in them commute~\cite{herlihy2008transactional}), they are allowed to proceed concurrently. 
+In this case, shared-memory accesses are coordinated by the concurrency control protocol in the base data structure.
+Otherwise, threads proceed in a cooperative manner.
+At the beginning, Thread 1 committed a transaction $t1$ inserting keys 1 and 3 without any interference from the other threads. 
+Thread 2 attempted to insert keys 4 and 2 in transaction $t2$, while Thread 3 was concurrently executing transaction $t3$ to delete keys 3 and 4.
+Thread 3 was able to perform its first operation by updating the $info$ pointer on node 3 with a new \textsc{NodeInfo}.
+In a transformed data structure, the logical status of a node depends on the interpretation of its transaction descriptor. 
+An operation needs to change a node's logical status before performing any necessary low-level node manipulations. 
+This is done by updating the node's \textsc{NodeInfo} pointer through the use of single-word CAS synchronization primitive. 
+However, Thread 3 encounters a conflict when attempting to update Node 4 because Thread 2 has yet to finish its second operation.
+To enforce serialization, operations must not modify an active node. 
+In order to guarantee lock-free progress, the later transaction must help carry out the remaining operations in the other active transaction.
+In this case, Thread 3 reads the transactionsaction descriptor stored in Node 4, and help Thread 2 finialize the insertion of Node 2 before updating the $info$ pointer on Node 4.
+
+When applied to an existing base lock-free linked data structure, the lock-free transacitonal transformation process involves two steps: 1) identify and encapsulate the base data structure's methods for locating, inserting, and deleting nodes; and 2) Apply pre-defined code templates to construct the transformed operations.
+The first step is necessary because the transformed data structure still relies on the base data structure's concurrency control to add, update, and remove linkage among nodes.
+This is a refactoring process, as the functionality of the base implementations is not altered. 
+Although implementation details such as argument types and return values may vary, one needs to extract the following three functions: \textsc{Do\_LocatePred}, \textsc{Do\_Insert}, and \textsc{Do\_Delete}.
+A prefix \textsc{Do\_} is added to indicate these are the methods provided by the base data structures.
+For brevity, detailed code listings are omitted. 
+The general functionality specifications are express as follows. 
+Given a key, \textsc{Do\_LocatePred} returns the target node (and any necessary variables for linking and unlinking a node, e.g., its predecessor).
+\textsc{Do\_Insert} creates the necessary linkage to correctly place the new node in the data structure.
+\textsc{Do\_Delete} removes any references to the node.
+
+Algorithm~\ref{alg:listinsert} lists the template for the transformed \textsc{Insert} function.
+The function resembles the base node insertion algorithm with a CAS-based while loop (line~\algref{alg:listinsert}{l:listinsertwhile}).
+Compared with the \textsc{Insert} operation in the based data structure, the only code addition is a new code path for invoking \textsc{UpdateInfo} on line~\algref{alg:listinsert}{l:insupdateinfo}.
+As mentioned above, the function \textsc{UpdateInfo} updates a nodes \textsc{NodeInfo} reference atomically.
+The logic is straight forward: on line~\algref{alg:listinsert}{l:listinsertcontain} the code checks if the data structure already contains a node with the target key.
+If so, it tries to update the node's logical status, otherwise it falls back to the base code path to insert a new node. 
+Should any of the two code paths indicate a retry due to contention, it starts the traversal over again.
+
+\begin{algorithm}[t]
+    \caption{Template for Transformed Insert Function}
+    \label{alg:listinsert}
+    \begin{algorithmic}[1]
+        \Function{Insert}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
+        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+        \State $info.desc \gets desc,\;info.opid \gets opid$
+        \While{\TRUE} \label{l:listinsertwhile}
+        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
+        \If{\Call{IsNodePresent}{$curr,\;key$}} \label{l:listinsertcontain}
+        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;false}$ \label{l:insupdateinfo}
+        \Else
+        \State $\textbf{Node*}\; n \gets \text{\textbf{new Node}}$
+        \State $n.key \gets key,\;n.info \gets info$
+        \State $ret \gets \Call{Do\_Insert}{n}$ \label{l:linknode}
+        \EndIf
+        \If {$ret = success$}
+        \State \Return \TRUE
+        \ElsIf {$ret = fail$}
+        \State \Return \FALSE
+        \EndIf
+        \EndWhile
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}

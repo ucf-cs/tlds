@@ -1,0 +1,17 @@
+Hello Deli,
+
+I am currently working on the NSF proposal. In our discussion earlier this week I asked you to extend the write-up on the support for transactions execution across multiple data structures. I wanted to clarify this and give you some more details here:
+
+In future work (futurework.tex) there are 3 main directions: 1) automatic transformation of existing containers, 2) support for non-linked and wait-free data structures, and 3) support for transactions across multiple containers. 
+
+I would like to ask you to expand all three of them with as many relevant details as you can think of. For example, on our automatic transformation, are we going to employ ROSE and use its AST (and PDG?) to do the code transformation?
+
+Additionally, please try to answer (to the best of your knowledge now) what is new about each of these three directions. For example, how innovative is it to support transactions across multiple containers? Is this something one can do using STM or transactional boosting? Is our approach going to be the first one to allow this? 
+
+Finally, just reminding you that another part of my request is a 1-page summary of the dictionary paper. Here I wanted to clarify that I will already provide an overview of an MDList, so you can assume that the context already explains what an MDList is and how it works. 
+
+I would very much appreciate your response by Monday (April 11th) as time is progressing very quickly for this deadline ...
+
+Thank you!!
+
+-- Damian

@@ -1,0 +1,117 @@
+#!/usr/bin/gnuplot
+
+set terminal postscript eps enhanced color lw 1 "Helvetica" 18
+set datafile separator ","
+
+set style line 1 lt 1 lc rgb "red" lw 2
+set style line 2 lt 2 lc rgb "blue" lw 2
+set style line 3 lt 3 lc rgb "forest-green" lw 2
+set style line 4 lt 4 lc rgb "magenta" lw 2
+set style line 5 lt 5 lc rgb "dark-orange" lw 2
+set style line 6 lt 6 lc rgb "royalblue" lw 2
+set style line 7 lt 7 lc rgb "black" lw 2
+set style line 8 lt 8 lc rgb "dark-red" lw 2
+set style line 9 lt 9 lc rgb "orange-red" lw 2
+set style line 10 lt 10 lc rgb "gray" lw 2
+
+#set lmargin at screen 0.11
+#set rmargin at screen 0.99
+#set tmargin at screen 0.98
+#set bmargin at screen 0.12
+
+unset key
+set key inside left top reverse Left
+#set tmargin 0
+#set bmargin 0
+set autoscale
+set xtics("1" 1, "2" 2, "4" 4, "8" 8, "16" 16, "32" 32, "64" 64, "128" 128)
+set grid ytics
+set logscale x
+set logscale y
+set xlabel "Number of Threads"
+set ylabel "Throughput (OP/s)" offset (0,1.9)
+
+set output "| epstopdf --filter --outfile=amd33ins10k.pdf"
+plot "walltime_TXNLIST_key_10000_iter_100000_ins_33_del_33" u 1:($3/$2) w linespoints ls 1 pt 1 title "TXNLIST-1",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_33_del_33" u 1:($3/$2) w linespoints ls 2 pt 1 title "BSTLIST-1",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_33_del_33" u 1:($3/$2) w linespoints ls 3 pt 1 title "STMLIST-1",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_33_del_33" u 1:($5/$4) w linespoints ls 1 pt 2 title "TXNLIST-2",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_33_del_33" u 1:($5/$4) w linespoints ls 2 pt 2 title "BSTLIST-2",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_33_del_33" u 1:($5/$4) w linespoints ls 3 pt 2 title "STMLIST-2",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_33_del_33" u 1:($7/$6) w linespoints ls 1 pt 3 title "TXNLIST-4",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_33_del_33" u 1:($7/$6) w linespoints ls 2 pt 3 title "BSTLIST-4",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_33_del_33" u 1:($7/$6) w linespoints ls 3 pt 3 title "STMLIST-4",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_33_del_33" u 1:($9/$8) w linespoints ls 1 pt 4 title "TXNLIST-8",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_33_del_33" u 1:($9/$8) w linespoints ls 2 pt 4 title "BSTLIST-8",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_33_del_33" u 1:($9/$8) w linespoints ls 3 pt 4 title "STMLIST-8"
+
+set output "| epstopdf --filter --outfile=amd15ins10k.pdf"
+plot "walltime_TXNLIST_key_10000_iter_100000_ins_15_del_5" u 1:($3/$2) w linespoints ls 1 pt 1 title "TXNLIST-1",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_15_del_5" u 1:($3/$2) w linespoints ls 2 pt 1 title "BSTLIST-1",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_15_del_5" u 1:($3/$2) w linespoints ls 3 pt 1 title "STMLIST-1",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_15_del_5" u 1:($5/$4) w linespoints ls 1 pt 2 title "TXNLIST-2",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_15_del_5" u 1:($5/$4) w linespoints ls 2 pt 2 title "BSTLIST-2",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_15_del_5" u 1:($5/$4) w linespoints ls 3 pt 2 title "STMLIST-2",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_15_del_5" u 1:($7/$6) w linespoints ls 1 pt 3 title "TXNLIST-4",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_15_del_5" u 1:($7/$6) w linespoints ls 2 pt 3 title "BSTLIST-4",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_15_del_5" u 1:($7/$6) w linespoints ls 3 pt 3 title "STMLIST-4",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_15_del_5" u 1:($9/$8) w linespoints ls 1 pt 4 title "TXNLIST-8",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_15_del_5" u 1:($9/$8) w linespoints ls 2 pt 4 title "BSTLIST-8",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_15_del_5" u 1:($9/$8) w linespoints ls 3 pt 4 title "STMLIST-8"
+
+set output "| epstopdf --filter --outfile=amd50ins10k.pdf"
+plot "walltime_TXNLIST_key_10000_iter_100000_ins_50_del_50" u 1:($3/$2) w linespoints ls 1 pt 1 title "TXNLIST-1",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_50_del_50" u 1:($3/$2) w linespoints ls 2 pt 1 title "BSTLIST-1",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_50_del_50" u 1:($3/$2) w linespoints ls 3 pt 1 title "STMLIST-1",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_50_del_50" u 1:($5/$4) w linespoints ls 1 pt 2 title "TXNLIST-2",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_50_del_50" u 1:($5/$4) w linespoints ls 2 pt 2 title "BSTLIST-2",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_50_del_50" u 1:($5/$4) w linespoints ls 3 pt 2 title "STMLIST-2",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_50_del_50" u 1:($7/$6) w linespoints ls 1 pt 3 title "TXNLIST-4",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_50_del_50" u 1:($7/$6) w linespoints ls 2 pt 3 title "BSTLIST-4",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_50_del_50" u 1:($7/$6) w linespoints ls 3 pt 3 title "STMLIST-4",\
+     "walltime_TXNLIST_key_10000_iter_100000_ins_50_del_50" u 1:($9/$8) w linespoints ls 1 pt 4 title "TXNLIST-8",\
+     "walltime_BSTLIST_key_10000_iter_100000_ins_50_del_50" u 1:($9/$8) w linespoints ls 2 pt 4 title "BSTLIST-8",\
+     "walltime_STMLIST_key_10000_iter_100000_ins_50_del_50" u 1:($9/$8) w linespoints ls 3 pt 4 title "STMLIST-8"
+
+set output "| epstopdf --filter --outfile=skipamd15ins10k.pdf"
+plot "walltime_TXNSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($3/$2) w linespoints ls 1 pt 1 title "TXNSKIP-1",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($3/$2) w linespoints ls 2 pt 1 title "BSTSKIP-1",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($3/$2) w linespoints ls 3 pt 1 title "STMSKIP-1",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($5/$4) w linespoints ls 1 pt 2 title "TXNSKIP-2",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($5/$4) w linespoints ls 2 pt 2 title "BSTSKIP-2",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($5/$4) w linespoints ls 3 pt 2 title "STMSKIP-2",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($7/$6) w linespoints ls 1 pt 3 title "TXNSKIP-4",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($7/$6) w linespoints ls 2 pt 3 title "BSTSKIP-4",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($7/$6) w linespoints ls 3 pt 3 title "STMSKIP-4",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($9/$8) w linespoints ls 1 pt 4 title "TXNSKIP-8",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($9/$8) w linespoints ls 2 pt 4 title "BSTSKIP-8",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_15_del_5" u 1:($9/$8) w linespoints ls 3 pt 4 title "STMSKIP-8"
+
+
+set output "| epstopdf --filter --outfile=skipamd33ins10k.pdf"
+plot "walltime_TXNSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($3/$2) w linespoints ls 1 pt 1 title "TXNSKIP-1",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($3/$2) w linespoints ls 2 pt 1 title "BSTSKIP-1",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($3/$2) w linespoints ls 3 pt 1 title "STMSKIP-1",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($5/$4) w linespoints ls 1 pt 2 title "TXNSKIP-2",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($5/$4) w linespoints ls 2 pt 2 title "BSTSKIP-2",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($5/$4) w linespoints ls 3 pt 2 title "STMSKIP-2",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($7/$6) w linespoints ls 1 pt 3 title "TXNSKIP-4",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($7/$6) w linespoints ls 2 pt 3 title "BSTSKIP-4",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($7/$6) w linespoints ls 3 pt 3 title "STMSKIP-4",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($9/$8) w linespoints ls 1 pt 4 title "TXNSKIP-8",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($9/$8) w linespoints ls 2 pt 4 title "BSTSKIP-8",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_33_del_33" u 1:($9/$8) w linespoints ls 3 pt 4 title "STMSKIP-8"
+
+set output "| epstopdf --filter --outfile=skipamd50ins10k.pdf"
+plot "walltime_TXNSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($3/$2) w linespoints ls 1 pt 1 title "TXNSKIP-1",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($3/$2) w linespoints ls 2 pt 1 title "BSTSKIP-1",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($3/$2) w linespoints ls 3 pt 1 title "STMSKIP-1",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($5/$4) w linespoints ls 1 pt 2 title "TXNSKIP-2",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($5/$4) w linespoints ls 2 pt 2 title "BSTSKIP-2",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($5/$4) w linespoints ls 3 pt 2 title "STMSKIP-2",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($7/$6) w linespoints ls 1 pt 3 title "TXNSKIP-4",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($7/$6) w linespoints ls 2 pt 3 title "BSTSKIP-4",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($7/$6) w linespoints ls 3 pt 3 title "STMSKIP-4",\
+     "walltime_TXNSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($9/$8) w linespoints ls 1 pt 4 title "TXNSKIP-8",\
+     "walltime_BSTSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($9/$8) w linespoints ls 2 pt 4 title "BSTSKIP-8",\
+     "walltime_STMSKIP_key_100000_iter_1000000_ins_50_del_50" u 1:($9/$8) w linespoints ls 3 pt 4 title "STMSKIP-8"
