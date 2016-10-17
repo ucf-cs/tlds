@@ -24,4 +24,4 @@ trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11 -pthread\
 				 -I$(top_builddir)/src -I$(top_srcdir)/src\
 				 -I$(rstm_builddir)/include -I$(rstm_srcdir)/include -I$(rstm_srcdir)
 
-trans_LDADD = $(BOOST_LDFLAGS) -L$(rstm_builddir)/libstm -lstm64 common/fraser/libfd.la translink/skiplist/libtsl.la boosting/skiplist/libbsl.la
+trans_LDADD = $(BOOST_LDFLAGS) -L$(rstm_builddir)/libstm -lstm64 common/fraser/libfd.la boosting/skiplist/libbsl.la
