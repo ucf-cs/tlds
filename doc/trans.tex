@@ -1,106 +1,120 @@
-\documentclass{sig-alternate-05-2015}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage[english]{babel}
-\usepackage[ruled]{algorithm}
-\usepackage{algpseudocode}
-\usepackage{color}
-%\let\labelindent\relax
-%\usepackage{enumitem}
-\let\proof\relax
-\let\endproof\relax 
-\usepackage{amsthm}
-%\usepackage[cmex10]{amsmath}
-\usepackage{amsfonts}
+\documentclass[prodmode,acmtecs]{acmsmall} % Aptara syntax
+
+% Package to generate and customize Algorithm as per ACM style
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+
+%%%%%\usepackage{booktabs}
+%%%%%\usepackage{tabularx}
+%%%%%\usepackage[english]{babel}
+%%%%%%%%%%%%%%%\usepackage[ruled]{algorithm}
+%%%%%\usepackage{algpseudocode}
+%%%%%\usepackage{color}
+%%%%%%\let\labelindent\relax
+%%%%%%\usepackage{enumitem}
+%%%%%\let\proof\relax
+%%%%%\let\endproof\relax 
+%%%%%\usepackage{amsthm}
+%%%%%%\usepackage[cmex10]{amsmath}
+%%%%%\usepackage{amsfonts}
 \usepackage{multicol}
 %\let\subcaption\relax
 \usepackage[font=small]{subcaption}
-\usepackage{graphicx}
-\usepackage[hidelinks,bookmarks=false,pdfpagelabels]{hyperref}
-\usepackage[nocompress]{cite}
+\captionsetup{compatibility=false} %NOTE: added by PL
+%%%%%\usepackage{graphicx}
+%%%%%\usepackage[hidelinks,bookmarks=false,pdfpagelabels]{hyperref}
+%%%%%\usepackage[nocompress]{cite}
 \usepackage{listings}
-\usepackage{flushend}
+\usepackage{flushend} %NOTE: added in updated version
 
-% definition environment
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{invariant}{Invariant}
-\newtheorem{crule}{Rule}
+%%%%%% definition environment
+%%%%%\newtheorem{definition}{Definition}
+%%%%%\newtheorem{theorem}{Theorem}
+%%%%%\newtheorem{lemma}{Lemma}
+%%%%%\newtheorem{invariant}{Invariant}
+%%%%%\newtheorem{crule}{Rule}
+
 
 % typewriter font family that support hyphenation
 %\newcommand\textvtt[1]{{\normalfont\fontfamily{cmvtt}\selectfont #1}}
 \hyphenation{MD-List} 
 \hyphenation{skip-list}
+%\hyphenation{non-commu-ta-tive} NOTE: was not in new version
 \hyphenation{me-ans}
 \hyphenation{stre-am-lines}
 \hyphenation{com-pu-te-if-ab-sent}
 
-\algtext*{EndWhile}
-\algtext*{EndFor}
-\algtext*{EndIf}
-\algtext*{EndFunction}
-\newcommand\NIL{\text{NIL}}
-\newcommand\TRUE{\text{\textbf{true}}}
-\newcommand\FALSE{\text{\textbf{false}}}
-\newcommand\BREAK{\text{\textbf{break}}}
-\newcommand\CONTINUE{\text{\textbf{continue}}}
-\newcommand\AND{\;\text{\textbf{and}}\;}
-\newcommand\OR{\;\text{\textbf{or}}\;}
-\newcommand\INSERT{\text{\textbf{Insert}}}
-\newcommand\DELETE{\text{\textbf{Delete}}}
-\newcommand\FIND{\text{\textbf{Find}}}
-\newcommand\COMMITTED{\text{\textbf{Committed}}}
-\newcommand\ABORTED{\text{\textbf{Aborted}}}
-\newcommand\ACTIVE{\text{\textbf{Active}}}
-\algrenewcommand\algorithmicindent{1em}
+%%%%%%%\algtext*{EndWhile}
+%%%%%%%\algtext*{EndFor}
+%%%%%%%\algtext*{EndIf}
+%%%%%%%\algtext*{EndFunction}
+%%%%%%%\newcommand\NIL{\text{NIL}}
+%%%%%%%\newcommand\TRUE{\text{\textbf{true}}}
+%%%%%%%\newcommand\FALSE{\text{\textbf{false}}}
+%%%%%%%\newcommand\BREAK{\text{\textbf{break}}}
+%%%%%%%\newcommand\CONTINUE{\text{\textbf{continue}}}
+%%%%%%%\newcommand\AND{\;\text{\textbf{and}}\;}
+%%%%%%%\newcommand\OR{\;\text{\textbf{or}}\;}
+%%%%%%%\newcommand\INSERT{\text{\textbf{Insert}}}
+%%%%%%%\newcommand\DELETE{\text{\textbf{Delete}}}
+%%%%%%%\newcommand\FIND{\text{\textbf{Find}}}
+%%%%%%%\newcommand\COMMITTED{\text{\textbf{Committed}}}
+%%%%%%%\newcommand\ABORTED{\text{\textbf{Aborted}}}
+%%%%%%%\newcommand\ACTIVE{\text{\textbf{Active}}}
+%%%%%%%\algrenewcommand\algorithmicindent{1em}
+%%%%%%%
+%%%%%%%\algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
+%%%%%%%\algtext*{EndStruct}
+%%%%%%%\algblockdefx[EnumBlock]{Enum}{EndEnum} [1]{\textbf{enum} #1} [0]{}
+%%%%%%%\algtext*{EndEnum}
+%%%%%%%\algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
+%%%%%%%\algtext*{EndClass}
+%%%%%%%\algblockdefx[MacroBlock]{Define}{EndDefine} [1]{\textbf{define} #1} [0]{}
+%%%%%%%\algtext*{EndDefine}
+%%%%%%%\algblockdefx[InlineBlock]{Inline}{EndInline} [2]{\textbf{inline function} \textsc{#1}(#2)} [0]{}
+%%%%%%%\algtext*{EndInline}
+%%%%%%%\algblockdefx[SwitchBlock]{Switch}{EndSwitch} [1]{\textbf{switch} (#1)} [0]{}
+%%%%%%%\algtext*{EndSwitch}
+%%%%%%%\algblockdefx[CaseBlock]{Case}{EndCase} [1]{\textbf{case: #1}} [0]{}
+%%%%%%%\algtext*{EndCase}
 
-\algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
-\algtext*{EndStruct}
-\algblockdefx[EnumBlock]{Enum}{EndEnum} [1]{\textbf{enum} #1} [0]{}
-\algtext*{EndEnum}
-\algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
-\algtext*{EndClass}
-\algblockdefx[MacroBlock]{Define}{EndDefine} [1]{\textbf{define} #1} [0]{}
-\algtext*{EndDefine}
-\algblockdefx[InlineBlock]{Inline}{EndInline} [2]{\textbf{inline function} \textsc{#1}(#2)} [0]{}
-\algtext*{EndInline}
-\algblockdefx[SwitchBlock]{Switch}{EndSwitch} [1]{\textbf{switch} (#1)} [0]{}
-\algtext*{EndSwitch}
-\algblockdefx[CaseBlock]{Case}{EndCase} [1]{\textbf{case: #1}} [0]{}
-\algtext*{EndCase}
+% Metadata Information
+%\acmVolume{9}
+%\acmNumber{4}
+%\acmArticle{39}
+%\acmYear{2010}
+%\acmMonth{3}
 
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
 
+% DOI
+\doi{0000001.0000001}
+
+%ISSN
+\issn{1234-56789}
+
+% Document starts
 \begin{document}
 
-\setcopyright{acmcopyright}
-\CopyrightYear{2016} 
-\conferenceinfo{SPAA '16,}{July 11-13, 2016, Pacific Grove, CA, USA}
-\isbn{978-1-4503-4210-0/16/07}\acmPrice{\$15.00}
-\doi{http://dx.doi.org/10.1145/2935764.2935780}
-\clubpenalty=10000 
-\widowpenalty = 10000
+% Page heads
+\markboth{G. Zhou et al.}{A Multifrequency MAC Specially Designed for WSN Applications}
 
-\def\sharedaffiliation{%
-\end{tabular}
-\begin{tabular}{c}}
-
+% Title portion
 \title{Lock-free Transactions without Rollbacks for Linked Data Structures}
-
-\numberofauthors{2}
-
-\author{
-	\alignauthor Deli Zhang\\
-	\email{de-li.zhang@knights.ucf.edu}
-	\alignauthor Damian~Dechev\\
-	\email{dechev@cs.ucf.edu}
-	\sharedaffiliation
-	\affaddr{Department of Computer Science}\\
-	\affaddr{University of Central Florida}\\
-	\affaddr{Orlando, FL 32817, USA}
-}
-
-\maketitle
+\author{DELI ZHANG, PIERRE LABORDE, LANCE LEBANOFF, and DAMIAN DECHEV
+\affil{University of Central Florida}}
 
 \begin{abstract}
     Non-blocking data structures allow scalable and thread-safe accesses to shared data. 
@@ -131,13 +145,43 @@
 	<concept_desc>Computing methodologies~Concurrent algorithms</concept_desc>
 	<concept_significance>500</concept_significance>
 	</concept>
+	</ccs2012> %NOTE: wasn't in new version
 \end{CCSXML}
 
 \ccsdesc[500]{Computing methodologies~Concurrent algorithms}
-\printccsdesc
+\printccsdesc %NOTE: added in new version
 
 \keywords{
     Transactional Data Structure, Lock-free, Transactional Memory, Transactional Boosting}
+
+\acmformat{Gang Zhou, Yafeng Wu, Ting Yan, Tian He, Chengdu Huang, John A. Stankovic,
+and Tarek F. Abdelzaher, 2010. A multifrequency MAC specially
+designed for  wireless sensor network applications.}
+% At a minimum you need to supply the author names, year and a title.
+% IMPORTANT:
+% Full first names whenever they are known, surname last, followed by a period.
+% In the case of two authors, 'and' is placed between them.
+% In the case of three or more authors, the serial comma is used, that is, all author names
+% except the last one but including the penultimate author's name are followed by a comma,
+% and then 'and' is placed before the final author's name.
+% If only first and middle initials are known, then each initial
+% is followed by a period and they are separated by a space.
+% The remaining information (journal title, volume, article number, date, etc.) is 'auto-generated'.
+
+\begin{bottomstuff}
+This work is supported by the National Science Foundation, under
+grant CNS-0435060, grant CCR-0325197 and grant EN-CS-0329609.
+
+Author's addresses: G. Zhou, Computer Science Department,
+College of William and Mary; Y. Wu  {and} J. A. Stankovic,
+Computer Science Department, University of Virginia; T. Yan,
+Eaton Innovation Center; T. He, Computer Science Department,
+University of Minnesota; C. Huang, Google; T. F. Abdelzaher,
+(Current address) NASA Ames Research Center, Moffett Field, California 94035.
+\end{bottomstuff}
+
+\maketitle
+
 
 \section{Introduction}
 \label{sec:intro}
@@ -250,42 +294,48 @@ The $Mark$ flag is co-located with the $info$ pointers.
 
 %\vspace{-0.1in}
 \begin{algorithm}[h]
-    \caption{Type Definitions}
-    \label{alg:nodestructure}
-    \vspace{-0.2in}
-    \begin{multicols}{2}
-        \begin{algorithmic}[1]
-            \Enum{TxStatus}
-            \State Active
-            \State Committed
-            \State Aborted
-            \EndEnum
-            \Enum{OpType}
-            \State Insert
-            \State Delete
-            \State Find
-            \EndEnum
-            \Struct{Operation}
-            \State \textbf{OpType} $type$
-            \State \textbf{int} $key$
-            \EndStruct
-            \Struct{Desc}
-            \State \textbf{int} $size$
-            \State \textbf{TxStauts} $status$
-            \State \textbf{Operation} $ops[\;]$
-            \EndStruct
-            \Struct{NodeInfo}
-            \State \textbf{Desc*} $desc$
-            \State \textbf{int} $opid$
-            \EndStruct
-            \Struct{Node}
-            \State \textbf{NodeInfo*} $info$
-            \State \textbf{int} $key$
-            \State ...
-            \EndStruct
-            \end{algorithmic}
-    \end{multicols}
-    \vspace{-0.15in}
+	\begin{multicols}{2}
+		\SetKwProg{Enum}{enum}{}{}
+		\Enum{TxStatus}
+		{
+			Active\;
+			Commited\;
+			Aborted\;
+		}
+		\Enum{OpType}
+		{
+			Insert\;
+			Delete\;
+			Find\;
+		}
+		\SetKwProg{Struct}{struct}{}{}
+		\Struct{Operation}
+		{
+			\textbf{OpType} $type$\;
+			\textbf{int} $key$\;
+		}
+	
+		\Struct{Desc}
+		{
+			\textbf{int} $size$\;
+			\textbf{TxStatus} $status$\;
+			\textbf{Operation} $ops[\;]$\;
+		}
+		\Struct{NodeInfo}
+		{
+			\textbf{Desc*} $desc$\;
+			\textbf{int} $opid$\;
+		}
+		\Struct{Node}
+		{
+			\textbf{NodeInfo*} $info$\;
+			\textbf{int} $key$\;
+			...
+		}
+	%%	\vspace{-0.15in}
+		\caption{Type Definitions}
+		\label{alg:nodestructure}
+	\end{multicols}
 \end{algorithm}
 
 %\vspace{-0.2in}
@@ -1032,10 +1082,24 @@ We also plan to further evaluate our approach on SMP systems to verify potential
     %\caption{Rollbacks in Transactional Boosting}
     %\label{fig:boosting}
 %\end{figure*}
-\section{Acknowledgments}
-This work is supported by the National Science Foundation under ACI Award No. 1440530.
 
-\bibliographystyle{abbrv}
+
+% Appendix
+%\appendix
+%\section*{APPENDIX}
+%\setcounter{section}{1}
+%
+%
+%\appendixhead{ZHOU}
+%
+%% Acknowledgments
+%\begin{acks}
+% This work is supported by the National Science Foundation under ACI Award No. 1440530.
+%\end{acks}
+
+% Bibliography
+\bibliographystyle{ACM-Reference-Format-Journals}
 \bibliography{citation}
+
 
 \end{document}
