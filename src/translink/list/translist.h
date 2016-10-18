@@ -123,6 +123,7 @@ private:
     void HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
     void FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
+    void AbortPendingTxn(NodeDesc* nodeDesc, Desc* desc);
     bool IsNodeExist(Node* node, uint32_t key);
     bool IsNodeActive(NodeDesc* nodeDesc);
     bool IsKeyExist(NodeDesc* nodeDesc);

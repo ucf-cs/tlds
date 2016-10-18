@@ -16,7 +16,7 @@
 #define CLR_MARKD(_p)    ((NodeDesc *)(((uintptr_t)(_p)) & ~1))
 #define IS_MARKED(_p)     (((uintptr_t)(_p)) & 1)
 
-__thread TransList::HelpStack helpStack;
+// __thread TransList::HelpStack helpStack;
 
 TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator)
     : m_tail(new Node(0xffffffff, NULL, NULL))
@@ -56,7 +56,7 @@ TransList::Desc* TransList::AllocateDesc(uint8_t size)
 
 bool TransList::ExecuteOps(Desc* desc)
 {
-    helpStack.Init();
+    // helpStack.Init();
 
     HelpOps(desc, 0);
 
@@ -118,16 +118,16 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     }
 
     //Cyclic dependcy check
-    if(helpStack.Contain(desc))
-    {
-        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
-        {
-            __sync_fetch_and_add(&g_count_abort, 1);
-            __sync_fetch_and_add(&g_count_fake_abort, 1);
-        }
+    // if(helpStack.Contain(desc))
+    // {
+    //     if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
+    //     {
+    //         __sync_fetch_and_add(&g_count_abort, 1);
+    //         __sync_fetch_and_add(&g_count_fake_abort, 1);
+    //     }
 
-        return;
-    }
+    //     return;
+    // }
 
     ReturnCode ret = OK;
     std::vector<Node*> delNodes;
@@ -135,7 +135,7 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     std::vector<Node*> insNodes;
     std::vector<Node*> insPredNodes;
 
-    helpStack.Push(desc);
+    // helpStack.Push(desc);
 
     while(desc->status == ACTIVE && ret != FAIL && opid < desc->size)
     {
@@ -167,7 +167,7 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
         opid++;
     }
 
-    helpStack.Pop();
+    // helpStack.Pop();
 
     if(ret != FAIL)
     {
@@ -176,6 +176,11 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
             MarkForDeletion(delNodes, delPredNodes, desc);
             __sync_fetch_and_add(&g_count_commit, 1);
         }
+        // If another transaction aborted this one, then mark its inserted nodes for deletion
+        else if(__sync_bool_compare_and_swap(&desc->status, ABORTED, ABORTED))
+        {
+            MarkForDeletion(insNodes, insPredNodes, desc);
+        }
     }
     else
     {
@@ -183,7 +188,12 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
         {
             MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
-        }     
+        }
+        // If another transaction aborted this one, then mark its inserted nodes for deletion
+        else if(__sync_bool_compare_and_swap(&desc->status, ABORTED, ABORTED))
+        {
+            MarkForDeletion(insNodes, insPredNodes, desc);
+        }
     }
 }
 
@@ -247,7 +257,8 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t
                 continue;
             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+            // FinishPendingTxn(oldCurrDesc, desc);
+            AbortPendingTxn(oldCurrDesc, desc);
 
             if(IsSameOperation(oldCurrDesc, nodeDesc))
             {
@@ -314,7 +325,8 @@ inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, uint8_t
                 //continue;
             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+            // FinishPendingTxn(oldCurrDesc, desc);
+            AbortPendingTxn(oldCurrDesc, desc);
 
             if(IsSameOperation(oldCurrDesc, nodeDesc))
             {
@@ -390,7 +402,8 @@ inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, uint8_t o
                 continue;
             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+            // FinishPendingTxn(oldCurrDesc, desc);
+            AbortPendingTxn(oldCurrDesc, desc);
 
             if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 
@@ -445,6 +458,21 @@ inline void TransList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
     }
 
     HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
+}
+
+inline void TransList::AbortPendingTxn(NodeDesc* nodeDesc, Desc* desc)
+{
+    // The node accessed by the operations in same transaction is always active 
+    if(nodeDesc->desc == desc || nodeDesc->desc->status != ACTIVE)
+    {
+        return;
+    }
+
+    if(__sync_bool_compare_and_swap(&nodeDesc->desc->status, ACTIVE, ABORTED))
+    {
+        __sync_fetch_and_add(&g_count_abort, 1);
+        __sync_fetch_and_add(&g_count_fake_abort, 1);
+    }
 }
 
 inline bool TransList::IsNodeActive(NodeDesc* nodeDesc)
