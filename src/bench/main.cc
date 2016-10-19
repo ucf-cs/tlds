@@ -100,6 +100,99 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
     set.Uninit();
 }
 
+
+template<typename T>
+void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  T& map)
+{
+    //set affinity for each thread
+    cpu_set_t cpu = {{0}};
+    CPU_SET(threadId, &cpu);
+    sched_setaffinity(0, sizeof(cpu_set_t), &cpu);
+
+    double startTime = Time::GetWallTime();
+
+    boost::mt19937 randomGenKey;
+    boost::mt19937 randomGenOp;
+    randomGenKey.seed(startTime + threadId);
+    randomGenOp.seed(startTime + threadId + 1000);
+    boost::uniform_int<uint32_t> randomDistKey(1, keyRange);
+    boost::uniform_int<uint32_t> randomDistOp(1, 100);
+    
+    map.Init();
+
+    barrier.Wait();
+    
+    MapOpArray ops(tranSize);
+
+    for(unsigned int i = 0; i < testSize; ++i)
+    {
+        for(uint32_t t = 0; t < tranSize; ++t)
+        {
+            uint32_t op_dist = randomDistOp(randomGenOp);
+            //ops[t].type = op_dist <= insertion ? INSERT : op_dist <= insertion + deletion ? DELETE : FIND;
+            if(op_dist <= insertion)
+                ops[t].type = INSERT;
+            else if(op_dist <= insertion + deletion)
+                ops[t].type = DELETE;
+            else if(op_dist <= insertion + deletion + update)
+                ops[t].type = UPDATE;
+            else
+                ops[t].type = FIND;
+
+            ops[t].key  = randomDistKey(randomGenKey);
+        }
+
+        map.ExecuteOps(ops);
+    }
+
+    map.Uninit();
+}
+
+
+template<typename T>
+void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, SetAdaptor<T>& map)
+{
+    std::vector<std::thread> thread(numThread);
+    ThreadBarrier barrier(numThread + 1);
+
+    double startTime = Time::GetWallTime();
+    boost::mt19937 randomGen;
+    randomGen.seed(startTime - 10);
+    boost::uniform_int<uint32_t> randomDist(1, keyRange);
+
+    map.Init();
+
+    MapOpArray ops(1);
+
+    for(unsigned int i = 0; i < keyRange; ++i)
+    {
+        ops[0].type = INSERT;
+        ops[0].key  = randomDist(randomGen);
+        ops[0].value = randomDist(randomGen);
+        map.ExecuteOps(ops);
+    }
+
+    //Create joinable threads
+    for (unsigned i = 0; i < numThread; i++) 
+    {
+        thread[i] = std::thread(WorkThread<SetAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, update, std::ref(barrier), std::ref(map));
+    }
+
+    barrier.Wait();
+
+    {
+        ScopedTimer timer(true);
+
+        //Wait for the threads to finish
+        for (unsigned i = 0; i < thread.size(); i++) 
+        {
+            thread[i].join();
+        }
+    }
+
+    map.Uninit();
+}
+
 int main(int argc, const char *argv[])
 {
     uint32_t setType = 0;
@@ -109,6 +202,7 @@ int main(int argc, const char *argv[])
     uint32_t keyRange = 100;
     uint32_t insertion = 50;
     uint32_t deletion = 50;
+    uint32_t update = 0;
 
     if(argc > 1) setType = atoi(argv[1]);
     if(argc > 2) numThread = atoi(argv[2]);
@@ -117,6 +211,8 @@ int main(int argc, const char *argv[])
     if(argc > 5) keyRange = atoi(argv[5]);
     if(argc > 6) insertion = atoi(argv[6]);
     if(argc > 7) deletion = atoi(argv[7]);
+    if(argc > 8) deletion = atoi(argv[8]);
+
 
     assert(setType < 7);
     assert(keyRange < 0xffffffff);
@@ -127,10 +223,11 @@ int main(int argc, const char *argv[])
         "BoostingList",
         "TransSkip",
         "BoostingSkip",
-        "OSTMSkip"
+        "OSTMSkip",
+        "TransMap"
     };
 
-    printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
+    printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
 
     switch(setType)
     {
@@ -151,6 +248,9 @@ int main(int argc, const char *argv[])
         break;
     case 5:
         { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 6:
+        { MapAdaptor<TransMap> map; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:
         break;

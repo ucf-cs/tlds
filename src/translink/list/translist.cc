@@ -196,8 +196,10 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t
 
     while(true)
     {
-        LocatePred(pred, curr, key);
+        // start searching for where to put our new node, it'll be between pred and curr
+        LocatePred(pred, curr, key); 
 
+        // IsNodeExist(Node* node, uint32_t key){ return node != NULL && node->key == key; }
         if(!IsNodeExist(curr, key))
         {
             //Node* pred_next = pred->next;
