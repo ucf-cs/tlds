@@ -54,7 +54,7 @@ public:
 
     void Uninit(){}
 
-    bool ExecuteOps(const SetOpArray& ops)
+    bool ExecuteOps(const MapOpArray& ops)
     {
         //TransMap::Desc* desc = m_map.AllocateDesc(ops.size());
         TransMap::Desc* desc = m_descAllocator.Alloc();
@@ -65,6 +65,7 @@ public:
         {
             desc->ops[i].type = ops[i].type; 
             desc->ops[i].key = ops[i].key; 
+            desc->ops[i].value = ops[i].value; 
         }
 
         return m_map.ExecuteOps(desc);
