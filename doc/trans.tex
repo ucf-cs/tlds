@@ -2,6 +2,7 @@
 
 % Package to generate and customize Algorithm as per ACM style
 \usepackage[ruled,linesnumbered]{algorithm2e}
+\DontPrintSemicolon %TODO: check all lines to make sure semicolons are added manually where needed
 \renewcommand{\algorithmcfname}{ALGORITHM}
 \SetAlFnt{\small}
 \SetAlCapFnt{\small}
@@ -340,17 +341,10 @@ The $Mark$ flag is co-located with the $info$ pointers.
 %\vspace{-0.2in}
 \begin{algorithm}[h]
 
-	\textbf{int} $Mark \gets \texttt{0x1}$
-	\textbf{define} SetMark$(p)$ $(p\;|\;Mark)$
-	\textbf{define} ClearMark$(p)$ $(p\;\&\;\sim Mark)$
-	\textbf{define} IsMarked$(p)$ $(p\;\&\;Mark)$
-%		\State \textbf{int} $Mark \gets \texttt{0x1}$
-%		\Define{SetMark}{$(p)$} $(p\;|\;Mark)$
-%		\EndDefine
-%		\Define{ClearMark}{$(p)$} $(p\;\&\;\sim Mark)$
-%		\EndDefine
-%		\Define{IsMarked}{$(p)$} $(p\;\&\;Mark)$
-%		\EndDefine
+	\textbf{int} $Mark \gets \texttt{0x1}$\;
+	\textbf{define} SetMark$(p)$ $(p\;|\;Mark)$\;
+	\textbf{define} ClearMark$(p)$ $(p\;\&\;\sim Mark)$\;
+	\textbf{define} IsMarked$(p)$ $(p\;\&\;Mark)$\;
     \caption{Pointer Marking}
     \label{alg:pointermarking}
 \end{algorithm}
@@ -399,9 +393,13 @@ We achieve this by having operations \emph{inversely interpret} the logical stat
 Both physical undo and our logical undo reach the same goal of restoring the abstract state of the data structure. 
 
 \begin{algorithm}[t]
+        %TODO: use the following line for function calls
+        %\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}\;
 
-        \SetKwFunction{IsNodePresent}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
-        \ \KwRet{ $n.key = key$ \label{l:nodeexist}}
+        \SetKwFunction{IsNodePresent}{IsNodePresent}
+        \SetKwProg{Function}{Function}{}{end}
+        \Function(){\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}}
+        \KwRet{ $n.key = key$ \label{l:nodeexist}} %TODO: something like this with the while loop labels
 
         \SetKwFunction{IsKeyPresent}{$\textbf{NodeInfo*}\;info,\textbf{Desc*} desc$}
         \ $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
@@ -419,11 +417,33 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
         
         $\textbf{case:}\;${$\textbf{aborted}$}
          \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$}
-        
-        
           \caption{Logical Status}
           \label{alg:logicalstatus}          
 \end{algorithm}
+
+%\begin{algorithm}[t]
+%	\SetKwFunction{IsNodePresent}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
+%	\KwRet{ $n.key = key$ \label{l:nodeexist}} %TODO: something like this with the while loop labels
+%	
+%	\SetKwFunction{IsKeyPresent}{$\textbf{NodeInfo*}\;info,\textbf{Desc*} desc$}
+%	\ $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
+%	$\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}
+%	$\textbf{switch}\;${$status$} 
+%	$\textbf{case:}\;${$\textbf{active}$}
+%	$\textbf{if}$ {$info.desc=desc$} $\textbf{then}$
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
+%	$\textbf{else}$
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$ }
+%	%endif
+%	
+%	$\textbf{case:}\;${$\textbf{committed}$} 
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
+%	
+%	$\textbf{case:}\;${$\textbf{aborted}$}
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$}
+%	\caption{Logical Status}
+%	\label{alg:logicalstatus}          
+%\end{algorithm}
 
 \begin{algorithm}[t]
 
