@@ -42,7 +42,7 @@ public:
         : m_descAllocator(cap * threadCount * TransMap::Desc::SizeOf(transSize), threadCount, TransMap::Desc::SizeOf(transSize))
         //, m_nodeAllocator(cap * threadCount *  sizeof(TransMap::Node) * transSize, threadCount, sizeof(TransMap::Node))
         , m_nodeDescAllocator(cap * threadCount *  sizeof(TransMap::NodeDesc) * transSize, threadCount, sizeof(TransMap::NodeDesc))
-        , m_map(&m_nodeAllocator, &m_descAllocator, &m_nodeDescAllocator, cap, threadCount)
+        , m_map(/*&m_nodeAllocator,*/ &m_descAllocator, &m_nodeDescAllocator, cap, threadCount)
     { }
 
     void Init()
@@ -54,7 +54,7 @@ public:
 
     void Uninit(){}
 
-    bool ExecuteOps(const MapOpArray& ops)
+    bool ExecuteOps(const MapOpArray& ops, int threadId)
     {
         //TransMap::Desc* desc = m_map.AllocateDesc(ops.size());
         TransMap::Desc* desc = m_descAllocator.Alloc();
@@ -68,7 +68,7 @@ public:
             desc->ops[i].value = ops[i].value; 
         }
 
-        return m_map.ExecuteOps(desc);
+        return m_map.ExecuteOps(desc, threadId);
     }
 
 private:

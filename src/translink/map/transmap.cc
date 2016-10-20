@@ -11,9 +11,8 @@
 
 __thread TransMap::HelpStack helpStack;
 
-TransMap::TransMap(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads)
-    : m_nodeAllocator(nodeAllocator)
-    , m_descAllocator(descAllocator)
+TransMap::TransMap(/*Allocator<Node>* nodeAllocator,*/ Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads)
+    :  m_descAllocator(descAllocator) //m_nodeAllocator(nodeAllocator),
     , m_nodeDescAllocator(nodeDescAllocator)
 	//WaitFreeHashTable(int initalPowerOfTwo, int numThreads)
 	{
@@ -58,14 +57,14 @@ inline int TransMap::POW(int pow){
 	return res;
 }
 
-TransMap::Desc* TransMap::AllocateDesc(uint8_t size)
-{
-    Desc* desc = m_descAllocator->Alloc();
-    desc->size = size;
-    desc->status = ACTIVE;
+// TransMap::Desc* TransMap::AllocateDesc(uint8_t size)
+// {
+//     Desc* desc = m_descAllocator->Alloc();
+//     desc->size = size;
+//     desc->status = ACTIVE;
     
-    return desc;
-}
+//     return desc;
+// }
 
 bool TransMap::ExecuteOps(Desc* desc, int threadId)
 {
@@ -102,28 +101,28 @@ bool TransMap::ExecuteOps(Desc* desc, int threadId)
     return ret;
 }
 
-inline void TransMap::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
-{
-    // Mark nodes for logical deletion
-    for(uint32_t i = 0; i < nodes.size(); ++i)
-    {
-        Node* n = nodes[i];
-        if(n != NULL)
-        {
-            NodeDesc* nodeDesc = n->nodeDesc;
+// inline void TransMap::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
+// {
+//     // Mark nodes for logical deletion
+//     for(uint32_t i = 0; i < nodes.size(); ++i)
+//     {
+//         Node* n = nodes[i];
+//         if(n != NULL)
+//         {
+//             NodeDesc* nodeDesc = n->nodeDesc;
 
-            if(nodeDesc->desc == desc)
-            {
-                if(__sync_bool_compare_and_swap(&n->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
-                {
-                    Node* pred = preds[i];
-                    Node* succ = CLR_MARK(__sync_fetch_and_or(&n->next, 0x1));
-                    __sync_bool_compare_and_swap(&pred->next, n, succ);
-                }
-            }
-        }
-    }
-}
+//             if(nodeDesc->desc == desc)
+//             {
+//                 if(__sync_bool_compare_and_swap(&n->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
+//                 {
+//                     Node* pred = preds[i];
+//                     Node* succ = CLR_MARK(__sync_fetch_and_or(&n->next, 0x1));
+//                     __sync_bool_compare_and_swap(&pred->next, n, succ);
+//                 }
+//             }
+//         }
+//     }
+// }
 
 inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
 {

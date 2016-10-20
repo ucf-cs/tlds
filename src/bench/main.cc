@@ -169,7 +169,8 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
         ops[0].value = randomDist(randomGen);
-        map.ExecuteOps(ops);
+        // all prefill gets done by thread 0, the main thread; worker threads start numbering at 1
+        map.ExecuteOps(ops, 0); 
     }
 
     //Create joinable threads

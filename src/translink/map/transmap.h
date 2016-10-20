@@ -173,12 +173,12 @@ public:
 		/* volatile  */ unsigned int spine_elements;
 	#endif
 
-	TransMap::TransMap(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads)
+	TransMap::TransMap(/*Allocator<Node>* nodeAllocator,*/ Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads)
 	~TransMap();
 
 	bool ExecuteOps(Desc* desc, int threadId);
 
-    Desc* AllocateDesc(uint8_t size);
+    //Desc* AllocateDesc(uint8_t size);
 
     VALUE get(KEY k, int T){return get_first(k,T);};
 	bool remove(KEY k,int T){return remove_first(k,T);};
