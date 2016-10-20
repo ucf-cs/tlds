@@ -67,11 +67,11 @@ TransMap::Desc* TransMap::AllocateDesc(uint8_t size)
     return desc;
 }
 
-bool TransMap::ExecuteOps(Desc* desc)
+bool TransMap::ExecuteOps(Desc* desc, int threadId)
 {
     helpStack.Init();
 
-    HelpOps(desc, 0);
+    HelpOps(desc, 0, threadId);
 
     bool ret = desc->status != ABORTED;
 
@@ -125,7 +125,7 @@ inline void TransMap::MarkForDeletion(const std::vector<Node*>& nodes, const std
     }
 }
 
-inline void TransMap::HelpOps(Desc* desc, uint8_t opid)
+inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
 {
     if(desc->status != ACTIVE)
     {
@@ -144,35 +144,41 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid)
         return;
     }
 
-    ReturnCode ret = OK;
-    std::vector<Node*> delNodes;
-    std::vector<Node*> delPredNodes;
-    std::vector<Node*> insNodes;
-    std::vector<Node*> insPredNodes;
+    bool ret = true;
+    // std::vector<Node*> delNodes;
+    // std::vector<Node*> delPredNodes;
+    // std::vector<Node*> insNodes;
+    // std::vector<Node*> insPredNodes;
 
     helpStack.Push(desc);
 
+    //TODO: change these to right function calls
     while(desc->status == ACTIVE && ret != FAIL && opid < desc->size)
     {
         const Operator& op = desc->ops[opid];
 
         if(op.type == INSERT)
         {
-            Node* inserted;
-            Node* pred;
-            ret = Insert(op.key, desc, opid, inserted, pred);
+            // Node* inserted;
+            // Node* pred;
+            //ret = Insert(op.key, desc, opid);//, inserted, pred);
+            ret = Insert(desc, opid, op.k, op.v, int T);
 
-            insNodes.push_back(inserted);
-            insPredNodes.push_back(pred);
+            // insNodes.push_back(inserted);
+            // insPredNodes.push_back(pred);
         }
         else if(op.type == DELETE)
         {
-            Node* deleted;
-            Node* pred;
-            ret = Delete(op.key, desc, opid, deleted, pred);            
+            // Node* deleted;
+            // Node* pred;
+            ret = Delete(op.key, desc, opid);//, deleted, pred);            
 
-            delNodes.push_back(deleted);
-            delPredNodes.push_back(pred);
+            // delNodes.push_back(deleted);
+            // delPredNodes.push_back(pred);
+        }
+        else if(op.type == UPDATE)
+        {
+        	ret = Update(op.key, desc, opid);
         }
         else
         {
@@ -184,11 +190,11 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid)
 
     helpStack.Pop();
 
-    if(ret != FAIL)
+    if(ret != false)
     {
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
         {
-            MarkForDeletion(delNodes, delPredNodes, desc);
+            //MarkForDeletion(delNodes, delPredNodes, desc);
             __sync_fetch_and_add(&g_count_commit, 1);
         }
     }
@@ -196,114 +202,143 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid)
     {
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
         {
-            MarkForDeletion(insNodes, insPredNodes, desc);
+            //MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
         }     
     }
 }
 
-inline TransMap::ReturnCode TransMap::Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred)
+inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)//Node*& inserted, Node*& pred)
 {
-    inserted = NULL;
+    //inserted = NULL;
+
     NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-    Node* new_node = NULL;
-    Node* curr = m_head;
-
-    while(true)
-    {
-        // start searching for where to put our new node, it'll be between pred and curr
-        LocatePred(pred, curr, key); 
-
-        // IsNodeExist(Node* node, uint32_t key){ return node != NULL && node->key == key; }
-        if(!IsNodeExist(curr, key))
-        {
-            //Node* pred_next = pred->next;
-
-            if(desc->status != ACTIVE)
-            {
-                return FAIL;
-            }
-
-            //if(pred_next == curr)
-            //{
-                if(new_node == NULL)
-                {
-                    new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, nodeDesc);
-                }
-                new_node->next = curr;
-
-                Node* pred_next = __sync_val_compare_and_swap(&pred->next, curr, new_node);
-
-                if(pred_next == curr)
-                {
-                    ASSERT_CODE
-                        (
-                         __sync_fetch_and_add(&g_count_ins, 1);
-                         __sync_fetch_and_add(&g_count_ins_new, 1);
-                        );
-
-                    inserted = new_node;
-                    return OK;
-                }
-            //}
-
-            // Restart
-            curr = IS_MARKED(pred_next) ? m_head : pred;
-        }
-        else 
-        {
-            NodeDesc* oldCurrDesc = curr->nodeDesc;
-
-            if(IS_MARKED(oldCurrDesc))
-            {
-                if(!IS_MARKED(curr->next))
-                {
-                    (__sync_fetch_and_or(&curr->next, 0x1));
-                }
-                curr = m_head;
-                continue;
-            }
-
-            FinishPendingTxn(oldCurrDesc, desc);
-
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
-
-            if(!IsKeyExist(oldCurrDesc))
-            {
-                NodeDesc* currDesc = curr->nodeDesc;
-
-                if(desc->status != ACTIVE)
-                {
-                    return FAIL;
-                }
-
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
-
-                    if(currDesc == oldCurrDesc)
-                    {
-                        ASSERT_CODE
-                            (
-                             __sync_fetch_and_add(&g_count_ins, 1);
-                            );
-
-                        inserted = curr;
-                        return OK; 
-                    }
-                }
-            }
-            else
-            {
-                return FAIL;
-            }
-        }
-    }
+    
+	HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
+	#ifdef useThreadWatch
+		Thread_watch[T]=hash;//Puts the hash in the watchlist
+	#endif
+	
+	//Allocates a bucket, then stores the value, key and hash into it
+	#ifdef USE_KEY
+		DataNode *temp_bucket=Allocate_Node(v,k,hash,T, nodeDesc);
+	#else
+		DataNode *temp_bucket=Allocate_Node(v,hash,T, nodeDesc);
+	#endif
+	#ifdef DEBUG
+	assert(temp_bucket!=NULL);
+	#endif
+	
+	bool res=putIfAbsent_main(hash,temp_bucket,T);
+	if(!res){
+		Free_Node_Stack(temp_bucket, T);
+	}
+		
+	#ifdef useThreadWatch
+		Thread_watch[T]=0;//Removes the hash from the watchlist
+	#endif	
+	return res;
 }
+
+	
+    // Node* new_node = NULL;
+    // Node* curr = m_head;
+
+    // while(true)
+    // {
+    //     // start searching for where to put our new node, it'll be between pred and curr
+    //     LocatePred(pred, curr, key); 
+
+    //     // IsNodeExist(Node* node, uint32_t key){ return node != NULL && node->key == key; }
+    //     if(!IsNodeExist(curr, key))
+    //     {
+    //         //Node* pred_next = pred->next;
+
+    //         if(desc->status != ACTIVE)
+    //         {
+    //             return FAIL;
+    //         }
+
+    //         //if(pred_next == curr)
+    //         //{
+    //             if(new_node == NULL)
+    //             {
+    //                 new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, nodeDesc);
+    //             }
+    //             new_node->next = curr;
+
+    //             Node* pred_next = __sync_val_compare_and_swap(&pred->next, curr, new_node);
+
+    //             if(pred_next == curr)
+    //             {
+    //                 ASSERT_CODE
+    //                     (
+    //                      __sync_fetch_and_add(&g_count_ins, 1);
+    //                      __sync_fetch_and_add(&g_count_ins_new, 1);
+    //                     );
+
+    //                 inserted = new_node;
+    //                 return OK;
+    //             }
+    //         //}
+
+    //         // Restart
+    //         curr = IS_MARKED(pred_next) ? m_head : pred;
+    //     }
+    //     else 
+    //     {
+    //         NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+    //         if(IS_MARKED(oldCurrDesc))
+    //         {
+    //             if(!IS_MARKED(curr->next))
+    //             {
+    //                 (__sync_fetch_and_or(&curr->next, 0x1));
+    //             }
+    //             curr = m_head;
+    //             continue;
+    //         }
+
+    //         FinishPendingTxn(oldCurrDesc, desc);
+
+    //         if(IsSameOperation(oldCurrDesc, nodeDesc))
+    //         {
+    //             return SKIP;
+    //         }
+
+    //         if(!IsKeyExist(oldCurrDesc))
+    //         {
+    //             NodeDesc* currDesc = curr->nodeDesc;
+
+    //             if(desc->status != ACTIVE)
+    //             {
+    //                 return FAIL;
+    //             }
+
+    //             //if(currDesc == oldCurrDesc)
+    //             {
+    //                 //Update desc 
+    //                 currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
+
+    //                 if(currDesc == oldCurrDesc)
+    //                 {
+    //                     ASSERT_CODE
+    //                         (
+    //                          __sync_fetch_and_add(&g_count_ins, 1);
+    //                         );
+
+    //                     inserted = curr;
+    //                     return OK; 
+    //                 }
+    //             }
+    //         }
+    //         else
+    //         {
+    //             return FAIL;
+    //         }
+    //     }
+    // }
+// }
 
 inline TransMap::ReturnCode TransMap::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
 {

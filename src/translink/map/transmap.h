@@ -18,7 +18,7 @@ class TransMap
 public:
 	enum MapOpStatus
 	{
-	    LIVE = 0,
+	    ACTIVE = 0,
 	    COMMITTED,
 	    ABORTED
 	};
@@ -176,7 +176,7 @@ public:
 	TransMap::TransMap(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads)
 	~TransMap();
 
-	bool ExecuteOps(Desc* desc);
+	bool ExecuteOps(Desc* desc, int threadId);
 
     Desc* AllocateDesc(uint8_t size);
 
@@ -437,32 +437,32 @@ private:
 
 //TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
     //TODO: good functions like putifabsentfirst are private
-    	inline bool putIfAbsent_first(KEY k, VALUE v, int T){//T is the executing thread's ID
-		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
-#ifdef useThreadWatch
-		Thread_watch[T]=hash;//Buts the hash in the watchlist
-#endif
+//     	inline bool putIfAbsent_first(KEY k, VALUE v, int T){//T is the executing thread's ID
+// 		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
+// #ifdef useThreadWatch
+// 		Thread_watch[T]=hash;//Buts the hash in the watchlist
+// #endif
 		
-		//Allocates a bucket, then stores the value, key and hash into it
-		#ifdef USE_KEY
-			DataNode *temp_bucket=Allocate_Node(v,k,hash,T);
-		#else
-			DataNode *temp_bucket=Allocate_Node(v,hash,T);
-		#endif
-		#ifdef DEBUG
-		assert(temp_bucket!=NULL);
-		#endif
+// 		//Allocates a bucket, then stores the value, key and hash into it
+// 		#ifdef USE_KEY
+// 			DataNode *temp_bucket=Allocate_Node(v,k,hash,T);
+// 		#else
+// 			DataNode *temp_bucket=Allocate_Node(v,hash,T);
+// 		#endif
+// 		#ifdef DEBUG
+// 		assert(temp_bucket!=NULL);
+// 		#endif
 		
-		bool res=putIfAbsent_main(hash,temp_bucket,T);
-		if(!res){
-			Free_Node_Stack(temp_bucket, T);
-		}
+// 		bool res=putIfAbsent_main(hash,temp_bucket,T);
+// 		if(!res){
+// 			Free_Node_Stack(temp_bucket, T);
+// 		}
 		
-#ifdef useThreadWatch
-		Thread_watch[T]=0;//Removes the hash from the watchlist
-#endif
-		return res;
-	}
+// #ifdef useThreadWatch
+// 		Thread_watch[T]=0;//Removes the hash from the watchlist
+// #endif
+// 		return res;
+// 	}
 	inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 		
 		//This count bounds the number of times the thread will loop as a result of CAS failure.
@@ -1171,9 +1171,9 @@ If it failes to remove an element, and the current node is now...
 	
 	**/
 	#ifdef USE_KEY
-		inline DataNode * Allocate_Node(VALUE v, KEY k, HASH h, int T){
+		inline DataNode * Allocate_Node(VALUE v, KEY k, HASH h, int T, NodeDesc* nodeDesc){
 	#else
-		inline DataNode * Allocate_Node(VALUE v, HASH h, int T){
+		inline DataNode * Allocate_Node(VALUE v, HASH h, int T, NodeDesc* nodeDesc){
 	#endif
 	
 	    DataNode *new_temp_node=(DataNode *)Thread_pool_stack[T];
@@ -1219,6 +1219,7 @@ If it failes to remove an element, and the current node is now...
 	    new_temp_node->key = k;//Assign the key
 	#endif
 	
+		new_temp_node->nodeDesc = nodeDesc;
 
 	    return new_temp_node;//Return
 	}

@@ -20,6 +20,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+// NOTE: this was originally c code, so we pass a pointer to our transskip, l, since there is no transskip class 
+
 #define __SET_IMPLEMENTATION__
 
 #include <stdlib.h>

@@ -142,7 +142,7 @@ void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t
             ops[t].key  = randomDistKey(randomGenKey);
         }
 
-        map.ExecuteOps(ops);
+        map.ExecuteOps(ops, threadId);
     }
 
     map.Uninit();
@@ -175,7 +175,7 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 
     {
-        thread[i] = std::thread(WorkThread<SetAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, update, std::ref(barrier), std::ref(map));
+        thread[i] = std::thread(MapWorkThread<SetAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, update, std::ref(barrier), std::ref(map));
     }
 
     barrier.Wait();
@@ -250,7 +250,7 @@ int main(int argc, const char *argv[])
         { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 6:
-        { MapAdaptor<TransMap> map; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+        { MapAdaptor<TransMap> map; MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:
         break;
