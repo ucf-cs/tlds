@@ -57,15 +57,6 @@ inline int TransMap::POW(int pow){
 	return res;
 }
 
-// TransMap::Desc* TransMap::AllocateDesc(uint8_t size)
-// {
-//     Desc* desc = m_descAllocator->Alloc();
-//     desc->size = size;
-//     desc->status = ACTIVE;
-    
-//     return desc;
-// }
-
 bool TransMap::ExecuteOps(Desc* desc, int threadId)
 {
     helpStack.Init();
@@ -100,29 +91,6 @@ bool TransMap::ExecuteOps(Desc* desc, int threadId)
 
     return ret;
 }
-
-// inline void TransMap::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
-// {
-//     // Mark nodes for logical deletion
-//     for(uint32_t i = 0; i < nodes.size(); ++i)
-//     {
-//         Node* n = nodes[i];
-//         if(n != NULL)
-//         {
-//             NodeDesc* nodeDesc = n->nodeDesc;
-
-//             if(nodeDesc->desc == desc)
-//             {
-//                 if(__sync_bool_compare_and_swap(&n->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
-//                 {
-//                     Node* pred = preds[i];
-//                     Node* succ = CLR_MARK(__sync_fetch_and_or(&n->next, 0x1));
-//                     __sync_bool_compare_and_swap(&pred->next, n, succ);
-//                 }
-//             }
-//         }
-//     }
-// }
 
 inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
 {
@@ -574,11 +542,6 @@ inline TransMap::ReturnCode TransMap::Find(uint32_t key, Desc* desc, uint8_t opi
     }
 }
 
-// inline bool TransMap::IsNodeExist(DataNode* node, KEY key, VALUE value)
-// {
-//     return node != NULL && node->key == key && node->value == value;
-// }
-
 inline void TransMap::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
 {
     // The node accessed by the operations in same transaction is always active 
@@ -603,44 +566,3 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
 
     return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || (isNodeActive && opType == UPDATE);
 }
-
-// inline void TransMap::LocatePred(Node*& pred, Node*& curr, uint32_t key)
-// {
-//     Node* pred_next;
-
-//     while(curr->key < key)
-//     {
-//         pred = curr;
-//         pred_next = CLR_MARK(pred->next);
-//         curr = pred_next;
-
-//         while(IS_MARKED(curr->next))
-//         {
-//             curr = CLR_MARK(curr->next);
-//         }
-
-//         if(curr != pred_next)
-//         {
-//             //Failed to remove deleted nodes, start over from pred
-//             if(!__sync_bool_compare_and_swap(&pred->next, pred_next, curr))
-//             {
-//                 curr = m_head;
-//             }
-
-//             //__sync_bool_compare_and_swap(&pred->next, pred_next, curr);
-//         }
-//     }
-
-//     ASSERT(pred, "pred must be valid");
-// }
-
-// inline void TransMap::Print()
-// {
-//     Node* curr = m_head->next;
-
-//     while(curr != m_tail)
-//     {
-//         printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(CLR_MARKD(curr->nodeDesc))? "Exist":"Inexist");
-//         curr = CLR_MARK(curr->next);
-//     }
-// }
