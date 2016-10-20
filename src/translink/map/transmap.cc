@@ -90,7 +90,7 @@ bool TransMap::ExecuteOps(Desc* desc, int threadId)
                 }
                 else if(desc->ops[i].type == UPDATE)
                 {
-                    __sync_fetch_and_add(&g_count_upd, 1); //TODO: unsure about this
+                    __sync_fetch_and_add(&g_count_upd, 1); //TODO: unsure about this, should be &g_count?
                 }
                 else
                 	__sync_fetch_and_add(&g_count_fnd, 1);
@@ -572,9 +572,9 @@ inline TransMap::ReturnCode TransMap::Find(uint32_t key, Desc* desc, uint8_t opi
     }
 }
 
-inline bool TransMap::IsNodeExist(Node* node, uint32_t key)
+inline bool TransMap::IsNodeExist(DataNode* node, KEY key, VALUE value)
 {
-    return node != NULL && node->key == key;
+    return node != NULL && node->key == key && node->value == value;
 }
 
 inline void TransMap::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
@@ -593,12 +593,13 @@ inline bool TransMap::IsNodeActive(NodeDesc* nodeDesc)
     return nodeDesc->desc->status == COMMITTED;
 }
 
+// checks if the K/V pair exists
 inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
 {
     bool isNodeActive = IsNodeActive(nodeDesc);
     uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
 
-    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
+    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || (isNodeActive && opType == UPDATE);
 }
 
 // inline void TransMap::LocatePred(Node*& pred, Node*& curr, uint32_t key)
@@ -631,13 +632,13 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
 //     ASSERT(pred, "pred must be valid");
 // }
 
-inline void TransMap::Print()
-{
-    Node* curr = m_head->next;
+// inline void TransMap::Print()
+// {
+//     Node* curr = m_head->next;
 
-    while(curr != m_tail)
-    {
-        printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(CLR_MARKD(curr->nodeDesc))? "Exist":"Inexist");
-        curr = CLR_MARK(curr->next);
-    }
-}
+//     while(curr != m_tail)
+//     {
+//         printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(CLR_MARKD(curr->nodeDesc))? "Exist":"Inexist");
+//         curr = CLR_MARK(curr->next);
+//     }
+// }

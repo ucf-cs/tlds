@@ -434,7 +434,7 @@ private:
     //void LocatePred(Node*& pred, Node*& curr, uint32_t key); %TODO: markfordeletion in the Find method
     //void MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc);
 
-    void Print();
+    //void Print();
 
 //TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
 	inline bool putUpdate_first(KEY k,VALUE e_value, VALUE v, int T){//T is the executing thread's ID
