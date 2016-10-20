@@ -40,7 +40,7 @@ class MapAdaptor<TransMap>
 public:
     MapAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
         : m_descAllocator(cap * threadCount * TransMap::Desc::SizeOf(transSize), threadCount, TransMap::Desc::SizeOf(transSize))
-        , m_nodeAllocator(cap * threadCount *  sizeof(TransMap::Node) * transSize, threadCount, sizeof(TransMap::Node))
+        //, m_nodeAllocator(cap * threadCount *  sizeof(TransMap::Node) * transSize, threadCount, sizeof(TransMap::Node))
         , m_nodeDescAllocator(cap * threadCount *  sizeof(TransMap::NodeDesc) * transSize, threadCount, sizeof(TransMap::NodeDesc))
         , m_map(&m_nodeAllocator, &m_descAllocator, &m_nodeDescAllocator, cap, threadCount)
     { }

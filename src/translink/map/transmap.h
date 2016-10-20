@@ -67,15 +67,8 @@ public:
         uint8_t opid;
     };
 
-    struct Node
-    {
-        Node(): key(0), next(NULL), nodeDesc(NULL){}
-        Node(uint32_t _key, Node* _next, NodeDesc* _nodeDesc)
-            : key(_key), next(_next), nodeDesc(_nodeDesc){}
-
-        // uint32_t key;
-        // Node* next;
-        union{
+    typedef struct {
+		union{
 			HASH hash;
 			void* next;
 		};
@@ -84,10 +77,31 @@ public:
 		#endif
 		
 		VALUE value;
-		///////////
+
+		NodeDesc* nodeDesc;
+	}DataNode;
+
+  //   struct Node
+  //   {
+  //       Node(): key(0), next(NULL), nodeDesc(NULL){}
+  //       Node(uint32_t _key, Node* _next, NodeDesc* _nodeDesc)
+  //           : key(_key), next(_next), nodeDesc(_nodeDesc){}
+
+  //       // uint32_t key;
+  //       // Node* next;
+  //       union{
+		// 	HASH hash;
+		// 	void* next;
+		// };
+		// #ifdef USE_KEY
+		// KEY key;/*Remove after Debugging */
+		// #endif
+		
+		// VALUE value;
+		// ///////////
         
-        NodeDesc* nodeDesc;
-    };
+  //       NodeDesc* nodeDesc;
+  //   };
 
     struct HelpStack
     {
@@ -239,133 +253,133 @@ public:
 	};//&(MAIN_SIZE-1));
 
 	
-	void nodes_at_each_depth(){
-		printf("Main Pow:%d\t Sub Pow:%d\t Total Elements %d\n",MAIN_POW, SUB_POW,elements);
-		void */* volatile  */*local=head;
+	// void nodes_at_each_depth(){
+	// 	printf("Main Pow:%d\t Sub Pow:%d\t Total Elements %d\n",MAIN_POW, SUB_POW,elements);
+	// 	void */* volatile  */*local=head;
 
-		int* count=(int *)malloc(sizeof(int)*3);
-		count[0]=0;
-		count[1]=0;
-		count[2]=0;
+	// 	int* count=(int *)malloc(sizeof(int)*3);
+	// 	count[0]=0;
+	// 	count[1]=0;
+	// 	count[2]=0;
 		
-		for(int i=0; i<MAIN_SIZE; i++){
-			void *node=getNodeRaw(local, i);
-			if(isSpine(node)){
-				count[1]++;
-				continue;
-			}
-			else if(node == NULL){
-				count[2]++;
-			}
-			else{
-				count[0]++;
-			}
-		}
-		printf("On Main Spine: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n", count[0], count[1], count[2]);
+	// 	for(int i=0; i<MAIN_SIZE; i++){
+	// 		void *node=getNodeRaw(local, i);
+	// 		if(isSpine(node)){
+	// 			count[1]++;
+	// 			continue;
+	// 		}
+	// 		else if(node == NULL){
+	// 			count[2]++;
+	// 		}
+	// 		else{
+	// 			count[0]++;
+	// 		}
+	// 	}
+	// 	printf("On Main Spine: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n", count[0], count[1], count[2]);
 
-		int depth=(KEY_SIZE-MAIN_POW)/SUB_POW +1;
-		for(int j=1; j<=depth; j++){
-			count[0]=0;
-			count[1]=0;
-			count[2]=0;
+	// 	int depth=(KEY_SIZE-MAIN_POW)/SUB_POW +1;
+	// 	for(int j=1; j<=depth; j++){
+	// 		count[0]=0;
+	// 		count[1]=0;
+	// 		count[2]=0;
 			
-			for(int i=0; i<MAIN_SIZE; i++){
-				void *node=getNodeRaw(local, i);
-				if(isSpine(node)){
-					int* c_res=count_nodes_at_depth(unmark_spine(node),1,j);
+	// 		for(int i=0; i<MAIN_SIZE; i++){
+	// 			void *node=getNodeRaw(local, i);
+	// 			if(isSpine(node)){
+	// 				int* c_res=count_nodes_at_depth(unmark_spine(node),1,j);
 
-					int p=0;
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-				}
-				else{
-					continue;
-				}
-			}
-			printf("On Depth %d: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n",j, count[0], count[1], count[2]);
-		}
+	// 				int p=0;
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 			}
+	// 			else{
+	// 				continue;
+	// 			}
+	// 		}
+	// 		printf("On Depth %d: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n",j, count[0], count[1], count[2]);
+	// 	}
 
-	};
+	// };
 	
-	int* count_nodes_at_depth(void* /* volatile  */* local, int d, int t_d){
-		int* count=(int *)malloc(sizeof(int)*3);
-		count[0]=0;
-		count[1]=0;
-		count[2]=0;
-		if(t_d==d){
-			for(int i=0; i<SUB_SIZE; i++){
-				void *node=getNodeRaw(local, i);
-				if(isSpine(node)){
-					count[1]++;
-					continue;
-				}
-				else if(node == NULL){
-					count[2]++;
-				}
-				else{
-					count[0]++;
-				}
-			}
-		}
-		else{
-			for(int i=0; i<SUB_SIZE; i++){
-				void *node=getNodeRaw(local, i);
-				if(isSpine(node)){
+	// int* count_nodes_at_depth(void* /* volatile  */* local, int d, int t_d){
+	// 	int* count=(int *)malloc(sizeof(int)*3);
+	// 	count[0]=0;
+	// 	count[1]=0;
+	// 	count[2]=0;
+	// 	if(t_d==d){
+	// 		for(int i=0; i<SUB_SIZE; i++){
+	// 			void *node=getNodeRaw(local, i);
+	// 			if(isSpine(node)){
+	// 				count[1]++;
+	// 				continue;
+	// 			}
+	// 			else if(node == NULL){
+	// 				count[2]++;
+	// 			}
+	// 			else{
+	// 				count[0]++;
+	// 			}
+	// 		}
+	// 	}
+	// 	else{
+	// 		for(int i=0; i<SUB_SIZE; i++){
+	// 			void *node=getNodeRaw(local, i);
+	// 			if(isSpine(node)){
 					
-					int* c_res=count_nodes_at_depth(unmark_spine(node),d+1,t_d);
-					int p=0;
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-				}
-				else {
-					continue;
-				}
-			}
-		}
-		return count;
-	};
+	// 				int* c_res=count_nodes_at_depth(unmark_spine(node),d+1,t_d);
+	// 				int p=0;
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 			}
+	// 			else {
+	// 				continue;
+	// 			}
+	// 		}
+	// 	}
+	// 	return count;
+	// };
 
-	#ifdef VALIDATE
+	// #ifdef VALIDATE
 	
-	void check_table_state(){check_table_state_p();};
-	void print_table(){quick_print(head,MAIN_SIZE, true, 0);};
-	int hit_count(){
-		int c=0;
-		for(int i=0; i<MAIN_SIZE; i++)
-			if(head[i]!=NULL)
-				c++;
-		return (c);
-	}
+	// void check_table_state(){check_table_state_p();};
+	// void print_table(){quick_print(head,MAIN_SIZE, true, 0);};
+	// int hit_count(){
+	// 	int c=0;
+	// 	for(int i=0; i<MAIN_SIZE; i++)
+	// 		if(head[i]!=NULL)
+	// 			c++;
+	// 	return (c);
+	// }
 
-	int print_reuseable_memory(){
-		int count=0;
-		for(int i=0; i<Threads; i++){
-			DataNode *t=Thread_pool_stack[i];
-			while(t!=NULL){
-				count++;
-				t=t->next;
-			}
-			for(int j=0; j<Thread_pool_vector_size[i]; j++){
-				if(Thread_pool_vector[i][j]!=NULL)
-					count++;
+	// int print_reuseable_memory(){
+	// 	int count=0;
+	// 	for(int i=0; i<Threads; i++){
+	// 		DataNode *t=Thread_pool_stack[i];
+	// 		while(t!=NULL){
+	// 			count++;
+	// 			t=t->next;
+	// 		}
+	// 		for(int j=0; j<Thread_pool_vector_size[i]; j++){
+	// 			if(Thread_pool_vector[i][j]!=NULL)
+	// 				count++;
 				
-			}
-		}
-		printf("Reusable data nodes: %d (total mem uses %d)\n",count,count*sizeof(DataNode));
+	// 		}
+	// 	}
+	// 	printf("Reusable data nodes: %d (total mem uses %d)\n",count,count*sizeof(DataNode));
 		
-		count=0;
-		for(int i=0; i<Threads; i++){
-			void **t=Thread_spines[i];
-			while(t!=NULL){
-				count++;
-				t=t[0];
-			}
-		}
-		printf("Reusable Spine nodes: %d (total mem uses %d)\n",count,SUB_SIZE*sizeof(void *));
-	}
-	#endif
+	// 	count=0;
+	// 	for(int i=0; i<Threads; i++){
+	// 		void **t=Thread_spines[i];
+	// 		while(t!=NULL){
+	// 			count++;
+	// 			t=t[0];
+	// 		}
+	// 	}
+	// 	printf("Reusable Spine nodes: %d (total mem uses %d)\n",count,SUB_SIZE*sizeof(void *));
+	// }
+	// #endif
 
 private:
 	inline void Free_Node(void * D, int T);
@@ -421,6 +435,7 @@ private:
 
     void Print();
 
+//TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
     //TODO: good functions like putifabsentfirst are private
     	inline bool putIfAbsent_first(KEY k, VALUE v, int T){//T is the executing thread's ID
 		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
@@ -1633,212 +1648,212 @@ If it failes to remove an element, and the current node is now...
 //////////////////////////////////Validation Functions////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-#ifdef VALIDATE
-	void print_key(HASH k) {
-		int Shifts=(KEY_SIZE-MAIN_POW)/SUB_POW+1;
-		unsigned int temp = k&(MAIN_SIZE-1);
+// #ifdef VALIDATE
+// 	void print_key(HASH k) {
+// 		int Shifts=(KEY_SIZE-MAIN_POW)/SUB_POW+1;
+// 		unsigned int temp = k&(MAIN_SIZE-1);
 		
-		printf("K(%10u): %6d ",k ,temp);
-		k = k>>MAIN_POW;
-		while (Shifts>=0 || k!=0) {
-			temp = k&(SUB_SIZE-1);
-			printf(" | %6d", temp);
-			k = k>>SUB_POW;
-			Shifts--;
-		}
-		printf("\n");
-	}
+// 		printf("K(%10u): %6d ",k ,temp);
+// 		k = k>>MAIN_POW;
+// 		while (Shifts>=0 || k!=0) {
+// 			temp = k&(SUB_SIZE-1);
+// 			printf(" | %6d", temp);
+// 			k = k>>SUB_POW;
+// 			Shifts--;
+// 		}
+// 		printf("\n");
+// 	}
 
 
-	int depth[64];
-	void check_table_state_p() {
-		printf("Starting State Checker\n");
-		int max_depth=0;
-		for (int i = 0; i < MAIN_SIZE; i++) {
-			void *node =head[i];
-			depth[0] = i;
-			if (node == NULL)
-				continue;
-			else if (isSpine(node)) {
-				int res=check_table_state(unmark_spine(node), MAIN_POW, 1);
-				if(res>max_depth) max_depth=res;
-				continue;
-			}
-			DataNode* sig_node=(DataNode *)node;
-			HASH hash = sig_node->hash;
+// 	int depth[64];
+// 	void check_table_state_p() {
+// 		printf("Starting State Checker\n");
+// 		int max_depth=0;
+// 		for (int i = 0; i < MAIN_SIZE; i++) {
+// 			void *node =head[i];
+// 			depth[0] = i;
+// 			if (node == NULL)
+// 				continue;
+// 			else if (isSpine(node)) {
+// 				int res=check_table_state(unmark_spine(node), MAIN_POW, 1);
+// 				if(res>max_depth) max_depth=res;
+// 				continue;
+// 			}
+// 			DataNode* sig_node=(DataNode *)node;
+// 			HASH hash = sig_node->hash;
 			
-			int pos = (hash&(MAIN_SIZE-1));
-			if (i != pos) {
-				printf("Item out of place on Main:at POS %d, belongs in %d, hash: %d, ",i,pos, sig_node->hash);
-				print_key(sig_node->hash);
-			}
-		}
+// 			int pos = (hash&(MAIN_SIZE-1));
+// 			if (i != pos) {
+// 				printf("Item out of place on Main:at POS %d, belongs in %d, hash: %d, ",i,pos, sig_node->hash);
+// 				print_key(sig_node->hash);
+// 			}
+// 		}
 
-		printf("Finished State Checker\n");
-		printf("Max Depth: %d\n",max_depth);
-	}
+// 		printf("Finished State Checker\n");
+// 		printf("Max Depth: %d\n",max_depth);
+// 	}
    
 
-	int check_table_state(void* /* volatile  */ *s, int right, int d) {
-		int max_depth=d;
-		for (int i = 0; i < SUB_SIZE; i++) {
-			void *node =getNode(s,i);//s[i];
-			depth[d] = i;
+// 	int check_table_state(void* /* volatile  */ *s, int right, int d) {
+// 		int max_depth=d;
+// 		for (int i = 0; i < SUB_SIZE; i++) {
+// 			void *node =getNode(s,i);//s[i];
+// 			depth[d] = i;
 		   
-			if (node == NULL){
-				continue;
-			}
+// 			if (node == NULL){
+// 				continue;
+// 			}
 			
-			if (isSpine(node)) {
-				int res=check_table_state(unmark_spine(node), SUB_POW + right, d + 1);
-				if(res>max_depth) max_depth=res;
-				continue;
-			}
-			if(isMarkedData(node)){
-				printf("Makred data????\n");
-				continue;
-			}
-			DataNode *sig_node=(DataNode *)node;
-			if (!check_key(d, sig_node->hash)) {
-				printf("Hash %d, is on the wrong spine: \n", sig_node->hash);
-				printf("\tDepth: %2d\n\t Current Location: %3d\n\t",d ,i);
-			   	print_key(sig_node->hash);
-				printf("Traversal: ");
-				for(int j=0; j<=d; j++)
-					printf("%3d -",depth[j]);
-				printf("\n");
-				printf("Node: K:%u HASH_KEY(%u) V:%lu H:%u \t",0/*sig_node->key*/,0/*HASH_KEY(sig_node->key)*/,sig_node->value,sig_node->hash);
-				#ifdef USE_KEY
-				printf("Get Returns: %lu\n",get(sig_node->key,0));
-				#endif
-				printf("\tCheck For Two pointer(removes node then  tries again!):\n");
-				s[i]=NULL;
-				#ifdef USE_KEY
-				printf("\t\tGet AGAIN Returns: %lu\n",get(sig_node->key,0));
-				#endif
-				s[i]=node;
-				printf("Node Id %p\n",sig_node);
-				continue;
-			}
-			int pos = (sig_node->hash>> right) &(SUB_SIZE-1);
+// 			if (isSpine(node)) {
+// 				int res=check_table_state(unmark_spine(node), SUB_POW + right, d + 1);
+// 				if(res>max_depth) max_depth=res;
+// 				continue;
+// 			}
+// 			if(isMarkedData(node)){
+// 				printf("Makred data????\n");
+// 				continue;
+// 			}
+// 			DataNode *sig_node=(DataNode *)node;
+// 			if (!check_key(d, sig_node->hash)) {
+// 				printf("Hash %d, is on the wrong spine: \n", sig_node->hash);
+// 				printf("\tDepth: %2d\n\t Current Location: %3d\n\t",d ,i);
+// 			   	print_key(sig_node->hash);
+// 				printf("Traversal: ");
+// 				for(int j=0; j<=d; j++)
+// 					printf("%3d -",depth[j]);
+// 				printf("\n");
+// 				printf("Node: K:%u HASH_KEY(%u) V:%lu H:%u \t",0/*sig_node->key*/,0/*HASH_KEY(sig_node->key)*/,sig_node->value,sig_node->hash);
+// 				#ifdef USE_KEY
+// 				printf("Get Returns: %lu\n",get(sig_node->key,0));
+// 				#endif
+// 				printf("\tCheck For Two pointer(removes node then  tries again!):\n");
+// 				s[i]=NULL;
+// 				#ifdef USE_KEY
+// 				printf("\t\tGet AGAIN Returns: %lu\n",get(sig_node->key,0));
+// 				#endif
+// 				s[i]=node;
+// 				printf("Node Id %p\n",sig_node);
+// 				continue;
+// 			}
+// 			int pos = (sig_node->hash>> right) &(SUB_SIZE-1);
 
-			if (i == pos) {
-				continue;  
-			} 
-			else{
-				printf("WRONG SPOT::: Hash %d, is in the wrong spot\n", sig_node->hash);
-				printf("\tDepth: %2d\n\tPos Proper: N/A \n\tCurrent Location: %3d\n\t",d ,i);
-				print_key(sig_node->hash);
-				printf("Traversal: ");
-				for(int j=0; j<=d; j++)
-					printf("%3d -",depth[j]);
-				printf("\n");
-				continue;
-			}
+// 			if (i == pos) {
+// 				continue;  
+// 			} 
+// 			else{
+// 				printf("WRONG SPOT::: Hash %d, is in the wrong spot\n", sig_node->hash);
+// 				printf("\tDepth: %2d\n\tPos Proper: N/A \n\tCurrent Location: %3d\n\t",d ,i);
+// 				print_key(sig_node->hash);
+// 				printf("Traversal: ");
+// 				for(int j=0; j<=d; j++)
+// 					printf("%3d -",depth[j]);
+// 				printf("\n");
+// 				continue;
+// 			}
 			
 		  
-		}
-		depth[d] = 0;
-		return max_depth;
-	}//End Check table state2
+// 		}
+// 		depth[d] = 0;
+// 		return max_depth;
+// 	}//End Check table state2
 	
-	bool check_key(int d, HASH h) {
-		int temp = h&(MAIN_SIZE-1);;
-		h = h>>MAIN_POW;
-		for (int i = 0; i <= d; i++) {
-			if (depth[i] != temp)
-				return false;
-			else {
-				temp = h&(SUB_SIZE-1);
-				h = (h>>SUB_POW);
-			}
+// 	bool check_key(int d, HASH h) {
+// 		int temp = h&(MAIN_SIZE-1);;
+// 		h = h>>MAIN_POW;
+// 		for (int i = 0; i <= d; i++) {
+// 			if (depth[i] != temp)
+// 				return false;
+// 			else {
+// 				temp = h&(SUB_SIZE-1);
+// 				h = (h>>SUB_POW);
+// 			}
 
-		}
+// 		}
 
-		return true;
-	}
-	void quick_print(void* /* volatile  */* s){
-		quick_print(s,SUB_SIZE, false,0);
-	}
-	void quick_print(void* /* volatile  */* s, int l, bool recur, int tab){
-		for(int i=0; i<l; i++){
-			void *n=s[i];
-			print_tab(tab);
-			if(n==NULL){
-				printf("I: %2d NULL %p \n",i,n);
-				continue;
-			}
-			printf("I: %2d N: %p\t",i,n);
-			if(isSpine(n)){
-				printf(" SPINE NODE \n");
-				if(recur)
-						quick_print(s,SUB_SIZE, true, tab+1);
-			}
-			else{
-				DataNode *temp=(DataNode *)n;
-				print_tab(tab);
-				printf("Type: Data Node Hash: %3d Value: %4d \n",temp->hash,temp->value);
-				print_key(temp->hash);
-			}
-		}
-		printf("============================\n\n");
-	}
-	void print_tab(int tab){
-		for(int i=0; i<tab; i++){
-			printf(" ");
-		}
-	}
-	bool isEmptyArray(void * /* volatile  */*s_temp,int l){
-		for(int i=0; i<l; i++)
-			if(s_temp[i]!=NULL) 
-				return false;
-		return true;	
-	}
-	bool checkStoredSpines(void * /* volatile  */*s_head){
-		for(int i=1; i<SUB_SIZE; i++)
-			if(s_head[i]!=NULL) 
-			return false;
-		if(s_head[0]==NULL)
-			return true;
-		else if(isSpine(s_head[0]))
-			return checkStoredSpines(unmark_spine(s_head[0]));
-		else
-			return false;
+// 		return true;
+// 	}
+// 	void quick_print(void* /* volatile  */* s){
+// 		quick_print(s,SUB_SIZE, false,0);
+// 	}
+// 	void quick_print(void* /* volatile  */* s, int l, bool recur, int tab){
+// 		for(int i=0; i<l; i++){
+// 			void *n=s[i];
+// 			print_tab(tab);
+// 			if(n==NULL){
+// 				printf("I: %2d NULL %p \n",i,n);
+// 				continue;
+// 			}
+// 			printf("I: %2d N: %p\t",i,n);
+// 			if(isSpine(n)){
+// 				printf(" SPINE NODE \n");
+// 				if(recur)
+// 						quick_print(s,SUB_SIZE, true, tab+1);
+// 			}
+// 			else{
+// 				DataNode *temp=(DataNode *)n;
+// 				print_tab(tab);
+// 				printf("Type: Data Node Hash: %3d Value: %4d \n",temp->hash,temp->value);
+// 				print_key(temp->hash);
+// 			}
+// 		}
+// 		printf("============================\n\n");
+// 	}
+// 	void print_tab(int tab){
+// 		for(int i=0; i<tab; i++){
+// 			printf(" ");
+// 		}
+// 	}
+// 	bool isEmptyArray(void * /* volatile  */*s_temp,int l){
+// 		for(int i=0; i<l; i++)
+// 			if(s_temp[i]!=NULL) 
+// 				return false;
+// 		return true;	
+// 	}
+// 	bool checkStoredSpines(void * /* volatile  */*s_head){
+// 		for(int i=1; i<SUB_SIZE; i++)
+// 			if(s_head[i]!=NULL) 
+// 			return false;
+// 		if(s_head[0]==NULL)
+// 			return true;
+// 		else if(isSpine(s_head[0]))
+// 			return checkStoredSpines(unmark_spine(s_head[0]));
+// 		else
+// 			return false;
 			
-	}
-	bool verify_node_belongs(DataNode *N, void * /* volatile  */ *s, int d_pos){
-		HASH h=N->hash;
-		int pos=h&(MAIN_SIZE-1);
-		h=h>>MAIN_POW;
+// 	}
+// 	bool verify_node_belongs(DataNode *N, void * /* volatile  */ *s, int d_pos){
+// 		HASH h=N->hash;
+// 		int pos=h&(MAIN_SIZE-1);
+// 		h=h>>MAIN_POW;
 		
-		void *node=getNode(head,pos);
-		if(isSpine(node)){
-			void * /* volatile  */ *local=unmark_spine(node);
-			while(true){
-				pos=h&(SUB_SIZE-1);
-				h=h>>SUB_POW;
-				node=getNode(local,pos);
-				if(isSpine(node)){
-					local=unmark_spine(node);
-				}
-				else if(local==s && d_pos==pos){
-					assert(N==node);
-					return true;
-				}
-				else
-					return false;
-			}
+// 		void *node=getNode(head,pos);
+// 		if(isSpine(node)){
+// 			void * /* volatile  */ *local=unmark_spine(node);
+// 			while(true){
+// 				pos=h&(SUB_SIZE-1);
+// 				h=h>>SUB_POW;
+// 				node=getNode(local,pos);
+// 				if(isSpine(node)){
+// 					local=unmark_spine(node);
+// 				}
+// 				else if(local==s && d_pos==pos){
+// 					assert(N==node);
+// 					return true;
+// 				}
+// 				else
+// 					return false;
+// 			}
 			
-		}
-		else if(head==s && d_pos==pos){
-			if(N!=node){
-				printf("Error-3!\n");
-			}
-			return true;
-		}
-		else
-			return false;
-	}
+// 		}
+// 		else if(head==s && d_pos==pos){
+// 			if(N!=node){
+// 				printf("Error-3!\n");
+// 			}
+// 			return true;
+// 		}
+// 		else
+// 			return false;
+// 	}
 
 private:
     // Node* m_tail;
