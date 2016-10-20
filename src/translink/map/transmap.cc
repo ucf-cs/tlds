@@ -265,10 +265,23 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 				printf("Zero Hash!");
 			}
 			#endif
-			if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
-				//if(  ) //( ((DataNode *)node), temp_bucket->key, temp_bucket->value ) )
+			// if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
+			// 	//if(  ) //( ((DataNode *)node), temp_bucket->key, temp_bucket->value ) )
 
-					return false;
+			// 		return false;
+			// }
+			if( ((DataNode *)node)->hash==temp_bucket->hash )
+			{
+				FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+	            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+	            {
+	                return true;
+	            }
+
+	            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+	            	return false;
+
 			}
 			else{//Create a Spine
 				//Allocate Spine will return true if it succeded, and false if it failed.
@@ -342,9 +355,17 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 						local=unmark_spine(node2);
 						break;
 					}
-					else if(((DataNode *)node2)->hash==temp_bucket->hash  && IsKeyExist( ((DataNode *)node2)->nodeDesc ) ){//HASH COMPARE
+					else if(((DataNode *)node2)->hash==temp_bucket->hash ){//HASH COMPARE
 						//See Logic above on why
-						return false;
+						FinishPendingTxn(((DataNode *)node2)->nodeDesc, desc);
+
+			            if(IsSameOperation(((DataNode *)node2)->nodeDesc, nodeDesc))
+			            {
+			                return true;
+			            }
+
+			            if( IsKeyExist( ((DataNode *)node2)->nodeDesc ) )
+			            	return false;
 					}
 					else{
 						cas_fail_count++;
@@ -375,8 +396,16 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 					
 				}
 				#endif
-				if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
-					return false;
+				if( ((DataNode *)node)->hash==temp_bucket->hash  ){//It is a key match
+					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            {
+		                return true;
+		            }
+
+		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            	return false;
 				}
 				else{//Create a Spine
 					bool res=Allocate_Spine(T, local,pos,(DataNode *)node,temp_bucket, right+SUB_POW);
