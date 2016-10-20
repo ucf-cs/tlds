@@ -225,7 +225,7 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 		if(cas_fail_count>=MAX_CAS_FAILURE){//Checks to see if it failed the CAS to many times
 			mark_data_node(head,pos);//If it has then it marks that node
 				#ifdef DEBUGPRINTS_MARK
-				printf("Marked a Node--MAin\n");
+				printf("Marked a Node--Main\n");
 				#endif
 		}
 		
@@ -235,7 +235,7 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 				increment_size();//Increments the size of table
 				return true;
 			}	
-			else{
+			else{ //NOTE: don't need to check isKeyExist for a spine node, because they are never deleted under any circumstances
 				if( /*node2!=NULL &&*/ isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
 					return putIfAbsent_sub(unmark_spine(node2), temp_bucket, T);
 				}
@@ -281,11 +281,14 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 
 	            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
 	            	return false;
+	            else
+	            	goto noMatch_putMain;
 
 			}
 			else{//Create a Spine
 				//Allocate Spine will return true if it succeded, and false if it failed.
 				//See Below for functionality.
+			noMatch_putMain:
 				bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
 				if(res){
 					increment_size();//Increments Size
@@ -366,8 +369,11 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 
 			            if( IsKeyExist( ((DataNode *)node2)->nodeDesc ) )
 			            	return false;
+			            else
+			            	goto noMatch_putSub;
 					}
 					else{
+					noMatch_putSub:
 						cas_fail_count++;
 						node=getNodeRaw(local,pos);
 						continue;
@@ -406,8 +412,11 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 
 		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
 		            	return false;
+		            else
+		            	goto noMatch_putSub2;
 				}
 				else{//Create a Spine
+				noMatch_putSub2:
 					bool res=Allocate_Spine(T, local,pos,(DataNode *)node,temp_bucket, right+SUB_POW);
 					if(res){
 						increment_size();

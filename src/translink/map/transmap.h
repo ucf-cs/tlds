@@ -267,14 +267,6 @@ private:
 	int	 size();
 	int	 capacity();
 
-	#ifdef VALIDATE
-	int	check_table_state();
-	void	check_table_state_p();
-	int	hit_count();
-	void quick_print(void* /* volatile  */ * head,int ms, bool t, int p);
-	int print_reuseable_memory();
-	#endif
-
 	inline int POW(int x);
 
 	// TODO: update these prototypes once functions are worked out in the cc file
@@ -374,41 +366,54 @@ private:
 					printf("Zero Hash!");
 				}
 #endif
-				if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
-					if(((DataNode *)node)->value != e_value){
-						return false;
+				if( ((DataNode *)node)->hash==temp_bucket->hash ){//&& IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
+					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            {
+		                return true;
+		            }
+
+		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            {
+						if(((DataNode *)node)->value != e_value){
+							return false;
+						}
+						else{
+							void *node2;
+							if( (node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
+								//Pass the CAS
+								Free_Node(node, T);//Frees the original
+								return true;
+							}
+							else{//Failed the CAS
+								if(node2 == NULL){//If it is NULL the return (see above for why)
+									return false;
+								}
+								else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
+									return putUpdate_sub(unmark_spine(node2), e_value, temp_bucket, T);
+								}
+								//If it is the same node marked then we force expand the table
+								else if(isMarkedData(node2) && unmark_data(node2)==node){
+		#ifdef DEBUGPRINTS_MARK
+									printf("Failed due to mark--main\n");
+		#endif
+									node=forceExpandTable(T,head,pos,unmark_data(node2), MAIN_POW);//The expanded spine is returned
+									return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);//We Examine the next level
+								}
+								else{
+									return false;
+								}
+							}
+						}//End it Else it is value match
 					}
-					else{
-						void *node2;
-						if( (node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
-							//Pass the CAS
-							Free_Node(node, T);//Frees the original
-							return true;
-						}
-						else{//Failed the CAS
-							if(node2 == NULL){//If it is NULL the return (see above for why)
-								return false;
-							}
-							else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-								return putUpdate_sub(unmark_spine(node2), e_value, temp_bucket, T);
-							}
-							//If it is the same node marked then we force expand the table
-							else if(isMarkedData(node2) && unmark_data(node2)==node){
-	#ifdef DEBUGPRINTS_MARK
-								printf("Failed due to mark--main\n");
-	#endif
-								node=forceExpandTable(T,head,pos,unmark_data(node2), MAIN_POW);//The expanded spine is returned
-								return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);//We Examine the next level
-							}
-							else{
-								return false;
-							}
-						}
-					}//End it Else it is value match
+					else
+						goto noMatch_updateMain;
 				}
 				else{//Create a Spine
 					//Allocate Spine will return true if it succeded, and false if it failed.
 					//See Below for functionality.
+				noMatch_updateMain:
 					bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
 					if(res){
 						increment_size();//Increments Size
@@ -422,7 +427,7 @@ private:
 				}//End Else Create Spine
 			}//End Else, Data Node
 		}//End While Loop
-	}//End Put Main
+	}//End Update Main
 
 	/**
 	 See Put_Main for logic Discription, this section is vary similar to put_main, but instead allows multiple level traversal
@@ -479,41 +484,54 @@ private:
 
 					}
 #endif
-					if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
-						if( ((DataNode *)node)->value != e_value){
-							return false;
-						}
+					if( ((DataNode *)node)->hash==temp_bucket->hash  ){//It is a key match
+						FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
 
-						void *node2;
-						if((node2=replace_node(local, pos, node, temp_bucket))==node){
-							Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
-							return true;
-						}
-						else{
-							//Get the Current Node
-							if(node2 == NULL){//If it is NULL the return (see above for why)
+			            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+			            {
+			                return true;
+			            }
+
+			            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+			            {
+							if( ((DataNode *)node)->value != e_value){
 								return false;
 							}
-							else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-								local=unmark_spine(node2);
-								break;
+
+							void *node2;
+							if((node2=replace_node(local, pos, node, temp_bucket))==node){
+								Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
+								return true;
 							}
-							//If it is the same node marked then we force expand the table
-							else if(isMarkedData(node2) && unmark_data(node2)==node){
-#ifdef DEBUGPRINTS_MARK
-								printf("failed as a result of marked--sub 2\n");
-#endif
-								node=forceExpandTable(T,local,pos,unmark_data(node2), right+SUB_POW);//The expanded spine is returned
-								local=unmark_spine(node);
-								break;
-							}
-							//We can linearize that the value was inserted then imeditly replace in any olther cas
 							else{
-								return false;
+								//Get the Current Node
+								if(node2 == NULL){//If it is NULL the return (see above for why)
+									return false;
+								}
+								else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
+									local=unmark_spine(node2);
+									break;
+								}
+								//If it is the same node marked then we force expand the table
+								else if(isMarkedData(node2) && unmark_data(node2)==node){
+	#ifdef DEBUGPRINTS_MARK
+									printf("failed as a result of marked--sub 2\n");
+	#endif
+									node=forceExpandTable(T,local,pos,unmark_data(node2), right+SUB_POW);//The expanded spine is returned
+									local=unmark_spine(node);
+									break;
+								}
+								//We can linearize that the value was inserted then imeditly replace in any olther cas
+								else{
+									return false;
+								}
 							}
 						}
+						else
+							goto noMatch_updateSub;
 					}
 					else{//Create a Spine
+					noMatch_updateSub:
 						bool res=Allocate_Spine(T, local,pos,(DataNode *)node,temp_bucket, right+SUB_POW);
 						if(res){
 							increment_size();
@@ -528,7 +546,7 @@ private:
 				}//End Else, Data Node
 			}while(true);//End While Loop
 		}//End For Loop
-	}//End Sub Put
+	}//End update sub
 
 	
 
@@ -632,9 +650,24 @@ They don't modify the table and if a data node is marked they ignore the marking
 			return get_sub(hash,unmark_spine(node));//Checks the Sub_Spine
 		else{//Is Data Node//Found a Data if it is a key match then it returns the value
 			if ( ((DataNode *)node)->hash == hash)									//HASH COMPARE
-				return ((DataNode *)node)->value;
+			{
+				FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+	            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+	            {
+	                return true;
+	            }
+
+	            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+					return ((DataNode *)node)->value;
+				else
+					goto noMatch_getMain;
+			}
 			else//otherwise return NULL because there is no key match
+			{
+			noMatch_getMain:
 				return (VALUE)NULL;
+			}
 		}//End Is Data Node
 	}//End Get Main
 	
@@ -654,9 +687,24 @@ They don't modify the table and if a data node is marked they ignore the marking
 				return (VALUE)NULL;
 			else if(!isSpine(node)){
 				if (((DataNode *)node)->hash == hash)//HASH COMPARE
-					return ((DataNode *)node)->value;
+				{
+					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            {
+		                return true;
+		            }
+
+		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+						return ((DataNode *)node)->value;
+					else
+						goto noMatch_getSub;
+				}
 				else
+				{
+				noMatch_getSub:
 					return (VALUE)NULL;
+				}
 			}//End Is Data Node
 			local=unmark_spine(node);
 			pos=h&(SUB_SIZE-1);
@@ -731,23 +779,36 @@ If it failes to remove an element, and the current node is now...
 		
 		//Check if it is a Key Match
 		if ( ((DataNode *)node)->hash == hash) {//HASH COMPARE
-			if(replace_node(head,pos,node)){//Tries to CAS the key match to NULL
-				Free_Node(node,T);//Frees the Node for Reuse
-				decrement_size();//Decreases the number of elements
-				return true;
-			}
-			else{//If the CAS fails
-				void *node2=getNodeRaw(head,pos);
-				if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked is at the location
-					//Then expand the table, and examine the sub spine
-					node2=forceExpandTable(T,head,pos,node, MAIN_POW);//getNodeRaw must return a spine pointer
-					return remove_sub(hash,unmark_spine(node2), T);
+			FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+            {
+                return true;
+            }
+
+            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+            {
+				if(replace_node(head,pos,node)){//Tries to CAS the key match to NULL
+					Free_Node(node,T);//Frees the Node for Reuse
+					decrement_size();//Decreases the number of elements
+					return true;
 				}
-				if(isSpine(node))//Then expand the table, and examine the sub spine 
-					return remove_sub(hash,unmark_spine(node), T);
+				else{//If the CAS fails
+					void *node2=getNodeRaw(head,pos);
+					if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked is at the location
+						//Then expand the table, and examine the sub spine
+						node2=forceExpandTable(T,head,pos,node, MAIN_POW);//getNodeRaw must return a spine pointer
+						return remove_sub(hash,unmark_spine(node2), T);
+					}
+					if(isSpine(node))//Then expand the table, and examine the sub spine 
+						return remove_sub(hash,unmark_spine(node), T);
+				}
 			}
+			else
+				goto noMatch_removeMain;
 		}//End is Hash match
 		
+	noMatch_removeMain:
 		return false;
 	}//End Remove Main
 	
@@ -770,22 +831,37 @@ If it failes to remove an element, and the current node is now...
 			else if(!isSpine(node)){//It is a Data Node
 				//If it is a key/hash match
 				if (( (DataNode *)node)->hash == hash) {//HASH COMPARE
-					if(replace_node(local,pos,node)){//Try to remove
-						Free_Node(node,T);//If success the free the node
-						decrement_size();//Decremese element count
-						return true;//Return true
-					}
-					else{//If it failed
-						void *node2=getNodeRaw(local,pos);
-						if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked then force expand and examine subspine
-							node=forceExpandTable(T,local,pos,node, right+SUB_POW);
+					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+
+		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            {
+		                return true;
+		            }
+
+		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            {
+						if(replace_node(local,pos,node)){//Try to remove
+							Free_Node(node,T);//If success the free the node
+							decrement_size();//Decremese element count
+							return true;//Return true
 						}
-						else//See Logic above remove_main
-							return false;
+						else{//If it failed
+							void *node2=getNodeRaw(local,pos);
+							if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked then force expand and examine subspine
+								node=forceExpandTable(T,local,pos,node, right+SUB_POW);
+							}
+							else//See Logic above remove_main
+								return false;
+						}
 					}
-				}
+					else
+						goto noMatch_removeSub;
+				} // end hash compare
 				else
+				{
+				noMatch_removeSub:
 					return false;
+				}
 			}//End Is Data Node
 			
 			//Sets the current spine, and gets the new position of interst
