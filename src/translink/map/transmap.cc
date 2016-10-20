@@ -272,14 +272,16 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 			// }
 			if( ((DataNode *)node)->hash==temp_bucket->hash )
 			{
-				FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+				NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
 
-	            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+				FinishPendingTxn(oldCurrDesc, desc);
+
+	            if(IsSameOperation(oldCurrDesc, nodeDesc))
 	            {
 	                return true;
 	            }
 
-	            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+	            if(IsKeyExist(oldCurrDesc))
 	            	return false;
 	            else
 	            	goto noMatch_putMain;
@@ -289,6 +291,32 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 				//Allocate Spine will return true if it succeded, and false if it failed.
 				//See Below for functionality.
 			noMatch_putMain:
+				NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+                if(desc->status != ACTIVE)
+                {
+                    return false;
+                }
+
+                //if(currDesc == oldCurrDesc)
+                {
+                    //Update desc 
+                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+                    // to currDesc leading to a successful comparison in the if statement below
+                    if(currDesc == oldCurrDesc)
+                    {
+                        ASSERT_CODE
+                            (
+                             __sync_fetch_and_add(&g_count_ins, 1);
+                            );
+
+                        //inserted = curr;
+                        return true; 
+                    }
+                }
+
 				bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
 				if(res){
 					increment_size();//Increments Size
@@ -360,14 +388,16 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 					}
 					else if(((DataNode *)node2)->hash==temp_bucket->hash ){//HASH COMPARE
 						//See Logic above on why
-						FinishPendingTxn(((DataNode *)node2)->nodeDesc, desc);
+						NodeDesc* oldCurrDesc = ((DataNode *)node2)->nodeDesc;
 
-			            if(IsSameOperation(((DataNode *)node2)->nodeDesc, nodeDesc))
+						FinishPendingTxn(oldCurrDesc, desc);
+
+			            if(IsSameOperation(oldCurrDesc, nodeDesc))
 			            {
 			                return true;
 			            }
 
-			            if( IsKeyExist( ((DataNode *)node2)->nodeDesc ) )
+			            if( IsKeyExist( oldCurrDesc) )
 			            	return false;
 			            else
 			            	goto noMatch_putSub;
@@ -403,14 +433,15 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 				}
 				#endif
 				if( ((DataNode *)node)->hash==temp_bucket->hash  ){//It is a key match
-					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+					NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+					FinishPendingTxn(oldCurrDesc, desc);
 
-		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            if(IsSameOperation(oldCurrDesc, nodeDesc))
 		            {
 		                return true;
 		            }
 
-		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            if( IsKeyExist( oldCurrDesc ) )
 		            	return false;
 		            else
 		            	goto noMatch_putSub2;

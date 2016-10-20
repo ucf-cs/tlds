@@ -367,14 +367,15 @@ private:
 				}
 #endif
 				if( ((DataNode *)node)->hash==temp_bucket->hash ){//&& IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
-					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+					NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+					FinishPendingTxn(oldCurrDesc, desc);
 
-		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            if(IsSameOperation(oldCurrDesc, nodeDesc))
 		            {
 		                return true;
 		            }
 
-		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            if( IsKeyExist( oldCurrDesc ) )
 		            {
 						if(((DataNode *)node)->value != e_value){
 							return false;
@@ -485,14 +486,15 @@ private:
 					}
 #endif
 					if( ((DataNode *)node)->hash==temp_bucket->hash  ){//It is a key match
-						FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+						NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+						FinishPendingTxn(oldCurrDesc, desc);
 
-			            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+			            if(IsSameOperation(oldCurrDesc, nodeDesc))
 			            {
 			                return true;
 			            }
 
-			            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+			            if( IsKeyExist( oldCurrDesc ) )
 			            {
 							if( ((DataNode *)node)->value != e_value){
 								return false;
@@ -651,14 +653,15 @@ They don't modify the table and if a data node is marked they ignore the marking
 		else{//Is Data Node//Found a Data if it is a key match then it returns the value
 			if ( ((DataNode *)node)->hash == hash)									//HASH COMPARE
 			{
-				FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+				NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+				FinishPendingTxn(oldCurrDesc, desc);
 
-	            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+	            if(IsSameOperation(oldCurrDesc, nodeDesc))
 	            {
 	                return true;
 	            }
 
-	            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+	            if( IsKeyExist( oldCurrDesc ) )
 					return ((DataNode *)node)->value;
 				else
 					goto noMatch_getMain;
@@ -688,14 +691,15 @@ They don't modify the table and if a data node is marked they ignore the marking
 			else if(!isSpine(node)){
 				if (((DataNode *)node)->hash == hash)//HASH COMPARE
 				{
-					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+					NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+					FinishPendingTxn(oldCurrDesc, desc);
 
-		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            if(IsSameOperation(oldCurrDesc, nodeDesc))
 		            {
 		                return true;
 		            }
 
-		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            if( IsKeyExist( oldCurrDesc ) )
 						return ((DataNode *)node)->value;
 					else
 						goto noMatch_getSub;
@@ -779,14 +783,15 @@ If it failes to remove an element, and the current node is now...
 		
 		//Check if it is a Key Match
 		if ( ((DataNode *)node)->hash == hash) {//HASH COMPARE
-			FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+			NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+			FinishPendingTxn(oldCurrDesc, desc);
 
-            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+            if(IsSameOperation(oldCurrDesc, nodeDesc))
             {
                 return true;
             }
 
-            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+            if( IsKeyExist( oldCurrDesc ) )
             {
 				if(replace_node(head,pos,node)){//Tries to CAS the key match to NULL
 					Free_Node(node,T);//Frees the Node for Reuse
@@ -831,14 +836,15 @@ If it failes to remove an element, and the current node is now...
 			else if(!isSpine(node)){//It is a Data Node
 				//If it is a key/hash match
 				if (( (DataNode *)node)->hash == hash) {//HASH COMPARE
-					FinishPendingTxn(((DataNode *)node)->nodeDesc, desc);
+					NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+					FinishPendingTxn(oldCurrDesc, desc);
 
-		            if(IsSameOperation(((DataNode *)node)->nodeDesc, nodeDesc))
+		            if(IsSameOperation(oldCurrDesc, nodeDesc))
 		            {
 		                return true;
 		            }
 
-		            if( IsKeyExist( ((DataNode *)node)->nodeDesc ) )
+		            if( IsKeyExist( oldCurrDesc ) )
 		            {
 						if(replace_node(local,pos,node)){//Try to remove
 							Free_Node(node,T);//If success the free the node
