@@ -426,7 +426,7 @@ private:
     void HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
     void FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
-    bool IsNodeExist(Node* node, uint32_t key);
+    //bool IsNodeExist(Node* node, uint32_t key);
     bool IsNodeActive(NodeDesc* nodeDesc);
     bool IsKeyExist(NodeDesc* nodeDesc);
 
@@ -510,7 +510,7 @@ private:
 					printf("Zero Hash!");
 				}
 #endif
-				if( ((DataNode *)node)->hash==temp_bucket->hash){//It is a key match
+				if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
 					if(((DataNode *)node)->value != e_value){
 						return false;
 					}
@@ -615,7 +615,7 @@ private:
 
 					}
 #endif
-					if( ((DataNode *)node)->hash==temp_bucket->hash){//It is a key match
+					if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
 						if( ((DataNode *)node)->value != e_value){
 							return false;
 						}

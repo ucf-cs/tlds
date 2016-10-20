@@ -297,8 +297,10 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 				printf("Zero Hash!");
 			}
 			#endif
-			if( ((DataNode *)node)->hash==temp_bucket->hash){//It is a key match
-				return false;
+			if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
+				//if(  ) //( ((DataNode *)node), temp_bucket->key, temp_bucket->value ) )
+
+					return false;
 			}
 			else{//Create a Spine
 				//Allocate Spine will return true if it succeded, and false if it failed.
@@ -372,7 +374,7 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 						local=unmark_spine(node2);
 						break;
 					}
-					else if(((DataNode *)node2)->hash==temp_bucket->hash){//HASH COMPARE
+					else if(((DataNode *)node2)->hash==temp_bucket->hash  && IsKeyExist( ((DataNode *)node2)->nodeDesc ) ){//HASH COMPARE
 						//See Logic above on why
 						return false;
 					}
@@ -405,7 +407,7 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 					
 				}
 				#endif
-				if( ((DataNode *)node)->hash==temp_bucket->hash){//It is a key match
+				if( ((DataNode *)node)->hash==temp_bucket->hash && IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
 					return false;
 				}
 				else{//Create a Spine
@@ -572,10 +574,10 @@ inline TransMap::ReturnCode TransMap::Find(uint32_t key, Desc* desc, uint8_t opi
     }
 }
 
-inline bool TransMap::IsNodeExist(DataNode* node, KEY key, VALUE value)
-{
-    return node != NULL && node->key == key && node->value == value;
-}
+// inline bool TransMap::IsNodeExist(DataNode* node, KEY key, VALUE value)
+// {
+//     return node != NULL && node->key == key && node->value == value;
+// }
 
 inline void TransMap::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
 {
