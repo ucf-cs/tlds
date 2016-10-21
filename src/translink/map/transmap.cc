@@ -281,41 +281,44 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 	                return true;
 	            }
 
+	            // the key that we wanted to insert is already in there, so fail
 	            if(IsKeyExist(oldCurrDesc))
 	            	return false;
-	            else
-	            	goto noMatch_putMain;
+	            else // the key they wanted to insert, isn't logically in the table so we can insert
+            	{
+            		//goto noMatch_putMain;
+            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+	                if(desc->status != ACTIVE)
+	                {
+	                    return false;
+	                }
+
+	                //if(currDesc == oldCurrDesc)
+	                {
+	                    //Update desc to logically add the key to the table since it's already physically there
+	                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+	                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+	                    // to currDesc leading to a successful comparison in the if statement below
+	                    if(currDesc == oldCurrDesc)
+	                    {
+	                        ASSERT_CODE
+	                            (
+	                             __sync_fetch_and_add(&g_count_ins, 1);
+	                            );
+
+	                        return true; 
+	                    }
+	                }
+            	}
 
 			}
 			else{//Create a Spine
 				//Allocate Spine will return true if it succeded, and false if it failed.
 				//See Below for functionality.
-			noMatch_putMain:
-				NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+			//noMatch_putMain:
 
-                if(desc->status != ACTIVE)
-                {
-                    return false;
-                }
-
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
-
-                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-                    // to currDesc leading to a successful comparison in the if statement below
-                    if(currDesc == oldCurrDesc)
-                    {
-                        ASSERT_CODE
-                            (
-                             __sync_fetch_and_add(&g_count_ins, 1);
-                            );
-
-                        //inserted = curr;
-                        return true; 
-                    }
-                }
 
 				bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
 				if(res){
@@ -399,11 +402,39 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 
 			            if( IsKeyExist( oldCurrDesc) )
 			            	return false;
-			            else
-			            	goto noMatch_putSub;
+			            else // the key they wanted to insert, isn't logically in the table so we can insert
+		            	{
+		            		
+		            		NodeDesc* currDesc = ((DataNode *)node2)->nodeDesc;
+
+			                if(desc->status != ACTIVE)
+			                {
+			                    return false;
+			                }
+
+			                //if(currDesc == oldCurrDesc)
+			                {
+			                    //Update desc to logically add the key to the table since it's already physically there
+			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node2)->nodeDesc, oldCurrDesc, nodeDesc);
+
+			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+			                    // to currDesc leading to a successful comparison in the if statement below
+			                    if(currDesc == oldCurrDesc)
+			                    {
+			                        ASSERT_CODE
+			                            (
+			                             __sync_fetch_and_add(&g_count_ins, 1);
+			                            );
+
+			                        return true; 
+			                    }
+			                }
+		            	}
+
+			            	//goto noMatch_putSub;
 					}
 					else{
-					noMatch_putSub:
+					//noMatch_putSub:
 						cas_fail_count++;
 						node=getNodeRaw(local,pos);
 						continue;
@@ -443,11 +474,39 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 
 		            if( IsKeyExist( oldCurrDesc ) )
 		            	return false;
-		            else
-		            	goto noMatch_putSub2;
+	                else // the key they wanted to insert, isn't logically in the table so we can insert
+	            	{
+	            		
+	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+		                if(desc->status != ACTIVE)
+		                {
+		                    return false;
+		                }
+
+		                //if(currDesc == oldCurrDesc)
+		                {
+		                    //Update desc to logically add the key to the table since it's already physically there
+		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+		                    // to currDesc leading to a successful comparison in the if statement below
+		                    if(currDesc == oldCurrDesc)
+		                    {
+		                        ASSERT_CODE
+		                            (
+		                             __sync_fetch_and_add(&g_count_ins, 1);
+		                            );
+
+		                        return true; 
+		                    }
+		                }
+	            	}
+		            //else
+		            	//goto noMatch_putSub2;
 				}
 				else{//Create a Spine
-				noMatch_putSub2:
+				//noMatch_putSub2:
 					bool res=Allocate_Spine(T, local,pos,(DataNode *)node,temp_bucket, right+SUB_POW);
 					if(res){
 						increment_size();

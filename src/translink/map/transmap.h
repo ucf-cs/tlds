@@ -408,6 +408,34 @@ private:
 							}
 						}//End it Else it is value match
 					}
+					/*else // the key they wanted to insert, isn't logically in the table so we can insert
+	            	{
+	            		
+	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+		                if(desc->status != ACTIVE)
+		                {
+		                    return false;
+		                }
+
+		                //if(currDesc == oldCurrDesc)
+		                {
+		                    //Update desc to logically add the key to the table since it's already physically there
+		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+		                    // to currDesc leading to a successful comparison in the if statement below
+		                    if(currDesc == oldCurrDesc)
+		                    {
+		                        ASSERT_CODE
+		                            (
+		                             __sync_fetch_and_add(&g_count_ins, 1);
+		                            );
+
+		                        return true; 
+		                    }
+		                }
+	            	}*/
 					else
 						goto noMatch_updateMain;
 				}
@@ -529,11 +557,39 @@ private:
 								}
 							}
 						}
-						else
-							goto noMatch_updateSub;
+						else // the key they wanted to insert, isn't logically in the table so we can insert
+		            	{
+		            		
+		            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+			                if(desc->status != ACTIVE)
+			                {
+			                    return false;
+			                }
+
+			                //if(currDesc == oldCurrDesc)
+			                {
+			                    //Update desc to logically add the key to the table since it's already physically there
+			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+			                    // to currDesc leading to a successful comparison in the if statement below
+			                    if(currDesc == oldCurrDesc)
+			                    {
+			                        ASSERT_CODE
+			                            (
+			                             __sync_fetch_and_add(&g_count_ins, 1);
+			                            );
+
+			                        return true; 
+			                    }
+			                }
+		            	}
+						//else
+						//	goto noMatch_updateSub;
 					}
 					else{//Create a Spine
-					noMatch_updateSub:
+					//noMatch_updateSub:
 						bool res=Allocate_Spine(T, local,pos,(DataNode *)node,temp_bucket, right+SUB_POW);
 						if(res){
 							increment_size();
@@ -663,12 +719,40 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 	            if( IsKeyExist( oldCurrDesc ) )
 					return ((DataNode *)node)->value;
-				else
-					goto noMatch_getMain;
+	            else // the key they wanted to insert, isn't logically in the table so we can insert
+            	{
+            		
+            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+	                if(desc->status != ACTIVE)
+	                {
+	                    return false;
+	                }
+
+	                //if(currDesc == oldCurrDesc)
+	                {
+	                    //Update desc to logically add the key to the table since it's already physically there
+	                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+	                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+	                    // to currDesc leading to a successful comparison in the if statement below
+	                    if(currDesc == oldCurrDesc)
+	                    {
+	                        ASSERT_CODE
+	                            (
+	                             __sync_fetch_and_add(&g_count_ins, 1);
+	                            );
+
+	                        return true; 
+	                    }
+	                }
+            	}
+				//else
+					//goto noMatch_getMain;
 			}
 			else//otherwise return NULL because there is no key match
 			{
-			noMatch_getMain:
+			//noMatch_getMain:
 				return (VALUE)NULL;
 			}
 		}//End Is Data Node
@@ -701,12 +785,40 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 		            if( IsKeyExist( oldCurrDesc ) )
 						return ((DataNode *)node)->value;
-					else
-						goto noMatch_getSub;
+		            else // the key they wanted to insert, isn't logically in the table so we can insert
+	            	{
+	            		
+	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+		                if(desc->status != ACTIVE)
+		                {
+		                    return false;
+		                }
+
+		                //if(currDesc == oldCurrDesc)
+		                {
+		                    //Update desc to logically add the key to the table since it's already physically there
+		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+		                    // to currDesc leading to a successful comparison in the if statement below
+		                    if(currDesc == oldCurrDesc)
+		                    {
+		                        ASSERT_CODE
+		                            (
+		                             __sync_fetch_and_add(&g_count_ins, 1);
+		                            );
+
+		                        return true; 
+		                    }
+		                }
+	            	}
+					//else
+						//goto noMatch_getSub;
 				}
 				else
 				{
-				noMatch_getSub:
+				//noMatch_getSub:
 					return (VALUE)NULL;
 				}
 			}//End Is Data Node
@@ -809,8 +921,36 @@ If it failes to remove an element, and the current node is now...
 						return remove_sub(hash,unmark_spine(node), T);
 				}
 			}
-			else
-				goto noMatch_removeMain;
+            else // the key they wanted to insert, isn't logically in the table so we can insert
+        	{
+        		
+        		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+                if(desc->status != ACTIVE)
+                {
+                    return false;
+                }
+
+                //if(currDesc == oldCurrDesc)
+                {
+                    //Update desc to logically add the key to the table since it's already physically there
+                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+                    // to currDesc leading to a successful comparison in the if statement below
+                    if(currDesc == oldCurrDesc)
+                    {
+                        ASSERT_CODE
+                            (
+                             __sync_fetch_and_add(&g_count_ins, 1);
+                            );
+
+                        return true; 
+                    }
+                }
+        	}
+			//else
+				//goto noMatch_removeMain;
 		}//End is Hash match
 		
 	noMatch_removeMain:
@@ -860,12 +1000,40 @@ If it failes to remove an element, and the current node is now...
 								return false;
 						}
 					}
-					else
-						goto noMatch_removeSub;
+		            else // the key they wanted to insert, isn't logically in the table so we can insert
+	            	{
+	            		
+	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+		                if(desc->status != ACTIVE)
+		                {
+		                    return false;
+		                }
+
+		                //if(currDesc == oldCurrDesc)
+		                {
+		                    //Update desc to logically add the key to the table since it's already physically there
+		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+		                    // to currDesc leading to a successful comparison in the if statement below
+		                    if(currDesc == oldCurrDesc)
+		                    {
+		                        ASSERT_CODE
+		                            (
+		                             __sync_fetch_and_add(&g_count_ins, 1);
+		                            );
+
+		                        return true; 
+		                    }
+		                }
+	            	}
+					//else
+						//goto noMatch_removeSub;
 				} // end hash compare
 				else
 				{
-				noMatch_removeSub:
+				//noMatch_removeSub:
 					return false;
 				}
 			}//End Is Data Node
