@@ -328,6 +328,7 @@ private:
 
 		//This count bounds the number of times the thread will loop as a result of CAS failure.
 		int cas_fail_count=0;
+	putUpdate_main:
 		//Determines the position to insert at by examining the "M" right most bits
 		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 #ifdef DEBUG
@@ -381,7 +382,42 @@ private:
 							return false;
 						}
 						else{
-							void *node2;
+
+							// we have a key with matching value to update, so update nodedesc
+		            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+			                if(desc->status != ACTIVE)
+			                {
+			                    return false;
+			                }
+
+			                //if(currDesc == oldCurrDesc)
+			                {
+			                    //Update desc to logically add the key to the table since it's already physically there
+			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+			                    // to currDesc leading to a successful comparison in the if statement below
+			                    if(currDesc == oldCurrDesc)
+			                    {
+			                        ASSERT_CODE
+			                            (
+			                             __sync_fetch_and_add(&g_count_ins, 1);
+			                            );
+
+			                        //return true; 
+			                    }
+			                    else // weren't able to update the descriptor so retry?
+			                    {
+			                    	//continue; // resets the fail count which breaks wait-freedom, because transactional
+			                    	// helping approach is only lock-free (a transactional conflict is what causes the retry)
+
+			                    	goto putUpdate_main; // restart, preserving fail count and therefore wait-freedom
+			                    }
+			                }
+
+			              	void *node2;
+			              	// replace node which is there now, with our new temp_bucket which was passed into the function
 							if( (node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
 								//Pass the CAS
 								Free_Node(node, T);//Frees the original
@@ -406,43 +442,48 @@ private:
 									return false;
 								}
 							}
+
+
+
 						}//End it Else it is value match
 					}
-					/*else // the key they wanted to insert, isn't logically in the table so we can insert
+					else // the key they wanted to insert, isn't logically in the table so we can insert
 	            	{
 	            		
-	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+	            		// NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
-		                if(desc->status != ACTIVE)
-		                {
-		                    return false;
-		                }
+		             //    if(desc->status != ACTIVE)
+		             //    {
+		             //        return false;
+		             //    }
 
-		                //if(currDesc == oldCurrDesc)
-		                {
-		                    //Update desc to logically add the key to the table since it's already physically there
-		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+		             //    //if(currDesc == oldCurrDesc)
+		             //    {
+		             //        //Update desc to logically add the key to the table since it's already physically there
+		             //        //currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
 
-		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-		                    // to currDesc leading to a successful comparison in the if statement below
-		                    if(currDesc == oldCurrDesc)
-		                    {
-		                        ASSERT_CODE
-		                            (
-		                             __sync_fetch_and_add(&g_count_ins, 1);
-		                            );
+		             //        // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+		             //        // to currDesc leading to a successful comparison in the if statement below
+		             //        // if(currDesc == oldCurrDesc)
+		             //        // {
+		             //        //     ASSERT_CODE
+		             //        //         (
+		             //        //          __sync_fetch_and_add(&g_count_ins, 1);
+		             //        //         );
 
-		                        return true; 
-		                    }
-		                }
-	            	}*/
-					else
-						goto noMatch_updateMain;
+		             //        //     return true; 
+		             //        // }
+		             //        return false; // key isn't in the table, so can't update
+		             //    }
+	            		return false; // key isn't in the table, so can't update (follows semantics of journal paper)
+	            	}
+					//else
+					//	goto noMatch_updateMain;
 				}
 				else{//Create a Spine
 					//Allocate Spine will return true if it succeded, and false if it failed.
 					//See Below for functionality.
-				noMatch_updateMain:
+				//noMatch_updateMain:
 					bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
 					if(res){
 						increment_size();//Increments Size
@@ -528,6 +569,31 @@ private:
 								return false;
 							}
 
+							NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+			                if(desc->status != ACTIVE)
+			                {
+			                    return false;
+			                }
+
+			                //if(currDesc == oldCurrDesc)
+			                {
+			                    //Update desc to logically add the key to the table since it's already physically there
+			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+			                    // to currDesc leading to a successful comparison in the if statement below
+			                    if(currDesc == oldCurrDesc)
+			                    {
+			                        ASSERT_CODE
+			                            (
+			                             __sync_fetch_and_add(&g_count_ins, 1);
+			                            );
+
+			                        return true; 
+			                    }
+			                }
+
 							void *node2;
 							if((node2=replace_node(local, pos, node, temp_bucket))==node){
 								Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
@@ -557,34 +623,38 @@ private:
 								}
 							}
 						}
-						else // the key they wanted to insert, isn't logically in the table so we can insert
-		            	{
+						else
+						{
+							return false; //key not there, can't update
+						}
+						// else // the key they wanted to insert, isn't logically in the table so we can insert
+		    //         	{
 		            		
-		            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+		    //         		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
-			                if(desc->status != ACTIVE)
-			                {
-			                    return false;
-			                }
+			   //              if(desc->status != ACTIVE)
+			   //              {
+			   //                  return false;
+			   //              }
 
-			                //if(currDesc == oldCurrDesc)
-			                {
-			                    //Update desc to logically add the key to the table since it's already physically there
-			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+			   //              //if(currDesc == oldCurrDesc)
+			   //              {
+			   //                  //Update desc to logically add the key to the table since it's already physically there
+			   //                  currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
 
-			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-			                    // to currDesc leading to a successful comparison in the if statement below
-			                    if(currDesc == oldCurrDesc)
-			                    {
-			                        ASSERT_CODE
-			                            (
-			                             __sync_fetch_and_add(&g_count_ins, 1);
-			                            );
+			   //                  // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+			   //                  // to currDesc leading to a successful comparison in the if statement below
+			   //                  if(currDesc == oldCurrDesc)
+			   //                  {
+			   //                      ASSERT_CODE
+			   //                          (
+			   //                           __sync_fetch_and_add(&g_count_ins, 1);
+			   //                          );
 
-			                        return true; 
-			                    }
-			                }
-		            	}
+			   //                      return true; 
+			   //                  }
+			   //              }
+		    //         	}
 						//else
 						//	goto noMatch_updateSub;
 					}

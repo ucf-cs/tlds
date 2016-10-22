@@ -175,6 +175,12 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
     }
 }
 
+//NOTE: update the logical status of the node (by updating the nodedesc) before any low-level operations on that node
+// this refers only to data nodes, spine nodes are not included because once inserted they must remain inserted
+// to make the underlying algorithms work without extensive refactoring of the code which did not originally permit
+// spine nodes to be deallocated under any circumstances
+
+//TODO: make sure that nodedesc is updated before all low-level data node manipulations
 
 inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
 {
