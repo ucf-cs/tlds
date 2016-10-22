@@ -751,7 +751,9 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 */
 
-
+//NOTE: for the map interface, can't return true or false for the first time, have to return a non-null value or null
+	// this has to be caught and interpreted by the helpops function when assigning transaction status back to the ret value
+	// for the while loop and needs to be done for map interface in general in the update template pseudocode
 	inline VALUE get_first(KEY k, int T){
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch

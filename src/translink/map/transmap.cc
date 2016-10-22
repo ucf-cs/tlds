@@ -149,7 +149,12 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
         }
         else
         {
-            ret = Find(op.key, desc, opid);
+            // ret = Find(op.key, desc, opid);
+            // if find is successful it returns a non-null value
+        	if (Find(op.key, desc, opid) == (VALUE)NULL)
+        		ret = false;
+        	ret = true;
+        	// TODO: edit helpops to return an array of values?
         }
         
         opid++;
