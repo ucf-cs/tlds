@@ -176,11 +176,6 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
             MarkForDeletion(delNodes, delPredNodes, desc);
             __sync_fetch_and_add(&g_count_commit, 1);
         }
-        // If another transaction aborted this one, then mark its inserted nodes for deletion
-        else if(__sync_bool_compare_and_swap(&desc->status, ABORTED, ABORTED))
-        {
-            MarkForDeletion(insNodes, insPredNodes, desc);
-        }
     }
     else
     {
@@ -189,11 +184,12 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
             MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
         }
-        // If another transaction aborted this one, then mark its inserted nodes for deletion
-        else if(__sync_bool_compare_and_swap(&desc->status, ABORTED, ABORTED))
-        {
-            MarkForDeletion(insNodes, insPredNodes, desc);
-        }
+    }
+
+    // If the transaction aborted, then delete the nodes it would have inserted
+    if(desc->status == ABORTED)
+    {
+        MarkForDeletion(insNodes, insPredNodes, desc);
     }
 }
 
