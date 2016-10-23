@@ -181,7 +181,7 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     {
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
         {
-            MarkForDeletion(insNodes, insPredNodes, desc);
+            // MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
         }
     }
