@@ -1012,9 +1012,9 @@ If the transaction fails to acquire a lock or the validation fails, that means a
 If successful, the transaction makes physical modifications to the nodes in the write-set, updates the nodes' version numbers, and releases the locks.
 This approach benefits from the absence of rollbacks, but when applied to non-blocking data structures, it diminishes the progress guarantee of the data structure by using locks.
 This problem could be remedied by replacing locks with transaction descriptors, and we could ensure opacity by applying a helping mechanism similar to the one used in our approach.
-+However, to prevent the livelock scenario mentioned in Section 2.4, we must detect cyclic dependencies among transactions and abort one of the transactions when a cyclic dependency occurs.
+However, to prevent the livelock scenario mentioned in Section 2.4, we must detect cyclic dependencies among transactions and abort one of the transactions when a cyclic dependency occurs.
 The aborted transaction would then need to perform a rollback of the changes it made, which would incur a performance penalty.
-+We do not compare our approach to theirs as their source code is unavailable.
+We do not compare our approach to theirs as their source code is unavailable.
 
 \section{Conclusion}
 \label{sec:conclusion}

@@ -226,6 +226,12 @@ N.~Shavit and A.~Zemach.
 \newblock In {\em Proceedings of the eighteenth annual ACM symposium on
   Principles of distributed computing}, pages 113--122. ACM, 1999.
 
+\bibitem{spiegelman2016transactional}
+A.~Spiegelman, G.~Golan-Gueta, and I.~Keidar.
+\newblock Transactional data structure libraries.
+\newblock In {\em Proceedings of the 37th ACM SIGPLAN Conference on Programming
+  Language Design and Implementation}, pages 682--696. ACM, 2016.
+
 \bibitem{zhang2015lockfree}
 D.~Zhang and D.~Dechev.
 \newblock A lock-free priority queue design based on multi-dimensional linked
