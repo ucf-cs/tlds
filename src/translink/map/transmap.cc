@@ -223,6 +223,7 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 	
 	//This count bounds the number of times the thread will loop as a result of CAS failure.
 	int cas_fail_count=0;
+insert_main:
 	//Determines the position to insert at by examining the "M" right most bits
 	int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 	#ifdef DEBUG
@@ -319,8 +320,19 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 	                             __sync_fetch_and_add(&g_count_ins, 1);
 	                            );
 
-	                        return true; 
+	                        //return true; 
+	                        // NOTE: the following may break wait-freedom, but not lock-freedom
+	                        // if the logically removed node has a different value, then CAS in our new value
+	                        if ( ((DataNode *)node)->value != temp_bucket->value )
+	                        	if(__sync_bool_compare_and_swap( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode* )temp_bucket))->value )
+	                        		return true;
+	                        	else // cas failed so retry
+	                        		goto insert_main;
+	                        else // had the same value so all we had to do was update the descriptor and return
+	                        	return true;
 	                    }
+	                    else
+	                    	goto insert_main;
 	                }
             	}
 
@@ -329,7 +341,6 @@ inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
 				//Allocate Spine will return true if it succeded, and false if it failed.
 				//See Below for functionality.
 			//noMatch_putMain:
-
 
 				bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
 				if(res){
@@ -356,7 +367,7 @@ replace MAIN_POW/MAIN_SIZE with correct values, then change put_main's calls to 
 **DONT FORGET: to do get/delete as well
 */
 inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket, int T){
-	
+	insert_sub:
 		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
 	for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
 		int pos=h&(SUB_SIZE-1);//Gets the sig bits from the hash
@@ -437,8 +448,17 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 			                             __sync_fetch_and_add(&g_count_ins, 1);
 			                            );
 
-			                        return true; 
+			                        // if the logically removed node has a different value, then CAS in our new value
+			                        if ( ((DataNode *)node2)->value != temp_bucket->value )
+			                        	if(__sync_bool_compare_and_swap( &((DataNode *)node2)->value, ((DataNode *)node2)->value, ((DataNode* )temp_bucket))->value )
+			                        		return true;
+			                        	else // cas failed so retry
+			                        		goto insert_sub;
+			                        else // had the same value so all we had to do was update the descriptor and return
+			                        	return true;
 			                    }
+			                    else
+			                    	goto insert_sub;
 			                }
 		            	}
 
@@ -509,8 +529,17 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 		                             __sync_fetch_and_add(&g_count_ins, 1);
 		                            );
 
-		                        return true; 
+		                        // if the logically removed node has a different value, then CAS in our new value
+		                        if ( ((DataNode *)node)->value != temp_bucket->value )
+		                        	if(__sync_bool_compare_and_swap( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode* )temp_bucket))->value )
+		                        		return true;
+		                        	else // cas failed so retry
+		                        		goto insert_sub;
+		                        else // had the same value so all we had to do was update the descriptor and return
+		                        	return true;
 		                    }
+		                    else
+		                    	goto insert_sub;
 		                }
 	            	}
 		            //else
@@ -697,11 +726,12 @@ inline bool TransMap::IsNodeActive(NodeDesc* nodeDesc)
     return nodeDesc->desc->status == COMMITTED;
 }
 
-// checks if the K/V pair exists
+// checks if the node exists
 inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
 {
     bool isNodeActive = IsNodeActive(nodeDesc);
     uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
 
-    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || (isNodeActive && opType == UPDATE);
+    // NOTE: if the current descriptor is live, committed, or aborted and referencing an update, then the key exists
+    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || (opType == UPDATE);
 }

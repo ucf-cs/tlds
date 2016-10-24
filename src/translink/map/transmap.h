@@ -246,7 +246,7 @@ public:
 
 
 private:
-	inline void Free_Node(void * D, int T);
+	// inline void Free_Node(void * D, int T);
 
 	inline void *  getNode(void*/* volatile  */ *s, int pos);
 	inline void *  getNodeRaw(void* /* volatile  */ *s, int pos);
@@ -328,7 +328,7 @@ private:
 
 		//This count bounds the number of times the thread will loop as a result of CAS failure.
 		int cas_fail_count=0;
-	putUpdate_main:
+	update_main:
 		//Determines the position to insert at by examining the "M" right most bits
 		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 #ifdef DEBUG
@@ -412,15 +412,19 @@ private:
 			                    	//continue; // resets the fail count which breaks wait-freedom, because transactional
 			                    	// helping approach is only lock-free (a transactional conflict is what causes the retry)
 
-			                    	goto putUpdate_main; // restart, preserving fail count and therefore wait-freedom
+			                    	goto update_main; // restart, preserving fail count and therefore wait-freedom
+			                    	// there must be a concurrent transaction for our descriptor update to have failed
+			                    	// update nodeinfo algorithm retries if we fail to update the descriptor
 			                    }
 			                }
 
-			              	void *node2;
+			                //void* node2; // before removing replace
+			              	void *node2 = head[pos];
 			              	// replace node which is there now, with our new temp_bucket which was passed into the function
-							if( (node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
+							//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
+							if ((node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
 								//Pass the CAS
-								Free_Node(node, T);//Frees the original
+								//Free_Node(node, T);//Frees the original
 								return true;
 							}
 							else{//Failed the CAS
@@ -507,7 +511,7 @@ private:
 	 **DONT FORGET: to do get/delete as well
 	 */
 	inline bool putUpdate_sub(void* /* volatile  */* local, VALUE e_value, DataNode *temp_bucket, int T){
-
+	update_sub:
  		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
 		for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
 			int pos=h&(SUB_SIZE-1);//Gets the sig bits from the hash
@@ -590,13 +594,16 @@ private:
 			                             __sync_fetch_and_add(&g_count_ins, 1);
 			                            );
 
-			                        return true; 
+			                        //return true; 
 			                    }
+			                    else
+			                    	goto update_sub;
 			                }
 
-							void *node2;
+							void *node2=head[pos];
 							if((node2=replace_node(local, pos, node, temp_bucket))==node){
-								Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
+							//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
+								//Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
 								return true;
 							}
 							else{
@@ -767,6 +774,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 	}
 	
 	inline VALUE get_main(HASH hash) {
+	find_main:
 		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 	#ifdef DEBUG	
 		assert(pos >=0 && pos <MAIN_SIZE);
@@ -786,11 +794,13 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 	            if(IsSameOperation(oldCurrDesc, nodeDesc))
 	            {
-	                return true;
+	                return true; //TODO: need to return some value here, maybe make up a sentinel
 	            }
 
-	            if( IsKeyExist( oldCurrDesc ) )
-					return ((DataNode *)node)->value;
+	            // NOTE: because we use a perfect hash function with our wfhm, if the key
+	            // doesn't exist here, then it doesn't logically exist anywhere in the table 
+	            if( !IsKeyExist( oldCurrDesc ) )
+					return (VALUE)NULL;
 	            else // the key they wanted to insert, isn't logically in the table so we can insert
             	{
             		
@@ -798,7 +808,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 	                if(desc->status != ACTIVE)
 	                {
-	                    return false;
+	                    return (VALUE)NULL;
 	                }
 
 	                //if(currDesc == oldCurrDesc)
@@ -815,9 +825,12 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                             __sync_fetch_and_add(&g_count_ins, 1);
 	                            );
 
-	                        return true; 
+	                        return ((DataNode *)node)->value;
 	                    }
+	                    else
+	                    	goto find_main;
 	                }
+
             	}
 				//else
 					//goto noMatch_getMain;
@@ -831,6 +844,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 	}//End Get Main
 	
 	inline VALUE get_sub(HASH hash, void* /* volatile  */* local){
+	find_sub:
 		HASH h=hash>>MAIN_POW; //Adjusts the hash bits
 		int pos=h&(SUB_SIZE-1);//determines the position to check
 		#ifdef DEBUG
@@ -852,11 +866,11 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 		            if(IsSameOperation(oldCurrDesc, nodeDesc))
 		            {
-		                return true;
+		                return true; //TODO: use sentinel
 		            }
 
-		            if( IsKeyExist( oldCurrDesc ) )
-						return ((DataNode *)node)->value;
+		            if( !IsKeyExist( oldCurrDesc ) )
+						return (VALUE)NULL;
 		            else // the key they wanted to insert, isn't logically in the table so we can insert
 	            	{
 	            		
@@ -864,7 +878,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 		                if(desc->status != ACTIVE)
 		                {
-		                    return false;
+		                    return (VALUE)NULL;
 		                }
 
 		                //if(currDesc == oldCurrDesc)
@@ -881,8 +895,10 @@ They don't modify the table and if a data node is marked they ignore the marking
 		                             __sync_fetch_and_add(&g_count_ins, 1);
 		                            );
 
-		                        return true; 
+		                        return ((DataNode *)node)->value;
 		                    }
+		                    else
+		                    	goto find_sub;
 		                }
 	            	}
 					//else
@@ -898,6 +914,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 			pos=h&(SUB_SIZE-1);
 		}//End For loop
 		
+	find_final:
 		//Since this is the final depth we dont need to check the hash, as only hash matches can be placed here
 		void *node=getNode(local,pos);
 		#ifdef DEBUG
@@ -909,7 +926,49 @@ They don't modify the table and if a data node is marked they ignore the marking
 			#ifdef DEBUG
 			assert(((DataNode *)node)->hash == hash);
 			#endif
-			return ((DataNode *)node)->value;
+
+			NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
+			FinishPendingTxn(oldCurrDesc, desc);
+
+            if(IsSameOperation(oldCurrDesc, nodeDesc))
+            {
+                return true; //TODO: use sentinel
+            }
+
+            if( !IsKeyExist( oldCurrDesc ) )
+				return (VALUE)NULL;
+            else // the key they wanted to insert, isn't logically in the table so we can insert
+        	{
+        		
+        		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+
+                if(desc->status != ACTIVE)
+                {
+                    return (VALUE)NULL;
+                }
+
+                //if(currDesc == oldCurrDesc)
+                {
+                    //Update desc to logically add the key to the table since it's already physically there
+                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+
+                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+                    // to currDesc leading to a successful comparison in the if statement below
+                    if(currDesc == oldCurrDesc)
+                    {
+                        ASSERT_CODE
+                            (
+                             __sync_fetch_and_add(&g_count_ins, 1);
+                            );
+
+                        return ((DataNode *)node)->value;
+                    }
+                    else
+                    	goto find_final; // keep retrying until we're aborted by a concurrent txn, or we succeed
+                }
+        	}
+
+			//return ((DataNode *)node)->value;
 		}
 		/*else
 			return NULL;*/
@@ -950,6 +1009,7 @@ If it failes to remove an element, and the current node is now...
 	}
 	
 	inline bool remove_main(HASH hash, int T) {
+	delete_main:
 		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 		#ifdef DEBUG
 		assert(pos >=0 && pos <MAIN_SIZE);//Verify the position is valid
@@ -977,25 +1037,6 @@ If it failes to remove an element, and the current node is now...
 
             if( IsKeyExist( oldCurrDesc ) )
             {
-				if(replace_node(head,pos,node)){//Tries to CAS the key match to NULL
-					Free_Node(node,T);//Frees the Node for Reuse
-					decrement_size();//Decreases the number of elements
-					return true;
-				}
-				else{//If the CAS fails
-					void *node2=getNodeRaw(head,pos);
-					if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked is at the location
-						//Then expand the table, and examine the sub spine
-						node2=forceExpandTable(T,head,pos,node, MAIN_POW);//getNodeRaw must return a spine pointer
-						return remove_sub(hash,unmark_spine(node2), T);
-					}
-					if(isSpine(node))//Then expand the table, and examine the sub spine 
-						return remove_sub(hash,unmark_spine(node), T);
-				}
-			}
-            else // the key they wanted to insert, isn't logically in the table so we can insert
-        	{
-        		
         		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
                 if(desc->status != ACTIVE)
@@ -1019,17 +1060,41 @@ If it failes to remove an element, and the current node is now...
 
                         return true; 
                     }
+                    else
+                    	goto delete_main;
                 }
+
+                // Don't physically delete nodes
+				// if(replace_node(head,pos,node)){//Tries to CAS the key match to NULL
+				// 	Free_Node(node,T);//Frees the Node for Reuse
+				// 	decrement_size();//Decreases the number of elements
+				// 	return true;
+				// }
+				// else{//If the CAS fails
+				// 	void *node2=getNodeRaw(head,pos);
+				// 	if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked is at the location
+				// 		//Then expand the table, and examine the sub spine
+				// 		node2=forceExpandTable(T,head,pos,node, MAIN_POW);//getNodeRaw must return a spine pointer
+				// 		return remove_sub(hash,unmark_spine(node2), T);
+				// 	}
+				// 	if(isSpine(node))//Then expand the table, and examine the sub spine 
+				// 		return remove_sub(hash,unmark_spine(node), T);
+				// }
+			}
+            else // the key they wanted to remove, isn't logically in the table so we can't remove
+        	{
+        		return false;
         	}
 			//else
 				//goto noMatch_removeMain;
 		}//End is Hash match
 		
-	noMatch_removeMain:
+	//noMatch_removeMain:
 		return false;
 	}//End Remove Main
 	
 	inline bool remove_sub(HASH hash, void* /* volatile  */ * local, int T) {
+	delete_sub:
 		HASH h=hash>>MAIN_POW;//Adjusts the hash
 		int pos=h&(SUB_SIZE-1);//Gets the position of the sig node
 		#ifdef DEBUG
@@ -1058,23 +1123,6 @@ If it failes to remove an element, and the current node is now...
 
 		            if( IsKeyExist( oldCurrDesc ) )
 		            {
-						if(replace_node(local,pos,node)){//Try to remove
-							Free_Node(node,T);//If success the free the node
-							decrement_size();//Decremese element count
-							return true;//Return true
-						}
-						else{//If it failed
-							void *node2=getNodeRaw(local,pos);
-							if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked then force expand and examine subspine
-								node=forceExpandTable(T,local,pos,node, right+SUB_POW);
-							}
-							else//See Logic above remove_main
-								return false;
-						}
-					}
-		            else // the key they wanted to insert, isn't logically in the table so we can insert
-	            	{
-	            		
 	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
 		                if(desc->status != ACTIVE)
@@ -1096,9 +1144,30 @@ If it failes to remove an element, and the current node is now...
 		                             __sync_fetch_and_add(&g_count_ins, 1);
 		                            );
 
-		                        return true; 
+		                        return true;
 		                    }
+		                    else
+		                    	goto delete_sub;
 		                }
+
+		                // Don't physically delete nodes
+						// if(replace_node(local,pos,node)){//Try to remove
+						// 	Free_Node(node,T);//If success the free the node
+						// 	decrement_size();//Decremese element count
+						// 	return true;//Return true
+						// }
+						// else{//If it failed
+						// 	void *node2=getNodeRaw(local,pos);
+						// 	if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked then force expand and examine subspine
+						// 		node=forceExpandTable(T,local,pos,node, right+SUB_POW);
+						// 	}
+						// 	else//See Logic above remove_main
+						// 		return false;
+						// }
+					}
+		            else // the key they wanted to insert, isn't logically in the table so we can insert
+	            	{
+	            		return false;
 	            	}
 					//else
 						//goto noMatch_removeSub;
@@ -1198,18 +1267,18 @@ If it failes to remove an element, and the current node is now...
 	/*This function adds a node that has been removed from the table
 	to the reuse stack or vector
 	*/
-	inline void Free_Node(void *node, int T){
-#ifdef useThreadWatch
-		if(!inUse(((DataNode *)node)->hash,T))//If it is Not in use, then place it on the stack
-		{
-			//Add to Stack
-				((DataNode *)node)->next=Thread_pool_stack[T];//Sets the next pointer to the stack
-				Thread_pool_stack[T]=node;//Then set the stack to the node
-				#ifdef DEBUGPRINTS_RECYCLE
-					printf("Placed on Stack(2) %p by %d\n",node,T);
-				#endif
-				return;
-		}
+// 	inline void Free_Node(void *node, int T){
+// #ifdef useThreadWatch
+// 		if(!inUse(((DataNode *)node)->hash,T))//If it is Not in use, then place it on the stack
+// 		{
+// 			//Add to Stack
+// 				((DataNode *)node)->next=Thread_pool_stack[T];//Sets the next pointer to the stack
+// 				Thread_pool_stack[T]=node;//Then set the stack to the node
+// 				#ifdef DEBUGPRINTS_RECYCLE
+// 					printf("Placed on Stack(2) %p by %d\n",node,T);
+// 				#endif
+// 				return;
+// 		}
 #ifdef useVectorPool
 		else{//IF it is in use then  place it in the vector
 			//Add to vector
@@ -1573,9 +1642,21 @@ If it failes to remove an element, and the current node is now...
 	inline void * getNodeRaw( void* /* volatile  */ *s, int pos){
 		return (void *)(s[pos]);
 	}
+
+	// if (cas_res=replace_node(local, pos, marked_n, (void *)mark_spine(s_head) ) )!=marked_n	
+	// 	void *marked_n=(void *)(mark_data((void *)n));
+	// 	void * /* volatile  */ *local,int pos
+	// 	void *cas_res;
+	// 	if(Thread_spines[T]==NULL){
+	// 		s_head=(void**)getSpine();
+	// 	}
+	// 	else{
+	// 		s_head=(void**)Thread_spines[T];
+	// 		Thread_spines[T]=s_head[0];
+	// 	}
 	
-//////Atomic CAS/Writes////
-//SWAPS NULL OR DATA NODE FOR DATA NODE
+// //////Atomic CAS/Writes////
+// //SWAPS NULL OR DATA NODE FOR DATA NODE
 	inline void * replace_node(void* /* volatile  */ *s , int pos, void *current_node, DataNode *new_node){
 		return replace_node(s,pos, (void *) current_node, (void *)new_node);
 	}
@@ -1583,7 +1664,7 @@ If it failes to remove an element, and the current node is now...
 	inline void * replace_node(void* /* volatile  */ *s, int pos, DataNode *current_node, void* new_node){
 		return replace_node(s,pos, (void *) current_node, (void *)new_node);
 	}
-//Replaces two pointers
+// //Replaces two pointers
 	inline void * replace_node(void* /* volatile  */ *s, int pos, void *current_node, void *new_node) {
 		
 		if (current_node == s[pos]) {
@@ -1592,7 +1673,7 @@ If it failes to remove an element, and the current node is now...
 		return  s[pos];
 	}
 
-//DELETE NODE!
+// //DELETE NODE!
 	inline bool replace_node(void* /* volatile  */ *s, int pos, void *current_node /*, new node=NULL*/) {
 		if (current_node == s[pos]) {
 			return __sync_bool_compare_and_swap(&(s[pos]), current_node, NULL);
