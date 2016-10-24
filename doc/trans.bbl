@@ -1,0 +1,236 @@
+\begin{thebibliography}{10}
+
+\bibitem{attiya2010inherent}
+H.~Attiya.
+\newblock The inherent complexity of transactional memory and what to do about
+  it.
+\newblock In {\em Proceedings of the 29th ACM SIGACT-SIGOPS symposium on
+  Principles of distributed computing}, pages 1--5. ACM, 2010.
+
+\bibitem{bronson2010transactional}
+N.~G. Bronson, J.~Casper, H.~Chafi, and K.~Olukotun.
+\newblock Transactional predication: high-performance concurrent sets and maps
+  for stm.
+\newblock In {\em Proceedings of the 29th ACM SIGACT-SIGOPS symposium on
+  Principles of distributed computing}, pages 6--15. ACM, 2010.
+
+\bibitem{cascaval2008software}
+C.~Cascaval, C.~Blundell, M.~Michael, H.~W. Cain, P.~Wu, S.~Chiras, and
+  S.~Chatterjee.
+\newblock Software transactional memory: Why is it only a research toy?
+\newblock {\em Queue}, 6(5):40, 2008.
+
+\bibitem{cherem2008inferring}
+S.~Cherem, T.~Chilimbi, and S.~Gulwani.
+\newblock Inferring locks for atomic sections.
+\newblock In {\em ACM SIGPLAN Notices}, volume~43, pages 304--315. ACM, 2008.
+
+\bibitem{dalessandro2010norec}
+L.~Dalessandro, M.~F. Spear, and M.~L. Scott.
+\newblock Norec: streamlining stm by abolishing ownership records.
+\newblock In {\em ACM Sigplan Notices}, volume~45, pages 67--78. ACM, 2010.
+
+\bibitem{dice2009early}
+D.~Dice, Y.~Lev, M.~Moir, D.~Nussbaum, and M.~Olszewski.
+\newblock Early experience with a commercial hardware transactional memory
+  implementation.
+\newblock 2009.
+
+\bibitem{dice2006transactional}
+D.~Dice, O.~Shalev, and N.~Shavit.
+\newblock Transactional locking ii.
+\newblock In {\em Distributed Computing}, pages 194--208. Springer, 2006.
+
+\bibitem{ellen2010non}
+F.~Ellen, P.~Fatourou, E.~Ruppert, and F.~van Breugel.
+\newblock Non-blocking binary search trees.
+\newblock In {\em Proceedings of the 29th ACM SIGACT-SIGOPS symposium on
+  Principles of distributed computing}, pages 131--140. ACM, 2010.
+
+\bibitem{emmi2007lock}
+M.~Emmi, J.~S. Fischer, R.~Jhala, and R.~Majumdar.
+\newblock Lock allocation.
+\newblock In {\em ACM SIGPLAN Notices}, volume~42, pages 291--296. ACM, 2007.
+
+\bibitem{fraser2004practical}
+K.~Fraser.
+\newblock {\em Practical lock-freedom}.
+\newblock PhD thesis, PhD thesis, Cambridge University Computer Laboratory,
+  2003. Also available as Technical Report UCAM-CL-TR-579, 2004.
+
+\bibitem{golan2013concurrent}
+G.~Golan-Gueta, G.~Ramalingam, M.~Sagiv, and E.~Yahav.
+\newblock Concurrent libraries with foresight.
+\newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 263--274. ACM, 2013.
+
+\bibitem{golan2015automatic}
+G.~Golan-Gueta, G.~Ramalingam, M.~Sagiv, and E.~Yahav.
+\newblock Automatic scalable atomicity via semantic locking.
+\newblock In {\em Proceedings of the 20th ACM SIGPLAN Symposium on Principles
+  and Practice of Parallel Programming}, pages 31--41. ACM, 2015.
+
+\bibitem{gramoli2013composing}
+V.~Gramoli, R.~Guerraoui, and M.~Letia.
+\newblock Composing relaxed transactions.
+\newblock In {\em Parallel \& Distributed Processing (IPDPS), 2013 IEEE 27th
+  International Symposium on}, pages 1171--1182. IEEE, 2013.
+
+\bibitem{gudka2012lock}
+K.~Gudka, T.~Harris, and S.~Eisenbach.
+\newblock Lock inference in the presence of large libraries.
+\newblock In {\em ECOOP 2012--Object-Oriented Programming}, pages 308--332.
+  Springer, 2012.
+
+\bibitem{guerraoui2008obstruction}
+R.~Guerraoui and M.~Kapalka.
+\newblock On obstruction-free transactions.
+\newblock In {\em Proceedings of the twentieth annual symposium on Parallelism
+  in algorithms and architectures}, pages 304--313. ACM, 2008.
+
+\bibitem{guerraoui2008correctness}
+R.~Guerraoui and M.~Kapalka.
+\newblock On the correctness of transactional memory.
+\newblock In {\em Proceedings of the 13th ACM SIGPLAN Symposium on Principles
+  and practice of parallel programming}, pages 175--184. ACM, 2008.
+
+\bibitem{harris2010transactional}
+T.~Harris, J.~Larus, and R.~Rajwar.
+\newblock Transactional memory.
+\newblock {\em Synthesis Lectures on Computer Architecture}, 5(1):1--263, 2010.
+
+\bibitem{harris2001pragmatic}
+T.~L. Harris.
+\newblock A pragmatic implementation of non-blocking linked-lists.
+\newblock In {\em Distributed Computing}, pages 300--314. Springer, 2001.
+
+\bibitem{hassan2014integrating}
+A.~Hassan, R.~Palmieri, and B.~Ravindran.
+\newblock Integrating transactionally boosted data structures with stm
+  frameworks: A case study on set.
+\newblock In {\em 9th ACM SIGPLAN Workshop on Transactional Computing
+  (TRANSACT)}, 2014.
+
+\bibitem{hassan2014developing}
+A.~Hassan, R.~Palmieri, and B.~Ravindran.
+\newblock On developing optimistic transactional lazy set.
+\newblock In {\em Principles of Distributed Systems}, pages 437--452. Springer,
+  2014.
+
+\bibitem{herlihy2008transactional}
+M.~Herlihy and E.~Koskinen.
+\newblock Transactional boosting: a methodology for highly-concurrent
+  transactional objects.
+\newblock In {\em Proceedings of the 13th ACM SIGPLAN Symposium on Principles
+  and practice of parallel programming}, pages 207--216. ACM, 2008.
+
+\bibitem{herlihy2003software}
+M.~Herlihy, V.~Luchangco, M.~Moir, and W.~N. Scherer~III.
+\newblock Software transactional memory for dynamic-sized data structures.
+\newblock In {\em Proceedings of the twenty-second annual symposium on
+  Principles of distributed computing}, pages 92--101. ACM, 2003.
+
+\bibitem{herlihy1993transactional}
+M.~Herlihy and J.~E.~B. Moss.
+\newblock Transactional memory: Architectural support for lock-free data
+  structures.
+\newblock In {\em Proceedings of the 20th Annual International Symposium on
+  Computer Architecture}, ISCA '93, pages 289--300, New York, NY, USA, 1993.
+  ACM.
+
+\bibitem{herlihy2012art}
+M.~Herlihy and N.~Shavit.
+\newblock {\em The Art of Multiprocessor Programming, Revised Reprint}.
+\newblock Elsevier, 2012.
+
+\bibitem{herlihy1990linearizability}
+M.~P. Herlihy and J.~M. Wing.
+\newblock Linearizability: A correctness condition for concurrent objects.
+\newblock {\em ACM Transactions on Programming Languages and Systems (TOPLAS)},
+  12(3):463--492, 1990.
+
+\bibitem{koskinen2010coarse}
+E.~Koskinen, M.~Parkinson, and M.~Herlihy.
+\newblock Coarse-grained transactions.
+\newblock {\em ACM Sigplan Notices}, 45(1):19--30, 2010.
+
+\bibitem{linden2013skiplist}
+J.~Lind{\'e}n and B.~Jonsson.
+\newblock A skiplist-based concurrent priority queue with minimal memory
+  contention.
+\newblock In {\em Principles of Distributed Systems}, pages 206--220. Springer,
+  2013.
+
+\bibitem{marathe2004design}
+V.~J. Marathe, W.~N. Scherer, and M.~L. Scott.
+\newblock Design tradeoffs in modern software transactional memory systems.
+\newblock In {\em Proceedings of the 7th workshop on Workshop on languages,
+  compilers, and run-time support for scalable systems}, pages 1--7. ACM, 2004.
+
+\bibitem{marathe2006lowering}
+V.~J. Marathe, M.~F. Spear, C.~Heriot, A.~Acharya, D.~Eisenstat, W.~N.
+  Scherer~III, and M.~L. Scott.
+\newblock Lowering the overhead of nonblocking software transactional memory.
+\newblock In {\em Workshop on Languages, Compilers, and Hardware Support for
+  Transactional Computing (TRANSACT)}, 2006.
+
+\bibitem{mccloskey2006autolocker}
+B.~McCloskey, F.~Zhou, D.~Gay, and E.~Brewer.
+\newblock Autolocker: synchronization inference for atomic sections.
+\newblock {\em ACM SIGPLAN Notices}, 41(1):346--358, 2006.
+
+\bibitem{michael2002high}
+M.~M. Michael.
+\newblock High performance dynamic lock-free hash tables and list-based sets.
+\newblock In {\em Proceedings of the fourteenth annual ACM symposium on
+  Parallel algorithms and architectures}, pages 73--82. ACM, 2002.
+
+\bibitem{ni2007open}
+Y.~Ni, V.~S. Menon, A.-R. Adl-Tabatabai, A.~L. Hosking, R.~L. Hudson, J.~E.~B.
+  Moss, B.~Saha, and T.~Shpeisman.
+\newblock Open nesting in software transactional memory.
+\newblock In {\em Proceedings of the 12th ACM SIGPLAN symposium on Principles
+  and practice of parallel programming}, pages 68--78. ACM, 2007.
+
+\bibitem{papadimitriou1979serializability}
+C.~H. Papadimitriou.
+\newblock The serializability of concurrent database updates.
+\newblock {\em Journal of the ACM (JACM)}, 26(4):631--653, 1979.
+
+\bibitem{Rossbach2010transactional}
+C.~J. Rossbach, O.~S. Hofmann, and E.~Witchel.
+\newblock Is transactional programming actually easier?
+\newblock In {\em Proceedings of the 15th ACM SIGPLAN Symposium on Principles
+  and Practice of Parallel Programming}, PPoPP '10, pages 47--56, New York, NY,
+  USA, 2010. ACM.
+
+\bibitem{saha2006mcrt}
+B.~Saha, A.-R. Adl-Tabatabai, R.~L. Hudson, C.~C. Minh, and B.~Hertzberg.
+\newblock Mcrt-stm: a high performance software transactional memory system for
+  a multi-core runtime.
+\newblock In {\em Proceedings of the eleventh ACM SIGPLAN symposium on
+  Principles and practice of parallel programming}, pages 187--197. ACM, 2006.
+
+\bibitem{shacham2011testing}
+O.~Shacham, N.~Bronson, A.~Aiken, M.~Sagiv, M.~Vechev, and E.~Yahav.
+\newblock Testing atomicity of composed concurrent operations.
+\newblock {\em ACM SIGPLAN Notices}, 46(10):51--64, 2011.
+
+\bibitem{shavit1997software}
+N.~Shavit and D.~Touitou.
+\newblock Software transactional memory.
+\newblock {\em Distributed Computing}, 10(2):99--116, 1997.
+
+\bibitem{shavit1999scalable}
+N.~Shavit and A.~Zemach.
+\newblock Scalable concurrent priority queue algorithms.
+\newblock In {\em Proceedings of the eighteenth annual ACM symposium on
+  Principles of distributed computing}, pages 113--122. ACM, 1999.
+
+\bibitem{zhang2015lockfree}
+D.~Zhang and D.~Dechev.
+\newblock A lock-free priority queue design based on multi-dimensional linked
+  lists.
+\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
+  PP(99):1--1, 2015.
+
+\end{thebibliography}
