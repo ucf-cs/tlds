@@ -508,6 +508,17 @@ A thread pops its help stack once the help completes.
 Cyclic dependencies among transactions can be detected by checking for duplicate entries in the help stack (line~\algref{alg:transaction}{l:stackcontain}). 
 We recover by aborting one of the transactions as shown on line~\algref{alg:transaction}{l:txncyclicabort}.
 
+\subsection{Obstruction-free Approach}
+Our helping mechanism invokes a slight memory and performance overhead, due to the use and maintenance of the per-thread help stack. In situations of low contention, it may be beneficial to eliminate this overhead by disabling the helping mechanism. We introduce an alternative obstruction-free approach that disables the helping mechanism, and we compare it to our original lock-free approach.
+
+Obstruction freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
+To obtain our obstruction-free approach, we adopt an aggressive contention management strategy.
+If a thread tries to update a node $n$ while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
+This approach eliminates the overhead of the helping mechanism while still enforcing serialization.
+
+In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution. They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors. We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}. Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\algref{alg:obstructionfreeupdateinfo}{l:abortcompetitor}).
+
+
 \section{Application Examples}
 \label{sec:application}
 In this section we demonstrate the application of our lock-free transaction transformation on linked lists and skiplists based sets. 
@@ -783,11 +794,6 @@ The number of recursive helping invocations is bound by the number of active tra
 In the worst case where only $1$ thread remains live and $i-1$ threads have failed, the system guarantees a transaction will commit in at most $i * j$ steps.
 In the presence of cyclic dependencies among transactions, the system guarantees that a duplicate transaction descriptor will be detected within $i * j$ steps.
 
-Our cooperative contention management strategy requires that the users specify all operations in a transaction beforehand.
-It is possible to allow dynamic transaction executions by adopting aggressive contention management (i.e., the later transaction always forcibly aborts the competitor).
-In this case, the progress guarantee provided by the system degrades to obstruction-free.
-We focus on the lock-free implementations because the obstruction-free versions can be trivially obtained by disabling the helping mechanism in the lock-free version.
-
 \section{Performance Evaluation}
 \label{sec:experiment}
 We compare the overhead and scalability of our lock-free transactional list and skiplist against the implementations based on transaction boosting, NOrec STM from Rochester Software Transactional Memory package~\cite{marathe2006lowering} and Fraser's lock-free object-based STM~\cite{fraser2004practical}.
@@ -938,6 +944,9 @@ LFT and BST skiplists outperform OTM skiplists by as much as 3 times across all 
 For example, in Figure~\ref{fig:txnskip50} on 32 threads LFT-8 outperforms BST-8 by 125\%.
 Even for small transactions, LFT skiplists begin to set the throughput apart from BST skiplists further than what is in Figure~\ref{fig:txnlist}.
 For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% speedup over BST-2.
+
+\subsection{Obstruction-free Performance}
+
 
 \section{Related Work}
 \label{sec:related}
