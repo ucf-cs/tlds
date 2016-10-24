@@ -251,7 +251,7 @@ int main(int argc, const char *argv[])
         { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 6:
-        { MapAdaptor<TransMap> map; MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+        { MapAdaptor<TransMap<uint32_t,uint32_t>> map; MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:
         break;

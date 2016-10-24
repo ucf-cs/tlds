@@ -8,7 +8,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-//#include <assert.h> //TODO: change wfhm assert(cond) to transmap Assert(cond, message)?
+#include <assert.h> //note: change wfhm assert(cond) to transmap Assert(cond, message)?
 #include <iostream>
 #include <iomanip>
 
@@ -407,11 +407,8 @@ private:
 
 			                        //return true; 
 			                    }
-			                    else // weren't able to update the descriptor so retry?
+			                    else // weren't able to update the descriptor so retry
 			                    {
-			                    	//continue; // resets the fail count which breaks wait-freedom, because transactional
-			                    	// helping approach is only lock-free (a transactional conflict is what causes the retry)
-
 			                    	goto update_main; // restart, preserving fail count and therefore wait-freedom
 			                    	// there must be a concurrent transaction for our descriptor update to have failed
 			                    	// update nodeinfo algorithm retries if we fail to update the descriptor
@@ -813,6 +810,9 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 	                //if(currDesc == oldCurrDesc)
 	                {
+	                	// the descriptor will save the old fields, so use those with an aborted update
+	                	//VALUE oldval = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+
 	                    //Update desc to logically add the key to the table since it's already physically there
 	                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
 
@@ -825,7 +825,13 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                             __sync_fetch_and_add(&g_count_ins, 1);
 	                            );
 
-	                        return ((DataNode *)node)->value;
+	                       	//if(IsAbortedUpdate(oldCurrDesc))
+	                       	//{
+	                       		//nodeDesc->value = oldval;
+	                		//	return oldval;
+	                       //	}
+	                		//else
+	                			return ((DataNode *)node)->value;
 	                    }
 	                    else
 	                    	goto find_main;
@@ -883,6 +889,9 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 		                //if(currDesc == oldCurrDesc)
 		                {
+		                	//if(IsAbortedUpdate(oldCurrDesc))
+		                	//	return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+
 		                    //Update desc to logically add the key to the table since it's already physically there
 		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
 
