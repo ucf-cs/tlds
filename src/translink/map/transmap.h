@@ -293,9 +293,11 @@ private:
     //void Print();
 
 //TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
-	inline bool putUpdate_first(KEY k,VALUE e_value, VALUE v, int T){//T is the executing thread's ID
+	inline bool putUpdate_first(KEY k,VALUE e_value, VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
 		if(e_value==v)
 			return true;
+
+		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		
 		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
 #ifdef useThreadWatch
@@ -304,15 +306,15 @@ private:
 
 		//Allocates a bucket, then stores the value, key and hash into it
 #ifdef USE_KEY
-		DataNode *temp_bucket=Allocate_Node(v,k,hash,T);
+		DataNode *temp_bucket=Allocate_Node(v,k,hash,T, nodeDesc);
 #else
-		DataNode *temp_bucket=Allocate_Node(v,hash,T);
+		DataNode *temp_bucket=Allocate_Node(v,hash,T, nodeDesc);
 #endif
 #ifdef DEBUG
 		assert(temp_bucket!=NULL);
 #endif
 
-		bool res=putUpdate_main(hash,e_value, temp_bucket,T);
+		bool res=putUpdate_main(hash,e_value, temp_bucket,T, nodeDesc);
 		if(!res){
 			Free_Node_Stack(temp_bucket, T);
 		}
@@ -324,7 +326,7 @@ private:
 
 		return res;
 	}
-	inline bool putUpdate_main(HASH hash, VALUE e_value, DataNode *temp_bucket, int T){
+	inline bool putUpdate_main(HASH hash, VALUE e_value, DataNode *temp_bucket, int T, NodeDesc* nodeDesc){
 
 		//This count bounds the number of times the thread will loop as a result of CAS failure.
 		int cas_fail_count=0;
@@ -405,7 +407,8 @@ private:
 			                             __sync_fetch_and_add(&g_count_ins, 1);
 			                            );
 
-			                        //return true; 
+			                        toReturn = node;
+			                        return true; 
 			                    }
 			                    else // weren't able to update the descriptor so retry
 			                    {
@@ -415,34 +418,34 @@ private:
 			                    }
 			                }
 
-			                //void* node2; // before removing replace
-			              	void *node2 = head[pos];
-			              	// replace node which is there now, with our new temp_bucket which was passed into the function
-							//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
-							if ((node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
-								//Pass the CAS
-								//Free_Node(node, T);//Frees the original
-								return true;
-							}
-							else{//Failed the CAS
-								if(node2 == NULL){//If it is NULL the return (see above for why)
-									return false;
-								}
-								else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-									return putUpdate_sub(unmark_spine(node2), e_value, temp_bucket, T);
-								}
-								//If it is the same node marked then we force expand the table
-								else if(isMarkedData(node2) && unmark_data(node2)==node){
-		#ifdef DEBUGPRINTS_MARK
-									printf("Failed due to mark--main\n");
-		#endif
-									node=forceExpandTable(T,head,pos,unmark_data(node2), MAIN_POW);//The expanded spine is returned
-									return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);//We Examine the next level
-								}
-								else{
-									return false;
-								}
-							}
+		// 	                //void* node2; // before removing replace
+		// 	              	void *node2 = head[pos];
+		// 	              	// replace node which is there now, with our new temp_bucket which was passed into the function
+		// 					//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
+		// 					if ((node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
+		// 						//Pass the CAS
+		// 						//Free_Node(node, T);//Frees the original
+		// 						return true;
+		// 					}
+		// 					else{//Failed the CAS
+		// 						if(node2 == NULL){//If it is NULL the return (see above for why)
+		// 							return false;
+		// 						}
+		// 						else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
+		// 							return putUpdate_sub(unmark_spine(node2), e_value, temp_bucket, T);
+		// 						}
+		// 						//If it is the same node marked then we force expand the table
+		// 						else if(isMarkedData(node2) && unmark_data(node2)==node){
+		// #ifdef DEBUGPRINTS_MARK
+		// 							printf("Failed due to mark--main\n");
+		// #endif
+		// 							node=forceExpandTable(T,head,pos,unmark_data(node2), MAIN_POW);//The expanded spine is returned
+		// 							return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);//We Examine the next level
+		// 						}
+		// 						else{
+		// 							return false;
+		// 						}
+		// 					}
 
 
 
@@ -591,41 +594,42 @@ private:
 			                             __sync_fetch_and_add(&g_count_ins, 1);
 			                            );
 
-			                        //return true; 
+			                        toReturn = node;
+			                        return true; 
 			                    }
 			                    else
 			                    	goto update_sub;
 			                }
 
-							void *node2=head[pos];
-							if((node2=replace_node(local, pos, node, temp_bucket))==node){
-							//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
-								//Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
-								return true;
-							}
-							else{
-								//Get the Current Node
-								if(node2 == NULL){//If it is NULL the return (see above for why)
-									return false;
-								}
-								else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-									local=unmark_spine(node2);
-									break;
-								}
-								//If it is the same node marked then we force expand the table
-								else if(isMarkedData(node2) && unmark_data(node2)==node){
-	#ifdef DEBUGPRINTS_MARK
-									printf("failed as a result of marked--sub 2\n");
-	#endif
-									node=forceExpandTable(T,local,pos,unmark_data(node2), right+SUB_POW);//The expanded spine is returned
-									local=unmark_spine(node);
-									break;
-								}
-								//We can linearize that the value was inserted then imeditly replace in any olther cas
-								else{
-									return false;
-								}
-							}
+	// 						void *node2=head[pos];
+	// 						if((node2=replace_node(local, pos, node, temp_bucket))==node){
+	// 						//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
+	// 							//Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
+	// 							return true;
+	// 						}
+	// 						else{
+	// 							//Get the Current Node
+	// 							if(node2 == NULL){//If it is NULL the return (see above for why)
+	// 								return false;
+	// 							}
+	// 							else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
+	// 								local=unmark_spine(node2);
+	// 								break;
+	// 							}
+	// 							//If it is the same node marked then we force expand the table
+	// 							else if(isMarkedData(node2) && unmark_data(node2)==node){
+	// #ifdef DEBUGPRINTS_MARK
+	// 								printf("failed as a result of marked--sub 2\n");
+	// #endif
+	// 								node=forceExpandTable(T,local,pos,unmark_data(node2), right+SUB_POW);//The expanded spine is returned
+	// 								local=unmark_spine(node);
+	// 								break;
+	// 							}
+	// 							//We can linearize that the value was inserted then imeditly replace in any olther cas
+	// 							else{
+	// 								return false;
+	// 							}
+	// 						}
 						}
 						else
 						{

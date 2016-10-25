@@ -116,6 +116,7 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
     // std::vector<Node*> delPredNodes;
     // std::vector<Node*> insNodes;
     // std::vector<Node*> insPredNodes;
+    std::vector<DataNode*> retVector;
 
     helpStack.Push(desc);
 
@@ -145,7 +146,11 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
         }
         else if(op.type == UPDATE)
         {
-        	ret = Update(op.key, desc, opid);
+        	// this pointer is passed by reference to the update function
+        	DataNode* toRet;
+        	ret = Update(op.key, desc, opid, toRet);
+        	// the pointer is copied into the vector
+        	retVector.push_back(toRet);
         }
         else
         {
@@ -164,14 +169,29 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
 
     if(ret != false)
     {
+    	//requires c++11 TODO: make sure makefile compiles with that std
+    	// any concurrent txn will see that ours is live and not use/modify our nodes
+    	// there are now no more concurrent operations from our transaction to use/modify nodes we've previously updated
+    	// before commit update the node values if our transaction owns them via their desc aliasing that of our txn
+        for(auto x: retVector)
+        {
+        	if(x->nodeDesc->desc == desc && x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE)
+        	{
+        		x->value = x->nodeDesc->value;
+        	}
+        }
+
+
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
         {
             //MarkForDeletion(delNodes, delPredNodes, desc);
+
             __sync_fetch_and_add(&g_count_commit, 1);
         }
     }
     else
     {
+    	// never updated node values, so don't have to undo those; they'll be interpreted correctly
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
         {
             //MarkForDeletion(insNodes, insPredNodes, desc);
@@ -208,7 +228,7 @@ inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
 	assert(temp_bucket!=NULL);
 	#endif
 	
-	bool res=putIfAbsent_main(hash,temp_bucket,T);
+	bool res=putIfAbsent_main(hash,temp_bucket,T, nodeDesc);
 	if(!res){
 		Free_Node_Stack(temp_bucket, T);
 	}
@@ -219,7 +239,7 @@ inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
 	return res;
 }
 
-inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T){
+inline bool putIfAbsent_main(HASH hash,DataNode *temp_bucket, int T, NodeDesc* nodedesc){
 	
 	//This count bounds the number of times the thread will loop as a result of CAS failure.
 	int cas_fail_count=0;
