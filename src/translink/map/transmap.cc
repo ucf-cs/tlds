@@ -753,7 +753,7 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
     uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
 
     // NOTE: if the current descriptor is committed, or aborted (not live/active) and referencing an update, then the key exists
-    // aborted and live update operations should have this method return that the key exists, then the old value
+    // aborted update operations should have this method return that the key exists, then the old value
     // from the descriptor should be used
     return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || ((nodeDesc->desc->status == COMMITTED || nodeDesc->desc->status == ABORTED) && opType == UPDATE);
 }

@@ -829,12 +829,18 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                             __sync_fetch_and_add(&g_count_ins, 1);
 	                            );
 
-	                       	//if(IsAbortedUpdate(oldCurrDesc))
-	                       	//{
+	                        // if it's the same transaction and was updated then we have to use the buffered update value
+	                   //     	if(nodeDesc->desc == oldCurrDesc->desc && oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE)
+	                   //     	{
+	                   //     		//nodeDesc->value = oldval;
+	                			// return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+	                   //     	}
+                           	if(IsAbortedUpdate(oldCurrDesc))
+	                       	{
 	                       		//nodeDesc->value = oldval;
-	                		//	return oldval;
-	                       //	}
-	                		//else
+	                			return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+	                       	}
+	                		else
 	                			return ((DataNode *)node)->value;
 	                    }
 	                    else
@@ -907,8 +913,16 @@ They don't modify the table and if a data node is marked they ignore the marking
 		                            (
 		                             __sync_fetch_and_add(&g_count_ins, 1);
 		                            );
-
-		                        return ((DataNode *)node)->value;
+		                        
+		                        // if it's the same transaction and was updated then we have to use the buffered update value
+		                       	//if(nodeDesc->desc == oldCurrDesc->desc && oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE)
+		                       	if(IsAbortedUpdate(oldCurrDesc))
+		                       	{
+		                       		//nodeDesc->value = oldval;
+		                			return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+		                       	}
+		                        else
+		                        	return ((DataNode *)node)->value;
 		                    }
 		                    else
 		                    	goto find_sub;
@@ -974,7 +988,13 @@ They don't modify the table and if a data node is marked they ignore the marking
                              __sync_fetch_and_add(&g_count_ins, 1);
                             );
 
-                        return ((DataNode *)node)->value;
+                    		if(IsAbortedUpdate(oldCurrDesc))
+	                       	{
+	                       		//nodeDesc->value = oldval;
+	                			return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+	                       	}
+	                        else
+	                        	return ((DataNode *)node)->value;
                     }
                     else
                     	goto find_final; // keep retrying until we're aborted by a concurrent txn, or we succeed
