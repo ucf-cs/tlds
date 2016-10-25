@@ -131,13 +131,25 @@ void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t
             uint32_t op_dist = randomDistOp(randomGenOp);
             //ops[t].type = op_dist <= insertion ? INSERT : op_dist <= insertion + deletion ? DELETE : FIND;
             if(op_dist <= insertion)
+            {
                 ops[t].type = INSERT;
+                ops[t].value = randomDistKey(randomGenKey);
+            }
             else if(op_dist <= insertion + deletion)
+            {
                 ops[t].type = DELETE;
+                ops[t].value = 0;
+            }
             else if(op_dist <= insertion + deletion + update)
+            {
                 ops[t].type = UPDATE;
+                ops[t].value = randomDistKey(randomGenKey);
+            }
             else
+            {
                 ops[t].type = FIND;
+                ops[t].value = 0;
+            }
 
             ops[t].key  = randomDistKey(randomGenKey);
         }

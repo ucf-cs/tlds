@@ -835,13 +835,23 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                   //     		//nodeDesc->value = oldval;
 	                			// return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
 	                   //     	}
-                           	if(IsAbortedUpdate(oldCurrDesc))
-	                       	{
-	                       		//nodeDesc->value = oldval;
-	                			return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
-	                       	}
+	                        // last txn at this node was an aborted update by a previous txn
+                    //        	if(IsAbortedUpdate(oldCurrDesc))
+	                   //     	{
+	                   //     		//nodeDesc->value = oldval;
+	                			// return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+	                   //     	}
+	                        // if this txn did an update here, then use that value
+	                        if (IsLiveUpdate(oldCurrDesc))
+	                        {
+	                        	nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+	                        	return nodeDesc->value;
+	                        }
 	                		else
+	                		{
+	                			// if it's not a live update then use the value at the node
 	                			return ((DataNode *)node)->value;
+	                		}
 	                    }
 	                    else
 	                    	goto find_main;
@@ -916,13 +926,17 @@ They don't modify the table and if a data node is marked they ignore the marking
 		                        
 		                        // if it's the same transaction and was updated then we have to use the buffered update value
 		                       	//if(nodeDesc->desc == oldCurrDesc->desc && oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE)
-		                       	if(IsAbortedUpdate(oldCurrDesc))
-		                       	{
-		                       		//nodeDesc->value = oldval;
-		                			return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
-		                       	}
-		                        else
-		                        	return ((DataNode *)node)->value;
+		                        // if this txn did an update here, then use that value
+		                        if (IsLiveUpdate(oldCurrDesc))
+		                        {
+		                        	nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+		                        	return nodeDesc->value;
+		                        }
+		                		else
+		                		{
+		                			// if it's not a live update then use the value at the node
+		                			return ((DataNode *)node)->value;
+		                		}
 		                    }
 		                    else
 		                    	goto find_sub;
@@ -988,13 +1002,17 @@ They don't modify the table and if a data node is marked they ignore the marking
                              __sync_fetch_and_add(&g_count_ins, 1);
                             );
 
-                    		if(IsAbortedUpdate(oldCurrDesc))
-	                       	{
-	                       		//nodeDesc->value = oldval;
-	                			return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
-	                       	}
-	                        else
-	                        	return ((DataNode *)node)->value;
+	                        // if this txn did an update here, then use that value
+	                        if (IsLiveUpdate(oldCurrDesc))
+	                        {
+	                        	nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+	                        	return nodeDesc->value;
+	                        }
+	                		else
+	                		{
+	                			// if it's not a live update then use the value at the node
+	                			return ((DataNode *)node)->value;
+	                		}
                     }
                     else
                     	goto find_final; // keep retrying until we're aborted by a concurrent txn, or we succeed

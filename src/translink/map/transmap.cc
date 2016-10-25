@@ -175,9 +175,15 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
     	// before commit update the node values if our transaction owns them via their desc aliasing that of our txn
         for(auto x: retVector)
         {
-        	if(x->nodeDesc->desc == desc && x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE)
+        	// everything must have returned successfully to get here, so if the last operation was an update then we
+        	// copy the new value in, if it was an insert we overwrite the value with itself, if it was a find 
+        	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE)
         	{
-        		x->value = x->nodeDesc->value;
+        		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE || 
+        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == FIND && x->nodeDesc->value != 0) )
+        		{
+        			x->value = x->nodeDesc->value;
+        		}
         	}
         }
 
@@ -755,10 +761,19 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
     // NOTE: if the current descriptor is committed, or aborted (not live/active) and referencing an update, then the key exists
     // aborted update operations should have this method return that the key exists, then the old value
     // from the descriptor should be used
-    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || ((nodeDesc->desc->status == COMMITTED || nodeDesc->desc->status == ABORTED) && opType == UPDATE);
+    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || (opType == UPDATE);
+    // if the operation performed was an update then the key remains in the hash map regardless of return value
+    	//((nodeDesc->desc->status == COMMITTED || nodeDesc->desc->status == ABORTED) && opType == UPDATE);
 }
 
-inline bool TransMap::IsAbortedUpdate(NodeDesc* oldCurrDesc)
+// inline bool TransMap::IsAbortedUpdate(NodeDesc* oldCurrDesc)
+// {
+// 	return ((oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE) && (oldCurrDesc->desc->status == ABORTED));
+// }
+
+inline bool TransMap::IsLiveUpdate(NodeDesc* nodeDesc)
 {
-	return (oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE && oldCurrDesc->desc->status == ABORTED);
+	if (nodeDesc->desc->ops[nodeDesc->opid].type == UPDATE || 
+	(nodeDesc->desc->ops[x->nodeDesc->opid].type == FIND && nodeDesc->value != 0) )
+		return true;
 }
