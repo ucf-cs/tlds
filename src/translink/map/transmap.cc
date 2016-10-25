@@ -92,6 +92,11 @@ bool TransMap::ExecuteOps(Desc* desc, int threadId)
     return ret;
 }
 
+inline VALUE TransMap::GetValue(NodeDesc* oldCurrDesc)
+{
+	return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
+}
+
 inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
 {
     if(desc->status != ACTIVE)
@@ -180,9 +185,9 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
         	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE)
         	{
         		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE || 
-        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == FIND && x->nodeDesc->value != 0) )
+        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == FIND && x->nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
         		{
-        			x->value = x->nodeDesc->value;
+        			x->value = x->nodeDesc->desc->ops[nodeDesc->opid].value;//x->nodeDesc->value;
         		}
         	}
         }
@@ -774,6 +779,6 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
 inline bool TransMap::IsLiveUpdate(NodeDesc* nodeDesc)
 {
 	if (nodeDesc->desc->ops[nodeDesc->opid].type == UPDATE || 
-	(nodeDesc->desc->ops[nodeDesc->opid].type == FIND && nodeDesc->value != 0) )
+	(nodeDesc->desc->ops[nodeDesc->opid].type == FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
 		return true;
 }

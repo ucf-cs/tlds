@@ -407,7 +407,7 @@ private:
 			                             __sync_fetch_and_add(&g_count_ins, 1);
 			                            );
 
-			                        toReturn = node;
+			                        toReturn = (DataNode *)node;//node;
 			                        return true; 
 			                    }
 			                    else // weren't able to update the descriptor so retry
@@ -594,7 +594,7 @@ private:
 			                             __sync_fetch_and_add(&g_count_ins, 1);
 			                            );
 
-			                        toReturn = node;
+			                        toReturn = (DataNode *)node;//node;
 			                        return true; 
 			                    }
 			                    else
@@ -844,8 +844,8 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                        // if this txn did an update here, then use that value
 	                        if (IsLiveUpdate(oldCurrDesc))
 	                        {
-	                        	nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
-	                        	return nodeDesc->value;
+	                        	nodeDesc->desc->ops[nodeDesc->opid].value = GetValue(oldCurrDesc);//oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+	                        	return nodeDesc->desc->ops[nodeDesc->opid].value;//nodeDesc->value;
 	                        }
 	                		else
 	                		{
@@ -929,8 +929,8 @@ They don't modify the table and if a data node is marked they ignore the marking
 		                        // if this txn did an update here, then use that value
 		                        if (IsLiveUpdate(oldCurrDesc))
 		                        {
-		                        	nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
-		                        	return nodeDesc->value;
+		                        	nodeDesc->desc->ops[nodeDesc->opid].value = GetValue(oldCurrDesc);//nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+		                        	return nodeDesc->desc->ops[nodeDesc->opid].value;//nodeDesc->value;
 		                        }
 		                		else
 		                		{
@@ -1005,8 +1005,8 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                        // if this txn did an update here, then use that value
 	                        if (IsLiveUpdate(oldCurrDesc))
 	                        {
-	                        	nodeDesc->value = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
-	                        	return nodeDesc->value;
+	                        	nodeDesc->desc->ops[nodeDesc->opid].value = GetValue(oldCurrDesc);//nodeDesc->value = //oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+	                        	return nodeDesc->desc->ops[nodeDesc->opid].value;//nodeDesc->value;
 	                        }
 	                		else
 	                		{
