@@ -774,6 +774,6 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
 inline bool TransMap::IsLiveUpdate(NodeDesc* nodeDesc)
 {
 	if (nodeDesc->desc->ops[nodeDesc->opid].type == UPDATE || 
-	(nodeDesc->desc->ops[x->nodeDesc->opid].type == FIND && nodeDesc->value != 0) )
+	(nodeDesc->desc->ops[nodeDesc->opid].type == FIND && nodeDesc->value != 0) )
 		return true;
 }
