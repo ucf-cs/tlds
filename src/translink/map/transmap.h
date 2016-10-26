@@ -12,6 +12,15 @@
 #include <iostream>
 #include <iomanip>
 
+#define HASH unsigned int
+#define KEY_SIZE 32
+#define toHash 5
+#ifndef SUB_POW
+	#define SUB_POW 6
+#endif
+#define SUB_SIZE POW(SUB_POW)
+#define MAX_CAS_FAILURE 10
+
 template <class KEY, class VALUE>//, typename _tMemory>
 class TransMap
 {
@@ -141,15 +150,6 @@ public:
         uint8_t index;
     };
 
-#define HASH unsigned int
-#define KEY_SIZE 32
-#define toHash 5
-#ifndef SUB_POW
-	#define SUB_POW 6
-#endif
-#define SUB_SIZE POW(SUB_POW)
-#define MAX_CAS_FAILURE 10
-
 #ifdef useThreadWatch
 	HASH * /* volatile  */ Thread_watch;
 #endif
@@ -173,31 +173,31 @@ public:
 		/* volatile  */ unsigned int spine_elements;
 	#endif
 
-	TransMap::TransMap(/*Allocator<Node>* nodeAllocator,*/ Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads)
+	TransMap(/*Allocator<Node>* nodeAllocator,*/ Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator, uint64_t initalPowerOfTwo, uint64_t numThreads);
 	~TransMap();
 
 	bool ExecuteOps(Desc* desc, int threadId);
 
     //Desc* AllocateDesc(uint8_t size);
 
-    inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T);
-    inline bool TransMap::Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn);
-    inline bool TransMap::Delete(Desc* desc, uint8_t opid, KEY k, int T);
-    inline VALUE TransMap::Find(Desc* desc, uint8_t opid, KEY k, int T);
+    inline bool Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T);
+    inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn);
+    inline bool Delete(Desc* desc, uint8_t opid, KEY k, int T);
+    inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T);
     //NOTE: add markfordeletion to Find
 
 
-	int size(){ return elements; }
+	// int size(){ return elements; }
 
 
-	//Debug Interfaces//
-	int capacity(){
-		#ifdef SPINE_COUNT
-	 		return (SUB_SIZE*spine_elements + MAIN_SIZE);
-	  	#else
-			return -1;
-			#endif
-	}
+	// //Debug Interfaces//
+	// int capacity(){
+	// 	#ifdef SPINE_COUNT
+	//  		return (SUB_SIZE*spine_elements + MAIN_SIZE);
+	//   	#else
+	// 		return -1;
+	// 	#endif
+	// }
 	
 
 	//TODO UPDATE HASH FUNCTION
@@ -266,8 +266,8 @@ private:
 	inline void* unmark_data(void *s);
 
 	int	 get_size();
-	int	 size();
-	int	 capacity();
+	// int	 size();
+	// int	 capacity();
 
 	inline int POW(int x);
 
@@ -285,278 +285,6 @@ private:
     //void MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc);
 
     //void Print();
-
-//TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
-    //inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
-	inline bool TransMap::Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
-		/*if(e_value==v)
-			return true;*/
-
-		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-		
-		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
-#ifdef useThreadWatch
-		Thread_watch[T]=hash;//Buts the hash in the watchlist
-#endif
-
-		//Allocates a bucket, then stores the value, key and hash into it
-#ifdef USE_KEY
-		DataNode *temp_bucket=Allocate_Node(v,k,hash,T, nodeDesc);
-#else
-		DataNode *temp_bucket=Allocate_Node(v,hash,T, nodeDesc);
-#endif
-#ifdef DEBUG
-		assert(temp_bucket!=NULL);
-#endif
-
-		bool res=putUpdate_main(hash,/*e_value,*/ temp_bucket,T, nodeDesc, toReturn);
-		if(!res){
-			Free_Node_Stack(temp_bucket, T);
-		}
-
-#ifdef useThreadWatch
-		Thread_watch[T]=0;//Removes the hash from the watchlist
-#endif
-
-
-		return res;
-	}
-
-	inline bool putUpdate_main(HASH hash, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
-
-		//This count bounds the number of times the thread will loop as a result of CAS failure.
-		int cas_fail_count=0;
-	update_main:
-		//Determines the position to insert at by examining the "M" right most bits
-		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
-#ifdef DEBUG
-		assert(pos >=0 && pos <MAIN_SIZE);//Check to make sure position is valid
-#endif
-
-		void *node=getNodeRaw(head,pos);//Gets the pointer value at the position of interest
-		
-		//Examining Main Spine First
-		while(true){
-
-			if(cas_fail_count>=MAX_CAS_FAILURE){//Checks to see if it failed the CAS to many times
-				mark_data_node(head,pos);//If it has then it marks that node
-#ifdef DEBUGPRINTS_MARK
-				printf("Marked a Node--MAin\n");
-#endif
-			}
-
-			if(node==NULL){//See Logic Above
-				return false;
-			}
-			else if(isSpine(node)){//Check the Sub Spines
-				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc, toReturn);
-
-			}
-			else if(isMarkedData(node)){//Force Expand The table because someone could not pass the cas
-#ifdef DEBUGPRINTS
-			    printf("marked found on main!\n");
-#endif
-			    node=forceExpandTable(T,head,pos,unmark_data(node), MAIN_POW);
-				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc, toReturn);
-			}
-			else{//It is a Data Node
-#ifdef DEBUG
-				if( ((DataNode *)node)->hash==0){
-					printf("Zero Hash!");
-				}
-#endif
-				if( ((DataNode *)node)->hash==temp_bucket->hash ){//&& IsKeyExist( ((DataNode *)node)->nodeDesc ) ){//It is a key match
-					NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
-					FinishPendingTxn(oldCurrDesc, desc);
-
-		            if(IsSameOperation(oldCurrDesc, nodeDesc))
-		            {
-		                return true;
-		            }
-
-		            if( IsKeyExist( oldCurrDesc ) )
-		            {
-						// we have a key with matching value to update, so update nodedesc
-	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
-
-		                if(desc->status != ACTIVE)
-		                {
-		                    return false;
-		                }
-
-		                //if(currDesc == oldCurrDesc)
-		                {
-		                    //Update desc to logically add the key to the table since it's already physically there
-		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
-
-		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-		                    // to currDesc leading to a successful comparison in the if statement below
-		                    if(currDesc == oldCurrDesc)
-		                    {
-		                        ASSERT_CODE
-		                            (
-		                             __sync_fetch_and_add(&g_count_ins, 1);
-		                            );
-
-		                        toReturn = (DataNode *)node;//node;
-		                        return true; 
-		                    }
-		                    else // weren't able to update the descriptor so retry
-		                    {
-		                    	goto update_main; // restart, preserving fail count and therefore wait-freedom
-		                    	// there must be a concurrent transaction for our descriptor update to have failed
-		                    	// update nodeinfo algorithm retries if we fail to update the descriptor
-		                    }
-		                }
-					}
-					else // the key they wanted to insert, isn't logically in the table so we can insert
-	            	{
-	            		return false; // key isn't in the table, so can't update (follows semantics of journal paper)
-	            	}
-					//else
-					//	goto noMatch_updateMain;
-				}
-				else{//Create a Spine
-					//Allocate Spine will return true if it succeded, and false if it failed.
-					//See Below for functionality.
-				//noMatch_updateMain:
-					bool res=Allocate_Spine(T, head,pos,(DataNode *)node,temp_bucket, MAIN_POW);
-					if(res){
-						increment_size();//Increments Size
-						return true;
-					}
-					else{
-						cas_fail_count++;
-						node=getNodeRaw(head,pos);
-						continue;
-					}
-				}//End Else Create Spine
-			}//End Else, Data Node
-		}//End While Loop
-	}//End Update Main
-
-	/**
-	 See Put_Main for logic Discription, this section is vary similar to put_main, but instead allows multiple level traversal
-	 If you desire 3 or more different lengths of memory array then copy put_main,
-	 replace MAIN_POW/MAIN_SIZE with correct values, then change put_main's calls to put subs to the copied function
-
-	 **DONT FORGET: to do get/delete as well
-	 */
-	inline bool putUpdate_sub(void* /* volatile  */* local, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
-	update_sub:
- 		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
-		for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
-			int pos=h&(SUB_SIZE-1);//Gets the sig bits from the hash
-#ifdef DEBUG
-			assert(pos >=0 && pos <SUB_SIZE);//Check to make sure pos is valid
-#endif
-			h=h>>SUB_POW;//Adjust the has for the next round
-			void *node=getNodeRaw(local,pos);
-			
-			int cas_fail_count=0;//CAS fail count, as described in put_main
-			do{
-				if(cas_fail_count>=MAX_CAS_FAILURE){
-#ifdef DEBUGPRINTS_MARK
-					printf("Marked a node sub\n");
-#endif
-					mark_data_node(local,pos);
-				}
-
-				//Gets the siginifcant node
-				
-
-				if(node==NULL){//Same logic as Put Main
-					return false;
-				}
-				else if(isSpine(node)){//If it is a spine break out of the while loop and continue
-					//the for loop, then examine the enxt depth
-					local=unmark_spine(node);
-					break;
-				}
-				else if(isMarkedData(node)){
-#ifdef DEBUGPRINTS_MARK
-					printf("Found marked sub\n");
-#endif
-					//Local must be a spine node, so examine the next depth
-					node=forceExpandTable(T,local,pos,unmark_data(node), right+SUB_POW);
-					local=unmark_spine(node);
-					break;
-				}
-				else{//is Data Node
-#ifdef DEBUG
-					if( ((DataNode *)node)->hash==0){
-						quick_print(local);
-						printf("Zero Hash!");
-
-					}
-#endif
-					if( ((DataNode *)node)->hash==temp_bucket->hash  ){//It is a key match
-						NodeDesc* oldCurrDesc = ((DataNode *)node)->nodeDesc;
-						FinishPendingTxn(oldCurrDesc, desc);
-
-			            if(IsSameOperation(oldCurrDesc, nodeDesc))
-			            {
-			                return true;
-			            }
-
-			            if( IsKeyExist( oldCurrDesc ) )
-			            {
-							/*if( ((DataNode *)node)->value != e_value){
-								return false;
-							}*/
-
-							NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
-
-			                if(desc->status != ACTIVE)
-			                {
-			                    return false;
-			                }
-
-			                //if(currDesc == oldCurrDesc)
-			                {
-			                    //Update desc to logically add the key to the table since it's already physically there
-			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
-
-			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-			                    // to currDesc leading to a successful comparison in the if statement below
-			                    if(currDesc == oldCurrDesc)
-			                    {
-			                        ASSERT_CODE
-			                            (
-			                             __sync_fetch_and_add(&g_count_ins, 1);
-			                            );
-
-			                        toReturn = (DataNode *)node;//node;
-			                        return true; 
-			                    }
-			                    else
-			                    	goto update_sub;
-			                }
-						}
-						else
-						{
-							return false; //key not there, can't update
-						}
-					}
-					else{//Create a Spine
-					//noMatch_updateSub:
-						bool res=Allocate_Spine(T, local,pos,(DataNode *)node,temp_bucket, right+SUB_POW);
-						if(res){
-							increment_size();
-							return true;
-						}
-						else{
-							cas_fail_count++;
-							node=getNodeRaw(local,pos);
-							continue;
-						}
-					}//End Else Create Spine
-				}//End Else, Data Node
-			}while(true);//End While Loop
-		}//End For Loop
-	}//End update sub
-
-	
 
 	/**
 	This function is used to expand the table at a position that is under heavy CAS contention.
@@ -635,7 +363,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 	// this has to be caught and interpreted by the helpops function when assigning transaction status back to the ret value
 	// for the while loop and needs to be done for map interface in general in the update template pseudocode
 	//inline VALUE get_first(KEY k, int T){
-	inline VALUE TransMap::Find(Desc* desc, uint8_t opid, KEY k, int T)
+	inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T)
 		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
@@ -905,7 +633,7 @@ If it failes to remove an element, and the current node is now...
 **/
 	//inline bool remove_first(KEY k, int T){
 	//NOTE: nodeDesc is pass by value
-	inline bool TransMap::Delete(Desc* desc, uint8_t opid, KEY k, int T){
+	inline bool Delete(Desc* desc, uint8_t opid, KEY k, int T){
 		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
@@ -1145,56 +873,6 @@ If it failes to remove an element, and the current node is now...
 	}
 	
 
-#ifdef useVectorPool
-		else{//IF it is in use then  place it in the vector
-			//Add to vector
-			int size=Thread_pool_vector_size[T];
-			
-			for(int i=0; i<size; i++){//Go through each element
-				DataNode *D=(DataNode *)(Thread_pool_vector[T][i]);
-				if(D==NULL){//If null, place it in the vector
-					Thread_pool_vector[T][i]=node;
-					#ifdef DEBUGPRINTS_RECYCLE
-					    printf("Placed in vector %p by %d\n",node,T);
-					#endif
-					return;
-				}
-				else if(!inUse(D->hash, T)){//If it is not inuse move the node to the stack, then replace it
-					if(Thread_pool_stack[T]==NULL){//Mo
-						Thread_pool_stack[T]=D;
-						((DataNode *)D)->next=NULL;
-						#ifdef DEBUGPRINTS_RECYCLE
-							printf("Placed on Stack(3) %p by %d\n",node,T);
-						#endif
-					}
-					else{
-						D->next=Thread_pool_stack[T];
-						Thread_pool_stack[T]=D;
-						
-						#ifdef DEBUGPRINTS_RECYCLE
-						printf("Move (P:(%i)) to Stack %p by %d\n",i,D,T);
-						#endif
-					}
-					Thread_pool_vector[T][i]=node;
-					#ifdef DEBUGPRINTS_RECYCLE
-					printf("Placed(2) in vector (%i) %p by %d\n",i,node,T);
-					#endif
-					
-					return;
-				}
-			}//End For Loop
-			//Should not reach!
-			//No Valid Spot Found Expand by one
-			
-			Thread_pool_vector[T]=(void **)realloc(Thread_pool_vector[T],sizeof(void *)*(size+1));
-			Thread_pool_vector[T][size]=node;
-			Thread_pool_vector_size[T]=size+1;
-		}//End Else
-#endif
-#else
-		return;
-#endif
-	}
 	
 	/*
 	Adds a node to the stack, used for when a thread fails to insert its node and chooses not to try again.

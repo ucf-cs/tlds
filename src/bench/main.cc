@@ -17,6 +17,7 @@
 #include "common/timehelper.h"
 #include "common/threadbarrier.h"
 #include "bench/setadaptor.h"
+#include "bench/mapadaptor.h"
 
 template<typename T>
 void WorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, ThreadBarrier& barrier,  T& set)
