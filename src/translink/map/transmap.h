@@ -180,25 +180,11 @@ public:
 
     //Desc* AllocateDesc(uint8_t size);
 
-// //TODO: update prototypes
-//     VALUE get(KEY k, int T){return get_first(k,T);};
-// 	bool remove(KEY k,int T){return remove_first(k,T);};
-// 	bool putUpdate(KEY k, VALUE e_value, VALUE n_value, int T){ return putUpdate_first(k,e_value,n_value,T);};
-// 	bool putIfAbsent(KEY k, VALUE v, int T){ return putIfAbsent_first(k,v,T);};
-
-	// TODO: update these prototypes once functions are worked out in the cc file
-    //ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
     inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T);
-    inline bool TransMap::Update();
-    inline bool TransMap::Find();
-    inline bool TransMap::Delete();
-
-    //bool Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
-
+    inline bool TransMap::Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn);
+    inline bool TransMap::Delete(Desc* desc, uint8_t opid, KEY k, int T);
+    inline VALUE TransMap::Find(Desc* desc, uint8_t opid, KEY k, int T);
     //NOTE: add markfordeletion to Find
-    //bool Find(uint32_t key, Desc* desc, uint8_t opid);
-
-    //bool Update(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
 
 
 	int size(){ return elements; }
@@ -323,7 +309,7 @@ private:
 		assert(temp_bucket!=NULL);
 #endif
 
-		bool res=putUpdate_main(hash,/*e_value,*/ temp_bucket,T, nodeDesc);
+		bool res=putUpdate_main(hash,/*e_value,*/ temp_bucket,T, nodeDesc, toReturn);
 		if(!res){
 			Free_Node_Stack(temp_bucket, T);
 		}
@@ -335,7 +321,8 @@ private:
 
 		return res;
 	}
-	inline bool putUpdate_main(HASH hash, VALUE /*e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc){
+
+	inline bool putUpdate_main(HASH hash, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
 
 		//This count bounds the number of times the thread will loop as a result of CAS failure.
 		int cas_fail_count=0;
@@ -362,7 +349,7 @@ private:
 				return false;
 			}
 			else if(isSpine(node)){//Check the Sub Spines
-				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T);
+				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc, toReturn);
 
 			}
 			else if(isMarkedData(node)){//Force Expand The table because someone could not pass the cas
@@ -370,7 +357,7 @@ private:
 			    printf("marked found on main!\n");
 #endif
 			    node=forceExpandTable(T,head,pos,unmark_data(node), MAIN_POW);
-				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T);
+				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc, toReturn);
 			}
 			else{//It is a Data Node
 #ifdef DEBUG
@@ -455,7 +442,7 @@ private:
 
 	 **DONT FORGET: to do get/delete as well
 	 */
-	inline bool putUpdate_sub(void* /* volatile  */* local, /*VALUE e_value,*/ DataNode *temp_bucket, int T){
+	inline bool putUpdate_sub(void* /* volatile  */* local, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
 	update_sub:
  		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
 		for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
@@ -647,20 +634,21 @@ They don't modify the table and if a data node is marked they ignore the marking
 //NOTE: for the map interface, can't return true or false for the first time, have to return a non-null value or null
 	// this has to be caught and interpreted by the helpops function when assigning transaction status back to the ret value
 	// for the while loop and needs to be done for map interface in general in the update template pseudocode
-	inline VALUE get_first(KEY k, int T){
+	//inline VALUE get_first(KEY k, int T){
+	inline VALUE TransMap::Find(Desc* desc, uint8_t opid, KEY k, int T)
 		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the hash to the watchlist
 #endif
-		VALUE v=get_main(h);//Calls the get main function							//TODO: MemCopy?
+		VALUE v=get_main(h, nodeDesc);//Calls the get main function							//TODO: MemCopy?
 #ifdef useThreadWatch
 		Thread_watch[T]=0;//Removes the hash from the watchlist
 #endif
 		return v;
 	}
 	
-	inline VALUE get_main(HASH hash) {
+	inline VALUE get_main(HASH hash, NodeDesc* nodeDesc) {
 	find_main:
 		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 	#ifdef DEBUG	
@@ -672,7 +660,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 		if (node == NULL)
 			return (VALUE)NULL;//Returns NULL because key is not in the table
 		else if(isSpine(node))
-			return get_sub(hash,unmark_spine(node));//Checks the Sub_Spine
+			return get_sub(hash,unmark_spine(node), nodeDesc);//Checks the Sub_Spine
 		else{//Is Data Node//Found a Data if it is a key match then it returns the value
 			if ( ((DataNode *)node)->hash == hash)									//HASH COMPARE
 			{
@@ -681,7 +669,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 	            if(IsSameOperation(oldCurrDesc, nodeDesc))
 	            {
-	                return true; //TODO: need to return some value here, maybe make up a sentinel
+	                return 0; //TODO: need to return some value here, maybe make up a sentinel
 	            }
 
 	            // NOTE: because we use a perfect hash function with our wfhm, if the key
@@ -740,7 +728,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 		}//End Is Data Node
 	}//End Get Main
 	
-	inline VALUE get_sub(HASH hash, void* /* volatile  */* local){
+	inline VALUE get_sub(HASH hash, void* /* volatile  */* local, NodeDesc* nodeDesc){
 	find_sub:
 		HASH h=hash>>MAIN_POW; //Adjusts the hash bits
 		int pos=h&(SUB_SIZE-1);//determines the position to check
@@ -915,21 +903,23 @@ If it failes to remove an element, and the current node is now...
 	Data Node that is a key match, then we return true and we linearize it that the key was deleted then immeditely inserted
 		
 **/
-	inline bool remove_first(KEY k, int T){
+	//inline bool remove_first(KEY k, int T){
+	//NOTE: nodeDesc is pass by value
+	inline bool TransMap::Delete(Desc* desc, uint8_t opid, KEY k, int T){
 		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the key to the watchlist
 #endif
 
-		bool res=remove_main(h, T);//Checks For the key and removes it if found
+		bool res=remove_main(h, T, nodeDesc);//Checks For the key and removes it if found
 #ifdef useThreadWatch
 		Thread_watch[T]=0;//Removes the key from the watch list
 #endif
 		return res;//Returns the result.
 	}
 	
-	inline bool remove_main(HASH hash, int T) {
+	inline bool remove_main(HASH hash, int T, NodeDesc* nodeDesc) {
 	delete_main:
 		int pos=getMAINPOS(hash);//&(MAIN_SIZE-1));
 		#ifdef DEBUG
@@ -941,10 +931,10 @@ If it failes to remove an element, and the current node is now...
 			return false;//Key is not in the table so return false
 		if(isMarkedData(node)){//If it is marked the force expand, and examine the sub spine
 			node=forceExpandTable(T,head,pos,unmark_data(node), MAIN_POW);
-			return remove_sub(hash,unmark_spine(node), T);
+			return remove_sub(hash,unmark_spine(node), T, nodeDesc);
 		} 
 		if(isSpine(node))//examine the subspine
-			return remove_sub(hash,unmark_spine(node), T);
+			return remove_sub(hash,unmark_spine(node), T, nodeDesc);
 		
 		//Check if it is a Key Match
 		if ( ((DataNode *)node)->hash == hash) {//HASH COMPARE
@@ -997,7 +987,7 @@ If it failes to remove an element, and the current node is now...
 		return false;
 	}//End Remove Main
 	
-	inline bool remove_sub(HASH hash, void* /* volatile  */ * local, int T) {
+	inline bool remove_sub(HASH hash, void* /* volatile  */ * local, int T, NodeDesc* nodeDesc) {
 	delete_sub:
 		HASH h=hash>>MAIN_POW;//Adjusts the hash
 		int pos=h&(SUB_SIZE-1);//Gets the position of the sig node

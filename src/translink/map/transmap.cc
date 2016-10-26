@@ -97,7 +97,7 @@ inline VALUE TransMap::GetValue(NodeDesc* oldCurrDesc)
 	return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
 }
 
-inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
+inline std::vector<VALUE> TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
 {
     if(desc->status != ACTIVE)
     {
@@ -117,43 +117,29 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
     }
 
     bool ret = true;
-    // std::vector<Node*> delNodes;
-    // std::vector<Node*> delPredNodes;
-    // std::vector<Node*> insNodes;
-    // std::vector<Node*> insPredNodes;
     std::vector<DataNode*> retVector;
+    std::vector<VALUE> foundValues;
 
     helpStack.Push(desc);
 
-    //TODO: change these to right function calls
     while(desc->status == ACTIVE && ret != FAIL && opid < desc->size)
     {
         const Operator& op = desc->ops[opid];
 
         if(op.type == INSERT)
         {
-            // Node* inserted;
-            // Node* pred;
-            //ret = Insert(op.key, desc, opid);//, inserted, pred);
-            ret = Insert(desc, opid, op.k, op.v, int T);
-
-            // insNodes.push_back(inserted);
-            // insPredNodes.push_back(pred);
+            ret = Insert(desc, opid, op.key, op.value, T);
         }
         else if(op.type == DELETE)
         {
-            // Node* deleted;
-            // Node* pred;
-            ret = Delete(op.key, desc, opid);//, deleted, pred);            
-
-            // delNodes.push_back(deleted);
-            // delPredNodes.push_back(pred);
+            //ret = Delete(op.key, desc, opid);
+            ret = Delete(desc, opid, op.key, T);
         }
         else if(op.type == UPDATE)
         {
         	// this pointer is passed by reference to the update function
         	DataNode* toRet;
-        	ret = Update(op.key, desc, opid, toRet);
+        	ret = Update(desc, opid, op.key, op.value, T, toRet);
         	// the pointer is copied into the vector
         	retVector.push_back(toRet);
         }
@@ -161,9 +147,13 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
         {
             // ret = Find(op.key, desc, opid);
             // if find is successful it returns a non-null value
-        	if (Find(op.key, desc, opid) == (VALUE)NULL)
+            VALUE retVal = Find(desc, opid, op.key, T);
+
+        	if (retVal == (VALUE)NULL)
         		ret = false;
         	ret = true;
+        	if (retVal != 0)
+        		foundValues.push_back(retVal);
         	// TODO: edit helpops to return an array of values?
         }
         
@@ -192,13 +182,16 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
         	}
         }
 
-
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
         {
             //MarkForDeletion(delNodes, delPredNodes, desc);
 
             __sync_fetch_and_add(&g_count_commit, 1);
         }
+        else
+        	exit(9999);
+        	// NOTE: if this happens it means the updates need to be undone here
+        return foundValues;
     }
     else
     {
@@ -207,7 +200,8 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int threadId)
         {
             //MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
-        }     
+        }
+        return NULL;
     }
 }
 
@@ -280,7 +274,7 @@ insert_main:
 			}	
 			else{ //NOTE: don't need to check isKeyExist for a spine node, because they are never deleted under any circumstances
 				if( /*node2!=NULL &&*/ isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-					return putIfAbsent_sub(unmark_spine(node2), temp_bucket, T);
+					return putIfAbsent_sub(unmark_spine(node2), temp_bucket, T, nodedesc);
 				}
 				else{
 					cas_fail_count++;
@@ -292,7 +286,7 @@ insert_main:
 			}
 		}
 		else if(isSpine(node)){//Check the Sub Spines
-			return putIfAbsent_sub(unmark_spine(node), temp_bucket, T);
+			return putIfAbsent_sub(unmark_spine(node), temp_bucket, T, nodedesc);
 			
 		}
 		else if(isMarkedData(node)){//Force Expand The table because someone could not pass the cas
@@ -300,7 +294,7 @@ insert_main:
 		    printf("marked found on main!\n");
 		    #endif
 		    node=forceExpandTable(T,head,pos,unmark_data(node), MAIN_POW);
-			return putIfAbsent_sub(unmark_spine(node), temp_bucket, T);
+			return putIfAbsent_sub(unmark_spine(node), temp_bucket, T, nodedesc);
 		}
 		else{//It is a Data Node
 			#ifdef DEBUG
@@ -397,7 +391,7 @@ replace MAIN_POW/MAIN_SIZE with correct values, then change put_main's calls to 
 
 **DONT FORGET: to do get/delete as well
 */
-inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket, int T){
+inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket, int T, NodeDesc* nodeDesc){
 	insert_sub:
 		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
 	for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
