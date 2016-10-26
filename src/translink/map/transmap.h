@@ -180,10 +180,26 @@ public:
 
     //Desc* AllocateDesc(uint8_t size);
 
-    VALUE get(KEY k, int T){return get_first(k,T);};
-	bool remove(KEY k,int T){return remove_first(k,T);};
-	bool putUpdate(KEY k, VALUE e_value, VALUE n_value, int T){ return putUpdate_first(k,e_value,n_value,T);};
-	bool putIfAbsent(KEY k, VALUE v, int T){ return putIfAbsent_first(k,v,T);};
+// //TODO: update prototypes
+//     VALUE get(KEY k, int T){return get_first(k,T);};
+// 	bool remove(KEY k,int T){return remove_first(k,T);};
+// 	bool putUpdate(KEY k, VALUE e_value, VALUE n_value, int T){ return putUpdate_first(k,e_value,n_value,T);};
+// 	bool putIfAbsent(KEY k, VALUE v, int T){ return putIfAbsent_first(k,v,T);};
+
+	// TODO: update these prototypes once functions are worked out in the cc file
+    //ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
+    inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T);
+    inline bool TransMap::Update();
+    inline bool TransMap::Find();
+    inline bool TransMap::Delete();
+
+    //bool Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
+
+    //NOTE: add markfordeletion to Find
+    //bool Find(uint32_t key, Desc* desc, uint8_t opid);
+
+    //bool Update(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
+
 
 	int size(){ return elements; }
 
@@ -269,15 +285,7 @@ private:
 
 	inline int POW(int x);
 
-	// TODO: update these prototypes once functions are worked out in the cc file
-    //ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
-    bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T);
-    ReturnCode Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);
 
-    //TODO: add markfordeletion to Find
-    ReturnCode Find(uint32_t key, Desc* desc, uint8_t opid);
-
-    ReturnCode Update(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
 
     void HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
@@ -293,9 +301,10 @@ private:
     //void Print();
 
 //TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
-	inline bool putUpdate_first(KEY k,VALUE e_value, VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
-		if(e_value==v)
-			return true;
+    //inline bool TransMap::Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
+	inline bool TransMap::Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
+		/*if(e_value==v)
+			return true;*/
 
 		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		
@@ -314,7 +323,7 @@ private:
 		assert(temp_bucket!=NULL);
 #endif
 
-		bool res=putUpdate_main(hash,e_value, temp_bucket,T, nodeDesc);
+		bool res=putUpdate_main(hash,/*e_value,*/ temp_bucket,T, nodeDesc);
 		if(!res){
 			Free_Node_Stack(temp_bucket, T);
 		}
@@ -326,7 +335,7 @@ private:
 
 		return res;
 	}
-	inline bool putUpdate_main(HASH hash, VALUE e_value, DataNode *temp_bucket, int T, NodeDesc* nodeDesc){
+	inline bool putUpdate_main(HASH hash, VALUE /*e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc){
 
 		//This count bounds the number of times the thread will loop as a result of CAS failure.
 		int cas_fail_count=0;
@@ -353,7 +362,7 @@ private:
 				return false;
 			}
 			else if(isSpine(node)){//Check the Sub Spines
-				return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);
+				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T);
 
 			}
 			else if(isMarkedData(node)){//Force Expand The table because someone could not pass the cas
@@ -361,7 +370,7 @@ private:
 			    printf("marked found on main!\n");
 #endif
 			    node=forceExpandTable(T,head,pos,unmark_data(node), MAIN_POW);
-				return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);
+				return putUpdate_sub(unmark_spine(node),/*e_value,*/ temp_bucket, T);
 			}
 			else{//It is a Data Node
 #ifdef DEBUG
@@ -380,11 +389,11 @@ private:
 
 		            if( IsKeyExist( oldCurrDesc ) )
 		            {
-						if(((DataNode *)node)->value != e_value){
+						/*if(((DataNode *)node)->value != e_value){
 							return false;
 						}
-						else{
-
+						else{*/
+						
 							// we have a key with matching value to update, so update nodedesc
 		            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
@@ -449,7 +458,7 @@ private:
 
 
 
-						}//End it Else it is value match
+						/*}*///End it Else it is value match
 					}
 					else // the key they wanted to insert, isn't logically in the table so we can insert
 	            	{
@@ -510,7 +519,7 @@ private:
 
 	 **DONT FORGET: to do get/delete as well
 	 */
-	inline bool putUpdate_sub(void* /* volatile  */* local, VALUE e_value, DataNode *temp_bucket, int T){
+	inline bool putUpdate_sub(void* /* volatile  */* local, /*VALUE e_value,*/ DataNode *temp_bucket, int T){
 	update_sub:
  		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
 		for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
@@ -569,9 +578,9 @@ private:
 
 			            if( IsKeyExist( oldCurrDesc ) )
 			            {
-							if( ((DataNode *)node)->value != e_value){
+							/*if( ((DataNode *)node)->value != e_value){
 								return false;
-							}
+							}*/
 
 							NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
@@ -763,6 +772,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 	// this has to be caught and interpreted by the helpops function when assigning transaction status back to the ret value
 	// for the while loop and needs to be done for map interface in general in the update template pseudocode
 	inline VALUE get_first(KEY k, int T){
+		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the hash to the watchlist
@@ -1047,6 +1057,7 @@ If it failes to remove an element, and the current node is now...
 		
 **/
 	inline bool remove_first(KEY k, int T){
+		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the key to the watchlist

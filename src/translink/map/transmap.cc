@@ -598,76 +598,76 @@ inline bool putIfAbsent_sub(void* /* volatile  */* local, DataNode *temp_bucket,
 }//End Sub Put
 
 
-inline TransMap::ReturnCode TransMap::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
-{
-    deleted = NULL;
-    NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-    Node* curr = m_head;
+// inline TransMap::ReturnCode TransMap::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
+// {
+//     deleted = NULL;
+//     NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+//     Node* curr = m_head;
 
-    while(true)
-    {
-        LocatePred(pred, curr, key);
+//     while(true)
+//     {
+//         LocatePred(pred, curr, key);
 
-        if(IsNodeExist(curr, key))
-        {
-            NodeDesc* oldCurrDesc = curr->nodeDesc;
+//         if(IsNodeExist(curr, key))
+//         {
+//             NodeDesc* oldCurrDesc = curr->nodeDesc;
 
-            if(IS_MARKED(oldCurrDesc))
-            {
-                return FAIL;
-                //Help removed deleted nodes
-                //if(!IS_MARKED(curr->next))
-                //{
-                    //__sync_fetch_and_or(&curr->next, 0x1);
-                //}
-                //curr = m_head;
-                //continue;
-            }
+//             if(IS_MARKED(oldCurrDesc))
+//             {
+//                 return FAIL;
+//                 //Help removed deleted nodes
+//                 //if(!IS_MARKED(curr->next))
+//                 //{
+//                     //__sync_fetch_and_or(&curr->next, 0x1);
+//                 //}
+//                 //curr = m_head;
+//                 //continue;
+//             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+//             FinishPendingTxn(oldCurrDesc, desc);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+//             if(IsSameOperation(oldCurrDesc, nodeDesc))
+//             {
+//                 return SKIP;
+//             }
 
-            if(IsKeyExist(oldCurrDesc))
-            {
-                NodeDesc* currDesc = curr->nodeDesc;
+//             if(IsKeyExist(oldCurrDesc))
+//             {
+//                 NodeDesc* currDesc = curr->nodeDesc;
 
-                if(desc->status != ACTIVE)
-                {
-                    return FAIL;
-                }
+//                 if(desc->status != ACTIVE)
+//                 {
+//                     return FAIL;
+//                 }
 
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
+//                 //if(currDesc == oldCurrDesc)
+//                 {
+//                     //Update desc 
+//                     currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
 
-                    if(currDesc == oldCurrDesc)
-                    {
-                        ASSERT_CODE
-                            (
-                             __sync_fetch_and_add(&g_count_del, 1);
-                            );
+//                     if(currDesc == oldCurrDesc)
+//                     {
+//                         ASSERT_CODE
+//                             (
+//                              __sync_fetch_and_add(&g_count_del, 1);
+//                             );
 
-                        deleted = curr;
-                        return OK; 
-                    }
-                }
-            }
-            else
-            {
-                return FAIL;
-            }  
-        }
-        else 
-        {
-            return FAIL;      
-        }
-    }
-}
+//                         deleted = curr;
+//                         return OK; 
+//                     }
+//                 }
+//             }
+//             else
+//             {
+//                 return FAIL;
+//             }  
+//         }
+//         else 
+//         {
+//             return FAIL;      
+//         }
+//     }
+// }
 
 
 inline bool TransMap::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
@@ -676,70 +676,70 @@ inline bool TransMap::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
 }
 
 
-inline TransMap::ReturnCode TransMap::Find(uint32_t key, Desc* desc, uint8_t opid)
-{
-    NodeDesc* nodeDesc = NULL;
-    Node* pred;
-    Node* curr = m_head;
+// inline TransMap::ReturnCode TransMap::Find(uint32_t key, Desc* desc, uint8_t opid)
+// {
+//     NodeDesc* nodeDesc = NULL;
+//     Node* pred;
+//     Node* curr = m_head;
 
-    while(true)
-    {
-        LocatePred(pred, curr, key);
+//     while(true)
+//     {
+//         LocatePred(pred, curr, key);
 
-        if(IsNodeExist(curr, key))
-        {
-            NodeDesc* oldCurrDesc = curr->nodeDesc;
+//         if(IsNodeExist(curr, key))
+//         {
+//             NodeDesc* oldCurrDesc = curr->nodeDesc;
 
-            if(IS_MARKED(oldCurrDesc))
-            {
-                if(!IS_MARKED(curr->next))
-                {
-                    (__sync_fetch_and_or(&curr->next, 0x1));
-                }
-                curr = m_head;
-                continue;
-            }
+//             if(IS_MARKED(oldCurrDesc))
+//             {
+//                 if(!IS_MARKED(curr->next))
+//                 {
+//                     (__sync_fetch_and_or(&curr->next, 0x1));
+//                 }
+//                 curr = m_head;
+//                 continue;
+//             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+//             FinishPendingTxn(oldCurrDesc, desc);
 
-            if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+//             if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+//             if(IsSameOperation(oldCurrDesc, nodeDesc))
+//             {
+//                 return SKIP;
+//             }
 
-            if(IsKeyExist(oldCurrDesc))
-            {
-                NodeDesc* currDesc = curr->nodeDesc;
+//             if(IsKeyExist(oldCurrDesc))
+//             {
+//                 NodeDesc* currDesc = curr->nodeDesc;
 
-                if(desc->status != ACTIVE)
-                {
-                    return FAIL;
-                }
+//                 if(desc->status != ACTIVE)
+//                 {
+//                     return FAIL;
+//                 }
 
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
+//                 //if(currDesc == oldCurrDesc)
+//                 {
+//                     //Update desc 
+//                     currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
 
-                    if(currDesc == oldCurrDesc)
-                    {
-                        return OK; 
-                    }
-                }
-            }
-            else
-            {
-                return FAIL;
-            }
-        }
-        else 
-        {
-            return FAIL;
-        }
-    }
-}
+//                     if(currDesc == oldCurrDesc)
+//                     {
+//                         return OK; 
+//                     }
+//                 }
+//             }
+//             else
+//             {
+//                 return FAIL;
+//             }
+//         }
+//         else 
+//         {
+//             return FAIL;
+//         }
+//     }
+// }
 
 inline void TransMap::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
 {
