@@ -1,106 +1,121 @@
-\documentclass{sig-alternate-05-2015}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage[english]{babel}
-\usepackage[ruled]{algorithm}
-\usepackage{algpseudocode}
-\usepackage{color}
-%\let\labelindent\relax
-%\usepackage{enumitem}
-\let\proof\relax
-\let\endproof\relax 
-\usepackage{amsthm}
-%\usepackage[cmex10]{amsmath}
-\usepackage{amsfonts}
+\documentclass[prodmode,acmtecs]{acmsmall} % Aptara syntax
+
+% Package to generate and customize Algorithm as per ACM style
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\DontPrintSemicolon %TODO: check all lines to make sure semicolons are added manually where needed
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+
+%%%%%\usepackage{booktabs}
+%%%%%\usepackage{tabularx}
+%%%%%\usepackage[english]{babel}
+%%%%%%%%%%%%%%%\usepackage[ruled]{algorithm}
+%%%%%\usepackage{algpseudocode}
+%%%%%\usepackage{color}
+%%%%%%\let\labelindent\relax
+%%%%%%\usepackage{enumitem}
+%%%%%\let\proof\relax
+%%%%%\let\endproof\relax 
+%%%%%\usepackage{amsthm}
+\usepackage[cmex10]{amsmath} %TODO: used for aligned, might break algorithms
+%%%%%\usepackage{amsfonts}
 \usepackage{multicol}
 %\let\subcaption\relax
 \usepackage[font=small]{subcaption}
-\usepackage{graphicx}
-\usepackage[hidelinks,bookmarks=false,pdfpagelabels]{hyperref}
-\usepackage[nocompress]{cite}
+\captionsetup{compatibility=false} %NOTE: added by PL
+%%%%%\usepackage{graphicx}
+%%%%%\usepackage[hidelinks,bookmarks=false,pdfpagelabels]{hyperref}
+%%%%%\usepackage[nocompress]{cite}
 \usepackage{listings}
-\usepackage{flushend}
+%\usepackage{flushend} %attempts to balance length of columns on last page
 
-% definition environment
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{invariant}{Invariant}
-\newtheorem{crule}{Rule}
+%%%%%% definition environment
+%%%%%\newtheorem{definition}{Definition}
+%%%%%\newtheorem{theorem}{Theorem}
+%%%%%\newtheorem{lemma}{Lemma}
+%%%%%\newtheorem{invariant}{Invariant}
+\newtheorem{crule}{Rule} %TODO: only crule errors left
+
 
 % typewriter font family that support hyphenation
 %\newcommand\textvtt[1]{{\normalfont\fontfamily{cmvtt}\selectfont #1}}
 \hyphenation{MD-List} 
 \hyphenation{skip-list}
+%\hyphenation{non-commu-ta-tive} NOTE: was not in new version
 \hyphenation{me-ans}
 \hyphenation{stre-am-lines}
 \hyphenation{com-pu-te-if-ab-sent}
 
-\algtext*{EndWhile}
-\algtext*{EndFor}
-\algtext*{EndIf}
-\algtext*{EndFunction}
-\newcommand\NIL{\text{NIL}}
-\newcommand\TRUE{\text{\textbf{true}}}
-\newcommand\FALSE{\text{\textbf{false}}}
-\newcommand\BREAK{\text{\textbf{break}}}
-\newcommand\CONTINUE{\text{\textbf{continue}}}
-\newcommand\AND{\;\text{\textbf{and}}\;}
-\newcommand\OR{\;\text{\textbf{or}}\;}
-\newcommand\INSERT{\text{\textbf{Insert}}}
-\newcommand\DELETE{\text{\textbf{Delete}}}
-\newcommand\FIND{\text{\textbf{Find}}}
-\newcommand\COMMITTED{\text{\textbf{Committed}}}
-\newcommand\ABORTED{\text{\textbf{Aborted}}}
-\newcommand\ACTIVE{\text{\textbf{Active}}}
-\algrenewcommand\algorithmicindent{1em}
+%%%%%%%\algtext*{EndWhile}
+%%%%%%%\algtext*{EndFor}
+%%%%%%%\algtext*{End$textbf{if} {}} $\textbf{then}$
+%%%%%%%\algtext*{EndFunction}
+%\newcommandNIL{\text{NIL}}
+%\newcommand\textbf{true}{\text{\textbf{true}}}
+%\newcommand\textbf{false}{\text{\textbf{false}}}
+%\newcommand\textbf{break}{\text{\textbf{break}}}
+%\newcommand\textbf{continue}{\text{\textbf{continue}}}
+%\newcommand\;\textbf{and}\;{\;\text{\textbf{and}}\;}
+%\newcommand\;\textbf{or}\;{\;\text{\textbf{or}}\;}
+%\newcommand\textbf{insert}{\text{\textbf{insert}}}
+%\newcommand\textbf{delete}{\text{\textbf{Delete}}}
+%\newcommand\textbf{find}{\text{\textbf{Find}}}
+%\newcommand\textbf{committed}{\text{\textbf{Committed}}}
+%\newcommand\textbf{aborted}{\text{\textbf{Aborted}}}
+%\newcommand\textbf{active}{\text{\textbf{Active}}}
+%%%%%%%\algrenewcommand\algorithmicindent{1em}
+%%%%%%%
+%%%%%%%\algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
+%%%%%%%\algtext*{EndStruct}
+%%%%%%%\algblockdefx[EnumBlock]{Enum}{EndEnum} [1]{\textbf{enum} #1} [0]{}
+%%%%%%%\algtext*{EndEnum}
+%%%%%%%\algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
+%%%%%%%\algtext*{EndClass}
+%%%%%%%\algblockdefx[MacroBlock]{Define}{EndDefine} [1]{\textbf{define} #1} [0]{}
+%%%%%%%\algtext*{EndDefine}
+%%%%%%%\algblockdefx[InlineBlock]{Inline}{EndInline} [2]{\textbf{inline function} \textsc{#1}(#2)} [0]{}
+%%%%%%%\algtext*{EndInline}
+%%%%%%%\algblockdefx[SwitchBlock]{Switch}{EndSwitch} [1]{\textbf{switch} (#1)} [0]{}
+%%%%%%%\algtext*{EndSwitch}
+%%%%%%%\algblockdefx[CaseBlock]{Case}{EndCase} [1]{\textbf{case: #1}} [0]{}
+%%%%%%%\algtext*{EndCase}
 
-\algblockdefx[StructBlock]{Struct}{EndStruct} [1]{\textbf{struct} #1} [0]{}
-\algtext*{EndStruct}
-\algblockdefx[EnumBlock]{Enum}{EndEnum} [1]{\textbf{enum} #1} [0]{}
-\algtext*{EndEnum}
-\algblockdefx[ClassBlock]{Class}{EndClass} [1]{\textbf{class} #1} [0]{}
-\algtext*{EndClass}
-\algblockdefx[MacroBlock]{Define}{EndDefine} [1]{\textbf{define} #1} [0]{}
-\algtext*{EndDefine}
-\algblockdefx[InlineBlock]{Inline}{EndInline} [2]{\textbf{inline function} \textsc{#1}(#2)} [0]{}
-\algtext*{EndInline}
-\algblockdefx[SwitchBlock]{Switch}{EndSwitch} [1]{\textbf{switch} (#1)} [0]{}
-\algtext*{EndSwitch}
-\algblockdefx[CaseBlock]{Case}{EndCase} [1]{\textbf{case: #1}} [0]{}
-\algtext*{EndCase}
+% Metadata Information
+%\acmVolume{9}
+%\acmNumber{4}
+%\acmArticle{39}
+%\acmYear{2010}
+%\acmMonth{3}
 
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
 
+% DOI
+\doi{0000001.0000001}
+
+%ISSN
+\issn{1234-56789}
+
+% Document starts
 \begin{document}
 
-\setcopyright{acmcopyright}
-\CopyrightYear{2016} 
-\conferenceinfo{SPAA '16,}{July 11-13, 2016, Pacific Grove, CA, USA}
-\isbn{978-1-4503-4210-0/16/07}\acmPrice{\$15.00}
-\doi{http://dx.doi.org/10.1145/2935764.2935780}
-\clubpenalty=10000 
-\widowpenalty = 10000
+% Page heads
+\markboth{G. Zhou et al.}{A Multifrequency MAC Specially Designed for WSN Applications}
 
-\def\sharedaffiliation{%
-\end{tabular}
-\begin{tabular}{c}}
-
+% Title portion
 \title{Lock-free Transactions without Rollbacks for Linked Data Structures}
-
-\numberofauthors{2}
-
-\author{
-	\alignauthor Deli Zhang\\
-	\email{de-li.zhang@knights.ucf.edu}
-	\alignauthor Damian~Dechev\\
-	\email{dechev@cs.ucf.edu}
-	\sharedaffiliation
-	\affaddr{Department of Computer Science}\\
-	\affaddr{University of Central Florida}\\
-	\affaddr{Orlando, FL 32817, USA}
-}
-
-\maketitle
+\author{DELI ZHANG, PIERRE LABORDE, LANCE LEBANOFF, and DAMIAN DECHEV
+\affil{University of Central Florida}}
 
 \begin{abstract}
     Non-blocking data structures allow scalable and thread-safe accesses to shared data. 
@@ -131,13 +146,42 @@
 	<concept_desc>Computing methodologies~Concurrent algorithms</concept_desc>
 	<concept_significance>500</concept_significance>
 	</concept>
+	</ccs2012> %NOTE: wasn't in new version
 \end{CCSXML}
 
 \ccsdesc[500]{Computing methodologies~Concurrent algorithms}
-\printccsdesc
 
 \keywords{
     Transactional Data Structure, Lock-free, Transactional Memory, Transactional Boosting}
+
+\acmformat{Gang Zhou, Yafeng Wu, Ting Yan, Tian He, Chengdu Huang, John A. Stankovic,
+and Tarek F. Abdelzaher, 2010. A multifrequency MAC specially
+designed for  wireless sensor network applications.}
+% At a minimum you need to supply the author names, year and a title.
+% IMPORTANT:
+% Full first names whenever they are known, surname last, followed by a period.
+% In the case of two authors, 'and' is placed between them.
+% In the case of three or more authors, the serial comma is used, that is, all author names
+% except the last one but including the penultimate author's name are followed by a comma,
+% and then 'and' is placed before the final author's name.
+% $textbf{if} { only first and middle initials are known, then each initial} $\textbf{then}$
+% is followed by a period and they are separated by a space.
+% The remaining information (journal title, volume, article number, date, etc.) is 'auto-generated'.
+
+\begin{bottomstuff}
+This work is supported by the National Science Foundation, under
+grant CNS-0435060, grant CCR-0325197 and grant EN-CS-0329609.
+
+Author's addresses: G. Zhou, Computer Science Department,
+College of William and Mary; Y. Wu  {and} J. A. Stankovic,
+Computer Science Department, University of Virginia; T. Yan,
+Eaton Innovation Center; T. He, Computer Science Department,
+University of Minnesota; C. Huang, Google; T. F. Abdelzaher,
+(Current address) NASA Ames Research Center, Moffett Field, California 94035.
+\end{bottomstuff}
+
+\maketitle
+
 
 \section{Introduction}
 \label{sec:intro}
@@ -250,57 +294,59 @@ The $Mark$ flag is co-located with the $info$ pointers.
 
 %\vspace{-0.1in}
 \begin{algorithm}[h]
-    \caption{Type Definitions}
-    \label{alg:nodestructure}
-    \vspace{-0.2in}
-    \begin{multicols}{2}
-        \begin{algorithmic}[1]
-            \Enum{TxStatus}
-            \State Active
-            \State Committed
-            \State Aborted
-            \EndEnum
-            \Enum{OpType}
-            \State Insert
-            \State Delete
-            \State Find
-            \EndEnum
-            \Struct{Operation}
-            \State \textbf{OpType} $type$
-            \State \textbf{int} $key$
-            \EndStruct
-            \Struct{Desc}
-            \State \textbf{int} $size$
-            \State \textbf{TxStauts} $status$
-            \State \textbf{Operation} $ops[\;]$
-            \EndStruct
-            \Struct{NodeInfo}
-            \State \textbf{Desc*} $desc$
-            \State \textbf{int} $opid$
-            \EndStruct
-            \Struct{Node}
-            \State \textbf{NodeInfo*} $info$
-            \State \textbf{int} $key$
-            \State ...
-            \EndStruct
-            \end{algorithmic}
-    \end{multicols}
-    \vspace{-0.15in}
+	\begin{multicols}{2}
+		\SetKwProg{Enum}{enum}{}{}
+		\Enum{TxStatus}
+		{
+			Active\;
+			Commited\;
+			Aborted\;
+		}
+		\Enum{OpType}
+		{
+			Insert\;
+			Delete\;
+			Find\;
+		}
+		\SetKwProg{Struct}{struct}{}{}
+		\Struct{Operation}
+		{
+			\textbf{OpType} $type$\;
+			\textbf{int} $key$\;
+		}
+	
+		\Struct{Desc}
+		{
+			\textbf{int} $size$\;
+			\textbf{TxStatus} $status$\;
+			\textbf{Operation} $ops[\;]$\;
+		}
+		\Struct{NodeInfo}
+		{
+			\textbf{Desc*} $desc$\;
+			\textbf{int} $opid$\;
+		}
+		\Struct{Node}
+		{
+			\textbf{NodeInfo*} $info$\;
+			\textbf{int} $key$\;
+			...
+		}
+	%%	\vspace{-0.15in}
+		\caption{Type Definitions}
+		\label{alg:nodestructure}
+	\end{multicols}
 \end{algorithm}
 
 %\vspace{-0.2in}
 \begin{algorithm}[h]
+
+	\textbf{int} $Mark \gets \texttt{0x1}$\;
+	\textbf{define} SetMark$(p)$ $(p\;|\;Mark)$\;
+	\textbf{define} ClearMark$(p)$ $(p\;\&\;\sim Mark)$\;
+	\textbf{define} IsMarked$(p)$ $(p\;\&\;Mark)$\;
     \caption{Pointer Marking}
     \label{alg:pointermarking}
-    \begin{algorithmic}[1]
-        \State \textbf{int} $Mark \gets \texttt{0x1}$
-        \Define{SetMark}{$(p)$} $(p\;|\;Mark)$
-        \EndDefine
-        \Define{ClearMark}{$(p)$} $(p\;\&\;\sim Mark)$
-        \EndDefine
-        \Define{IsMarked}{$(p)$} $(p\;\&\;Mark)$
-        \EndDefine
-    \end{algorithmic}
 \end{algorithm}
 %\vspace{-0.2in}
 
@@ -309,7 +355,7 @@ The $Mark$ flag is co-located with the $info$ pointers.
 
 \subsection{Node-based Conflict Detection}
 In our approach, conflicts are detected at the granularity of a node. 
-If two transactions access different nodes (i.e. the method calls in them commute~\cite{herlihy2008transactional}), they are allowed to proceed concurrently. 
+If two transactions access different nodes (i.e. the method calls in them commute~\cite{herlihy2008transactional}), they are allowed to proceed concurrently.
 In this case, shared-memory accesses are coordinated by the concurrency control protocol in the base data structure.
 Otherwise, threads proceed in a cooperative manner as detailed in Section~\ref{sec:txnexec}.
 For set data types, each node is associated with a unique key, thus our conflict detection operates at the same granularity as the abstract locking used by transactional boosting.
@@ -347,72 +393,95 @@ We achieve this by having operations \emph{inversely interpret} the logical stat
 Both physical undo and our logical undo reach the same goal of restoring the abstract state of the data structure. 
 
 \begin{algorithm}[t]
-    \caption{Logical Status}
-    \label{alg:logicalstatus}
-    \begin{algorithmic}[1]
-        \Function{IsNodePresent}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
-        \State \Return $n.key = key$ \label{l:nodeexist}
-        \EndFunction
-        %\Statex
-        %TODO: we need desc for correctness proof section; consider refactor
-        \Function{IsKeyPresent}{$\textbf{NodeInfo*}\;info,\textbf{Desc*} desc$}
-        \State $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
-        \State $\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}
-        \Switch{$status$} 
-        \Case{$\ACTIVE$}
-        \If {$info.desc=desc$}
-        \State \Return $op=\FIND \OR op=\INSERT$
-        \Else
-        \State \Return $op=\FIND \OR op=\DELETE$ 
-        \EndIf
-        \EndCase
-        \Case{$\COMMITTED$} 
-        \State \Return $op=\FIND \OR op=\INSERT$
-        \EndCase
-        \Case{$\ABORTED$}
-        \State \Return $op=\FIND \OR op=\DELETE$
-        \EndCase
-        \EndSwitch
-        \EndFunction
-    \end{algorithmic}
+        %TODO: use the following line for function calls
+        %\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}\;
+
+        \SetKwFunction{IsNodePresent}{IsNodePresent}
+        \SetKwProg{Function}{Function}{}{end}
+        \Function(){\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}}
+        \KwRet{ $n.key = key$ \label{l:nodeexist}} %TODO: something like this with the while loop labels
+
+        \SetKwFunction{IsKeyPresent}{$\textbf{NodeInfo*}\;info,\textbf{Desc*} desc$}
+        \ $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
+         $\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}
+        $\textbf{switch}\;${$status$} 
+        $\textbf{case:}\;${$\textbf{active}$}
+        $\textbf{if}$ {$info.desc=desc$} $\textbf{then}$
+         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
+        $\textbf{else}$
+         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$ }
+        %endif
+        
+        $\textbf{case:}\;${$\textbf{committed}$} 
+         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
+        
+        $\textbf{case:}\;${$\textbf{aborted}$}
+         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$}
+          \caption{Logical Status}
+          \label{alg:logicalstatus}          
 \end{algorithm}
 
+%\begin{algorithm}[t]
+%	\SetKwFunction{IsNodePresent}{$\textbf{Node*}\; n,\; \textbf{int}\; key$}
+%	\KwRet{ $n.key = key$ \label{l:nodeexist}} %TODO: something like this with the while loop labels
+%	
+%	\SetKwFunction{IsKeyPresent}{$\textbf{NodeInfo*}\;info,\textbf{Desc*} desc$}
+%	\ $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
+%	$\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}
+%	$\textbf{switch}\;${$status$} 
+%	$\textbf{case:}\;${$\textbf{active}$}
+%	$\textbf{if}$ {$info.desc=desc$} $\textbf{then}$
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
+%	$\textbf{else}$
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$ }
+%	%endif
+%	
+%	$\textbf{case:}\;${$\textbf{committed}$} 
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
+%	
+%	$\textbf{case:}\;${$\textbf{aborted}$}
+%	\KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$}
+%	\caption{Logical Status}
+%	\label{alg:logicalstatus}          
+%\end{algorithm}
+
 \begin{algorithm}[t]
-    \caption{Update NodeInfo}
-    \label{alg:updateinfo}
-    \begin{algorithmic}[1]
-        \Function{UpdateInfo}{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool},\;wantkey$}
-        \State $\textbf{NodeInfo*}\; oldinfo \gets n.info$ \label{l:readinfo}
-        \If {$\Call{IsMarked}{oldinfo}$}
-        \State $\Call{Do\_Delete}{n}$ 
-        \State \Return retry
-        \EndIf
-        \If {$oldinfo.desc \neq info.desc$} \label{l:testself}
-        \State \Call{ExecuteOps}{$oldinfo.desc,\;oldinfo.opid + 1$} \label{l:helpops}
-        \ElsIf {$oldinfo.opid \ge info.opid$} \label{l:testhelped}
-        \State \Return success
-        \EndIf
-        \State $\textbf{bool}\;haskey \gets \Call{IsKeyPresent}{oldinfo}$ \label{l:testkey} 
-        \If {$(!haskey \AND wantkey) \OR (haskey \AND !wantkey)$} \label{l:testdesire}
-        \State \Return fail \label{l:infofail1}
-        \EndIf
-        \If {$info.desc.status \neq Active$} \label{l:testactive}
-        \State \Return fail \label{l:infofail2}
-        \EndIf
-        \If {$\Call{CAS}{\&n.info,\;oldinfo,\;info}$} \label{l:casinfo}
-        \State \Return success
-        \Else
-        \State \Return retry
-        \EndIf
-        \EndFunction
-    \end{algorithmic}
+
+    %\begin{algorithmic}[1]
+        \SetKwFunction{UpdateInfo}{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool},\;wantkey$}
+         $\textbf{NodeInfo*}\; oldinfo \gets n.info$ \label{l:readinfo}
+        $\textbf{if}$ $IsMarked(oldinfo)$ $\textbf{then}$
+         $Do\_Delete(n)$ 
+         \KwRet{ retry}
+        %endif
+        $\textbf{if}$  {$oldinfo.desc \neq info.desc$} \label{l:testself} $\textbf{then}$
+         ExecuteOps($oldinfo.desc,\;oldinfo.opid + 1$) \label{l:helpops}
+        $textbf{else if}$  {$oldinfo.opid \ge info.opid$} \label{l:testhelped} $\textbf{then}$
+         \KwRet{ success}
+        %endif
+         $\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$ \label{l:testkey} 
+        $\textbf{if}$ { $(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$} \label{l:testdesire}} $\textbf{then}$
+         \KwRet{ fail \label{l:infofail1}}
+        %endif
+        $\textbf{if}$ { {$info.desc.status \neq Active$} \label{l:testactive} $\textbf{then}$
+         \KwRet{ fail \label{l:infofail2}}
+        %endif
+        $\textbf{if}$  {$CAS(\&n.info,\;oldinfo,\;info)$}  $\textbf{then}$ \label{l:casinfo}
+         \KwRet{ success}
+        $textbf{else}$
+         \KwRet{ retry}
+        %endif
+        
+    %\end{algorithmic}
+        \caption{Update NodeInfo}
+        \label{alg:updateinfo}
 \end{algorithm}
 
 
 In Algorithm~\ref{alg:logicalstatus}, we list the function to interpret the logical status of a node according to the value of the transaction descriptor.
 Function \textsc{IsNodePresent}, verifies that a node associated with a specific key is present.
 This is a common test found in existing linked data structures.
-Given a node's presence, function \textsc{IsKeyPresent} verifies if the key should be logically included in the abstract state, and returns a boolean value based on the combination of operation type and transaction status.
+Given a node's presence, function \textsc{IsKeyPresent} verifies if the key should be logically included in the abstract , and returns a boolean value based on the combination of operation type and transaction status.
 For a node most recently accessed by an \textsc{Insert} operation, its key is considered present if the transaction has successfully \emph{committed}.
 On the contrary, according to the semantics of \textsc{Delete}, a successful operation must remove the key from the set.
 Thus for a node most recently accessed by a \textsc{Delete} operation, its key is considered present if the transaction has \emph{aborted}.
@@ -423,47 +492,51 @@ A special case is the operations in an active transaction, which we treat as com
 %Suppose a transaction contains two operations \textsc{Insert(4)} and \textsc{Find(4)}. The later needs to recognize the key newly inserted by the former as present. 
 
 \begin{algorithm}[th]
-    \caption{Transaction Execution}
-    \label{alg:transaction}
-    \begin{algorithmic}[1]
-        \State $\textbf{thread\_local\;Stack}\;helpstack$
-        \Function{ExecuteTransaction}{$\textbf{Desc*}\;desc$}
-        \State $helpstack.\Call{Init}$
-        \State $\Call{ExecuteOps}{desc, 0}$
-        \State \Return $desc.status = Committed$
-        \EndFunction
-        \Statex
-        \Function{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-        \State $\textbf{bool}\;ret \gets \TRUE$
-        \State $\textbf{set}\;delnodes$
-        \If {$helpstack.\Call{Contains}{desc}$} \label{l:stackcontain}
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}
-        \State \Return
-        \EndIf
-        \State $helpstack.\Call{Push}{desc}$
-        \While {$desc.status = Active$ $\AND ret \AND$ $opid < desc.size$} \label{l:txnwhile}
-        \State $\textbf{Operation*}\;op \gets desc.ops[opid]$
-        \If{$op.type = \FIND$} 
-        \State $ret \gets \Call{Find}{op.key,\;desc,\;opid}$
-        \ElsIf {$op.type = \INSERT$}
-        \State $ret \gets \Call{Insert}{op.key,\;desc,\;opid}$
-        \ElsIf{$op.type = \DELETE$}
-        \State $\textbf{Node*}\;del$
-        \State $ret \gets \Call{Delete}{op.key,\;desc,\;opid,\;del}$
-        \State $delnodes.\Call{Insert}{del}$
-        \EndIf
-        \State $opid \gets opid + 1$
-        \EndWhile
-        \State $helpstack.\Call{Pop}$
-        \If {$ret = \TRUE$}
-        \If {$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$} \label{l:txnsuccess}
-        \State $\Call{MarkDelete}{delnodes,\;desc}$ \label{l:markdelete}
-        \EndIf
-        \Else
-        \State $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txnfail}
-        \EndIf
-        \EndFunction
-        \end{algorithmic}
+
+    %\begin{algorithmic}[1]
+         $\textbf{thread\_local\;Stack}\;helpstack$
+        \SetKwFunction{ExecuteTransaction}{$\textbf{Desc*}\;desc$}
+         $helpstack.\textbf{Init}$
+         $ExecuteOps(desc, 0)$
+         \KwRet{ $desc.status = Committed$}
+        
+        %x
+        \SetKwFunction{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
+         $\textbf{bool}\;ret \gets \textbf{true}$
+         $\textbf{set}\;delnodes$
+        $\textbf{if}$  {$helpstack.Contains(desc)$}  $\textbf{then}$ \label{l:stackcontain}
+         $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}
+         \KwRet{}
+        %endif
+         $helpstack.Push(desc)$
+         \label{l:txnwhile} %TODO: make sure this ends up on the while
+    	\SetKwProg{While}{while}{}{}
+        \While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$} 
+         {
+	         $\textbf{Operation*}\;op \gets desc.ops[opid]$
+	        $\textbf{if}$ {{$op.type = \textbf{find}$} } $\textbf{then}$
+	         $ret \gets Find(op.key,\;desc,\;opid)$
+	        $textbf{else if}$ { {$op.type = \textbf{insert}$}} $\textbf{then}$
+	         $ret \gets Insert(op.key,\;desc,\;opid)$
+	        $textbf{else if}$ {{$op.type = \textbf{delete}$}} $\textbf{then}$
+	         $\textbf{Node*}\;del$
+	         $ret \gets Delete(op.key,\;desc,\;opid,\;del)$
+	         $delnodes.Insert(del)$
+	        %endif
+	         $opid \gets opid + 1$
+	    }
+         $helpstack.\textbf{Pop}$
+        $\textbf{if}$ { {$ret = \textbf{true}$}} $\textbf{then}$
+        $\textbf{if}$ { {$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$} \label{l:txnsuccess}} $\textbf{then}$
+         $MarkDelete(delnodes,\;desc)$ \label{l:markdelete}
+        %endif
+        $	extbf{else}$
+         $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txnfail}
+        %endif
+        
+        %\end{algorithmic}
+            \caption{Transaction Execution}
+            \label{alg:transaction}
 \end{algorithm}
 
 \subsection{Logical Status Update}
@@ -471,18 +544,18 @@ A special case is the operations in an active transaction, which we treat as com
 As mentioned above, the logical status of a node depends on the interpretation of its transaction descriptor. 
 In a transformed data structure, an operation needs to change a node's logical status before performing any necessary low-level node manipulations. 
 This is done by updating the node's \textsc{NodeInfo} pointer as shown in Algorithm~\ref{alg:updateinfo}. 
-Given a node $n$, the function \textsc{UpdateInfo} reads its current $info$ field (line~\algref{alg:updateinfo}{l:readinfo}~\footnote{We denote line $b$ from algroithm $a$ by $a.b$}), verifies its sanity, and attempts to update $n.info$ through the use of CAS (line~\algref{alg:updateinfo}{l:casinfo}).
-It returns a tri-state value indicating whether the operation succeeded, failed, or should be retried.
-We make sure that any other active transaction accessing $n$ is completed by helping execute its remaining operations (line~\algref{alg:updateinfo}{l:helpops}).
+Given a node $n$, the function \textsc{UpdateInfo} reads its current $info$ field (line~\ref{alg:updateinfo}.\ref{l:readinfo}~\footnote{We denote line $b$ from algroithm $a$ by $a.b$}), verifies its sanity, and attempts to update $n.info$ through the use of CAS (line~\ref{alg:updateinfo}.\ref{l:casinfo}).
+It returns a tri- value indicating whether the operation succeeded, failed, or should be retried.
+We make sure that any other active transaction accessing $n$ is completed by helping execute its remaining operations (line~\ref{alg:updateinfo}.\ref{l:helpops}).
 %We explain the details of \textsc{ExecuteOps} in the next section.
 However, we have to avoid helping the same transaction because of the hazard of infinite recursions.
-This is prevented by the condition check on line~\algref{alg:updateinfo}{l:testself}.
-We also skip the update and report success if the operation has already been performed by other threads (line~\algref{alg:updateinfo}{l:testhelped}).
+This is prevented by the condition check on line~\ref{alg:updateinfo}.\ref{l:testself}.
+We also skip the update and report success if the operation has already been performed by other threads (line~\ref{alg:updateinfo}.\ref{l:testhelped}).
 Due to the use of the helping mechanism, the same operation may be executed multiple times by different threads.
-The condition check on line~\algref{alg:updateinfo}{l:testhelped} allows us to identify the node accessed by threads that execute the same transaction, and ensures consistent results.
-We validate the presence of the key on line~\algref{alg:updateinfo}{l:testkey} and test if the key's presence (as required by deletions and finds), or lack of presence (as required by insertions), is desired on line~\algref{alg:updateinfo}{l:testdesire}. The boolean flag $wantkey$ is passed on by the caller function to indicate if the presence of key is desired.
+The condition check on line~\ref{alg:updateinfo}.\ref{l:testhelped} allows us to identify the node accessed by threads that execute the same transaction, and ensures consistent results.
+We validate the presence of the key on line~\ref{alg:updateinfo}.\ref{l:testkey} and test if the key's presence (as required by deletions and finds), or lack of presence (as required by insertions), is desired on line~\ref{alg:updateinfo}.\ref{l:testdesire}. The boolean flag $wantkey$ is passed on by the caller function to indicate if the presence of key is desired.
 The operation reports failure when $wantkey$ contradicts $haskey$.
-Finally, we validate that the transaction is still active (line~\algref{alg:updateinfo}{l:testactive}) to prevent a terminated transaction from erroneously overwriting $n.info$.
+Finally, we validate that the transaction is still active (line~\ref{alg:updateinfo}.\ref{l:testactive}) to prevent a terminated transaction from erroneously overwriting $n.info$.
 
 \subsection{Transaction Execution}
 \label{sec:txnexec}
@@ -490,12 +563,12 @@ We consider the transaction execution model in which a transaction explicitly ab
 The \textsc{ExecuteTransaction} in Algorithm~\ref{alg:transaction} is the entry point of transaction execution, which is invoked by the thread that initiates a transaction.
 The \textsc{ExecuteOps} function executes operations in sequence starting from $opid$.
 For threads that help to execute a delayed transaction, the $opid$ could be in the range of $[1,\;desc.size]$.
-In each step of the while loop (line~\algref{alg:transaction}{l:txnwhile}), the return value of the previous operation is verified.
+In each step of the while loop (line~\ref{alg:transaction}.\ref{l:txnwhile}), the return value of the previous operation is verified.
 We require the operations to return a boolean value indicating if the executions are successful.
 A false value indicates the precondition required by the operation is unsatisfied and the transaction will abort. 
-Once all operations complete successfully we atomically update the transaction status with a \emph{Committed} flag (line~\algref{alg:transaction}{l:txnsuccess}).
+Once all operations complete successfully we atomically update the transaction status with a \emph{Committed} flag (line~\ref{alg:transaction}.\ref{l:txnsuccess}).
 It is not necessary to retry this CAS operation as a failed CAS indicates that some other thread must have successfully updated the transaction status.
-The thread that successfully executed the CAS will be responsible for performing physical node deletion (line~\algref{alg:transaction}{l:markdelete}), which will be explained in Section~\ref{sec:application}.
+The thread that successfully executed the CAS will be responsible for performing physical node deletion (line~\ref{alg:transaction}.\ref{l:markdelete}), which will be explained in Section~\ref{sec:application}.
 
 By adopting cooperative transaction execution, our approach is able to eliminate the majority of aborts caused by access conflicts.
 Although rare, potential livelock is possible if two threads were to access two of the same nodes in opposite order.
@@ -505,8 +578,8 @@ This is similar to a function call stack, except it records the invocation of \t
 A thread initializes its help stack before initiating a transaction.
 Each time a thread begins to help another transaction, it pushes the transaction descriptor onto its help stack.
 A thread pops its help stack once the help completes.
-Cyclic dependencies among transactions can be detected by checking for duplicate entries in the help stack (line~\algref{alg:transaction}{l:stackcontain}). 
-We recover by aborting one of the transactions as shown on line~\algref{alg:transaction}{l:txncyclicabort}.
+Cyclic dependencies among transactions can be detected by checking for duplicate entries in the help stack (line~\ref{alg:transaction}.\ref{l:stackcontain}). 
+We recover by aborting one of the transactions as shown on line~\ref{alg:transaction}.\ref{l:txncyclicabort}.
 
 \subsection{Obstruction-free Approach}
 Our helping mechanism invokes a slight memory and performance overhead, due to the use and maintenance of the per-thread help stack. In situations of low contention, it may be beneficial to eliminate this overhead by disabling the helping mechanism. We introduce an alternative obstruction-free approach that disables the helping mechanism, and we compare it to our original lock-free approach.
@@ -537,107 +610,122 @@ In this case, we only expect \textsc{Do\_Delete} to perform the logical deletion
 %We also assume there will be sentinel head and tail nodes so that the \textsc{Do\_LocatePred} function will not return null pointers.
 
 Algorithm~\ref{alg:listinsert} lists the template for the transformed \textsc{Insert} function.
-The function resembles the base node insertion algorithm with a CAS-based while loop (line~\algref{alg:listinsert}{l:listinsertwhile}).
-The only addition is the code path for invoking \textsc{UpdateInfo} on line~\algref{alg:listinsert}{l:insupdateinfo}.
-The logic is simple: on line~\algref{alg:listinsert}{l:listinsertcontain} we check if the data structure already contains a node with the target key.
+The function resembles the base node insertion algorithm with a CAS-based while loop (line~\ref{alg:listinsert}.\ref{l:listinsertwhile}).
+The only addition is the code path for invoking \textsc{UpdateInfo} on line~\ref{alg:listinsert}.\ref{l:insupdateinfo}.
+The logic is simple: on line~\ref{alg:listinsert}.\ref{l:listinsertcontain} we check if the data structure already contains a node with the target key.
 If so, we try to update the node's logical status, otherwise we fall back to the base code path to insert a new node. 
 Should any of the two code paths indicate a retry due to contention, we start the traversal over again.
 
 \begin{algorithm}[t]
-    \caption{Template for Transformed Insert Function}
-    \label{alg:listinsert}
-    \begin{algorithmic}[1]
-        \Function{Insert}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
-        \State $info.desc \gets desc,\;info.opid \gets opid$
-        \While{\TRUE} \label{l:listinsertwhile}
-        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
-        \If{\Call{IsNodePresent}{$curr,\;key$}} \label{l:listinsertcontain}
-        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;false}$ \label{l:insupdateinfo}
-        \Else
-        \State $\textbf{Node*}\; n \gets \text{\textbf{new Node}}$
-        \State $n.key \gets key,\;n.info \gets info$
-        \State $ret \gets \Call{Do\_Insert}{n}$ \label{l:linknode}
-        \EndIf
-        \If {$ret = success$}
-        \State \Return \TRUE
-        \ElsIf {$ret = fail$}
-        \State \Return \FALSE
-        \EndIf
-        \EndWhile
-        \EndFunction
-    \end{algorithmic}
+
+    %\begin{algorithmic}[1]
+        \SetKwFunction{Insert}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
+         $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+         $info.desc \gets desc,\;info.opid \gets opid$
+         \label{l:listinsertwhile} %TODO: make sure this hits the while
+         \SetKwProg{While}{while}{}{}
+        \While{\textbf{true}} 
+        {
+	         $\textbf{Node*}\;curr \gets Do\_LocatePred(key)$
+	        $\textbf{if}$ (IsNodePresent($curr,\;key$)) $\textbf{then}$ \label{l:listinsertcontain}
+	         $ret \gets UpdateInfo(curr,\;info,\;false)$ \label{l:insupdateinfo}
+	        $	extbf{else}$
+	         $\textbf{Node*}\; n \gets \text{\textbf{new Node}}$
+	         $n.key \gets key,\;n.info \gets info$
+	         $ret \gets Do\_Insert(n)$ \label{l:linknode}
+	        %endif
+	        $\textbf{if}$ { {$ret = success$}} $\textbf{then}$
+	         \KwRet{ \textbf{true}}
+	        $textbf{else if}$ { {$ret = fail$}} $\textbf{then}$
+	         \KwRet{ \textbf{false}}
+	        %endif
+	    }
+        
+    %\end{algorithmic}
+        \caption{Template for Transformed Insert Function}
+        \label{alg:listinsert}
 \end{algorithm}
 
 \begin{algorithm}[t]
-    \caption{Template for Transformed Find Function}
-    \label{alg:listfind}
-    \begin{algorithmic}[1]
-        \Function{Find}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
-        \State $info.desc \gets desc,\;info.opid \gets opid$
-        \While{\TRUE} \label{l:listinsertwhile}
-        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
-        \If{\Call{IsNodePresent}{$curr,\;key$}}
-        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;true}$
-        \Else
-        \State $ret \gets fail$
-        \EndIf
-        \If {$ret = success$}
-        \State \Return \TRUE
-        \ElsIf {$ret = fail$} \label{l:findfail} 
-        \State \Return \FALSE
-        \EndIf
-        \EndWhile
-        \EndFunction
-    \end{algorithmic}
+
+    %\begin{algorithmic}[1]
+        \SetKwFunction{Find}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
+         $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+         $info.desc \gets desc,\;info.opid \gets opid$
+         \label{l:listinsertwhile} %TODO: make sure this hits the while
+         \SetKwProg{While}{while}{}{}
+        \While{\textbf{true}} 
+        {
+	         $\textbf{Node*}\;curr \gets Do\_LocatePred(key)$
+	        $\textbf{if}$ (IsNodePresent($curr,\;key$)) $\textbf{then}$
+	         $ret \gets UpdateInfo(curr,\;info,\;true)$
+	        $	extbf{else}$
+	         $ret \gets fail$
+	        %endif
+	        $\textbf{if}$ { {$ret = success$}} $\textbf{then}$
+	         \KwRet{ \textbf{true}}
+	        $textbf{else if}$ { {$ret = fail$} \label{l:findfail} } $\textbf{then}$
+	         \KwRet{ \textbf{false}}
+	        %endif
+	    }
+        
+    %\end{algorithmic}
+        \caption{Template for Transformed Find Function}
+        \label{alg:listfind}
 \end{algorithm}
 
 \begin{algorithm}[h]
-    \caption{Template for Transformed Delete Function}
-    \label{alg:listdelete}
-    \begin{algorithmic}[1]
-        \Function{Delete}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid,\;$ $\textbf{ref Node*}\; del$}
-        \State $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
-        \State $info.desc \gets desc,\;info.opid \gets opid$
-        \While{\TRUE} \label{l:listinsertwhile}
-        \State $\textbf{Node*}\;curr \gets \Call{Do\_LocatePred}{key}$
-        \If{\Call{IsNodePresent}{$curr,\;key$}}
-        \State $ret \gets \Call{UpdateInfo}{curr,\;info,\;true}$
-        \Else
-        \State $ret \gets fail$
-        \EndIf
-        \If {$ret = success$}
-        \State $del \gets curr$
-        \State \Return \TRUE
-        \ElsIf {$ret = fail$} \label{l:deletefail}
-        \State $del \gets \NIL$
-        \State \Return \FALSE
-        \EndIf
-        \EndWhile
-        \EndFunction
-        \Statex
-        \Function{MarkDelete}{$\textbf{set}\;delnodes,\;\textbf{Desc*}\;desc$}
+
+    %\begin{algorithmic}[1]
+        \SetKwFunction{Delete}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid,\;$ $\textbf{ref Node*}\; del$}
+         $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
+         $info.desc \gets desc,\;info.opid \gets opid$
+          \label{l:listinsertwhile} %TODO:make sure this ends up on the while
+         \SetKwProg{While}{while}{}{}
+        \While{\textbf{true}}
+        {
+	         $\textbf{Node*}\;curr \gets Do\_LocatePred(key)$
+	        $\textbf{if}$ (IsNodePresent($curr,\;key$)) $\textbf{then}$
+	         $ret \gets UpdateInfo(curr,\;info,\;true)$
+	        $	extbf{else}$
+	         $ret \gets fail$
+	        %endif
+	        $\textbf{if}$ { {$ret = success$}} $\textbf{then}$
+	         $del \gets curr$
+	         \KwRet{ \textbf{true}}
+	        $textbf{else if}$ { {$ret = fail$} \label{l:deletefail}} $\textbf{then}$
+	         $del \gets NIL$
+	         \KwRet{ \textbf{false}}
+	        %endif
+	    }
+
+        
+        %x
+        \SetKwFunction{MarkDelete}{$\textbf{set}\;delnodes,\;\textbf{Desc*}\;desc$}
+        \SetKwProg{For}{for}{}{}
         \For {$del \in delnodes$}
-        \If {$del = \NIL$}  
-        \State \CONTINUE
-        \EndIf
-        \State $\textbf{NodeInfo*}\;info \gets del.info$
-        \If {$info.desc \ne desc$}
-        \State \CONTINUE
-        \EndIf
-        \If {$\Call{CAS}{del.info,info,\textsc{SetMark}(info)}$} \label{l:markinfo}
-        \State $\Call{Do\_Delete}{del}$
-        \EndIf
-        \EndFor
-        \EndFunction
-    \end{algorithmic}
+        {
+	        $\textbf{if}$ ($del = NIL$) $\textbf{then}$
+	         \textbf{continue}
+	        %endif
+	         $\textbf{NodeInfo*}\;info \gets del.info$
+	        $\textbf{if}$ ($info.desc \ne desc$) $\textbf{then}$
+	         \textbf{continue}
+	        %endif
+	        $\textbf{if}$ ($CAS(del.info,info,\textsc{SetMark}(info))$)  $\textbf{then}$ \label{l:markinfo}
+	         $Do\_Delete(del)$
+	        %endif
+	    }
+        
+    %\end{algorithmic}
+        \caption{Template for Transformed Delete Function}
+        \label{alg:listdelete}
 \end{algorithm}
 
 
-The \textsc{Delete} operation listed in Algorithm~\ref{alg:listdelete} is identical to \textsc{Insert} except it terminates with failure when the target node does not exist (line~\algref{alg:listdelete}{l:deletefail}).
-We also adopt a two-phase process for unlinking nodes from the data structure: deleted nodes will firstly be buffered in a local set in \textsc{ExecuteOps}, and when the transaction commits, the $info$ field of buffered nodes will be marked (line~\algref{alg:listdelete}{l:markinfo}) and consequently unlinked from the data structure by invoking the base data structures' \textsc{Do\_Delete}.
-One advantage of our logical status interpretation is that unlinking nodes from the data structure is optional, whereas in transactional boosting nodes must be physically unlinked to restore the abstract state. 
+The \textsc{Delete} operation listed in Algorithm~\ref{alg:listdelete} is identical to \textsc{Insert} except it terminates with failure when the target node does not exist (line~\ref{alg:listdelete}.\ref{l:deletefail}).
+We also adopt a two-phase process for unlinking nodes from the data structure: deleted nodes will firstly be buffered in a local set in \textsc{ExecuteOps}, and when the transaction commits, the $info$ field of buffered nodes will be marked (line~\ref{alg:listdelete}.\ref{l:markinfo}) and consequently unlinked from the data structure by invoking the base data structures' \textsc{Do\_Delete}.
+One advantage of our logical status interpretation is that unlinking nodes from the data structure is optional, whereas in transactional boosting nodes must be physically unlinked to restore the abstract . 
 This opens up opportunities to optimize performance based on application scenarios.
 Timely unlinking deleted nodes is important for linked lists because the number of ``zombie'' nodes has linear impact on sequential search time.
 Leaving delete nodes in the data structure may be beneficial for skiplists because the overhead and contention introduced by unlinking nodes may outweigh the slight increase in sequential search time ($\mathcal{O}(log{}n)$).
@@ -652,7 +740,7 @@ We discuss this in more details in Section~\ref{sec:experiment}.
 
 \section{Correctness}
 \label{sec:correctness}
-We base our correctness discussion on the notion of commutativity isolation~\cite{herlihy2008transactional}, which states that the history of committed transactions is \emph{strictly serializable} for any transactional data structure that provides linearizable operations and obeys commutativity isolation~\footnote{We omit the discussion of rules on compensating actions and disposable methods because they are not applicable to our approach}.
+We base our correctness discussion on the notion of commutativity isolation~\cite{herlihy2008transactional}, which s that the history of committed transactions is \emph{strictly serializable} for any transactional data structure that provides linearizable operations and obeys commutativity isolation~\footnote{We omit the discussion of rules on compensating actions and disposable methods because they are not applicable to our approach}.
 STM systems may prefer more strict correctness criteria, such as opacity~\cite{guerraoui2008correctness}, because they need to account for the consistency of intermediate memory access.
 In the case of data structure transactions, the intermediate computation is managed by linearizable methods, and only the end result of a transaction is accessible to users.
 Strict serializability~\cite{papadimitriou1979serializability}, which is the analogue of linearizability~\cite{herlihy1990linearizability} for transactions, provides enough semantics for such cases.
@@ -675,19 +763,19 @@ A \emph{sequential specification} for a data structure defines a set of \emph{le
 \end{definition}
 
 %\begin{definition}
-    %Histories $h$ and $h'$ define the same state if, for every history $g$, $h \cdot g$ is legal if and only if $h' \cdot g$ is.
+    %Histories $h$ and $h'$ define the same  if, for every history $g$, $h \cdot g$ is legal if and only if $h' \cdot g$ is.
 %\end{definition}
 
 %\begin{definition}
-    %For a history $h$ and any given invocation $I$ and response $R$, let $I^{-1}$ and $R^{-1}$ be the \emph{inverse} invocation and response, such that the abstract state reached after the history $h \cdot I \cdot R \cdot I^{-1} \cdot R^{-1}$ is the same as the state reached after history $h$.
+    %For a history $h$ and any given invocation $I$ and response $R$, let $I^{-1}$ and $R^{-1}$ be the \emph{inverse} invocation and response, such that the abstract  reached after the history $h \cdot I \cdot R \cdot I^{-1} \cdot R^{-1}$ is the same as the  reached after history $h$.
 %\end{definition}
 
 \begin{definition}
-    Two method calls $I,R$ and $I',R'$ commute if: for all histories $h$, if $h \cdot I \cdot R$ and $h \cdot I' \cdot R'$ are both legal, then $h \cdot I \cdot R \cdot I' \cdot R'$ and $h \cdot I' \cdot R' \cdot I \cdot R$ are both legal and define the same abstract state.
+    Two method calls $I,R$ and $I',R'$ commute if: for all histories $h$, if $h \cdot I \cdot R$ and $h \cdot I' \cdot R'$ are both legal, then $h \cdot I \cdot R \cdot I' \cdot R'$ and $h \cdot I' \cdot R' \cdot I \cdot R$ are both legal and define the same abstract .
 \end{definition}
 
 Commutativity identifies operations that have no dependencies on each other.
-Executing commutative operations in any order yields the same abstract state.
+Executing commutative operations in any order yields the same abstract .
 The commutativity specification for set operations is as follows:
 \begin{equation}
     \label{eq:commute}
@@ -714,14 +802,14 @@ The commutativity specification for set operations is as follows:
 
 \subsection{Serializability and Recoverability}
 We now show that lock-free transactional transformation meets the two above correctness requirements. 
-We denote the concrete state of a set as an node set $N$.
-At any time, the abstract state observed by transaction $T_i$ is $S_i = \{n.key\;|\;n \in N \land \textsc{IsKeyPresent}(n.info,\;desc_i)\}$, where $desc_i$ is the descriptor of $T_i$.
+We denote the concrete  of a set as an node set $N$.
+At any time, the abstract  observed by transaction $T_i$ is $S_i = \{n.key\;|\;n \in N \land \textsc{IsKeyPresent}(n.info,\;desc_i)\}$, where $desc_i$ is the descriptor of $T_i$.
 
 Linearizability requires that concurrent operations appear as if they took place instantaneously at some points between their invocations and responses.
 We show the transformed operations are linearizable by identifying their \emph{linearization points}.
-Additionally, we use the notion of decision points and state-read points to facilitate our reasoning. 
-The decision point of an operation is defined as the atomic statement that finitely decides the result of an operation, i.e. independent of the result of any subsequent instruction after that point.
-A state-read point is defined as the atomic statement where the state of the dictionary, which determines the outcome of the decision point, is read.
+Additionally, we use the notion of decision points and -read points to facil our reasoning. 
+The decision point of an operation is defined as the atomic ment that finitely decides the result of an operation, i.e. independent of the result of any subsequent instruction after that point.
+A -read point is defined as the atomic ment where the  of the dictionary, which determines the outcome of the decision point, is read.
 %Moreover, if we treat the execution of a transaction as an composed method then it is also linearizable in the sense that its effect is published in one atomic step.
 
 \begin{lemma}
@@ -729,17 +817,17 @@ A state-read point is defined as the atomic statement where the state of the dic
     The set operations \textsc{Insert}, \textsc{Delete}, and \textsc{Find} are linearizable.
 \end{lemma}
 \begin{proof}
-    For the transformed \textsc{Insert} operation, the execution is divided into two code paths by the condition check on line~\algref{alg:listinsert}{l:listinsertcontain}.
-    The code path on line~\algref{alg:listinsert}{l:insupdateinfo} updates the existing node's logical status.
-    Note that if the operation reports failure on line~\algref{alg:updateinfo}{l:infofail1} and~\algref{alg:updateinfo}{l:infofail2}, no write operation will be performed to change the logical status of the node.
-    The state-read point for the former case is when the previous transaction status is read from $oldinfo.desc.status$ on line~\algref{alg:logicalstatus}{l:readoldstatus}.
-    The state-read point for the later case is when the current transaction status is read from $info.desc.status$ on line~\algref{alg:updateinfo}{l:testactive}.
-    The abstract states $S'$ observed by all transactions immediately after the reads are unchanged, i.e., $\forall i, S'_i = S_i $.
-    For a successful logical status update, the decision point for it to take effect is when the CAS operation on line~\algref{alg:updateinfo}{l:casinfo} succeeds.
-    The abstract states $S'$ observed by the transactions $T_d$ executing this operation immediately after the CAS is $i=d \implies S'_i = S_i \cup n.key$.
+    For the transformed \textsc{Insert} operation, the execution is divided into two code paths by the condition check on line~\ref{alg:listinsert}.\ref{l:listinsertcontain}.
+    The code path on line~\ref{alg:listinsert}.\ref{l:insupdateinfo} updates the existing node's logical status.
+    Note that if the operation reports failure on line~\ref{alg:updateinfo}.\ref{l:infofail1} and~\ref{alg:updateinfo}.\ref{l:infofail2}, no write operation will be performed to change the logical status of the node.
+    The -read point for the former case is when the previous transaction status is read from $oldinfo.desc.status$ on line~\ref{alg:logicalstatus}.\ref{l:readoldstatus}.
+    The -read point for the later case is when the current transaction status is read from $info.desc.status$ on line~\ref{alg:updateinfo}.\ref{l:testactive}.
+    The abstract s $S'$ observed by all transactions immediately after the reads are unchanged, i.e., $\forall i, S'_i = S_i $.
+    For a successful logical status update, the decision point for it to take effect is when the CAS operation on line~\ref{alg:updateinfo}.\ref{l:casinfo} succeeds.
+    The abstract s $S'$ observed by the transactions $T_d$ executing this operation immediately after the CAS is $i=d \implies S'_i = S_i \cup n.key$.
     For all other transactions $i \ne d \implies S'_i = S_i$.
-    In all cases, the update of abstract states conforms to the sequential specification of the insert operation.
-    The code path for physically adding linkage to the new node (line~\algref{alg:listinsert}{l:linknode}) is linearizable because the corresponding \textsc{Do\_Insert} operation in the base data structure is linearizable.
+    In all cases, the update of abstract s conforms to the sequential specification of the insert operation.
+    The code path for physically adding linkage to the new node (line~\ref{alg:listinsert}.\ref{l:linknode}) is linearizable because the corresponding \textsc{Do\_Insert} operation in the base data structure is linearizable.
     
     The same reasoning process applies to the transformed \textsc{Delete} and \textsc{Find} operations because they share the same logical status update procedure with \textsc{Insert}.
 \end{proof}
@@ -754,7 +842,7 @@ The commutativity isolation rule prevents operations that are not commutative fr
     Because of the one-to-one mapping from node to keys, we have $\forall n_x,n_y \in N, x \ne y \implies n_x \ne n_y \implies n_x.key \ne n_y.key$. 
     This means that two set operations commute if they access two different nodes.
     Let $T_1$ denotes a transaction that currently accesses node $n_1$, i.e., $n_1.info.desc = desc_1 \land desc_1.status = Active$.
-    If another transaction $T_2$ were to access $n_1$, it must perform \textsc{ExecuteOps} for $T_1$ on line~\algref{alg:updateinfo}{l:helpops} because \textsc{ExecuteOps} always update the transaction status when it returns on line~\algref{alg:transaction}{l:txnsuccess} or~\algref{alg:transaction}{l:txnfail} (note that failed CAS also means the transaction status has been set, but another thread).
+    If another transaction $T_2$ were to access $n_1$, it must perform \textsc{ExecuteOps} for $T_1$ on line~\ref{alg:updateinfo}.\ref{l:helpops} because \textsc{ExecuteOps} always updates the transaction status when it returns on line~\ref{alg:transaction}.\ref{l:txnsuccess} or~\ref{alg:transaction}.\ref{l:txnfail} (note that failed CAS also means the transaction status has been set, but another thread).
     We thus ensure that $desc_1.status = Committed \lor desc_1.status = Aborted$ before $T_2$ proceeds. 
 \end{proof}
 
@@ -766,20 +854,20 @@ Follow Lemma~\ref{lemma:linearizable}, and~\ref{lemma:commute}, and the conclusi
 \end{proof}
 
 \begin{theorem}
-    For a data structure generated by lock-free transactional transformation, any history defines the same abstract state as a history with aborted transactions removed.
+    For a data structure generated by lock-free transactional transformation, any history defines the same abstract  as a history with aborted transactions removed.
 \end{theorem}
 \begin{proof}
     Let $T_1$ be an aborted transaction with descriptor $desc_1$.
-    %$T_1$ aborts by atomically setting the status of its transaction descriptor to $aborted$ either on line~\algref{alg:transaction}{l:txnfail} or~\algref{alg:transaction}{l:txncyclicabort}. 
-    We denote $S$ as the abstract state immediately after $T_1$ aborts.
+    %$T_1$ aborts by atomically setting the status of its transaction descriptor to $aborted$ either on line~\ref{alg:transaction}.\ref{l:txnfail} or~\ref{alg:transaction}.\ref{l:txncyclicabort}. 
+    We denote $S$ as the abstract  immediately after $T_1$ aborts.
     Let history $h = F_1 \cdot F'_1 \cdots F_2 \cdot F'_2 \cdot F_x \cdots F'_y$ be the sequence of linearizable method calls after $T_1$ starts and until $T_1$ aborts, where $F_i, 1 \le i \le x$ denotes the method calls successfully executed by $T_1$, and $F'_i, 1 \le i \le y$ denotes the method calls executed by other transactions.
     The interleaving of these method calls is arbitrary.
-    Follow commutativity isolation in Lemma~\ref{lemma:commute} we assure that the method calls after $F_x$ must commute with $F_x$, thus we can swap them without changing the abstract state.
+    Follow commutativity isolation in Lemma~\ref{lemma:commute} we assure that the method calls after $F_x$ must commute with $F_x$, thus we can swap them without changing the abstract .
     By progressively doing this for $F_i, 1 \le i \le x$, we obtain an equivalent history $h = h' = F'_1 \cdots F'_2 \cdots F'_y \cdots F_1 \cdot F_2 \cdots F_x$.
     Let $n_x$ be the node accessed by $F_x$
-    we denote $S'$ as the abstract state before the invocation of $F_x$. 
+    we denote $S'$ as the abstract  before the invocation of $F_x$. 
     Because of the inverse interpretation of logical status we can assert $n_x.key \in S' \implies n_x.key \in S \land n_x.key \notin S' \implies n_x.key \notin S$.
-    Thus, we have $S' = S$ and we can remove $F_x$ from $h'$ without altering the abstract state.
+    Thus, we have $S' = S$ and we can remove $F_x$ from $h'$ without altering the abstract .
     Doing this for $F_i, 1 \le i \le x$, we obtain $h = h' = h'' =F'_1 \cdots F'_2 \cdots F'_y \cdots$, hence $T_1$ is removed from the history.
     %We can assert that $|\{n|n \in N \land n.info.desc = desc_1\}|=i$ because for all successful operations $\textsc{IsNodeExsit}$ must have returned true.
 \end{proof}
@@ -788,7 +876,7 @@ Follow Lemma~\ref{lemma:linearizable}, and~\ref{lemma:commute}, and the conclusi
 Lock-free transaction transform provides lock-free progress because it guarantees that for every possible execution scenario, at least one thread makes progress in finite steps by either committing or aborting a transaction.  
 We reason about this property by examining unbounded loops in all possible executions paths, which can delay the termination of the operations.
 For a system with $i$ threads, the upper bound of the number of active transactions is $i$.
-Consider the while loop that executes the operations on line~\algref{alg:transaction}{l:txnwhile}.
+Consider the while loop that executes the operations on line~\ref{alg:transaction}.\ref{l:txnwhile}.
 This loop is bounded by the maximum number of operations in a transaction, denoted as $j$, but threads may set out to help each other during the execution of each of the operations.
 The number of recursive helping invocations is bound by the number of active transactions. 
 In the worst case where only $1$ thread remains live and $i-1$ threads have failed, the system guarantees a transaction will commit in at most $i * j$ steps.
@@ -960,7 +1048,7 @@ However, with the specific knowledge on linked data structure, we further optimi
 %In our work, we combine both fine-grained thread-level synchronization found in existing lock-free data structures and semantic conflict detection to implement transactional linked data structures without the overhead of atomic section synchronizations.
 
 \subsection{Transactional Memory}
-Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
+Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facil the development of lock-free data structures.
 %Even with Intel's recent release of commercial support of best-effort hardware transaction memory (HTM) in their Haswell processors, 
 However, due to current HTM's cache-coherency based conflict detection scheme, transactions are subject to spurious failures during page faults and context switches~\cite{dice2009early}.
 %This along with excessive aborts under moderate contention~\cite{christina2015resource} make HTM less desirable for implementing transactions in non-blocking data structures.
@@ -1007,7 +1095,7 @@ Moreover, when applied to non-blocking data structures, the progress guarantee o
 Transactional boosting is pessimistic in that it acquires locks eagerly before the method calls, but it still requires operation rollback because not all locks are acquired at once.
 %PTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
 Koskinen et al.~\cite{koskinen2010coarse} later generalized this work and introduce a formal framework called coarse-grained transactions.
-Bronson et al. proposed transaction prediction, which maps the abstract state of a set into memory blocks called predicate and relies on STM to synchronize transactional accesses~\cite{bronson2010transactional}.
+Bronson et al. proposed transaction prediction, which maps the abstract  of a set into memory blocks called predicate and relies on STM to synchronize transactional accesses~\cite{bronson2010transactional}.
 Hassan et al.~\cite{hassan2014developing} proposed an optimistic version of boosting, which employs a white box design and provides throughput and usability benefits over the original boosting approach.
 Other STM variants, such open nested transactions~\cite{ni2007open} support a more relaxed transaction model that leverages some semantic knowledge based on programmers' input.
 The relaxation of STM systems and its implication on composability have been studied by Gramoli et al.~\cite{gramoli2013composing}.
@@ -1041,10 +1129,24 @@ We also plan to further evaluate our approach on SMP systems to verify potential
     %\caption{Rollbacks in Transactional Boosting}
     %\label{fig:boosting}
 %\end{figure*}
-\section{Acknowledgments}
-This work is supported by the National Science Foundation under ACI Award No. 1440530.
 
-\bibliographystyle{abbrv}
+
+% Appendix
+%\appendix
+%\section*{APPENDIX}
+%\setcounter{section}{1}
+%
+%
+%\appendixhead{ZHOU}
+%
+%% Acknowledgments
+%\begin{acks}
+% This work is supported by the National Science Foundation under ACI Award No. 1440530.
+%\end{acks}
+
+% Bibliography
+\bibliographystyle{ACM-Reference-Format-Journals}
 \bibliography{citation}
+
 
 \end{document}

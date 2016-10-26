@@ -1,0 +1,8 @@
+*.bak
+doc/trans.synctex.gz
+doc/trans.aux
+doc/trans.pdf
+doc/trans.log
+doc/trans.bbl
+doc/trans.blg
+*.*~
