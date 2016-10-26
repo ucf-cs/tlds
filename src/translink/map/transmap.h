@@ -389,105 +389,41 @@ private:
 
 		            if( IsKeyExist( oldCurrDesc ) )
 		            {
-						/*if(((DataNode *)node)->value != e_value){
-							return false;
-						}
-						else{*/
-						
-							// we have a key with matching value to update, so update nodedesc
-		            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
+						// we have a key with matching value to update, so update nodedesc
+	            		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
 
-			                if(desc->status != ACTIVE)
-			                {
-			                    return false;
-			                }
+		                if(desc->status != ACTIVE)
+		                {
+		                    return false;
+		                }
 
-			                //if(currDesc == oldCurrDesc)
-			                {
-			                    //Update desc to logically add the key to the table since it's already physically there
-			                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
+		                //if(currDesc == oldCurrDesc)
+		                {
+		                    //Update desc to logically add the key to the table since it's already physically there
+		                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
 
-			                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-			                    // to currDesc leading to a successful comparison in the if statement below
-			                    if(currDesc == oldCurrDesc)
-			                    {
-			                        ASSERT_CODE
-			                            (
-			                             __sync_fetch_and_add(&g_count_ins, 1);
-			                            );
+		                    // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
+		                    // to currDesc leading to a successful comparison in the if statement below
+		                    if(currDesc == oldCurrDesc)
+		                    {
+		                        ASSERT_CODE
+		                            (
+		                             __sync_fetch_and_add(&g_count_ins, 1);
+		                            );
 
-			                        toReturn = (DataNode *)node;//node;
-			                        return true; 
-			                    }
-			                    else // weren't able to update the descriptor so retry
-			                    {
-			                    	goto update_main; // restart, preserving fail count and therefore wait-freedom
-			                    	// there must be a concurrent transaction for our descriptor update to have failed
-			                    	// update nodeinfo algorithm retries if we fail to update the descriptor
-			                    }
-			                }
-
-		// 	                //void* node2; // before removing replace
-		// 	              	void *node2 = head[pos];
-		// 	              	// replace node which is there now, with our new temp_bucket which was passed into the function
-		// 					//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
-		// 					if ((node2=replace_node(head, pos, node, temp_bucket)) == node){//Attempt to replace the node
-		// 						//Pass the CAS
-		// 						//Free_Node(node, T);//Frees the original
-		// 						return true;
-		// 					}
-		// 					else{//Failed the CAS
-		// 						if(node2 == NULL){//If it is NULL the return (see above for why)
-		// 							return false;
-		// 						}
-		// 						else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-		// 							return putUpdate_sub(unmark_spine(node2), e_value, temp_bucket, T);
-		// 						}
-		// 						//If it is the same node marked then we force expand the table
-		// 						else if(isMarkedData(node2) && unmark_data(node2)==node){
-		// #ifdef DEBUGPRINTS_MARK
-		// 							printf("Failed due to mark--main\n");
-		// #endif
-		// 							node=forceExpandTable(T,head,pos,unmark_data(node2), MAIN_POW);//The expanded spine is returned
-		// 							return putUpdate_sub(unmark_spine(node),e_value, temp_bucket, T);//We Examine the next level
-		// 						}
-		// 						else{
-		// 							return false;
-		// 						}
-		// 					}
-
-
-
-						/*}*///End it Else it is value match
+		                        toReturn = (DataNode *)node;//node;
+		                        return true; 
+		                    }
+		                    else // weren't able to update the descriptor so retry
+		                    {
+		                    	goto update_main; // restart, preserving fail count and therefore wait-freedom
+		                    	// there must be a concurrent transaction for our descriptor update to have failed
+		                    	// update nodeinfo algorithm retries if we fail to update the descriptor
+		                    }
+		                }
 					}
 					else // the key they wanted to insert, isn't logically in the table so we can insert
 	            	{
-	            		
-	            		// NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
-
-		             //    if(desc->status != ACTIVE)
-		             //    {
-		             //        return false;
-		             //    }
-
-		             //    //if(currDesc == oldCurrDesc)
-		             //    {
-		             //        //Update desc to logically add the key to the table since it's already physically there
-		             //        //currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
-
-		             //        // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-		             //        // to currDesc leading to a successful comparison in the if statement below
-		             //        // if(currDesc == oldCurrDesc)
-		             //        // {
-		             //        //     ASSERT_CODE
-		             //        //         (
-		             //        //          __sync_fetch_and_add(&g_count_ins, 1);
-		             //        //         );
-
-		             //        //     return true; 
-		             //        // }
-		             //        return false; // key isn't in the table, so can't update
-		             //    }
 	            		return false; // key isn't in the table, so can't update (follows semantics of journal paper)
 	            	}
 					//else
@@ -609,71 +545,11 @@ private:
 			                    else
 			                    	goto update_sub;
 			                }
-
-	// 						void *node2=head[pos];
-	// 						if((node2=replace_node(local, pos, node, temp_bucket))==node){
-	// 						//if( __sync_bool_compare_and_swap ( &((DataNode *)node)->value, ((DataNode *)node)->value, ((DataNode *)temp_bucket)->value ) ){
-	// 							//Free_Node(node, T);//CAS Succedded, no need to update size as we are only replacing
-	// 							return true;
-	// 						}
-	// 						else{
-	// 							//Get the Current Node
-	// 							if(node2 == NULL){//If it is NULL the return (see above for why)
-	// 								return false;
-	// 							}
-	// 							else if(isSpine(node2)){//If it is a Spine then continue, we don't know if the key was updated.
-	// 								local=unmark_spine(node2);
-	// 								break;
-	// 							}
-	// 							//If it is the same node marked then we force expand the table
-	// 							else if(isMarkedData(node2) && unmark_data(node2)==node){
-	// #ifdef DEBUGPRINTS_MARK
-	// 								printf("failed as a result of marked--sub 2\n");
-	// #endif
-	// 								node=forceExpandTable(T,local,pos,unmark_data(node2), right+SUB_POW);//The expanded spine is returned
-	// 								local=unmark_spine(node);
-	// 								break;
-	// 							}
-	// 							//We can linearize that the value was inserted then imeditly replace in any olther cas
-	// 							else{
-	// 								return false;
-	// 							}
-	// 						}
 						}
 						else
 						{
 							return false; //key not there, can't update
 						}
-						// else // the key they wanted to insert, isn't logically in the table so we can insert
-		    //         	{
-		            		
-		    //         		NodeDesc* currDesc = ((DataNode *)node)->nodeDesc;
-
-			   //              if(desc->status != ACTIVE)
-			   //              {
-			   //                  return false;
-			   //              }
-
-			   //              //if(currDesc == oldCurrDesc)
-			   //              {
-			   //                  //Update desc to logically add the key to the table since it's already physically there
-			   //                  currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
-
-			   //                  // If the CAS is successful, then the value before the CAS must have been oldCurrDesc which is returned
-			   //                  // to currDesc leading to a successful comparison in the if statement below
-			   //                  if(currDesc == oldCurrDesc)
-			   //                  {
-			   //                      ASSERT_CODE
-			   //                          (
-			   //                           __sync_fetch_and_add(&g_count_ins, 1);
-			   //                          );
-
-			   //                      return true; 
-			   //                  }
-			   //              }
-		    //         	}
-						//else
-						//	goto noMatch_updateSub;
 					}
 					else{//Create a Spine
 					//noMatch_updateSub:
@@ -824,9 +700,6 @@ They don't modify the table and if a data node is marked they ignore the marking
 
 	                //if(currDesc == oldCurrDesc)
 	                {
-	                	// the descriptor will save the old fields, so use those with an aborted update
-	                	//VALUE oldval = oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
-
 	                    //Update desc to logically add the key to the table since it's already physically there
 	                    currDesc = __sync_val_compare_and_swap(&((DataNode *)node)->nodeDesc, oldCurrDesc, nodeDesc);
 
@@ -839,18 +712,6 @@ They don't modify the table and if a data node is marked they ignore the marking
 	                             __sync_fetch_and_add(&g_count_ins, 1);
 	                            );
 
-	                        // if it's the same transaction and was updated then we have to use the buffered update value
-	                   //     	if(nodeDesc->desc == oldCurrDesc->desc && oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE)
-	                   //     	{
-	                   //     		//nodeDesc->value = oldval;
-	                			// return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
-	                   //     	}
-	                        // last txn at this node was an aborted update by a previous txn
-                    //        	if(IsAbortedUpdate(oldCurrDesc))
-	                   //     	{
-	                   //     		//nodeDesc->value = oldval;
-	                			// return oldCurrDesc->desc->ops[oldCurrDesc->opid].value;
-	                   //     	}
 	                        // if this txn did an update here, then use that value
 	                        if (IsLiveUpdate(oldCurrDesc))
 	                        {
@@ -934,8 +795,6 @@ They don't modify the table and if a data node is marked they ignore the marking
 		                             __sync_fetch_and_add(&g_count_ins, 1);
 		                            );
 		                        
-		                        // if it's the same transaction and was updated then we have to use the buffered update value
-		                       	//if(nodeDesc->desc == oldCurrDesc->desc && oldCurrDesc->desc->ops[oldCurrDesc->opid].type == UPDATE)
 		                        // if this txn did an update here, then use that value
 		                        if (IsLiveUpdate(oldCurrDesc))
 		                        {
@@ -1125,23 +984,6 @@ If it failes to remove an element, and the current node is now...
                     else
                     	goto delete_main;
                 }
-
-                // Don't physically delete nodes
-				// if(replace_node(head,pos,node)){//Tries to CAS the key match to NULL
-				// 	Free_Node(node,T);//Frees the Node for Reuse
-				// 	decrement_size();//Decreases the number of elements
-				// 	return true;
-				// }
-				// else{//If the CAS fails
-				// 	void *node2=getNodeRaw(head,pos);
-				// 	if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked is at the location
-				// 		//Then expand the table, and examine the sub spine
-				// 		node2=forceExpandTable(T,head,pos,node, MAIN_POW);//getNodeRaw must return a spine pointer
-				// 		return remove_sub(hash,unmark_spine(node2), T);
-				// 	}
-				// 	if(isSpine(node))//Then expand the table, and examine the sub spine 
-				// 		return remove_sub(hash,unmark_spine(node), T);
-				// }
 			}
             else // the key they wanted to remove, isn't logically in the table so we can't remove
         	{
@@ -1212,20 +1054,6 @@ If it failes to remove an element, and the current node is now...
 		                    	goto delete_sub;
 		                }
 
-		                // Don't physically delete nodes
-						// if(replace_node(local,pos,node)){//Try to remove
-						// 	Free_Node(node,T);//If success the free the node
-						// 	decrement_size();//Decremese element count
-						// 	return true;//Return true
-						// }
-						// else{//If it failed
-						// 	void *node2=getNodeRaw(local,pos);
-						// 	if(isMarkedData(node2) && unmark_data(node2)!=node){//If it is the same node but marked then force expand and examine subspine
-						// 		node=forceExpandTable(T,local,pos,node, right+SUB_POW);
-						// 	}
-						// 	else//See Logic above remove_main
-						// 		return false;
-						// }
 					}
 		            else // the key they wanted to insert, isn't logically in the table so we can insert
 	            	{
@@ -1326,21 +1154,7 @@ If it failes to remove an element, and the current node is now...
 	    return new_temp_node;//Return
 	}
 	
-	/*This function adds a node that has been removed from the table
-	to the reuse stack or vector
-	*/
-// 	inline void Free_Node(void *node, int T){
-// #ifdef useThreadWatch
-// 		if(!inUse(((DataNode *)node)->hash,T))//If it is Not in use, then place it on the stack
-// 		{
-// 			//Add to Stack
-// 				((DataNode *)node)->next=Thread_pool_stack[T];//Sets the next pointer to the stack
-// 				Thread_pool_stack[T]=node;//Then set the stack to the node
-// 				#ifdef DEBUGPRINTS_RECYCLE
-// 					printf("Placed on Stack(2) %p by %d\n",node,T);
-// 				#endif
-// 				return;
-// 		}
+
 #ifdef useVectorPool
 		else{//IF it is in use then  place it in the vector
 			//Add to vector
@@ -1704,18 +1518,6 @@ If it failes to remove an element, and the current node is now...
 	inline void * getNodeRaw( void* /* volatile  */ *s, int pos){
 		return (void *)(s[pos]);
 	}
-
-	// if (cas_res=replace_node(local, pos, marked_n, (void *)mark_spine(s_head) ) )!=marked_n	
-	// 	void *marked_n=(void *)(mark_data((void *)n));
-	// 	void * /* volatile  */ *local,int pos
-	// 	void *cas_res;
-	// 	if(Thread_spines[T]==NULL){
-	// 		s_head=(void**)getSpine();
-	// 	}
-	// 	else{
-	// 		s_head=(void**)Thread_spines[T];
-	// 		Thread_spines[T]=s_head[0];
-	// 	}
 	
 // //////Atomic CAS/Writes////
 // //SWAPS NULL OR DATA NODE FOR DATA NODE
