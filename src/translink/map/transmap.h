@@ -21,33 +21,36 @@
 #define SUB_SIZE POW(SUB_POW)
 #define MAX_CAS_FAILURE 10
 
-template <class KEY, class VALUE>//, typename _tMemory>
+// template <class KEY, class VALUE>//, typename _tMemory>
+#define KEY uint32_t
+#define VALUE uint32_t
 class TransMap
 {
 public:
-	enum MapOpStatus
+
+	enum OpStatus
 	{
-	    ACTIVE = 0,
-	    COMMITTED,
-	    ABORTED
+	    MAP_ACTIVE = 0,
+	    MAP_COMMITTED,
+	    MAP_ABORTED
 	};
 
-	enum ReturnCode
-    {
-        OK = 0,
-        SKIP,
-        FAIL
-    };
+	// enum ReturnCode
+ //    {
+ //        OK = 0,
+ //        SKIP,
+ //        FAIL
+ //    };
 
-	enum MapOpType
+	enum OpType
 	{
-	    FIND = 0,
-	    INSERT,
-	    DELETE,
-	    UPDATE
+	    MAP_FIND = 0,
+	    MAP_INSERT,
+	    MAP_DELETE,
+	    MAP_UPDATE
 	};
 
-	struct MapOperator
+	struct Operator
 	{
 	    uint8_t type;
 	    uint32_t key;
@@ -58,13 +61,13 @@ public:
     {
         static size_t SizeOf(uint8_t size)
         {
-            return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(MapOperator) * size;
+            return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
         }
 
         // Status of the transaction: values in [0, size] means live txn, values -1 means aborted, value -2 means committed.
         volatile uint8_t status;
         uint8_t size;
-        MapOperator ops[];
+        Operator ops[];
     };
     
     struct NodeDesc
@@ -185,19 +188,6 @@ public:
     inline bool Delete(Desc* desc, uint8_t opid, KEY k, int T);
     inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T);
     //NOTE: add markfordeletion to Find
-
-
-	// int size(){ return elements; }
-
-
-	// //Debug Interfaces//
-	// int capacity(){
-	// 	#ifdef SPINE_COUNT
-	//  		return (SUB_SIZE*spine_elements + MAIN_SIZE);
-	//   	#else
-	// 		return -1;
-	// 	#endif
-	// }
 	
 
 	//TODO UPDATE HASH FUNCTION
@@ -266,8 +256,8 @@ private:
 	inline void* unmark_data(void *s);
 
 	int	 get_size();
-	// int	 size();
-	// int	 capacity();
+	int	 size();
+	int	 capacity();
 
 	inline int POW(int x);
 
@@ -672,75 +662,6 @@ private:
 	}; //TODO: pretty sure this semicolon is just ignored
 #endif
 	
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////Size Calculating Functions//////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-	
-	inline void increment_size(){
-		 __sync_fetch_and_add(&elements, 1);
-	}
-	inline void decrement_size(){
-		__sync_fetch_and_add(&elements, -1);
-	}
-	
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////Bit Marking Functions//////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////	
-	
-	//SPINE NODE BIT MARK
-	inline bool isSpine(void *p){
-		/*if(p==NULL)
-			return false;
-		else*/
-			return  (((unsigned long)(p)) & 1);
-	}
-	inline void * mark_spine(void * /* volatile  */*s){
-		if(s==NULL)
-			return NULL;
-		else
-			return (void *) ( ( (unsigned long)((void *)s)) |1);
-	}
-	inline void* /* volatile  */ *unmark_spine(void *s){
-		return  (void* /* volatile  */ *)( ( (unsigned long)s) & ~3);//3 instead of one in case a spine was marked, less overhead then checking for a mark on a spine
-	}  
-	
-	//DATA NODE BIT MARK
-	inline DataNode* unmark_data(void *s){
-		return (DataNode *) ( ( (unsigned long)((void *)s)) & ~2);
-	}
-	inline void* mark_data(void *s){
-		return  (void *)( ( (unsigned long)s) | 2);
-	}
-	inline bool isMarkedData(void *p){
-		return  (((unsigned long)(p)) & 2);
-	}
-	
-	inline void mark_data_node(void * /* volatile  */*s, int pos){
-		#ifdef DEBUGPRINTS_MARK
-		printf("Node was marked!\n");
-		#endif
-		__sync_fetch_and_or(&(s[pos]),2);
-	}
-	
-	
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////Atomic Wrapper Functions////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////	
-
-///////Atomic Read/////
-	inline void * getNode( void* /* volatile  */ *s, int pos){
-		return (void *)( ( (unsigned long)(s[pos])) & ~2);
-	}
-	inline void * getNodeRaw( void* /* volatile  */ *s, int pos){
-		return (void *)(s[pos]);
-	}
-	
 // //////Atomic CAS/Writes////
 // //SWAPS NULL OR DATA NODE FOR DATA NODE
 	inline void * replace_node(void* /* volatile  */ *s , int pos, void *current_node, DataNode *new_node){
@@ -771,7 +692,7 @@ private:
     // Node* m_tail;
     // Node* m_head;
 
-    Allocator<Node>* m_nodeAllocator;
+    Allocator<DataNode>* m_nodeAllocator;
     Allocator<Desc>* m_descAllocator;
     Allocator<NodeDesc>* m_nodeDescAllocator;
 

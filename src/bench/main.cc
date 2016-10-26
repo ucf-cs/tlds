@@ -102,8 +102,8 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
 }
 
 
-template<typename T>
-void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  T& map)
+//template<typename T>
+void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  TransMap<uint32_t,uint32_t>& map)
 {
     //set affinity for each thread
     cpu_set_t cpu = {{0}};
@@ -133,22 +133,22 @@ void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t
             //ops[t].type = op_dist <= insertion ? INSERT : op_dist <= insertion + deletion ? DELETE : FIND;
             if(op_dist <= insertion)
             {
-                ops[t].type = INSERT;
+                ops[t].type = MAP_INSERT;
                 ops[t].value = randomDistKey(randomGenKey);
             }
             else if(op_dist <= insertion + deletion)
             {
-                ops[t].type = DELETE;
+                ops[t].type = MAP_DELETE;
                 ops[t].value = 0;
             }
             else if(op_dist <= insertion + deletion + update)
             {
-                ops[t].type = UPDATE;
+                ops[t].type = MAP_UPDATE;
                 ops[t].value = randomDistKey(randomGenKey);
             }
             else
             {
-                ops[t].type = FIND;
+                ops[t].type = MAP_FIND;
                 ops[t].value = 0;
             }
 
@@ -162,8 +162,8 @@ void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t
 }
 
 
-template<typename T>
-void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, SetAdaptor<T>& map)
+//template<typename T>
+void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, MapAdaptor<TransMap<uint32_t,uint32_t>>& map)
 {
     std::vector<std::thread> thread(numThread);
     ThreadBarrier barrier(numThread + 1);
@@ -189,7 +189,7 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 
     {
-        thread[i] = std::thread(MapWorkThread<SetAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, update, std::ref(barrier), std::ref(map));
+        thread[i] = std::thread(MapWorkThread<MapAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, update, std::ref(barrier), std::ref(map));
     }
 
     barrier.Wait();

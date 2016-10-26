@@ -71,15 +71,15 @@ bool TransMap::ExecuteOps(Desc* desc, int threadId)
         {
             for(uint32_t i = 0; i < desc->size; ++i)
             {
-                if(desc->ops[i].type == INSERT)
+                if(desc->ops[i].type == MAP_INSERT)
                 {
                     __sync_fetch_and_add(&g_count, 1);
                 }
-                else if(desc->ops[i].type == DELETE)
+                else if(desc->ops[i].type == MAP_DELETE)
                 {
                     __sync_fetch_and_sub(&g_count, 1);
                 }
-                else if(desc->ops[i].type == UPDATE)
+                else if(desc->ops[i].type == MAP_UPDATE)
                 {
                     __sync_fetch_and_add(&g_count_upd, 1); //TODO: unsure about this, should be &g_count?
                 }
@@ -126,16 +126,16 @@ inline std::vector<VALUE> TransMap::HelpOps(Desc* desc, uint8_t opid, int thread
     {
         const Operator& op = desc->ops[opid];
 
-        if(op.type == INSERT)
+        if(op.type == MAP_INSERT)
         {
             ret = Insert(desc, opid, op.key, op.value, T);
         }
-        else if(op.type == DELETE)
+        else if(op.type == MAP_DELETE)
         {
             //ret = Delete(op.key, desc, opid);
             ret = Delete(desc, opid, op.key, T);
         }
-        else if(op.type == UPDATE)
+        else if(op.type == MAP_UPDATE)
         {
         	// this pointer is passed by reference to the update function
         	DataNode* toRet;
@@ -172,10 +172,10 @@ inline std::vector<VALUE> TransMap::HelpOps(Desc* desc, uint8_t opid, int thread
         {
         	// everything must have returned successfully to get here, so if the last operation was an update then we
         	// copy the new value in, if it was an insert we overwrite the value with itself, if it was a find 
-        	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE)
+        	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE)
         	{
-        		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == UPDATE || 
-        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == FIND && x->nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
+        		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE || 
+        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_FIND && x->nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
         		{
         			x->value = x->nodeDesc->desc->ops[nodeDesc->opid].value;//x->nodeDesc->value;
         		}
@@ -1308,6 +1308,86 @@ If it failes to remove an element, and the current node is now...
 		return false;
 	}//End Remove Sub
 
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////Size Calculating Functions//////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+	
+inline void increment_size(){
+	 __sync_fetch_and_add(&elements, 1);
+}
+inline void decrement_size(){
+	__sync_fetch_and_add(&elements, -1);
+}
+
+int size(){ return elements; }
+
+
+//Debug Interfaces//
+int capacity(){
+	#ifdef SPINE_COUNT
+ 		return (SUB_SIZE*spine_elements + MAIN_SIZE);
+  	#else
+		return -1;
+	#endif
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Bit Marking Functions//////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////	
+	
+//SPINE NODE BIT MARK
+inline bool isSpine(void *p){
+	/*if(p==NULL)
+		return false;
+	else*/
+		return  (((unsigned long)(p)) & 1);
+}
+inline void * mark_spine(void * /* volatile  */*s){
+	if(s==NULL)
+		return NULL;
+	else
+		return (void *) ( ( (unsigned long)((void *)s)) |1);
+}
+inline void* /* volatile  */ *unmark_spine(void *s){
+	return  (void* /* volatile  */ *)( ( (unsigned long)s) & ~3);//3 instead of one in case a spine was marked, less overhead then checking for a mark on a spine
+}  
+
+//DATA NODE BIT MARK
+inline DataNode* unmark_data(void *s){
+	return (DataNode *) ( ( (unsigned long)((void *)s)) & ~2);
+}
+inline void* mark_data(void *s){
+	return  (void *)( ( (unsigned long)s) | 2);
+}
+inline bool isMarkedData(void *p){
+	return  (((unsigned long)(p)) & 2);
+}
+
+inline void mark_data_node(void * /* volatile  */*s, int pos){
+	#ifdef DEBUGPRINTS_MARK
+	printf("Node was marked!\n");
+	#endif
+	__sync_fetch_and_or(&(s[pos]),2);
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Atomic Wrapper Functions////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////	
+
+///////Atomic Read/////
+inline void * getNode( void* /* volatile  */ *s, int pos){
+	return (void *)( ( (unsigned long)(s[pos])) & ~2);
+}
+inline void * getNodeRaw( void* /* volatile  */ *s, int pos){
+	return (void *)(s[pos]);
+}
+
 inline bool TransMap::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
 {
     return nodeDesc1->desc == nodeDesc2->desc && nodeDesc1->opid == nodeDesc2->opid;
@@ -1338,14 +1418,14 @@ inline bool TransMap::IsKeyExist(NodeDesc* nodeDesc)
     // NOTE: if the current descriptor is committed, or aborted (not live/active) and referencing an update, then the key exists
     // aborted update operations should have this method return that the key exists, then the old value
     // from the descriptor should be used
-    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE) || (opType == UPDATE);
+    return  (opType == MAP_FIND) || (isNodeActive && opType == MAP_INSERT) || (!isNodeActive && opType == MAP_DELETE) || (opType == MAP_UPDATE);
     // if the operation performed was an update then the key remains in the hash map regardless of return value
-    	//((nodeDesc->desc->status == COMMITTED || nodeDesc->desc->status == ABORTED) && opType == UPDATE);
+    	//((nodeDesc->desc->status == COMMITTED || nodeDesc->desc->status == ABORTED) && opType == MAP_UPDATE);
 }
 
 inline bool TransMap::IsLiveUpdate(NodeDesc* nodeDesc)
 {
-	if (nodeDesc->desc->ops[nodeDesc->opid].type == UPDATE || 
-	(nodeDesc->desc->ops[nodeDesc->opid].type == FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
+	if (nodeDesc->desc->ops[nodeDesc->opid].type == MAP_UPDATE || 
+	(nodeDesc->desc->ops[nodeDesc->opid].type == MAP_FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
 		return true;
 }

@@ -7,10 +7,10 @@
 
 enum MapOpType
 {
-    FIND = 0,
-    INSERT,
-    DELETE,
-    UPDATE
+    MAP_FIND = 0,
+    MAP_INSERT,
+    MAP_DELETE,
+    MAP_UPDATE
 };
 
 struct MapOperator
@@ -22,9 +22,9 @@ struct MapOperator
 
 enum MapOpStatus
 {
-    LIVE = 0,
-    COMMITTED,
-    ABORTED
+    MAP_LIVE = 0,
+    MAP_COMMITTED,
+    MAP_ABORTED
 };
 
 typedef std::vector<MapOperator> MapOpArray;
@@ -35,13 +35,13 @@ class MapAdaptor
 };
 
 template<>
-class MapAdaptor<TransMap>
+class MapAdaptor<TransMap<uint32_t,uint32_t>>
 {
 public:
     MapAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
-        : m_descAllocator(cap * threadCount * TransMap::Desc::SizeOf(transSize), threadCount, TransMap::Desc::SizeOf(transSize))
+        : m_descAllocator(cap * threadCount * TransMap<uint32_t,uint32_t>::Desc::SizeOf(transSize), threadCount, TransMap<uint32_t,uint32_t>::Desc::SizeOf(transSize))
         //, m_nodeAllocator(cap * threadCount *  sizeof(TransMap::Node) * transSize, threadCount, sizeof(TransMap::Node))
-        , m_nodeDescAllocator(cap * threadCount *  sizeof(TransMap::NodeDesc) * transSize, threadCount, sizeof(TransMap::NodeDesc))
+        , m_nodeDescAllocator(cap * threadCount *  sizeof(TransMap<uint32_t,uint32_t>::NodeDesc) * transSize, threadCount, sizeof(TransMap<uint32_t,uint32_t>::NodeDesc))
         , m_map(/*&m_nodeAllocator,*/ &m_descAllocator, &m_nodeDescAllocator, cap, threadCount)
     { }
 
@@ -57,7 +57,7 @@ public:
     bool ExecuteOps(const MapOpArray& ops, int threadId)
     {
         //TransMap::Desc* desc = m_map.AllocateDesc(ops.size());
-        TransMap::Desc* desc = m_descAllocator.Alloc();
+        TransMap<uint32_t,uint32_t>::Desc* desc = m_descAllocator.Alloc();
         desc->size = ops.size();
         desc->status = TransMap::ACTIVE;
 
@@ -72,10 +72,10 @@ public:
     }
 
 private:
-    Allocator<TransMap::Desc> m_descAllocator;
-    Allocator<TransMap::Node> m_nodeAllocator;
-    Allocator<TransMap::NodeDesc> m_nodeDescAllocator;
-    TransMap m_map;
+    Allocator<TransMap<uint32_t,uint32_t>::Desc> m_descAllocator;
+    Allocator<TransMap<uint32_t,uint32_t>::DataNode> m_nodeAllocator;
+    Allocator<TransMap<uint32_t,uint32_t>::NodeDesc> m_nodeDescAllocator;
+    TransMap<uint32_t,uint32_t> m_map;
 };
 
 
