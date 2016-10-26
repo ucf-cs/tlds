@@ -589,7 +589,7 @@ To obtain our obstruction-free approach, we adopt an aggressive contention manag
 If a thread tries to update a node $n$ while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
 This approach eliminates the overhead of the helping mechanism while still enforcing serialization.
 
-In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution. They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors. We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}. Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\algref{alg:obstructionfreeupdateinfo}{l:abortcompetitor}).
+In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution. They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors. We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}. Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
 
 
 \section{Application Examples}
