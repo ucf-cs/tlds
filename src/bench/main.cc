@@ -102,8 +102,8 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
 }
 
 
-//template<typename T>
-void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  TransMap<uint32_t,uint32_t>& map)
+template<typename T>
+void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  T& map)
 {
     //set affinity for each thread
     cpu_set_t cpu = {{0}};
@@ -162,8 +162,8 @@ void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t
 }
 
 
-//template<typename T>
-void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, MapAdaptor<TransMap<uint32_t,uint32_t>>& map)
+template<typename T>
+void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, MapAdaptor<T>& map)
 {
     std::vector<std::thread> thread(numThread);
     ThreadBarrier barrier(numThread + 1);
@@ -263,8 +263,8 @@ int main(int argc, const char *argv[])
     case 5:
         { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
-    case 6:
-        { MapAdaptor<TransMap<uint32_t,uint32_t>> map; MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+    case 6: //NOTE: the transmap gets constructed with numthread + 1 as the the threadcount
+        { MapAdaptor<TransMap> map(testSize, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:
         break;
