@@ -225,7 +225,7 @@ int main(int argc, const char *argv[])
     if(argc > 5) keyRange = atoi(argv[5]);
     if(argc > 6) insertion = atoi(argv[6]);
     if(argc > 7) deletion = atoi(argv[7]);
-    if(argc > 8) deletion = atoi(argv[8]);
+    if(argc > 8) update = atoi(argv[8]);
 
 
     assert(setType < 7);
@@ -241,7 +241,7 @@ int main(int argc, const char *argv[])
         "TransMap"
     };
 
-    printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
+    printf("Start testing %s with %d threads %d iterations %d txnsize %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, deletion, update);//(insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
 
     switch(setType)
     {
