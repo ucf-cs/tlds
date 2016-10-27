@@ -239,6 +239,7 @@ We embed a reference to a \emph{transaction descriptor} in each node, which stor
 A transaction descriptor is shared among a group of nodes accessed by the same transaction. 
 When an operation tries to access a node, it first reads the node's descriptor and proceeds with its modification only if the descriptor indicates the previous transaction has committed or aborted. 
 Otherwise, the operation helps execute the active transaction according to the instructions in the descriptor.
+As an alternative, we also present an aggressive contention management strategy in which an operation forcibly aborts competing transactions, and we compare this obstruction-free version to our original lock-free version.
 
 To overcome the second challenge, we introduce \emph{logical rollback}---a process integrated into the transformed data structure to interpret the \emph{logical status} of the nodes.
 This process interprets the logical status of the nodes left behind by an aborted transaction in such a way that concurrent operations observe a consistent abstract state as if the aborted transaction has been revoked.
@@ -581,10 +582,82 @@ A thread pops its help stack once the help completes.
 Cyclic dependencies among transactions can be detected by checking for duplicate entries in the help stack (line~\ref{alg:transaction}.\ref{l:stackcontain}). 
 We recover by aborting one of the transactions as shown on line~\ref{alg:transaction}.\ref{l:txncyclicabort}.
 
+\begin{algorithm}[t]
+	
+	%\begin{algorithmic}[1]
+	\SetKwFunction{UpdateInfo}{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool},\;wantkey$}
+	$\textbf{NodeInfo*}\; oldinfo \gets n.info$
+	$\textbf{if}$ $IsMarked(oldinfo)$ $\textbf{then}$
+	$Do\_Delete(n)$ 
+	\KwRet{ retry}
+	%endif
+	$\textbf{if}$  {$oldinfo.desc \neq info.desc$} $\textbf{then}$
+	$CAS(\&oldInfo.desc,\;Active,\;Aborted)$ \label{l:abortcompetitor}
+	$textbf{else if}$  {$oldinfo.opid \ge info.opid$} $\textbf{then}$
+	\KwRet{ success}
+	%endif
+	$\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$
+	$\textbf{if}$ { $(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$} } $\textbf{then}$
+\KwRet{ fail }
+%endif
+$\textbf{if}$ { {$info.desc.status \neq Active$} $\textbf{then}$
+	\KwRet{ fail }
+	%endif
+	$\textbf{if}$  {$CAS(\&n.info,\;oldinfo,\;info)$}  $\textbf{then}$
+	\KwRet{ success}
+	$textbf{else}$
+	\KwRet{ retry}
+	%endif
+	
+	%\end{algorithmic}
+	\caption{Update NodeInfo}
+	\label{alg:obstructionfreeupdateinfo}
+\end{algorithm}
+
+\begin{algorithm}[th]
+	
+	%\begin{algorithmic}[1]
+	\SetKwFunction{ExecuteTransaction}{$\textbf{Desc*}\;desc$}
+	$ExecuteOps(desc, 0)$
+	\KwRet{ $desc.status = Committed$}
+	
+	%x
+	\SetKwFunction{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
+	$\textbf{bool}\;ret \gets \textbf{true}$
+	$\textbf{set}\;delnodes$
+	\SetKwProg{While}{while}{}{}
+	\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$} 
+	{
+		$\textbf{Operation*}\;op \gets desc.ops[opid]$
+		$\textbf{if}$ {{$op.type = \textbf{find}$} } $\textbf{then}$
+		$ret \gets Find(op.key,\;desc,\;opid)$
+		$textbf{else if}$ { {$op.type = \textbf{insert}$}} $\textbf{then}$
+		$ret \gets Insert(op.key,\;desc,\;opid)$
+		$textbf{else if}$ {{$op.type = \textbf{delete}$}} $\textbf{then}$
+		$\textbf{Node*}\;del$
+		$ret \gets Delete(op.key,\;desc,\;opid,\;del)$
+		$delnodes.Insert(del)$
+		%endif
+		$opid \gets opid + 1$
+	}
+	$\textbf{if}$ { {$ret = \textbf{true}$}} $\textbf{then}$
+	$\textbf{if}$ { {$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$} } $\textbf{then}$
+	$MarkDelete(delnodes,\;desc)$
+	%endif
+	$	extbf{else}$
+	$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$
+	%endif
+	
+	%\end{algorithmic}
+	\caption{Transaction Execution}
+	\label{alg:obstructionfreetransaction}
+\end{algorithm}
+
 \subsection{Obstruction-free Approach}
 Our cooperative contention management strategy requires that the users specify all operations in a transaction beforehand.
 To allow dynamic transaction executions, we introduce an alternative approach called obstruction-free transactional transformation, and we compare it to our original lock-free approach.
 Obstruction-free transactional transformation allows dynamic transaction executions by adopting aggressive contention management (i.e., the later transaction always forcibly aborts the competitor).
+This approach removes the need for the helping mechanism of the lock-free version, so the operations in a transaction do not need to be specified beforehand.
 In this case, the progress guarantee provided by the system degrades to obstruction-free.
 Obstruction freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
 
@@ -593,10 +666,10 @@ Using this strategy, if a thread tries to update a node $n$ while another active
 Then the thread may update $n$ and continue with its other operations.
 This approach eliminates the need for the helping mechanism while still enforcing serialization.
 
-In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution.
-They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors.
 We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
 Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
+In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution.
+They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors.
 
 
 \section{Application Examples}

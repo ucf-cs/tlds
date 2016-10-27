@@ -421,11 +421,11 @@ bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
         // }
         AbortPendingTxn(l, oldCurrDesc, desc);
 
-        if(IsSameOperation(oldCurrDesc, nodeDesc))
-        {
-            ret = true;
-            goto out;
-        }
+        // if(IsSameOperation(oldCurrDesc, nodeDesc))
+        // {
+        //     ret = true;
+        //     goto out;
+        // }
 
         if(!IsKeyExist(oldCurrDesc))
         {
@@ -602,11 +602,11 @@ bool transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
             nodeDesc->opid = opid;
         }
 
-        if(IsSameOperation(oldCurrDesc, nodeDesc))
-        {
-            ret = true;
-            goto out;
-        }
+        // if(IsSameOperation(oldCurrDesc, nodeDesc))
+        // {
+        //     ret = true;
+        //     goto out;
+        // }
 
         if(IsKeyExist(oldCurrDesc))
         {
@@ -750,11 +750,11 @@ retry:
             nodeDesc->opid = opid;
         }
 
-        if(IsSameOperation(oldCurrDesc, nodeDesc))
-        {
-            ret = true;
-            goto out;
-        }
+        // if(IsSameOperation(oldCurrDesc, nodeDesc))
+        // {
+        //     ret = true;
+        //     goto out;
+        // }
 
         if(IsKeyExist(oldCurrDesc))
         {

@@ -256,10 +256,10 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t
             // FinishPendingTxn(oldCurrDesc, desc);
             AbortPendingTxn(oldCurrDesc, desc);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+            // if(IsSameOperation(oldCurrDesc, nodeDesc))
+            // {
+            //     return SKIP;
+            // }
 
             if(!IsKeyExist(oldCurrDesc))
             {
@@ -324,10 +324,10 @@ inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, uint8_t
             // FinishPendingTxn(oldCurrDesc, desc);
             AbortPendingTxn(oldCurrDesc, desc);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+            // if(IsSameOperation(oldCurrDesc, nodeDesc))
+            // {
+            //     return SKIP;
+            // }
 
             if(IsKeyExist(oldCurrDesc))
             {
@@ -403,10 +403,10 @@ inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, uint8_t o
 
             if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+            // if(IsSameOperation(oldCurrDesc, nodeDesc))
+            // {
+            //     return SKIP;
+            // }
 
             if(IsKeyExist(oldCurrDesc))
             {
