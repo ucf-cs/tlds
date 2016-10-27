@@ -48,7 +48,7 @@ def main():
                 abort = 0
                 fake_abort = 0
                 for i in xrange(0, average):
-                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion))
+                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5} {6}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion, 0))
                     for line in pipe:
                         match = re_time.match(line)
                         if match:
@@ -75,6 +75,7 @@ def main():
             f.write(',\n')
             thread = thread * 2
         f.close()
+    print 'finished {0} {1} {2} {3} {4}'.format(pq_type, iteration, key_range, insertion, deletion)
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,236 @@
+#!/usr/bin/gnuplot
+
+red_000 = "#F9B7B0"
+red_025 = "#F97A6D"
+red_050 = "#E62B17"
+red_075 = "#8F463F"
+red_100 = "#6D0D03"
+
+blue_000 = "#A9BDE6"
+blue_025 = "#7297E6"
+blue_050 = "#1D4599"
+blue_075 = "#2F3F60"
+blue_100 = "#031A49" 
+
+green_000 = "#A6EBB5"
+green_025 = "#67EB84"
+green_050 = "#11AD34"
+green_075 = "#2F6C3D"
+green_100 = "#025214"
+
+brown_000 = "#F9E0B0"
+brown_025 = "#F9C96D"
+brown_050 = "#E69F17"
+brown_075 = "#8F743F"
+brown_100 = "#6D4903"
+
+grid_color = "#d5e0c9"
+text_color = "#6a6a6a"
+
+set terminal postscript eps enhanced color lw 1.5 "DejaVu Sans Mono-Bold" 18
+set datafile separator ","
+
+set style line 1 lt 1 lc rgb red_025 lw 2
+set style line 2 lt 2 lc rgb blue_025 lw 2
+set style line 3 lt 3 lc rgb green_050 lw 2
+set style line 4 lt 4 lc rgb brown_050 lw 2
+set style line 5 lt 5 lc rgb "dark-orange" lw 2
+set style line 6 lt 6 lc rgb "royalblue" lw 2
+set style line 7 lt 7 lc rgb "black" lw 2
+set style line 8 lt 8 lc rgb "dark-red" lw 2
+set style line 9 lt 9 lc rgb "orange-red" lw 2
+set style line 10 lt 10 lc rgb "gray" lw 2
+
+set output "| epstopdf --filter --outfile=oftskip50ins10kfilled.pdf"
+set multiplot
+
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.4
+set tmargin at screen 0.87
+
+set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 1
+set autoscale
+set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
+set xrange [0:9]
+set yrange [100000:4000000]
+set grid ytics
+set ytics nomirror
+set xtics nomirror
+set logscale y
+set format y "%.0s%c"
+set ylabel "Throughput (OP/s)" offset (0,0)
+
+
+plot "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "OFT-1",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(2*$6/$5)   w linespoints ls 1 pt 2 title "LFT-2",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "OFT-2",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(4*$9/$8)   w linespoints ls 1 pt 3 title "LFT-4",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "OFT-4",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(8*$12/$11) w linespoints ls 1 pt 4 title "LFT-8",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "OFT-8",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(16*$15/$14) w linespoints ls 1 pt 6 title "LFT-16",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "OFT-16",
+
+
+set key inside top vertical left Left reverse samplen 2 height 0.5 spacing 1
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.11
+set tmargin at screen 0.4
+unset logscale x
+unset ylabel
+unset ytics
+set y2tics 0,100,100000000
+set format y2 "%.0s%c"
+set grid y2tics
+set logscale y
+set logscale y2
+set y2label "Aborted Transaction" 
+set xlabel "Number of Threads"
+set xtics scale 0
+set auto x
+set auto y
+set style data histogram
+set style histogram clustered
+set style fill pattern border
+set boxwidth 0.8
+
+plot "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_50_del_50" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "OFT"
+
+unset multiplot
+
+
+set output "| epstopdf --filter --outfile=oftskip33ins10kfilled.pdf"
+set multiplot
+
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.4
+set tmargin at screen 0.87
+
+unset xlabel
+unset y2label
+unset y2tics
+set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 1
+set autoscale
+set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
+set xrange [0:9]
+set yrange [100000:4000000]
+set grid ytics
+set ytics nomirror
+set xtics nomirror
+set logscale y
+set format y "%.0s%c"
+set ylabel "Throughput (OP/s)" offset (0,0)
+
+
+plot "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "OFT-1",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(2*$6/$5)   w linespoints ls 1 pt 2 title "LFT-2",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "OFT-2",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(4*$9/$8)   w linespoints ls 1 pt 3 title "LFT-4",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "OFT-4",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(8*$12/$11) w linespoints ls 1 pt 4 title "LFT-8",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "OFT-8",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(16*$15/$14) w linespoints ls 1 pt 6 title "LFT-16",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "OFT-16"
+
+
+set key inside vertical top left Left reverse samplen 2 height 0.5 spacing 1
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.11
+set tmargin at screen 0.4
+unset logscale x
+unset ylabel
+unset ytics
+set y2tics 0,100,100000000
+set format y2 "%.0s%c"
+set grid y2tics
+set logscale y
+set logscale y2
+set y2label "Aborted Transaction" 
+set xlabel "Number of Threads"
+set xtics scale 0
+set auto x
+set auto y
+set style data histogram
+set style histogram clustered
+set style fill pattern border 
+set boxwidth 0.8
+
+plot "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_33_del_33" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "OFT"
+
+unset multiplot
+
+
+set output "| epstopdf --filter --outfile=oftskip15ins10kfilled.pdf"
+set multiplot
+
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.4
+set tmargin at screen 0.87
+
+unset xlabel
+unset y2label
+unset y2tics
+set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 1
+set autoscale
+set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
+set xrange [0:9]
+set yrange [200000:10000000]
+set grid ytics
+set ytics nomirror
+set xtics nomirror
+set logscale y
+set format y "%.0s%c"
+set ylabel "Throughput (OP/s)" offset (0,0)
+
+
+plot "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "OFT-1",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(2*$6/$5)   w linespoints ls 1 pt 2 title "LFT-2",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "OFT-2",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(4*$9/$8)   w linespoints ls 1 pt 3 title "LFT-4",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "OFT-4",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(8*$12/$11) w linespoints ls 1 pt 4 title "LFT-8",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "OFT-8",\
+     "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(16*$15/$14) w linespoints ls 1 pt 6 title "LFT-16",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "OFT-16"
+
+
+set key inside vertical top left Left reverse samplen 2 height 0.5 spacing 1
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.11
+set tmargin at screen 0.4
+unset logscale x
+unset ylabel
+unset ytics
+set y2tics 0,100,100000000
+set format y2 "%.0s%c"
+set grid y2tics
+set logscale y
+set logscale y2
+set y2label "Aborted Transaction" 
+set xlabel "Number of Threads"
+set xtics scale 0
+set auto x
+set auto y
+set style data histogram
+set style histogram clustered
+set style fill pattern border 
+set boxwidth 0.8
+
+plot "walltime_filled_TXNSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT",\
+     "walltime_filled_OBSSKIP_key_1000000_iter_1000000_ins_15_del_5" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "OFT"
+
+unset multiplot
+
+
+
