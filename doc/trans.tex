@@ -582,14 +582,16 @@ Cyclic dependencies among transactions can be detected by checking for duplicate
 We recover by aborting one of the transactions as shown on line~\ref{alg:transaction}.\ref{l:txncyclicabort}.
 
 \subsection{Obstruction-free Approach}
-Our helping mechanism invokes a slight memory and performance overhead, due to the use and maintenance of the per-thread help stack.
-In situations of low contention, it may be beneficial to eliminate this overhead by disabling the helping mechanism.
-We introduce an alternative obstruction-free approach that disables the helping mechanism, and we compare it to our original lock-free approach.
-
+Our cooperative contention management strategy requires that the users specify all operations in a transaction beforehand.
+To allow dynamic transaction executions, we introduce an alternative approach called obstruction-free transactional transformation, and we compare it to our original lock-free approach.
+Obstruction-free transactional transformation allows dynamic transaction executions by adopting aggressive contention management (i.e., the later transaction always forcibly aborts the competitor).
+In this case, the progress guarantee provided by the system degrades to obstruction-free.
 Obstruction freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
-To obtain our obstruction-free approach, we adopt an aggressive contention management strategy.
-If a thread tries to update a node $n$ while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
-This approach eliminates the overhead of the helping mechanism while still enforcing serialization.
+
+To obtain our obstruction-free version, we disable the helping mechanism of the lock-free version and adopt an aggressive contention management strategy.
+Using this strategy, if a thread tries to update a node $n$ while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
+Then the thread may update $n$ and continue with its other operations.
+This approach eliminates the need for the helping mechanism while still enforcing serialization.
 
 In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution.
 They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors.
@@ -933,32 +935,6 @@ Both the micro-benchmark and the data structure implementations are compiled wit
     \label{fig:txnlist}
 \end{figure*}
 
-\begin{figure*}[t]
-	\begin{subfigure}{0.325\textwidth}
-		\centering
-		\includegraphics[width=1\columnwidth]{./data/amdskip50ins10kfilled.pdf}
-		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
-		\label{fig:txnskip50}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.325\textwidth}
-		\centering
-		\includegraphics[width=1\columnwidth]{./data/amdskip33ins10kfilled.pdf}
-		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
-		\label{fig:txnskip33}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.325\textwidth}
-		\centering
-		\includegraphics[width=1\columnwidth]{./data/amdskip15ins10kfilled.pdf}
-		\vspace{-0.17in}
-		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
-		\label{fig:txnskip15}
-	\end{subfigure}
-	\caption{Throughput and Spurious Abort Counts for Transaction Skiplists (1M Key Range)}
-	\label{fig:txnskip}
-\end{figure*}
-
 \subsection{Transactional List}
 \label{sec:txnlistexp}
 We show the throughput and the number of spurious aborts in Figure~\ref{fig:txnlist} for all three types of lists.
@@ -1012,6 +988,32 @@ This is because the \textsc{Find} operations in LFT lists also update descriptor
 Nevertheless, LFT lists still maintain an average of 20\% speedup over BST lists in these scenarios and achieves as much as 40\% throughput gain for large transactions.  
 Because of allowing reader concurrency, NTM lists also exhibit some degree of scalability in read-dominated scenarios.
 
+\begin{figure*}[t]
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/amdskip50ins10kfilled.pdf}
+		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
+		\label{fig:txnskip50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/amdskip33ins10kfilled.pdf}
+		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
+		\label{fig:txnskip33}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/amdskip15ins10kfilled.pdf}
+		\vspace{-0.17in}
+		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
+		\label{fig:txnskip15}
+	\end{subfigure}
+	\caption{Throughput and Spurious Abort Counts for Transaction Skiplists (1M Key Range)}
+	\label{fig:txnskip}
+\end{figure*}
+
 \subsection{Transactional Skiplist}
 \label{sec:txnskiplistexp}
 In Figure~\ref{fig:txnskip}, we show the throughput and the number of spurious aborts for three types of transactional skiplists.
@@ -1038,11 +1040,65 @@ For example, in Figure~\ref{fig:txnskip50} on 32 threads LFT-8 outperforms BST-8
 Even for small transactions, LFT skiplists begin to set the throughput apart from BST skiplists further than what is in Figure~\ref{fig:txnlist}.
 For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% speedup over BST-2.
 
+
+
+\begin{figure*}[t]
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/oftlink50ins10kfilled.pdf}
+		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
+		\label{fig:oftlist50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/oftlink33ins10kfilled.pdf}
+		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
+		\label{fig:oftlist33}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/oftlink15ins10kfilled.pdf}
+		\vspace{-0.17in}
+		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
+		\label{fig:oftlist15}
+	\end{subfigure}
+	\caption{Throughput and Spurious Abort Counts for Lock-free Versus Obstruction-free Transaction Lists (10K Key Range)}
+	\label{fig:oftlist}
+\end{figure*}
+
+\begin{figure*}[t]
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/oftskip50ins10kfilled.pdf}
+		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
+		\label{fig:oftskip50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/oftskip33ins10kfilled.pdf}
+		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
+		\label{fig:oftskip33}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.325\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{./data/oftskip15ins10kfilled.pdf}
+		\vspace{-0.17in}
+		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
+		\label{fig:oftskip15}
+	\end{subfigure}
+	\caption{Throughput and Spurious Abort Counts for Lock-free Versus Obstruction-free Transaction Skiplists (1M Key Range)}
+	\label{fig:oftskip}
+\end{figure*}
+
 \subsection{Obstruction-free Performance}
 We compare the overhead and scalability of our obstruction-free version of transactional transformation against our lock-free version.
 The lock-free version is denoted by LFT, and the obstruction-free version is denoted by OFT.
 
-In Figure~\ref{fig:obslist}, we show the throughput and the number of spurious aborts for the LFT list and the OFT list.
+In Figure~\ref{fig:oftlist}, we show the throughput and the number of spurious aborts for the LFT list and the OFT list.
 We apply the same evaluation procedure as in Section~\ref{sec:txnlistexp}, giving each thread a workload of $10^5$ transactions and setting the key range to $10^4$.
 The OFT list performs similarly to the LFT list, with LFT outperforming OFT by merely 2\% on average.
 However, with greater numbers of threads and larger transactions, OFT shows a performance disadvantage under higher contention.
@@ -1051,7 +1107,7 @@ These scenarios increase the chance that two transactions will concurrently acce
 In OFT, this situation will cause one of the transactions to spuriously abort, effectively canceling the progress that the aborted transaction made.
 In contrast, the helping mechanism of LFT manages this conflict in a cooperative manner, allowing every transaction to make progress.
 
-In Figure~\ref{fig:obsskip}, we compare the performance of the OFT skiplist to the LFT skiplist.
+In Figure~\ref{fig:oftskip}, we compare the performance of the OFT skiplist to the LFT skiplist.
 As in Section~\ref{sec:txnskiplistexp}, we boost the workload to 1 million transactions per thread and increase the key range to 1 million.
 Because of the larger key range, the number of spurious aborts is greatly reduced.
 As a result, the OFT skiplist does not show the same performance disadvantage as the OFT list.
