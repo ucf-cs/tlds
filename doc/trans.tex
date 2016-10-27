@@ -582,14 +582,19 @@ Cyclic dependencies among transactions can be detected by checking for duplicate
 We recover by aborting one of the transactions as shown on line~\ref{alg:transaction}.\ref{l:txncyclicabort}.
 
 \subsection{Obstruction-free Approach}
-Our helping mechanism invokes a slight memory and performance overhead, due to the use and maintenance of the per-thread help stack. In situations of low contention, it may be beneficial to eliminate this overhead by disabling the helping mechanism. We introduce an alternative obstruction-free approach that disables the helping mechanism, and we compare it to our original lock-free approach.
+Our helping mechanism invokes a slight memory and performance overhead, due to the use and maintenance of the per-thread help stack.
+In situations of low contention, it may be beneficial to eliminate this overhead by disabling the helping mechanism.
+We introduce an alternative obstruction-free approach that disables the helping mechanism, and we compare it to our original lock-free approach.
 
 Obstruction freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
 To obtain our obstruction-free approach, we adopt an aggressive contention management strategy.
 If a thread tries to update a node $n$ while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
 This approach eliminates the overhead of the helping mechanism while still enforcing serialization.
 
-In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution. They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors. We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}. Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
+In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution.
+They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors.
+We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
+Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
 
 
 \section{Application Examples}
@@ -1034,7 +1039,23 @@ Even for small transactions, LFT skiplists begin to set the throughput apart fro
 For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% speedup over BST-2.
 
 \subsection{Obstruction-free Performance}
+We compare the overhead and scalability of our obstruction-free version of transactional transformation against our lock-free version.
+The lock-free version is denoted by LFT, and the obstruction-free version is denoted by OFT.
 
+In Figure~\ref{fig:obslist}, we show the throughput and the number of spurious aborts for the LFT list and the OFT list.
+We apply the same evaluation procedure as in Section~\ref{sec:txnlistexp}, giving each thread a workload of $10^5$ transactions and setting the key range to $10^4$.
+The OFT list performs similarly to the LFT list, with LFT outperforming OFT by merely 2\% on average.
+However, with greater numbers of threads and larger transactions, OFT shows a performance disadvantage under higher contention.
+For 64 and 128 threads, LFT-8 and LFT-16 achieve an average of 14\% speedup over OFT-8 and OFT-16.
+These scenarios increase the chance that two transactions will concurrently access the same node.
+In OFT, this situation will cause one of the transactions to spuriously abort, effectively canceling the progress that the aborted transaction made.
+In contrast, the helping mechanism of LFT manages this conflict in a cooperative manner, allowing every transaction to make progress.
+
+In Figure~\ref{fig:obsskip}, we compare the performance of the OFT skiplist to the LFT skiplist.
+As in Section~\ref{sec:txnskiplistexp}, we boost the workload to 1 million transactions per thread and increase the key range to 1 million.
+Because of the larger key range, the number of spurious aborts is greatly reduced.
+As a result, the OFT skiplist does not show the same performance disadvantage as the OFT list.
+In this low-contention environment, the LFT and OFT skiplists perform very similarly, only showing slight variations in throughput.
 
 \section{Related Work}
 \label{sec:related}
