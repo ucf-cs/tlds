@@ -1266,6 +1266,19 @@ Hassan et al.~\cite{hassan2014developing} proposed an optimistic version of boos
 Other STM variants, such open nested transactions~\cite{ni2007open} support a more relaxed transaction model that leverages some semantic knowledge based on programmers' input.
 The relaxation of STM systems and its implication on composability have been studied by Gramoli et al.~\cite{gramoli2013composing}.
 The work by Golan-Gueta et al.~\cite{golan2015automatic} applies commutativity specification obtained from programmers' input to inferring locks for abstract data types.
+
+Spiegelman, et al.~\cite{spiegelman2016transactional} propose an approach that collects a read-set and write-set for a transaction and performs validation on the nodes before executing physical modifications.
+When a transaction begins, it is assigned a version number.
+The transaction then collects a local read-set of nodes that it reads and a write-set of nodes that it will modify.
+At commit-time, the transaction locks the nodes in the write-set, and then it validates that all nodes in the read-set are unchanged by checking their version numbers.
+If the transaction fails to acquire a lock or the validation fails, that means another transaction made non-commutative method calls, and the transaction aborts.
+If successful, the transaction makes physical modifications to the nodes in the write-set, updates the nodes' version numbers, and then releases the locks.
+This approach benefits from the absence of rollbacks, but when applied to non-blocking data structures, it diminishes the progress guarantee of the data structure by using locks.
+This problem could be remedied by replacing locks with transaction descriptors, and we could ensure opacity by applying a helping mechanism similar to the one used in our approach.
+However, to prevent the livelock scenario mentioned in Section~\ref{sec:txnexec}, we must detect cyclic dependencies among transactions and abort one of the transactions when a cyclic dependency occurs.
+The aborted transaction would then need to perform a rollback of the changes it made, which would incur a performance penalty.
+We do not compare our approach to theirs as their source code is proprietary.
+
 \section{Conclusion}
 \label{sec:conclusion}
 We introduced a methodology for transforming lock-free linked data structures into high-performance lock-free transactional data structures. 
