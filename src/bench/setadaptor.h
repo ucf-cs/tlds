@@ -8,6 +8,8 @@
 #include "boosting/skiplist/boostingskip.h"
 #include "common/allocator.h"
 #include "ostm/skiplist/stmskip.h"
+#include "obslink/list/obslist.h"
+#include "obslink/skiplist/obsskip.h"
 
 enum SetOpType
 {

@@ -24,17 +24,19 @@ def main():
     pq_dict = {0: "TXNLIST",
                1: "STMLIST",
                2: "BSTLIST",
-               3: "TXNSKIP",
-               4: "BSTSKIP",
-               5: "STMSKIP"}
+               3: "OBSLIST",
+               4: "TXNSKIP",
+               5: "BSTSKIP",
+               6: "STMSKIP",
+               7: "OBSSKIP"}
 
-    iteration = 1000000
-    key_range = 1000000
+    iteration = 100000
+    key_range = 10000
     insertion = 15
     deletion = 5
     average = 1
     #for pq_type in [0, 1, 2, 3, 4, 5]:
-    for pq_type in [3, 4, 5]:
+    for pq_type in [4]:
         list_type = pq_dict[pq_type]
         if pq_type == 1:
             list_type = list_type + '_' + stm_config
