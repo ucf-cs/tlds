@@ -399,27 +399,33 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
 
         \SetKwFunction{IsNodePresent}{IsNodePresent}
         \SetKwProg{Function}{Function}{}{end}
-        \Function(){\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}}
-        \KwRet{ $n.key = key$ \label{l:nodeexist}} %TODO: something like this with the while loop labels
-
-        \SetKwFunction{IsKeyPresent}{$\textbf{NodeInfo*}\;info,\textbf{Desc*} desc$}
-        \ $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$
-         $\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}
-        $\textbf{switch}\;${$status$} 
-        $\textbf{case:}\;${$\textbf{active}$}
-        $\textbf{if}$ {$info.desc=desc$} $\textbf{then}$
-         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
-        $\textbf{else}$
-         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$ }
-        %endif
-        
-        $\textbf{case:}\;${$\textbf{committed}$} 
-         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{insert}$}
-        
-        $\textbf{case:}\;${$\textbf{aborted}$}
-         \KwRet{ $op=\textbf{find} \;\textbf{or}\; op=\textbf{delete}$}
-          \caption{Logical Status}
-          \label{alg:logicalstatus}          
+        \Function(){\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}}{
+	        \KwRet{ $n.key = key$ \label{l:nodeexist}}
+	    } %TODO: something like this with the while loop labels
+		\;
+		\SetKwFunction{IsKeyPresent}{IsKeyPresent}
+        \Function{\IsKeyPresent{$\textbf{NodeInfo*}\;info,\;\textbf{Desc*} desc$}}{
+        $\textbf{OpType}\;op\gets info.desc.ops[info.opid]$\;
+         $\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}\;
+        \Switch{$status$} {
+        	\uCase{$Active$}{
+        		\uIf{$info.desc = desc$}{
+        			\KwRet{ $op=Find \;\textbf{or}\; op=Insert$}\;
+        		}
+        		\Else{
+        			\KwRet{ $op=Find \;\textbf{or}\; op=Delete$}\;
+        		}
+        	}
+        	\uCase{$Committed$}{
+        		\KwRet{ $op=Find \;\textbf{or}\; op=Insert$}
+        	}
+        	\uCase{$Aborted$}{
+        		\KwRet{ $op=Find \;\textbf{or}\; op=Find$}
+        	}
+        }
+        \caption{Logical Status}
+        \label{alg:logicalstatus}
+		}       
 \end{algorithm}
 
 %\begin{algorithm}[t]
@@ -447,35 +453,36 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
 %\end{algorithm}
 
 \begin{algorithm}[t]
-
-    %\begin{algorithmic}[1]
-        \SetKwFunction{UpdateInfo}{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool},\;wantkey$}
-         $\textbf{NodeInfo*}\; oldinfo \gets n.info$ \label{l:readinfo}
-        $\textbf{if}$ $IsMarked(oldinfo)$ $\textbf{then}$
-         $Do\_Delete(n)$ 
-         \KwRet{ retry}
-        %endif
-        $\textbf{if}$  {$oldinfo.desc \neq info.desc$} \label{l:testself} $\textbf{then}$
-         ExecuteOps($oldinfo.desc,\;oldinfo.opid + 1$) \label{l:helpops}
-        $textbf{else if}$  {$oldinfo.opid \ge info.opid$} \label{l:testhelped} $\textbf{then}$
-         \KwRet{ success}
-        %endif
-         $\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$ \label{l:testkey} 
-        $\textbf{if}$ { $(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$} \label{l:testdesire}} $\textbf{then}$
-         \KwRet{ fail \label{l:infofail1}}
-        %endif
-        $\textbf{if}$ { {$info.desc.status \neq Active$} \label{l:testactive} $\textbf{then}$
-         \KwRet{ fail \label{l:infofail2}}
-        %endif
-        $\textbf{if}$  {$CAS(\&n.info,\;oldinfo,\;info)$}  $\textbf{then}$ \label{l:casinfo}
-         \KwRet{ success}
-        $textbf{else}$
-         \KwRet{ retry}
-        %endif
-        
-    %\end{algorithmic}
-        \caption{Update NodeInfo}
-        \label{alg:updateinfo}
+	\SetKwFunction{UpdateInfo}{UpdateInfo}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
+		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\; \label{l:readinfo}
+		\uIf{$IsMarked(oldinfo)$}{
+			$Do\_Delete(n)$\;
+			\KwRet{ retry}
+		}
+		\uIf{$oldinfo.desc \neq info.desc$}{ \label{l:testself}
+			ExecuteOps($oldinfo.desc,\;oldinfo.opid + 1$) \label{l:helpops}
+		}
+		\uElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{ \label{l:testhelped}
+			\KwRet{ success}
+		}
+		$\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$ \label{l:testkey} \;
+		\uIf{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{ \label{l:testdesire}
+			\KwRet{ fail \label{l:infofail1}}
+		}
+		\uIf{$info.desc.status \neq Active$}{ \label{l:testactive}
+			\KwRet{ fail \label{l:infofail2}}
+		}
+		\uIf{$CAS(\&n.info,\;oldinfo,\;info)$}{ \label{l:casinfo}
+			\KwRet{ success}
+		}
+		\uElse{
+			\KwRet{ fail}
+		}
+	}
+    \caption{Update NodeInfo}
+    \label{alg:updateinfo}
 \end{algorithm}
 
 
@@ -495,49 +502,52 @@ A special case is the operations in an active transaction, which we treat as com
 \begin{algorithm}[th]
 
     %\begin{algorithmic}[1]
-         $\textbf{thread\_local\;Stack}\;helpstack$
-        \SetKwFunction{ExecuteTransaction}{$\textbf{Desc*}\;desc$}
-         $helpstack.\textbf{Init}$
-         $ExecuteOps(desc, 0)$
-         \KwRet{ $desc.status = Committed$}
+         $\textbf{thread\_local\;Stack}\;helpstack$\;
+         \SetKwFunction{ExecuteTransaction}{ExecuteTransaction}
+         \SetKwProg{Function}{Function}{}{end}
+         \Function{\ExecuteTransaction{$\textbf{Desc*}\;desc$}}{
+         	$helpstack.\textbf{Init}$\;
+         	$ExecuteOps(desc, 0)$\;
+         	\KwRet{ $desc.status = Committed$}
+         }
+        \;
         
-        %x
-        \SetKwFunction{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-         $\textbf{bool}\;ret \gets \textbf{true}$
-         $\textbf{set}\;delnodes$
-        $\textbf{if}$  {$helpstack.Contains(desc)$}  $\textbf{then}$ \label{l:stackcontain}
-         $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}
-         \KwRet{}
-        %endif
-         $helpstack.Push(desc)$
-         \label{l:txnwhile} %TODO: make sure this ends up on the while
-    	\SetKwProg{While}{while}{}{}
-        \While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$} 
-         {
-	         $\textbf{Operation*}\;op \gets desc.ops[opid]$
-	        $\textbf{if}$ {{$op.type = \textbf{find}$} } $\textbf{then}$
-	         $ret \gets Find(op.key,\;desc,\;opid)$
-	        $textbf{else if}$ { {$op.type = \textbf{insert}$}} $\textbf{then}$
-	         $ret \gets Insert(op.key,\;desc,\;opid)$
-	        $textbf{else if}$ {{$op.type = \textbf{delete}$}} $\textbf{then}$
-	         $\textbf{Node*}\;del$
-	         $ret \gets Delete(op.key,\;desc,\;opid,\;del)$
-	         $delnodes.Insert(del)$
-	        %endif
-	         $opid \gets opid + 1$
-	    }
-         $helpstack.\textbf{Pop}$
-        $\textbf{if}$ { {$ret = \textbf{true}$}} $\textbf{then}$
-        $\textbf{if}$ { {$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$} \label{l:txnsuccess}} $\textbf{then}$
-         $MarkDelete(delnodes,\;desc)$ \label{l:markdelete}
-        %endif
-        $	extbf{else}$
-         $\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txnfail}
-        %endif
-        
-        %\end{algorithmic}
-            \caption{Transaction Execution}
-            \label{alg:transaction}
+        \SetKwFunction{ExecuteOps}{ExecuteOps}
+        \SetKwProg{Function}{Function}{}{end}
+        \Function{\ExecuteOps{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}}{
+        	$\textbf{bool}\;ret \gets \textbf{true}$\;
+        	$\textbf{set}\;delnodes$\;
+        	\uIf{$helpstack.Contains(desc)$}{ \label{l:stackcontain}
+        		$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}\;
+        		\KwRet{}
+        	}
+        	\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$}{ \label{l:txnwhile}
+        		$\textbf{Operation*}\;op \gets desc.ops[opid]$\;
+        		\uIf{$op.type = \textbf{find}$}{
+        			$ret \gets Find(op.key,\;desc,\;opid)$
+        		}
+        		\uElseIf{$op.type = Insert$}{
+        			$ret \gets Insert(op.key,\;desc,\;opid)$
+        		}
+        		\uElseIf{$op.type = Delete$}{
+        			$\textbf{Node*}\;del$\;
+        			$ret \gets Delete(op.key,\;desc,\;opid,\;del)$\;
+        			$delnodes.Insert(del)$
+        		}
+        		$opid \gets opid + 1$\;
+        	}
+        	$helpstack.Pop()$\;
+        	\uIf{$ret = \textbf{true}$}{
+        		\uIf{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{ \label{l:txnsuccess}
+        			$MarkDelete(delnodes,\;desc)$ \label{l:markdelete}
+        		}
+        	}
+        	\uElse{
+        		$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txnfail}
+        	}
+        }
+        \caption{Transaction Execution}
+        \label{alg:transaction}
 \end{algorithm}
 
 \subsection{Logical Status Update}
@@ -583,33 +593,34 @@ Cyclic dependencies among transactions can be detected by checking for duplicate
 We recover by aborting one of the transactions as shown on line~\ref{alg:transaction}.\ref{l:txncyclicabort}.
 
 \begin{algorithm}[t]
-	
-	%\begin{algorithmic}[1]
-	\SetKwFunction{UpdateInfo}{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool},\;wantkey$}
-	$\textbf{NodeInfo*}\; oldinfo \gets n.info$
-	$\textbf{if}$ $IsMarked(oldinfo)$ $\textbf{then}$
-	$Do\_Delete(n)$ 
-	\KwRet{ retry}
-	%endif
-	$\textbf{if}$  {$oldinfo.desc \neq info.desc$} $\textbf{then}$
-	$CAS(\&oldInfo.desc,\;Active,\;Aborted)$ \label{l:abortcompetitor}
-	$textbf{else if}$  {$oldinfo.opid \ge info.opid$} $\textbf{then}$
-	\KwRet{ success}
-	%endif
-	$\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$
-	$\textbf{if}$ { $(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$} } $\textbf{then}$
-\KwRet{ fail }
-%endif
-$\textbf{if}$ { {$info.desc.status \neq Active$} $\textbf{then}$
-	\KwRet{ fail }
-	%endif
-	$\textbf{if}$  {$CAS(\&n.info,\;oldinfo,\;info)$}  $\textbf{then}$
-	\KwRet{ success}
-	$textbf{else}$
-	\KwRet{ retry}
-	%endif
-	
-	%\end{algorithmic}
+	\SetKwFunction{UpdateInfo}{UpdateInfo}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
+		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\;
+		\uIf{$IsMarked(oldinfo)$}{
+			$Do\_Delete(n)$\;
+			\KwRet{ retry}
+		}
+		\uIf{$oldinfo.desc \neq info.desc$}{
+			$CAS(\&oldInfo.desc,\;Active,\;Aborted)$ \label{l:abortcompetitor}
+		}
+		\uElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{
+			\KwRet{ success}
+		}
+		$\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$ \label{l:testkey} \;
+		\uIf{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{
+			\KwRet{ fail }
+		}
+		\uIf{$info.desc.status \neq Active$}{
+			\KwRet{ fail }
+		}
+		\uIf{$CAS(\&n.info,\;oldinfo,\;info)$}{
+			\KwRet{ success}
+		}
+		\uElse{
+			\KwRet{ fail}
+		}
+	}
 	\caption{Update NodeInfo}
 	\label{alg:obstructionfreeupdateinfo}
 \end{algorithm}
@@ -617,38 +628,43 @@ $\textbf{if}$ { {$info.desc.status \neq Active$} $\textbf{then}$
 \begin{algorithm}[th]
 	
 	%\begin{algorithmic}[1]
-	\SetKwFunction{ExecuteTransaction}{$\textbf{Desc*}\;desc$}
-	$ExecuteOps(desc, 0)$
-	\KwRet{ $desc.status = Committed$}
-	
-	%x
-	\SetKwFunction{ExecuteOps}{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-	$\textbf{bool}\;ret \gets \textbf{true}$
-	$\textbf{set}\;delnodes$
-	\SetKwProg{While}{while}{}{}
-	\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$} 
-	{
-		$\textbf{Operation*}\;op \gets desc.ops[opid]$
-		$\textbf{if}$ {{$op.type = \textbf{find}$} } $\textbf{then}$
-		$ret \gets Find(op.key,\;desc,\;opid)$
-		$textbf{else if}$ { {$op.type = \textbf{insert}$}} $\textbf{then}$
-		$ret \gets Insert(op.key,\;desc,\;opid)$
-		$textbf{else if}$ {{$op.type = \textbf{delete}$}} $\textbf{then}$
-		$\textbf{Node*}\;del$
-		$ret \gets Delete(op.key,\;desc,\;opid,\;del)$
-		$delnodes.Insert(del)$
-		%endif
-		$opid \gets opid + 1$
+	\SetKwFunction{ExecuteTransaction}{ExecuteTransaction}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\ExecuteTransaction{$\textbf{Desc*}\;desc$}}{
+		$ExecuteOps(desc, 0)$\;
+		\KwRet{ $desc.status = Committed$}
 	}
-	$\textbf{if}$ { {$ret = \textbf{true}$}} $\textbf{then}$
-	$\textbf{if}$ { {$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$} } $\textbf{then}$
-	$MarkDelete(delnodes,\;desc)$
-	%endif
-	$	extbf{else}$
-	$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$
-	%endif
+	\;
 	
-	%\end{algorithmic}
+	\SetKwFunction{ExecuteOps}{ExecuteOps}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\ExecuteOps{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}}{
+		$\textbf{bool}\;ret \gets \textbf{true}$\;
+		$\textbf{set}\;delnodes$\;
+		\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$}{
+			$\textbf{Operation*}\;op \gets desc.ops[opid]$\;
+			\uIf{$op.type = \textbf{find}$}{
+				$ret \gets Find(op.key,\;desc,\;opid)$
+			}
+			\uElseIf{$op.type = Insert$}{
+				$ret \gets Insert(op.key,\;desc,\;opid)$
+			}
+			\uElseIf{$op.type = Delete$}{
+				$\textbf{Node*}\;del$\;
+				$ret \gets Delete(op.key,\;desc,\;opid,\;del)$\;
+				$delnodes.Insert(del)$
+			}
+			$opid \gets opid + 1$\;
+		}
+		\uIf{$ret = \textbf{true}$}{
+			\uIf{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{
+				$MarkDelete(delnodes,\;desc)$
+			}
+		}
+		\uElse{
+			$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$
+		}
+	}
 	\caption{Transaction Execution}
 	\label{alg:obstructionfreetransaction}
 \end{algorithm}
@@ -699,28 +715,29 @@ Should any of the two code paths indicate a retry due to contention, we start th
 \begin{algorithm}[t]
 
     %\begin{algorithmic}[1]
-        \SetKwFunction{Insert}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-         $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
-         $info.desc \gets desc,\;info.opid \gets opid$
-         \label{l:listinsertwhile} %TODO: make sure this hits the while
-         \SetKwProg{While}{while}{}{}
-        \While{\textbf{true}} 
-        {
-	         $\textbf{Node*}\;curr \gets Do\_LocatePred(key)$
-	        $\textbf{if}$ (IsNodePresent($curr,\;key$)) $\textbf{then}$ \label{l:listinsertcontain}
-	         $ret \gets UpdateInfo(curr,\;info,\;false)$ \label{l:insupdateinfo}
-	        $	extbf{else}$
-	         $\textbf{Node*}\; n \gets \text{\textbf{new Node}}$
-	         $n.key \gets key,\;n.info \gets info$
-	         $ret \gets Do\_Insert(n)$ \label{l:linknode}
-	        %endif
-	        $\textbf{if}$ { {$ret = success$}} $\textbf{then}$
-	         \KwRet{ \textbf{true}}
-	        $textbf{else if}$ { {$ret = fail$}} $\textbf{then}$
-	         \KwRet{ \textbf{false}}
-	        %endif
-	    }
-        
+	\SetKwFunction{Insert}{Insert}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\Insert{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}}{
+    	$\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$\;
+    	$info.desc \gets desc,\;info.opid \gets opid$\;
+    	\While{\textbf{true}}{ \label{l:listinsertwhile}
+    		$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
+    		\uIf{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
+    			$ret \gets UpdateInfo(curr,\;info,\;false)$ \label{l:insupdateinfo}
+    		}
+    		\uElse{
+    			$\textbf{Node*}\; n \gets \text{\textbf{new Node}}$\;
+    			$n.key \gets key,\;n.info \gets info$\;
+    			$ret \gets Do\_Insert(n)$ \label{l:linknode}
+    		}
+    		\uIf{$ret = success$}{
+    			\KwRet{ \textbf{true}}
+    		}
+    		\uElseIf{$ret = fail$}{
+    			\KwRet{ \textbf{false}}
+    		}
+    	}
+	}
     %\end{algorithmic}
         \caption{Template for Transformed Insert Function}
         \label{alg:listinsert}
@@ -728,27 +745,27 @@ Should any of the two code paths indicate a retry due to contention, we start th
 
 \begin{algorithm}[t]
 
-    %\begin{algorithmic}[1]
-        \SetKwFunction{Find}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}
-         $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
-         $info.desc \gets desc,\;info.opid \gets opid$
-         \label{l:listinsertwhile} %TODO: make sure this hits the while
-         \SetKwProg{While}{while}{}{}
-        \While{\textbf{true}} 
-        {
-	         $\textbf{Node*}\;curr \gets Do\_LocatePred(key)$
-	        $\textbf{if}$ (IsNodePresent($curr,\;key$)) $\textbf{then}$
-	         $ret \gets UpdateInfo(curr,\;info,\;true)$
-	        $	extbf{else}$
-	         $ret \gets fail$
-	        %endif
-	        $\textbf{if}$ { {$ret = success$}} $\textbf{then}$
-	         \KwRet{ \textbf{true}}
-	        $textbf{else if}$ { {$ret = fail$} \label{l:findfail} } $\textbf{then}$
-	         \KwRet{ \textbf{false}}
-	        %endif
-	    }
-        
+	\SetKwFunction{Find}{Find}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\Find{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}}{
+		$\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$\;
+		$info.desc \gets desc,\;info.opid \gets opid$\;
+		\While{\textbf{true}}{ \label{l:listinsertwhile}
+			$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
+			\uIf{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
+				$ret \gets UpdateInfo(curr,\;info,\;true)$ \label{l:insupdateinfo}
+			}
+			\uElse{
+				$ret \gets fail$ \label{l:linknode}
+			}
+			\uIf{$ret = success$}{
+				\KwRet{ \textbf{true}}
+			}
+			\uElseIf{$ret = fail$}{ \label{l:findfail}
+				\KwRet{ \textbf{false}}
+			}
+		}
+	}
     %\end{algorithmic}
         \caption{Template for Transformed Find Function}
         \label{alg:listfind}
@@ -756,48 +773,47 @@ Should any of the two code paths indicate a retry due to contention, we start th
 
 \begin{algorithm}[h]
 
-    %\begin{algorithmic}[1]
-        \SetKwFunction{Delete}{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid,\;$ $\textbf{ref Node*}\; del$}
-         $\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$
-         $info.desc \gets desc,\;info.opid \gets opid$
-          \label{l:listinsertwhile} %TODO:make sure this ends up on the while
-         \SetKwProg{While}{while}{}{}
-        \While{\textbf{true}}
-        {
-	         $\textbf{Node*}\;curr \gets Do\_LocatePred(key)$
-	        $\textbf{if}$ (IsNodePresent($curr,\;key$)) $\textbf{then}$
-	         $ret \gets UpdateInfo(curr,\;info,\;true)$
-	        $	extbf{else}$
-	         $ret \gets fail$
-	        %endif
-	        $\textbf{if}$ { {$ret = success$}} $\textbf{then}$
-	         $del \gets curr$
-	         \KwRet{ \textbf{true}}
-	        $textbf{else if}$ { {$ret = fail$} \label{l:deletefail}} $\textbf{then}$
-	         $del \gets NIL$
-	         \KwRet{ \textbf{false}}
-	        %endif
-	    }
-
-        
-        %x
-        \SetKwFunction{MarkDelete}{$\textbf{set}\;delnodes,\;\textbf{Desc*}\;desc$}
-        \SetKwProg{For}{for}{}{}
-        \For {$del \in delnodes$}
-        {
-	        $\textbf{if}$ ($del = NIL$) $\textbf{then}$
-	         \textbf{continue}
-	        %endif
-	         $\textbf{NodeInfo*}\;info \gets del.info$
-	        $\textbf{if}$ ($info.desc \ne desc$) $\textbf{then}$
-	         \textbf{continue}
-	        %endif
-	        $\textbf{if}$ ($CAS(del.info,info,\textsc{SetMark}(info))$)  $\textbf{then}$ \label{l:markinfo}
-	         $Do\_Delete(del)$
-	        %endif
-	    }
-        
-    %\end{algorithmic}
+	\SetKwFunction{Delete}{Delete}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\Delete{$\textbf{int}\;key,\;\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}}{
+		$\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$\;
+		$info.desc \gets desc,\;info.opid \gets opid$\;
+		\While{\textbf{true}}{ \label{l:listinsertwhile}
+			$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
+			\uIf{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
+				$ret \gets UpdateInfo(curr,\;info,\;true)$ \label{l:insupdateinfo}
+			}
+			\uElse{
+				$ret \gets fail$ \label{l:linknode}
+			}
+			\uIf{$ret = success$}{
+				$del \gets curr$\;
+				\KwRet{ \textbf{true}}
+			}
+			\uElseIf{$ret = fail$}{ \label{l:findfail}
+				$del \gets NIL$\;
+				\KwRet{ \textbf{false}}
+			}
+		}
+	}
+	\;
+	
+	\SetKwFunction{MarkDelete}{MarkDelete}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\MarkDelete{$\textbf{set}\;delnodes,\;\textbf{Desc*}\;desc$}}{
+		\For {$del \in delnodes$}{
+			\uIf{$del = NIL$}{
+				\textbf{continue}
+			}
+			$\textbf{NodeInfo*}\;info \gets del.info$\;
+			\uIf{$info.desc \ne desc$}{
+				\textbf{continue}
+			}
+			\uIf{$CAS(del.info,info,\textsc{SetMark}(info))$}{ \label{l:markinfo}
+				$Do\_Delete(del)$
+			}
+		}
+	}
         \caption{Template for Transformed Delete Function}
         \label{alg:listdelete}
 \end{algorithm}
