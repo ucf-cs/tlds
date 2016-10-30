@@ -75,7 +75,7 @@ struct HelpStack
     uint8_t index;
 };
 
-// static __thread HelpStack helpStack;
+static __thread HelpStack helpStack;
 
 enum OpStatus
 {
@@ -117,24 +117,6 @@ static inline bool FinishPendingTxn(trans_skip* l, NodeDesc* nodeDesc, Desc* des
     }
 
     return true;
-}
-
-static inline void AbortPendingTxn(trans_skip* l, NodeDesc* nodeDesc, Desc* desc)
-{
-    // The node accessed by the operations in same transaction is always active 
-    if(nodeDesc->desc == desc)
-    {
-        return;
-    }
-
-    if(nodeDesc->desc->status == LIVE)
-    {
-        if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
-        {
-            __sync_fetch_and_add(&g_count_abort, 1);
-            __sync_fetch_and_add(&g_count_fake_abort, 1);
-        }
-    }
 }
 
 static inline bool IsNodeActive(NodeDesc* nodeDesc)
@@ -413,19 +395,18 @@ bool transskip_insert(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
             goto retry;
         }
 
-        // if(!FinishPendingTxn(l, oldCurrDesc, desc))
-        // {
-        //     if ( new_node != NULL ) free_node(ptst, new_node);
-        //     ret = false;
-        //     goto out;
-        // }
-        AbortPendingTxn(l, oldCurrDesc, desc);
+        if(!FinishPendingTxn(l, oldCurrDesc, desc))
+        {
+            if ( new_node != NULL ) free_node(ptst, new_node);
+            ret = false;
+            goto out;
+        }
 
-        // if(IsSameOperation(oldCurrDesc, nodeDesc))
-        // {
-        //     ret = true;
-        //     goto out;
-        // }
+        if(IsSameOperation(oldCurrDesc, nodeDesc))
+        {
+            ret = true;
+            goto out;
+        }
 
         if(!IsKeyExist(oldCurrDesc))
         {
@@ -588,12 +569,11 @@ bool transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
             //goto retry;
         }
 
-        // if(!FinishPendingTxn(l, oldCurrDesc, desc))
-        // {
-        //     ret = false;
-        //     goto out;
-        // }
-        AbortPendingTxn(l, oldCurrDesc, desc);
+        if(!FinishPendingTxn(l, oldCurrDesc, desc))
+        {
+            ret = false;
+            goto out;
+        }
 
         if(nodeDesc == NULL)
         {
@@ -602,11 +582,11 @@ bool transskip_delete(trans_skip *l, setkey_t k, Desc* desc, uint8_t opid, node_
             nodeDesc->opid = opid;
         }
 
-        // if(IsSameOperation(oldCurrDesc, nodeDesc))
-        // {
-        //     ret = true;
-        //     goto out;
-        // }
+        if(IsSameOperation(oldCurrDesc, nodeDesc))
+        {
+            ret = true;
+            goto out;
+        }
 
         if(IsKeyExist(oldCurrDesc))
         {
@@ -736,12 +716,11 @@ retry:
             //goto retry;
         }
 
-        // if(!FinishPendingTxn(l, oldCurrDesc, desc))
-        // {
-        //     ret = false;
-        //     goto out;
-        // }
-        AbortPendingTxn(l, oldCurrDesc, desc);
+        if(!FinishPendingTxn(l, oldCurrDesc, desc))
+        {
+            ret = false;
+            goto out;
+        }
 
         if(nodeDesc == NULL)
         {
@@ -750,11 +729,11 @@ retry:
             nodeDesc->opid = opid;
         }
 
-        // if(IsSameOperation(oldCurrDesc, nodeDesc))
-        // {
-        //     ret = true;
-        //     goto out;
-        // }
+        if(IsSameOperation(oldCurrDesc, nodeDesc))
+        {
+            ret = true;
+            goto out;
+        }
 
         if(IsKeyExist(oldCurrDesc))
         {
@@ -840,17 +819,17 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
     //std::vector<node_t*> insertedNodes;
 
     //Cyclic dependcy check
-    // if(helpStack.Contain(desc))
-    // {
-    //     if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
-    //     {
-    //         __sync_fetch_and_add(&g_count_abort, 1);
-    //         __sync_fetch_and_add(&g_count_fake_abort, 1);
-    //     }
-    //     return false;
-    // }
+    if(helpStack.Contain(desc))
+    {
+        if(__sync_bool_compare_and_swap(&desc->status, LIVE, ABORTED))
+        {
+            __sync_fetch_and_add(&g_count_abort, 1);
+            __sync_fetch_and_add(&g_count_fake_abort, 1);
+        }
+        return false;
+    }
 
-    // helpStack.Push(desc);
+    helpStack.Push(desc);
 
     while(desc->status == LIVE && ret && opid < desc->size)
     {
@@ -876,7 +855,7 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
         opid++;
     }
 
-    // helpStack.Pop();
+    helpStack.Pop();
 
     if(ret == true)
     {
@@ -929,7 +908,7 @@ static inline bool help_ops(trans_skip* l, Desc* desc, uint8_t opid)
 
 bool execute_ops(trans_skip* l, Desc* desc)
 {
-    // helpStack.Init();
+    helpStack.Init();
 
     bool ret = help_ops(l, desc, 0);
 

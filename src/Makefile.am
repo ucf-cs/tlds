@@ -19,7 +19,7 @@ trans_SOURCES = bench/main.cc \
 				boosting/skiplist/boostingskip.cc\
 				boosting/lockkey.cc\
 				obslink/list/obslist.cc\
-				obslink/skip/obsskip.cc
+				obslink/skiplist/obsskip.cc
 
 trans_CPPFLAGS = $(WARN_FLAGS) -std=c++11 -pthread\
 				-DINTEL -DCACHE_LINE_SIZE=`getconf LEVEL1_DCACHE_LINESIZE`\

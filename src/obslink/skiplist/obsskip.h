@@ -125,8 +125,8 @@ struct obs_skip
 #define KEY_MAX  ((~0U) - 3)
 
 
-void init_transskip_subsystem(void);
-void destroy_transskip_subsystem(void);
+void init_obsskip_subsystem(void);
+void destroy_obsskip_subsystem(void);
 
 
 bool execute_ops(obs_skip* l, Desc_o* desc);
@@ -136,6 +136,6 @@ bool execute_ops(obs_skip* l, Desc_o* desc);
  */
 obs_skip *obsskip_alloc(Allocator<Desc_o>* _descAllocator, Allocator<NodeDesc_o>* _nodeDescAllocator);
 
-void  transskip_free(obs_skip* l);
+void  obsskip_free(obs_skip* l);
 
 #endif /* __SET_H__ */

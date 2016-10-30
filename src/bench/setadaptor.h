@@ -131,6 +131,99 @@ private:
     trans_skip* m_skiplist;
 };
 
+template<>
+class SetAdaptor<ObsList>
+{
+public:
+    SetAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
+        : m_descAllocator(cap * threadCount * ObsList::Desc::SizeOf(transSize), threadCount, ObsList::Desc::SizeOf(transSize))
+        , m_nodeAllocator(cap * threadCount *  sizeof(ObsList::Node) * transSize, threadCount, sizeof(ObsList::Node))
+        , m_nodeDescAllocator(cap * threadCount *  sizeof(ObsList::NodeDesc) * transSize, threadCount, sizeof(ObsList::NodeDesc))
+        , m_list(&m_nodeAllocator, &m_descAllocator, &m_nodeDescAllocator)
+    { }
+
+    void Init()
+    {
+        m_descAllocator.Init();
+        m_nodeAllocator.Init();
+        m_nodeDescAllocator.Init();
+    }
+
+    void Uninit(){}
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        //ObsList::Desc* desc = m_list.AllocateDesc(ops.size());
+        ObsList::Desc* desc = m_descAllocator.Alloc();
+        desc->size = ops.size();
+        desc->status = ObsList::ACTIVE;
+
+        for(uint32_t i = 0; i < ops.size(); ++i)
+        {
+            desc->ops[i].type = ops[i].type; 
+            desc->ops[i].key = ops[i].key; 
+        }
+
+        return m_list.ExecuteOps(desc);
+    }
+
+private:
+    Allocator<ObsList::Desc> m_descAllocator;
+    Allocator<ObsList::Node> m_nodeAllocator;
+    Allocator<ObsList::NodeDesc> m_nodeDescAllocator;
+    ObsList m_list;
+};
+
+template<>
+class SetAdaptor<obs_skip>
+{
+public:
+    SetAdaptor(uint64_t cap, uint64_t threadCount, uint32_t transSize)
+        : m_descAllocator(cap * threadCount * Desc_o::SizeOf(transSize), threadCount, Desc_o::SizeOf(transSize))
+        , m_nodeDescAllocator(cap * threadCount *  sizeof(NodeDesc_o) * transSize, threadCount, sizeof(NodeDesc_o))
+    { 
+        m_skiplist = obsskip_alloc(&m_descAllocator, &m_nodeDescAllocator);
+        init_obsskip_subsystem(); 
+    }
+
+    ~SetAdaptor()
+    {
+        obsskip_free(m_skiplist);
+    }
+
+    void Init()
+    {
+        m_descAllocator.Init();
+        m_nodeDescAllocator.Init();
+    }
+
+    void Uninit()
+    {
+        destroy_obsskip_subsystem(); 
+    }
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        //TransList::Desc_o* desc = m_list.AllocateDesc(ops.size());
+        Desc_o* desc = m_descAllocator.Alloc();
+        desc->size = ops.size();
+        desc->status = LIVE;
+
+        for(uint32_t i = 0; i < ops.size(); ++i)
+        {
+            desc->ops[i].type = ops[i].type; 
+            desc->ops[i].key = ops[i].key; 
+        }
+
+        return execute_ops(m_skiplist, desc);
+    }
+
+private:
+    Allocator<Desc_o> m_descAllocator;
+    Allocator<NodeDesc_o> m_nodeDescAllocator;
+    obs_skip* m_skiplist;
+};
+
 
 template<>
 class SetAdaptor<RSTMList>

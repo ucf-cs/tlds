@@ -125,9 +125,11 @@ int main(int argc, const char *argv[])
     {   "TransList", 
         "RSTMList",
         "BoostingList",
+        "ObsList",
         "TransSkip",
         "BoostingSkip",
-        "OSTMSkip"
+        "OSTMSkip",
+        "ObsSkip"
     };
 
     printf("Start testing %s with %d threads %d iterations %d operations %d unique keys %d%% insert %d%% delete.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, (insertion + deletion) >= 100 ? 100 - insertion : deletion);
@@ -144,13 +146,19 @@ int main(int argc, const char *argv[])
         { SetAdaptor<BoostingList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 3:
-        { SetAdaptor<trans_skip> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        { SetAdaptor<ObsList> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 4:
-        { SetAdaptor<BoostingSkip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        { SetAdaptor<trans_skip> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 5:
+        { SetAdaptor<BoostingSkip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 6:
         { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 7:
+        { SetAdaptor<obs_skip> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     default:
         break;

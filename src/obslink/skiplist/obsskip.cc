@@ -814,7 +814,7 @@ setval_t transskip_find_original(obs_skip *l, setkey_t k)
     return(v);
 }
 
-void init_transskip_subsystem(void)
+void init_obsskip_subsystem(void)
 {
     int i;
 
@@ -827,7 +827,7 @@ void init_transskip_subsystem(void)
     }
 }
 
-void destroy_transskip_subsystem(void)
+void destroy_obsskip_subsystem(void)
 {
     fr_destroy_gc_subsystem();
 }
@@ -854,7 +854,7 @@ static inline bool help_ops(obs_skip* l, Desc_o* desc, uint8_t opid)
 
     while(desc->status == LIVE && ret && opid < desc->size)
     {
-        const Operator& op = desc->ops[opid];
+        const Operator_o& op = desc->ops[opid];
 
         if(op.type == INSERT)
         {
@@ -947,7 +947,7 @@ void transskip_print(obs_skip* l)
     }
 }
 
-void transskip_free(obs_skip* l)
+void obsskip_free(obs_skip* l)
 {
     printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
 
