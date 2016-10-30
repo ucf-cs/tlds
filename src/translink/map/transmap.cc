@@ -88,7 +88,15 @@ __thread TransMap::HelpStack mapHelpStack;
 	        }
 	        else if(op.type == MAP_UPDATE)
 	        {
+	        	//TODO: leftoff here, should i change toRet to use pointers? pass pointers instead of refs?
+	        	// TODO: or each thread should have a threadlocal retVector vector like their helpstack?
+	        	// TODO: how does helping affect the use of toRet? if transaction B helps transaction A do its update, does transaction A get a valid toRet pointer?
 	        	// this pointer is passed by reference to the update function
+	        	//TODO: instead of making it complicated just add an oldvalue field to the nodeDesc and use that to do logical interpretation
+	        	//TODO: if i do this how do i keep track if a find modifies the node after the update, how do i know to write the old value if i'm looking at a node pointing to a find
+	        		// i could iterate through the transaction descriptor and see where it wanted to do write operations, but i only get keys there, so i'd have to save the corresponding nodes for all update operations
+	        		// but that brings me back to my first problem unless i store a pointer to the node in the transaction descriptor with the operation information (next to the key, value, opid, old value)
+	        			// would old value still be necessary in this case?
 	        	DataNode* toRet;
 	        	ret = Update(desc, opid, op.key, op.value, T, toRet);
 	        	// the pointer is copied into the vector
