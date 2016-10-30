@@ -1,7 +1,7 @@
 \documentclass[prodmode,acmtecs]{acmsmall} % Aptara syntax
 
 % Package to generate and customize Algorithm as per ACM style
-\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage[ruled,linesnumbered,vlined]{algorithm2e}
 \DontPrintSemicolon %TODO: check all lines to make sure semicolons are added manually where needed
 \renewcommand{\algorithmcfname}{ALGORITHM}
 \SetAlFnt{\small}
@@ -409,7 +409,7 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
          $\textbf{TxStatus}\;status \gets info.desc.status$ \label{l:readoldstatus}\;
         \Switch{$status$} {
         	\uCase{$Active$}{
-        		\uIf{$info.desc = desc$}{
+        		\If{$info.desc = desc$}{
         			\KwRet{ $op=Find \;\textbf{or}\; op=Insert$}\;
         		}
         		\Else{
@@ -457,27 +457,27 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
 	\SetKwProg{Function}{Function}{}{end}
 	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
 		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\; \label{l:readinfo}
-		\uIf{$IsMarked(oldinfo)$}{
-			$Do\_Delete(n)$\;
+		\If{$\textsc{IsMarked}(oldinfo)$}{
+			$\textsc{Do\_Delete}(n)$\;
 			\KwRet{ retry}
 		}
-		\uIf{$oldinfo.desc \neq info.desc$}{ \label{l:testself}
-			ExecuteOps($oldinfo.desc,\;oldinfo.opid + 1$) \label{l:helpops}
+		\If{$oldinfo.desc \neq info.desc$}{ \label{l:testself}
+			\textsc{ExecuteOps}($oldinfo.desc,\;oldinfo.opid + 1$) \label{l:helpops}
 		}
-		\uElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{ \label{l:testhelped}
+		\ElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{ \label{l:testhelped}
 			\KwRet{ success}
 		}
-		$\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$ \label{l:testkey} \;
-		\uIf{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{ \label{l:testdesire}
+		$\textbf{bool}\;haskey \gets \textsc{IsKeyPresent}(oldinfo)$ \label{l:testkey} \;
+		\If{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{ \label{l:testdesire}
 			\KwRet{ fail \label{l:infofail1}}
 		}
-		\uIf{$info.desc.status \neq Active$}{ \label{l:testactive}
+		\If{$info.desc.status \neq Active$}{ \label{l:testactive}
 			\KwRet{ fail \label{l:infofail2}}
 		}
-		\uIf{$CAS(\&n.info,\;oldinfo,\;info)$}{ \label{l:casinfo}
+		\If{\textsc{CAS}$(\&n.info,\;oldinfo,\;info)$}{ \label{l:casinfo}
 			\KwRet{ success}
 		}
-		\uElse{
+		\Else{
 			\KwRet{ fail}
 		}
 	}
@@ -506,8 +506,8 @@ A special case is the operations in an active transaction, which we treat as com
          \SetKwFunction{ExecuteTransaction}{ExecuteTransaction}
          \SetKwProg{Function}{Function}{}{end}
          \Function{\ExecuteTransaction{$\textbf{Desc*}\;desc$}}{
-         	$helpstack.\textbf{Init}$\;
-         	$ExecuteOps(desc, 0)$\;
+         	$helpstack.\textsc{Init}()$\;
+         	$\textsc{ExecuteOps}(desc, 0)$\;
          	\KwRet{ $desc.status = Committed$}
          }
         \;
@@ -517,32 +517,33 @@ A special case is the operations in an active transaction, which we treat as com
         \Function{\ExecuteOps{$\textbf{Desc*}\;desc,\;\textbf{int}\;opid$}}{
         	$\textbf{bool}\;ret \gets \textbf{true}$\;
         	$\textbf{set}\;delnodes$\;
-        	\uIf{$helpstack.Contains(desc)$}{ \label{l:stackcontain}
+        	\If{$helpstack.\textsc{Contains}(desc)$}{ \label{l:stackcontain}
         		$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}\;
         		\KwRet{}
         	}
+        	$helpstack.\textsc{Push}(desc)$\;
         	\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$}{ \label{l:txnwhile}
         		$\textbf{Operation*}\;op \gets desc.ops[opid]$\;
-        		\uIf{$op.type = \textbf{find}$}{
-        			$ret \gets Find(op.key,\;desc,\;opid)$
+        		\If{$op.type = \textbf{find}$}{
+        			$ret \gets \textsc{Find}(op.key,\;desc,\;opid)$
         		}
-        		\uElseIf{$op.type = Insert$}{
-        			$ret \gets Insert(op.key,\;desc,\;opid)$
+        		\ElseIf{$op.type = Insert$}{
+        			$ret \gets \textsc{Insert}(op.key,\;desc,\;opid)$
         		}
-        		\uElseIf{$op.type = Delete$}{
+        		\ElseIf{$op.type = Delete$}{
         			$\textbf{Node*}\;del$\;
-        			$ret \gets Delete(op.key,\;desc,\;opid,\;del)$\;
+        			$ret \gets \textsc{Delete}(op.key,\;desc,\;opid,\;del)$\;
         			$delnodes.Insert(del)$
         		}
         		$opid \gets opid + 1$\;
         	}
-        	$helpstack.Pop()$\;
-        	\uIf{$ret = \textbf{true}$}{
-        		\uIf{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{ \label{l:txnsuccess}
-        			$MarkDelete(delnodes,\;desc)$ \label{l:markdelete}
+        	$helpstack.\textsc{Pop}()$\;
+        	\If{$ret = \textbf{true}$}{
+        		\If{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{ \label{l:txnsuccess}
+        			$\textsc{MarkDelete}(delnodes,\;desc)$ \label{l:markdelete}
         		}
         	}
-        	\uElse{
+        	\Else{
         		$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txnfail}
         	}
         }
@@ -597,27 +598,27 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 	\SetKwProg{Function}{Function}{}{end}
 	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
 		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\;
-		\uIf{$IsMarked(oldinfo)$}{
-			$Do\_Delete(n)$\;
+		\If{$\textsc{IsMarked}(oldinfo)$}{
+			$\textsc{Do\_Delete}(n)$\;
 			\KwRet{ retry}
 		}
-		\uIf{$oldinfo.desc \neq info.desc$}{
-			$CAS(\&oldInfo.desc,\;Active,\;Aborted)$ \label{l:abortcompetitor}
+		\If{$oldinfo.desc \neq info.desc$}{
+			$\textsc{CAS}(\&oldInfo.desc,\;Active,\;Aborted)$ \label{l:abortcompetitor}
 		}
-		\uElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{
+		\ElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{
 			\KwRet{ success}
 		}
-		$\textbf{bool}\;haskey \gets IsKeyPresent(oldinfo)$ \label{l:testkey} \;
-		\uIf{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{
+		$\textbf{bool}\;haskey \gets \textsc{IsKeyPresent}(oldinfo)$ \label{l:testkey} \;
+		\If{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{
 			\KwRet{ fail }
 		}
-		\uIf{$info.desc.status \neq Active$}{
+		\If{$info.desc.status \neq Active$}{
 			\KwRet{ fail }
 		}
-		\uIf{$CAS(\&n.info,\;oldinfo,\;info)$}{
+		\If{$\textsc{CAS}(\&n.info,\;oldinfo,\;info)$}{
 			\KwRet{ success}
 		}
-		\uElse{
+		\Else{
 			\KwRet{ fail}
 		}
 	}
@@ -631,7 +632,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 	\SetKwFunction{ExecuteTransaction}{ExecuteTransaction}
 	\SetKwProg{Function}{Function}{}{end}
 	\Function{\ExecuteTransaction{$\textbf{Desc*}\;desc$}}{
-		$ExecuteOps(desc, 0)$\;
+		$\textsc{ExecuteOps}(desc, 0)$\;
 		\KwRet{ $desc.status = Committed$}
 	}
 	\;
@@ -643,25 +644,25 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 		$\textbf{set}\;delnodes$\;
 		\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$}{
 			$\textbf{Operation*}\;op \gets desc.ops[opid]$\;
-			\uIf{$op.type = \textbf{find}$}{
-				$ret \gets Find(op.key,\;desc,\;opid)$
+			\If{$op.type = \textbf{find}$}{
+				$ret \gets \textsc{Find}(op.key,\;desc,\;opid)$
 			}
-			\uElseIf{$op.type = Insert$}{
-				$ret \gets Insert(op.key,\;desc,\;opid)$
+			\ElseIf{$op.type = Insert$}{
+				$ret \gets \textsc{Insert}(op.key,\;desc,\;opid)$
 			}
-			\uElseIf{$op.type = Delete$}{
+			\ElseIf{$op.type = Delete$}{
 				$\textbf{Node*}\;del$\;
-				$ret \gets Delete(op.key,\;desc,\;opid,\;del)$\;
+				$ret \gets \textsc{Delete}(op.key,\;desc,\;opid,\;del)$\;
 				$delnodes.Insert(del)$
 			}
 			$opid \gets opid + 1$\;
 		}
-		\uIf{$ret = \textbf{true}$}{
-			\uIf{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{
-				$MarkDelete(delnodes,\;desc)$
+		\If{$ret = \textbf{true}$}{
+			\If{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{
+				$\textsc{MarkDelete}(delnodes,\;desc)$
 			}
 		}
-		\uElse{
+		\Else{
 			$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$
 		}
 	}
@@ -722,18 +723,18 @@ Should any of the two code paths indicate a retry due to contention, we start th
     	$info.desc \gets desc,\;info.opid \gets opid$\;
     	\While{\textbf{true}}{ \label{l:listinsertwhile}
     		$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
-    		\uIf{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
+    		\If{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
     			$ret \gets UpdateInfo(curr,\;info,\;false)$ \label{l:insupdateinfo}
     		}
-    		\uElse{
+    		\Else{
     			$\textbf{Node*}\; n \gets \text{\textbf{new Node}}$\;
     			$n.key \gets key,\;n.info \gets info$\;
     			$ret \gets Do\_Insert(n)$ \label{l:linknode}
     		}
-    		\uIf{$ret = success$}{
+    		\If{$ret = success$}{
     			\KwRet{ \textbf{true}}
     		}
-    		\uElseIf{$ret = fail$}{
+    		\ElseIf{$ret = fail$}{
     			\KwRet{ \textbf{false}}
     		}
     	}
@@ -752,16 +753,16 @@ Should any of the two code paths indicate a retry due to contention, we start th
 		$info.desc \gets desc,\;info.opid \gets opid$\;
 		\While{\textbf{true}}{ \label{l:listinsertwhile}
 			$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
-			\uIf{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
+			\If{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
 				$ret \gets UpdateInfo(curr,\;info,\;true)$ \label{l:insupdateinfo}
 			}
-			\uElse{
+			\Else{
 				$ret \gets fail$ \label{l:linknode}
 			}
-			\uIf{$ret = success$}{
+			\If{$ret = success$}{
 				\KwRet{ \textbf{true}}
 			}
-			\uElseIf{$ret = fail$}{ \label{l:findfail}
+			\ElseIf{$ret = fail$}{ \label{l:findfail}
 				\KwRet{ \textbf{false}}
 			}
 		}
@@ -780,17 +781,17 @@ Should any of the two code paths indicate a retry due to contention, we start th
 		$info.desc \gets desc,\;info.opid \gets opid$\;
 		\While{\textbf{true}}{ \label{l:listinsertwhile}
 			$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
-			\uIf{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
+			\If{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
 				$ret \gets UpdateInfo(curr,\;info,\;true)$ \label{l:insupdateinfo}
 			}
-			\uElse{
+			\Else{
 				$ret \gets fail$ \label{l:linknode}
 			}
-			\uIf{$ret = success$}{
+			\If{$ret = success$}{
 				$del \gets curr$\;
 				\KwRet{ \textbf{true}}
 			}
-			\uElseIf{$ret = fail$}{ \label{l:findfail}
+			\ElseIf{$ret = fail$}{ \label{l:findfail}
 				$del \gets NIL$\;
 				\KwRet{ \textbf{false}}
 			}
@@ -802,14 +803,14 @@ Should any of the two code paths indicate a retry due to contention, we start th
 	\SetKwProg{Function}{Function}{}{end}
 	\Function{\MarkDelete{$\textbf{set}\;delnodes,\;\textbf{Desc*}\;desc$}}{
 		\For {$del \in delnodes$}{
-			\uIf{$del = NIL$}{
+			\If{$del = NIL$}{
 				\textbf{continue}
 			}
 			$\textbf{NodeInfo*}\;info \gets del.info$\;
-			\uIf{$info.desc \ne desc$}{
+			\If{$info.desc \ne desc$}{
 				\textbf{continue}
 			}
-			\uIf{$CAS(del.info,info,\textsc{SetMark}(info))$}{ \label{l:markinfo}
+			\If{$CAS(del.info,info,\textsc{SetMark}(info))$}{ \label{l:markinfo}
 				$Do\_Delete(del)$
 			}
 		}
