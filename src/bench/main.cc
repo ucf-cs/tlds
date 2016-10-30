@@ -155,7 +155,8 @@ void MapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t
             ops[t].key  = randomDistKey(randomGenKey);
         }
 
-        map.ExecuteOps(ops, threadId);
+        //std::vector<VALUE> toR;
+        map.ExecuteOps(ops, threadId);//, toR);
     }
 
     map.Uninit();
@@ -179,11 +180,12 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
 
     for(unsigned int i = 0; i < keyRange; ++i)
     {
+        std::vector<VALUE> toR;
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
         ops[0].value = randomDist(randomGen);
         // all prefill gets done by thread 0, the main thread; worker threads start numbering at 1
-        map.ExecuteOps(ops, 0); 
+        map.ExecuteOps(ops, 0);//, toR); 
     }
 
     //Create joinable threads
