@@ -12,6 +12,8 @@
 #include <iostream>
 #include <iomanip>
 
+#include <cmath>
+
 #define HASH unsigned int
 #define KEY_SIZE 32
 #define toHash 5
@@ -198,8 +200,8 @@ public:
 	    , m_nodeDescAllocator(nodeDescAllocator)
 		//WaitFreeHashTable(int initalPowerOfTwo, int numThreads)
 		{
-			MAIN_SIZE				=TransMap::POW(initalPowerOfTwo);
-			MAIN_POW				=initalPowerOfTwo;
+			MAIN_SIZE				=TransMap::POW(((int)std::ceil(std::log2(initalPowerOfTwo))));
+			MAIN_POW				=((int)std::ceil(std::log2(initalPowerOfTwo)));
 			Threads					=numThreads; assert(Threads>0);
 			head					=(void* /* volatile  */ *)	calloc(MAIN_SIZE,sizeof(void */* volatile  */));
 
@@ -457,7 +459,7 @@ inline bool Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
 {
     //inserted = NULL;
 
-    NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+    NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid; //new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
     
 	HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
 	#ifdef useThreadWatch
@@ -840,7 +842,7 @@ inline bool putIfAbsent_sub(Desc* desc,void* /* volatile  */* local, DataNode *t
 		/*if(e_value==v)
 			return true;*/
 
-		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
 		
 		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
 #ifdef useThreadWatch
@@ -1102,8 +1104,9 @@ update_sub:
 			}//End Else, Data Node
 		}while(true);//End While Loop
 	}//End For Loop
-	printf("888888888888888888888888888\n");
-	exit(8888);
+	// printf("888888888888888888888888888\n");
+	// exit(8888);
+	//NOTE: i don't think this should happen
 }//End update sub
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -1122,7 +1125,7 @@ They don't modify the table and if a data node is marked they ignore the marking
 	// for the while loop and needs to be done for map interface in general in the update template pseudocode
 	//inline VALUE get_first(KEY k, int T){
 	inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T){
-		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the hash to the watchlist
@@ -1392,7 +1395,7 @@ If it failes to remove an element, and the current node is now...
 	//inline bool remove_first(KEY k, int T){
 	//NOTE: nodeDesc is pass by value
 	inline bool Delete(Desc* desc, uint8_t opid, KEY k, int T){
-		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the key to the watchlist

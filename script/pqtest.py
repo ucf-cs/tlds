@@ -26,15 +26,17 @@ def main():
                2: "BSTLIST",
                3: "TXNSKIP",
                4: "BSTSKIP",
-               5: "STMSKIP"}
+               5: "STMSKIP",
+               6: "TRANSMAP"}
 
-    iteration = 1000000
-    key_range = 1000000
-    insertion = 15
-    deletion = 5
-    average = 1
+    iteration = 100000
+    key_range = 10000
+    insertion = 25
+    deletion = 25
+    update = 25
+    average = 3
     #for pq_type in [0, 1, 2, 3, 4, 5]:
-    for pq_type in [3, 4, 5]:
+    for pq_type in [6]:
         list_type = pq_dict[pq_type]
         if pq_type == 1:
             list_type = list_type + '_' + stm_config
@@ -48,7 +50,7 @@ def main():
                 abort = 0
                 fake_abort = 0
                 for i in xrange(0, average):
-                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion))
+                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5} {6} {7}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion, update))
                     for line in pipe:
                         match = re_time.match(line)
                         if match:
@@ -75,6 +77,7 @@ def main():
             f.write(',\n')
             thread = thread * 2
         f.close()
+    print "FINISHED {0} {1} {2} {3} {4} {5} {6} {7}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion, update)
 
 if __name__ == '__main__':
     main()

@@ -122,15 +122,20 @@ __thread TransMap::HelpStack mapHelpStack;
 	        for(DataNode* x: retVector)
 	        {
 	        	// everything must have returned successfully to get here, so if the last operation was an update then we
-	        	// copy the new value in, if it was an insert we overwrite the value with itself, if it was a find 
-	        	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE)
+	        	// copy the new value in, if it was an insert we overwrite the value with itself, if it was a find
+	        	// NOTE: sometimes x->nodeDesc is NULL, should this be happening? is this a result of problems with the m_desc and m_nodedesc allocators? because x->nodedesc->desc can apparently also be null
+	        	// get rid of m_desc allocator and check for && x->nodeDesc->desc != NULL which was not hit before problem with not accessing memory arose
+	        	if (x != NULL && x->nodeDesc != NULL ) 
 	        	{
-	        		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE || 
-	        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_FIND && x->nodeDesc->desc->ops[x->nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
-	        		{
-	        			x->value = x->nodeDesc->desc->ops[x->nodeDesc->opid].value;//x->nodeDesc->value;
-	        		}
-	        	}
+		        	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE)
+		        	{
+		        		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE || 
+		        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_FIND && x->nodeDesc->desc->ops[x->nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
+		        		{
+		        			x->value = x->nodeDesc->desc->ops[x->nodeDesc->opid].value;//x->nodeDesc->value;
+		        		}
+		        	}
+		        }
 	        }
 
 	        if(__sync_bool_compare_and_swap(&desc->status, MAP_ACTIVE, MAP_COMMITTED))
@@ -139,12 +144,13 @@ __thread TransMap::HelpStack mapHelpStack;
 
 	            __sync_fetch_and_add(&g_count_commit, 1);
 	        }
-	        else
-        	{
-        		printf("999999999999999999999999\n");
-        		exit(9999);
-        	}
+	        // else
+        	// {
+        	// 	printf("999999999999999999999999\n");
+        	// 	exit(9999);
+        	// }
 	        	// NOTE: if this happens it means the updates need to be undone here
+	        //note: i think this might just mean that some other thread committed the transaction
 	        return;//return foundValues;
 	    }
 	    else
