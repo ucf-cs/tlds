@@ -239,7 +239,8 @@ We embed a reference to a \emph{transaction descriptor} in each node, which stor
 A transaction descriptor is shared among a group of nodes accessed by the same transaction. 
 When an operation tries to access a node, it first reads the node's descriptor and proceeds with its modification only if the descriptor indicates the previous transaction has committed or aborted. 
 Otherwise, the operation helps execute the active transaction according to the instructions in the descriptor.
-As an alternative, we also present an aggressive contention management strategy in which an operation forcibly aborts competing transactions, and we compare this obstruction-free version to our original lock-free version.
+As an alternative, we also present an aggressive contention management strategy in which an operation forcibly aborts competing transactions.
+We compare this obstruction-free version to our original lock-free version.
 
 To overcome the second challenge, we introduce \emph{logical rollback}---a process integrated into the transformed data structure to interpret the \emph{logical status} of the nodes.
 This process interprets the logical status of the nodes left behind by an aborted transaction in such a way that concurrent operations observe a consistent abstract state as if the aborted transaction has been revoked.
@@ -489,7 +490,7 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
 In Algorithm~\ref{alg:logicalstatus}, we list the function to interpret the logical status of a node according to the value of the transaction descriptor.
 Function \textsc{IsNodePresent}, verifies that a node associated with a specific key is present.
 This is a common test found in existing linked data structures.
-Given a node's presence, function \textsc{IsKeyPresent} verifies if the key should be logically included in the abstract , and returns a boolean value based on the combination of operation type and transaction status.
+Given a node's presence, function \textsc{IsKeyPresent} verifies if the key should be logically included in the abstract state, and returns a boolean value based on the combination of operation type and transaction status.
 For a node most recently accessed by an \textsc{Insert} operation, its key is considered present if the transaction has successfully \emph{committed}.
 On the contrary, according to the semantics of \textsc{Delete}, a successful operation must remove the key from the set.
 Thus for a node most recently accessed by a \textsc{Delete} operation, its key is considered present if the transaction has \emph{aborted}.
@@ -557,7 +558,7 @@ As mentioned above, the logical status of a node depends on the interpretation o
 In a transformed data structure, an operation needs to change a node's logical status before performing any necessary low-level node manipulations. 
 This is done by updating the node's \textsc{NodeInfo} pointer as shown in Algorithm~\ref{alg:updateinfo}. 
 Given a node $n$, the function \textsc{UpdateInfo} reads its current $info$ field (line~\ref{alg:updateinfo}.\ref{l:readinfo}~\footnote{We denote line $b$ from algroithm $a$ by $a.b$}), verifies its sanity, and attempts to update $n.info$ through the use of CAS (line~\ref{alg:updateinfo}.\ref{l:casinfo}).
-It returns a tri- value indicating whether the operation succeeded, failed, or should be retried.
+It returns a tri-state value indicating whether the operation succeeded, failed, or should be retried.
 We make sure that any other active transaction accessing $n$ is completed by helping execute its remaining operations (line~\ref{alg:updateinfo}.\ref{l:helpops}).
 %We explain the details of \textsc{ExecuteOps} in the next section.
 However, we have to avoid helping the same transaction because of the hazard of infinite recursions.
@@ -673,19 +674,19 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 \subsection{Obstruction-free Approach}
 Our cooperative contention management strategy requires that the users specify all operations in a transaction beforehand.
 To allow dynamic transaction executions, we introduce an alternative approach called obstruction-free transactional transformation, and we compare it to our original lock-free approach.
-Obstruction-free transactional transformation allows dynamic transaction executions by adopting aggressive contention management (i.e., the later transaction always forcibly aborts the competitor).
+Obstruction-free transactional transformation allows dynamic transaction executions by adopting aggressive contention management (i.e., the later transaction always forcibly aborts the conflicting transaction).
 This approach removes the need for the helping mechanism of the lock-free version, so the operations in a transaction do not need to be specified beforehand.
 In this case, the progress guarantee provided by the system degrades to obstruction-free.
-Obstruction freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
+Obstruction-freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
 
 To obtain our obstruction-free version, we disable the helping mechanism of the lock-free version and adopt an aggressive contention management strategy.
-Using this strategy, if a thread tries to update a node $n$ while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
+Using this strategy, if a thread tries to update a node, $n$, while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
 Then the thread may update $n$ and continue with its other operations.
-This approach eliminates the need for the helping mechanism while still enforcing serialization.
+This approach eliminates the need for the helping mechanism while preserving serialization.
 
 We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
 Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
-In Algorithm~\ref{alg:obstructionfreetransaction}, we list the obstruction-free approach's methods for transaction execution.
+In Algorithm~\ref{alg:obstructionfreetransaction}, we list the methods of the obstruction-free methodology for transaction execution.
 They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors.
 
 
@@ -822,7 +823,7 @@ Should any of the two code paths indicate a retry due to contention, we start th
 
 The \textsc{Delete} operation listed in Algorithm~\ref{alg:listdelete} is identical to \textsc{Insert} except it terminates with failure when the target node does not exist (line~\ref{alg:listdelete}.\ref{l:deletefail}).
 We also adopt a two-phase process for unlinking nodes from the data structure: deleted nodes will firstly be buffered in a local set in \textsc{ExecuteOps}, and when the transaction commits, the $info$ field of buffered nodes will be marked (line~\ref{alg:listdelete}.\ref{l:markinfo}) and consequently unlinked from the data structure by invoking the base data structures' \textsc{Do\_Delete}.
-One advantage of our logical status interpretation is that unlinking nodes from the data structure is optional, whereas in transactional boosting nodes must be physically unlinked to restore the abstract . 
+One advantage of our logical status interpretation is that unlinking nodes from the data structure is optional, whereas in transactional boosting nodes must be physically unlinked to restore the abstract state. 
 This opens up opportunities to optimize performance based on application scenarios.
 Timely unlinking deleted nodes is important for linked lists because the number of ``zombie'' nodes has linear impact on sequential search time.
 Leaving delete nodes in the data structure may be beneficial for skiplists because the overhead and contention introduced by unlinking nodes may outweigh the slight increase in sequential search time ($\mathcal{O}(log{}n)$).
@@ -837,7 +838,7 @@ We discuss this in more details in Section~\ref{sec:experiment}.
 
 \section{Correctness}
 \label{sec:correctness}
-We base our correctness discussion on the notion of commutativity isolation~\cite{herlihy2008transactional}, which s that the history of committed transactions is \emph{strictly serializable} for any transactional data structure that provides linearizable operations and obeys commutativity isolation~\footnote{We omit the discussion of rules on compensating actions and disposable methods because they are not applicable to our approach}.
+We base our correctness discussion on the notion of commutativity isolation~\cite{herlihy2008transactional}, which states that the history of committed transactions is \emph{strictly serializable} for any transactional data structure that provides linearizable operations and obeys commutativity isolation~\footnote{We omit the discussion of rules on compensating actions and disposable methods because they are not applicable to our approach}.
 STM systems may prefer more strict correctness criteria, such as opacity~\cite{guerraoui2008correctness}, because they need to account for the consistency of intermediate memory access.
 In the case of data structure transactions, the intermediate computation is managed by linearizable methods, and only the end result of a transaction is accessible to users.
 Strict serializability~\cite{papadimitriou1979serializability}, which is the analogue of linearizability~\cite{herlihy1990linearizability} for transactions, provides enough semantics for such cases.
@@ -860,19 +861,19 @@ A \emph{sequential specification} for a data structure defines a set of \emph{le
 \end{definition}
 
 %\begin{definition}
-    %Histories $h$ and $h'$ define the same  if, for every history $g$, $h \cdot g$ is legal if and only if $h' \cdot g$ is.
+    %Histories $h$ and $h'$ define the same state if, for every history $g$, $h \cdot g$ is legal if and only if $h' \cdot g$ is.
 %\end{definition}
 
 %\begin{definition}
-    %For a history $h$ and any given invocation $I$ and response $R$, let $I^{-1}$ and $R^{-1}$ be the \emph{inverse} invocation and response, such that the abstract  reached after the history $h \cdot I \cdot R \cdot I^{-1} \cdot R^{-1}$ is the same as the  reached after history $h$.
+    %For a history $h$ and any given invocation $I$ and response $R$, let $I^{-1}$ and $R^{-1}$ be the \emph{inverse} invocation and response, such that the abstract state reached after the history $h \cdot I \cdot R \cdot I^{-1} \cdot R^{-1}$ is the same as the state reached after history $h$.
 %\end{definition}
 
 \begin{definition}
-    Two method calls $I,R$ and $I',R'$ commute if: for all histories $h$, if $h \cdot I \cdot R$ and $h \cdot I' \cdot R'$ are both legal, then $h \cdot I \cdot R \cdot I' \cdot R'$ and $h \cdot I' \cdot R' \cdot I \cdot R$ are both legal and define the same abstract .
+    Two method calls $I,R$ and $I',R'$ commute if: for all histories $h$, if $h \cdot I \cdot R$ and $h \cdot I' \cdot R'$ are both legal, then $h \cdot I \cdot R \cdot I' \cdot R'$ and $h \cdot I' \cdot R' \cdot I \cdot R$ are both legal and define the same abstract state.
 \end{definition}
 
 Commutativity identifies operations that have no dependencies on each other.
-Executing commutative operations in any order yields the same abstract .
+Executing commutative operations in any order yields the same abstract state.
 The commutativity specification for set operations is as follows:
 \begin{equation}
     \label{eq:commute}
@@ -899,14 +900,14 @@ The commutativity specification for set operations is as follows:
 
 \subsection{Serializability and Recoverability}
 We now show that lock-free transactional transformation meets the two above correctness requirements. 
-We denote the concrete  of a set as an node set $N$.
-At any time, the abstract  observed by transaction $T_i$ is $S_i = \{n.key\;|\;n \in N \land \textsc{IsKeyPresent}(n.info,\;desc_i)\}$, where $desc_i$ is the descriptor of $T_i$.
+We denote the concrete state of a set as an node set $N$.
+At any time, the abstract state observed by transaction $T_i$ is $S_i = \{n.key\;|\;n \in N \land \textsc{IsKeyPresent}(n.info,\;desc_i)\}$, where $desc_i$ is the descriptor of $T_i$.
 
 Linearizability requires that concurrent operations appear as if they took place instantaneously at some points between their invocations and responses.
 We show the transformed operations are linearizable by identifying their \emph{linearization points}.
-Additionally, we use the notion of decision points and -read points to facil our reasoning. 
-The decision point of an operation is defined as the atomic ment that finitely decides the result of an operation, i.e. independent of the result of any subsequent instruction after that point.
-A -read point is defined as the atomic ment where the  of the dictionary, which determines the outcome of the decision point, is read.
+Additionally, we use the notion of decision points and state-read points to facilitate our reasoning. 
+The decision point of an operation is defined as the atomic statement that finitely decides the result of an operation, i.e. independent of the result of any subsequent instruction after that point.
+A state-read point is defined as the atomic statement where the state of the dictionary, which determines the outcome of the decision point, is read.
 %Moreover, if we treat the execution of a transaction as an composed method then it is also linearizable in the sense that its effect is published in one atomic step.
 
 \begin{lemma}
@@ -917,13 +918,13 @@ A -read point is defined as the atomic ment where the  of the dictionary, which 
     For the transformed \textsc{Insert} operation, the execution is divided into two code paths by the condition check on line~\ref{alg:listinsert}.\ref{l:listinsertcontain}.
     The code path on line~\ref{alg:listinsert}.\ref{l:insupdateinfo} updates the existing node's logical status.
     Note that if the operation reports failure on line~\ref{alg:updateinfo}.\ref{l:infofail1} and~\ref{alg:updateinfo}.\ref{l:infofail2}, no write operation will be performed to change the logical status of the node.
-    The -read point for the former case is when the previous transaction status is read from $oldinfo.desc.status$ on line~\ref{alg:logicalstatus}.\ref{l:readoldstatus}.
-    The -read point for the later case is when the current transaction status is read from $info.desc.status$ on line~\ref{alg:updateinfo}.\ref{l:testactive}.
-    The abstract s $S'$ observed by all transactions immediately after the reads are unchanged, i.e., $\forall i, S'_i = S_i $.
+    The state-read point for the former case is when the previous transaction status is read from $oldinfo.desc.status$ on line~\ref{alg:logicalstatus}.\ref{l:readoldstatus}.
+    The state-read point for the later case is when the current transaction status is read from $info.desc.status$ on line~\ref{alg:updateinfo}.\ref{l:testactive}.
+    The abstract states $S'$ observed by all transactions immediately after the reads are unchanged, i.e., $\forall i, S'_i = S_i $.
     For a successful logical status update, the decision point for it to take effect is when the CAS operation on line~\ref{alg:updateinfo}.\ref{l:casinfo} succeeds.
-    The abstract s $S'$ observed by the transactions $T_d$ executing this operation immediately after the CAS is $i=d \implies S'_i = S_i \cup n.key$.
+    The abstract states $S'$ observed by the transactions $T_d$ executing this operation immediately after the CAS is $i=d \implies S'_i = S_i \cup n.key$.
     For all other transactions $i \ne d \implies S'_i = S_i$.
-    In all cases, the update of abstract s conforms to the sequential specification of the insert operation.
+    In all cases, the update of abstract states conforms to the sequential specification of the insert operation.
     The code path for physically adding linkage to the new node (line~\ref{alg:listinsert}.\ref{l:linknode}) is linearizable because the corresponding \textsc{Do\_Insert} operation in the base data structure is linearizable.
     
     The same reasoning process applies to the transformed \textsc{Delete} and \textsc{Find} operations because they share the same logical status update procedure with \textsc{Insert}.
@@ -951,20 +952,20 @@ Follow Lemma~\ref{lemma:linearizable}, and~\ref{lemma:commute}, and the conclusi
 \end{proof}
 
 \begin{theorem}
-    For a data structure generated by lock-free transactional transformation, any history defines the same abstract  as a history with aborted transactions removed.
+    For a data structure generated by lock-free transactional transformation, any history defines the same abstract state as a history with aborted transactions removed.
 \end{theorem}
 \begin{proof}
     Let $T_1$ be an aborted transaction with descriptor $desc_1$.
     %$T_1$ aborts by atomically setting the status of its transaction descriptor to $aborted$ either on line~\ref{alg:transaction}.\ref{l:txnfail} or~\ref{alg:transaction}.\ref{l:txncyclicabort}. 
-    We denote $S$ as the abstract  immediately after $T_1$ aborts.
+    We denote $S$ as the abstract state immediately after $T_1$ aborts.
     Let history $h = F_1 \cdot F'_1 \cdots F_2 \cdot F'_2 \cdot F_x \cdots F'_y$ be the sequence of linearizable method calls after $T_1$ starts and until $T_1$ aborts, where $F_i, 1 \le i \le x$ denotes the method calls successfully executed by $T_1$, and $F'_i, 1 \le i \le y$ denotes the method calls executed by other transactions.
     The interleaving of these method calls is arbitrary.
-    Follow commutativity isolation in Lemma~\ref{lemma:commute} we assure that the method calls after $F_x$ must commute with $F_x$, thus we can swap them without changing the abstract .
+    Follow commutativity isolation in Lemma~\ref{lemma:commute} we assure that the method calls after $F_x$ must commute with $F_x$, thus we can swap them without changing the abstract state.
     By progressively doing this for $F_i, 1 \le i \le x$, we obtain an equivalent history $h = h' = F'_1 \cdots F'_2 \cdots F'_y \cdots F_1 \cdot F_2 \cdots F_x$.
     Let $n_x$ be the node accessed by $F_x$
-    we denote $S'$ as the abstract  before the invocation of $F_x$. 
+    we denote $S'$ as the abstract state before the invocation of $F_x$. 
     Because of the inverse interpretation of logical status we can assert $n_x.key \in S' \implies n_x.key \in S \land n_x.key \notin S' \implies n_x.key \notin S$.
-    Thus, we have $S' = S$ and we can remove $F_x$ from $h'$ without altering the abstract .
+    Thus, we have $S' = S$ and we can remove $F_x$ from $h'$ without altering the abstract state.
     Doing this for $F_i, 1 \le i \le x$, we obtain $h = h' = h'' =F'_1 \cdots F'_2 \cdots F'_y \cdots$, hence $T_1$ is removed from the history.
     %We can assert that $|\{n|n \in N \land n.info.desc = desc_1\}|=i$ because for all successful operations $\textsc{IsNodeExsit}$ must have returned true.
 \end{proof}
@@ -1215,7 +1216,7 @@ However, with the specific knowledge on linked data structure, we further optimi
 %In our work, we combine both fine-grained thread-level synchronization found in existing lock-free data structures and semantic conflict detection to implement transactional linked data structures without the overhead of atomic section synchronizations.
 
 \subsection{Transactional Memory}
-Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facil the development of lock-free data structures.
+Initially proposed as a set of hardware extensions by Herlihy and Moss~\cite{herlihy1993transactional}, transactional memory was intended to facilitate the development of lock-free data structures.
 %Even with Intel's recent release of commercial support of best-effort hardware transaction memory (HTM) in their Haswell processors, 
 However, due to current HTM's cache-coherency based conflict detection scheme, transactions are subject to spurious failures during page faults and context switches~\cite{dice2009early}.
 %This along with excessive aborts under moderate contention~\cite{christina2015resource} make HTM less desirable for implementing transactions in non-blocking data structures.
@@ -1262,7 +1263,7 @@ Moreover, when applied to non-blocking data structures, the progress guarantee o
 Transactional boosting is pessimistic in that it acquires locks eagerly before the method calls, but it still requires operation rollback because not all locks are acquired at once.
 %PTB, black box design, forfiet data structure specific optimization, need to reverse operation upon failure
 Koskinen et al.~\cite{koskinen2010coarse} later generalized this work and introduce a formal framework called coarse-grained transactions.
-Bronson et al. proposed transaction prediction, which maps the abstract  of a set into memory blocks called predicate and relies on STM to synchronize transactional accesses~\cite{bronson2010transactional}.
+Bronson et al. proposed transaction prediction, which maps the abstract state of a set into memory blocks called predicate and relies on STM to synchronize transactional accesses~\cite{bronson2010transactional}.
 Hassan et al.~\cite{hassan2014developing} proposed an optimistic version of boosting, which employs a white box design and provides throughput and usability benefits over the original boosting approach.
 Other STM variants, such open nested transactions~\cite{ni2007open} support a more relaxed transaction model that leverages some semantic knowledge based on programmers' input.
 The relaxation of STM systems and its implication on composability have been studied by Gramoli et al.~\cite{gramoli2013composing}.
