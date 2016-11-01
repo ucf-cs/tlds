@@ -12,7 +12,7 @@
 
 __thread TransMap::HelpStack mapHelpStack;
 //TODO: make __thread std::vector<VALUE> toR; where each thread can put the results of its find operations and return them to the user
-
+//TODO: this would have to be made to work even if other threads helped, similarly to the update mechanism
 	bool TransMap::ExecuteOps(Desc* desc, int threadId)//, std::vector<VALUE> &toR)
 	{
 	    mapHelpStack.Init();
@@ -37,7 +37,7 @@ __thread TransMap::HelpStack mapHelpStack;
 	                }
 	                else if(desc->ops[i].type == MAP_UPDATE)
 	                {
-	                    __sync_fetch_and_add(&g_count_upd, 1); //TODO: unsure about this, should be &g_count?
+	                    __sync_fetch_and_add(&g_count_upd, 1);
 	                }
 	                else
 	                	__sync_fetch_and_add(&g_count_fnd, 1);
@@ -123,7 +123,6 @@ __thread TransMap::HelpStack mapHelpStack;
 
 	    if(ret != false)
 	    {
-	    	//requires c++11 TODO: make sure makefile compiles with that std
 	    	// any concurrent txn will see that ours is live and not use/modify our nodes
 	    	// there are now no more concurrent operations from our transaction to use/modify nodes we've previously updated
 	    	// before commit update the node values if our transaction owns them via their desc aliasing that of our txn
