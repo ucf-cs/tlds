@@ -837,40 +837,40 @@ inline bool putIfAbsent_sub(Desc* desc,void* /* volatile  */* local, DataNode *t
 }//End Sub Put
 
 //TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
-    //inline bool Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
-	inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
-		/*if(e_value==v)
-			return true;*/
+//inline bool Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
+inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
+	/*if(e_value==v)
+		return true;*/
 
-		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
-		
-		HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
+	NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
+	
+	HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
 #ifdef useThreadWatch
-		Thread_watch[T]=hash;//Buts the hash in the watchlist
+	Thread_watch[T]=hash;//Buts the hash in the watchlist
 #endif
 
-		//Allocates a bucket, then stores the value, key and hash into it
+	//Allocates a bucket, then stores the value, key and hash into it
 #ifdef USE_KEY
-		DataNode *temp_bucket=Allocate_Node(v,k,hash,T, nodeDesc);
+	DataNode *temp_bucket=Allocate_Node(v,k,hash,T, nodeDesc);
 #else
-		DataNode *temp_bucket=Allocate_Node(v,hash,T, nodeDesc);
+	DataNode *temp_bucket=Allocate_Node(v,hash,T, nodeDesc);
 #endif
 #ifdef DEBUG
-		assert(temp_bucket!=NULL);
+	assert(temp_bucket!=NULL);
 #endif
 
-		bool res=putUpdate_main(desc, hash,/*e_value,*/ temp_bucket,T, nodeDesc, toReturn);
-		if(!res){
-			Free_Node_Stack(temp_bucket, T);
-		}
+	bool res=putUpdate_main(desc, hash,/*e_value,*/ temp_bucket,T, nodeDesc, toReturn);
+	if(!res){
+		Free_Node_Stack(temp_bucket, T);
+	}
 
 #ifdef useThreadWatch
-		Thread_watch[T]=0;//Removes the hash from the watchlist
+	Thread_watch[T]=0;//Removes the hash from the watchlist
 #endif
 
 
-		return res;
-	}
+	return res;
+}
 
 inline bool putUpdate_main(Desc* desc, HASH hash, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
 
