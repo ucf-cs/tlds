@@ -73,11 +73,17 @@ void Tester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t k
 
     SetOpArray ops(1);
 
+    // TODO: don't count the aborts caused in the prefill? the prefill is already untimed
     for(unsigned int i = 0; i < keyRange; ++i)
     {
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
         set.ExecuteOps(ops);
+        if (i % 10000 == 0)
+        {
+        	printf("%d\t", i);
+        	fflush(stdout);
+        }
     }
 
     //Create joinable threads
@@ -245,10 +251,12 @@ int main(int argc, const char *argv[])
 
     printf("Start testing %s with %d threads %d iterations %d txnsize %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, deletion, update);//(insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
 
+    uint64_t numNodes = keyRange + (testSize*(insertion));
+
     switch(setType)
     {
     case 0:
-        { SetAdaptor<TransList> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        { SetAdaptor<TransList> set(numNodes, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 1:
         { SetAdaptor<RSTMList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
@@ -257,7 +265,7 @@ int main(int argc, const char *argv[])
         { SetAdaptor<BoostingList> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 3:
-        { SetAdaptor<trans_skip> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        { SetAdaptor<trans_skip> set(numNodes, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 4:
         { SetAdaptor<BoostingSkip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
@@ -266,7 +274,7 @@ int main(int argc, const char *argv[])
         { SetAdaptor<stm_skip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     case 6: //NOTE: the transmap gets constructed with numthread + 1 as the the threadcount
-        { MapAdaptor<TransMap> map(testSize, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+        { MapAdaptor<TransMap> map(numNodes, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:
         break;

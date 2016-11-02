@@ -31,10 +31,10 @@ def main():
 
     iteration = 100000
     key_range = 10000
-    insertion = 0
-    deletion = 0
-    update = 100
-    average = 3
+    insertion = 50
+    deletion = 50
+    update = 0
+    average = 1 #should be 5
     #for pq_type in [0, 1, 2, 3, 4, 5]:
     for pq_type in [6]:
         list_type = pq_dict[pq_type]
@@ -77,7 +77,7 @@ def main():
             f.write(',\n')
             thread = thread * 2
         f.close()
-    print "FINISHED {0} {1} {2} {3} {4} {5} {6} {7}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion, update)
+    print "FINISHED {0} {1} {2} {3} {4} {5} {6} {7}".format(pq_type, thread/2, iteration, txn_size, key_range, insertion, deletion, update)
 
 if __name__ == '__main__':
     main()
