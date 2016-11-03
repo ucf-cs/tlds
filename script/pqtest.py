@@ -69,7 +69,7 @@ def main():
                 wall_time_perthread.append(str(commit))
                 wall_time_perthread.append(str(fake_abort))
             wall_time_perpq.append(wall_time_perthread)
-        f = open('walltime_filled_' + list_type + '_key_' + str(key_range) + '_iter_' + str(iteration) + '_ins_' + str(insertion) + '_del_'+ str(deletion), 'wb')
+        f = open('walltime_filled_' + list_type + '_key_' + str(key_range) + '_iter_' + str(iteration) + '_ins_' + str(insertion) + '_del_'+ str(deletion) + '_upd_' + str(update), 'wb')
         thread = 1
         for t in wall_time_perpq:
             f.write(str(thread) + ', ')
