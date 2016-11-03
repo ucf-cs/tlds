@@ -368,7 +368,6 @@ For set data types, each node is associated with a unique key, thus our conflict
     \caption{Transaction Execution and Conflict}
     \label{fig:lfttconflict}
 \end{figure}
-\vspace{-0.1in}
 
 We illustrate an example of node access conflict in Figure~\ref{fig:lfttconflict}.
 At the beginning, Thread 1 committed a transaction $t1$ inserting keys 1 and 3. 
@@ -609,7 +608,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 		\ElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{
 			\KwRet{ success}
 		}
-		$\textbf{bool}\;haskey \gets \textsc{IsKeyPresent}(oldinfo)$ \label{l:testkey} \;
+		$\textbf{bool}\;haskey \gets \textsc{IsKeyPresent}(oldinfo)$ \;
 		\If{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{
 			\KwRet{ fail }
 		}
@@ -623,7 +622,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 			\KwRet{ fail}
 		}
 	}
-	\caption{Update NodeInfo}
+	\caption{Obstruction-free Update NodeInfo}
 	\label{alg:obstructionfreeupdateinfo}
 \end{algorithm}
 
@@ -667,22 +666,17 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 			$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$
 		}
 	}
-	\caption{Transaction Execution}
+	\caption{Obstruction-free Transaction Execution}
 	\label{alg:obstructionfreetransaction}
 \end{algorithm}
 
 \subsection{Obstruction-free Approach}
 Our cooperative contention management strategy requires that the users specify all operations in a transaction beforehand.
 To allow dynamic transaction executions, we introduce an alternative approach called obstruction-free transactional transformation, and we compare it to our original lock-free approach.
-Obstruction-free transactional transformation allows dynamic transaction executions by adopting aggressive contention management (i.e., the later transaction always forcibly aborts the conflicting transaction).
-This approach removes the need for the helping mechanism of the lock-free version, so the operations in a transaction do not need to be specified beforehand.
+Obstruction-free transactional transformation allows dynamic transaction executions by eliminating the helping mechanism.
+It instead adopts an aggressive contention management strategy (i.e., when two transactions conflict, the later transaction forcibly aborts the earlier one).
 In this case, the progress guarantee provided by the system degrades to obstruction-free.
 Obstruction-freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
-
-To obtain our obstruction-free version, we disable the helping mechanism of the lock-free version and adopt an aggressive contention management strategy.
-Using this strategy, if a thread tries to update a node, $n$, while another active transaction is accessing $n$, then the current thread forcibly aborts the other transaction.
-Then the thread may update $n$ and continue with its other operations.
-This approach eliminates the need for the helping mechanism while preserving serialization.
 
 We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
 Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
