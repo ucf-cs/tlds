@@ -506,7 +506,7 @@ A special case is the operations in an active transaction, which we treat as com
          \SetKwFunction{ExecuteTransaction}{ExecuteTransaction}
          \SetKwProg{Function}{Function}{}{end}
          \Function{\ExecuteTransaction{$\textbf{Desc*}\;desc$}}{
-         	$helpstack.\textsc{Init}()$\;
+         	$helpstack.\textsc{Init}()$ \label{l:stackinit} \;
          	$\textsc{ExecuteOps}(desc, 0)$\;
          	\KwRet{ $desc.status = Committed$}
          }
@@ -521,7 +521,7 @@ A special case is the operations in an active transaction, which we treat as com
         		$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Aborted)$ \label{l:txncyclicabort}\;
         		\KwRet{}
         	}
-        	$helpstack.\textsc{Push}(desc)$\;
+        	$helpstack.\textsc{Push}(desc)$ \label{l:stackpush} \;
         	\While {$desc.status = Active$ $\;\textbf{and}\; ret \;\textbf{and}\;$ $opid < desc.size$}{ \label{l:txnwhile}
         		$\textbf{Operation*}\;op \gets desc.ops[opid]$\;
         		\If{$op.type = \textbf{find}$}{
@@ -537,7 +537,7 @@ A special case is the operations in an active transaction, which we treat as com
         		}
         		$opid \gets opid + 1$\;
         	}
-        	$helpstack.\textsc{Pop}()$\;
+        	$helpstack.\textsc{Pop}()$ \label{l:stackpop} \;
         	\If{$ret = \textbf{true}$}{
         		\If{$\text{\textsc{CAS}}(\&desc.flag,\;Active,\;Committed)$}{ \label{l:txnsuccess}
         			$\textsc{MarkDelete}(delnodes,\;desc)$ \label{l:markdelete}
@@ -602,7 +602,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 			$\textsc{Do\_Delete}(n)$\;
 			\KwRet{ retry}
 		}
-		\If{$oldinfo.desc \neq info.desc$}{
+		\If{$oldinfo.desc \neq info.desc$}{ \label{l:obstestself}
 			$\textsc{CAS}(\&oldInfo.desc,\;Active,\;Aborted)$ \label{l:abortcompetitor}
 		}
 		\ElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{
@@ -678,10 +678,16 @@ It instead adopts an aggressive contention management strategy (i.e., when two t
 In this case, the progress guarantee provided by the system degrades to obstruction-free.
 Obstruction-freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
 
-We list the obstruction-free \textsc{UpdateInfo} function in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
-Before performing its update on the target node $n$, the thread checks if another transaction is currently accessing $n$ and aborts that transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
-In Algorithm~\ref{alg:obstructionfreetransaction}, we list the methods of the obstruction-free methodology for transaction execution.
-They are similar to the methods in the lock-free approach, but they do not create or maintain a help stack of descriptors.
+We modify the lock-free \textsc{UpdateInfo} function shown in Algorithm~\ref{alg:updateinfo} to produce the obstruction-free \textsc{UpdateInfo} function listed in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
+In both versions, the thread examines the target node $n$ to check if a conflicting transaction is also accessing $n$ (line~\ref{alg:updateinfo}.\ref{l:testself} and line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:obstestself}).
+If so, a contention management strategy must be applied to ensure serializability.
+The lock-free version helps the conflicting transaction by executing the transaction's operations (line~\ref{alg:updateinfo}.\ref{l:helpops}).
+The obstruction-free version instead aborts the conflicting transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
+
+We modify the methods dealing with transaction execution shown in Algorithm~\ref{alg:transaction} to produce the obstruction-free methods listed in Algorithm~\ref{alg:obstructionfreetransaction}.
+Because the helping mechanism can cause cyclic dependencies between transactions, the lock-free version must create and maintain a thread-local \emph{help stack}, which contains the descriptors of the transactions that the thread is currently helping.
+Cyclic dependencies are detected by checking for duplicate transaction descriptors in the help stack (line~\ref{alg:transaction}.\ref{l:stackcontain}).
+The obstruction-free approach does not allow such cyclic dependencies to occur, so we remove the help stack.
 
 
 \section{Application Examples}
