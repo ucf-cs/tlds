@@ -14,6 +14,8 @@
 
 #include <cmath>
 
+#define USE_MEM_POOL
+
 #define HASH unsigned int
 #define KEY_SIZE 32
 #define toHash 5
@@ -459,8 +461,12 @@ inline bool Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
 {
     //inserted = NULL;
 
-    NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid; //new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-    
+	#ifdef USE_MEM_POOL
+    	NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+    #else
+    	NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
+	#endif
+
 	HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
 	#ifdef useThreadWatch
 		Thread_watch[T]=hash;//Puts the hash in the watchlist
@@ -841,8 +847,12 @@ inline bool putIfAbsent_sub(Desc* desc,void* /* volatile  */* local, DataNode *t
 inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
 	/*if(e_value==v)
 		return true;*/
+	#ifdef USE_MEM_POOL
+		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+	#else
+		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
+	#endif
 
-	NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
 	
 	HASH hash=HASH_KEY(k);//reorders the bits in the key to more evenly distribute the bits
 #ifdef useThreadWatch
@@ -1124,8 +1134,12 @@ They don't modify the table and if a data node is marked they ignore the marking
 	// this has to be caught and interpreted by the helpops function when assigning transaction status back to the ret value
 	// for the while loop and needs to be done for map interface in general in the update template pseudocode
 	//inline VALUE get_first(KEY k, int T){
-	inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T){
+inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T){
+	#ifdef USE_MEM_POOL
+		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+	#else
 		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
+	#endif
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the hash to the watchlist
@@ -1394,8 +1408,12 @@ If it failes to remove an element, and the current node is now...
 **/
 	//inline bool remove_first(KEY k, int T){
 	//NOTE: nodeDesc is pass by value
-	inline bool Delete(Desc* desc, uint8_t opid, KEY k, int T){
+inline bool Delete(Desc* desc, uint8_t opid, KEY k, int T){
+	#ifdef USE_MEM_POOL
+		NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+	#else
 		NodeDesc* nodeDesc = (NodeDesc*)malloc(sizeof(NodeDesc));nodeDesc->desc = desc;nodeDesc->opid=opid;
+	#endif
 		HASH h=HASH_KEY(k);//Reorders the bits for more even distribution
 #ifdef useThreadWatch
 		Thread_watch[T]=h;//Adds the key to the watchlist

@@ -58,7 +58,12 @@ public:
     {
         //TransMap::Desc* desc = m_map.AllocateDesc(ops.size());
         // TODO: left off here: put a breakpoint here, after just replacing the following with a malloc.
-        TransMap::Desc* desc = (TransMap::Desc*)malloc(sizeof(uint8_t) + sizeof(uint8_t) + sizeof(MapOperator) * ops.size());//m_descAllocator.Alloc();
+        #ifdef USE_MEM_POOL
+            TransMap::Desc* desc = m_descAllocator.Alloc();
+        #else
+            TransMap::Desc* desc = (TransMap::Desc*)malloc(sizeof(uint8_t) + sizeof(uint8_t) + sizeof(MapOperator) * ops.size());
+        #endif
+        
         desc->size = ops.size();
         desc->status = TransMap::MAP_ACTIVE;
 
