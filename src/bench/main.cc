@@ -186,7 +186,7 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
 
     for(unsigned int i = 0; i < keyRange; ++i)
     {
-        std::vector<VALUE> toR;
+        //std::vector<VALUE> toR;
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
         ops[0].value = randomDist(randomGen);

@@ -68,7 +68,7 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int T)//, std::vector<VA
     }
 
     bool ret = true;
-    std::vector<DataNode*> retVector;
+    //td::vector<DataNode*> retVector;
     //std::vector<VALUE> foundValues;
 
     mapHelpStack.Push(desc);
@@ -89,10 +89,10 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int T)//, std::vector<VA
         else if(op.type == MAP_UPDATE)
         {
         	// this pointer is passed by reference to the update function
-        	DataNode* toRet;
-        	ret = Update(desc, opid, op.key, op.value, T, toRet);
+        	//DataNode* toRet;
+        	ret = Update(desc, opid, op.key, op.value, T);//, toRet);
         	// the pointer is copied into the vector
-        	retVector.push_back(toRet);
+        	//retVector.push_back(toRet);
         }
         else
         {
@@ -102,7 +102,8 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int T)//, std::vector<VA
 
         	if (retVal == (VALUE)NULL)
         		ret = false;
-        	ret = true;
+        	else
+        		ret = true;
         	//if (retVal != 0)
         		//toR.push_back(retVal);//foundValues.push_back(retVal);
         	// TODO: edit helpops to return an array of values?
@@ -115,27 +116,27 @@ inline void TransMap::HelpOps(Desc* desc, uint8_t opid, int T)//, std::vector<VA
 
     if(ret != false)
     {
-    	// any concurrent txn will see that ours is live and not use/modify our nodes
-    	// there are now no more concurrent operations from our transaction to use/modify nodes we've previously updated
-    	// before commit update the node values if our transaction owns them via their desc aliasing that of our txn
-        for(DataNode* x: retVector)
-        {
-        	// everything must have returned successfully to get here, so if the last operation was an update then we
-        	// copy the new value in, if it was an insert we overwrite the value with itself, if it was a find
-        	// NOTE: sometimes x->nodeDesc is NULL, should this be happening? is this a result of problems with the m_desc and m_nodedesc allocators? because x->nodedesc->desc can apparently also be null
-        	// get rid of m_desc allocator and check for && x->nodeDesc->desc != NULL which was not hit before problem with not accessing memory arose
-        	if (x != NULL && x->nodeDesc != NULL ) 
-        	{
-	        	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE)
-	        	{
-	        		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE || 
-	        			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_FIND && x->nodeDesc->desc->ops[x->nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
-	        		{
-	        			x->value = x->nodeDesc->desc->ops[x->nodeDesc->opid].value;//x->nodeDesc->value;
-	        		}
-	        	}
-	        }
-        }
+    	// // any concurrent txn will see that ours is live and not use/modify our nodes
+    	// // there are now no more concurrent operations from our transaction to use/modify nodes we've previously updated
+    	// // before commit update the node values if our transaction owns them via their desc aliasing that of our txn
+     //    for(DataNode* x: retVector)
+     //    {
+     //    	// everything must have returned successfully to get here, so if the last operation was an update then we
+     //    	// copy the new value in, if it was an insert we overwrite the value with itself, if it was a find
+     //    	// NOTE: sometimes x->nodeDesc is NULL, should this be happening? is this a result of problems with the m_desc and m_nodedesc allocators? because x->nodedesc->desc can apparently also be null
+     //    	// get rid of m_desc allocator and check for && x->nodeDesc->desc != NULL which was not hit before problem with not accessing memory arose
+     //    	if (x != NULL && x->nodeDesc != NULL ) 
+     //    	{
+	    //     	if(x->nodeDesc->desc == desc)//&& x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE)
+	    //     	{
+	    //     		if (x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_UPDATE || 
+	    //     			(x->nodeDesc->desc->ops[x->nodeDesc->opid].type == MAP_FIND && x->nodeDesc->desc->ops[x->nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
+	    //     		{
+	    //     			x->value = x->nodeDesc->desc->ops[x->nodeDesc->opid].value;//x->nodeDesc->value;
+	    //     		}
+	    //     	}
+	    //     }
+     //    }
 
         if(__sync_bool_compare_and_swap(&desc->status, MAP_ACTIVE, MAP_COMMITTED))
         {

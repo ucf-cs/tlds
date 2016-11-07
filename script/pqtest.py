@@ -31,9 +31,9 @@ def main():
 
     iteration = 100000
     key_range = 10000
-    insertion = 50
-    deletion = 50
-    update = 0
+    insertion = 25
+    deletion = 25
+    update = 25
     average = 1 #should be 5
     #for pq_type in [0, 1, 2, 3, 4, 5]:
     for pq_type in [6]:

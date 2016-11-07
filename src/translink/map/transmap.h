@@ -844,7 +844,7 @@ inline bool putIfAbsent_sub(Desc* desc,void* /* volatile  */* local, DataNode *t
 
 //TODO: threadid's passed from main.cc start at 1 per maptester's call to workthread
 //inline bool Insert(Desc* desc, uint8_t opid, KEY k, VALUE v, int T)
-inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T, DataNode*& toReturn){//T is the executing thread's ID
+inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, int T){//, DataNode*& toreturn){//T is the executing thread's ID
 	/*if(e_value==v)
 		return true;*/
 	#ifdef USE_MEM_POOL
@@ -869,7 +869,7 @@ inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, i
 	assert(temp_bucket!=NULL);
 #endif
 
-	bool res=putUpdate_main(desc, hash,/*e_value,*/ temp_bucket,T, nodeDesc, toReturn);
+	bool res=putUpdate_main(desc, hash,/*e_value,*/ temp_bucket,T, nodeDesc);//, toreturn);
 	if(!res){
 		Free_Node_Stack(temp_bucket, T);
 	}
@@ -882,7 +882,7 @@ inline bool Update(Desc* desc, uint8_t opid, KEY k,/*VALUE e_value,*/ VALUE v, i
 	return res;
 }
 
-inline bool putUpdate_main(Desc* desc, HASH hash, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
+inline bool putUpdate_main(Desc* desc, HASH hash, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc){//, DataNode*& toreturn){
 
 	//This count bounds the number of times the thread will loop as a result of CAS failure.
 	int cas_fail_count=0;
@@ -909,7 +909,7 @@ update_main:
 			return false;
 		}
 		else if(isSpine(node)){//Check the Sub Spines
-			return putUpdate_sub(desc, unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc, toReturn);
+			return putUpdate_sub(desc, unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc);//, toreturn);
 
 		}
 		else if(isMarkedData(node)){//Force Expand The table because someone could not pass the cas
@@ -917,7 +917,7 @@ update_main:
 		    printf("marked found on main!\n");
 #endif
 		    node=forceExpandTable(T,head,pos,unmark_data(node), MAIN_POW);
-			return putUpdate_sub(desc, unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc, toReturn);
+			return putUpdate_sub(desc, unmark_spine(node),/*e_value,*/ temp_bucket, T, nodeDesc);//, toreturn);
 		}
 		else{//It is a Data Node
 #ifdef DEBUG
@@ -944,6 +944,11 @@ update_main:
 	                    return false;
 	                }
 
+	                if( IsUnsavedUpdate(currDesc, ((DataNode *)node)->value) )
+	                {
+	                	((DataNode *)node)->value = currDesc->desc->ops[currDesc->opid].value;
+	                }
+
 	                //if(currDesc == oldCurrDesc)
 	                {
 	                    //Update desc to logically add the key to the table since it's already physically there
@@ -958,7 +963,7 @@ update_main:
 	                             __sync_fetch_and_add(&g_count_ins, 1);
 	                            );
 
-	                        toReturn = (DataNode *)node;//node;
+	                        //toReturn = (DataNode *)node;//node;
 	                        return true; 
 	                    }
 	                    else // weren't able to update the descriptor so retry
@@ -1002,7 +1007,7 @@ update_main:
 
  **DONT FORGET: to do get/delete as well
  */
-inline bool putUpdate_sub(Desc* desc, void* /* volatile  */* local, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc, DataNode*& toReturn){
+inline bool putUpdate_sub(Desc* desc, void* /* volatile  */* local, /*VALUE e_value,*/ DataNode *temp_bucket, int T, NodeDesc* nodeDesc){//, DataNode*& toreturn){
 update_sub:
 		HASH h=(temp_bucket->hash)>>MAIN_POW;//Shifts the hash to move the siginifcant bits to the right most position
 	for(int right=MAIN_POW; right<KEY_SIZE; right+=SUB_POW){
@@ -1072,6 +1077,11 @@ update_sub:
 		                    return false;
 		                }
 
+		                if( IsUnsavedUpdate(currDesc, ((DataNode *)node)->value) )
+		                {
+		                	((DataNode *)node)->value = currDesc->desc->ops[currDesc->opid].value;
+		                }
+
 		                //if(currDesc == oldCurrDesc)
 		                {
 		                    //Update desc to logically add the key to the table since it's already physically there
@@ -1086,7 +1096,7 @@ update_sub:
 		                             __sync_fetch_and_add(&g_count_ins, 1);
 		                            );
 
-		                        toReturn = (DataNode *)node;//node;
+		                        //toReturn = (DataNode *)node;//node;
 		                        return true; 
 		                    }
 		                    else
@@ -1189,6 +1199,11 @@ inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T){
 	                    return (VALUE)NULL;
 	                }
 
+	                if( IsUnsavedUpdate(currDesc, ((DataNode *)node)->value) )
+	                {
+	                	((DataNode *)node)->value = currDesc->desc->ops[currDesc->opid].value;
+	                }
+
 	                //if(currDesc == oldCurrDesc)
 	                {
 	                    //Update desc to logically add the key to the table since it's already physically there
@@ -1269,6 +1284,11 @@ inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T){
 		                    return (VALUE)NULL;
 		                }
 
+			           	if( IsUnsavedUpdate(currDesc, ((DataNode *)node)->value) )
+		                {
+		                	((DataNode *)node)->value = currDesc->desc->ops[currDesc->opid].value;
+		                }
+
 		                //if(currDesc == oldCurrDesc)
 		                {
 		                	//if(IsAbortedUpdate(oldCurrDesc))
@@ -1346,6 +1366,11 @@ inline VALUE Find(Desc* desc, uint8_t opid, KEY k, int T){
                 if(desc->status != MAP_ACTIVE)
                 {
                     return (VALUE)NULL;
+                }
+
+                if( IsUnsavedUpdate(currDesc, ((DataNode *)node)->value) )
+                {
+                	((DataNode *)node)->value = currDesc->desc->ops[currDesc->opid].value;
                 }
 
                 //if(currDesc == oldCurrDesc)
@@ -2067,6 +2092,15 @@ inline bool IsLiveUpdate(NodeDesc* nodeDesc)
 	if (nodeDesc->desc->ops[nodeDesc->opid].type == MAP_UPDATE || 
 	(nodeDesc->desc->ops[nodeDesc->opid].type == MAP_FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
 		return true;
+	return false;
+}
+
+inline bool IsUnsavedUpdate(NodeDesc* nodeDesc, VALUE val)
+{
+	if (nodeDesc->desc->ops[nodeDesc->opid].value != val && nodeDesc->desc->status == MAP_COMMITTED)
+		if (nodeDesc->desc->ops[nodeDesc->opid].type == MAP_UPDATE || 
+		(nodeDesc->desc->ops[nodeDesc->opid].type == MAP_FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )
+			return true; // else error?
 	return false;
 }
 
