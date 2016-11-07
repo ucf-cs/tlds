@@ -4,6 +4,7 @@
 #include "common/allocator.h" //might have to move this lower?
 
 #include "translink/map/transmap.h"
+// #include "rstm/map/rstmhash.hpp"
 
 enum MapOpType
 {
@@ -84,5 +85,88 @@ private:
     TransMap m_map;
 };
 
+// template<>
+// class MapAdaptor<RSTMHashTable>
+// {
+// public:
+//     MapAdaptor()
+//     {
+//         TM_SYS_INIT();
+//     }
+    
+//     ~MapAdaptor()
+//     {
+//         TM_SYS_SHUTDOWN();
+
+//         printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_stm_abort - g_count_abort);
+//     }
+
+//     void Init()
+//     {
+//         TM_THREAD_INIT();
+//     }
+
+//     void Uninit()
+//     {
+//         TM_THREAD_SHUTDOWN();
+//         TM_GET_THREAD();
+
+//         __sync_fetch_and_add(&g_count_stm_abort, tx->num_aborts);
+//     }
+
+//     bool ExecuteOps(const SetOpArray& ops) __attribute__ ((optimize (0)))
+//     {
+//         bool ret = true;
+
+//         TM_BEGIN(atomic)
+//         {
+//             if(ret == true)
+//             {
+//                 for(uint32_t i = 0; i < ops.size(); ++i)
+//                 {
+//                     uint32_t val = ops[i].key;
+//                     if(ops[i].type == MAP_FIND)
+//                     {
+//                         ret = m_hashtable.lookup(val TM_PARAM);
+//                     }
+//                     else if(ops[i].type == MAP_INSERT)
+//                     {
+//                         ret = m_hashtable.insert(val TM_PARAM);
+//                     }
+//                     else
+//                     {
+//                         ret = m_hashtable.remove(val TM_PARAM);
+//                     }
+
+//                     if(ret == false)
+//                     {
+//                         //stm::restart();
+//                         tx->tmabort(tx);
+//                         break;
+//                     }
+//                 }
+//             }
+//         } 
+//         TM_END;
+
+//         if(ret)
+//         {
+//             __sync_fetch_and_add(&g_count_commit, 1);
+//         }
+//         else
+//         {
+//             __sync_fetch_and_add(&g_count_abort, 1);
+//         }
+
+//         return ret;
+//     }
+
+// private:
+//     RSTMHashTable m_hashtable;
+
+//     uint32_t g_count_commit = 0;
+//     uint32_t g_count_abort = 0;
+//     uint32_t g_count_stm_abort = 0;
+// };
 
 #endif /* end of include guard: MAPADAPTOR_H */
