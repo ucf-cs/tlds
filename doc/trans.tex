@@ -688,9 +688,9 @@ In this case, the progress guarantee provided by the system degrades to obstruct
 Obstruction-freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
 
 We modify the lock-free \textsc{UpdateInfo} function shown in Algorithm~\ref{alg:updateinfo} to produce the obstruction-free \textsc{UpdateInfo} function listed in Algorithm~\ref{alg:obstructionfreeupdateinfo}.
-In both versions, a transaction examines the target node $n$ to check if a conflicting transaction is also accessing $n$ (line~\ref{alg:updateinfo}.\ref{l:testself} and line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:obstestself}).
+In both versions, the thread examines the target node $n$ to check if a conflicting transaction is also accessing $n$ (line~\ref{alg:updateinfo}.\ref{l:testself} and line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:obstestself}).
 If so, a contention management strategy must be applied to ensure serializability.
-The lock-free version helps the conflicting transaction by executing that transaction's operations (line~\ref{alg:updateinfo}.\ref{l:helpops}).
+The lock-free version helps the conflicting transaction by executing the transaction's operations (line~\ref{alg:updateinfo}.\ref{l:helpops}).
 The obstruction-free version instead aborts the conflicting transaction if it is still active (line~\ref{alg:obstructionfreeupdateinfo}.\ref{l:abortcompetitor}).
 
 We modify the methods dealing with transaction execution shown in Algorithm~\ref{alg:transaction} to produce the obstruction-free methods listed in Algorithm~\ref{alg:obstructionfreetransaction}.
