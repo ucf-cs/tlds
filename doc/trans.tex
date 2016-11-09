@@ -701,7 +701,10 @@ The obstruction-free approach does not allow such cyclic dependencies to occur, 
 
 \section{Application Examples}
 \label{sec:application}
-In this section we demonstrate the application of our lock-free transaction transformation on linked lists and skiplists based sets. 
+In this section, we present the application of our methodology to linked lists and skiplists, and hash maps.
+
+\subsection{Linked List and Skiplist Based Sets}
+In this section, we demonstrate the application of our lock-free transaction transformation on linked list and skiplist based sets. 
 The process involves two steps: 1) identify and encapsulate the base data structure's methods for locating, inserting, and deleting nodes; and 2) integrate the \textsc{UpdateInfo} function (Algorithm~\ref{alg:updateinfo}) in each operation using the templates provided in this section.
 
 The first step is necessary because we still rely on the base algorithm and its concurrency control to add, update, and remove linkage among nodes.
@@ -844,6 +847,99 @@ Since we have extracted the core functionality of interpreting and updating logi
 To use a transformed data structure, the application should first initialize and fill a \textsc{Desc} structure, then invoke \textsc{ExecuteTransaction} (Algorithm~\ref{alg:transaction}) with it as an argument.
 The allocation of the transaction descriptor contributes to most of the transaction execution overhead.
 We discuss this in more details in Section~\ref{sec:experiment}.
+
+\subsection{Hash Maps}
+In this section, we demonstrate the application of our lock-free transaction transformation on hash maps.
+Map data structures store keys and their associated values.
+Maps also provide an update operation to change the value associated with a particular key, in addition to the insert, find, and remove operations that are present in set data structures.
+To support map data structures we add a \textsc{value} field to the \textsc{Operation} and \textsc{Node} structs present in Algorithm~\ref{alg:nodestructure}, and an \textsc{Update} to the \textsc{OpType} enumeration.
+Our changes to Algorithm~\ref{alg:nodestructure} allow us to perform logical status interpretation on key-value pairs as we will be able to recover the previous value associated with a key if an \textsc{Update} operation is aborted.
+We propagate this change to the logical status interpretation algorithm by treating the \textsc{Update} operation the same way we treat a \textsc{Find}, as neither operation changes the presence of a key.
+
+To perform logical status interpretation of a key-value pair we implement an \textsc{IsValuePresent} function as the \textsc{Update} operation buffers writes to a node in the node's descriptor until it commits.
+In the \textsc{IsValuePresent} function, \textsc{INVALID} represents a sentinel value that indicates that a value has not been set for a \textsc{Find} operation.
+The semantics that we adhere to for a map data structure do not allow the user to search for a specific key-value pair, instead the user searches for a key and the matching value is returned.
+We use the \textsc{value} field of a \textsc{Find} operation to hold pending updates buffered in a node's descriptor which would otherwise be erroneously overwritten by \textsc{Find} placing its own \textsc{NodeInfo} descriptor at that node.
+
+
+
+\begin{algorithm}[t]
+	%TODO: use the following line for function calls
+	%\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}\;
+	
+	\SetKwFunction{IsNodePresent}{IsNodePresent}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function(){\IsNodePresent{$\textbf{Node*}\; n,\; \textbf{int}\; key$}}{
+		\KwRet{ $n.key = key$ }
+	} %TODO: something like this with the while loop labels
+	\;
+	\SetKwFunction{IsKeyPresent}{IsKeyPresent}
+	\Function{\IsKeyPresent{$\textbf{NodeInfo*}\;info,\;\textbf{Desc*} desc$}}{
+		$\textbf{OpType}\;op\gets info.desc.ops[info.opid]$\;
+		$\textbf{TxStatus}\;status \gets info.desc.status$\;
+		\Switch{$status$} {
+			\uCase{$Active$}{
+				\If{$info.desc = desc$}{
+					\KwRet{ $op=Update \;\textbf{or}\; op=Find \;\textbf{or}\; op=Insert$}\;
+				}
+				\Else{
+					\KwRet{ $op=Update \;\textbf{or}\; op=Find \;\textbf{or}\; op=Delete$}\;
+				}
+			}
+			\uCase{$Committed$}{
+				\KwRet{ $op=Update \;\textbf{or}\; op=Find \;\textbf{or}\; op=Insert$}
+			}
+			\uCase{$Aborted$}{
+				\KwRet{ $op=Update \;\textbf{or}\; op=Find \;\textbf{or}\; op=Find$}
+			}
+		}
+	}
+	\;
+	\SetKwFunction{IsValuePresent}{IsValuePresent}
+	\Function{\IsValuePresent{$\textbf{Node}\;node,\;\textbf{NodeInfo*}\;oldInfo,\;\textbf{NodeInfo*}\;newInfo$}}{
+%		$\textbf{TxStatus}\;status \gets info.desc.status$ \;
+		
+		$\textbf{Operation}\;op\gets oldInfo.desc.ops[oldInfo.opid]$\;
+		\If{$op.type == Update\; ||\; op.type == Find \;\&\&\; op.value != \text{INVALID}$}{
+			$newInfo.desc.ops[newInfo.opid].value \gets op.value$\;
+			$return\;op.value$\;
+		}
+		\Else{
+			$return\;node.value$\;
+		}
+	}
+	\caption{Logical Status for Maps}
+	\label{alg:maplogicalstatus}
+\end{algorithm}
+
+%if (IsLiveUpdate(oldCurrDesc))
+%{
+%                  	nodeDesc->desc->ops[nodeDesc->opid].value = GetValue(oldCurrDesc);//nodeDesc->value = //oldCurrDesc->desc->ops[oldCurrDesc->opid].value;	
+%                  	return nodeDesc->desc->ops[nodeDesc->opid].value;//nodeDesc->value;
+%}
+%else
+%{
+%                  	// if it's not a live update then use the value at the node
+%                  	return ((DataNode *)node)->value;
+%}
+
+%inline bool IsLiveUpdate(NodeDesc* nodeDesc)
+%{
+%	if (nodeDesc->desc->ops[nodeDesc->opid].type == MAP\_UPDATE || 
+%	(nodeDesc->desc->ops[nodeDesc->opid].type == MAP\_FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )//nodeDesc->value != 0) )
+%	return true;
+%	return false;
+%}
+%
+%inline bool IsUnsavedUpdate(NodeDesc* nodeDesc, VALUE val)
+%{
+%	if (nodeDesc->desc->ops[nodeDesc->opid].value != val && nodeDesc->desc->status == MAP\_COMMITTED)
+%	if (nodeDesc->desc->ops[nodeDesc->opid].type == MAP\_UPDATE || 
+%	(nodeDesc->desc->ops[nodeDesc->opid].type == MAP\_FIND && nodeDesc->desc->ops[nodeDesc->opid].value != 0) )
+%	return true; // else error?
+%	return false;
+%}
+ 
 
 \section{Correctness}
 \label{sec:correctness}
