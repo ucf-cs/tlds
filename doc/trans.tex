@@ -857,6 +857,7 @@ Our changes to Algorithm~\ref{alg:nodestructure} allow us to perform logical sta
 We propagate this change to the logical status interpretation algorithm by treating the \textsc{Update} operation the same way we treat a \textsc{Find}, as neither operation changes the presence of a key.
 
 To perform logical status interpretation of a key-value pair we implement an \textsc{IsValuePresent} function as the \textsc{Update} operation buffers writes to a node in the node's descriptor until it commits.
+This function returns whether or not the value present in the \textsc{Node} should be treated as present; if not, the value in the \textsc{NodeInfo} descriptor is used, because there is a pending update from the same transaction descriptor.
 In the \textsc{IsValuePresent} function, \textsc{INVALID} represents a sentinel value that indicates that a value has not been set for a \textsc{Find} operation.
 The semantics that we adhere to for a map data structure do not allow the user to search for a specific key-value pair, instead the user searches for a key and the matching value is returned.
 We use the \textsc{value} field of a \textsc{Find} operation to hold pending updates buffered in a node's descriptor which would otherwise be erroneously overwritten by \textsc{Find} placing its own \textsc{NodeInfo} descriptor at that node.
@@ -896,16 +897,16 @@ We use the \textsc{value} field of a \textsc{Find} operation to hold pending upd
 	}
 	\;
 	\SetKwFunction{IsValuePresent}{IsValuePresent}
-	\Function{\IsValuePresent{$\textbf{Node}\;node,\;\textbf{NodeInfo*}\;oldInfo,\;\textbf{NodeInfo*}\;newInfo$}}{
+	\Function{\IsValuePresent{$\textbf{NodeInfo*}\;oldInfo,\;\textbf{NodeInfo*}\;newInfo$}}{
 %		$\textbf{TxStatus}\;status \gets info.desc.status$ \;
 		
 		$\textbf{Operation}\;op\gets oldInfo.desc.ops[oldInfo.opid]$\;
 		\If{$op.type == Update\; ||\; op.type == Find \;\&\&\; op.value != \text{INVALID}$}{
 			$newInfo.desc.ops[newInfo.opid].value \gets op.value$\;
-			$return\;op.value$\;
+			$return\;false$\;
 		}
 		\Else{
-			$return\;node.value$\;
+			$return\;true$\;
 		}
 	}
 	\caption{Logical Status for Maps}
