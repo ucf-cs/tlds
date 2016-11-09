@@ -110,7 +110,7 @@
 \begin{document}
 
 % Page heads
-\markboth{G. Zhou et al.}{A Multifrequency MAC Specially Designed for WSN Applications}
+\markboth{D. Zhang et al.}{Lock-free Transactions without Rollbacks for Linked Data Structures}
 
 % Title portion
 \title{Lock-free Transactions without Rollbacks for Linked Data Structures}
@@ -269,7 +269,7 @@ This paper makes the following contributions:
 
 The rest of the paper is organized as follows. 
 In Section~\ref{sec:algorithm}, we explain our methodology in details.
-We present the template for building transactional linked lists and skiplists in Section~\ref{sec:application}.
+We present the template for building transactional linked lists and skiplists in Section~\ref{sec:lists}, and the template for building transactional hash maps in Section~\ref{sec:maps}.
 We reason about the correctness and progress properties of our algorithms in Section~\ref{sec:correctness}.
 The performance evaluation is presented in Section~\ref{sec:experiment}.
 In Section~\ref{sec:related}, we review existing approaches on constructing transactional data structures.
@@ -419,7 +419,7 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
         	\uCase{$Committed$}{
         		\KwRet{ $op=Find \;\textbf{or}\; op=Insert$}
         	}
-        	\uCase{$Aborted$}{
+        	\Case{$Aborted$}{
         		\KwRet{ $op=Find \;\textbf{or}\; op=Find$}
         	}
         }
@@ -704,6 +704,7 @@ The obstruction-free approach does not allow such cyclic dependencies to occur, 
 In this section, we present the application of our methodology to linked lists and skiplists, and hash maps.
 
 \subsection{Linked List and Skiplist Based Sets}
+\label{sec:lists}
 In this section, we demonstrate the application of our lock-free transaction transformation on linked list and skiplist based sets. 
 The process involves two steps: 1) identify and encapsulate the base data structure's methods for locating, inserting, and deleting nodes; and 2) integrate the \textsc{UpdateInfo} function (Algorithm~\ref{alg:updateinfo}) in each operation using the templates provided in this section.
 
@@ -849,6 +850,7 @@ The allocation of the transaction descriptor contributes to most of the transact
 We discuss this in more details in Section~\ref{sec:experiment}.
 
 \subsection{Hash Maps}
+\label{sec:maps}
 In this section, we demonstrate the application of our lock-free transaction transformation on hash maps.
 Map data structures store keys and their associated values.
 Maps also provide an update operation to change the value associated with a particular key, in addition to the insert, find, and remove operations that are present in set data structures.
@@ -890,7 +892,7 @@ We use the \textsc{value} field of a \textsc{Find} operation to hold pending upd
 			\uCase{$Committed$}{
 				\KwRet{ $op=Update \;\textbf{or}\; op=Find \;\textbf{or}\; op=Insert$}
 			}
-			\uCase{$Aborted$}{
+			\Case{$Aborted$}{
 				\KwRet{ $op=Update \;\textbf{or}\; op=Find \;\textbf{or}\; op=Find$}
 			}
 		}
@@ -906,6 +908,41 @@ We use the \textsc{value} field of a \textsc{Find} operation to hold pending upd
 	}
 	\caption{Logical Status for Maps}
 	\label{alg:maplogicalstatus}
+\end{algorithm}
+
+We do not need to change the templates for either the \textsc{Insert} or \textsc{Delete} operations as shown in Algorithms~\ref{alg:listinsert} and~\ref{alg:listdelete} as that operation does not examine the value associated with a key.
+
+\begin{algorithm}[t]
+	\SetKwFunction{UpdateInfo}{UpdateInfo}
+	\SetKwProg{Function}{Function}{}{end}
+	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
+		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\;
+		\If{$\textsc{IsMarked}(oldinfo)$}{
+			$\textsc{Do\_Delete}(n)$\;
+			\KwRet{ retry}
+		}
+		\If{$oldinfo.desc \neq info.desc$}{
+			\textsc{ExecuteOps}($oldinfo.desc,\;oldinfo.opid + 1$)
+		}
+		\ElseIf{$oldinfo.desc,\;oldinfo.opid + 1$}{
+			\KwRet{ success}
+		}
+		$\textbf{bool}\;haskey \gets \textsc{IsKeyPresent}(oldinfo)$  \;
+		\If{$(!haskey \;\textbf{and}\; wantkey) \;\textbf{or}\; (haskey \;\textbf{and}\; !wantkey)$}{ 
+			\KwRet{ fail }
+		}
+		\If{$info.desc.status \neq Active$}{ 
+			\KwRet{ fail }
+		}
+		\If{\textsc{CAS}$(\&n.info,\;oldinfo,\;info)$}{ 
+			\KwRet{ success}
+		}
+		\Else{
+			\KwRet{ fail}
+		}
+	}
+	\caption{Map: Update NodeInfo}
+	\label{alg:mapupdateinfo}
 \end{algorithm}
 
 %if (IsLiveUpdate(oldCurrDesc))
@@ -1091,24 +1128,28 @@ We employ a micro-benchmark to evaluate performance in three types of workloads:
 This canonical evaluation method~\cite{dalessandro2010norec,harris2001pragmatic} consists of a tight loop that randomly chooses to perform a fixed size transaction with a mixture of \textsc{Insert}, \textsc{Delete} and \textsc{Find} operations according to the workload type.
 We also vary the transaction size (i.e., the number of operations in a transaction) from 1 to 16 to measure the performance impact of rollbacks.
 The tests are conducted on a 64-core NUMA system (4 AMD opteron 6272 CPUs with 16 cores per chip @2.1 GHz). 
-Both the micro-benchmark and the data structure implementations are compiled with GCC 4.7 with C++11 features and \texttt{O3} optimizations.~\footnote{All source code can be downloaded from \url{http://cse.eecs.ucf.edu/gitlab/deli/transactional-linked-data-structure}}
+Both the micro-benchmark and the data structure implementations are compiled with GCC 4.7 with C++11 features and \texttt{O3} optimizations.~\footnote{All source code can be downloaded from \url{http://cse.eecs.ucf.edu/gitlab/pierrelaborde/lftt}}
 
-\begin{figure*}[t]
-    \begin{subfigure}{0.325\textwidth}
+\begin{figure*}[htbp]
+    \begin{subfigure}{0.9\textwidth}
         \centering
         \includegraphics[width=1\columnwidth]{./data/amd50ins10kfilled.pdf}
         \caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
         \label{fig:txnlist50}
     \end{subfigure}
 	\hfill
-    \begin{subfigure}{0.325\textwidth}
+    \begin{subfigure}{0.9\textwidth}
         \centering
         \includegraphics[width=1\columnwidth]{./data/amd33ins10kfilled.pdf}
         \caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
         \label{fig:txnlist33}
     \end{subfigure}
-	\hfill
-    \begin{subfigure}{0.325\textwidth}
+\end{figure*}
+
+\begin{figure*}[htbp]    
+%	\hfill
+	\ContinuedFloat
+    \begin{subfigure}{0.9\textwidth}
         \centering
         \includegraphics[width=1\columnwidth]{./data/amd15ins10kfilled.pdf}
         \vspace{-0.17in}
@@ -1172,22 +1213,26 @@ This is because the \textsc{Find} operations in LFT lists also update descriptor
 Nevertheless, LFT lists still maintain an average of 20\% speedup over BST lists in these scenarios and achieves as much as 40\% throughput gain for large transactions.  
 Because of allowing reader concurrency, NTM lists also exhibit some degree of scalability in read-dominated scenarios.
 
-\begin{figure*}[t]
-	\begin{subfigure}{0.325\textwidth}
+\begin{figure*}[htbp]
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/amdskip50ins10kfilled.pdf}
 		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
 		\label{fig:txnskip50}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.325\textwidth}
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/amdskip33ins10kfilled.pdf}
 		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
 		\label{fig:txnskip33}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.325\textwidth}
+\end{figure*}
+
+\begin{figure*}[htbp]
+%	\hfill
+	\ContinuedFloat
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/amdskip15ins10kfilled.pdf}
 		\vspace{-0.17in}
@@ -1226,22 +1271,26 @@ For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% 
 
 
 
-\begin{figure*}[t]
-	\begin{subfigure}{0.325\textwidth}
+\begin{figure*}[htbp]
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/oftlink50ins10kfilled.pdf}
 		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
 		\label{fig:oftlist50}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.325\textwidth}
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/oftlink33ins10kfilled.pdf}
 		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
 		\label{fig:oftlist33}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.325\textwidth}
+\end{figure*}
+
+\begin{figure*}[htbp]
+%	\hfill
+	\ContinuedFloat
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/oftlink15ins10kfilled.pdf}
 		\vspace{-0.17in}
@@ -1252,22 +1301,29 @@ For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% 
 	\label{fig:oftlist}
 \end{figure*}
 
-\begin{figure*}[t]
-	\begin{subfigure}{0.325\textwidth}
+
+
+
+\begin{figure*}[htbp]
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/oftskip50ins10kfilled.pdf}
 		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
 		\label{fig:oftskip50}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.325\textwidth}
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/oftskip33ins10kfilled.pdf}
 		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
 		\label{fig:oftskip33}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.325\textwidth}
+\end{figure*}
+
+\begin{figure*}[htbp]
+%	\hfill
+	\ContinuedFloat
+	\begin{subfigure}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\columnwidth]{./data/oftskip15ins10kfilled.pdf}
 		\vspace{-0.17in}
@@ -1392,14 +1448,14 @@ We also plan to further evaluate our approach on SMP systems to verify potential
 
 %\begin{figure*}[p]
     %\centering
-    %\includegraphics[width=0.7\textwidth]{figure/stmconflict.pdf}
+    %\includegraphics[width=0.9\textwidth]{figure/stmconflict.pdf}
     %\caption{False Conflict in STM}
     %\label{fig:stmconflict}
 %\end{figure*}
 
 %\begin{figure*}[p]
     %\centering
-    %\includegraphics[width=0.7\textwidth]{figure/boosting.pdf}
+    %\includegraphics[width=0.9\textwidth]{figure/boosting.pdf}
     %\caption{Rollbacks in Transactional Boosting}
     %\label{fig:boosting}
 %\end{figure*}
