@@ -672,9 +672,18 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 
 \subsection{Obstruction-free Approach}
 Our cooperative contention management strategy requires that the users specify all operations in a transaction beforehand.
-To allow dynamic transaction executions, we introduce an alternative approach called obstruction-free transactional transformation, and we compare it to our original lock-free approach.
-Obstruction-free transactional transformation allows dynamic transaction executions by eliminating the helping mechanism.
-It instead adopts an aggressive contention management strategy (i.e., when two transactions conflict, the later transaction forcibly aborts the earlier one).
+However, some applications would benefit from dynamic transaction execution, in which the operations in a transaction are not pre-determined prior to the execution of the transaction.
+In these applications, after a transaction begins, the operation types or operands of future method calls may depend on user input or other external events.
+Our helping scheme could possibly support dynamic transaction execution, but it would break the data structure's lock-free progress guarantee.
+For example, consider one transaction that begins by modifying node $n$ and then waits on user input for its next operation.
+Other concurrent transactions that access $n$ need to help that transaction before performing their own operations on $n$.
+This causes the concurrent transactions to be blocked (waiting on the user input) even though their own operations do not require user input.
+
+To allow dynamic transaction execution, we introduce an alternative approach called obstruction-free transactional transformation, which eliminates the helping mechanism of the original lock-free approach.
+It instead adopts an aggressive contention management strategy.
+When two transactions conflict, the later transaction forcibly aborts the earlier one.
+In the previous example, the transaction that is waiting on user input may be aborted by concurrent transactions, causing it to restart.
+This allows the concurrent transactions to continue with their own operations without needlessly waiting on user input.
 In this case, the progress guarantee provided by the system degrades to obstruction-free.
 Obstruction-freedom guarantees that if a method executes without interruption from other threads, then it will finish in a finite number of steps.
 
