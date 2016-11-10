@@ -5,6 +5,7 @@
 #include <malloc.h>
 #include <atomic>
 #include <common/assert.h>
+#include <iostream>
 
 template<typename DataType>
 class Allocator 
@@ -12,6 +13,7 @@ class Allocator
 public:
     Allocator(uint64_t totalBytes, uint64_t threadCount, uint64_t typeSize)
     {
+        std::cout << totalBytes << "bytes requested" << std::endl;
         m_totalBytes = totalBytes;
         m_threadCount = threadCount;
         m_typeSize = typeSize;
