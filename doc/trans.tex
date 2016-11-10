@@ -857,7 +857,7 @@ Maps also provide an update operation to change the value associated with a part
 To support map data structures we add a \textsc{value} field to the \textsc{Operation} and \textsc{Node} structs present in Algorithm~\ref{alg:nodestructure}, and an \textsc{Update} to the \textsc{OpType} enumeration.
 
 The reason we make these changes to Algorithm~\ref{alg:nodestructure} is to provide two different places to save a node's value, one in the node itself, and one in the node's descriptor.
-This allows us to preserve the current value of a node, and buffer pending updates in the node's descriptor.
+We use these two locations to preserve the current value of a node, and buffer pending updates in the node's descriptor.
 This allows \textsc{Find} operations from the same transaction to return the correct \textsc{value}, held in the descriptor, if the transaction commits, without erroneously overwriting the value stored in the node by the most recently committed transaction.
 If we use the \textsc{Find} operation from Algorithm~\ref{alg:listfind}, we will erroneously overwrite pending updates as the \textsc{Find} operation will place its descriptor at a node, overwriting the node descriptor of the active \textsc{Update} operation.
 To solve this problem, we note that the node descriptor of a \textsc{Find} operation only needs to store the key that it is searching for, and its operation type.
@@ -869,12 +869,23 @@ Our changes to Algorithm~\ref{alg:nodestructure} allow us to perform logical sta
 We propagate this change to \textsc{IsKeyPresent} by treating the \textsc{Update} operation the same way we treat a \textsc{Find}, as neither operation changes the presence of a key.
 
 To perform logical status interpretation of a key-value pair we implement an \textsc{IsValuePresent} function as the \textsc{Update} operation buffers writes to a node in the node's descriptor until it commits.
+The pseudocode for this function is presented in Algorithm~\ref{alg:maplogicalstatus}.
 This function returns whether or not the value present in the \textsc{Node} should be treated as present; if not, the value in the \textsc{NodeInfo} descriptor is used, because there is a pending update from the same transaction descriptor whose buffered write is logically interpreted as the node's value.
+
 In the \textsc{IsValuePresent} function, \textsc{INVALID} represents a sentinel value that indicates a value has not been set for a \textsc{Find} operation.
 The semantics that we adhere to for a map data structure do not allow the user to search for a specific key-value pair, instead the user searches for a key and the matching value is returned.
 We use the \textsc{value} field of a \textsc{Find} operation to hold pending updates buffered in a node's descriptor which would otherwise be erroneously overwritten by \textsc{Find} placing its own \textsc{NodeInfo} descriptor at that node.
 
-We update the \textsc{UpdateInfo} function presented in Algorithm~\ref{alg:updateinfo} to use the buffered write operations when they are logically present in a node's descriptor, in Algorithm~\ref{alg:mapupdateinfo}.
+We copy the pending updates, which are buffered in a node's descriptor, to the node in a lazy fashion.
+Once the transaction with the pending updates is committed, the next \textsc{Find} or \textsc{Update} operation that attempts to update the \textsc{NodeInfo} descriptor of that node will examine that node descriptor in order to determine whether or not the last operation that was performed was a committed \textsc{Find} or \textsc{Update}.
+If it sees a \textsc{Find} operation's descriptor that holds a different valid \textsc{value} from the one currently stored in the node, one that is not equal to the sentinel \textsc{INVALID}, then the \textsc{MapUpdateInfo} algorithm will store that value as the node's value.
+If the operation sees an \textsc{Update} descriptor at the node, with any value other than that currently stored in the node, then the operation copies the value stored in the descriptor to the node.
+Once the operation completes the copy, it can perform its operation as usual.
+This copy preserves correct semantics for all operations, as the old \textsc{value} will be ignored by an \textsc{Insert} or \textsc{Delete} operation, and a \textsc{Find} or \textsc{Update} operation uses the new value in the node's \textsc{value} field.
+The pseudocode for the \textsc{MapUpdateInfo} algorithm is displayed in Algorithm~\ref{alg:mapupdateinfo}.
+The lazy update of the node's value occurs in the if-then statement on line~\ref{alg:mapupdateinfo}.\ref{l:isunsaved}.
+
+%We update the \textsc{UpdateInfo} function presented in Algorithm~\ref{alg:updateinfo} to use the buffered write operations when they are logically present in a node's descriptor, in Algorithm~\ref{alg:mapupdateinfo}.
 
 
 \begin{algorithm}[t]
@@ -923,14 +934,15 @@ We update the \textsc{UpdateInfo} function presented in Algorithm~\ref{alg:updat
 
 As with the transactional linked list and skiplist, we encapsulate the base data structure's methods for locating, inserting, and deleting nodes.
 We describe the templates for each of the four canonical map operations \textsc{Insert}, \textsc{Delete}, \textsc{Find}, and \textsc{Update}.
-
-The only change we make to the templates for the \textsc{Insert} and \textsc{Delete} operations as shown in Algorithms~\ref{alg:listinsert} and~\ref{alg:listdelete} is that we must set the \textsc{value} field of the new node to the value that is associated with the key, and both algorithms must search for a node using the hashed key instead of the key itself.
+The only change we make to the templates for the \textsc{Insert}, \textsc{Delete}, and \textsc{Find} operations as shown in Algorithms~\ref{alg:listinsert},~\ref{alg:listdelete}, and~\ref{alg:listfind} is that we must set the \textsc{value} field of the new node in an \textsc{Insert} to the value that is associated with the key.
 No other changes are necessary as these operations do not examine the value associated with a key.
+Additionally, the underlying \textsc{LocatePred} algorithm must search for a node using the hashed key instead of the key itself.
+The template for the \textsc{Update} function is similar to that of the \textsc{Insert} function (except we call \textsc{MapUpdateInfo} with \textsc{true} as the final argument), since the \textsc{MapUpdateInfo} function lazily updates the \textsc{value} of a node.
 
 \begin{algorithm}[t]
-	\SetKwFunction{UpdateInfoExt}{UpdateInfoExt}
+	\SetKwFunction{MapUpdateInfo}{MapUpdateInfo}
 	\SetKwProg{Function}{Function}{}{end}
-	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
+	\Function{\MapUpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
 		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\;
 		\If{$\textsc{IsMarked}(oldinfo)$}{
 			$\textsc{Do\_Delete}(n)$\;
@@ -951,7 +963,7 @@ No other changes are necessary as these operations do not examine the value asso
 		}
 		$\textbf{Operation} op \gets info.desc.ops[info.opid]$\; \label{l:startUpdate}
 		$\textbf{Operation}\; oldOp \gets oldinfo.desc.ops[oldinfo.opid]$\;
-		\If{$op.type == Update \;||\; op.type == Find$}{
+		\If{$op.type == Update \;||\; op.type == Find$}{ \label{l:isunsaved}
 			\If{$oldOp.value \;!= \;node.value \;\&\& \;oldinfo.desc.status == Committed\; \&\&\; IsValuePresent(oldinfo)$}{
 				$n.value \gets oldOp.value$\;
 			}
@@ -973,7 +985,7 @@ No other changes are necessary as these operations do not examine the value asso
 			\KwRet{ retry}
 		}
 	}
-	\caption{Map: Extended Update NodeInfo}
+	\caption{Update NodeInfo for Maps}
 	\label{alg:mapupdateinfo}
 \end{algorithm}
  
