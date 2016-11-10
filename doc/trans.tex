@@ -455,7 +455,7 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
 \begin{algorithm}[t]
 	\SetKwFunction{UpdateInfo}{UpdateInfo}
 	\SetKwProg{Function}{Function}{}{end}
-	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
+	\Function{\UpdateInfo{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
 		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\; \label{l:readinfo}
 		\If{$\textsc{IsMarked}(oldinfo)$}{
 			$\textsc{Do\_Delete}(n)$\;
@@ -533,7 +533,7 @@ A special case is the operations in an active transaction, which we treat as com
         		\ElseIf{$op.type = Delete$}{
         			$\textbf{Node*}\;del$\;
         			$ret \gets \textsc{Delete}(op.key,\;desc,\;opid,\;del)$\;
-        			$delnodes.Insert(del)$
+        			$delnodes.\textsc{Insert}(del)$
         		}
         		$opid \gets opid + 1$\;
         	}
@@ -596,7 +596,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 \begin{algorithm}[t]
 	\SetKwFunction{UpdateInfo}{UpdateInfo}
 	\SetKwProg{Function}{Function}{}{end}
-	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
+	\Function{\UpdateInfo{$\textbf{Node*}\;n,\;\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
 		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\;
 		\If{$\textsc{IsMarked}(oldinfo)$}{
 			$\textsc{Do\_Delete}(n)$\;
@@ -619,7 +619,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 			\KwRet{ success}
 		}
 		\Else{
-			\KwRet{ fail}
+			\KwRet{ retry}
 		}
 	}
 	\caption{Obstruction-free Update NodeInfo}
@@ -653,7 +653,7 @@ We recover by aborting one of the transactions as shown on line~\ref{alg:transac
 			\ElseIf{$op.type = Delete$}{
 				$\textbf{Node*}\;del$\;
 				$ret \gets \textsc{Delete}(op.key,\;desc,\;opid,\;del)$\;
-				$delnodes.Insert(del)$
+				$delnodes.\textsc{Insert}(del)$
 			}
 			$opid \gets opid + 1$\;
 		}
@@ -736,14 +736,14 @@ Should any of the two code paths indicate a retry due to contention, we start th
     	$\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$\;
     	$info.desc \gets desc,\;info.opid \gets opid$\;
     	\While{\textbf{true}}{ \label{l:listinsertwhile}
-    		$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
-    		\If{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
-    			$ret \gets UpdateInfo(curr,\;info,\;false)$ \label{l:insupdateinfo}
+    		$\textbf{Node*}\;curr \gets \textsc{Do\_LocatePred}(key)$\;
+    		\If{$\textsc{IsNodePresent}(curr,\;key)$}{ \label{l:listinsertcontain}
+    			$ret \gets \textsc{UpdateInfo}(curr,\;info,\;false)$ \label{l:insupdateinfo}
     		}
     		\Else{
     			$\textbf{Node*}\; n \gets \text{\textbf{new Node}}$\;
     			$n.key \gets key,\;n.info \gets info$\;
-    			$ret \gets Do\_Insert(n)$ \label{l:linknode}
+    			$ret \gets \textsc{Do\_Insert}(n)$ \label{l:linknode}
     		}
     		\If{$ret = success$}{
     			\KwRet{ \textbf{true}}
@@ -766,9 +766,9 @@ Should any of the two code paths indicate a retry due to contention, we start th
 		$\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$\;
 		$info.desc \gets desc,\;info.opid \gets opid$\;
 		\While{\textbf{true}}{ \label{l:listinsertwhile}
-			$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
-			\If{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
-				$ret \gets UpdateInfo(curr,\;info,\;true)$ \label{l:insupdateinfo}
+			$\textbf{Node*}\;curr \gets \textsc{Do\_LocatePred}(key)$\;
+			\If{\textsc{IsNodePresent}($curr,\;key$)}{ \label{l:listinsertcontain}
+				$ret \gets \textsc{UpdateInfo}(curr,\;info,\;true)$ \label{l:insupdateinfo}
 			}
 			\Else{
 				$ret \gets fail$ \label{l:linknode}
@@ -794,9 +794,9 @@ Should any of the two code paths indicate a retry due to contention, we start th
 		$\textbf{NodeInfo*}\; info \gets \text{\textbf{new NodeInfo}}$\;
 		$info.desc \gets desc,\;info.opid \gets opid$\;
 		\While{\textbf{true}}{ \label{l:listinsertwhile}
-			$\textbf{Node*}\;curr \gets Do\_LocatePred(key)$\;
-			\If{IsNodePresent($curr,\;key$)}{ \label{l:listinsertcontain}
-				$ret \gets UpdateInfo(curr,\;info,\;true)$ \label{l:insupdateinfo}
+			$\textbf{Node*}\;curr \gets \textsc{Do\_LocatePred}(key)$\;
+			\If{\textsc{IsNodePresent}($curr,\;key$)}{ \label{l:listinsertcontain}
+				$ret \gets \textsc{UpdateInfo}(curr,\;info,\;true)$ \label{l:insupdateinfo}
 			}
 			\Else{
 				$ret \gets fail$ \label{l:linknode}
@@ -824,8 +824,8 @@ Should any of the two code paths indicate a retry due to contention, we start th
 			\If{$info.desc \ne desc$}{
 				\textbf{continue}
 			}
-			\If{$CAS(del.info,info,\textsc{SetMark}(info))$}{ \label{l:markinfo}
-				$Do\_Delete(del)$
+			\If{$\textsc{CAS}(del.info,\;info,\;\textsc{SetMark}(info))$}{ \label{l:markinfo}
+				$\textsc{Do\_Delete}(del)$
 			}
 		}
 	}
