@@ -478,7 +478,7 @@ Both physical undo and our logical undo reach the same goal of restoring the abs
 			\KwRet{ success}
 		}
 		\Else{
-			\KwRet{ fail}
+			\KwRet{ retry}
 		}
 	}
     \caption{Update NodeInfo}
@@ -913,7 +913,7 @@ We use the \textsc{value} field of a \textsc{Find} operation to hold pending upd
 We do not need to change the templates for either the \textsc{Insert} or \textsc{Delete} operations as shown in Algorithms~\ref{alg:listinsert} and~\ref{alg:listdelete} as that operation does not examine the value associated with a key.
 
 \begin{algorithm}[t]
-	\SetKwFunction{UpdateInfo}{UpdateInfo}
+	\SetKwFunction{UpdateInfoExt}{UpdateInfoExt}
 	\SetKwProg{Function}{Function}{}{end}
 	\Function{\UpdateInfo{$\textbf{NodeInfo*}\;info,\;$ $\textbf{bool}\;wantkey$}}{
 		$\textbf{NodeInfo*}\; oldinfo \gets n.info$\;
@@ -934,14 +934,22 @@ We do not need to change the templates for either the \textsc{Insert} or \textsc
 		\If{$info.desc.status \neq Active$}{ 
 			\KwRet{ fail }
 		}
+		$\textbf{Operation} op \gets info.desc.ops[info.opid]$\; \label{l:startUpdate}
+		$\textbf{int}\; descValue \gets oldinfo.desc.ops[oldinfo.opid].value$\;
+		\If{$op.type == Update$}{
+			\If{$descValue \;!= \;node.value \;\&\& \;oldinfo.desc.status == Committed\; \&\&\; IsValuePresent(oldinfo)$}{
+				$node.value \gets descValue$\;
+			}
+		}
+		
 		\If{\textsc{CAS}$(\&n.info,\;oldinfo,\;info)$}{ 
 			\KwRet{ success}
 		}
 		\Else{
-			\KwRet{ fail}
+			\KwRet{ retry}
 		}
 	}
-	\caption{Map: Update NodeInfo}
+	\caption{Map: Extended Update NodeInfo}
 	\label{alg:mapupdateinfo}
 \end{algorithm}
 
