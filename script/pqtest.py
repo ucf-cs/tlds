@@ -12,7 +12,7 @@ re_txn = re.compile(r"Total commit (.*?), abort \(total/fake\) (.*?)/(.*?)$")
 def main():
     import optparse
 
-    parser = optparse.OptionParser(usage='\n\t%prog')
+    parser = optparse.OptionParser(usage='\n\t%prog testsize keyrange insertion deletion update average')
 
     (options, args) = parser.parse_args(sys.argv[1:])
     input_program = args[0]
@@ -29,12 +29,12 @@ def main():
                5: "STMSKIP",
                6: "TRANSMAP"}
 
-    iteration = 100000
-    key_range = 10000
-    insertion = 25
-    deletion = 25
-    update = 25
-    average = 1 #should be 5
+    iteration = int(args[1])
+    key_range = int(args[2])
+    insertion = int(args[3])
+    deletion = int(args[4])
+    update = int(args[5])
+    average = int(args[6]) #should be 5
     #for pq_type in [0, 1, 2, 3, 4, 5]:
     for pq_type in [6]:
         list_type = pq_dict[pq_type]

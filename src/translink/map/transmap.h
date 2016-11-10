@@ -2095,6 +2095,7 @@ inline bool IsLiveUpdate(NodeDesc* nodeDesc)
 	return false;
 }
 
+//TODO: this should call IsLiveUpdate
 inline bool IsUnsavedUpdate(NodeDesc* nodeDesc, VALUE val)
 {
 	if (nodeDesc->desc->ops[nodeDesc->opid].value != val && nodeDesc->desc->status == MAP_COMMITTED)
