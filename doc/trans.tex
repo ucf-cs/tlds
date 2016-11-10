@@ -855,8 +855,18 @@ In this section, we demonstrate the application of our lock-free transaction tra
 Map data structures store keys and their associated values.
 Maps also provide an update operation to change the value associated with a particular key, in addition to the insert, find, and remove operations that are present in set data structures.
 To support map data structures we add a \textsc{value} field to the \textsc{Operation} and \textsc{Node} structs present in Algorithm~\ref{alg:nodestructure}, and an \textsc{Update} to the \textsc{OpType} enumeration.
+
+The reason we make these changes to Algorithm~\ref{alg:nodestructure} is to provide two different places to save a node's value, one in the node itself, and one in the node's descriptor.
+This allows us to preserve the current value of a node, and buffer pending updates in the node's descriptor.
+This allows \textsc{Find} operations from the same transaction to return the correct \textsc{value}, held in the descriptor, if the transaction commits, without erroneously overwriting the value stored in the node by the most recently committed transaction.
+If we use the \textsc{Find} operation from Algorithm~\ref{alg:listfind}, we will erroneously overwrite pending updates as the \textsc{Find} operation will place its descriptor at a node, overwriting the node descriptor of the active \textsc{Update} operation.
+To solve this problem, we note that the node descriptor of a \textsc{Find} operation only needs to store the key that it is searching for, and its operation type.
+In this case, the pending update can be preserved by copying its value from the old node descriptor of the \textsc{Update} operation to the node descriptor of the \textsc{Find} operation which is now placed at the node.
+In this way, the pending writes to a node's value can be preserved without overwriting the node's current value, which would prevent inverse interpretation on transaction abort.
+This is an extension of logical status interpretation, as we choose a different \textsc{value} depending on whether or not the transaction is \textsc{aborted}, \textsc{active}, or \textsc{committed}.
+
 Our changes to Algorithm~\ref{alg:nodestructure} allow us to perform logical status interpretation on key-value pairs as we will be able to recover the previous value associated with a key if an \textsc{Update} operation is aborted.
-We propagate this change to the logical status interpretation algorithm by treating the \textsc{Update} operation the same way we treat a \textsc{Find}, as neither operation changes the presence of a key.
+We propagate this change to \textsc{IsKeyPresent} by treating the \textsc{Update} operation the same way we treat a \textsc{Find}, as neither operation changes the presence of a key.
 
 To perform logical status interpretation of a key-value pair we implement an \textsc{IsValuePresent} function as the \textsc{Update} operation buffers writes to a node in the node's descriptor until it commits.
 This function returns whether or not the value present in the \textsc{Node} should be treated as present; if not, the value in the \textsc{NodeInfo} descriptor is used, because there is a pending update from the same transaction descriptor whose buffered write is logically interpreted as the node's value.
@@ -911,8 +921,11 @@ We update the \textsc{UpdateInfo} function presented in Algorithm~\ref{alg:updat
 	\label{alg:maplogicalstatus}
 \end{algorithm}
 
-We do not need to change the templates for either the \textsc{Insert} or \textsc{Delete} operations as shown in Algorithms~\ref{alg:listinsert} and~\ref{alg:listdelete} as that operation does not examine the value associated with a key.
-TODO: insert templates for update and find.
+As with the transactional linked list and skiplist, we encapsulate the base data structure's methods for locating, inserting, and deleting nodes.
+We describe the templates for each of the four canonical map operations \textsc{Insert}, \textsc{Delete}, \textsc{Find}, and \textsc{Update}.
+
+The only change we make to the templates for the \textsc{Insert} and \textsc{Delete} operations as shown in Algorithms~\ref{alg:listinsert} and~\ref{alg:listdelete} is that we must set the \textsc{value} field of the new node to the value that is associated with the key, and both algorithms must search for a node using the hashed key instead of the key itself.
+No other changes are necessary as these operations do not examine the value associated with a key.
 
 \begin{algorithm}[t]
 	\SetKwFunction{UpdateInfoExt}{UpdateInfoExt}
@@ -1127,7 +1140,7 @@ We employ a micro-benchmark to evaluate performance in three types of workloads:
 This canonical evaluation method~\cite{dalessandro2010norec,harris2001pragmatic} consists of a tight loop that randomly chooses to perform a fixed size transaction with a mixture of \textsc{Insert}, \textsc{Delete} and \textsc{Find} operations according to the workload type.
 We also vary the transaction size (i.e., the number of operations in a transaction) from 1 to 16 to measure the performance impact of rollbacks.
 The tests are conducted on a 64-core NUMA system (4 AMD opteron 6272 CPUs with 16 cores per chip @2.1 GHz). 
-Both the micro-benchmark and the data structure implementations are compiled with GCC 4.7 with C++11 features and \texttt{O3} optimizations.~\footnote{All source code can be downloaded from \url{http://cse.eecs.ucf.edu/gitlab/pierrelaborde/lftt}}
+Both the micro-benchmark and the data structure implementations are compiled with GCC 4.7 with C++11 features and \texttt{O3} optimizations.~\footnote{All source code can be downloaded from \url{https://github.com/ucf-cs/tlds}}
 
 \begin{figure*}[htbp]
     \begin{subfigure}{0.9\textwidth}
