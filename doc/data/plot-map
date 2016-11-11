@@ -41,8 +41,12 @@ set style line 8 lt 8 lc rgb "dark-red" lw 2
 set style line 9 lt 9 lc rgb "orange-red" lw 2
 set style line 10 lt 10 lc rgb "gray" lw 2
 
-set output "| epstopdf --filter --outfile=amd50ins10kfilled.pdf"
+set output "| epstopdf --filter --outfile=map25ins.pdf"
 set multiplot
+
+set xlabel "Number of Threads"
+set xtics scale 0
+#set auto x
 
 set lmargin at screen 0.12
 set rmargin at screen 0.89
@@ -51,8 +55,10 @@ set tmargin at screen 0.87
 
 set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 1
 set autoscale
-set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
+set xtics("1" 1, "2" 2, "4" 3, "8" 4, "16" 5, "32" 6, "64" 7, "128" 8)
+#set xtics (1,2,4,8,16,32,64,128)
 set xrange [0:9]
+#set xrange [1:128]
 set grid ytics
 set ytics nomirror
 set xtics nomirror
@@ -69,10 +75,21 @@ plot "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_25_del_25_upd_25" u 
 
 
 set key inside top vertical left Left reverse samplen 2 height 0.5 spacing 1
+
+set lmargin 0
+set rmargin 0
+set tmargin 0
+set bmargin 0
+
+if(0) {
 set lmargin at screen 0.12
 set rmargin at screen 0.89
 set bmargin at screen 0.11
 set tmargin at screen 0.4
+
+
+
+
 unset logscale x
 unset ylabel
 unset ytics
@@ -91,5 +108,161 @@ set style fill pattern border
 set boxwidth 0.8
 
 plot "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_25_del_25_upd_25" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT"
+}{}
+
+unset multiplot
+
+
+
+
+
+
+
+set output "| epstopdf --filter --outfile=map50ins.pdf"
+set multiplot
+
+set xlabel "Number of Threads"
+set xtics scale 0
+#set auto x
+
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.4
+set tmargin at screen 0.87
+
+set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 1
+set autoscale
+set xtics("1" 1, "2" 2, "4" 3, "8" 4, "16" 5, "32" 6, "64" 7, "128" 8)
+#set xtics (1,2,4,8,16,32,64,128)
+set xrange [0:9]
+#set xrange [1:128]
+set grid ytics
+set ytics nomirror
+set xtics nomirror
+set logscale y
+set format y "%.0s%c"
+set ylabel "Throughput (OP/s)" offset (0,0)
+
+
+plot "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_50_del_50_upd_0" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_50_del_50_upd_0" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "LFT-2",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_50_del_50_upd_0" u ($0+1):(4*$9/$8)   w linespoints ls 3 pt 3 title "LFT-4",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_50_del_50_upd_0" u ($0+1):(8*$12/$11) w linespoints ls 4 pt 4 title "LFT-8",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_50_del_50_upd_0" u ($0+1):(16*$15/$14) w linespoints ls 5 pt 6 title "LFT-16"
+
+
+set key inside top vertical left Left reverse samplen 2 height 0.5 spacing 1
+
+set lmargin 0
+set rmargin 0
+set tmargin 0
+set bmargin 0
+
+if(0) {
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.11
+set tmargin at screen 0.4
+
+
+
+
+unset logscale x
+unset ylabel
+unset ytics
+set y2tics 0,100,100000000
+set format y2 "%.0s%c"
+set grid y2tics
+set logscale y
+set logscale y2
+set y2label "Aborted Transaction" 
+set xlabel "Number of Threads"
+set xtics scale 0
+set auto x
+set style data histogram
+set style histogram clustered
+set style fill pattern border
+set boxwidth 0.8
+
+plot "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_50_del_50_upd_0" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT"
+}{}
+
+unset multiplot
+
+
+
+
+
+
+
+
+set output "| epstopdf --filter --outfile=map15ins.pdf"
+set multiplot
+
+set xlabel "Number of Threads"
+set xtics scale 0
+#set auto x
+
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.4
+set tmargin at screen 0.87
+
+set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 1
+set autoscale
+set xtics("1" 1, "2" 2, "4" 3, "8" 4, "16" 5, "32" 6, "64" 7, "128" 8)
+#set xtics (1,2,4,8,16,32,64,128)
+set xrange [0:9]
+#set xrange [1:128]
+set grid ytics
+set ytics nomirror
+set xtics nomirror
+set logscale y
+set format y "%.0s%c"
+set ylabel "Throughput (OP/s)" offset (0,0)
+
+
+plot "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_15_del_5_upd_5" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_15_del_5_upd_5" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "LFT-2",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_15_del_5_upd_5" u ($0+1):(4*$9/$8)   w linespoints ls 3 pt 3 title "LFT-4",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_15_del_5_upd_5" u ($0+1):(8*$12/$11) w linespoints ls 4 pt 4 title "LFT-8",\
+     "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_15_del_5_upd_5" u ($0+1):(16*$15/$14) w linespoints ls 5 pt 6 title "LFT-16"
+
+
+set key inside top vertical left Left reverse samplen 2 height 0.5 spacing 1
+
+set lmargin 0
+set rmargin 0
+set tmargin 0
+set bmargin 0
+
+if(0) {
+set lmargin at screen 0.12
+set rmargin at screen 0.89
+set bmargin at screen 0.11
+set tmargin at screen 0.4
+
+
+
+
+unset logscale x
+unset ylabel
+unset ytics
+set y2tics 0,100,100000000
+set format y2 "%.0s%c"
+set grid y2tics
+set logscale y
+set logscale y2
+set y2label "Aborted Transaction" 
+set xlabel "Number of Threads"
+set xtics scale 0
+set auto x
+set style data histogram
+set style histogram clustered
+set style fill pattern border
+set boxwidth 0.8
+
+plot "walltime_filled_TRANSMAP_key_1000000_iter_1000000_ins_15_del_5_upd_5" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT"
+}{}
 
 unset multiplot
