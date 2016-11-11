@@ -1364,26 +1364,26 @@ For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% 
 	\begin{subfigure}{0.8\textwidth}
 		\centering
 		\includegraphics[trim=0 70 0 0,clip,width=1\columnwidth]{./data/map50ins.pdf}
-		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
-		\label{fig:oftskip50}
+		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Update}, 0\% \textsc{Find} }
+		\label{fig:map50}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.8\textwidth}
 		\centering
 		\includegraphics[trim=0 70 0 0,clip,width=1\columnwidth]{./data/map25ins.pdf}
-		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
-		\label{fig:oftskip33}
+		\caption{25\% \textsc{Insert}, 25\% \textsc{Delete}, 25\% \textsc{Update}, 25\% \textsc{Find}}
+		\label{fig:map25}
 	\end{subfigure}
 
 	\begin{subfigure}{0.8\textwidth}
 		\centering
 		\includegraphics[trim=0 70 0 0,clip,width=1\columnwidth]{./data/map15ins.pdf}
 		\vspace{-0.17in}
-		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
-		\label{fig:oftskip15}
+		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 5\% \textsc{Update}, 0\% \textsc{Find}}
+		\label{fig:map15}
 	\end{subfigure}
 	\caption{Throughput and Spurious Abort Counts for Lock-free Versus Obstruction-free Transaction Skiplists (1M Key Range)}
-	\label{fig:oftskip}
+	\label{fig:map}
 \end{figure*}
 
 
