@@ -251,7 +251,7 @@ int main(int argc, const char *argv[])
 
     printf("Start testing %s with %d threads %d iterations %d txnsize %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, deletion, update);//(insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
 
-    uint64_t numNodes = keyRange + (testSize*2);
+    uint64_t numNodes = testSize;//UINT64_C();
 
     switch(setType)
     {
