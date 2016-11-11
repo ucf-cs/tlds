@@ -805,7 +805,7 @@ Should any of the two code paths indicate a retry due to contention, we start th
 				$del \gets curr$\;
 				\KwRet{ \textbf{true}}
 			}
-			\ElseIf{$ret = fail$}{ \label{l:findfail}
+			\ElseIf{$ret = fail$}{ \label{l:deletefail}
 				$del \gets NIL$\;
 				\KwRet{ \textbf{false}}
 			}
@@ -1358,6 +1358,35 @@ For example, in Figure~\ref{fig:txnskip33} on 32 threads LFT-2 achieves an 30\% 
 	\label{fig:oftskip}
 \end{figure*}
 
+\subsection{Transactional Map}
+
+\begin{figure*}[htbp]
+	\begin{subfigure}{0.8\textwidth}
+		\centering
+		\includegraphics[trim=0 70 0 0,clip,width=1\columnwidth]{./data/map50ins.pdf}
+		\caption{50\% \textsc{Insert}, 50\% \textsc{Delete}, 0\% \textsc{Find}}
+		\label{fig:oftskip50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.8\textwidth}
+		\centering
+		\includegraphics[trim=0 70 0 0,clip,width=1\columnwidth]{./data/map25ins.pdf}
+		\caption{33\% \textsc{Insert}, 33\% \textsc{Delete}, 34\% \textsc{Find}}
+		\label{fig:oftskip33}
+	\end{subfigure}
+
+	\begin{subfigure}{0.8\textwidth}
+		\centering
+		\includegraphics[trim=0 70 0 0,clip,width=1\columnwidth]{./data/map15ins.pdf}
+		\vspace{-0.17in}
+		\caption{15\% \textsc{Insert}, 5\% \textsc{Delete}, 80\% \textsc{Find}}
+		\label{fig:oftskip15}
+	\end{subfigure}
+	\caption{Throughput and Spurious Abort Counts for Lock-free Versus Obstruction-free Transaction Skiplists (1M Key Range)}
+	\label{fig:oftskip}
+\end{figure*}
+
+
 \subsection{Obstruction-free Performance}
 We compare the overhead and scalability of our obstruction-free version of transactional transformation against our lock-free version.
 The lock-free version is denoted by LFT, and the obstruction-free version is denoted by OFT.
@@ -1452,7 +1481,7 @@ This approach benefits from the absence of rollbacks, but when applied to non-bl
 This problem could be remedied by replacing locks with transaction descriptors, and we could ensure opacity by applying a helping mechanism similar to the one used in our approach.
 However, to prevent the livelock scenario mentioned in Section~\ref{sec:txnexec}, we must detect cyclic dependencies among transactions and abort one of the transactions when a cyclic dependency occurs.
 The aborted transaction would then need to perform a rollback of the changes it made, which would incur a performance penalty.
-We do not compare our approach to theirs as their source code is proprietary.
+We do not compare our approach to theirs as their source code is proprietary~\cite{Spiegelman2016b}.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -1499,6 +1528,7 @@ We also plan to further evaluate our approach on SMP systems to verify potential
 %\end{acks}
 
 % Bibliography
+%\FloatBarrier %usepackage{placeins}
 \bibliographystyle{ACM-Reference-Format-Journals}
 \bibliography{citation}
 
