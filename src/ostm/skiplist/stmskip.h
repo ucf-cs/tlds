@@ -86,6 +86,8 @@ stm_skip *stmskip_alloc(void);
 
 bool stmskip_execute_ops(stm_skip* l, set_op ops[], int op_size);
 
+void ResetMetrics();
+
 #endif /* __SET_IMPLEMENTATION__ */
 
 #endif /* __SET_H__ */

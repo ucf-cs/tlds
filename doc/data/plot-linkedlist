@@ -41,7 +41,7 @@ set style line 8 lt 8 lc rgb "dark-red" lw 2
 set style line 9 lt 9 lc rgb "orange-red" lw 2
 set style line 10 lt 10 lc rgb "gray" lw 2
 
-set output "| epstopdf --filter --outfile=oftlink50ins10kfilled.pdf"
+set output "| epstopdf --filter --outfile=amdlist50ins10kfilled.pdf"
 set multiplot
 
 set lmargin at screen 0.12
@@ -63,15 +63,20 @@ set ylabel "Throughput (OP/s)" offset (0,0)
 
 
 plot "walltime_filled_TXNLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "OFT-1",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "BST-1",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_50_del_50" u ($0+1):($3/$2)   w linespoints ls 3 pt 1 title "OTM-1",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(2*$6/$5)   w linespoints ls 1 pt 2 title "LFT-2",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "OFT-2",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "BST-2",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_50_del_50" u ($0+1):(2*$6/$5)   w linespoints ls 3 pt 2 title "OTM-2",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(4*$9/$8)   w linespoints ls 1 pt 3 title "LFT-4",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "OFT-4",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "BST-4",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_50_del_50" u ($0+1):(4*$9/$8)   w linespoints ls 3 pt 3 title "OTM-4",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(8*$12/$11) w linespoints ls 1 pt 4 title "LFT-8",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "OFT-8",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "BST-8",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_50_del_50" u ($0+1):(8*$12/$11) w linespoints ls 3 pt 4 title "OTM-8",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(16*$15/$14) w linespoints ls 1 pt 6 title "LFT-16",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "OFT-16"
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_50_del_50" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "BST-16",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_50_del_50" u ($0+1):(16*$15/$14) w linespoints ls 3 pt 6 title "OTM-16"
 
 
 set key inside top vertical left Left reverse samplen 2 height 0.5 spacing 1
@@ -98,12 +103,13 @@ set style fill pattern border
 set boxwidth 0.8
 
 plot "walltime_filled_TXNLIST_key_10000_iter_100000_ins_50_del_50" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_50_del_50" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "OFT"
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_50_del_50" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "BST",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_50_del_50" u ($4+$7+$10+$13+$16):xtic(1) ls 3 title "OTM"
 
 unset multiplot
 
 
-set output "| epstopdf --filter --outfile=oftlink33ins10kfilled.pdf"
+set output "| epstopdf --filter --outfile=amdlist33ins10kfilled.pdf"
 set multiplot
 
 set lmargin at screen 0.12
@@ -128,15 +134,20 @@ set ylabel "Throughput (OP/s)" offset (0,0)
 
 
 plot "walltime_filled_TXNLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "OFT-1",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "BST-1",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_33_del_33" u ($0+1):($3/$2)   w linespoints ls 3 pt 1 title "OTM-1",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(2*$6/$5)   w linespoints ls 1 pt 2 title "LFT-2",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "OFT-2",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "BST-2",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_33_del_33" u ($0+1):(2*$6/$5)   w linespoints ls 3 pt 2 title "OTM-2",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(4*$9/$8)   w linespoints ls 1 pt 3 title "LFT-4",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "OFT-4",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "BST-4",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_33_del_33" u ($0+1):(4*$9/$8)   w linespoints ls 3 pt 3 title "OTM-4",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(8*$12/$11) w linespoints ls 1 pt 4 title "LFT-8",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "OFT-8",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "BST-8",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_33_del_33" u ($0+1):(8*$12/$11) w linespoints ls 3 pt 4 title "OTM-8",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(16*$15/$14) w linespoints ls 1 pt 6 title "LFT-16",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "OFT-16"
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_33_del_33" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "BST-16",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_33_del_33" u ($0+1):(16*$15/$14) w linespoints ls 3 pt 6 title "OTM-16"
 
 
 set key inside vertical top left Left reverse samplen 2 height 0.5 spacing 1
@@ -163,12 +174,13 @@ set style fill pattern border
 set boxwidth 0.8
 
 plot "walltime_filled_TXNLIST_key_10000_iter_100000_ins_33_del_33" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_33_del_33" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "OFT"
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_33_del_33" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "BST",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_33_del_33" u ($4+$7+$10+$13+$16):xtic(1) ls 3 title "OTM"
 
 unset multiplot
 
 
-set output "| epstopdf --filter --outfile=oftlink15ins10kfilled.pdf"
+set output "| epstopdf --filter --outfile=amdlist15ins10kfilled.pdf"
 set multiplot
 
 set lmargin at screen 0.12
@@ -183,7 +195,7 @@ set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 
 set autoscale
 set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
 set xrange [0:9]
-set yrange [10:1000000]
+set yrange [1:1000000]
 set grid ytics
 set ytics nomirror
 set xtics nomirror
@@ -193,15 +205,20 @@ set ylabel "Throughput (OP/s)" offset (0,0)
 
 
 plot "walltime_filled_TXNLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):($3/$2)   w linespoints ls 1 pt 1 title "LFT-1",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "OFT-1",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):($3/$2)   w linespoints ls 2 pt 1 title "BST-1",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_15_del_5" u ($0+1):($3/$2)   w linespoints ls 3 pt 1 title "OTM-1",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(2*$6/$5)   w linespoints ls 1 pt 2 title "LFT-2",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "OFT-2",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(2*$6/$5)   w linespoints ls 2 pt 2 title "BST-2",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_15_del_5" u ($0+1):(2*$6/$5)   w linespoints ls 3 pt 2 title "OTM-2",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(4*$9/$8)   w linespoints ls 1 pt 3 title "LFT-4",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "OFT-4",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(4*$9/$8)   w linespoints ls 2 pt 3 title "BST-4",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_15_del_5" u ($0+1):(4*$9/$8)   w linespoints ls 3 pt 3 title "OTM-4",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(8*$12/$11) w linespoints ls 1 pt 4 title "LFT-8",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "OFT-8",\
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(8*$12/$11) w linespoints ls 2 pt 4 title "BST-8",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_15_del_5" u ($0+1):(8*$12/$11) w linespoints ls 3 pt 4 title "OTM-8",\
      "walltime_filled_TXNLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(16*$15/$14) w linespoints ls 1 pt 6 title "LFT-16",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "OFT-16"
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_15_del_5" u ($0+1):(16*$15/$14) w linespoints ls 2 pt 6 title "BST-16",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_15_del_5" u ($0+1):(16*$15/$14) w linespoints ls 3 pt 6 title "OTM-16"
 
 
 set key inside vertical top left Left reverse samplen 2 height 0.5 spacing 1
@@ -228,7 +245,8 @@ set style fill pattern border
 set boxwidth 0.8
 
 plot "walltime_filled_TXNLIST_key_10000_iter_100000_ins_15_del_5" u ($4+$7+$10+$13+$16):xtic(1) ls 1 title "LFT",\
-     "walltime_filled_OBSLIST_key_10000_iter_100000_ins_15_del_5" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "OFT"
+     "walltime_filled_BSTLIST_key_10000_iter_100000_ins_15_del_5" u ($4+$7+$10+$13+$16):xtic(1) ls 2 title "BST",\
+     "walltime_filled_STMLIST_NOrec_key_10000_iter_100000_ins_15_del_5" u ($4+$7+$10+$13+$16):xtic(1) ls 3 title "OTM"
 
 unset multiplot
 

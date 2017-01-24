@@ -115,6 +115,8 @@ public:
 
     Desc* AllocateDesc(uint8_t size);
 
+    void ResetMetrics();
+
 private:
     ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);
     ReturnCode Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred);

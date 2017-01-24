@@ -953,3 +953,10 @@ void obsskip_free(obs_skip* l)
 
     //transskip_print(l);
 }
+
+void ResetMetrics(obs_skip* l)
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
+}

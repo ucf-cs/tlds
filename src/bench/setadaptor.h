@@ -54,6 +54,7 @@ public:
         m_descAllocator.Init();
         m_nodeAllocator.Init();
         m_nodeDescAllocator.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit(){}
@@ -102,6 +103,7 @@ public:
     {
         m_descAllocator.Init();
         m_nodeDescAllocator.Init();
+        ResetMetrics(m_skiplist);
     }
 
     void Uninit()
@@ -147,6 +149,7 @@ public:
         m_descAllocator.Init();
         m_nodeAllocator.Init();
         m_nodeDescAllocator.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit(){}
@@ -195,6 +198,7 @@ public:
     {
         m_descAllocator.Init();
         m_nodeDescAllocator.Init();
+        ResetMetrics(m_skiplist);
     }
 
     void Uninit()
@@ -244,6 +248,7 @@ public:
     void Init()
     {
         TM_THREAD_INIT();
+        ResetMetrics();
     }
 
     void Uninit()
@@ -307,6 +312,13 @@ private:
     uint32_t g_count_commit = 0;
     uint32_t g_count_abort = 0;
     uint32_t g_count_stm_abort = 0;
+
+    void ResetMetrics()
+    {
+        g_count_commit = 0;
+        g_count_abort = 0;
+        g_count_stm_abort = 0;
+    };
 };
 
 
@@ -326,7 +338,9 @@ public:
     }
 
     void Init()
-    { }
+    {
+        ResetMetrics();
+    }
 
     void Uninit()
     { }
@@ -358,6 +372,7 @@ public:
     void Init()
     {
         m_list.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit()
@@ -416,6 +431,7 @@ public:
     void Init()
     {
         m_list.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit()

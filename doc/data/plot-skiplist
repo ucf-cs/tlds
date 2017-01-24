@@ -53,7 +53,7 @@ set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 
 set autoscale
 set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
 set xrange [0:9]
-set yrange [100000:4000000]
+set yrange [10:10000000]
 set grid ytics
 set ytics nomirror
 set xtics nomirror
@@ -124,7 +124,7 @@ set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 
 set autoscale
 set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
 set xrange [0:9]
-set yrange [100000:4000000]
+set yrange [10:10000000]
 set grid ytics
 set ytics nomirror
 set xtics nomirror
@@ -195,7 +195,7 @@ set key outside top left horizontal Left reverse samplen 1.5 height 0.5 spacing 
 set autoscale
 set xtics("" 1, "" 2, "" 3, "" 4, "" 5, "" 6, "" 7, "" 8)
 set xrange [0:9]
-set yrange [90000:2000000]
+set yrange [100:10000000]
 set grid ytics
 set ytics nomirror
 set xtics nomirror

@@ -524,3 +524,10 @@ inline void ObsList::Print()
         curr = CLR_MARK(curr->next);
     }
 }
+
+void ObsList::ResetMetrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
+}

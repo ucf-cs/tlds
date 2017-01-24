@@ -138,4 +138,6 @@ obs_skip *obsskip_alloc(Allocator<Desc_o>* _descAllocator, Allocator<NodeDesc_o>
 
 void  obsskip_free(obs_skip* l);
 
+void ResetMetrics(obs_skip* l);
+
 #endif /* __SET_H__ */

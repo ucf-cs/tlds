@@ -138,4 +138,6 @@ trans_skip *transskip_alloc(Allocator<Desc>* _descAllocator, Allocator<NodeDesc>
 
 void  transskip_free(trans_skip* l);
 
+void ResetMetrics(trans_skip* l);
+
 #endif /* __SET_H__ */

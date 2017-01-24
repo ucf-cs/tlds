@@ -173,7 +173,7 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     {
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
         {
-            MarkForDeletion(delNodes, delPredNodes, desc);
+            // MarkForDeletion(delNodes, delPredNodes, desc);
             __sync_fetch_and_add(&g_count_commit, 1);
         }
     }
@@ -181,7 +181,7 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     {
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
         {
-            MarkForDeletion(insNodes, insPredNodes, desc);
+            // MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
         }     
     }
@@ -499,4 +499,11 @@ inline void TransList::Print()
         printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(CLR_MARKD(curr->nodeDesc))? "Exist":"Inexist");
         curr = CLR_MARK(curr->next);
     }
+}
+
+void TransList::ResetMetrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
 }
