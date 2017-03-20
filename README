@@ -1,1 +1,6 @@
 Transactional Operations for Linked Data Structures
+
+This repository contains the code for "Lock-free Transactions without Rollbacks for Linked Data Structures."
+
+This code is extended by "libtxd: A Library of Wait-Free Transactional Data Structures Without Rollbacks."
+The code for libtxd will be posted here upon acceptance of the paper.
