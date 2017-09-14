@@ -13,16 +13,21 @@ class BoostingMap
     {
         FIND = 0,
         INSERT,
-        DELETE
+        DELETE,
+        UPDATE
     };
 
     struct Operation
     {
-        Operation() : type(0), key(0){}
-        Operation(uint8_t _type, uint32_t _key) : type(_type), key(_key){}
+        Operation() : type(0), key(0), val(0), expected(0){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key), val(_val){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key), val(_val), expected(_expected){}
 
         uint8_t type;
         uint32_t key;
+        uint32_t val;
+        uint32_t expected;
     };
 
     typedef std::vector<Operation> LogType;
@@ -43,11 +48,13 @@ public:
     
     void Uninit();
     
-    ReturnCode Insert(uint32_t key);
+    ReturnCode Insert(uint32_t key, uint32_t val);
 
     ReturnCode Delete(uint32_t key);
     
     ReturnCode Find(uint32_t key);
+
+    ReturnCode Update(uint32_t key, uint32_t expected, uint32_t val);
     
     void OnAbort(ReturnCode ret);
 
@@ -56,7 +63,7 @@ public:
     void Print();
     
 private:
-    LockfreeList m_list;
+    WaitFreeHashTable m_list;
     LockKey m_lock;
     static __thread LogType* m_log;
 
