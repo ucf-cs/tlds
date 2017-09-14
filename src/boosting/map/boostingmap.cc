@@ -26,13 +26,14 @@ void BoostingMap::Uninit()
     m_lock.Uninit();
 }
 
-BoostingMap::ReturnCode BoostingMap::Insert(uint32_t key)
+BoostingMap::ReturnCode BoostingMap::Insert(uint32_t key, uint32_t val)
 {
     if(!m_lock.Lock(key))
     {
         return LOCK_FAIL;
     }
 
+    //putIfAbsent_first(KEY k, VALUE v, int T){//T is the executing thread's ID
     if(!m_list.Insert(key))
     {
         return OP_FAIL;
@@ -71,6 +72,23 @@ BoostingMap::ReturnCode BoostingMap::Find(uint32_t key)
     {
         return OP_FAIL; 
     }
+
+    return OK;
+}
+
+ReturnCode Update(uint32_t key, uint32_t expected, uint32_t val)
+{
+    if(!m_lock.Lock(key))
+    {
+        return LOCK_FAIL;
+    }
+
+    if(!m_list.Insert(key))
+    {
+        return OP_FAIL;
+    }
+
+    m_log->push_back(Operation(DELETE, key));
 
     return OK;
 }

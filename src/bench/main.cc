@@ -236,7 +236,7 @@ int main(int argc, const char *argv[])
     if(argc > 8) update = atoi(argv[8]);
 
 
-    assert(setType < 7);
+    assert(setType < 8);
     assert(keyRange < 0xffffffff);
 
     const char* setName[] = 
@@ -246,7 +246,8 @@ int main(int argc, const char *argv[])
         "TransSkip",
         "BoostingSkip",
         "OSTMSkip",
-        "TransMap"
+        "TransMap",
+        "BoostingMap"
     };
 
     printf("Start testing %s with %d threads %d iterations %d txnsize %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, deletion, update);//(insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
@@ -275,6 +276,8 @@ int main(int argc, const char *argv[])
         break;
     case 6: //NOTE: the transmap gets constructed with numthread + 1 as the the threadcount
         { MapAdaptor<TransMap> map(numNodes, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+    case 7:
+        { SetAdaptor<BoostingMap> set(numThread + 1); BoostingMapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, set); }
         break;
     default:
         break;
