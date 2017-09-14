@@ -1,8 +1,8 @@
-#include "boosting/list/boostinglist.h"
+#include "boosting/map/boostingmap.h"
 
-__thread BoostingList::LogType* BoostingList::m_log;
+__thread BoostingMap::LogType* BoostingMap::m_log;
 
-BoostingList::~BoostingList()
+BoostingMap::~BoostingMap()
 {
     printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
 
@@ -13,20 +13,20 @@ BoostingList::~BoostingList()
     );
 }
 
-void BoostingList::Init()
+void BoostingMap::Init()
 {
     m_log = new LogType;
     m_lock.Init();
 }
 
 
-void BoostingList::Uninit()
+void BoostingMap::Uninit()
 {
     delete m_log;
     m_lock.Uninit();
 }
 
-BoostingList::ReturnCode BoostingList::Insert(uint32_t key)
+BoostingMap::ReturnCode BoostingMap::Insert(uint32_t key)
 {
     if(!m_lock.Lock(key))
     {
@@ -43,7 +43,7 @@ BoostingList::ReturnCode BoostingList::Insert(uint32_t key)
     return OK;
 }
 
-BoostingList::ReturnCode BoostingList::Delete(uint32_t key)
+BoostingMap::ReturnCode BoostingMap::Delete(uint32_t key)
 {
     if(!m_lock.Lock(key))
     {
@@ -60,7 +60,7 @@ BoostingList::ReturnCode BoostingList::Delete(uint32_t key)
     return OK;
 }
 
-BoostingList::ReturnCode BoostingList::Find(uint32_t key)
+BoostingMap::ReturnCode BoostingMap::Find(uint32_t key)
 {
     if(!m_lock.Lock(key))
     {
@@ -75,7 +75,7 @@ BoostingList::ReturnCode BoostingList::Find(uint32_t key)
     return OK;
 }
 
-void BoostingList::OnAbort(ReturnCode ret)
+void BoostingMap::OnAbort(ReturnCode ret)
 {
     if(ret == LOCK_FAIL)
     {
@@ -110,7 +110,7 @@ void BoostingList::OnAbort(ReturnCode ret)
     m_lock.Unlock();
 }
 
-void BoostingList::OnCommit()
+void BoostingMap::OnCommit()
 {
     __sync_fetch_and_add(&g_count_commit, 1);
 
@@ -118,7 +118,7 @@ void BoostingList::OnCommit()
     m_lock.Unlock();
 }
 
-void BoostingList::Print()
+void BoostingMap::Print()
 {
     m_list.Print();
 }

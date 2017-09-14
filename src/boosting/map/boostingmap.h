@@ -1,13 +1,13 @@
-#ifndef BOOSTINGLIST_H
-#define BOOSTINGLIST_H
+#ifndef BOOSTINGMAP_H
+#define BOOSTINGMAP_H
 
 #include <vector>
 #include "boosting/lockkey.h"
-#include "boosting/list/lockfreelist.h"
+// #include "boosting/map/nbmap.h"
 #include "common/assert.h"
 
 
-class BoostingList
+class BoostingMap
 {
     enum OpType
     {
@@ -37,7 +37,7 @@ public:
 
 
 public:
-   ~BoostingList(); 
+   ~BoostingMap(); 
 
     void Init();
     
@@ -73,4 +73,4 @@ private:
     uint32_t g_count_fake_abort = 0;
 };
 
-#endif /* end of include guard: BOOSTINGLIST_H */
+#endif /* end of include guard: BOOSTINGMAP_H */
