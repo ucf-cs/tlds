@@ -85,6 +85,72 @@ private:
     TransMap m_map;
 };
 
+template<>
+class MapAdaptor<BoostingMap>
+{
+public:
+    MapAdaptor()
+    {
+    }
+    
+    ~MapAdaptor()
+    {
+    }
+
+    void Init()
+    {
+        m_list.Init();
+    }
+
+    void Uninit()
+    {
+        m_list.Uninit();
+    }
+
+    bool ExecuteOps(const SetOpArray& ops)
+    {
+        BoostingMap::ReturnCode ret = BoostingMap::OP_FAIL;
+
+        for(uint32_t i = 0; i < ops.size(); ++i)
+        {
+            uint32_t key = ops[i].key;
+
+            if(ops[i].type == FIND)
+            {
+                ret = m_list.Find(key);
+            }
+            else if(ops[i].type == INSERT)
+            {
+                ret = m_list.Insert(key);
+            }
+            else if(ops[i].type == DELETE)
+            {
+                ret = m_list.Delete(key);
+            }
+            else
+            {
+                ret = m_list.Update(key);
+            }
+
+            if(ret != BoostingMap::OK)
+            {
+                m_list.OnAbort(ret);
+                break;
+            }
+        }
+
+        if(ret == BoostingMap::OK)
+        {
+            m_list.OnCommit();
+        }
+
+        return ret;
+    }
+
+private:
+    BoostingMap m_list;
+};
+
 // template<>
 // class MapAdaptor<RSTMHashTable>
 // {
