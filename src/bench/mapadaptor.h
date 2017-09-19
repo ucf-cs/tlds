@@ -4,6 +4,7 @@
 #include "common/allocator.h" //might have to move this lower?
 
 #include "translink/map/transmap.h"
+#include "boosting/map/boostingmap.h"
 // #include "rstm/map/rstmhash.hpp"
 
 enum MapOpType

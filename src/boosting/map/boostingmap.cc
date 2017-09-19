@@ -2,6 +2,12 @@
 
 __thread BoostingMap::LogType* BoostingMap::m_log;
 
+
+BoostingMap::BoostingMap(int initalPowerOfTwo, int numThreads)
+{
+    WaitFreeHashTable m_list(initalPowerOfTwo, numThreads);
+}
+
 BoostingMap::~BoostingMap()
 {
     printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);

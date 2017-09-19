@@ -76,8 +76,9 @@ inline int POW(int x);
 
 
 
-template <class KEY, class VALUE>//, typename _tMemory>
-
+// template <class KEY, class VALUE>//, typename _tMemory>
+#define KEY uint32_t
+#define VALUE uint32_t
 class WaitFreeHashTable{
 public:
 	
@@ -129,8 +130,11 @@ public:
 //////////////////////////////////////////////////////////////////////////////////		
 
 	WaitFreeHashTable(int initalPowerOfTwo, int numThreads){
-		MAIN_SIZE				=POW(initalPowerOfTwo);
-		MAIN_POW				=initalPowerOfTwo;
+		// MAIN_SIZE				=POW(initalPowerOfTwo);
+		// MAIN_POW				=initalPowerOfTwo;
+		// TODO: could just not call the POW function when calculating main_size and just use the initialPowerOfTwo since its already numNodes, and do the same fix in the transmap
+		MAIN_SIZE				=WaitFreeHashTable::POW(((int)std::ceil(std::log2(initalPowerOfTwo))));
+		MAIN_POW				=((int)std::ceil(std::log2(initalPowerOfTwo)));
 		Threads					=numThreads; assert(Threads>0);
 		head					=(void* /* volatile  */ *)	calloc(MAIN_SIZE,sizeof(void */* volatile  */));
 
@@ -231,133 +235,133 @@ public:
 	};//&(MAIN_SIZE-1));
 
 	
-	void nodes_at_each_depth(){
-		printf("Main Pow:%d\t Sub Pow:%d\t Total Elements %d\n",MAIN_POW, SUB_POW,elements);
-		void */* volatile  */*local=head;
+	// void nodes_at_each_depth(){
+	// 	printf("Main Pow:%d\t Sub Pow:%d\t Total Elements %d\n",MAIN_POW, SUB_POW,elements);
+	// 	void */* volatile  */*local=head;
 
-		int* count=(int *)malloc(sizeof(int)*3);
-		count[0]=0;
-		count[1]=0;
-		count[2]=0;
+	// 	int* count=(int *)malloc(sizeof(int)*3);
+	// 	count[0]=0;
+	// 	count[1]=0;
+	// 	count[2]=0;
 		
-		for(int i=0; i<MAIN_SIZE; i++){
-			void *node=getNodeRaw(local, i);
-			if(isSpine(node)){
-				count[1]++;
-				continue;
-			}
-			else if(node == NULL){
-				count[2]++;
-			}
-			else{
-				count[0]++;
-			}
-		}
-		printf("On Main Spine: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n", count[0], count[1], count[2]);
+	// 	for(int i=0; i<MAIN_SIZE; i++){
+	// 		void *node=getNodeRaw(local, i);
+	// 		if(isSpine(node)){
+	// 			count[1]++;
+	// 			continue;
+	// 		}
+	// 		else if(node == NULL){
+	// 			count[2]++;
+	// 		}
+	// 		else{
+	// 			count[0]++;
+	// 		}
+	// 	}
+	// 	printf("On Main Spine: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n", count[0], count[1], count[2]);
 
-		int depth=(KEY_SIZE-MAIN_POW)/SUB_POW +1;
-		for(int j=1; j<=depth; j++){
-			count[0]=0;
-			count[1]=0;
-			count[2]=0;
+	// 	int depth=(KEY_SIZE-MAIN_POW)/SUB_POW +1;
+	// 	for(int j=1; j<=depth; j++){
+	// 		count[0]=0;
+	// 		count[1]=0;
+	// 		count[2]=0;
 			
-			for(int i=0; i<MAIN_SIZE; i++){
-				void *node=getNodeRaw(local, i);
-				if(isSpine(node)){
-					int* c_res=count_nodes_at_depth(unmark_spine(node),1,j);
+	// 		for(int i=0; i<MAIN_SIZE; i++){
+	// 			void *node=getNodeRaw(local, i);
+	// 			if(isSpine(node)){
+	// 				int* c_res=count_nodes_at_depth(unmark_spine(node),1,j);
 
-					int p=0;
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-				}
-				else{
-					continue;
-				}
-			}
-			printf("On Depth %d: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n",j, count[0], count[1], count[2]);
-		}
+	// 				int p=0;
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 			}
+	// 			else{
+	// 				continue;
+	// 			}
+	// 		}
+	// 		printf("On Depth %d: Data Nodes:%d\t Spine Nodes: %d\t NullNodes:%d\n",j, count[0], count[1], count[2]);
+	// 	}
 
-	};
+	// };
 	
-	int* count_nodes_at_depth(void* /* volatile  */* local, int d, int t_d){
-		int* count=(int *)malloc(sizeof(int)*3);
-		count[0]=0;
-		count[1]=0;
-		count[2]=0;
-		if(t_d==d){
-			for(int i=0; i<SUB_SIZE; i++){
-				void *node=getNodeRaw(local, i);
-				if(isSpine(node)){
-					count[1]++;
-					continue;
-				}
-				else if(node == NULL){
-					count[2]++;
-				}
-				else{
-					count[0]++;
-				}
-			}
-		}
-		else{
-			for(int i=0; i<SUB_SIZE; i++){
-				void *node=getNodeRaw(local, i);
-				if(isSpine(node)){
+	// int* count_nodes_at_depth(void* /* volatile  */* local, int d, int t_d){
+	// 	int* count=(int *)malloc(sizeof(int)*3);
+	// 	count[0]=0;
+	// 	count[1]=0;
+	// 	count[2]=0;
+	// 	if(t_d==d){
+	// 		for(int i=0; i<SUB_SIZE; i++){
+	// 			void *node=getNodeRaw(local, i);
+	// 			if(isSpine(node)){
+	// 				count[1]++;
+	// 				continue;
+	// 			}
+	// 			else if(node == NULL){
+	// 				count[2]++;
+	// 			}
+	// 			else{
+	// 				count[0]++;
+	// 			}
+	// 		}
+	// 	}
+	// 	else{
+	// 		for(int i=0; i<SUB_SIZE; i++){
+	// 			void *node=getNodeRaw(local, i);
+	// 			if(isSpine(node)){
 					
-					int* c_res=count_nodes_at_depth(unmark_spine(node),d+1,t_d);
-					int p=0;
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-					count[p]=count[p]+c_res[p++];
-				}
-				else {
-					continue;
-				}
-			}
-		}
-		return count;
-	};
+	// 				int* c_res=count_nodes_at_depth(unmark_spine(node),d+1,t_d);
+	// 				int p=0;
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 				count[p]=count[p]+c_res[p++];
+	// 			}
+	// 			else {
+	// 				continue;
+	// 			}
+	// 		}
+	// 	}
+	// 	return count;
+	// };
 
-	#ifdef VALIDATE
+	// #ifdef VALIDATE
 	
-	void check_table_state(){check_table_state_p();};
-	void print_table(){quick_print(head,MAIN_SIZE, true, 0);};
-	int hit_count(){
-		int c=0;
-		for(int i=0; i<MAIN_SIZE; i++)
-			if(head[i]!=NULL)
-				c++;
-		return (c);
-	}
+	// void check_table_state(){check_table_state_p();};
+	// void print_table(){quick_print(head,MAIN_SIZE, true, 0);};
+	// int hit_count(){
+	// 	int c=0;
+	// 	for(int i=0; i<MAIN_SIZE; i++)
+	// 		if(head[i]!=NULL)
+	// 			c++;
+	// 	return (c);
+	// }
 
-	int print_reuseable_memory(){
-		int count=0;
-		for(int i=0; i<Threads; i++){
-			DataNode *t=Thread_pool_stack[i];
-			while(t!=NULL){
-				count++;
-				t=t->next;
-			}
-			for(int j=0; j<Thread_pool_vector_size[i]; j++){
-				if(Thread_pool_vector[i][j]!=NULL)
-					count++;
+	// int print_reuseable_memory(){
+	// 	int count=0;
+	// 	for(int i=0; i<Threads; i++){
+	// 		DataNode *t=Thread_pool_stack[i];
+	// 		while(t!=NULL){
+	// 			count++;
+	// 			t=t->next;
+	// 		}
+	// 		for(int j=0; j<Thread_pool_vector_size[i]; j++){
+	// 			if(Thread_pool_vector[i][j]!=NULL)
+	// 				count++;
 				
-			}
-		}
-		printf("Reusable data nodes: %d (total mem uses %d)\n",count,count*sizeof(DataNode));
+	// 		}
+	// 	}
+	// 	printf("Reusable data nodes: %d (total mem uses %d)\n",count,count*sizeof(DataNode));
 		
-		count=0;
-		for(int i=0; i<Threads; i++){
-			void **t=Thread_spines[i];
-			while(t!=NULL){
-				count++;
-				t=t[0];
-			}
-		}
-		printf("Reusable Spine nodes: %d (total mem uses %d)\n",count,SUB_SIZE*sizeof(void *));
-	}
-	#endif
+	// 	count=0;
+	// 	for(int i=0; i<Threads; i++){
+	// 		void **t=Thread_spines[i];
+	// 		while(t!=NULL){
+	// 			count++;
+	// 			t=t[0];
+	// 		}
+	// 	}
+	// 	printf("Reusable Spine nodes: %d (total mem uses %d)\n",count,SUB_SIZE*sizeof(void *));
+	// }
+	// #endif
 
 private:
 ///////////////////////////////////////////////////////

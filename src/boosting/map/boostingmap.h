@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "boosting/lockkey.h"
-// #include "boosting/map/nbmap.h"
+#include "boosting/map/nbmap.h"
 #include "common/assert.h"
 
 
@@ -20,8 +20,8 @@ class BoostingMap
     struct Operation
     {
         Operation() : type(0), key(0), val(0), expected(0){}
-        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key){}
-        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key), val(_val){}
+        Operation(uint8_t _type, uint32_t _key) : type(_type), key(_key), val(0), expected(0){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _val) : type(_type), key(_key), val(_val), expected(0){}
         Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key), val(_val), expected(_expected){}
 
         uint8_t type;
@@ -40,8 +40,14 @@ public:
         OP_FAIL
     };
 
+private:
+
+    // TODO: these values don't get filled in anywhere
+    WaitFreeHashTable m_list;
 
 public:
+    BoostingMap();
+
    ~BoostingMap(); 
 
     void Init();
@@ -63,7 +69,7 @@ public:
     void Print();
     
 private:
-    WaitFreeHashTable m_list;
+    
     LockKey m_lock;
     static __thread LogType* m_log;
 

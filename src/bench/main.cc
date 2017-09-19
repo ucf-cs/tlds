@@ -385,7 +385,8 @@ int main(int argc, const char *argv[])
     case 6: //NOTE: the transmap gets constructed with numthread + 1 as the the threadcount
         { MapAdaptor<TransMap> map(numNodes, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
     case 7:
-        { MapAdaptor<BoostingMap> map; BoostingMapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+        // is numNodes the right variable to send in for initialPowerofTwo?
+        { MapAdaptor<BoostingMap> map(numNodes, numThread + 1); BoostingMapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:
         break;
