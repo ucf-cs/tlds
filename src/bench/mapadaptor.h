@@ -107,7 +107,7 @@ public:
         m_list.Uninit();
     }
 
-    bool ExecuteOps(const SetOpArray& ops)
+    bool ExecuteOps(const SetOpArray& ops, int threadId)
     {
         BoostingMap::ReturnCode ret = BoostingMap::OP_FAIL;
 
@@ -117,19 +117,19 @@ public:
 
             if(ops[i].type == FIND)
             {
-                ret = m_list.Find(key);
+                ret = m_list.Find(key, threadId);
             }
             else if(ops[i].type == INSERT)
             {
-                ret = m_list.Insert(key);
+                ret = m_list.Insert(key, threadId);
             }
             else if(ops[i].type == DELETE)
             {
-                ret = m_list.Delete(key);
+                ret = m_list.Delete(key, threadId);
             }
             else
             {
-                ret = m_list.Update(key);
+                ret = m_list.Update(key, threadId);
             }
 
             if(ret != BoostingMap::OK)
