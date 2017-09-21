@@ -27,7 +27,8 @@ def main():
                3: "TXNSKIP",
                4: "BSTSKIP",
                5: "STMSKIP",
-               6: "TRANSMAP"}
+               6: "TRANSMAP",
+               7: "BSTMAP"}
 
     iteration = int(args[1])
     key_range = int(args[2])
@@ -36,7 +37,7 @@ def main():
     update = int(args[5])
     average = int(args[6]) #should be 5
     #for pq_type in [0, 1, 2, 3, 4, 5]:
-    for pq_type in [6]:
+    for pq_type in [7]:
         list_type = pq_dict[pq_type]
         if pq_type == 1:
             list_type = list_type + '_' + stm_config
