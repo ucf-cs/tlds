@@ -217,7 +217,7 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
 
 //BoostingMap
 template<typename T>
-void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, ThreadBarrier& barrier,  T& set)
+void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  T& set)
 {
     cpu_set_t cpu = {{0}};
     CPU_SET(threadId, &cpu);
@@ -268,7 +268,7 @@ void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, 
             ops[t].key  = randomDistKey(randomGenKey);
         }
 
-        set.ExecuteOps(ops);
+        set.ExecuteOps(ops, threadId);
     }
 
     set.Uninit();
@@ -276,7 +276,8 @@ void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, 
 
 //BoostingMap
 template<typename T>
-void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion,  MapAdaptor<T>& set)
+//numThread, testSize, tranSize, keyRange, insertion, deletion, update, map
+void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, MapAdaptor<T>& set)
 {
     std::vector<std::thread> thread(numThread);
     ThreadBarrier barrier(numThread + 1);
@@ -294,7 +295,7 @@ void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize,
     {
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
-        set.ExecuteOps(ops);
+        set.ExecuteOps(ops, 0);
         if (i % 10000 == 0)
         {
             printf("%d\t", i);
@@ -305,7 +306,7 @@ void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize,
     //Create joinable threads
     for (unsigned i = 0; i < numThread; i++) 
     {
-        thread[i] = std::thread(WorkThread<MapAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, std::ref(barrier), std::ref(set));
+        thread[i] = std::thread(BoostingMapWorkThread<MapAdaptor<T> >, numThread, i + 1, testSize, tranSize, keyRange, insertion, deletion, update, std::ref(barrier), std::ref(set));
     }
 
     barrier.Wait();
@@ -385,7 +386,6 @@ int main(int argc, const char *argv[])
     case 6: //NOTE: the transmap gets constructed with numthread + 1 as the the threadcount
         { MapAdaptor<TransMap> map(numNodes, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
     case 7:
-        // is numNodes the right variable to send in for initialPowerofTwo?
         { MapAdaptor<BoostingMap> map(numNodes, numThread + 1); BoostingMapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
     default:

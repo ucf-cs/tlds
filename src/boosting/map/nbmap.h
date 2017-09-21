@@ -13,6 +13,9 @@
 #include <iostream>
 #include <iomanip>
 
+#include <cmath>
+
+#define USE_MEM_POOL
 
 #define HASH unsigned int
 #define KEY_SIZE 32
@@ -132,7 +135,7 @@ public:
 	WaitFreeHashTable(int initalPowerOfTwo, int numThreads){
 		// MAIN_SIZE				=POW(initalPowerOfTwo);
 		// MAIN_POW				=initalPowerOfTwo;
-		// TODO: could just not call the POW function when calculating main_size and just use the initialPowerOfTwo since its already numNodes, and do the same fix in the transmap
+		// note: MAIN_SIZE needs to be the nearest power of two to the number of nodes that is passed in as the "initialPowerOfTwo"
 		MAIN_SIZE				=WaitFreeHashTable::POW(((int)std::ceil(std::log2(initalPowerOfTwo))));
 		MAIN_POW				=((int)std::ceil(std::log2(initalPowerOfTwo)));
 		Threads					=numThreads; assert(Threads>0);

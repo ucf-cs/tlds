@@ -19,15 +19,16 @@ class BoostingMap
 
     struct Operation
     {
-        Operation() : type(0), key(0), val(0), expected(0){}
-        Operation(uint8_t _type, uint32_t _key) : type(_type), key(_key), val(0), expected(0){}
-        Operation(uint8_t _type, uint32_t _key, uint32_t _val) : type(_type), key(_key), val(_val), expected(0){}
-        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected) : type(_type), key(_key), val(_val), expected(_expected){}
+        Operation() : type(0), key(0), val(0), expected(0), threadId(0){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _threadId) : type(_type), key(_key), val(0), expected(0), threadId(_threadId){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _threadId) : type(_type), key(_key), val(_val), expected(0), threadId(_threadId){}
+        Operation(uint8_t _type, uint32_t _key, uint32_t _val, uint32_t _expected, uint32_t _threadId) : type(_type), key(_key), val(_val), expected(_expected), threadId(_threadId){}
 
         uint8_t type;
         uint32_t key;
         uint32_t val;
         uint32_t expected;
+        uint32_t threadId; // note could be smaller type
     };
 
     typedef std::vector<Operation> LogType;
@@ -40,13 +41,11 @@ public:
         OP_FAIL
     };
 
-private:
-
-    // TODO: these values don't get filled in anywhere
-    WaitFreeHashTable m_list;
+// private:
+    
 
 public:
-    BoostingMap();
+    BoostingMap(int initalPowerOfTwo, int numThreads);
 
    ~BoostingMap(); 
 
@@ -54,13 +53,13 @@ public:
     
     void Uninit();
     
-    ReturnCode Insert(uint32_t key, uint32_t val);
+    ReturnCode Insert(uint32_t key, uint32_t val, uint32_t threadId);
 
-    ReturnCode Delete(uint32_t key);
+    ReturnCode Delete(uint32_t key, uint32_t threadId);
     
-    ReturnCode Find(uint32_t key);
+    ReturnCode Find(uint32_t key, uint32_t threadId);
 
-    ReturnCode Update(uint32_t key, uint32_t expected, uint32_t val);
+    ReturnCode Update(uint32_t key, uint32_t expected, uint32_t val, uint32_t threadId);
     
     void OnAbort(ReturnCode ret);
 
@@ -72,6 +71,7 @@ private:
     
     LockKey m_lock;
     static __thread LogType* m_log;
+    WaitFreeHashTable m_list;
 
     ASSERT_CODE
     (

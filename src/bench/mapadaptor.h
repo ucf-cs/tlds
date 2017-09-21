@@ -20,6 +20,8 @@ struct MapOperator
     uint8_t type;
     uint32_t key;
     uint32_t value;
+    uint32_t expected;
+    uint32_t threadId;
 };
 
 enum MapOpStatus
@@ -90,9 +92,9 @@ template<>
 class MapAdaptor<BoostingMap>
 {
 public:
-    MapAdaptor()
-    {
-    }
+    MapAdaptor(int initalPowerOfTwo, int numThreads)
+    : m_list(initalPowerOfTwo, numThreads)
+    { }
     
     ~MapAdaptor()
     {
@@ -108,13 +110,16 @@ public:
         m_list.Uninit();
     }
 
-    bool ExecuteOps(const SetOpArray& ops, int threadId)
+    bool ExecuteOps(const MapOpArray& ops, int threadId)
     {
         BoostingMap::ReturnCode ret = BoostingMap::OP_FAIL;
 
         for(uint32_t i = 0; i < ops.size(); ++i)
         {
             uint32_t key = ops[i].key;
+            uint32_t val = ops[i].value;
+            uint32_t threadId = ops[i].threadId;
+            uint32_t eVal = ops[i].expected;
 
             if(ops[i].type == FIND)
             {
@@ -122,7 +127,7 @@ public:
             }
             else if(ops[i].type == INSERT)
             {
-                ret = m_list.Insert(key, threadId);
+                ret = m_list.Insert(key, val, threadId);
             }
             else if(ops[i].type == DELETE)
             {
@@ -130,7 +135,7 @@ public:
             }
             else
             {
-                ret = m_list.Update(key, threadId);
+                ret = m_list.Update(key, eVal, val, threadId);
             }
 
             if(ret != BoostingMap::OK)
