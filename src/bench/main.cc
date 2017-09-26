@@ -296,7 +296,7 @@ void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize,
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
         set.ExecuteOps(ops, 0);
-        if (i % 10000 == 0)
+        // if (i % 10000 == 0)
         {
             printf("%d\t", i);
             fflush(stdout);
@@ -385,6 +385,7 @@ int main(int argc, const char *argv[])
         break;
     case 6: //NOTE: the transmap gets constructed with numthread + 1 as the the threadcount
         { MapAdaptor<TransMap> map(numNodes, numThread + 1, tranSize); MapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+        break;
     case 7:
         { MapAdaptor<BoostingMap> map(numNodes, numThread + 1); BoostingMapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
         break;
