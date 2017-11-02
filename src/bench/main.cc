@@ -296,7 +296,7 @@ void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize,
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
         set.ExecuteOps(ops, 0);
-        if (i % 10000 == 0)
+        // if (i % 10000 == 0)
         {
             printf("%d\t", i);
             fflush(stdout);

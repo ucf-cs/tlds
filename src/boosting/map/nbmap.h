@@ -15,8 +15,6 @@
 
 #include <cmath>
 
-#define USE_MEM_POOL
-
 #define HASH unsigned int
 #define KEY_SIZE 32
 #define toHash 5
