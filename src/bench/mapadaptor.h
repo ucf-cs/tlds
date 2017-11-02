@@ -110,7 +110,7 @@ public:
         m_list.Uninit();
     }
 
-    bool ExecuteOps(const MapOpArray& ops, int threadId)
+    bool ExecuteOps(const MapOpArray& ops/*, int threadId*/)
     {
         BoostingMap::ReturnCode ret = BoostingMap::OP_FAIL;
 

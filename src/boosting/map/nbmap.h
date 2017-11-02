@@ -1,18 +1,18 @@
 //#define NDEBUG
-//#define DEBUGPRINTS 1 
-//#define DEBUGPRINTS_RECYCLE 1
-//#define DEBUGPRINTS_MARK 1
-//#define VALIDATE 1 
-//#define debug 1
-//#define DEBUG 1
+// #define DEBUGPRINTS 1 
+// #define DEBUGPRINTS_RECYCLE 1
+// #define DEBUGPRINTS_MARK 1
+// #define VALIDATE 1 
+// #define debug 1
+// #define DEBUG 1
 //#define USE_KEY 1
 //#define SPINE_COUNT 1
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
 #include <iostream>
 #include <iomanip>
-
 #include <cmath>
 
 #define USE_MEM_POOL // TODO: keep this?
@@ -26,25 +26,6 @@
 #define SUB_SIZE POW(SUB_POW)
 #define MAX_CAS_FAILURE 10
 
-///////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////Notes /////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////
-/* Planned Improvements:
- *	ContainsKey,
- *	PutifAbsent,
- *	PutIfValueEquals,
- *	DeleteIfValueEquals,
- *	DeleteIfAbsenet <---GET IT lol
- * 
- *	 
- */
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
 
 inline void Free_Node(void * D, int T);
 
@@ -1170,10 +1151,22 @@ If it failes to remove an element, and the current node is now...
 	
 	    DataNode *new_temp_node=(DataNode *)Thread_pool_stack[T];
 		
+	    // printf("\n\nvalue: %d hash: %d --- %llu < 200\n\n", v, h, new_temp_node);
+
 	    if(new_temp_node!=NULL){//Check to see if the stack was empty
+	    	// if ((uint64_t)new_temp_node < 200)
+	    	// {
+	    		// TODO: remove this debugging if-stmt
+	    		// printf("\n\nvalue: %d hash: %d --- %llu < 200\n\n", v, h, new_temp_node);
+	    		// fflush(stdout);
+	    		// goto elsestmt;
+	    	// }
+			
 			Thread_pool_stack[T]=new_temp_node->next;//If it wasn't set the stack equal to the next pointer
+            
             #ifdef DEBUGPRINTS_RECYCLE
 				printf("Removed From the Stack %p by %d\n",new_temp_node,T);
+				fflush(stdout);
 			#endif 
 			//The Next pointer can be NULL or a data node memory address
 	    }
@@ -1199,6 +1192,7 @@ If it failes to remove an element, and the current node is now...
 			}//End For Loop on Vector
 #endif
 			//No valid nodes, then malloc
+elsestmt:
 			new_temp_node= (DataNode *)calloc(1,sizeof(DataNode));
 			#ifdef DEBUG
 			assert(new_temp_node!=NULL);//Insures a node was allocated

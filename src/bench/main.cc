@@ -219,6 +219,8 @@ void MapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_
 template<typename T>
 void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, ThreadBarrier& barrier,  T& set)
 {
+    // printf("WorkThread #\t%d\n", threadId);
+
     cpu_set_t cpu = {{0}};
     CPU_SET(threadId, &cpu);
     sched_setaffinity(0, sizeof(cpu_set_t), &cpu);
@@ -238,6 +240,8 @@ void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, 
     
     MapOpArray ops(tranSize);
 
+    // TODO: consider making it less random, e.g., where we expected a
+    // random val for an update
     for(unsigned int i = 0; i < testSize; ++i)
     {
         for(uint32_t t = 0; t < tranSize; ++t)
@@ -247,28 +251,37 @@ void BoostingMapWorkThread(uint32_t numThread, int threadId, uint32_t testSize, 
             if(op_dist <= insertion)
             {
                 ops[t].type = MAP_INSERT;
+                ops[t].key = randomDistKey(randomGenKey);
                 ops[t].value = randomDistKey(randomGenKey);
+                ops[t].threadId = threadId;
             }
             else if(op_dist <= insertion + deletion)
             {
                 ops[t].type = MAP_DELETE;
-                ops[t].value = 0;
+                ops[t].key = randomDistKey(randomGenKey);
+                ops[t].threadId = threadId;
             }
             else if(op_dist <= insertion + deletion + update)
             {
                 ops[t].type = MAP_UPDATE;
+                ops[t].key = randomDistKey(randomGenKey);
+                ops[t].expected = randomDistKey(randomGenKey);
                 ops[t].value = randomDistKey(randomGenKey);
+                ops[t].threadId = threadId;
             }
             else
             {
                 ops[t].type = MAP_FIND;
-                ops[t].value = 0;
+                ops[t].key = randomDistKey(randomGenKey);
+                ops[t].threadId = threadId;
             }
 
             ops[t].key  = randomDistKey(randomGenKey);
         }
 
-        set.ExecuteOps(ops, threadId);
+        // TODO: could go back to passing threadId to executeops instead
+        // of storing it in the ops for each operation, which is unnecessary
+        set.ExecuteOps(ops/*, threadId*/);
     }
 
     set.Uninit();
@@ -279,6 +292,8 @@ template<typename T>
 //numThread, testSize, tranSize, keyRange, insertion, deletion, update, map
 void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize, uint32_t keyRange, uint32_t insertion, uint32_t deletion, uint32_t update, MapAdaptor<T>& set)
 {
+    // printf("Tester numThread\t%d\n", numThread);
+
     std::vector<std::thread> thread(numThread);
     ThreadBarrier barrier(numThread + 1);
 
@@ -295,12 +310,15 @@ void BoostingMapTester(uint32_t numThread, uint32_t testSize, uint32_t tranSize,
     {
         ops[0].type = INSERT;
         ops[0].key  = randomDist(randomGen);
-        set.ExecuteOps(ops, 0);
+        ops[0].value = randomDist(randomGen);
+        ops[0].threadId = 0;
+
+        set.ExecuteOps(ops/*, 0*/);
         // if (i % 10000 == 0)
-        {
-            printf("%d\t", i);
-            fflush(stdout);
-        }
+        // {
+        //     printf("%d\t", ops[0].key);
+        //     fflush(stdout);
+        // }
     }
 
     //Create joinable threads
