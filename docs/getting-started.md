@@ -31,7 +31,7 @@ $ git clone {{ site.gitrepo }}
 
 * Intel TBB
 
-* tcmalloc
+* tcmalloc (packaged in libgoogle-perftools-dev on Ubuntu)
 
 * GSL
 
@@ -39,12 +39,14 @@ $ git clone {{ site.gitrepo }}
 ### Building
 
 {% highlight bash %}
-$ ./boostrap.sh
-$ autoreconf --install
-$ mkdir build
-$ cd build
-$ ../configure
-$ make
+git clone https://github.com/ucf-cs/tlds
+mv tlds trans-dev
+cd trans-dev
+./bootstrap.sh
+cd ../trans-compile
+../trans-dev/configure
+make -j8    #-j followed by a number runs make with that many threads
+./src/trans  #this runs the tester without any options
 {% endhighlight %}
 
 ## Next Steps
