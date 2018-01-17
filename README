@@ -4,3 +4,13 @@ This repository contains the code for "Lock-free Transactions without Rollbacks 
 
 This code is extended by "libtxd: A Library of Wait-Free Transactional Data Structures Without Rollbacks."
 The code for libtxd will be posted here upon acceptance of the paper.
+
+To build the code do the following:
+git clone https://github.com/ucf-cs/tlds
+mv tlds trans-dev
+cd trans-dev
+./bootstrap.sh
+cd ../trans-compile
+../trans-dev/configure
+make -j8    #-j followed by a number runs make with that many threads
+./src/trans  #this runs the tester without any options
