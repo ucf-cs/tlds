@@ -1,12 +1,12 @@
-#ifndef TRANSLIST_H
-#define TRANSLIST_H
+#ifndef OBSLIST_H
+#define OBSLIST_H
 
 #include <cstdint>
 #include <vector>
 #include "common/assert.h"
 #include "common/allocator.h"
 
-class TransList
+class ObsList
 {
 public:
     enum OpStatus
@@ -108,8 +108,8 @@ public:
         uint8_t index;
     };
 
-    TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator);
-    ~TransList();
+    ObsList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator);
+    ~ObsList();
 
     bool ExecuteOps(Desc* desc);
 
@@ -125,6 +125,7 @@ private:
     void HelpOps(Desc* desc, uint8_t opid);
     bool IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2);
     void FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc);
+    void AbortPendingTxn(NodeDesc* nodeDesc, Desc* desc);
     bool IsNodeExist(Node* node, uint32_t key);
     bool IsNodeActive(NodeDesc* nodeDesc);
     bool IsKeyExist(NodeDesc* nodeDesc);
@@ -156,4 +157,4 @@ private:
     uint32_t g_count_fake_abort = 0;
 };
 
-#endif /* end of include guard: TRANSLIST_H */    
+#endif /* end of include guard: OBSLIST_H */    

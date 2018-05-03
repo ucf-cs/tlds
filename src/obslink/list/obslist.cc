@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <new>
-#include "translink/list/translist.h"
+#include "obslink/list/obslist.h"
 
 
 #define SET_MARK(_p)    ((Node *)(((uintptr_t)(_p)) | 1))
@@ -16,9 +16,9 @@
 #define CLR_MARKD(_p)    ((NodeDesc *)(((uintptr_t)(_p)) & ~1))
 #define IS_MARKED(_p)     (((uintptr_t)(_p)) & 1)
 
-__thread TransList::HelpStack helpStack;
+// __thread ObsList::HelpStack helpStack;
 
-TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator)
+ObsList::ObsList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator)
     : m_tail(new Node(0xffffffff, NULL, NULL))
     , m_head(new Node(0, m_tail, NULL))
     , m_nodeAllocator(nodeAllocator)
@@ -26,7 +26,7 @@ TransList::TransList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAlloca
     , m_nodeDescAllocator(nodeDescAllocator)
 {}
 
-TransList::~TransList()
+ObsList::~ObsList()
 {
     printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
     //Print();
@@ -45,7 +45,7 @@ TransList::~TransList()
 }
 
 
-TransList::Desc* TransList::AllocateDesc(uint8_t size)
+ObsList::Desc* ObsList::AllocateDesc(uint8_t size)
 {
     Desc* desc = m_descAllocator->Alloc();
     desc->size = size;
@@ -54,9 +54,9 @@ TransList::Desc* TransList::AllocateDesc(uint8_t size)
     return desc;
 }
 
-bool TransList::ExecuteOps(Desc* desc)
+bool ObsList::ExecuteOps(Desc* desc)
 {
-    helpStack.Init();
+    // helpStack.Init();
 
     HelpOps(desc, 0);
 
@@ -87,7 +87,7 @@ bool TransList::ExecuteOps(Desc* desc)
     return ret;
 }
 
-inline void TransList::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
+inline void ObsList::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
 {
     // Mark nodes for logical deletion
     for(uint32_t i = 0; i < nodes.size(); ++i)
@@ -110,7 +110,7 @@ inline void TransList::MarkForDeletion(const std::vector<Node*>& nodes, const st
     }
 }
 
-inline void TransList::HelpOps(Desc* desc, uint8_t opid)
+inline void ObsList::HelpOps(Desc* desc, uint8_t opid)
 {
     if(desc->status != ACTIVE)
     {
@@ -118,16 +118,16 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     }
 
     //Cyclic dependcy check
-    if(helpStack.Contain(desc))
-    {
-        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
-        {
-            __sync_fetch_and_add(&g_count_abort, 1);
-            __sync_fetch_and_add(&g_count_fake_abort, 1);
-        }
+    // if(helpStack.Contain(desc))
+    // {
+    //     if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
+    //     {
+    //         __sync_fetch_and_add(&g_count_abort, 1);
+    //         __sync_fetch_and_add(&g_count_fake_abort, 1);
+    //     }
 
-        return;
-    }
+    //     return;
+    // }
 
     ReturnCode ret = OK;
     std::vector<Node*> delNodes;
@@ -135,7 +135,7 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
     std::vector<Node*> insNodes;
     std::vector<Node*> insPredNodes;
 
-    helpStack.Push(desc);
+    // helpStack.Push(desc);
 
     while(desc->status == ACTIVE && ret != FAIL && opid < desc->size)
     {
@@ -167,13 +167,13 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
         opid++;
     }
 
-    helpStack.Pop();
+    // helpStack.Pop();
 
     if(ret != FAIL)
     {
         if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
         {
-            // MarkForDeletion(delNodes, delPredNodes, desc);
+            MarkForDeletion(delNodes, delPredNodes, desc);
             __sync_fetch_and_add(&g_count_commit, 1);
         }
     }
@@ -183,11 +183,17 @@ inline void TransList::HelpOps(Desc* desc, uint8_t opid)
         {
             // MarkForDeletion(insNodes, insPredNodes, desc);
             __sync_fetch_and_add(&g_count_abort, 1);
-        }     
+        }
+    }
+
+    // If the transaction aborted, then delete the nodes it would have inserted
+    if(desc->status == ABORTED)
+    {
+        MarkForDeletion(insNodes, insPredNodes, desc);
     }
 }
 
-inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred)
+inline ObsList::ReturnCode ObsList::Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred)
 {
     inserted = NULL;
     NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
@@ -196,10 +202,7 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t
 
     while(true)
     {
-        // start searching for where to put our new node, it'll be between pred and curr
-        LocatePred(pred, curr, key); 
-
-        // IsNodeExist(Node* node, uint32_t key){ return node != NULL && node->key == key; }
+        LocatePred(pred, curr, key);
 
         if(!IsNodeExist(curr, key))
         {
@@ -250,13 +253,13 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t
                 continue;
             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+            // FinishPendingTxn(oldCurrDesc, desc);
+            AbortPendingTxn(oldCurrDesc, desc);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                // If it's the same operation, some other thread is already doing it, so we're not going to?
-                return SKIP;
-            }
+            // if(IsSameOperation(oldCurrDesc, nodeDesc))
+            // {
+            //     return SKIP;
+            // }
 
             if(!IsKeyExist(oldCurrDesc))
             {
@@ -292,7 +295,7 @@ inline TransList::ReturnCode TransList::Insert(uint32_t key, Desc* desc, uint8_t
     }
 }
 
-inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
+inline ObsList::ReturnCode ObsList::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
 {
     deleted = NULL;
     NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
@@ -318,12 +321,13 @@ inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, uint8_t
                 //continue;
             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+            // FinishPendingTxn(oldCurrDesc, desc);
+            AbortPendingTxn(oldCurrDesc, desc);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+            // if(IsSameOperation(oldCurrDesc, nodeDesc))
+            // {
+            //     return SKIP;
+            // }
 
             if(IsKeyExist(oldCurrDesc))
             {
@@ -364,13 +368,13 @@ inline TransList::ReturnCode TransList::Delete(uint32_t key, Desc* desc, uint8_t
 }
 
 
-inline bool TransList::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
+inline bool ObsList::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
 {
     return nodeDesc1->desc == nodeDesc2->desc && nodeDesc1->opid == nodeDesc2->opid;
 }
 
 
-inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, uint8_t opid)
+inline ObsList::ReturnCode ObsList::Find(uint32_t key, Desc* desc, uint8_t opid)
 {
     NodeDesc* nodeDesc = NULL;
     Node* pred;
@@ -394,14 +398,15 @@ inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, uint8_t o
                 continue;
             }
 
-            FinishPendingTxn(oldCurrDesc, desc);
+            // FinishPendingTxn(oldCurrDesc, desc);
+            AbortPendingTxn(oldCurrDesc, desc);
 
             if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
 
-            if(IsSameOperation(oldCurrDesc, nodeDesc))
-            {
-                return SKIP;
-            }
+            // if(IsSameOperation(oldCurrDesc, nodeDesc))
+            // {
+            //     return SKIP;
+            // }
 
             if(IsKeyExist(oldCurrDesc))
             {
@@ -435,12 +440,12 @@ inline TransList::ReturnCode TransList::Find(uint32_t key, Desc* desc, uint8_t o
     }
 }
 
-inline bool TransList::IsNodeExist(Node* node, uint32_t key)
+inline bool ObsList::IsNodeExist(Node* node, uint32_t key)
 {
     return node != NULL && node->key == key;
 }
 
-inline void TransList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
+inline void ObsList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
 {
     // The node accessed by the operations in same transaction is always active 
     if(nodeDesc->desc == desc)
@@ -451,12 +456,27 @@ inline void TransList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
     HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
 }
 
-inline bool TransList::IsNodeActive(NodeDesc* nodeDesc)
+inline void ObsList::AbortPendingTxn(NodeDesc* nodeDesc, Desc* desc)
+{
+    // The node accessed by the operations in same transaction is always active 
+    if(nodeDesc->desc == desc || nodeDesc->desc->status != ACTIVE)
+    {
+        return;
+    }
+
+    if(__sync_bool_compare_and_swap(&nodeDesc->desc->status, ACTIVE, ABORTED))
+    {
+        __sync_fetch_and_add(&g_count_abort, 1);
+        __sync_fetch_and_add(&g_count_fake_abort, 1);
+    }
+}
+
+inline bool ObsList::IsNodeActive(NodeDesc* nodeDesc)
 {
     return nodeDesc->desc->status == COMMITTED;
 }
 
-inline bool TransList::IsKeyExist(NodeDesc* nodeDesc)
+inline bool ObsList::IsKeyExist(NodeDesc* nodeDesc)
 {
     bool isNodeActive = IsNodeActive(nodeDesc);
     uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
@@ -464,7 +484,7 @@ inline bool TransList::IsKeyExist(NodeDesc* nodeDesc)
     return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
 }
 
-inline void TransList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
+inline void ObsList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
 {
     Node* pred_next;
 
@@ -494,7 +514,7 @@ inline void TransList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
     ASSERT(pred, "pred must be valid");
 }
 
-inline void TransList::Print()
+inline void ObsList::Print()
 {
     Node* curr = m_head->next;
 
@@ -505,7 +525,7 @@ inline void TransList::Print()
     }
 }
 
-void TransList::ResetMetrics()
+void ObsList::ResetMetrics()
 {
     g_count_commit = 0;
     g_count_abort = 0;

@@ -1,5 +1,5 @@
-#ifndef __TRANSSKIP_H__
-#define __TRANSSKIP_H__
+#ifndef __OBSSKIP_H__
+#define __OBSSKIP_H__
 
 
 #include <cstdint>
@@ -65,34 +65,34 @@ do {                                                            \
  * Transaction Definitions
  */
 
-struct Operator
+struct Operator_o
 {
     uint8_t type;
     uint32_t key;
 };
 
-struct Desc
+struct Desc_o
 {
     static size_t SizeOf(uint8_t size)
     {
-        return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator) * size;
+        return sizeof(uint8_t) + sizeof(uint8_t) + sizeof(Operator_o) * size;
     }
 
     volatile uint8_t status;
     uint8_t size;
-    Operator ops[];
+    Operator_o ops[];
 };
 
-struct NodeDesc
+struct NodeDesc_o
 {
-    NodeDesc(Desc* _desc, uint8_t _opid)
+    NodeDesc_o(Desc_o* _desc, uint8_t _opid)
         : desc(_desc), opid(_opid){}
 
-    Desc* desc;
+    Desc_o* desc;
     uint8_t opid;
 };
 
-struct node_t
+struct node_t_o
 {
     int        level;
 #define LEVEL_MASK     0x0ff
@@ -100,18 +100,18 @@ struct node_t
     setkey_t  k;
     setval_t  v;
 
-    NodeDesc* nodeDesc;
+    NodeDesc_o* nodeDesc;
 
-    node_t* next[1];
+    node_t_o* next[1];
 };
 
-struct trans_skip
+struct obs_skip
 {
-    Allocator<Desc>* descAllocator;
-    Allocator<NodeDesc>* nodeDescAllocator;
+    Allocator<Desc_o>* descAllocator;
+    Allocator<NodeDesc_o>* nodeDescAllocator;
 
-    node_t* tail;
-    node_t head;
+    node_t_o* tail;
+    node_t_o head;
 };
 
 
@@ -125,19 +125,19 @@ struct trans_skip
 #define KEY_MAX  ((~0U) - 3)
 
 
-void init_transskip_subsystem(void);
-void destroy_transskip_subsystem(void);
+void init_obsskip_subsystem(void);
+void destroy_obsskip_subsystem(void);
 
 
-bool execute_ops(trans_skip* l, Desc* desc);
+bool execute_ops(obs_skip* l, Desc_o* desc);
 
 /*
  * Allocate an empty set.
  */
-trans_skip *transskip_alloc(Allocator<Desc>* _descAllocator, Allocator<NodeDesc>* _nodeDescAllocator);
+obs_skip *obsskip_alloc(Allocator<Desc_o>* _descAllocator, Allocator<NodeDesc_o>* _nodeDescAllocator);
 
-void  transskip_free(trans_skip* l);
+void  obsskip_free(obs_skip* l);
 
-void ResetMetrics(trans_skip* l);
+void ResetMetrics(obs_skip* l);
 
 #endif /* __SET_H__ */

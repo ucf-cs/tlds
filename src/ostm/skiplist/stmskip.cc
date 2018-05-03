@@ -307,3 +307,10 @@ void destory_stmskip_subsystem(void)
 
     printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_abort - g_count_real_abort);
 }
+
+void ResetMetrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_real_abort = 0;
+}

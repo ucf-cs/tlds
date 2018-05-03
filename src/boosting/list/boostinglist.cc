@@ -122,3 +122,10 @@ void BoostingList::Print()
 {
     m_list.Print();
 }
+
+void BoostingList::ResetMetrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
+}

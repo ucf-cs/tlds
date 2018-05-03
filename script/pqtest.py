@@ -28,7 +28,9 @@ def main():
                4: "BSTSKIP",
                5: "STMSKIP",
                6: "TRANSMAP",
-               7: "BSTMAP"}
+               7: "BSTMAP",
+               8: "OBSSKIP",
+               9: "OBSLIST"}
 
     iteration = int(args[1])
     key_range = int(args[2])
@@ -51,7 +53,7 @@ def main():
                 abort = 0
                 fake_abort = 0
                 for i in xrange(0, average):
-                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5} {6} {7}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion, update))
+                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5} {6} {7}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion, update)) #, 0))
                     for line in pipe:
                         match = re_time.match(line)
                         if match:

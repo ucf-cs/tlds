@@ -54,6 +54,8 @@ public:
     void OnCommit();
 
     void Print();
+
+    void ResetMetrics();
     
 private:
     LockfreeList m_list;

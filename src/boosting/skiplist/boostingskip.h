@@ -58,6 +58,8 @@ public:
     void OnCommit();
 
     void Print();
+
+    void ResetMetrics();
     
 private:
     boost_skip* m_list;

@@ -365,7 +365,7 @@ int main(int argc, const char *argv[])
     if(argc > 7) deletion = atoi(argv[7]);
     if(argc > 8) update = atoi(argv[8]);
 
-    assert(setType < 8);
+    assert(setType < 10);
     assert(keyRange < 0xffffffff);
 
     const char* setName[] = 
@@ -377,6 +377,8 @@ int main(int argc, const char *argv[])
         "OSTMSkip",
         "TransMap",
         "BoostingMap"
+        "ObsSkip",
+        "ObsList"
     };
 
     printf("Start testing %s with %d threads %d iterations %d txnsize %d unique keys %d%% insert %d%% delete %d%% update.\n", setName[setType], numThread, testSize, tranSize, keyRange, insertion, deletion, update);//(insertion + deletion) >= 100 ? 100 - insertion : deletion, update);
@@ -396,7 +398,7 @@ int main(int argc, const char *argv[])
         break;
     case 3:
         { SetAdaptor<trans_skip> set(numNodes, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
-        break;
+    break;
     case 4:
         { SetAdaptor<BoostingSkip> set; Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
@@ -408,6 +410,12 @@ int main(int argc, const char *argv[])
         break;
     case 7:
         { MapAdaptor<BoostingMap> map(numNodes, numThread + 1); BoostingMapTester(numThread, testSize, tranSize, keyRange, insertion, deletion, update, map); }
+        break;
+    case 8:
+        { SetAdaptor<obs_skip> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
+        break;
+    case 9:
+        { SetAdaptor<ObsList> set(testSize, numThread + 1, tranSize); Tester(numThread, testSize, tranSize, keyRange, insertion, deletion, set); }
         break;
     default:
         break;
