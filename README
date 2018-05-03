@@ -12,5 +12,5 @@ cd trans-dev
 ./bootstrap.sh
 cd ../trans-compile
 ../trans-dev/configure
-make -j8    #-j followed by a number runs make with that many threads
-./src/trans  #this runs the tester without any options
+make -j8    
+./src/trans  #Runs the tester without any options
