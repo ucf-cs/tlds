@@ -8,7 +8,7 @@ What is TLDS?
 
 TLDS provides a framework for developing transactional containers from lock-free ones.
 Lock-free algorithms guarantee that the system makes progress in a finite number of steps, regardless of the system scheduler or actions of other threads.
-TLDS includes two examples of transactional data structures, a lock-free linked list and a lock-free skip list. We are currently working on supporting transactional data structures for non-linked containers and also transactions that are executed on multiple containers.
+TLDS provides a framework for developing transactional containers from lock-free ones. It includes three examples of transactional data structures: a list, a skip list, and a hash map. We are currently working on supporting transactional data structures for non-linked containers and also transactions that are executed on multiple containers.
 
 
 Why use TLDS?
@@ -27,7 +27,7 @@ If your data structure stopped executing at an arbitrary point and never resumed
 Are there examples?
 -------------------
 
-Yes, two transactional data structures are included, a lock-free linked list and a lock-free skip list.
+Yes, five transactional data structures are included.
 
 
 On what platforms does TLDS run?
