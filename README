@@ -1,6 +1,8 @@
 Transactional Operations for Linked Data Structures
 
-This repository contains the code for "Lock-free Transactions without Rollbacks for Linked Data Structures" in ACM Transactions on Parallel Programming (to appear). This is an extension of the ACM Symposium on Parallelism in Algorithms and Architectures conference article of the same name.
+This repository contains the code for "Lock-free Transactions without Rollbacks for Linked Data Structures"
+in ACM Transactions on Parallel Programming (to appear). This is an extension of the ACM Symposium on
+Parallelism in Algorithms and Architectures conference article of the same name.
 
 This code is extended by "TxContainers: A Library of Wait-Free Transactional Data Structures Without Rollbacks"
 The code for TxContainers will be posted here upon acceptance of the paper.
