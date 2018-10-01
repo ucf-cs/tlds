@@ -28,13 +28,13 @@ def main():
                4: "BSTSKIP",
                5: "STMSKIP"}
 
-    iteration = 1000000
-    key_range = 1000000
+    iteration = 100000
+    key_range = 10000
     insertion = 15
     deletion = 5
     average = 1
     #for pq_type in [0, 1, 2, 3, 4, 5]:
-    for pq_type in [3, 4, 5]:
+    for pq_type in [0]:
         list_type = pq_dict[pq_type]
         if pq_type == 1:
             list_type = list_type + '_' + stm_config
@@ -48,7 +48,7 @@ def main():
                 abort = 0
                 fake_abort = 0
                 for i in xrange(0, average):
-                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion))
+                    pipe = os.popen(input_program + " {0} {1} {2} {3} {4} {5} {6}".format(pq_type, thread, iteration, txn_size, key_range, insertion, deletion))
                     for line in pipe:
                         match = re_time.match(line)
                         if match:

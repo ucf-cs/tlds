@@ -57,6 +57,8 @@ public:
 
     void OnCommit();
 
+    void ResetMetrics();
+
     void Print();
     
 private:

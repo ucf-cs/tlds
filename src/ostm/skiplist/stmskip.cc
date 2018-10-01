@@ -286,6 +286,13 @@ bool __attribute__ ((optimize (0))) stmskip_execute_ops(void* s, set_op ops[], i
     return ret;
 }
 
+void stmskip_reset_metrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_real_abort = 0;
+}
+
 void init_stmskip_subsystem(void)
 {
     fr_init_ptst_subsystem();

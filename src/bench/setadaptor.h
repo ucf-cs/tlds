@@ -52,6 +52,7 @@ public:
         m_descAllocator.Init();
         m_nodeAllocator.Init();
         m_nodeDescAllocator.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit(){}
@@ -100,6 +101,7 @@ public:
     {
         m_descAllocator.Init();
         m_nodeDescAllocator.Init();
+        transskip_reset_metrics();
     }
 
     void Uninit()
@@ -149,6 +151,9 @@ public:
     void Init()
     {
         TM_THREAD_INIT();
+        g_count_commit = 0;
+        g_count_abort = 0;
+        g_count_stm_abort = 0;
     }
 
     void Uninit()
@@ -231,7 +236,9 @@ public:
     }
 
     void Init()
-    { }
+    {
+        stmskip_reset_metrics();
+    }
 
     void Uninit()
     { }
@@ -263,6 +270,7 @@ public:
     void Init()
     {
         m_list.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit()
@@ -321,6 +329,7 @@ public:
     void Init()
     {
         m_list.Init();
+        m_list.ResetMetrics();
     }
 
     void Uninit()

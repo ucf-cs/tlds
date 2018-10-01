@@ -131,6 +131,8 @@ void destroy_transskip_subsystem(void);
 
 bool execute_ops(trans_skip* l, Desc* desc);
 
+void transskip_reset_metrics();
+
 /*
  * Allocate an empty set.
  */

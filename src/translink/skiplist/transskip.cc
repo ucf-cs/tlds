@@ -915,6 +915,13 @@ bool execute_ops(trans_skip* l, Desc* desc)
     return ret;
 }
 
+void transskip_reset_metrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
+}
+
 void transskip_print(trans_skip* l)
 {
     node_t* curr = l->head.next[0];

@@ -114,6 +114,7 @@ public:
     bool ExecuteOps(Desc* desc);
 
     Desc* AllocateDesc(uint8_t size);
+    void ResetMetrics();
 
 private:
     ReturnCode Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred);

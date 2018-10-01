@@ -87,6 +87,14 @@ bool TransList::ExecuteOps(Desc* desc)
     return ret;
 }
 
+
+void TransList::ResetMetrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
+}
+
 inline void TransList::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
 {
     // Mark nodes for logical deletion

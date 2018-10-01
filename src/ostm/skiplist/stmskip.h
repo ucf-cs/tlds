@@ -85,6 +85,7 @@ void destory_stmskip_subsystem(void);
 stm_skip *stmskip_alloc(void);
 
 bool stmskip_execute_ops(stm_skip* l, set_op ops[], int op_size);
+bool stmskip_reset_metrics();
 
 #endif /* __SET_IMPLEMENTATION__ */
 

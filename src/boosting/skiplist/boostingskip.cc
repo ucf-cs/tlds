@@ -132,6 +132,13 @@ void BoostingSkip::OnCommit()
     m_lock.Unlock();
 }
 
+void BoostingSkip::ResetMetrics()
+{
+    g_count_commit = 0;
+    g_count_abort = 0;
+    g_count_fake_abort = 0;
+}
+
 void BoostingSkip::Print()
 {
     boostskip_print(m_list);
