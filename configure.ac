@@ -72,7 +72,6 @@ AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/common/fraser/Makefile
                  src/boosting/skiplist/Makefile
-                 doc/Makefile
                  script/Makefile])
 
 AC_OUTPUT

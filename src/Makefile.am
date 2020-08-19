@@ -19,7 +19,7 @@ trans_SOURCES = bench/main.cc \
 				boosting/skiplist/boostingskip.cc\
 				boosting/lockkey.cc\
 				translink/map/transmap.cc\
-				boosting/map/boostingmap.cc
+				boosting/map/boostingmap.cc\
 				obslink/list/obslist.cc\
 				obslink/skiplist/obsskip.cc
 

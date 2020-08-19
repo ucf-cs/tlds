@@ -1,3 +1,3 @@
-SUBDIRS = src doc script
+SUBDIRS = src script
 
 ACLOCAL_AMFLAGS = -I acinclude
