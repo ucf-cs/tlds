@@ -6,13 +6,20 @@ The tagged release corresponds to "Lock-free Transactions without Rollbacks for 
 
 This code is extended by "Wait-free Dynamic Transactions for Linked Data Structures" by Laborde, Lebanoff, Peterson, Zhang, and Dechev, published in Concurrency and Computation: Practice and Experience in 2020. 
 
+Tested operating systems
+Ubuntu 16 to 20 (native and WSL2)
+
+Required dependencies for building the code:
+sudo apt install libtool cmake libtbb-dev libboost-dev libgoogle-perftools-dev libgsl-dev
+
 To build the code do the following:
 git clone https://github.com/ucf-cs/tlds.git
-mv tlds trans-dev
+mv tlds trans-dev (or cp -r tlds trans-dev)
+mkdir trans-compile
 cd trans-dev
 ./bootstrap.sh
 cd ../trans-compile
 ../trans-dev/configure
-make -j8    
+make    
 ./src/trans  #Runs the tester without any options
 Run script/pqtest.py to run the benchmark
