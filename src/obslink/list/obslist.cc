@@ -1,533 +1,450 @@
 //------------------------------------------------------------------------------
-// 
-//     
+//
+//
 //
 //------------------------------------------------------------------------------
 
-
-#include <cstdlib>
-#include <cstdio>
-#include <new>
 #include "obslink/list/obslist.h"
 
+#include <cstdio>
+#include <cstdlib>
+#include <new>
 
-#define SET_MARK(_p)    ((Node *)(((uintptr_t)(_p)) | 1))
-#define CLR_MARK(_p)    ((Node *)(((uintptr_t)(_p)) & ~1))
-#define CLR_MARKD(_p)    ((NodeDesc *)(((uintptr_t)(_p)) & ~1))
-#define IS_MARKED(_p)     (((uintptr_t)(_p)) & 1)
+#define SET_MARK(_p) ((Node*)(((uintptr_t)(_p)) | 1))
+#define CLR_MARK(_p) ((Node*)(((uintptr_t)(_p)) & ~1))
+#define CLR_MARKD(_p) ((NodeDesc*)(((uintptr_t)(_p)) & ~1))
+#define IS_MARKED(_p) (((uintptr_t)(_p)) & 1)
 
 // __thread ObsList::HelpStack helpStack;
 
-ObsList::ObsList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator, Allocator<NodeDesc>* nodeDescAllocator)
-    : m_tail(new Node(0xffffffff, NULL, NULL))
-    , m_head(new Node(0, m_tail, NULL))
-    , m_nodeAllocator(nodeAllocator)
-    , m_descAllocator(descAllocator)
-    , m_nodeDescAllocator(nodeDescAllocator)
-{}
+ObsList::ObsList(Allocator<Node>* nodeAllocator, Allocator<Desc>* descAllocator,
+                 Allocator<NodeDesc>* nodeDescAllocator)
+    : m_tail(new Node(0xffffffff, NULL, NULL)),
+      m_head(new Node(0, m_tail, NULL)),
+      m_nodeAllocator(nodeAllocator),
+      m_descAllocator(descAllocator),
+      m_nodeDescAllocator(nodeDescAllocator) {}
 
-ObsList::~ObsList()
-{
-    printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit, g_count_abort, g_count_fake_abort);
-    //Print();
+ObsList::~ObsList() {
+  printf("Total commit %u, abort (total/fake) %u/%u\n", g_count_commit,
+         g_count_abort, g_count_fake_abort);
+  // Print();
 
-    ASSERT_CODE
-    (
-        printf("Total node count %u, Inserts (total/new) %u/%u, Deletes (total/new) %u/%u, Finds %u\n", g_count, g_count_ins, g_count_ins_new, g_count_del , g_count_del_new, g_count_fnd);
-    );
+  ASSERT_CODE(printf("Total node count %u, Inserts (total/new) %u/%u, Deletes "
+                     "(total/new) %u/%u, Finds %u\n",
+                     g_count, g_count_ins, g_count_ins_new, g_count_del,
+                     g_count_del_new, g_count_fnd););
 
-    //Node* curr = m_head;
-    //while(curr != NULL)
-    //{
-        //free(curr);
-        //curr = curr->next;
-    //}
+  // Node* curr = m_head;
+  // while(curr != NULL)
+  //{
+  // free(curr);
+  // curr = curr->next;
+  //}
 }
 
+ObsList::Desc* ObsList::AllocateDesc(uint8_t size) {
+  Desc* desc = m_descAllocator->Alloc();
+  desc->size = size;
+  desc->status = ACTIVE;
 
-ObsList::Desc* ObsList::AllocateDesc(uint8_t size)
-{
-    Desc* desc = m_descAllocator->Alloc();
-    desc->size = size;
-    desc->status = ACTIVE;
-    
-    return desc;
+  return desc;
 }
 
-bool ObsList::ExecuteOps(Desc* desc)
-{
-    // helpStack.Init();
+bool ObsList::ExecuteOps(Desc* desc) {
+  // helpStack.Init();
 
-    HelpOps(desc, 0);
+  HelpOps(desc, 0);
 
-    bool ret = desc->status != ABORTED;
+  bool ret = desc->status != ABORTED;
 
-    ASSERT_CODE
-    (
-        if(ret)
-        {
-            for(uint32_t i = 0; i < desc->size; ++i)
-            {
-                if(desc->ops[i].type == INSERT)
-                {
-                    __sync_fetch_and_add(&g_count, 1);
-                }
-                else if(desc->ops[i].type == DELETE)
-                {
-                    __sync_fetch_and_sub(&g_count, 1);
-                }
-                else
-                {
-                    __sync_fetch_and_add(&g_count_fnd, 1);
-                }
-            }
-        }
-    );
-
-    return ret;
-}
-
-inline void ObsList::MarkForDeletion(const std::vector<Node*>& nodes, const std::vector<Node*>& preds, Desc* desc)
-{
-    // Mark nodes for logical deletion
-    for(uint32_t i = 0; i < nodes.size(); ++i)
-    {
-        Node* n = nodes[i];
-        if(n != NULL)
-        {
-            NodeDesc* nodeDesc = n->nodeDesc;
-
-            if(nodeDesc->desc == desc)
-            {
-                if(__sync_bool_compare_and_swap(&n->nodeDesc, nodeDesc, SET_MARK(nodeDesc)))
-                {
-                    Node* pred = preds[i];
-                    Node* succ = CLR_MARK(__sync_fetch_and_or(&n->next, 0x1));
-                    __sync_bool_compare_and_swap(&pred->next, n, succ);
-                }
-            }
-        }
+  ASSERT_CODE(if (ret) {
+    for (uint32_t i = 0; i < desc->size; ++i) {
+      if (desc->ops[i].type == INSERT) {
+        __sync_fetch_and_add(&g_count, 1);
+      } else if (desc->ops[i].type == DELETE) {
+        __sync_fetch_and_sub(&g_count, 1);
+      } else {
+        __sync_fetch_and_add(&g_count_fnd, 1);
+      }
     }
+  });
+
+  return ret;
 }
 
-inline void ObsList::HelpOps(Desc* desc, uint8_t opid)
-{
-    if(desc->status != ACTIVE)
-    {
-        return;
+inline void ObsList::MarkForDeletion(const std::vector<Node*>& nodes,
+                                     const std::vector<Node*>& preds,
+                                     Desc* desc) {
+  // Mark nodes for logical deletion
+  for (uint32_t i = 0; i < nodes.size(); ++i) {
+    Node* n = nodes[i];
+    if (n != NULL) {
+      NodeDesc* nodeDesc = n->nodeDesc;
+
+      if (nodeDesc->desc == desc) {
+        if (__sync_bool_compare_and_swap(&n->nodeDesc, nodeDesc,
+                                         SET_MARK(nodeDesc))) {
+          Node* pred = preds[i];
+          Node* succ = CLR_MARK(__sync_fetch_and_or(&n->next, 0x1));
+          __sync_bool_compare_and_swap(&pred->next, n, succ);
+        }
+      }
     }
+  }
+}
 
-    //Cyclic dependcy check
-    // if(helpStack.Contain(desc))
-    // {
-    //     if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
-    //     {
-    //         __sync_fetch_and_add(&g_count_abort, 1);
-    //         __sync_fetch_and_add(&g_count_fake_abort, 1);
-    //     }
+inline void ObsList::HelpOps(Desc* desc, uint8_t opid) {
+  if (desc->status != ACTIVE) {
+    return;
+  }
 
-    //     return;
-    // }
+  // Cyclic dependcy check
+  //  if(helpStack.Contain(desc))
+  //  {
+  //      if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
+  //      {
+  //          __sync_fetch_and_add(&g_count_abort, 1);
+  //          __sync_fetch_and_add(&g_count_fake_abort, 1);
+  //      }
 
-    ReturnCode ret = OK;
-    std::vector<Node*> delNodes;
-    std::vector<Node*> delPredNodes;
-    std::vector<Node*> insNodes;
-    std::vector<Node*> insPredNodes;
+  //     return;
+  // }
 
-    // helpStack.Push(desc);
+  ReturnCode ret = OK;
+  std::vector<Node*> delNodes;
+  std::vector<Node*> delPredNodes;
+  std::vector<Node*> insNodes;
+  std::vector<Node*> insPredNodes;
 
-    while(desc->status == ACTIVE && ret != FAIL && opid < desc->size)
-    {
-        const Operator& op = desc->ops[opid];
+  // helpStack.Push(desc);
 
-        if(op.type == INSERT)
-        {
-            Node* inserted;
-            Node* pred;
-            ret = Insert(op.key, desc, opid, inserted, pred);
+  while (desc->status == ACTIVE && ret != FAIL && opid < desc->size) {
+    const Operator& op = desc->ops[opid];
 
-            insNodes.push_back(inserted);
-            insPredNodes.push_back(pred);
-        }
-        else if(op.type == DELETE)
-        {
-            Node* deleted;
-            Node* pred;
-            ret = Delete(op.key, desc, opid, deleted, pred);            
+    if (op.type == INSERT) {
+      Node* inserted;
+      Node* pred;
+      ret = Insert(op.key, desc, opid, inserted, pred);
 
-            delNodes.push_back(deleted);
-            delPredNodes.push_back(pred);
-        }
-        else
-        {
-            ret = Find(op.key, desc, opid);
-        }
-        
-        opid++;
+      insNodes.push_back(inserted);
+      insPredNodes.push_back(pred);
+    } else if (op.type == DELETE) {
+      Node* deleted;
+      Node* pred;
+      ret = Delete(op.key, desc, opid, deleted, pred);
+
+      delNodes.push_back(deleted);
+      delPredNodes.push_back(pred);
+    } else {
+      ret = Find(op.key, desc, opid);
     }
 
-    // helpStack.Pop();
+    opid++;
+  }
 
-    if(ret != FAIL)
-    {
-        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED))
-        {
-            MarkForDeletion(delNodes, delPredNodes, desc);
-            __sync_fetch_and_add(&g_count_commit, 1);
+  // helpStack.Pop();
+
+  if (ret != FAIL) {
+    if (__sync_bool_compare_and_swap(&desc->status, ACTIVE, COMMITTED)) {
+      MarkForDeletion(delNodes, delPredNodes, desc);
+      __sync_fetch_and_add(&g_count_commit, 1);
+    }
+  } else {
+    if (__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED)) {
+      // MarkForDeletion(insNodes, insPredNodes, desc);
+      __sync_fetch_and_add(&g_count_abort, 1);
+    }
+  }
+
+  // If the transaction aborted, then delete the nodes it would have inserted
+  if (desc->status == ABORTED) {
+    MarkForDeletion(insNodes, insPredNodes, desc);
+  }
+}
+
+inline ObsList::ReturnCode ObsList::Insert(uint32_t key, Desc* desc,
+                                           uint8_t opid, Node*& inserted,
+                                           Node*& pred) {
+  inserted = NULL;
+  NodeDesc* nodeDesc = new (m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+  Node* new_node = NULL;
+  Node* curr = m_head;
+
+  while (true) {
+    LocatePred(pred, curr, key);
+
+    if (!IsNodeExist(curr, key)) {
+      // Node* pred_next = pred->next;
+
+      if (desc->status != ACTIVE) {
+        return FAIL;
+      }
+
+      // if(pred_next == curr)
+      //{
+      if (new_node == NULL) {
+        new_node = new (m_nodeAllocator->Alloc()) Node(key, NULL, nodeDesc);
+      }
+      new_node->next = curr;
+
+      Node* pred_next =
+          __sync_val_compare_and_swap(&pred->next, curr, new_node);
+
+      if (pred_next == curr) {
+        ASSERT_CODE(__sync_fetch_and_add(&g_count_ins, 1);
+                    __sync_fetch_and_add(&g_count_ins_new, 1););
+
+        inserted = new_node;
+        return OK;
+      }
+      //}
+
+      // Restart
+      curr = IS_MARKED(pred_next) ? m_head : pred;
+    } else {
+      NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+      if (IS_MARKED(oldCurrDesc)) {
+        if (!IS_MARKED(curr->next)) {
+          (__sync_fetch_and_or(&curr->next, 0x1));
         }
-    }
-    else
-    {
-        if(__sync_bool_compare_and_swap(&desc->status, ACTIVE, ABORTED))
-        {
-            // MarkForDeletion(insNodes, insPredNodes, desc);
-            __sync_fetch_and_add(&g_count_abort, 1);
-        }
-    }
+        curr = m_head;
+        continue;
+      }
 
-    // If the transaction aborted, then delete the nodes it would have inserted
-    if(desc->status == ABORTED)
-    {
-        MarkForDeletion(insNodes, insPredNodes, desc);
-    }
-}
+      // FinishPendingTxn(oldCurrDesc, desc);
+      AbortPendingTxn(oldCurrDesc, desc);
 
-inline ObsList::ReturnCode ObsList::Insert(uint32_t key, Desc* desc, uint8_t opid, Node*& inserted, Node*& pred)
-{
-    inserted = NULL;
-    NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-    Node* new_node = NULL;
-    Node* curr = m_head;
+      // if(IsSameOperation(oldCurrDesc, nodeDesc))
+      // {
+      //     return SKIP;
+      // }
 
-    while(true)
-    {
-        LocatePred(pred, curr, key);
+      if (!IsKeyExist(oldCurrDesc)) {
+        NodeDesc* currDesc = curr->nodeDesc;
 
-        if(!IsNodeExist(curr, key))
-        {
-            //Node* pred_next = pred->next;
-
-            if(desc->status != ACTIVE)
-            {
-                return FAIL;
-            }
-
-            //if(pred_next == curr)
-            //{
-                if(new_node == NULL)
-                {
-                    new_node = new(m_nodeAllocator->Alloc()) Node(key, NULL, nodeDesc);
-                }
-                new_node->next = curr;
-
-                Node* pred_next = __sync_val_compare_and_swap(&pred->next, curr, new_node);
-
-                if(pred_next == curr)
-                {
-                    ASSERT_CODE
-                        (
-                         __sync_fetch_and_add(&g_count_ins, 1);
-                         __sync_fetch_and_add(&g_count_ins_new, 1);
-                        );
-
-                    inserted = new_node;
-                    return OK;
-                }
-            //}
-
-            // Restart
-            curr = IS_MARKED(pred_next) ? m_head : pred;
-        }
-        else 
-        {
-            NodeDesc* oldCurrDesc = curr->nodeDesc;
-
-            if(IS_MARKED(oldCurrDesc))
-            {
-                if(!IS_MARKED(curr->next))
-                {
-                    (__sync_fetch_and_or(&curr->next, 0x1));
-                }
-                curr = m_head;
-                continue;
-            }
-
-            // FinishPendingTxn(oldCurrDesc, desc);
-            AbortPendingTxn(oldCurrDesc, desc);
-
-            // if(IsSameOperation(oldCurrDesc, nodeDesc))
-            // {
-            //     return SKIP;
-            // }
-
-            if(!IsKeyExist(oldCurrDesc))
-            {
-                NodeDesc* currDesc = curr->nodeDesc;
-
-                if(desc->status != ACTIVE)
-                {
-                    return FAIL;
-                }
-
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
-
-                    if(currDesc == oldCurrDesc)
-                    {
-                        ASSERT_CODE
-                            (
-                             __sync_fetch_and_add(&g_count_ins, 1);
-                            );
-
-                        inserted = curr;
-                        return OK; 
-                    }
-                }
-            }
-            else
-            {
-                return FAIL;
-            }
-        }
-    }
-}
-
-inline ObsList::ReturnCode ObsList::Delete(uint32_t key, Desc* desc, uint8_t opid, Node*& deleted, Node*& pred)
-{
-    deleted = NULL;
-    NodeDesc* nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-    Node* curr = m_head;
-
-    while(true)
-    {
-        LocatePred(pred, curr, key);
-
-        if(IsNodeExist(curr, key))
-        {
-            NodeDesc* oldCurrDesc = curr->nodeDesc;
-
-            if(IS_MARKED(oldCurrDesc))
-            {
-                return FAIL;
-                //Help removed deleted nodes
-                //if(!IS_MARKED(curr->next))
-                //{
-                    //__sync_fetch_and_or(&curr->next, 0x1);
-                //}
-                //curr = m_head;
-                //continue;
-            }
-
-            // FinishPendingTxn(oldCurrDesc, desc);
-            AbortPendingTxn(oldCurrDesc, desc);
-
-            // if(IsSameOperation(oldCurrDesc, nodeDesc))
-            // {
-            //     return SKIP;
-            // }
-
-            if(IsKeyExist(oldCurrDesc))
-            {
-                NodeDesc* currDesc = curr->nodeDesc;
-
-                if(desc->status != ACTIVE)
-                {
-                    return FAIL;
-                }
-
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
-
-                    if(currDesc == oldCurrDesc)
-                    {
-                        ASSERT_CODE
-                            (
-                             __sync_fetch_and_add(&g_count_del, 1);
-                            );
-
-                        deleted = curr;
-                        return OK; 
-                    }
-                }
-            }
-            else
-            {
-                return FAIL;
-            }  
-        }
-        else 
-        {
-            return FAIL;      
-        }
-    }
-}
-
-
-inline bool ObsList::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2)
-{
-    return nodeDesc1->desc == nodeDesc2->desc && nodeDesc1->opid == nodeDesc2->opid;
-}
-
-
-inline ObsList::ReturnCode ObsList::Find(uint32_t key, Desc* desc, uint8_t opid)
-{
-    NodeDesc* nodeDesc = NULL;
-    Node* pred;
-    Node* curr = m_head;
-
-    while(true)
-    {
-        LocatePred(pred, curr, key);
-
-        if(IsNodeExist(curr, key))
-        {
-            NodeDesc* oldCurrDesc = curr->nodeDesc;
-
-            if(IS_MARKED(oldCurrDesc))
-            {
-                if(!IS_MARKED(curr->next))
-                {
-                    (__sync_fetch_and_or(&curr->next, 0x1));
-                }
-                curr = m_head;
-                continue;
-            }
-
-            // FinishPendingTxn(oldCurrDesc, desc);
-            AbortPendingTxn(oldCurrDesc, desc);
-
-            if(nodeDesc == NULL) nodeDesc = new(m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
-
-            // if(IsSameOperation(oldCurrDesc, nodeDesc))
-            // {
-            //     return SKIP;
-            // }
-
-            if(IsKeyExist(oldCurrDesc))
-            {
-                NodeDesc* currDesc = curr->nodeDesc;
-
-                if(desc->status != ACTIVE)
-                {
-                    return FAIL;
-                }
-
-                //if(currDesc == oldCurrDesc)
-                {
-                    //Update desc 
-                    currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc, nodeDesc);
-
-                    if(currDesc == oldCurrDesc)
-                    {
-                        return OK; 
-                    }
-                }
-            }
-            else
-            {
-                return FAIL;
-            }
-        }
-        else 
-        {
-            return FAIL;
-        }
-    }
-}
-
-inline bool ObsList::IsNodeExist(Node* node, uint32_t key)
-{
-    return node != NULL && node->key == key;
-}
-
-inline void ObsList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc)
-{
-    // The node accessed by the operations in same transaction is always active 
-    if(nodeDesc->desc == desc)
-    {
-        return;
-    }
-
-    HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
-}
-
-inline void ObsList::AbortPendingTxn(NodeDesc* nodeDesc, Desc* desc)
-{
-    // The node accessed by the operations in same transaction is always active 
-    if(nodeDesc->desc == desc || nodeDesc->desc->status != ACTIVE)
-    {
-        return;
-    }
-
-    if(__sync_bool_compare_and_swap(&nodeDesc->desc->status, ACTIVE, ABORTED))
-    {
-        __sync_fetch_and_add(&g_count_abort, 1);
-        __sync_fetch_and_add(&g_count_fake_abort, 1);
-    }
-}
-
-inline bool ObsList::IsNodeActive(NodeDesc* nodeDesc)
-{
-    return nodeDesc->desc->status == COMMITTED;
-}
-
-inline bool ObsList::IsKeyExist(NodeDesc* nodeDesc)
-{
-    bool isNodeActive = IsNodeActive(nodeDesc);
-    uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
-
-    return  (opType == FIND) || (isNodeActive && opType == INSERT) || (!isNodeActive && opType == DELETE);
-}
-
-inline void ObsList::LocatePred(Node*& pred, Node*& curr, uint32_t key)
-{
-    Node* pred_next;
-
-    while(curr->key < key)
-    {
-        pred = curr;
-        pred_next = CLR_MARK(pred->next);
-        curr = pred_next;
-
-        while(IS_MARKED(curr->next))
-        {
-            curr = CLR_MARK(curr->next);
+        if (desc->status != ACTIVE) {
+          return FAIL;
         }
 
-        if(curr != pred_next)
+        // if(currDesc == oldCurrDesc)
         {
-            //Failed to remove deleted nodes, start over from pred
-            if(!__sync_bool_compare_and_swap(&pred->next, pred_next, curr))
-            {
-                curr = m_head;
-            }
+          // Update desc
+          currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc,
+                                                 nodeDesc);
 
-            //__sync_bool_compare_and_swap(&pred->next, pred_next, curr);
+          if (currDesc == oldCurrDesc) {
+            ASSERT_CODE(__sync_fetch_and_add(&g_count_ins, 1););
+
+            inserted = curr;
+            return OK;
+          }
         }
+      } else {
+        return FAIL;
+      }
     }
-
-    ASSERT(pred, "pred must be valid");
+  }
 }
 
-inline void ObsList::Print()
-{
-    Node* curr = m_head->next;
+inline ObsList::ReturnCode ObsList::Delete(uint32_t key, Desc* desc,
+                                           uint8_t opid, Node*& deleted,
+                                           Node*& pred) {
+  deleted = NULL;
+  NodeDesc* nodeDesc = new (m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+  Node* curr = m_head;
 
-    while(curr != m_tail)
-    {
-        printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key, IsKeyExist(CLR_MARKD(curr->nodeDesc))? "Exist":"Inexist");
-        curr = CLR_MARK(curr->next);
+  while (true) {
+    LocatePred(pred, curr, key);
+
+    if (IsNodeExist(curr, key)) {
+      NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+      if (IS_MARKED(oldCurrDesc)) {
+        return FAIL;
+        // Help removed deleted nodes
+        // if(!IS_MARKED(curr->next))
+        //{
+        //__sync_fetch_and_or(&curr->next, 0x1);
+        //}
+        // curr = m_head;
+        // continue;
+      }
+
+      // FinishPendingTxn(oldCurrDesc, desc);
+      AbortPendingTxn(oldCurrDesc, desc);
+
+      // if(IsSameOperation(oldCurrDesc, nodeDesc))
+      // {
+      //     return SKIP;
+      // }
+
+      if (IsKeyExist(oldCurrDesc)) {
+        NodeDesc* currDesc = curr->nodeDesc;
+
+        if (desc->status != ACTIVE) {
+          return FAIL;
+        }
+
+        // if(currDesc == oldCurrDesc)
+        {
+          // Update desc
+          currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc,
+                                                 nodeDesc);
+
+          if (currDesc == oldCurrDesc) {
+            ASSERT_CODE(__sync_fetch_and_add(&g_count_del, 1););
+
+            deleted = curr;
+            return OK;
+          }
+        }
+      } else {
+        return FAIL;
+      }
+    } else {
+      return FAIL;
     }
+  }
 }
 
-void ObsList::ResetMetrics()
-{
-    g_count_commit = 0;
-    g_count_abort = 0;
-    g_count_fake_abort = 0;
+inline bool ObsList::IsSameOperation(NodeDesc* nodeDesc1, NodeDesc* nodeDesc2) {
+  return nodeDesc1->desc == nodeDesc2->desc &&
+         nodeDesc1->opid == nodeDesc2->opid;
+}
+
+inline ObsList::ReturnCode ObsList::Find(uint32_t key, Desc* desc,
+                                         uint8_t opid) {
+  NodeDesc* nodeDesc = NULL;
+  Node* pred;
+  Node* curr = m_head;
+
+  while (true) {
+    LocatePred(pred, curr, key);
+
+    if (IsNodeExist(curr, key)) {
+      NodeDesc* oldCurrDesc = curr->nodeDesc;
+
+      if (IS_MARKED(oldCurrDesc)) {
+        if (!IS_MARKED(curr->next)) {
+          (__sync_fetch_and_or(&curr->next, 0x1));
+        }
+        curr = m_head;
+        continue;
+      }
+
+      // FinishPendingTxn(oldCurrDesc, desc);
+      AbortPendingTxn(oldCurrDesc, desc);
+
+      if (nodeDesc == NULL)
+        nodeDesc = new (m_nodeDescAllocator->Alloc()) NodeDesc(desc, opid);
+
+      // if(IsSameOperation(oldCurrDesc, nodeDesc))
+      // {
+      //     return SKIP;
+      // }
+
+      if (IsKeyExist(oldCurrDesc)) {
+        NodeDesc* currDesc = curr->nodeDesc;
+
+        if (desc->status != ACTIVE) {
+          return FAIL;
+        }
+
+        // if(currDesc == oldCurrDesc)
+        {
+          // Update desc
+          currDesc = __sync_val_compare_and_swap(&curr->nodeDesc, oldCurrDesc,
+                                                 nodeDesc);
+
+          if (currDesc == oldCurrDesc) {
+            return OK;
+          }
+        }
+      } else {
+        return FAIL;
+      }
+    } else {
+      return FAIL;
+    }
+  }
+}
+
+inline bool ObsList::IsNodeExist(Node* node, uint32_t key) {
+  return node != NULL && node->key == key;
+}
+
+inline void ObsList::FinishPendingTxn(NodeDesc* nodeDesc, Desc* desc) {
+  // The node accessed by the operations in same transaction is always active
+  if (nodeDesc->desc == desc) {
+    return;
+  }
+
+  HelpOps(nodeDesc->desc, nodeDesc->opid + 1);
+}
+
+inline void ObsList::AbortPendingTxn(NodeDesc* nodeDesc, Desc* desc) {
+  // The node accessed by the operations in same transaction is always active
+  if (nodeDesc->desc == desc || nodeDesc->desc->status != ACTIVE) {
+    return;
+  }
+
+  if (__sync_bool_compare_and_swap(&nodeDesc->desc->status, ACTIVE, ABORTED)) {
+    __sync_fetch_and_add(&g_count_abort, 1);
+    __sync_fetch_and_add(&g_count_fake_abort, 1);
+  }
+}
+
+inline bool ObsList::IsNodeActive(NodeDesc* nodeDesc) {
+  return nodeDesc->desc->status == COMMITTED;
+}
+
+inline bool ObsList::IsKeyExist(NodeDesc* nodeDesc) {
+  bool isNodeActive = IsNodeActive(nodeDesc);
+  uint8_t opType = nodeDesc->desc->ops[nodeDesc->opid].type;
+
+  return (opType == FIND) || (isNodeActive && opType == INSERT) ||
+         (!isNodeActive && opType == DELETE);
+}
+
+inline void ObsList::LocatePred(Node*& pred, Node*& curr, uint32_t key) {
+  Node* pred_next;
+
+  while (curr->key < key) {
+    pred = curr;
+    pred_next = CLR_MARK(pred->next);
+    curr = pred_next;
+
+    while (IS_MARKED(curr->next)) {
+      curr = CLR_MARK(curr->next);
+    }
+
+    if (curr != pred_next) {
+      // Failed to remove deleted nodes, start over from pred
+      if (!__sync_bool_compare_and_swap(&pred->next, pred_next, curr)) {
+        curr = m_head;
+      }
+
+      //__sync_bool_compare_and_swap(&pred->next, pred_next, curr);
+    }
+  }
+
+  ASSERT(pred, "pred must be valid");
+}
+
+inline void ObsList::Print() {
+  Node* curr = m_head->next;
+
+  while (curr != m_tail) {
+    printf("Node [%p] Key [%u] Status [%s]\n", curr, curr->key,
+           IsKeyExist(CLR_MARKD(curr->nodeDesc)) ? "Exist" : "Inexist");
+    curr = CLR_MARK(curr->next);
+  }
+}
+
+void ObsList::ResetMetrics() {
+  g_count_commit = 0;
+  g_count_abort = 0;
+  g_count_fake_abort = 0;
 }

@@ -1,14 +1,13 @@
-Transactional Operations for Linked Data Structures
+TLDS: Transactional operations for Linked Data Structures
 
-This repository contains the code for "Lock-free Transactions without Rollbacks for Linked Data Structures"
-in ACM Transactions on Parallel Programming (to appear). This is an extension of the ACM Symposium on
-Parallelism in Algorithms and Architectures conference article of the same name.
+This repository contains the code for  "Lock-Free Transactional Transformation for Linked Data Structures" by Zhang, Laborde, Lebanoff, and Dechev, published in ACM Transaction on Parallel Computing in 2018.
 
-This code is extended by "TxContainers: A Library of Wait-Free Transactional Data Structures Without Rollbacks"
-The code for TxContainers will be posted here upon acceptance of the paper.
+The tagged release corresponds to "Lock-free Transactions without Rollbacks for Linked Data Structures" in ACM Transactions on Parallel Programming.
+
+This code is extended by "Wait-free Dynamic Transactions for Linked Data Structures" by Laborde, Lebanoff, Peterson, Zhang, and Dechev, published in Concurrency and Computation: Practice and Experience in 2020. 
 
 To build the code do the following:
-git clone https://github.com/ucf-cs/tlds
+git clone https://github.com/ucf-cs/tlds.git
 mv tlds trans-dev
 cd trans-dev
 ./bootstrap.sh
@@ -16,3 +15,4 @@ cd ../trans-compile
 ../trans-dev/configure
 make -j8    
 ./src/trans  #Runs the tester without any options
+Run script/pqtest.py to run the benchmark
