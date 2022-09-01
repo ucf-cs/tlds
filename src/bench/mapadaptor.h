@@ -99,11 +99,11 @@ class MapAdaptor<BoostingMap> {
       uint32_t threadId = ops[i].threadId;
       uint32_t eVal = ops[i].expected;
 
-      if (ops[i].type == FIND) {
+      if (ops[i].type == MAP_FIND) {
         ret = m_list.Find(key, threadId);
-      } else if (ops[i].type == INSERT) {
+      } else if (ops[i].type == MAP_INSERT) {
         ret = m_list.Insert(key, val, threadId);
-      } else if (ops[i].type == DELETE) {
+      } else if (ops[i].type == MAP_DELETE) {
         ret = m_list.Delete(key, threadId);
       } else {
         ret = m_list.Update(key, eVal, val, threadId);
